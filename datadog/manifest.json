@@ -1,0 +1,45 @@
+{
+  "name": "SpaceXYZ",
+  "version": "1.0.0",
+  "overview": "Short one-liner describing your integration",
+  "description": "Send flag data to space. Markdown based description.",
+  "author": "SpaceXYZ",
+  "links": {
+    "site": "https://spacexyz.com/launchdarkly",
+    "privacyPolicy": "https://spacexyz.com/privacy",
+    "supportEmail": "support@spacexyz.com"
+  },
+  "categories": ["APM", "DevOps"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "rectangular": "assets/images/rectangular.svg"
+  },
+  "authentication": {
+    "type": "<api-key | 3LO-token>",
+    "label": "API key",
+    "hint": "Enter API key from your [SpaceXYZ account](https://spacexyz.com/api)",
+    "acceptedAs": {
+      "type": "<query-param | header>",
+      "name": "token"
+    }
+  },
+  "capabilities": {
+    "auditLogEventsHook": {
+      "receivingEndpoint": "https://spaceXYZ.com/webhookin",
+      "method": "post",
+      "templates": {
+        "flag": "templates/flag.json",
+        "project": "templates/project.json",
+        "environment": "templates/environment.json",
+        "metric": "templates/metric.json"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "notResources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

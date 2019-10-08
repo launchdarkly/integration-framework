@@ -1,0 +1,10 @@
+.cache
+.env
+*.log
+*.pid
+*.seed
+*.pid.lock
+build
+dist
+public
+.DS_Store
