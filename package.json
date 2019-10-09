@@ -1,0 +1,24 @@
+{
+  "name": "ld-integrations",
+  "version": "1.0.0",
+  "description": "Feature flags not only provide you control over your deployment and rollout, but also provides context to other related systems -- giving your team visibility into how your services react due to changes to flags. This repository contains LaunchDarkly integrations built by our community. Most of these integrations consume events from LaunchDarkly in order to provide their users more context.",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "jsonschema2md -d _schemas -o ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/launchdarkly/ld-integrations.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/launchdarkly/ld-integrations/issues"
+  },
+  "homepage": "https://github.com/launchdarkly/ld-integrations#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@adobe/jsonschema2md": "3.3.1",
+    "ajv-cli": "3.0.0"
+  }
+}

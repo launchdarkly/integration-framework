@@ -1,4 +1,5 @@
 {
+  "$schema": "../_tests/manifestSchema.json",
   "name": "SpaceXYZ",
   "version": "1.0.0",
   "overview": "Short one-liner describing your integration",
@@ -9,17 +10,17 @@
     "privacyPolicy": "https://spacexyz.com/privacy",
     "supportEmail": "support@spacexyz.com"
   },
-  "categories": ["APM", "DevOps"],
+  "categories": ["apm", "monitoring", "alerts"],
   "icons": {
     "square": "assets/images/square.svg",
     "rectangular": "assets/images/rectangular.svg"
   },
   "authentication": {
-    "type": "<api-key | 3LO-token>",
+    "type": "token",
     "label": "API key",
     "hint": "Enter API key from your [SpaceXYZ account](https://spacexyz.com/api)",
     "acceptedAs": {
-      "type": "<query-param | header>",
+      "type": "query-param",
       "name": "token"
     }
   },
