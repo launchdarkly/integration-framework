@@ -1,14 +1,14 @@
 {
-  "$schema": "../_tests/manifestSchema.json",
-  "name": "SpaceXYZ",
+  "$schema": "../_schemas/manifest.schema.json",
+  "name": "sample-integration",
   "version": "1.0.0",
   "overview": "Short one-liner describing your integration",
   "description": "Send flag data to space. Markdown based description.",
-  "author": "SpaceXYZ",
+  "author": "LaunchDarkly",
   "links": {
-    "site": "https://spacexyz.com/launchdarkly",
-    "privacyPolicy": "https://spacexyz.com/privacy",
-    "supportEmail": "support@spacexyz.com"
+    "site": "https://example.com",
+    "privacyPolicy": "https://example.com/privacy",
+    "supportEmail": "support@example.com"
   },
   "categories": ["apm", "monitoring", "alerts"],
   "icons": {
@@ -18,21 +18,21 @@
   "authentication": {
     "type": "token",
     "label": "API key",
-    "hint": "Enter API key from your [SpaceXYZ account](https://spacexyz.com/api)",
+    "hint": "Enter API key from your account",
     "acceptedAs": {
-      "type": "query-param",
-      "name": "token"
+      "type": "header",
+      "name": "X-Custom-Auth"
     }
   },
   "capabilities": {
     "auditLogEventsHook": {
-      "receivingEndpoint": "https://spaceXYZ.com/webhookin",
+      "receivingEndpoint": "https://example.com/webhookin",
       "method": "post",
       "templates": {
-        "flag": "templates/flag.json",
-        "project": "templates/project.json",
-        "environment": "templates/environment.json",
-        "metric": "templates/metric.json"
+        "flag": "templates/template.json",
+        "project": "templates/template.json",
+        "environment": "templates/template.json",
+        "metric": "templates/template.json"
       },
       "defaultPolicy": [
         {

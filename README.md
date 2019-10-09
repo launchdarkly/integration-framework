@@ -8,7 +8,12 @@ consume events from LaunchDarkly in order to provide their users more context.
 
 ## Building integrations
 
-TODO
+There are a few steps to creating an integration with LaunchDarkly.
+
+1. Fork this repository.
+2. Create a new top level directory named after your organization or integration's name (e.g., `spacexyz`).
+3. Create a `manifest.json` inside your new directory. [Read the `manifest.json` documentation](./MANIFEST.md) for the details.
+   A LaunchDarkly integration starts with a `manifest.json`. This file describes the intent and capabilities of your integration.
 
 ## Submitting your integrations
 
