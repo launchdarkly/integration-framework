@@ -628,7 +628,7 @@ A short-one liner describing your integration
 
 ### Version
 
-A semantic version of the integration
+A semantic version of the integration. See https://semver.org for more info.
 
 `version`
 

@@ -18,7 +18,7 @@
     "version": {
       "$id": "#/properties/version",
       "title": "Version",
-      "description": "A semantic version of the integration",
+      "description": "A semantic version of the integration. See https://semver.org for more info.",
       "examples": ["0.0.1", "1.0.0", "1.0.1-beta"],
       "type": "string",
       "minLength": 5,
