@@ -342,172 +342,168 @@
             "title": "Capabilities",
             "description": "Specify which capabilities you'd like your integration to have",
             "type": "object",
-            "anyOf": [
-                {
+            "properties": {
+                "auditLogEventsHook": {
+                    "$id": "#/properties/capability/audit-log-events-hook",
+                    "title": "Audit Log Events Hook",
+                    "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
+                    "type": "object",
+                    "propertyNames": {
+                        "enum": [
+                            "receivingEndpoint",
+                            "method",
+                            "templates",
+                            "defaultPolicy"
+                        ]
+                    },
                     "properties": {
-                        "auditLogEventsHook": {
-                            "$id": "#/properties/capability/audit-log-events-hook",
-                            "title": "Audit Log Events Hook",
-                            "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
+                        "receivingEndpoint": {
+                            "$id": "#/properties/capability/audit-log-events-hook/receiving-endpoint",
+                            "title": "Endpoint URL",
+                            "description": "URL where you'd like LaunchDarkly to send webhooks to",
+                            "type": "string",
+                            "maxLength": 2048,
+                            "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+                        },
+                        "method": {
+                            "$id": "#/properties/capability/audit-log-events-hook/method",
+                            "title": "HTTP method",
+                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                            "enum": [
+                                "post",
+                                "put",
+                                "patch"
+                            ]
+                        },
+                        "templates": {
+                            "$id": "#/properties/capability/audit-log-events-hook/templates",
+                            "title": "Webhook body template",
+                            "description": "Templates to use for body of the webhook request",
                             "type": "object",
-                            "propertyNames": {
-                                "enum": [
-                                    "receivingEndpoint",
-                                    "method",
-                                    "templates",
-                                    "defaultPolicy"
-                                ]
-                            },
-                            "properties": {
-                                "receivingEndpoint": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/receiving-endpoint",
-                                    "title": "Endpoint URL",
-                                    "description": "URL where you'd like LaunchDarkly to send webhooks to",
-                                    "type": "string",
-                                    "maxLength": 2048,
-                                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
-                                },
-                                "method": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/method",
-                                    "title": "HTTP method",
-                                    "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                                    "enum": [
-                                        "post",
-                                        "put",
-                                        "patch"
-                                    ]
-                                },
-                                "templates": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/templates",
-                                    "title": "Webhook body template",
-                                    "description": "Templates to use for body of the webhook request",
-                                    "type": "object",
-                                    "anyOf": [
-                                        {
-                                            "propertyNames": {
-                                                "enum": [
-                                                    "flag",
-                                                    "project",
-                                                    "environment",
-                                                    "metric"
-                                                ]
-                                            },
-                                            "patternProperties": {
-                                                "": {
-                                                    "type": "string"
-                                                }
-                                            }
-                                        }
-                                    ]
-                                },
-                                "defaultPolicy": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/default-policy",
-                                    "title": "Default Policy",
-                                    "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
-                                    "type": "array",
-                                    "items": {
-                                        "$id": "#/properties/capability/audit-log-events-hook/policy",
-                                        "title": "Policy",
-                                        "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
-                                        "type": "object",
-                                        "propertyNames": {
-                                            "enum": [
-                                                "actions",
-                                                "effect",
-                                                "notActions",
-                                                "notResources",
-                                                "resources"
-                                            ]
-                                        },
-                                        "properties": {
-                                            "actions": {
-                                                "$id": "#/properties/capability/audit-log-events-hook/policy/actions",
-                                                "title": "Actions",
-                                                "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
-                                                "default": [
-                                                    "*"
-                                                ],
-                                                "examples": [
-                                                    "updateOn",
-                                                    "createFlag",
-                                                    "updateRules",
-                                                    "updateTargets"
-                                                ],
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "effect": {
-                                                "$id": "#/properties/capability/audit-log-events-hook/policy/effect",
-                                                "title": "Effect",
-                                                "description": "This attribute defines whether the statement allows or denies access to the named resources and actions.",
-                                                "default": "allow",
-                                                "type": "string",
-                                                "enum": [
-                                                    "allow",
-                                                    "deny"
-                                                ]
-                                            },
-                                            "notActions": {
-                                                "$id": "#/properties/capability/audit-log-events-hook/policy/not-actions",
-                                                "title": "Not actions",
-                                                "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
-                                                "default": [
-                                                    "*"
-                                                ],
-                                                "examples": [
-                                                    "createFlag",
-                                                    "deleteFlag",
-                                                    "cloneFlag"
-                                                ],
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "notResources": {
-                                                "$id": "#/properties/capability/audit-log-events-hook/policy/not-resources",
-                                                "title": "Not resources",
-                                                "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
-                                                "default": [
-                                                    "*"
-                                                ],
-                                                "examples": [
-                                                    "proj/*:env/production:flag/*"
-                                                ],
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "string"
-                                                }
-                                            },
-                                            "resources": {
-                                                "$id": "#/properties/capability/audit-log-events-hook/policy/resources",
-                                                "title": "Resources",
-                                                "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
-                                                "default": [
-                                                    "*"
-                                                ],
-                                                "examples": [
-                                                    "proj/*:env/production:flag/*"
-                                                ],
-                                                "type": "array",
-                                                "items": {
-                                                    "type": "string"
-                                                }
-                                            }
+                            "anyOf": [
+                                {
+                                    "propertyNames": {
+                                        "enum": [
+                                            "flag",
+                                            "project",
+                                            "environment",
+                                            "metric"
+                                        ]
+                                    },
+                                    "patternProperties": {
+                                        "": {
+                                            "type": "string"
                                         }
                                     }
                                 }
-                            },
-                            "required": [
-                                "receivingEndpoint",
-                                "method"
                             ]
+                        },
+                        "defaultPolicy": {
+                            "$id": "#/properties/capability/audit-log-events-hook/default-policy",
+                            "title": "Default Policy",
+                            "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+                            "type": "array",
+                            "items": {
+                                "$id": "#/properties/capability/audit-log-events-hook/policy",
+                                "title": "Policy",
+                                "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+                                "type": "object",
+                                "propertyNames": {
+                                    "enum": [
+                                        "actions",
+                                        "effect",
+                                        "notActions",
+                                        "notResources",
+                                        "resources"
+                                    ]
+                                },
+                                "properties": {
+                                    "actions": {
+                                        "$id": "#/properties/capability/audit-log-events-hook/policy/actions",
+                                        "title": "Actions",
+                                        "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+                                        "default": [
+                                            "*"
+                                        ],
+                                        "examples": [
+                                            "updateOn",
+                                            "createFlag",
+                                            "updateRules",
+                                            "updateTargets"
+                                        ],
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "effect": {
+                                        "$id": "#/properties/capability/audit-log-events-hook/policy/effect",
+                                        "title": "Effect",
+                                        "description": "This attribute defines whether the statement allows or denies access to the named resources and actions.",
+                                        "default": "allow",
+                                        "type": "string",
+                                        "enum": [
+                                            "allow",
+                                            "deny"
+                                        ]
+                                    },
+                                    "notActions": {
+                                        "$id": "#/properties/capability/audit-log-events-hook/policy/not-actions",
+                                        "title": "Not actions",
+                                        "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+                                        "default": [
+                                            "*"
+                                        ],
+                                        "examples": [
+                                            "createFlag",
+                                            "deleteFlag",
+                                            "cloneFlag"
+                                        ],
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "notResources": {
+                                        "$id": "#/properties/capability/audit-log-events-hook/policy/not-resources",
+                                        "title": "Not resources",
+                                        "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+                                        "default": [
+                                            "*"
+                                        ],
+                                        "examples": [
+                                            "proj/*:env/production:flag/*"
+                                        ],
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    },
+                                    "resources": {
+                                        "$id": "#/properties/capability/audit-log-events-hook/policy/resources",
+                                        "title": "Resources",
+                                        "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+                                        "default": [
+                                            "*"
+                                        ],
+                                        "examples": [
+                                            "proj/*:env/production:flag/*"
+                                        ],
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            }
                         }
-                    }
+                    },
+                    "required": [
+                        "receivingEndpoint",
+                        "method"
+                    ]
                 }
-            ],
+            },
             "minProperties": 1
         }
     },

@@ -105,6 +105,259 @@ Specify which capabilities you'd like your integration to have
 
 `object` with following properties:
 
+| Property             | Type   | Required |
+| -------------------- | ------ | -------- |
+| `auditLogEventsHook` | object | Optional |
+
+#### auditLogEventsHook
+
+##### Audit Log Events Hook
+
+This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.
+
+`auditLogEventsHook`
+
+- is optional
+- type: `object`
+
+##### auditLogEventsHook Type
+
+`object` with following properties:
+
+| Property            | Type   | Required     |
+| ------------------- | ------ | ------------ |
+| `defaultPolicy`     | array  | Optional     |
+| `method`            |        | **Required** |
+| `receivingEndpoint` | string | **Required** |
+| `templates`         | object | Optional     |
+
+#### defaultPolicy
+
+##### Default Policy
+
+LaunchDarkly policy that allows you to filter events sent to your webhook. See
+https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.
+
+`defaultPolicy`
+
+- is optional
+- type: `object[]`
+
+##### defaultPolicy Type
+
+Array type: `object[]`
+
+All items must be of the type: `object` with following properties:
+
+| Property       | Type   | Required | Default   |
+| -------------- | ------ | -------- | --------- |
+| `actions`      | array  | Optional | `["*"]`   |
+| `effect`       | string | Optional | `"allow"` |
+| `notActions`   | array  | Optional | `["*"]`   |
+| `notResources` | array  | Optional | `["*"]`   |
+| `resources`    | array  | Optional | `["*"]`   |
+
+#### actions
+
+##### Actions
+
+A list of action specifiers defining the actions to which the statement applies. See
+https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.
+
+`actions`
+
+- is optional
+- type: `string[]`
+- default: `["*"]`
+
+##### actions Type
+
+Array type: `string[]`
+
+All items must be of the type: `string`
+
+##### actions Examples
+
+```json
+updateOn
+```
+
+```json
+createFlag
+```
+
+```json
+updateRules
+```
+
+```json
+updateTargets
+```
+
+#### effect
+
+##### Effect
+
+This attribute defines whether the statement allows or denies access to the named resources and actions.
+
+`effect`
+
+- is optional
+- type: `enum`
+- default: `"allow"`
+
+The value of this property **must** be equal to one of the [known values below](#capabilities-known-values).
+
+##### effect Known Values
+
+| Value   | Description |
+| ------- | ----------- |
+| `allow` |             |
+| `deny`  |             |
+
+#### notActions
+
+##### Not actions
+
+A list of action specifiers defining the actions to which the statement does not apply. See
+https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.
+
+`notActions`
+
+- is optional
+- type: `string[]`
+- default: `["*"]`
+
+##### notActions Type
+
+Array type: `string[]`
+
+All items must be of the type: `string`
+
+##### notActions Examples
+
+```json
+createFlag
+```
+
+```json
+deleteFlag
+```
+
+```json
+cloneFlag
+```
+
+#### notResources
+
+##### Not resources
+
+A list of resource specifiers defining the resources to which the statement does not apply. See
+https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.
+
+`notResources`
+
+- is optional
+- type: `string[]`
+- default: `["*"]`
+
+##### notResources Type
+
+Array type: `string[]`
+
+All items must be of the type: `string`
+
+##### notResources Example
+
+```json
+proj/*:env/production:flag/*
+```
+
+#### resources
+
+##### Resources
+
+A list of resource specifiers defining the resources to which the statement applies. See
+https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.
+
+`resources`
+
+- is optional
+- type: `string[]`
+- default: `["*"]`
+
+##### resources Type
+
+Array type: `string[]`
+
+All items must be of the type: `string`
+
+##### resources Example
+
+```json
+proj/*:env/production:flag/*
+```
+
+A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.
+
+#### method
+
+##### HTTP method
+
+HTTP method to use when LaunchDarkly makes the request to your endpoint
+
+`method`
+
+- is **required**
+- type: `enum`
+
+The value of this property **must** be equal to one of the [known values below](#capabilities-known-values).
+
+##### method Known Values
+
+| Value   | Description |
+| ------- | ----------- |
+| `post`  |             |
+| `put`   |             |
+| `patch` |             |
+
+#### receivingEndpoint
+
+##### Endpoint URL
+
+URL where you'd like LaunchDarkly to send webhooks to
+
+`receivingEndpoint`
+
+- is **required**
+- type: `string`
+
+##### receivingEndpoint Type
+
+`string`
+
+- maximum length: 2048 characters All instances must conform to this regular expression (test examples
+  [here](https://regexr.com/?expression=%5E%5BHh%5D%5BTt%5D%5BTt%5D%5BPp%5D%5BSs%5D%3F%3A%2F%2F)):
+
+```regex
+^[Hh][Tt][Tt][Pp][Ss]?://
+```
+
+#### templates
+
+##### Webhook body template
+
+Templates to use for body of the webhook request
+
+`templates`
+
+- is optional
+- type: `object`
+
+##### templates Type
+
+`object` with following properties:
+
 | Property | Type | Required |
 | -------- | ---- | -------- |
 
