@@ -1,18 +1,29 @@
+# LaunchDarkly Integrations Manifest Schema
+
+```
+https://launchdarkly.com/schemas/v1.0/integrations
+```
+
+Describes the capabilities and intent of a LaunchDarkly integration
+
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                                   |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | -------------------------------------------- |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Forbidden             | [manifest.schema.json](manifest.schema.json) |
+
 # LaunchDarkly Integrations Manifest Properties
 
-| Property                          | Type      | Required     | Nullable | Defined by                                       |
-| --------------------------------- | --------- | ------------ | -------- | ------------------------------------------------ |
-| [authentication](#authentication) | `object`  | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [author](#author)                 | `string`  | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [capabilities](#capabilities)     | `object`  | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [categories](#categories)         | reference | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [description](#description)       | `string`  | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [icons](#icons)                   | `object`  | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [links](#links)                   | `object`  | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [name](#name)                     | `string`  | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [overview](#overview)             | `string`  | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [version](#version)               | `string`  | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| `*`                               | any       | Additional   | Yes      | this schema _allows_ additional properties       |
+| Property                          | Type     | Required     | Nullable | Defined by                                       |
+| --------------------------------- | -------- | ------------ | -------- | ------------------------------------------------ |
+| [authentication](#authentication) | `object` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [author](#author)                 | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [capabilities](#capabilities)     | `object` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [categories](#categories)         | `enum[]` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [description](#description)       | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [icons](#icons)                   | `object` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [links](#links)                   | `object` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [name](#name)                     | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [overview](#overview)             | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [version](#version)               | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
 
 ## authentication
 
@@ -30,9 +41,29 @@ Specify the authentication method required by your integration
 
 `object` with following properties:
 
-| Property | Type | Required |
-| -------- | ---- | -------- |
+| Property | Type   | Required     |
+| -------- | ------ | ------------ |
+| `type`   | string | **Required** |
 
+#### type
+
+##### Auth Type
+
+Specify the authentication method required by your integration
+
+`type`
+
+- is **required**
+- type: `enum`
+
+The value of this property **must** be equal to one of the [known values below](#authentication-known-values).
+
+##### type Known Values
+
+| Value   | Description |
+| ------- | ----------- |
+| `none`  |             |
+| `token` |             |
 
 ## author
 
@@ -87,17 +118,15 @@ Categories that describe your integration
 `categories`
 
 - is **required**
-- type: reference
+- type: `enum[]`
 - between `1` and `3` items in the array
 - defined in this schema
 
 ### categories Type
 
-Array type: reference
+Array type: `enum[]`
 
-All items must be of the type:
-
-- []() – `#/definitions/category`
+All items must be of the type: `string`
 
 ## description
 
@@ -206,10 +235,10 @@ A set of reference links supporting your integration
 
 | Property         | Type   | Required     |
 | ---------------- | ------ | ------------ |
-| `privacyPolicy`  |        | **Required** |
-| `site`           |        | **Required** |
+| `privacyPolicy`  | string | **Required** |
+| `site`           | string | **Required** |
 | `supportEmail`   | string | **Required** |
-| `supportWebsite` |        | Optional     |
+| `supportWebsite` | string | Optional     |
 
 #### privacyPolicy
 
@@ -220,11 +249,18 @@ URL to your organization's privacy policy
 `privacyPolicy`
 
 - is **required**
-- type: reference
+- type: `string`
 
 ##### privacyPolicy Type
 
-- []() – `#/definitions/https-url`
+`string`
+
+- maximum length: 2048 characters All instances must conform to this regular expression (test examples
+  [here](https://regexr.com/?expression=%5E%5BHh%5D%5BTt%5D%5BTt%5D%5BPp%5D%5BSs%5D%3F%3A%2F%2F)):
+
+```regex
+^[Hh][Tt][Tt][Pp][Ss]?://
+```
 
 #### site
 
@@ -235,11 +271,18 @@ URL to your website
 `site`
 
 - is **required**
-- type: reference
+- type: `string`
 
 ##### site Type
 
-- []() – `#/definitions/https-url`
+`string`
+
+- maximum length: 2048 characters All instances must conform to this regular expression (test examples
+  [here](https://regexr.com/?expression=%5E%5BHh%5D%5BTt%5D%5BTt%5D%5BPp%5D%5BSs%5D%3F%3A%2F%2F)):
+
+```regex
+^[Hh][Tt][Tt][Pp][Ss]?://
+```
 
 #### supportEmail
 
@@ -267,11 +310,18 @@ URL to your integration's support website
 `supportWebsite`
 
 - is optional
-- type: reference
+- type: `string`
 
 ##### supportWebsite Type
 
-- []() – `#/definitions/https-url`
+`string`
+
+- maximum length: 2048 characters All instances must conform to this regular expression (test examples
+  [here](https://regexr.com/?expression=%5E%5BHh%5D%5BTt%5D%5BTt%5D%5BPp%5D%5BSs%5D%3F%3A%2F%2F)):
+
+```regex
+^[Hh][Tt][Tt][Pp][Ss]?://
+```
 
 ## name
 
@@ -364,356 +414,3 @@ A semantic version of the integration
 ```json
 "1.0.1-beta"
 ```
-
-# LaunchDarkly Integrations Manifest Definitions
-
-| Property                                | Type       | Group                                                                                              |
-| --------------------------------------- | ---------- | -------------------------------------------------------------------------------------------------- |
-| [acceptedAs](#acceptedas)               | `object`   | `https://launchdarkly.com/schemas/v1.0/integrations#/definitions/auth-token`                       |
-| [defaultPolicy](#defaultpolicy)         | `object[]` | `https://launchdarkly.com/schemas/v1.0/integrations#/definitions/capability-audit-log-events-hook` |
-| [hint](#hint)                           | `string`   | `https://launchdarkly.com/schemas/v1.0/integrations#/definitions/auth-token`                       |
-| [label](#label)                         | `string`   | `https://launchdarkly.com/schemas/v1.0/integrations#/definitions/auth-token`                       |
-| [method](#method)                       | `enum`     | `https://launchdarkly.com/schemas/v1.0/integrations#/definitions/capability-audit-log-events-hook` |
-| [prefix](#prefix)                       | `string`   | `https://launchdarkly.com/schemas/v1.0/integrations#/definitions/accepted-as-header`               |
-| [receivingEndpoint](#receivingendpoint) | reference  | `https://launchdarkly.com/schemas/v1.0/integrations#/definitions/capability-audit-log-events-hook` |
-| [templates](#templates)                 | `object`   | `https://launchdarkly.com/schemas/v1.0/integrations#/definitions/capability-audit-log-events-hook` |
-| [type](#type)                           | `enum`     | `https://launchdarkly.com/schemas/v1.0/integrations#/definitions/accepted-as-query-param`          |
-
-## acceptedAs
-
-### Token accepted as...
-
-Specify how your token should be provided in the request to your service
-
-`acceptedAs`
-
-- is **required**
-- type: `object`
-- defined in this schema
-
-### acceptedAs Type
-
-`object` with following properties:
-
-| Property | Type | Required |
-| -------- | ---- | -------- |
-
-
-## defaultPolicy
-
-### Default Policy
-
-LaunchDarkly policy that allows you to filter events sent to your webhook. See
-https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.
-
-`defaultPolicy`
-
-- is optional
-- type: `object[]`
-- defined in this schema
-
-### defaultPolicy Type
-
-Array type: `object[]`
-
-All items must be of the type: `object` with following properties:
-
-| Property       | Type   | Required | Default   |
-| -------------- | ------ | -------- | --------- |
-| `actions`      | array  | Optional | `["*"]`   |
-| `effect`       | string | Optional | `"allow"` |
-| `notActions`   | array  | Optional | `["*"]`   |
-| `notResources` | array  | Optional | `["*"]`   |
-| `resources`    | array  | Optional | `["*"]`   |
-
-#### actions
-
-##### Actions
-
-A list of action specifiers defining the actions to which the statement applies. See
-https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.
-
-`actions`
-
-- is optional
-- type: `string[]`
-- default: `["*"]`
-
-##### actions Type
-
-Array type: `string[]`
-
-All items must be of the type: `string`
-
-##### actions Examples
-
-```json
-updateOn
-```
-
-```json
-createFlag
-```
-
-```json
-updateRules
-```
-
-```json
-updateTargets
-```
-
-#### effect
-
-##### Effect
-
-This attribute defines whether the statement allows or denies access to the named resources and actions.
-
-`effect`
-
-- is optional
-- type: `enum`
-- default: `"allow"`
-
-The value of this property **must** be equal to one of the [known values below](#defaultpolicy-known-values).
-
-##### effect Known Values
-
-| Value   | Description |
-| ------- | ----------- |
-| `allow` |             |
-| `deny`  |             |
-
-#### notActions
-
-##### Not actions
-
-A list of action specifiers defining the actions to which the statement does not apply. See
-https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.
-
-`notActions`
-
-- is optional
-- type: `string[]`
-- default: `["*"]`
-
-##### notActions Type
-
-Array type: `string[]`
-
-All items must be of the type: `string`
-
-##### notActions Examples
-
-```json
-createFlag
-```
-
-```json
-deleteFlag
-```
-
-```json
-cloneFlag
-```
-
-#### notResources
-
-##### Not resources
-
-A list of resource specifiers defining the resources to which the statement does not apply. See
-https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.
-
-`notResources`
-
-- is optional
-- type: `string[]`
-- default: `["*"]`
-
-##### notResources Type
-
-Array type: `string[]`
-
-All items must be of the type: `string`
-
-##### notResources Example
-
-```json
-proj/*:env/production:flag/*
-```
-
-#### resources
-
-##### Resources
-
-A list of resource specifiers defining the resources to which the statement applies. See
-https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.
-
-`resources`
-
-- is optional
-- type: `string[]`
-- default: `["*"]`
-
-##### resources Type
-
-Array type: `string[]`
-
-All items must be of the type: `string`
-
-##### resources Example
-
-```json
-proj/*:env/production:flag/*
-```
-
-A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.
-
-## hint
-
-### Hint
-
-A placeholder hint used in the LaunchDarkly UI describing your token
-
-`hint`
-
-- is **required**
-- type: `string`
-- defined in this schema
-
-### hint Type
-
-`string`
-
-### hint Example
-
-```json
-"Enter API key from your SpaceXYZ account"
-```
-
-## label
-
-### Token
-
-Label to use in the LaunchDarkly UI describing you token
-
-`label`
-
-- is **required**
-- type: `string`
-- defined in this schema
-
-### label Type
-
-`string`
-
-### label Examples
-
-```json
-"API key"
-```
-
-```json
-"API token"
-```
-
-## method
-
-### HTTP method
-
-HTTP method to use when LaunchDarkly makes the request to your endpoint
-
-`method`
-
-- is **required**
-- type: `enum`
-- defined in this schema
-
-The value of this property **must** be equal to one of the [known values below](#method-known-values).
-
-### method Known Values
-
-| Value   | Description |
-| ------- | ----------- |
-| `post`  |             |
-| `put`   |             |
-| `patch` |             |
-
-## prefix
-
-### Header value prefix
-
-If your token needs to be padded with a prefix, specify it here
-
-`prefix`
-
-- is optional
-- type: `string`
-- defined in this schema
-
-### prefix Type
-
-`string`
-
-### prefix Example
-
-```json
-"Bearer "
-```
-
-## receivingEndpoint
-
-### Endpoint URL
-
-URL where you'd like LaunchDarkly to send webhooks to
-
-`receivingEndpoint`
-
-- is **required**
-- type: reference
-- defined in this schema
-
-### receivingEndpoint Type
-
-- []() – `#/definitions/https-url`
-
-## templates
-
-### Webhook body template
-
-Templates to use for body of the webhook request
-
-`templates`
-
-- is optional
-- type: `object`
-- defined in this schema
-
-### templates Type
-
-`object` with following properties:
-
-| Property | Type | Required |
-| -------- | ---- | -------- |
-
-
-## type
-
-### Type
-
-Specify the method in which your token is provided in the request. In most cases, tokens are either passed through
-query parameter or a header.
-
-`type`
-
-- is **required**
-- type: `enum`
-- defined in this schema
-
-The value of this property **must** be equal to one of the [known values below](#type-known-values).
-
-### type Known Values
-
-| Value         | Description |
-| ------------- | ----------- |
-| `query-param` |

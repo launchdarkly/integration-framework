@@ -4,6 +4,7 @@
     "title": "LaunchDarkly Integrations Manifest",
     "description": "Describes the capabilities and intent of a LaunchDarkly integration",
     "type": "object",
+    "additionalProperties": false,
     "properties": {
         "name": {
             "$id": "#/properties/name",
@@ -23,7 +24,10 @@
                 "1.0.0",
                 "1.0.1-beta"
             ],
-            "$ref": "#/definitions/semver"
+            "type": "string",
+            "minLength": 5,
+            "maxLength": 14,
+            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
         },
         "overview": {
             "$id": "#/properties/overview",
@@ -62,13 +66,17 @@
                     "$id": "#/properties/links/site",
                     "title": "Website",
                     "description": "URL to your website",
-                    "$ref": "#/definitions/https-url"
+                    "type": "string",
+                    "maxLength": 2048,
+                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
                 },
                 "privacyPolicy": {
                     "$id": "#/properties/links/privacy-policy",
                     "title": "Privacy Policy",
                     "description": "URL to your organization's privacy policy",
-                    "$ref": "#/definitions/https-url"
+                    "type": "string",
+                    "maxLength": 2048,
+                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
                 },
                 "supportEmail": {
                     "$id": "#/properties/links/support-email",
@@ -81,7 +89,9 @@
                     "$id": "#/properties/links/support-website",
                     "title": "Support Website",
                     "description": "URL to your integration's support website",
-                    "$ref": "#/definitions/https-url"
+                    "type": "string",
+                    "maxLength": 2048,
+                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
                 }
             },
             "required": [
@@ -99,7 +109,27 @@
             "minItems": 1,
             "maxItems": 3,
             "items": {
-                "$ref": "#/definitions/category"
+                "type": "string",
+                "enum": [
+                    "alerts",
+                    "analytics-and-reporting",
+                    "apm",
+                    "automation",
+                    "communication-and-collaboration",
+                    "config-and-deployment",
+                    "exceptions",
+                    "experimentation",
+                    "hr-and-operations",
+                    "issue-tracking",
+                    "it-and-project-management",
+                    "marketing-and-social-media",
+                    "monitoring",
+                    "orchestration",
+                    "product-and-design",
+                    "provisioning",
+                    "security",
+                    "source-control"
+                ]
             }
         },
         "icons": {
@@ -133,13 +163,178 @@
             "title": "Authentication",
             "description": "Specify the authentication method required by your integration",
             "type": "object",
-            "oneOf": [
+            "properties": {
+                "type": {
+                    "$id": "#/properties/authentication/type",
+                    "title": "Auth Type",
+                    "description": "Specify the authentication method required by your integration",
+                    "type": "string",
+                    "enum": [
+                        "none",
+                        "token"
+                    ]
+                }
+            },
+            "allOf": [
                 {
-                    "$ref": "#/definitions/auth-none"
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "none"
+                            }
+                        }
+                    },
+                    "then": {
+                        "propertyNames": {
+                            "enum": [
+                                "type"
+                            ]
+                        }
+                    }
                 },
                 {
-                    "$ref": "#/definitions/auth-token"
+                    "if": {
+                        "properties": {
+                            "type": {
+                                "const": "token"
+                            }
+                        }
+                    },
+                    "then": {
+                        "properties": {
+                            "label": {
+                                "$id": "#/properties/authentication/label",
+                                "title": "Token",
+                                "description": "Label to use in the LaunchDarkly UI describing you token",
+                                "examples": [
+                                    "API key",
+                                    "API token"
+                                ],
+                                "type": "string"
+                            },
+                            "hint": {
+                                "$id": "#/properties/authentication/hint",
+                                "title": "Hint",
+                                "description": "A placeholder hint used in the LaunchDarkly UI describing your token",
+                                "examples": [
+                                    "Enter API key from your SpaceXYZ account"
+                                ],
+                                "type": "string"
+                            },
+                            "acceptedAs": {
+                                "$id": "#/properties/authentication/acceptedAs",
+                                "title": "Token accepted as...",
+                                "description": "Specify how your token should be provided in the request to your service",
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "$id": "#/properties/authentication/acceptedAs/type",
+                                        "title": "Type",
+                                        "description": "Specify the method in which your token is provided in the request. In most cases, tokens are either passed through query parameter or a header.",
+                                        "type": "string",
+                                        "enum": [
+                                            "query-param",
+                                            "header"
+                                        ]
+                                    }
+                                },
+                                "allOf": [
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "type": {
+                                                    "const": "query-param"
+                                                }
+                                            }
+                                        },
+                                        "then": {
+                                            "properties": {
+                                                "name": {
+                                                    "$id": "#/properties/authentication/acceptedAs/type/query-param-name",
+                                                    "title": "Query parameter name",
+                                                    "description": "Specify the name of the query parameter you'd like to use",
+                                                    "type": "string",
+                                                    "examples": [
+                                                        "token",
+                                                        "key"
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "name"
+                                            ],
+                                            "propertyNames": {
+                                                "enum": [
+                                                    "type",
+                                                    "name"
+                                                ]
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "if": {
+                                            "properties": {
+                                                "type": {
+                                                    "const": "header"
+                                                }
+                                            }
+                                        },
+                                        "then": {
+                                            "properties": {
+                                                "name": {
+                                                    "$id": "#/properties/authentication/acceptedAs/type/header-name",
+                                                    "title": "Header name",
+                                                    "description": "Specify the name of the header you'd like to use",
+                                                    "type": "string",
+                                                    "examples": [
+                                                        "Authorization",
+                                                        "X-SpaceXYZ-Auth"
+                                                    ]
+                                                },
+                                                "prefix": {
+                                                    "$id": "#/properties/authentication/acceptedAs/type/header-value-prefix",
+                                                    "title": "Header value prefix",
+                                                    "description": "If your token needs to be padded with a prefix, specify it here",
+                                                    "type": "string",
+                                                    "examples": [
+                                                        "Bearer "
+                                                    ]
+                                                }
+                                            },
+                                            "required": [
+                                                "name"
+                                            ],
+                                            "propertyNames": {
+                                                "enum": [
+                                                    "type",
+                                                    "name",
+                                                    "prefix"
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        "required": [
+                            "type",
+                            "label",
+                            "hint",
+                            "acceptedAs"
+                        ],
+                        "propertyNames": {
+                            "enum": [
+                                "type",
+                                "label",
+                                "hint",
+                                "acceptedAs"
+                            ]
+                        }
+                    }
                 }
+            ],
+            "required": [
+                "type"
             ]
         },
         "capabilities": {
@@ -151,7 +346,164 @@
                 {
                     "properties": {
                         "auditLogEventsHook": {
-                            "$ref": "#/definitions/capability-audit-log-events-hook"
+                            "$id": "#/properties/capability/audit-log-events-hook",
+                            "title": "Audit Log Events Hook",
+                            "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
+                            "type": "object",
+                            "propertyNames": {
+                                "enum": [
+                                    "receivingEndpoint",
+                                    "method",
+                                    "templates",
+                                    "defaultPolicy"
+                                ]
+                            },
+                            "properties": {
+                                "receivingEndpoint": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/receiving-endpoint",
+                                    "title": "Endpoint URL",
+                                    "description": "URL where you'd like LaunchDarkly to send webhooks to",
+                                    "type": "string",
+                                    "maxLength": 2048,
+                                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+                                },
+                                "method": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/method",
+                                    "title": "HTTP method",
+                                    "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                                    "enum": [
+                                        "post",
+                                        "put",
+                                        "patch"
+                                    ]
+                                },
+                                "templates": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/templates",
+                                    "title": "Webhook body template",
+                                    "description": "Templates to use for body of the webhook request",
+                                    "type": "object",
+                                    "anyOf": [
+                                        {
+                                            "propertyNames": {
+                                                "enum": [
+                                                    "flag",
+                                                    "project",
+                                                    "environment",
+                                                    "metric"
+                                                ]
+                                            },
+                                            "patternProperties": {
+                                                "": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    ]
+                                },
+                                "defaultPolicy": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/default-policy",
+                                    "title": "Default Policy",
+                                    "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+                                    "type": "array",
+                                    "items": {
+                                        "$id": "#/properties/capability/audit-log-events-hook/policy",
+                                        "title": "Policy",
+                                        "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+                                        "type": "object",
+                                        "propertyNames": {
+                                            "enum": [
+                                                "actions",
+                                                "effect",
+                                                "notActions",
+                                                "notResources",
+                                                "resources"
+                                            ]
+                                        },
+                                        "properties": {
+                                            "actions": {
+                                                "$id": "#/properties/capability/audit-log-events-hook/policy/actions",
+                                                "title": "Actions",
+                                                "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+                                                "default": [
+                                                    "*"
+                                                ],
+                                                "examples": [
+                                                    "updateOn",
+                                                    "createFlag",
+                                                    "updateRules",
+                                                    "updateTargets"
+                                                ],
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "effect": {
+                                                "$id": "#/properties/capability/audit-log-events-hook/policy/effect",
+                                                "title": "Effect",
+                                                "description": "This attribute defines whether the statement allows or denies access to the named resources and actions.",
+                                                "default": "allow",
+                                                "type": "string",
+                                                "enum": [
+                                                    "allow",
+                                                    "deny"
+                                                ]
+                                            },
+                                            "notActions": {
+                                                "$id": "#/properties/capability/audit-log-events-hook/policy/not-actions",
+                                                "title": "Not actions",
+                                                "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+                                                "default": [
+                                                    "*"
+                                                ],
+                                                "examples": [
+                                                    "createFlag",
+                                                    "deleteFlag",
+                                                    "cloneFlag"
+                                                ],
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "notResources": {
+                                                "$id": "#/properties/capability/audit-log-events-hook/policy/not-resources",
+                                                "title": "Not resources",
+                                                "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+                                                "default": [
+                                                    "*"
+                                                ],
+                                                "examples": [
+                                                    "proj/*:env/production:flag/*"
+                                                ],
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            },
+                                            "resources": {
+                                                "$id": "#/properties/capability/audit-log-events-hook/policy/resources",
+                                                "title": "Resources",
+                                                "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+                                                "default": [
+                                                    "*"
+                                                ],
+                                                "examples": [
+                                                    "proj/*:env/production:flag/*"
+                                                ],
+                                                "type": "array",
+                                                "items": {
+                                                    "type": "string"
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "receivingEndpoint",
+                                "method"
+                            ]
                         }
                     }
                 }
@@ -170,333 +522,5 @@
         "icons",
         "authentication",
         "capabilities"
-    ],
-    "definitions": {
-        "semver": {
-            "type": "string",
-            "minLength": 5,
-            "maxLength": 14,
-            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
-        },
-        "https-url": {
-            "type": "string",
-            "maxLength": 2048,
-            "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
-        },
-        "category": {
-            "type": "string",
-            "enum": [
-                "alerts",
-                "analytics-and-reporting",
-                "apm",
-                "automation",
-                "communication-and-collaboration",
-                "config-and-deployment",
-                "exceptions",
-                "experimentation",
-                "hr-and-operations",
-                "issue-tracking",
-                "it-and-project-management",
-                "marketing-and-social-media",
-                "monitoring",
-                "orchestration",
-                "product-and-design",
-                "provisioning",
-                "security",
-                "source-control"
-            ]
-        },
-        "auth-none": {
-            "properties": {
-                "type": {
-                    "$id": "#/properties/authentication/type",
-                    "title": "Auth Type",
-                    "description": "Specify the authentication method required by your integration",
-                    "type": "string",
-                    "enum": [
-                        "none"
-                    ]
-                }
-            },
-            "required": [
-                "type"
-            ],
-            "maxProperties": 1
-        },
-        "auth-token": {
-            "properties": {
-                "type": {
-                    "$id": "#/properties/authentication/type",
-                    "title": "Auth Type",
-                    "description": "Specify the authentication method required by your integration",
-                    "type": "string",
-                    "enum": [
-                        "token"
-                    ]
-                },
-                "label": {
-                    "$id": "#/properties/authentication/label",
-                    "title": "Token",
-                    "description": "Label to use in the LaunchDarkly UI describing you token",
-                    "examples": [
-                        "API key",
-                        "API token"
-                    ],
-                    "type": "string"
-                },
-                "hint": {
-                    "$id": "#/properties/authentication/hint",
-                    "title": "Hint",
-                    "description": "A placeholder hint used in the LaunchDarkly UI describing your token",
-                    "examples": [
-                        "Enter API key from your SpaceXYZ account"
-                    ],
-                    "type": "string"
-                },
-                "acceptedAs": {
-                    "$id": "#/properties/authentication/acceptedAs",
-                    "title": "Token accepted as...",
-                    "description": "Specify how your token should be provided in the request to your service",
-                    "type": "object",
-                    "oneOf": [
-                        {
-                            "$ref": "#/definitions/accepted-as-header"
-                        },
-                        {
-                            "$ref": "#/definitions/accepted-as-query-param"
-                        }
-                    ]
-                }
-            },
-            "required": [
-                "type",
-                "label",
-                "hint",
-                "acceptedAs"
-            ]
-        },
-        "accepted-as-header": {
-            "properties": {
-                "type": {
-                    "$id": "#/properties/authentication/acceptedAs/header-type",
-                    "title": "Type",
-                    "description": "Specify the method in which your token is provided in the request. In most cases, tokens are either passed through query parameter or a header.",
-                    "type": "string",
-                    "enum": [
-                        "header"
-                    ]
-                },
-                "name": {
-                    "$id": "#/properties/authentication/acceptedAs/type/header-name",
-                    "title": "Header name",
-                    "description": "Specify the name of the header you'd like to use",
-                    "type": "string",
-                    "examples": [
-                        "Authorization",
-                        "X-SpaceXYZ-Auth"
-                    ],
-                    "minLength": 1
-                },
-                "prefix": {
-                    "$id": "#/properties/authentication/acceptedAs/type/header-value-prefix",
-                    "title": "Header value prefix",
-                    "description": "If your token needs to be padded with a prefix, specify it here",
-                    "type": "string",
-                    "examples": [
-                        "Bearer "
-                    ]
-                }
-            },
-            "required": [
-                "type",
-                "name"
-            ]
-        },
-        "accepted-as-query-param": {
-            "properties": {
-                "type": {
-                    "$id": "#/properties/authentication/acceptedAs/query-param-type",
-                    "title": "Type",
-                    "description": "Specify the method in which your token is provided in the request. In most cases, tokens are either passed through query parameter or a header.",
-                    "type": "string",
-                    "enum": [
-                        "query-param"
-                    ]
-                },
-                "name": {
-                    "$id": "#/properties/authentication/acceptedAs/type/query-param-name",
-                    "title": "Query parameter name",
-                    "description": "Specify the name of the query parameter you'd like to use",
-                    "type": "string",
-                    "examples": [
-                        "token",
-                        "key"
-                    ],
-                    "minLength": 1
-                }
-            },
-            "required": [
-                "type",
-                "name"
-            ]
-        },
-        "capability-audit-log-events-hook": {
-            "$id": "#/properties/capability/audit-log-events-hook",
-            "title": "Audit Log Events Hook",
-            "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
-            "type": "object",
-            "propertyNames": {
-                "enum": [
-                    "receivingEndpoint",
-                    "method",
-                    "templates",
-                    "defaultPolicy"
-                ]
-            },
-            "properties": {
-                "receivingEndpoint": {
-                    "$id": "#/properties/capability/audit-log-events-hook/receiving-endpoint",
-                    "title": "Endpoint URL",
-                    "description": "URL where you'd like LaunchDarkly to send webhooks to",
-                    "$ref": "#/definitions/https-url"
-                },
-                "method": {
-                    "$id": "#/properties/capability/audit-log-events-hook/method",
-                    "title": "HTTP method",
-                    "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                    "enum": [
-                        "post",
-                        "put",
-                        "patch"
-                    ]
-                },
-                "templates": {
-                    "$id": "#/properties/capability/audit-log-events-hook/templates",
-                    "title": "Webhook body template",
-                    "description": "Templates to use for body of the webhook request",
-                    "type": "object",
-                    "anyOf": [
-                        {
-                            "propertyNames": {
-                                "enum": [
-                                    "flag",
-                                    "project",
-                                    "environment",
-                                    "metric"
-                                ]
-                            },
-                            "patternProperties": {
-                                "": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    ]
-                },
-                "defaultPolicy": {
-                    "$id": "#/properties/capability/audit-log-events-hook/default-policy",
-                    "title": "Default Policy",
-                    "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
-                    "type": "array",
-                    "items": {
-                        "$id": "#/properties/capability/audit-log-events-hook/policy",
-                        "title": "Policy",
-                        "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
-                        "type": "object",
-                        "propertyNames": {
-                            "enum": [
-                                "actions",
-                                "effect",
-                                "notActions",
-                                "notResources",
-                                "resources"
-                            ]
-                        },
-                        "properties": {
-                            "actions": {
-                                "$id": "#/properties/capability/audit-log-events-hook/policy/actions",
-                                "title": "Actions",
-                                "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
-                                "default": [
-                                    "*"
-                                ],
-                                "examples": [
-                                    "updateOn",
-                                    "createFlag",
-                                    "updateRules",
-                                    "updateTargets"
-                                ],
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            },
-                            "effect": {
-                                "$id": "#/properties/capability/audit-log-events-hook/policy/effect",
-                                "title": "Effect",
-                                "description": "This attribute defines whether the statement allows or denies access to the named resources and actions.",
-                                "default": "allow",
-                                "type": "string",
-                                "enum": [
-                                    "allow",
-                                    "deny"
-                                ]
-                            },
-                            "notActions": {
-                                "$id": "#/properties/capability/audit-log-events-hook/policy/not-actions",
-                                "title": "Not actions",
-                                "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
-                                "default": [
-                                    "*"
-                                ],
-                                "examples": [
-                                    "createFlag",
-                                    "deleteFlag",
-                                    "cloneFlag"
-                                ],
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            },
-                            "notResources": {
-                                "$id": "#/properties/capability/audit-log-events-hook/policy/not-resources",
-                                "title": "Not resources",
-                                "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
-                                "default": [
-                                    "*"
-                                ],
-                                "examples": [
-                                    "proj/*:env/production:flag/*"
-                                ],
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            },
-                            "resources": {
-                                "$id": "#/properties/capability/audit-log-events-hook/policy/resources",
-                                "title": "Resources",
-                                "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
-                                "default": [
-                                    "*"
-                                ],
-                                "examples": [
-                                    "proj/*:env/production:flag/*"
-                                ],
-                                "type": "array",
-                                "items": {
-                                    "type": "string"
-                                }
-                            }
-                        }
-                    }
-                }
-            },
-            "required": [
-                "receivingEndpoint",
-                "method"
-            ]
-        }
-    }
+    ]
 }
