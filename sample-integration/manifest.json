@@ -1,5 +1,4 @@
 {
-  "$schema": "../_schemas/manifest.schema.json",
   "name": "sample-integration",
   "version": "1.0.0",
   "overview": "Short one-liner describing your integration",
