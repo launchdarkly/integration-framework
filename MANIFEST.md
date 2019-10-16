@@ -6,9 +6,9 @@ https://launchdarkly.com/schemas/v1.0/integrations
 
 Describes the capabilities and intent of a LaunchDarkly integration
 
-| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In                                   |
-| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | -------------------------------------------- |
-| Can be instantiated | No         | Experimental | No           | Forbidden         | Forbidden             | [manifest.schema.json](manifest.schema.json) |
+| Abstract            | Extensible | Status       | Identifiable | Custom Properties | Additional Properties | Defined In |
+| ------------------- | ---------- | ------------ | ------------ | ----------------- | --------------------- | ---------- |
+| Can be instantiated | No         | Experimental | No           | Forbidden         | Forbidden             |            |
 
 # LaunchDarkly Integrations Manifest Properties
 
