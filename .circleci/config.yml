@@ -3,6 +3,8 @@ version: 2.1
 orbs:
   aws-cli: circleci/aws-cli@latest
 jobs:
+  docker:
+    - image: "circleci/python:2.7"
   copy2s3:
     steps:
       - checkout
