@@ -1,13 +1,12 @@
 version: 2.1
 
 orbs:
-  aws-s3: circleci/aws-s3@1.0.0
+  aws-cli: circleci/aws-cli@latest
 jobs:
-  build:
-    docker:
-      - image: "circleci/python:2.7"
+  copy2s3:
     steps:
       - checkout
-      - aws-s3/copy:
-          from: ./
-          to: "s3://launchdarkly-integrations-dev"
+      - aws-cli/install
+      - deploy:
+        - command: |
+          ./scripts/copy_to_s3.sh
