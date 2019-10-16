@@ -11,5 +11,4 @@ jobs:
       - checkout
       - aws-cli/install
       - deploy:
-          command: |
-            ./scripts/copy_to_s3.sh
+          command: ./scripts/copy_to_s3.sh
