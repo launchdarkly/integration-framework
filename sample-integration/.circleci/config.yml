@@ -1,0 +1,13 @@
+version: 2.1
+
+orbs:
+  aws-s3: circleci/aws-s3@1.0.0
+jobs:
+  build:
+    docker:
+      - image: "circleci/python:2.7"
+    steps:
+      - checkout
+      - aws-s3/copy:
+          from: ./
+          to: "s3://launchdarkly-integrations-dev"
