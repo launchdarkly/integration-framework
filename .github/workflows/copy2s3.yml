@@ -1,0 +1,18 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: S3 Backup
+      uses: peter-evans/s3-backup@v1.0.0
+      env:
+        ACCESS_KEY_ID: ${{ secrets.ACCESS_KEY_ID }}
+        SECRET_ACCESS_KEY: ${{ secrets.SECRET_ACCESS_KEY }}
+        MIRROR_TARGET: repo-backup-bucket/at/some/path
+      with:
+        args: --overwrite --remove
