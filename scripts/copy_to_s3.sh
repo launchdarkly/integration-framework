@@ -1,4 +1,4 @@
 #!/bin/bash
-REV=$(git rev-parse HEAD | cut -c1-8) python -c 'import glob, json, os; print json.dumps(["/" + os.environ["REV"] + "/" + dir for dir in glob.glob("**/*/manifest.json")])' > latest
+REV=$(git rev-parse HEAD | cut -c1-8) python -c 'import glob, json, os; print json.dumps({"manifests": ["/" + os.environ["REV"] + "/" + dir for dir in glob.glob("**/*/manifest.json")]})' > latest
 aws s3 cp --recursive integrations s3://$BUCKET_NAME/integrations/$REV
 aws s3 cp latest s3://$BUCKET_NAME/latest.json
