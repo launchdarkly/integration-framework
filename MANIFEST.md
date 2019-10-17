@@ -124,12 +124,41 @@ This capability will enable LaunchDarkly to send audit log event webhooks to you
 
 `object` with following properties:
 
-| Property            | Type   | Required     |
-| ------------------- | ------ | ------------ |
-| `defaultPolicy`     | array  | Optional     |
-| `method`            |        | **Required** |
-| `receivingEndpoint` | string | **Required** |
-| `templates`         | object | Optional     |
+| Property            | Type   | Required     | Default              |
+| ------------------- | ------ | ------------ | -------------------- |
+| `contentType`       | string | **Required** | `"application/json"` |
+| `defaultPolicy`     | array  | Optional     |                      |
+| `method`            |        | **Required** |                      |
+| `receivingEndpoint` | string | **Required** |                      |
+| `templates`         | object | Optional     |                      |
+
+#### contentType
+
+##### Content type
+
+The content-type your endpoint expects to receive
+
+`contentType`
+
+- is **required**
+- type: `string`
+- default: `"application/json"`
+
+##### contentType Type
+
+`string`
+
+- minimum length: 3 characters
+
+##### contentType Examples
+
+```json
+application / json
+```
+
+```json
+application / xml
+```
 
 #### defaultPolicy
 
