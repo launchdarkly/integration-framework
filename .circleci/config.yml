@@ -9,7 +9,7 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-      - aws-cli/install
+      # - aws-cli/install
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
