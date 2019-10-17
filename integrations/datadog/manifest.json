@@ -1,31 +1,31 @@
 {
-  "name": "sample-integration",
+  "name": "datadog",
   "version": "1.0.0",
-  "overview": "Short one-liner describing your integration",
-  "description": "Send flag data to space. Markdown based description.",
+  "overview": "Send audit log events to your Datadog dashboards",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Datadog. These events can provide context to your Datadog dashboards.",
   "author": "LaunchDarkly",
   "links": {
-    "site": "https://example.com",
-    "privacyPolicy": "https://example.com/privacy",
-    "supportEmail": "support@example.com"
+    "site": "https://docs.launchdarkly.com/docs/datadog",
+    "privacyPolicy": "https://www.datadoghq.com/legal/privacy/",
+    "supportEmail": "support@launchdarkly.com"
   },
   "categories": ["apm", "monitoring", "alerts"],
   "icons": {
-    "square": "assets/images/square.svg",
-    "rectangular": "assets/images/rectangular.svg"
+    "square": "assets/images/dd_icon_rgb.svg",
+    "rectangular": "assets/images/dd_logo_h_rbg.svg"
   },
   "authentication": {
     "type": "token",
     "label": "API key",
     "hint": "Enter API key from your account",
     "acceptedAs": {
-      "type": "header",
-      "name": "X-Custom-Auth"
+      "type": "query-param",
+      "name": "api_key"
     }
   },
   "capabilities": {
     "auditLogEventsHook": {
-      "receivingEndpoint": "https://example.com/webhookin",
+      "receivingEndpoint": "https://api.datadoghq.com/api/v1/events",
       "method": "post",
       "contentType": "application/json",
       "templates": {

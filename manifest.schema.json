@@ -352,6 +352,7 @@
                         "enum": [
                             "receivingEndpoint",
                             "method",
+                            "contentType",
                             "templates",
                             "defaultPolicy"
                         ]
@@ -373,6 +374,18 @@
                                 "post",
                                 "put",
                                 "patch"
+                            ]
+                        },
+                        "contentType": {
+                            "$id": "#/properties/capability/audit-log-events-hook/content-type",
+                            "title": "Content type",
+                            "description": "The content-type your endpoint expects to receive",
+                            "type": "string",
+                            "default": "application/json",
+                            "minLength": 3,
+                            "examples": [
+                                "application/json",
+                                "application/xml"
                             ]
                         },
                         "templates": {
@@ -500,7 +513,8 @@
                     },
                     "required": [
                         "receivingEndpoint",
-                        "method"
+                        "method",
+                        "contentType"
                     ]
                 }
             },

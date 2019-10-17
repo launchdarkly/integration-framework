@@ -2,7 +2,7 @@
   "json.schemas": [
     {
       "fileMatch": ["manifest.json"],
-      "url": "./_schemas/manifest.schema.json"
+      "url": "./manifest.schema.json"
     }
   ]
 }
