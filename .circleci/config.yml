@@ -9,7 +9,6 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-      # - aws-cli/install
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
@@ -25,5 +24,6 @@ jobs:
       - run:
           name: Run tests
           command: yarn test
+      - aws-cli/install
       - deploy:
           command: ./scripts/copy_to_s3.sh
