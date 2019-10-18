@@ -170,172 +170,92 @@
                     "description": "Specify the authentication method required by your integration",
                     "type": "string",
                     "enum": [
-                        "none",
                         "token"
                     ]
+                },
+                "label": {
+                    "$id": "#/properties/authentication/label",
+                    "title": "Token",
+                    "description": "Label to use in the LaunchDarkly UI describing you token",
+                    "examples": [
+                        "API key",
+                        "API token"
+                    ],
+                    "type": "string"
+                },
+                "hint": {
+                    "$id": "#/properties/authentication/hint",
+                    "title": "Hint",
+                    "description": "A placeholder hint used in the LaunchDarkly UI describing your token",
+                    "examples": [
+                        "Enter API key from your SpaceXYZ account"
+                    ],
+                    "type": "string"
+                },
+                "acceptedAs": {
+                    "$id": "#/properties/authentication/acceptedAs",
+                    "title": "Token accepted as...",
+                    "description": "Specify how your token should be provided in the request to your service",
+                    "type": "object",
+                    "properties": {
+                        "type": {
+                            "$id": "#/properties/authentication/acceptedAs/type",
+                            "title": "Type",
+                            "description": "Specify the method in which your token is provided in the request. In most cases, tokens are either passed through query parameter or a header.",
+                            "type": "string",
+                            "enum": [
+                                "query-param",
+                                "header"
+                            ]
+                        },
+                        "name": {
+                            "$id": "#/properties/authentication/acceptedAs/type/param-name",
+                            "title": "Query parameter or header name",
+                            "description": "Specify the name of the query parameter or header you'd like to use",
+                            "type": "string",
+                            "examples": [
+                                "token",
+                                "key",
+                                "X-App-Token"
+                            ]
+                        },
+                        "prefix": {
+                            "$id": "#/properties/authentication/acceptedAs/type/header-value-prefix",
+                            "title": "Header value prefix",
+                            "description": "If your token needs to be padded with a prefix, specify it here",
+                            "type": "string",
+                            "examples": [
+                                "Bearer "
+                            ]
+                        }
+                    },
+                    "required": [
+                        "type",
+                        "name"
+                    ],
+                    "propertyNames": {
+                        "enum": [
+                            "type",
+                            "name",
+                            "prefix"
+                        ]
+                    }
                 }
             },
-            "allOf": [
-                {
-                    "if": {
-                        "properties": {
-                            "type": {
-                                "const": "none"
-                            }
-                        }
-                    },
-                    "then": {
-                        "propertyNames": {
-                            "enum": [
-                                "type"
-                            ]
-                        }
-                    }
-                },
-                {
-                    "if": {
-                        "properties": {
-                            "type": {
-                                "const": "token"
-                            }
-                        }
-                    },
-                    "then": {
-                        "properties": {
-                            "label": {
-                                "$id": "#/properties/authentication/label",
-                                "title": "Token",
-                                "description": "Label to use in the LaunchDarkly UI describing you token",
-                                "examples": [
-                                    "API key",
-                                    "API token"
-                                ],
-                                "type": "string"
-                            },
-                            "hint": {
-                                "$id": "#/properties/authentication/hint",
-                                "title": "Hint",
-                                "description": "A placeholder hint used in the LaunchDarkly UI describing your token",
-                                "examples": [
-                                    "Enter API key from your SpaceXYZ account"
-                                ],
-                                "type": "string"
-                            },
-                            "acceptedAs": {
-                                "$id": "#/properties/authentication/acceptedAs",
-                                "title": "Token accepted as...",
-                                "description": "Specify how your token should be provided in the request to your service",
-                                "type": "object",
-                                "properties": {
-                                    "type": {
-                                        "$id": "#/properties/authentication/acceptedAs/type",
-                                        "title": "Type",
-                                        "description": "Specify the method in which your token is provided in the request. In most cases, tokens are either passed through query parameter or a header.",
-                                        "type": "string",
-                                        "enum": [
-                                            "query-param",
-                                            "header"
-                                        ]
-                                    }
-                                },
-                                "allOf": [
-                                    {
-                                        "if": {
-                                            "properties": {
-                                                "type": {
-                                                    "const": "query-param"
-                                                }
-                                            }
-                                        },
-                                        "then": {
-                                            "properties": {
-                                                "name": {
-                                                    "$id": "#/properties/authentication/acceptedAs/type/query-param-name",
-                                                    "title": "Query parameter name",
-                                                    "description": "Specify the name of the query parameter you'd like to use",
-                                                    "type": "string",
-                                                    "examples": [
-                                                        "token",
-                                                        "key"
-                                                    ]
-                                                }
-                                            },
-                                            "required": [
-                                                "name"
-                                            ],
-                                            "propertyNames": {
-                                                "enum": [
-                                                    "type",
-                                                    "name"
-                                                ]
-                                            }
-                                        }
-                                    },
-                                    {
-                                        "if": {
-                                            "properties": {
-                                                "type": {
-                                                    "const": "header"
-                                                }
-                                            }
-                                        },
-                                        "then": {
-                                            "properties": {
-                                                "name": {
-                                                    "$id": "#/properties/authentication/acceptedAs/type/header-name",
-                                                    "title": "Header name",
-                                                    "description": "Specify the name of the header you'd like to use",
-                                                    "type": "string",
-                                                    "examples": [
-                                                        "Authorization",
-                                                        "X-SpaceXYZ-Auth"
-                                                    ]
-                                                },
-                                                "prefix": {
-                                                    "$id": "#/properties/authentication/acceptedAs/type/header-value-prefix",
-                                                    "title": "Header value prefix",
-                                                    "description": "If your token needs to be padded with a prefix, specify it here",
-                                                    "type": "string",
-                                                    "examples": [
-                                                        "Bearer "
-                                                    ]
-                                                }
-                                            },
-                                            "required": [
-                                                "name"
-                                            ],
-                                            "propertyNames": {
-                                                "enum": [
-                                                    "type",
-                                                    "name",
-                                                    "prefix"
-                                                ]
-                                            }
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        "required": [
-                            "type",
-                            "label",
-                            "hint",
-                            "acceptedAs"
-                        ],
-                        "propertyNames": {
-                            "enum": [
-                                "type",
-                                "label",
-                                "hint",
-                                "acceptedAs"
-                            ]
-                        }
-                    }
-                }
-            ],
             "required": [
-                "type"
-            ]
+                "type",
+                "label",
+                "hint",
+                "acceptedAs"
+            ],
+            "propertyNames": {
+                "enum": [
+                    "type",
+                    "label",
+                    "hint",
+                    "acceptedAs"
+                ]
+            }
         },
         "capabilities": {
             "$id": "#/properties/capabilities",
@@ -393,23 +313,32 @@
                             "title": "Webhook body template",
                             "description": "Templates to use for body of the webhook request",
                             "type": "object",
-                            "anyOf": [
-                                {
-                                    "propertyNames": {
-                                        "enum": [
-                                            "flag",
-                                            "project",
-                                            "environment",
-                                            "metric"
-                                        ]
-                                    },
-                                    "patternProperties": {
-                                        "": {
-                                            "type": "string"
-                                        }
-                                    }
+                            "properties": {
+                                "flag": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/templates/flag",
+                                    "title": "Flag template",
+                                    "description": "Template to use for flag events",
+                                    "type": "string"
+                                },
+                                "project": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/templates/project",
+                                    "title": "Project template",
+                                    "description": "Template to use for project events",
+                                    "type": "string"
+                                },
+                                "environment": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/templates/environment",
+                                    "title": "Environment template",
+                                    "description": "Template to use for environment events",
+                                    "type": "string"
+                                },
+                                "metric": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/templates/metric",
+                                    "title": "Metric template",
+                                    "description": "Template to use for metric events",
+                                    "type": "string"
                                 }
-                            ]
+                            }
                         },
                         "defaultPolicy": {
                             "$id": "#/properties/capability/audit-log-events-hook/default-policy",
@@ -530,7 +459,6 @@
         "links",
         "categories",
         "icons",
-        "authentication",
         "capabilities"
     ]
 }
