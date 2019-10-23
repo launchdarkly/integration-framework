@@ -1,18 +1,18 @@
 {
-  "name": "Datadog",
+  "name": "Microsoft Teams",
   "version": "1.0.0",
   "overview": "Send audit log events to your Datadog dashboards",
-  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Datadog. These events can provide context to your Datadog dashboards.",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Microsoft Teams.",
   "author": "LaunchDarkly",
   "links": {
-    "site": "https://docs.launchdarkly.com/docs/datadog",
-    "privacyPolicy": "https://www.datadoghq.com/legal/privacy/",
+    "site": "https://docs.launchdarkly.com/docs/msteams",
+    "privacyPolicy": "https://privacy.microsoft.com/en-us",
     "supportEmail": "support@launchdarkly.com"
   },
-  "categories": ["apm", "monitoring", "alerts"],
+  "categories": ["monitoring", "alerts"],
   "icons": {
-    "square": "assets/images/dd_icon_rgb.svg",
-    "rectangular": "assets/images/dd_logo_h_rbg.svg"
+    "square": "assets/images/microsoft-teams.svg",
+    "rectangular": "assets/images/microsoft-teams.svg"
   },
   "authentication": {
     "type": "token",
@@ -25,7 +25,7 @@
   },
   "capabilities": {
     "auditLogEventsHook": {
-      "receivingEndpoint": "https://api.datadoghq.com/api/v1/events",
+      "receivingEndpoint": "https://api.microsoft.com/api/v1/events",
       "method": "post",
       "contentType": "application/json",
       "templates": {

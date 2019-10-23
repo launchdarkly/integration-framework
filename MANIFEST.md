@@ -14,7 +14,7 @@ Describes the capabilities and intent of a LaunchDarkly integration
 
 | Property                          | Type     | Required     | Nullable | Defined by                                       |
 | --------------------------------- | -------- | ------------ | -------- | ------------------------------------------------ |
-| [authentication](#authentication) | `object` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [authentication](#authentication) | `object` | Optional     | No       | LaunchDarkly Integrations Manifest (this schema) |
 | [author](#author)                 | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
 | [capabilities](#capabilities)     | `object` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
 | [categories](#categories)         | `enum[]` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
@@ -33,7 +33,7 @@ Specify the authentication method required by your integration
 
 `authentication`
 
-- is **required**
+- is optional
 - type: `object`
 - defined in this schema
 
@@ -41,9 +41,150 @@ Specify the authentication method required by your integration
 
 `object` with following properties:
 
+| Property     | Type   | Required     |
+| ------------ | ------ | ------------ |
+| `acceptedAs` | object | **Required** |
+| `hint`       | string | **Required** |
+| `label`      | string | **Required** |
+| `type`       | string | **Required** |
+
+#### acceptedAs
+
+##### Token accepted as...
+
+Specify how your token should be provided in the request to your service
+
+`acceptedAs`
+
+- is **required**
+- type: `object`
+
+##### acceptedAs Type
+
+`object` with following properties:
+
 | Property | Type   | Required     |
 | -------- | ------ | ------------ |
+| `name`   | string | **Required** |
+| `prefix` | string | Optional     |
 | `type`   | string | **Required** |
+
+#### name
+
+##### Query parameter or header name
+
+Specify the name of the query parameter or header you'd like to use
+
+`name`
+
+- is **required**
+- type: `string`
+
+##### name Type
+
+`string`
+
+##### name Examples
+
+```json
+token
+```
+
+```json
+key
+```
+
+```json
+X - App - Token
+```
+
+#### prefix
+
+##### Header value prefix
+
+If your token needs to be padded with a prefix, specify it here
+
+`prefix`
+
+- is optional
+- type: `string`
+
+##### prefix Type
+
+`string`
+
+##### prefix Example
+
+```json
+Bearer
+```
+
+#### type
+
+##### Type
+
+Specify the method in which your token is provided in the request. In most cases, tokens are either passed through
+query parameter or a header.
+
+`type`
+
+- is **required**
+- type: `enum`
+
+The value of this property **must** be equal to one of the [known values below](#authentication-known-values).
+
+##### type Known Values
+
+| Value         | Description |
+| ------------- | ----------- |
+| `query-param` |             |
+| `header`      |             |
+
+#### hint
+
+##### Hint
+
+A placeholder hint used in the LaunchDarkly UI describing your token
+
+`hint`
+
+- is **required**
+- type: `string`
+
+##### hint Type
+
+`string`
+
+##### hint Example
+
+```json
+Enter API key from your SpaceXYZ account
+```
+
+#### label
+
+##### Token
+
+Label to use in the LaunchDarkly UI describing you token
+
+`label`
+
+- is **required**
+- type: `string`
+
+##### label Type
+
+`string`
+
+##### label Examples
+
+```json
+API key
+```
+
+```json
+API token
+```
 
 #### type
 
@@ -62,7 +203,6 @@ The value of this property **must** be equal to one of the [known values below](
 
 | Value   | Description |
 | ------- | ----------- |
-| `none`  |             |
 | `token` |             |
 
 ## author
@@ -387,9 +527,72 @@ Templates to use for body of the webhook request
 
 `object` with following properties:
 
-| Property | Type | Required |
-| -------- | ---- | -------- |
+| Property      | Type   | Required |
+| ------------- | ------ | -------- |
+| `environment` | string | Optional |
+| `flag`        | string | Optional |
+| `metric`      | string | Optional |
+| `project`     | string | Optional |
 
+#### environment
+
+##### Environment template
+
+Template to use for environment events
+
+`environment`
+
+- is optional
+- type: `string`
+
+##### environment Type
+
+`string`
+
+#### flag
+
+##### Flag template
+
+Template to use for flag events
+
+`flag`
+
+- is optional
+- type: `string`
+
+##### flag Type
+
+`string`
+
+#### metric
+
+##### Metric template
+
+Template to use for metric events
+
+`metric`
+
+- is optional
+- type: `string`
+
+##### metric Type
+
+`string`
+
+#### project
+
+##### Project template
+
+Template to use for project events
+
+`project`
+
+- is optional
+- type: `string`
+
+##### project Type
+
+`string`
 
 ## categories
 
@@ -622,12 +825,7 @@ Your integration's name. No spaces
 `string`
 
 - minimum length: 3 characters
-- maximum length: 50 characters All instances must conform to this regular expression (test examples
-  [here](https://regexr.com/?expression=%5E%5CS*%24)):
-
-```regex
-^\S*$
-```
+- maximum length: 100 characters
 
 ## overview
 

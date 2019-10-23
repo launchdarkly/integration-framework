@@ -11,9 +11,8 @@
             "title": "Integration name",
             "description": "Your integration's name. No spaces",
             "minLength": 3,
-            "maxLength": 50,
-            "type": "string",
-            "pattern": "^\\S*$"
+            "maxLength": 100,
+            "type": "string"
         },
         "version": {
             "$id": "#/properties/version",
