@@ -255,6 +255,74 @@
                 ]
             }
         },
+        "formVariables": {
+            "$id": "#/properties/formVariables",
+            "title": "Form variables",
+            "description": "Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.",
+            "type": "array",
+            "items": {
+                "$id": "#/properties/formVariables/variable",
+                "title": "Form variable",
+                "description": "A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an integration.",
+                "type": "object",
+                "propertyNames": {
+                    "enum": [
+                        "key",
+                        "name",
+                        "type",
+                        "description",
+                        "isSecret"
+                    ]
+                },
+                "properties": {
+                    "key": {
+                        "$id": "#/properties/formVariables/variable/key",
+                        "title": "Key",
+                        "type": "string",
+                        "description": "A key will be used as the token name when the variable is substituted",
+                        "maxLength": 20,
+                        "pattern": "^[^\\s]*$"
+                    },
+                    "name": {
+                        "$id": "#/properties/formVariables/variable/name",
+                        "title": "Name",
+                        "type": "string",
+                        "description": "A descriptive name that will be used as the form label on the UI",
+                        "maxLength": 50
+                    },
+                    "type": {
+                        "$id": "#/properties/formVariables/variable/type",
+                        "title": "Type",
+                        "type": "string",
+                        "description": "The type of the variable",
+                        "enum": [
+                            "string",
+                            "boolean",
+                            "uri"
+                        ]
+                    },
+                    "description": {
+                        "$id": "#/properties/formVariables/variable/description",
+                        "title": "Description",
+                        "type": "string",
+                        "description": "Describes the variable in the UI. Markdown links allowed.",
+                        "maxLength": 250
+                    },
+                    "isSecret": {
+                        "$id": "#/properties/formVariables/variable/is-secret",
+                        "title": "Is this variable a secret",
+                        "type": "boolean",
+                        "description": "Secret variables will be masked in the UI"
+                    }
+                },
+                "required": [
+                    "key",
+                    "name",
+                    "type",
+                    "description"
+                ]
+            }
+        },
         "capabilities": {
             "$id": "#/properties/capabilities",
             "title": "Capabilities",
@@ -268,7 +336,7 @@
                     "type": "object",
                     "propertyNames": {
                         "enum": [
-                            "receivingEndpoint",
+                            "endpoint",
                             "method",
                             "contentType",
                             "templates",
@@ -276,34 +344,49 @@
                         ]
                     },
                     "properties": {
-                        "receivingEndpoint": {
+                        "endpoint": {
                             "$id": "#/properties/capability/audit-log-events-hook/receiving-endpoint",
-                            "title": "Endpoint URL",
-                            "description": "URL where you'd like LaunchDarkly to send webhooks to",
-                            "type": "string",
-                            "maxLength": 2048,
-                            "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
-                        },
-                        "method": {
-                            "$id": "#/properties/capability/audit-log-events-hook/method",
-                            "title": "HTTP method",
-                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                            "enum": [
-                                "post",
-                                "put",
-                                "patch"
-                            ]
-                        },
-                        "contentType": {
-                            "$id": "#/properties/capability/audit-log-events-hook/content-type",
-                            "title": "Content type",
-                            "description": "The content-type your endpoint expects to receive",
-                            "type": "string",
-                            "default": "application/json",
-                            "minLength": 3,
-                            "examples": [
-                                "application/json",
-                                "application/xml"
+                            "title": "Endpoint",
+                            "description": "Properties that describe the HTTP endpoint LaunchDarkly will send hooks to",
+                            "type": "object",
+                            "propertyNames": {
+                                "enum": [
+                                    "url",
+                                    "method",
+                                    "headers"
+                                ]
+                            },
+                            "properties": {
+                                "method": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/method",
+                                    "title": "HTTP method",
+                                    "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                                    "enum": [
+                                        "post",
+                                        "put",
+                                        "patch"
+                                    ],
+                                    "default": "post"
+                                },
+                                "headers": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/headers",
+                                    "title": "Headers",
+                                    "description": "Headers to send with the webhook request",
+                                    "type": "object",
+                                    "default": {
+                                        "Content-Type": "application/json"
+                                    },
+                                    "examples": [
+                                        {
+                                            "Content-Type": "application/json",
+                                            "Authorization": "Bearer {{apiToken}}"
+                                        }
+                                    ],
+                                    "minProperties": 1
+                                }
+                            },
+                            "required": [
+                                "url"
                             ]
                         },
                         "templates": {
@@ -439,9 +522,7 @@
                         }
                     },
                     "required": [
-                        "receivingEndpoint",
-                        "method",
-                        "contentType"
+                        "endpoint"
                     ]
                 }
             },

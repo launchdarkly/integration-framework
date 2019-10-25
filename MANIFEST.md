@@ -12,18 +12,20 @@ Describes the capabilities and intent of a LaunchDarkly integration
 
 # LaunchDarkly Integrations Manifest Properties
 
-| Property                          | Type     | Required     | Nullable | Defined by                                       |
-| --------------------------------- | -------- | ------------ | -------- | ------------------------------------------------ |
-| [authentication](#authentication) | `object` | Optional     | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [author](#author)                 | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [capabilities](#capabilities)     | `object` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [categories](#categories)         | `enum[]` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [description](#description)       | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [icons](#icons)                   | `object` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [links](#links)                   | `object` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [name](#name)                     | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [overview](#overview)             | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [version](#version)               | `string` | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| Property                          | Type       | Required     | Nullable | Defined by                                       |
+| --------------------------------- | ---------- | ------------ | -------- | ------------------------------------------------ |
+| [authentication](#authentication) | `object`   | Optional     | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [author](#author)                 | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [capabilities](#capabilities)     | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [categories](#categories)         | `enum[]`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [description](#description)       | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [formVariables](#formvariables)   | `object[]` | Optional     | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [icons](#icons)                   | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [links](#links)                   | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [name](#name)                     | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [overview](#overview)             | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [supportEmail](#supportemail)     | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [version](#version)               | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
 
 ## authentication
 
@@ -264,41 +266,11 @@ This capability will enable LaunchDarkly to send audit log event webhooks to you
 
 `object` with following properties:
 
-| Property            | Type   | Required     | Default              |
-| ------------------- | ------ | ------------ | -------------------- |
-| `contentType`       | string | **Required** | `"application/json"` |
-| `defaultPolicy`     | array  | Optional     |                      |
-| `method`            |        | **Required** |                      |
-| `receivingEndpoint` | string | **Required** |                      |
-| `templates`         | object | Optional     |                      |
-
-#### contentType
-
-##### Content type
-
-The content-type your endpoint expects to receive
-
-`contentType`
-
-- is **required**
-- type: `string`
-- default: `"application/json"`
-
-##### contentType Type
-
-`string`
-
-- minimum length: 3 characters
-
-##### contentType Examples
-
-```json
-application / json
-```
-
-```json
-application / xml
-```
+| Property        | Type   | Required     |
+| --------------- | ------ | ------------ |
+| `defaultPolicy` | array  | Optional     |
+| `endpoint`      | object | **Required** |
+| `templates`     | object | Optional     |
 
 #### defaultPolicy
 
@@ -469,6 +441,52 @@ proj/*:env/production:flag/*
 
 A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.
 
+#### endpoint
+
+##### Endpoint
+
+Properties that describe the HTTP endpoint LaunchDarkly will send hooks to
+
+`endpoint`
+
+- is **required**
+- type: `object`
+
+##### endpoint Type
+
+`object` with following properties:
+
+| Property  | Type   | Required | Default                               |
+| --------- | ------ | -------- | ------------------------------------- |
+| `headers` | object | Optional | `{"Content-Type":"application/json"}` |
+| `method`  |        | Optional | `"post"`                              |
+
+#### headers
+
+##### Headers
+
+Headers to send with the webhook request
+
+`headers`
+
+- is optional
+- type: `object`
+- default: `{"Content-Type":"application/json"}`
+
+##### headers Type
+
+`object` with following properties:
+
+| Property | Type | Required |
+| -------- | ---- | -------- |
+
+
+##### headers Example
+
+```json
+[object Object]
+```
+
 #### method
 
 ##### HTTP method
@@ -477,8 +495,9 @@ HTTP method to use when LaunchDarkly makes the request to your endpoint
 
 `method`
 
-- is **required**
+- is optional
 - type: `enum`
+- default: `"post"`
 
 The value of this property **must** be equal to one of the [known values below](#capabilities-known-values).
 
@@ -489,28 +508,6 @@ The value of this property **must** be equal to one of the [known values below](
 | `post`  |             |
 | `put`   |             |
 | `patch` |             |
-
-#### receivingEndpoint
-
-##### Endpoint URL
-
-URL where you'd like LaunchDarkly to send webhooks to
-
-`receivingEndpoint`
-
-- is **required**
-- type: `string`
-
-##### receivingEndpoint Type
-
-`string`
-
-- maximum length: 2048 characters All instances must conform to this regular expression (test examples
-  [here](https://regexr.com/?expression=%5E%5BHh%5D%5BTt%5D%5BTt%5D%5BPp%5D%5BSs%5D%3F%3A%2F%2F)):
-
-```regex
-^[Hh][Tt][Tt][Pp][Ss]?://
-```
 
 #### templates
 
@@ -637,6 +634,128 @@ A longer description of your integration
 ^(.*)$
 ```
 
+## formVariables
+
+### Form variables
+
+Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply
+when they enable the integration. Examples of a form variable include `apiToken` or `url`.
+
+`formVariables`
+
+- is optional
+- type: `object[]`
+- defined in this schema
+
+### formVariables Type
+
+Array type: `object[]`
+
+All items must be of the type: `object` with following properties:
+
+| Property      | Type    | Required     |
+| ------------- | ------- | ------------ |
+| `description` | string  | **Required** |
+| `isSecret`    | boolean | Optional     |
+| `key`         | string  | **Required** |
+| `name`        | string  | **Required** |
+| `type`        | string  | **Required** |
+
+#### description
+
+##### Description
+
+Describes the variable in the UI. Markdown links allowed.
+
+`description`
+
+- is **required**
+- type: `string`
+
+##### description Type
+
+`string`
+
+- maximum length: 250 characters
+
+#### isSecret
+
+##### Is this variable a secret
+
+Secret variables will be masked in the UI
+
+`isSecret`
+
+- is optional
+- type: `boolean`
+
+##### isSecret Type
+
+`boolean`
+
+#### key
+
+##### Key
+
+A key will be used as the token name when the variable is substituted
+
+`key`
+
+- is **required**
+- type: `string`
+
+##### key Type
+
+`string`
+
+- maximum length: 20 characters All instances must conform to this regular expression (test examples
+  [here](https://regexr.com/?expression=%5E%5B%5E%5Cs%5D*%24)):
+
+```regex
+^[^\s]*$
+```
+
+#### name
+
+##### Name
+
+A descriptive name that will be used as the form label on the UI
+
+`name`
+
+- is **required**
+- type: `string`
+
+##### name Type
+
+`string`
+
+- maximum length: 50 characters
+
+#### type
+
+##### Type
+
+The type of the variable
+
+`type`
+
+- is **required**
+- type: `enum`
+
+The value of this property **must** be equal to one of the [known values below](#formvariables-known-values).
+
+##### type Known Values
+
+| Value     | Description |
+| --------- | ----------- |
+| `string`  |             |
+| `boolean` |             |
+| `uri`     |             |
+
+A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an
+integration.
+
 ## icons
 
 ### Icons
@@ -722,7 +841,6 @@ A set of reference links supporting your integration
 | ---------------- | ------ | ------------ |
 | `privacyPolicy`  | string | **Required** |
 | `site`           | string | **Required** |
-| `supportEmail`   | string | **Required** |
 | `supportWebsite` | string | Optional     |
 
 #### privacyPolicy
@@ -769,23 +887,6 @@ URL to your website
 ^[Hh][Tt][Tt][Pp][Ss]?://
 ```
 
-#### supportEmail
-
-##### Support Email
-
-Email address for your integration's support
-
-`supportEmail`
-
-- is **required**
-- type: `string`
-
-##### supportEmail Type
-
-`string`
-
-- format: `email` – email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
-
 #### supportWebsite
 
 ##### Support Website
@@ -812,7 +913,7 @@ URL to your integration's support website
 
 ### Integration name
 
-Your integration's name. No spaces
+Your integration's name.
 
 `name`
 
@@ -850,6 +951,24 @@ A short-one liner describing your integration
 ```regex
 ^(.*)$
 ```
+
+## supportEmail
+
+### Support Email
+
+Email address for your integration's support
+
+`supportEmail`
+
+- is **required**
+- type: `string`
+- defined in this schema
+
+### supportEmail Type
+
+`string`
+
+- format: `email` – email address (according to [RFC 5322, section 3.4.1](https://tools.ietf.org/html/rfc5322))
 
 ## version
 
