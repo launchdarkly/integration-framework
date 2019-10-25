@@ -275,10 +275,11 @@ Properties that describe the HTTP endpoint LaunchDarkly will send hooks to
 
 `object` with following properties:
 
-| Property  | Type  | Required | Default                                                |
-| --------- | ----- | -------- | ------------------------------------------------------ |
-| `headers` | array | Optional | `[{"name":"Content-Type","value":"application/json"}]` |
-| `method`  |       | Optional | `"post"`                                               |
+| Property  | Type   | Required     | Default                                                |
+| --------- | ------ | ------------ | ------------------------------------------------------ |
+| `headers` | array  | Optional     | `[{"name":"Content-Type","value":"application/json"}]` |
+| `method`  |        | Optional     | `"post"`                                               |
+| `url`     | string | **Required** |                                                        |
 
 #### headers
 
@@ -373,6 +374,21 @@ The value of this property **must** be equal to one of the [known values below](
 | `post`  |             |
 | `put`   |             |
 | `patch` |             |
+
+#### url
+
+##### URL
+
+URL to send the request to
+
+`url`
+
+- is **required**
+- type: `string`
+
+##### url Type
+
+`string`
 
 #### templates
 
