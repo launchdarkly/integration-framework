@@ -28,9 +28,12 @@
       "endpoint": {
         "url": "https://api.datadoghq.com/api/v1/events/?api_key={{apitoken}}",
         "method": "post",
-        "headers": {
-          "Content-Type": "application/json"
-        }
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
       },
       "templates": {
         "flag": "templates/template.json",

@@ -19,9 +19,12 @@
       "endpoint": {
         "url": "https://example.com/webhookin",
         "method": "post",
-        "headers": {
-          "Content-Type": "application/json"
-        }
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
       },
       "templates": {
         "flag": "templates/template.json",

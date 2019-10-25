@@ -156,105 +156,6 @@
                 "rectangular"
             ]
         },
-        "authentication": {
-            "$id": "#/properties/authentication",
-            "title": "Authentication",
-            "description": "Specify the authentication method required by your integration",
-            "type": "object",
-            "properties": {
-                "type": {
-                    "$id": "#/properties/authentication/type",
-                    "title": "Auth Type",
-                    "description": "Specify the authentication method required by your integration",
-                    "type": "string",
-                    "enum": [
-                        "token"
-                    ]
-                },
-                "label": {
-                    "$id": "#/properties/authentication/label",
-                    "title": "Token",
-                    "description": "Label to use in the LaunchDarkly UI describing you token",
-                    "examples": [
-                        "API key",
-                        "API token"
-                    ],
-                    "type": "string"
-                },
-                "hint": {
-                    "$id": "#/properties/authentication/hint",
-                    "title": "Hint",
-                    "description": "A placeholder hint used in the LaunchDarkly UI describing your token",
-                    "examples": [
-                        "Enter API key from your SpaceXYZ account"
-                    ],
-                    "type": "string"
-                },
-                "acceptedAs": {
-                    "$id": "#/properties/authentication/acceptedAs",
-                    "title": "Token accepted as...",
-                    "description": "Specify how your token should be provided in the request to your service",
-                    "type": "object",
-                    "properties": {
-                        "type": {
-                            "$id": "#/properties/authentication/acceptedAs/type",
-                            "title": "Type",
-                            "description": "Specify the method in which your token is provided in the request. In most cases, tokens are either passed through query parameter or a header.",
-                            "type": "string",
-                            "enum": [
-                                "query-param",
-                                "header"
-                            ]
-                        },
-                        "name": {
-                            "$id": "#/properties/authentication/acceptedAs/type/param-name",
-                            "title": "Query parameter or header name",
-                            "description": "Specify the name of the query parameter or header you'd like to use",
-                            "type": "string",
-                            "examples": [
-                                "token",
-                                "key",
-                                "X-App-Token"
-                            ]
-                        },
-                        "prefix": {
-                            "$id": "#/properties/authentication/acceptedAs/type/header-value-prefix",
-                            "title": "Header value prefix",
-                            "description": "If your token needs to be padded with a prefix, specify it here",
-                            "type": "string",
-                            "examples": [
-                                "Bearer "
-                            ]
-                        }
-                    },
-                    "required": [
-                        "type",
-                        "name"
-                    ],
-                    "propertyNames": {
-                        "enum": [
-                            "type",
-                            "name",
-                            "prefix"
-                        ]
-                    }
-                }
-            },
-            "required": [
-                "type",
-                "label",
-                "hint",
-                "acceptedAs"
-            ],
-            "propertyNames": {
-                "enum": [
-                    "type",
-                    "label",
-                    "hint",
-                    "acceptedAs"
-                ]
-            }
-        },
         "formVariables": {
             "$id": "#/properties/formVariables",
             "title": "Form variables",
@@ -372,14 +273,53 @@
                                     "$id": "#/properties/capability/audit-log-events-hook/headers",
                                     "title": "Headers",
                                     "description": "Headers to send with the webhook request",
-                                    "type": "object",
-                                    "default": {
-                                        "Content-Type": "application/json"
+                                    "type": "array",
+                                    "items": {
+                                        "$id": "#/properties/capability/audit-log-events-hook/header/items",
+                                        "title": "Header items",
+                                        "description": "A name and value pair to send as headers with the hook request",
+                                        "type": "object",
+                                        "propertyNames": {
+                                            "enum": [
+                                                "name",
+                                                "value"
+                                            ]
+                                        },
+                                        "properties": {
+                                            "name": {
+                                                "$id": "#/properties/fcapability/audit-log-events-hook/header/items/name",
+                                                "title": "Name",
+                                                "type": "string",
+                                                "description": "Name of the header",
+                                                "maxLength": 50,
+                                                "pattern": "^[^\\s]*$"
+                                            },
+                                            "value": {
+                                                "$id": "#/properties/fcapability/audit-log-events-hook/header/items/value",
+                                                "title": "Value",
+                                                "type": "string",
+                                                "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                                            }
+                                        },
+                                        "required": [
+                                            "name",
+                                            "value"
+                                        ]
                                     },
+                                    "default": [
+                                        {
+                                            "name": "Content-Type",
+                                            "value": "application/json"
+                                        }
+                                    ],
                                     "examples": [
                                         {
-                                            "Content-Type": "application/json",
-                                            "Authorization": "Bearer {{apiToken}}"
+                                            "name": "Content-Type",
+                                            "value": "application/json"
+                                        },
+                                        {
+                                            "name": "Authorization",
+                                            "value": "Bearer {{apiToken}}"
                                         }
                                     ],
                                     "minProperties": 1

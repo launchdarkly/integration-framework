@@ -12,200 +12,19 @@ Describes the capabilities and intent of a LaunchDarkly integration
 
 # LaunchDarkly Integrations Manifest Properties
 
-| Property                          | Type       | Required     | Nullable | Defined by                                       |
-| --------------------------------- | ---------- | ------------ | -------- | ------------------------------------------------ |
-| [authentication](#authentication) | `object`   | Optional     | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [author](#author)                 | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [capabilities](#capabilities)     | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [categories](#categories)         | `enum[]`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [description](#description)       | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [formVariables](#formvariables)   | `object[]` | Optional     | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [icons](#icons)                   | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [links](#links)                   | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [name](#name)                     | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [overview](#overview)             | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [supportEmail](#supportemail)     | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [version](#version)               | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-
-## authentication
-
-### Authentication
-
-Specify the authentication method required by your integration
-
-`authentication`
-
-- is optional
-- type: `object`
-- defined in this schema
-
-### authentication Type
-
-`object` with following properties:
-
-| Property     | Type   | Required     |
-| ------------ | ------ | ------------ |
-| `acceptedAs` | object | **Required** |
-| `hint`       | string | **Required** |
-| `label`      | string | **Required** |
-| `type`       | string | **Required** |
-
-#### acceptedAs
-
-##### Token accepted as...
-
-Specify how your token should be provided in the request to your service
-
-`acceptedAs`
-
-- is **required**
-- type: `object`
-
-##### acceptedAs Type
-
-`object` with following properties:
-
-| Property | Type   | Required     |
-| -------- | ------ | ------------ |
-| `name`   | string | **Required** |
-| `prefix` | string | Optional     |
-| `type`   | string | **Required** |
-
-#### name
-
-##### Query parameter or header name
-
-Specify the name of the query parameter or header you'd like to use
-
-`name`
-
-- is **required**
-- type: `string`
-
-##### name Type
-
-`string`
-
-##### name Examples
-
-```json
-token
-```
-
-```json
-key
-```
-
-```json
-X - App - Token
-```
-
-#### prefix
-
-##### Header value prefix
-
-If your token needs to be padded with a prefix, specify it here
-
-`prefix`
-
-- is optional
-- type: `string`
-
-##### prefix Type
-
-`string`
-
-##### prefix Example
-
-```json
-Bearer
-```
-
-#### type
-
-##### Type
-
-Specify the method in which your token is provided in the request. In most cases, tokens are either passed through
-query parameter or a header.
-
-`type`
-
-- is **required**
-- type: `enum`
-
-The value of this property **must** be equal to one of the [known values below](#authentication-known-values).
-
-##### type Known Values
-
-| Value         | Description |
-| ------------- | ----------- |
-| `query-param` |             |
-| `header`      |             |
-
-#### hint
-
-##### Hint
-
-A placeholder hint used in the LaunchDarkly UI describing your token
-
-`hint`
-
-- is **required**
-- type: `string`
-
-##### hint Type
-
-`string`
-
-##### hint Example
-
-```json
-Enter API key from your SpaceXYZ account
-```
-
-#### label
-
-##### Token
-
-Label to use in the LaunchDarkly UI describing you token
-
-`label`
-
-- is **required**
-- type: `string`
-
-##### label Type
-
-`string`
-
-##### label Examples
-
-```json
-API key
-```
-
-```json
-API token
-```
-
-#### type
-
-##### Auth Type
-
-Specify the authentication method required by your integration
-
-`type`
-
-- is **required**
-- type: `enum`
-
-The value of this property **must** be equal to one of the [known values below](#authentication-known-values).
-
-##### type Known Values
-
-| Value   | Description |
-| ------- | ----------- |
-| `token` |             |
+| Property                        | Type       | Required     | Nullable | Defined by                                       |
+| ------------------------------- | ---------- | ------------ | -------- | ------------------------------------------------ |
+| [author](#author)               | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [capabilities](#capabilities)   | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [categories](#categories)       | `enum[]`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [description](#description)     | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [formVariables](#formvariables) | `object[]` | Optional     | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [icons](#icons)                 | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [links](#links)                 | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [name](#name)                   | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [overview](#overview)           | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [supportEmail](#supportemail)   | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| [version](#version)             | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
 
 ## author
 
@@ -456,10 +275,10 @@ Properties that describe the HTTP endpoint LaunchDarkly will send hooks to
 
 `object` with following properties:
 
-| Property  | Type   | Required | Default                               |
-| --------- | ------ | -------- | ------------------------------------- |
-| `headers` | object | Optional | `{"Content-Type":"application/json"}` |
-| `method`  |        | Optional | `"post"`                              |
+| Property  | Type  | Required | Default                                                |
+| --------- | ----- | -------- | ------------------------------------------------------ |
+| `headers` | array | Optional | `[{"name":"Content-Type","value":"application/json"}]` |
+| `method`  |       | Optional | `"post"`                                               |
 
 #### headers
 
@@ -470,18 +289,64 @@ Headers to send with the webhook request
 `headers`
 
 - is optional
-- type: `object`
-- default: `{"Content-Type":"application/json"}`
+- type: `object[]`
+- default: `[{"name":"Content-Type","value":"application/json"}]`
 
 ##### headers Type
 
-`object` with following properties:
+Array type: `object[]`
 
-| Property | Type | Required |
-| -------- | ---- | -------- |
+All items must be of the type: `object` with following properties:
 
+| Property | Type   | Required     |
+| -------- | ------ | ------------ |
+| `name`   | string | **Required** |
+| `value`  | string | **Required** |
 
-##### headers Example
+#### name
+
+##### Name
+
+Name of the header
+
+`name`
+
+- is **required**
+- type: `string`
+
+##### name Type
+
+`string`
+
+- maximum length: 50 characters All instances must conform to this regular expression (test examples
+  [here](https://regexr.com/?expression=%5E%5B%5E%5Cs%5D*%24)):
+
+```regex
+^[^\s]*$
+```
+
+#### value
+
+##### Value
+
+Value of the header. Form variables can be substituted in using {{variableName}}
+
+`value`
+
+- is **required**
+- type: `string`
+
+##### value Type
+
+`string`
+
+A name and value pair to send as headers with the hook request
+
+##### headers Examples
+
+```json
+[object Object]
+```
 
 ```json
 [object Object]
