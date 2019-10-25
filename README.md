@@ -1,5 +1,7 @@
 # LaunchDarkly integrations
 
+[![CircleCI](https://circleci.com/gh/launchdarkly/ld-integrations.svg?style=svg&circle-token=c12dfaa51d070b8bbc8dea0c0adf4c402b5b9123)](https://circleci.com/gh/launchdarkly/ld-integrations)
+
 Feature flags not only provide you control over your deployment and rollout, but
 also provides context to other related systems -- giving your team visibility
 into how your services react due to changes to flags. This repository contains
