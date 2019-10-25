@@ -258,6 +258,12 @@
                                 ]
                             },
                             "properties": {
+                                "url": {
+                                    "$id": "#/properties/capability/audit-log-events-hook/url",
+                                    "title": "URL",
+                                    "type": "string",
+                                    "description": "URL to send the request to"
+                                },
                                 "method": {
                                     "$id": "#/properties/capability/audit-log-events-hook/method",
                                     "title": "HTTP method",
