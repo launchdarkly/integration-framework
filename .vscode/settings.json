@@ -4,10 +4,5 @@
       "fileMatch": ["manifest.json"],
       "url": "./manifest.schema.json"
     }
-  ],
-  "workbench.colorCustomizations": {
-    "activityBar.background": "#44175F",
-    "titleBar.activeBackground": "#602184",
-    "titleBar.activeForeground": "#FDFBFE"
-  }
+  ]
 }

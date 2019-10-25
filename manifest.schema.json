@@ -9,7 +9,7 @@
         "name": {
             "$id": "#/properties/name",
             "title": "Integration name",
-            "description": "Your integration's name. No spaces",
+            "description": "Your integration's name.",
             "minLength": 3,
             "maxLength": 100,
             "type": "string"
@@ -55,6 +55,13 @@
             "maxLength": 100,
             "pattern": "^(.*)$"
         },
+        "supportEmail": {
+            "$id": "#/properties/links/support-email",
+            "title": "Support Email",
+            "description": "Email address for your integration's support",
+            "type": "string",
+            "format": "email"
+        },
         "links": {
             "$id": "#/properties/links",
             "title": "Links",
@@ -77,13 +84,6 @@
                     "maxLength": 2048,
                     "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
                 },
-                "supportEmail": {
-                    "$id": "#/properties/links/support-email",
-                    "title": "Support Email",
-                    "description": "Email address for your integration's support",
-                    "type": "string",
-                    "format": "email"
-                },
                 "supportWebsite": {
                     "$id": "#/properties/links/support-website",
                     "title": "Support Website",
@@ -95,8 +95,7 @@
             },
             "required": [
                 "site",
-                "privacyPolicy",
-                "supportEmail"
+                "privacyPolicy"
             ]
         },
         "categories": {
@@ -455,6 +454,7 @@
         "overview",
         "description",
         "author",
+        "supportEmail",
         "links",
         "categories",
         "icons",

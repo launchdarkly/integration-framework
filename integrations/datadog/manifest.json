@@ -4,10 +4,10 @@
   "overview": "Send audit log events to your Datadog dashboards",
   "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Datadog. These events can provide context to your Datadog dashboards.",
   "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://docs.launchdarkly.com/docs/datadog",
-    "privacyPolicy": "https://www.datadoghq.com/legal/privacy/",
-    "supportEmail": "support@launchdarkly.com"
+    "privacyPolicy": "https://www.datadoghq.com/legal/privacy/"
   },
   "categories": ["apm", "monitoring", "alerts"],
   "icons": {
