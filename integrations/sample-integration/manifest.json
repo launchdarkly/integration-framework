@@ -37,7 +37,7 @@
       "defaultPolicy": [
         {
           "effect": "allow",
-          "notResources": ["proj/*:env/production:flag/*"],
+          "resources": ["proj/*:env/production:flag/*"],
           "actions": ["*"]
         }
       ]
