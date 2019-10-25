@@ -17,7 +17,7 @@
   "authentication": {
     "type": "token",
     "label": "API key",
-    "hint": "Enter API key from your account",
+    "hint": "Enter API key from your account at [Sample integration](https://example.com)",
     "acceptedAs": {
       "type": "header",
       "name": "X-Custom-Auth"
