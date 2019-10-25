@@ -1,8 +1,8 @@
 {
-  "name": "Microsoft Teams",
+  "name": "Slack",
   "version": "1.0.0",
-  "overview": "Send audit log events to your Datadog dashboards",
-  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Microsoft Teams.",
+  "overview": "Send audit log events to your Slack channels",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Slack.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
