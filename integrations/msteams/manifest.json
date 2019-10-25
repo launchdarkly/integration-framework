@@ -4,10 +4,10 @@
   "overview": "Send audit log events to your Datadog dashboards",
   "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Microsoft Teams.",
   "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://docs.launchdarkly.com/docs/msteams",
-    "privacyPolicy": "https://privacy.microsoft.com/en-us",
-    "supportEmail": "support@launchdarkly.com"
+    "privacyPolicy": "https://privacy.microsoft.com/en-us"
   },
   "categories": ["monitoring", "alerts"],
   "icons": {

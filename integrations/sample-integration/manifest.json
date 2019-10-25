@@ -4,10 +4,10 @@
   "overview": "Short one-liner describing your integration",
   "description": "Send flag data to space. Markdown based description.",
   "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://example.com",
-    "privacyPolicy": "https://example.com/privacy",
-    "supportEmail": "support@example.com"
+    "privacyPolicy": "https://example.com/privacy"
   },
   "categories": ["apm", "monitoring", "alerts"],
   "icons": {
