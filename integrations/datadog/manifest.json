@@ -14,20 +14,24 @@
     "square": "assets/images/dd_icon_rgb.svg",
     "rectangular": "assets/images/dd_logo_h_rbg.svg"
   },
-  "authentication": {
-    "type": "token",
-    "label": "API key",
-    "hint": "Enter API key from your account",
-    "acceptedAs": {
-      "type": "query-param",
-      "name": "api_key"
+  "formVariables": [
+    {
+      "key": "apitoken",
+      "name": "Datadog API Token",
+      "type": "string",
+      "description": "Enter an API key from your [Datadog account](https://app.datadoghq.com/account/settings#api).",
+      "isSecret": true
     }
-  },
+  ],
   "capabilities": {
     "auditLogEventsHook": {
-      "receivingEndpoint": "https://api.datadoghq.com/api/v1/events",
-      "method": "post",
-      "contentType": "application/json",
+      "endpoint": {
+        "url": "https://api.datadoghq.com/api/v1/events/?api_key={{apitoken}}",
+        "method": "post",
+        "headers": {
+          "Content-Type": "application/json"
+        }
+      },
       "templates": {
         "flag": "templates/template.json",
         "project": "templates/template.json",

@@ -11,15 +11,15 @@
   },
   "categories": ["monitoring", "alerts"],
   "icons": {
-    "square": "assets/images/microsoft-teams.svg",
-    "rectangular": "assets/images/microsoft-teams.svg"
+    "square": "assets/images/Slack_Mark.svg",
+    "rectangular": "assets/images/Slack_RGB.svg"
   },
   "formVariables": [
     {
       "key": "url",
       "name": "Incoming Webhook URL",
       "type": "uri",
-      "description": "[Incoming Webhook URL](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/connectors/connectors-using#creating-messages-through-office-365-connectors) from Microsoft Teams",
+      "description": "The URL for one of your [Slack incoming webhooks](https://my.slack.com/apps/A0F7XDUAZ-incoming-webhooks)",
       "isSecret": false
     }
   ],
