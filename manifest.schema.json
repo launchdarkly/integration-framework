@@ -172,6 +172,7 @@
                         "name",
                         "type",
                         "description",
+                        "placeholder",
                         "isSecret"
                     ]
                 },
@@ -208,6 +209,12 @@
                         "type": "string",
                         "description": "Describes the variable in the UI. Markdown links allowed.",
                         "maxLength": 250
+                    },
+                    "placeholder": {
+                        "$id": "#/properties/formVariables/variable/placeholder",
+                        "title": "Description",
+                        "type": "string",
+                        "description": "Placeholder value to use in the form element if applicable"
                     },
                     "isSecret": {
                         "$id": "#/properties/formVariables/variable/is-secret",
