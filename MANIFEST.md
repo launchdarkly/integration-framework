@@ -540,6 +540,7 @@ All items must be of the type: `object` with following properties:
 | `isSecret`    | boolean | Optional     |
 | `key`         | string  | **Required** |
 | `name`        | string  | **Required** |
+| `placeholder` | string  | Optional     |
 | `type`        | string  | **Required** |
 
 #### description
@@ -612,6 +613,21 @@ A descriptive name that will be used as the form label on the UI
 `string`
 
 - maximum length: 50 characters
+
+#### placeholder
+
+##### Description
+
+Placeholder value to use in the form element if applicable
+
+`placeholder`
+
+- is optional
+- type: `string`
+
+##### placeholder Type
+
+`string`
 
 #### type
 
