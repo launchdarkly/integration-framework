@@ -1,0 +1,65 @@
+{
+  "name": "Honeycomb",
+  "version": "1.0.0",
+  "overview": "Send LaunchDarkly audit events to Honeycomb",
+  "description": "This integration sends LaunchDarkly audit events to Honeycomb.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://honeycomb.io",
+    "privacyPolicy": "https://honeycomb.io/privacy"
+  },
+  "categories": ["apm", "monitoring", "alerts"],
+  "icons": {
+    "square": "assets/images/honeycomb-square.svg",
+    "rectangular": "assets/images/honeycomb-rect.svg"
+  },
+  "formVariables": [
+    {
+      "key": "url",
+      "name": "Honeycomb Events URL",
+      "description": "Enter the events URL following the pattern above specifying your [DATASET_NAME](https://docs.honeycomb.io/api/events/)",
+      "placeholder": "https://api.honeycomb.io/1/events/<DATASET_NAME>",
+      "type": "uri",
+      "isSecret": false
+    },
+    {
+      "key": "apiKey",
+      "name": "Honeycomb API Key",
+      "description": "Enter your [Honeycomb API key](https://ui.honeycomb.io/teams) here",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{url}}",
+        "method": "post",
+        "headers": [
+          {
+            "name": "X-Honeycomb-Team",
+            "value": "{{apiKey}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/template.json",
+        "project": "templates/template.json",
+        "environment": "templates/template.json",
+        "metric": "templates/template.json"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}
