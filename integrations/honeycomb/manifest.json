@@ -16,11 +16,10 @@
   },
   "formVariables": [
     {
-      "key": "url",
-      "name": "Markers API URL",
-      "description": "Enter the [Markers API URL](https://docs.honeycomb.io/api/markers/) following the pattern above.",
-      "placeholder": "https://api.honeycomb.io/1/markers/<DATASET_NAME>",
-      "type": "uri",
+      "key": "datasetName",
+      "name": "Honeycomb Dataset Name",
+      "description": "Enter the Dataset Name that will be used for the request to the [Marker API](https://docs.honeycomb.io/api/markers/).",
+      "type": "string",
       "isSecret": false
     },
     {
