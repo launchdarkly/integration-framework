@@ -17,9 +17,9 @@
   "formVariables": [
     {
       "key": "url",
-      "name": "Honeycomb Events URL",
-      "description": "Enter the events URL following the pattern above specifying your [DATASET_NAME](https://docs.honeycomb.io/api/events/)",
-      "placeholder": "https://api.honeycomb.io/1/events/<DATASET_NAME>",
+      "name": "Markers API URL",
+      "description": "Enter the [Markers API URL](https://docs.honeycomb.io/api/markers/) following the pattern above.",
+      "placeholder": "https://api.honeycomb.io/1/markers/<DATASET_NAME>",
       "type": "uri",
       "isSecret": false
     },
@@ -48,10 +48,7 @@
         ]
       },
       "templates": {
-        "flag": "templates/template.json",
-        "project": "templates/template.json",
-        "environment": "templates/template.json",
-        "metric": "templates/template.json"
+        "flag": "templates/flag.json"
       },
       "defaultPolicy": [
         {

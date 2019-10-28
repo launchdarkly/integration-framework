@@ -1,7 +1,0 @@
-{
-  "title": "{{summary}}",
-  "text": "{{memberName}} {{action}} {{resourceName}}",
-  "date_happened": "{{dateHappened}}",
-  "tags": ["any", "arbitrary", "tag"],
-  "source_type_name": "example.com"
-}

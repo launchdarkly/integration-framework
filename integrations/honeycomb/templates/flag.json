@@ -1,0 +1,6 @@
+{
+  "start_time": {{actionDttm}},
+  "message": "{{summary}}",
+  "type": "{{action}}",
+  "url": "{{url}}"
+}
