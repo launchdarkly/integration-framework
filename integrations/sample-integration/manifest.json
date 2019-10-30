@@ -12,13 +12,13 @@
   "categories": ["apm", "monitoring", "alerts"],
   "icons": {
     "square": "assets/images/square.svg",
-    "rectangular": "assets/images/rectangular.svg"
+    "horizontal": "assets/images/horizontal.svg"
   },
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
         "url": "https://example.com/webhookin",
-        "method": "post",
+        "method": "POST",
         "headers": [
           {
             "name": "Content-Type",

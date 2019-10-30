@@ -12,7 +12,7 @@
   "categories": ["apm", "monitoring", "alerts"],
   "icons": {
     "square": "assets/images/honeycomb-square.svg",
-    "rectangular": "assets/images/honeycomb-rect.svg"
+    "horizontal": "assets/images/honeycomb-rect.svg"
   },
   "formVariables": [
     {
@@ -34,7 +34,7 @@
     "auditLogEventsHook": {
       "endpoint": {
         "url": "{{url}}",
-        "method": "post",
+        "method": "POST",
         "headers": [
           {
             "name": "X-Honeycomb-Team",

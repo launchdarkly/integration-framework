@@ -12,7 +12,7 @@
   "categories": ["monitoring", "alerts"],
   "icons": {
     "square": "assets/images/Slack_Mark.svg",
-    "rectangular": "assets/images/Slack_RGB.svg"
+    "horizontal": "assets/images/Slack_RGB.svg"
   },
   "formVariables": [
     {
@@ -27,7 +27,7 @@
     "auditLogEventsHook": {
       "endpoint": {
         "url": "{{uri}}",
-        "method": "post",
+        "method": "POST",
         "headers": [
           {
             "name": "Content-Type",

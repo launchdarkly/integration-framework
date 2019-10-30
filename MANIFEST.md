@@ -89,7 +89,7 @@ This capability will enable LaunchDarkly to send audit log event webhooks to you
 | --------------- | ------ | ------------ |
 | `defaultPolicy` | array  | Optional     |
 | `endpoint`      | object | **Required** |
-| `templates`     | object | Optional     |
+| `templates`     | object | **Required** |
 
 #### defaultPolicy
 
@@ -278,12 +278,12 @@ Properties that describe the HTTP endpoint LaunchDarkly will send hooks to
 | Property  | Type   | Required     | Default                                                |
 | --------- | ------ | ------------ | ------------------------------------------------------ |
 | `headers` | array  | Optional     | `[{"name":"Content-Type","value":"application/json"}]` |
-| `method`  |        | Optional     | `"post"`                                               |
+| `method`  |        | Optional     | `"POST"`                                               |
 | `url`     | string | **Required** |                                                        |
 
 #### headers
 
-##### Headers
+##### HTTP headers
 
 Headers to send with the webhook request
 
@@ -363,7 +363,7 @@ HTTP method to use when LaunchDarkly makes the request to your endpoint
 
 - is optional
 - type: `enum`
-- default: `"post"`
+- default: `"POST"`
 
 The value of this property **must** be equal to one of the [known values below](#capabilities-known-values).
 
@@ -371,15 +371,15 @@ The value of this property **must** be equal to one of the [known values below](
 
 | Value   | Description |
 | ------- | ----------- |
-| `post`  |             |
-| `put`   |             |
-| `patch` |             |
+| `POST`  |             |
+| `PUT`   |             |
+| `PATCH` |             |
 
 #### url
 
 ##### URL
 
-URL to send the request to
+URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
 
 `url`
 
@@ -390,6 +390,8 @@ URL to send the request to
 
 `string`
 
+- minimum length: 3 characters
+
 #### templates
 
 ##### Webhook body template
@@ -398,7 +400,7 @@ Templates to use for body of the webhook request
 
 `templates`
 
-- is optional
+- is **required**
 - type: `object`
 
 ##### templates Type
@@ -534,14 +536,31 @@ Array type: `object[]`
 
 All items must be of the type: `object` with following properties:
 
-| Property      | Type    | Required     |
-| ------------- | ------- | ------------ |
-| `description` | string  | **Required** |
-| `isSecret`    | boolean | Optional     |
-| `key`         | string  | **Required** |
-| `name`        | string  | **Required** |
-| `placeholder` | string  | Optional     |
-| `type`        | string  | **Required** |
+| Property       | Type    | Required     | Default |
+| -------------- | ------- | ------------ | ------- |
+| `defaultValue` | string  | Optional     |         |
+| `description`  | string  | **Required** |         |
+| `isRequired`   | boolean | Optional     | `true`  |
+| `isSecret`     | boolean | Optional     | `false` |
+| `key`          | string  | **Required** |         |
+| `name`         | string  | **Required** |         |
+| `placeholder`  | string  | Optional     |         |
+| `type`         | string  | **Required** |         |
+
+#### defaultValue
+
+##### Default value
+
+Default value for variable. Can be overridden by user in the UI
+
+`defaultValue`
+
+- is optional
+- type: `string`
+
+##### defaultValue Type
+
+`string`
 
 #### description
 
@@ -560,9 +579,25 @@ Describes the variable in the UI. Markdown links allowed.
 
 - maximum length: 250 characters
 
+#### isRequired
+
+##### Is this variable required?
+
+Secret variables will be masked in the UI
+
+`isRequired`
+
+- is optional
+- type: `boolean`
+- default: `true`
+
+##### isRequired Type
+
+`boolean`
+
 #### isSecret
 
-##### Is this variable a secret
+##### Is this variable a secret?
 
 Secret variables will be masked in the UI
 
@@ -570,6 +605,7 @@ Secret variables will be masked in the UI
 
 - is optional
 - type: `boolean`
+- default: `false`
 
 ##### isSecret Type
 
@@ -669,23 +705,23 @@ Logos describing your integration in SVG format
 
 `object` with following properties:
 
-| Property      | Type   | Required     |
-| ------------- | ------ | ------------ |
-| `rectangular` | string | **Required** |
-| `square`      | string | **Required** |
+| Property     | Type   | Required     |
+| ------------ | ------ | ------------ |
+| `horizontal` | string | **Required** |
+| `square`     | string | **Required** |
 
-#### rectangular
+#### horizontal
 
-##### Rectangular logo
+##### Horizontal logo
 
-A rectangular version of your integration's logo in SVG format
+A horizontal version of your integration's logo in SVG format
 
-`rectangular`
+`horizontal`
 
 - is **required**
 - type: `string`
 
-##### rectangular Type
+##### horizontal Type
 
 `string`
 

@@ -12,7 +12,7 @@
   "categories": ["apm", "monitoring", "alerts"],
   "icons": {
     "square": "assets/images/dd_icon_rgb.svg",
-    "rectangular": "assets/images/dd_logo_h_rbg.svg"
+    "horizontal": "assets/images/dd_logo_h_rbg.svg"
   },
   "formVariables": [
     {
@@ -27,7 +27,7 @@
     "auditLogEventsHook": {
       "endpoint": {
         "url": "https://api.datadoghq.com/api/v1/events/?api_key={{apitoken}}",
-        "method": "post",
+        "method": "POST",
         "headers": [
           {
             "name": "Content-Type",

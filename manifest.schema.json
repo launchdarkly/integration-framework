@@ -5,6 +5,21 @@
     "description": "Describes the capabilities and intent of a LaunchDarkly integration",
     "type": "object",
     "additionalProperties": false,
+    "propertyNames": {
+        "enum": [
+            "name",
+            "version",
+            "overview",
+            "description",
+            "author",
+            "supportEmail",
+            "links",
+            "categories",
+            "icons",
+            "formVariables",
+            "capabilities"
+        ]
+    },
     "properties": {
         "name": {
             "$id": "#/properties/name",
@@ -67,6 +82,13 @@
             "title": "Links",
             "description": "A set of reference links supporting your integration",
             "type": "object",
+            "propertyNames": {
+                "enum": [
+                    "site",
+                    "privacyPolicy",
+                    "supportWebsite"
+                ]
+            },
             "properties": {
                 "site": {
                     "$id": "#/properties/links/site",
@@ -135,6 +157,12 @@
             "title": "Icons",
             "description": "Logos describing your integration in SVG format",
             "type": "object",
+            "propertyNames": {
+                "enum": [
+                    "square",
+                    "horizontal"
+                ]
+            },
             "properties": {
                 "square": {
                     "$id": "#/properties/icons/square",
@@ -143,17 +171,17 @@
                     "type": "string",
                     "pattern": "\\.svg$"
                 },
-                "rectangular": {
-                    "$id": "#/properties/icons/rectangular",
-                    "title": "Rectangular logo",
-                    "description": "A rectangular version of your integration's logo in SVG format",
+                "horizontal": {
+                    "$id": "#/properties/icons/horizontal",
+                    "title": "Horizontal logo",
+                    "description": "A horizontal version of your integration's logo in SVG format",
                     "type": "string",
                     "pattern": "\\.svg$"
                 }
             },
             "required": [
                 "square",
-                "rectangular"
+                "horizontal"
             ]
         },
         "formVariables": {
@@ -173,7 +201,9 @@
                         "type",
                         "description",
                         "placeholder",
-                        "isSecret"
+                        "isSecret",
+                        "isRequired",
+                        "defaultValue"
                     ]
                 },
                 "properties": {
@@ -218,9 +248,23 @@
                     },
                     "isSecret": {
                         "$id": "#/properties/formVariables/variable/is-secret",
-                        "title": "Is this variable a secret",
+                        "title": "Is this variable a secret?",
                         "type": "boolean",
-                        "description": "Secret variables will be masked in the UI"
+                        "description": "Secret variables will be masked in the UI",
+                        "default": false
+                    },
+                    "isRequired": {
+                        "$id": "#/properties/formVariables/variable/is-required",
+                        "title": "Is this variable required?",
+                        "type": "boolean",
+                        "description": "Secret variables will be masked in the UI",
+                        "default": true
+                    },
+                    "defaultValue": {
+                        "$id": "#/properties/formVariables/variable/default-value",
+                        "title": "Default value",
+                        "type": "string",
+                        "description": "Default value for variable. Can be overridden by user in the UI"
                     }
                 },
                 "required": [
@@ -236,6 +280,11 @@
             "title": "Capabilities",
             "description": "Specify which capabilities you'd like your integration to have",
             "type": "object",
+            "propertyNames": {
+                "enum": [
+                    "auditLogEventsHook"
+                ]
+            },
             "properties": {
                 "auditLogEventsHook": {
                     "$id": "#/properties/capability/audit-log-events-hook",
@@ -245,8 +294,6 @@
                     "propertyNames": {
                         "enum": [
                             "endpoint",
-                            "method",
-                            "contentType",
                             "templates",
                             "defaultPolicy"
                         ]
@@ -269,22 +316,23 @@
                                     "$id": "#/properties/capability/audit-log-events-hook/url",
                                     "title": "URL",
                                     "type": "string",
-                                    "description": "URL to send the request to"
+                                    "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.",
+                                    "minLength": 3
                                 },
                                 "method": {
                                     "$id": "#/properties/capability/audit-log-events-hook/method",
                                     "title": "HTTP method",
                                     "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
                                     "enum": [
-                                        "post",
-                                        "put",
-                                        "patch"
+                                        "POST",
+                                        "PUT",
+                                        "PATCH"
                                     ],
-                                    "default": "post"
+                                    "default": "POST"
                                 },
                                 "headers": {
                                     "$id": "#/properties/capability/audit-log-events-hook/headers",
-                                    "title": "Headers",
+                                    "title": "HTTP headers",
                                     "description": "Headers to send with the webhook request",
                                     "type": "array",
                                     "items": {
@@ -347,6 +395,14 @@
                             "title": "Webhook body template",
                             "description": "Templates to use for body of the webhook request",
                             "type": "object",
+                            "propertyNames": {
+                                "enum": [
+                                    "flag",
+                                    "project",
+                                    "environment",
+                                    "metric"
+                                ]
+                            },
                             "properties": {
                                 "flag": {
                                     "$id": "#/properties/capability/audit-log-events-hook/templates/flag",
@@ -475,7 +531,8 @@
                         }
                     },
                     "required": [
-                        "endpoint"
+                        "endpoint",
+                        "templates"
                     ]
                 }
             },
