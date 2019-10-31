@@ -14,6 +14,41 @@
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
+  "formVariables": [
+    {
+      "key": "optional",
+      "name": "Optional attribute",
+      "description": "This is an optional property",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": true
+    },
+    {
+      "key": "required",
+      "name": "Required attribute",
+      "description": "This is a required property",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "URI",
+      "name": "URL",
+      "description": "This field will be validated as a URL",
+      "type": "uri",
+      "isSecret": false,
+      "isOptional": true
+    },
+    {
+      "key": "hasPlaceholder",
+      "name": "Placeholder",
+      "description": "This field has a placeholder",
+      "type": "uri",
+      "isSecret": false,
+      "isOptional": true,
+      "placeholder": "I belong here"
+    }
+  ],
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
