@@ -20,7 +20,8 @@
       "name": "Incoming Webhook URL",
       "type": "uri",
       "description": "The URL for one of your [Slack incoming webhooks](https://my.slack.com/apps/A0F7XDUAZ-incoming-webhooks)",
-      "isSecret": false
+      "isSecret": false,
+      "isRequired": true
     }
   ],
   "capabilities": {

@@ -20,7 +20,8 @@
       "name": "Datadog API Token",
       "type": "string",
       "description": "Enter an API key from your [Datadog account](https://app.datadoghq.com/account/settings#api).",
-      "isSecret": true
+      "isSecret": true,
+      "isRequired": true
     }
   ],
   "capabilities": {

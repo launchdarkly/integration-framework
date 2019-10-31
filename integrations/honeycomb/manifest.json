@@ -20,14 +20,16 @@
       "name": "Honeycomb Dataset Name",
       "description": "Enter the Dataset Name that will be used for the request to the [Marker API](https://docs.honeycomb.io/api/markers/).",
       "type": "string",
-      "isSecret": false
+      "isSecret": false,
+      "isRequired": true
     },
     {
       "key": "apiKey",
       "name": "Honeycomb API Key",
       "description": "Enter your [Honeycomb API key](https://ui.honeycomb.io/teams) here",
       "type": "string",
-      "isSecret": true
+      "isSecret": true,
+      "isRequired": true
     }
   ],
   "capabilities": {

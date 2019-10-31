@@ -20,7 +20,8 @@
       "name": "Incoming Webhook URL",
       "type": "uri",
       "description": "[Incoming Webhook URL](https://docs.microsoft.com/en-us/microsoftteams/platform/concepts/connectors/connectors-using#creating-messages-through-office-365-connectors) from Microsoft Teams",
-      "isSecret": false
+      "isSecret": false,
+      "isRequired": true
     }
   ],
   "capabilities": {

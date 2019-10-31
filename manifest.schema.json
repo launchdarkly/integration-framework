@@ -258,7 +258,7 @@
                         "title": "Is this variable required?",
                         "type": "boolean",
                         "description": "Secret variables will be masked in the UI",
-                        "default": true
+                        "default": false
                     },
                     "defaultValue": {
                         "$id": "#/properties/formVariables/variable/default-value",
@@ -273,7 +273,8 @@
                     "type",
                     "description"
                 ]
-            }
+            },
+            "default": []
         },
         "capabilities": {
             "$id": "#/properties/capabilities",
