@@ -12,19 +12,19 @@ Describes the capabilities and intent of a LaunchDarkly integration
 
 # LaunchDarkly Integrations Manifest Properties
 
-| Property                        | Type       | Required     | Nullable | Defined by                                       |
-| ------------------------------- | ---------- | ------------ | -------- | ------------------------------------------------ |
-| [author](#author)               | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [capabilities](#capabilities)   | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [categories](#categories)       | `enum[]`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [description](#description)     | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [formVariables](#formvariables) | `object[]` | Optional     | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [icons](#icons)                 | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [links](#links)                 | `object`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [name](#name)                   | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [overview](#overview)           | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [supportEmail](#supportemail)   | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
-| [version](#version)             | `string`   | **Required** | No       | LaunchDarkly Integrations Manifest (this schema) |
+| Property                        | Type       | Required     | Nullable | Default | Defined by                                       |
+| ------------------------------- | ---------- | ------------ | -------- | ------- | ------------------------------------------------ |
+| [author](#author)               | `string`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [capabilities](#capabilities)   | `object`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [categories](#categories)       | `enum[]`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [description](#description)     | `string`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [formVariables](#formvariables) | `object[]` | Optional     | No       | `[]`    | LaunchDarkly Integrations Manifest (this schema) |
+| [icons](#icons)                 | `object`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [links](#links)                 | `object`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [name](#name)                   | `string`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [overview](#overview)           | `string`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [supportEmail](#supportemail)   | `string`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [version](#version)             | `string`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
 
 ## author
 
@@ -528,6 +528,8 @@ when they enable the integration. Examples of a form variable include `apiToken`
 
 - is optional
 - type: `object[]`
+
+- default: `[]`
 - defined in this schema
 
 ### formVariables Type
@@ -540,7 +542,7 @@ All items must be of the type: `object` with following properties:
 | -------------- | ------- | ------------ | ------- |
 | `defaultValue` | string  | Optional     |         |
 | `description`  | string  | **Required** |         |
-| `isRequired`   | boolean | Optional     | `true`  |
+| `isOptional`   | boolean | Optional     | `false` |
 | `isSecret`     | boolean | Optional     | `false` |
 | `key`          | string  | **Required** |         |
 | `name`         | string  | **Required** |         |
@@ -579,19 +581,19 @@ Describes the variable in the UI. Markdown links allowed.
 
 - maximum length: 250 characters
 
-#### isRequired
+#### isOptional
 
-##### Is this variable required?
+##### Is this variable optional?
 
-Secret variables will be masked in the UI
+Variables marked as optional won't be required on the UI
 
-`isRequired`
+`isOptional`
 
 - is optional
 - type: `boolean`
-- default: `true`
+- default: `false`
 
-##### isRequired Type
+##### isOptional Type
 
 `boolean`
 

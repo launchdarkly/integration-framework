@@ -202,7 +202,7 @@
                         "description",
                         "placeholder",
                         "isSecret",
-                        "isRequired",
+                        "isOptional",
                         "defaultValue"
                     ]
                 },
@@ -253,11 +253,11 @@
                         "description": "Secret variables will be masked in the UI",
                         "default": false
                     },
-                    "isRequired": {
-                        "$id": "#/properties/formVariables/variable/is-required",
-                        "title": "Is this variable required?",
+                    "isOptional": {
+                        "$id": "#/properties/formVariables/variable/is-optional",
+                        "title": "Is this variable optional?",
                         "type": "boolean",
-                        "description": "Secret variables will be masked in the UI",
+                        "description": "Variables marked as optional won't be required on the UI",
                         "default": false
                     },
                     "defaultValue": {
