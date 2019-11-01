@@ -32,7 +32,7 @@
       "isOptional": false
     },
     {
-      "key": "URI",
+      "key": "URL",
       "name": "URL",
       "description": "This field will be validated as a URL",
       "type": "uri",
@@ -43,10 +43,28 @@
       "key": "hasPlaceholder",
       "name": "Placeholder",
       "description": "This field has a placeholder",
-      "type": "uri",
+      "type": "string",
       "isSecret": false,
       "isOptional": true,
-      "placeholder": "I belong here"
+      "placeholder": "I am a placeholder"
+    },
+    {
+      "key": "hasDefault",
+      "name": "Default",
+      "description": "This field has a default value",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": true,
+      "placeholder": "I'm a placeholder",
+      "defaultValue": "I'm the default value"
+    },
+    {
+      "key": "secret",
+      "name": "Secret",
+      "description": "I have a secret that I'm hiding",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": false
     }
   ],
   "capabilities": {
