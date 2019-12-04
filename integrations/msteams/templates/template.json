@@ -1,36 +1,27 @@
 {
-  "@context": "https://schema.org/extensions",
-  "@type": "MessageCard",
-  "themeColor": "0072C6",
-  "title": "Visit the Outlook Dev Portal",
-  "text": "{{}}",
-  "potentialAction": [
-    {
-      "@type": "ActionCard",
-      "name": "Send Feedback",
-      "inputs": [
-        {
-          "@type": "TextInput",
-          "id": "feedback",
-          "isMultiline": true,
-          "title": "Let us know what you think about Actionable Messages"
-        }
-      ],
-      "actions": [
-        {
-          "@type": "HttpPOST",
-          "name": "Send Feedback",
-          "isPrimary": true,
-          "target": "http://..."
-        }
-      ]
-    },
-    {
-      "@type": "OpenUri",
-      "name": "Learn More",
-      "targets": [
-        { "os": "default", "uri": "https://docs.microsoft.com/outlook/actionable-messages" }
-      ]
-    }
-  ]
+	"@type": "MessageCard",
+	"@context": "https://schema.org/extensions",
+	"correlationId": "{{reqid}}",
+	"summary": "{{summary}}",
+	"themeColor": "{{env.color}}",
+	"sections": [
+		{
+			"activityTitle": "**{{actor.name}}** {{action.verb}} [{{action.target.name}}]({{action.target.url}})",
+			{{#if comment}}
+			"text": "> {{comment}}",
+			{{/if}}
+			{{#if updates}}
+			"facts": [
+				{{#each updates.details}}
+				{{#equal this.type "update"}}
+				{
+					"name": "",
+					"value": "* {{this.verb}} {{#if this.oldValue}}**{{this.oldValue}}** to {{/if}}**{{this.newValue}}**"
+				},
+        		{{/equal}}
+				{{/each}}
+			]
+			{{/if}}
+		}
+	]
 }
