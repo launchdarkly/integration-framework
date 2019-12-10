@@ -37,7 +37,7 @@ you edit.
 
 ![vscode-hints](https://gist.githubusercontent.com/rmanalan/447b78a8c00a46c8638cca834c3009a3/raw/264fafe547a82ada8e5c134832bf35508a6b6458/manifest-vscode.png)
 
-### Describing your integration basic information through the Manifest
+### Describing your integration's basic information through the Manifest
 
 A LaunchDarkly integration starts with a `manifest.json` file. This file
 describes the intent and capabilities of your integration. It also describes
