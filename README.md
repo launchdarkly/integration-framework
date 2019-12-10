@@ -13,7 +13,7 @@ consume events from LaunchDarkly to provide their users with more context.
 There are a few steps to creating an integration with LaunchDarkly.
 
 1. Fork this repository.
-2. Create a new directory inside `[integrations](./integrations)` named after
+2. Create a new directory inside [integrations](./integrations) named after
    your organization or integration's name (e.g., `spacexyz`). Make sure the
    directory has no spaces and uses
    [kebab-casing](https://wiki.c2.com/?KebabCase).
