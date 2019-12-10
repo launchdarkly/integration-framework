@@ -13,9 +13,9 @@ consume events from LaunchDarkly to provide their users with more context.
 There are a few steps to creating an integration with LaunchDarkly.
 
 1. Fork this repository.
-2. Create a new directory inside [integrations](./integrations) named after
-   your organization or integration's name (e.g., `spacexyz`). Make sure the
-   directory has no spaces and uses
+2. Create a new directory inside the [integrations](./integrations) directory
+   named after your organization or integration's name (e.g., `spacexyz`). Make
+   sure the directory has no spaces and uses
    [kebab-casing](https://wiki.c2.com/?KebabCase).
 3. Create a `manifest.json` inside your new directory. The `manifest.json` file
    will describe your integration's details and capabilities. We'll describe how
@@ -116,7 +116,8 @@ The `formVariables` entry above will yield the following UI inside of the
 [LaunchDarkly Integration
 page](https://app.launchdarkly.com/default/integrations):
 
-![Example configuration form](https://gist.githubusercontent.com/rmanalan/447b78a8c00a46c8638cca834c3009a3/raw/810d8941f29c0306021a973bd6cf10c42bdea03b/goaltender-config-ui.png)
+![Example configuration
+form](https://gist.githubusercontent.com/rmanalan/447b78a8c00a46c8638cca834c3009a3/raw/810d8941f29c0306021a973bd6cf10c42bdea03b/goaltender-config-ui.png)
 
 ## Submitting your integrations
 
