@@ -254,7 +254,7 @@ This next example uses the `apiToken` formVariable as a query parameter on the U
 
 #### Template files
 
-Before the `auditLogEventsHook` capability sends the webhook to the endpoint
+Before the `auditLogEventsHook` capability sends the request to the endpoint
 handling your webhook, you have the option to transform the body of the request
 sent to your handler. If you don't provide one or more templates, LaunchDarkly
 will send you a default JSON payload that looks like this:
@@ -332,9 +332,9 @@ Sandbox](http://tryhandlebarsjs.com/).
 
 Once you're done with your integration, [submit a pull request against this
 repo](https://github.com/launchdarkly/ld-integrations/pull/new/master). Your
-branch will run through some automated validations and reviewed by someone on
-our team. Once everything checks out, we'll publish your integration when you
-give us the green light.
+branch will run through some automated validations and will be reviewed by
+someone on our team. Once everything checks out, we'll publish your integration
+when you give us the green light.
 
 ## Comments, suggestions, bug reports?
 
