@@ -15,8 +15,9 @@ There are several steps to creating an integration with LaunchDarkly.
 ### Step 1: Fork this Repository
 
 You will need to fork this repository to your own Github account. When you've
-completed your integration, you can submit a pull request to LaunchDarkly for it
-to get approved and deployed.
+completed your integration, you can [submit a pull request to
+LaunchDarkly](#step-7-submitting-your-integration) for it to get approved and
+deployed.
 
 ### Step 2: Create a new directory inside `./integrations`
 
