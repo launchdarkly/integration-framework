@@ -338,4 +338,7 @@ when you give us the green light.
 
 ## Comments, suggestions, bug reports?
 
-Please visit our [support site](https://support.launchdarkly.com/hc/en-us).
+Visit us in our Slack channel
+[#ext-integrations](https://slack.com/share/IRL109MRU/5xRnR28csBsnn6zMDRlXHLAf/enQtODcwMDM0MzI3ODc4LWVkYzZkOTMwNGZkZGMxNjczYzdkNTMzMzE5M2ZmZjFiY2NkZjg3N2FlZjAwYWU1NjZkYzdhYzY1NzI5M2RiZjQhttps://slack.com/share/IRL109MRU/5xRnR28csBsnn6zMDRlXHLAf/enQtODcwMDM0MzI3ODc4LWVkYzZkOTMwNGZkZGMxNjczYzdkNTMzMzE5M2ZmZjFiY2NkZjg3N2FlZjAwYWU1NjZkYzdhYzY1NzI5M2RiZjQ)
+or log an issue or request
+[here](https://github.com/launchdarkly/ld-integrations/issues).
