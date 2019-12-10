@@ -88,7 +88,7 @@ Notice that the
 [`icons`](https://github.com/launchdarkly/ld-integrations/blob/master/MANIFEST.md#icons)
 described above are in SVG format. This is intentional. Your organization's (or
 integration's) logo will be used in the LaunchDarkly UI but also inside a public
-facing integrations listing on <launchdarkly.com>. SVG files allow your logo to
+facing integrations listing on launchdarkly.com. SVG files allow your logo to
 scale nicely on different formats. We do not accept other formats.
 
 Also, notice that the `icon.square` and `icon.horizontal` properties point to a
