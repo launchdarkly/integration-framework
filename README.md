@@ -26,10 +26,10 @@ integration's directory that provides additional information about your
 integration. Your directory can also include additional directories and assets
 to support your integration -- more on this in the following section.
 
-LaunchDarkly's integration manifest is described through
+LaunchDarkly's integration manifest is described through a
 [schema](./manifest.schema.json). When you submit a pull-request to LaunchDarkly
 with your new `manifest.json`, your manifest will be validated against this
-schema. To aid you in writing your schema, you can register the
+schema. To aid you in writing your manifest, you can register the
 [schema](./manifest.schema.json) in your IDE. If you use
 [VSCode](https://code.visualstudio.com/) to create your manifest, VSCode will
 automatically provide you with helpful hints and validate your manifest while
