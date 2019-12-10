@@ -90,8 +90,8 @@ described above are in SVG format. This is intentional. Your organization's (or
 integration's) logo will be used in the LaunchDarkly UI but also inside a public
 facing integrations listing on
 [launchdarkly.com/integrations](https://launchdarkly.com/integrations/). SVG
-files allow your logo to scale nicely on different formats. We do not accept
-other formats.
+files allow your logo to scale nicely on different devices. We do not accept
+other image formats.
 
 Also, notice that the `icon.square` and `icon.horizontal` properties point to a
 relative path. This path is relative to your integration's directory. You are
