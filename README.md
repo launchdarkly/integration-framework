@@ -22,8 +22,9 @@ deployed.
 ### Step 2: Create a new directory inside `./integrations`
 
 Create a new directory inside the [integrations](./integrations) directory named
-after your organization or integration's name (e.g., `spacexyz`). Make sure the
-directory has no spaces and uses [kebab-casing](https://wiki.c2.com/?KebabCase).
+after your organization or integration's name (e.g., `example-dot-com`). Make
+sure the directory has no spaces and uses
+[kebab-casing](https://wiki.c2.com/?KebabCase).
 
 You should only change files and directories inside your new directory. Our
 validation process will reject any pull requests that attempt to modify content
