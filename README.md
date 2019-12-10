@@ -49,7 +49,7 @@ configuration.
 
 ![vscode-hints](https://gist.githubusercontent.com/rmanalan/447b78a8c00a46c8638cca834c3009a3/raw/264fafe547a82ada8e5c134832bf35508a6b6458/manifest-vscode.png)
 
-### Step 4: Describe your integration's basic information through the Manifest
+### Step 4: Describe your integration's basic information inside the manifest
 
 The first part of the manifest describes your organization, contacts, URLs, and
 a few things we need to list your integration properly:
@@ -144,6 +144,8 @@ page](https://app.launchdarkly.com/default/integrations):
 ![Example configuration
 form](https://gist.githubusercontent.com/rmanalan/447b78a8c00a46c8638cca834c3009a3/raw/810d8941f29c0306021a973bd6cf10c42bdea03b/goaltender-config-ui.png)
 
+The `formVariables[].description` will be used as a field label on the UI. You
+can use simple markdown to link a word or phrase to an external URL.
 
 ### Step 6: Define your integration's capabilities
 
