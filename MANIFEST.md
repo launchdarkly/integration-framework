@@ -15,7 +15,7 @@ Describes the capabilities and intent of a LaunchDarkly integration
 | Property                        | Type       | Required     | Nullable | Default | Defined by                                       |
 | ------------------------------- | ---------- | ------------ | -------- | ------- | ------------------------------------------------ |
 | [author](#author)               | `string`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
-| [capabilities](#capabilities)   | `object`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
+| [capabilities](#capabilities)   | `object`   | Optional     | No       |         | LaunchDarkly Integrations Manifest (this schema) |
 | [categories](#categories)       | `enum[]`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
 | [description](#description)     | `string`   | **Required** | No       |         | LaunchDarkly Integrations Manifest (this schema) |
 | [formVariables](#formvariables) | `object[]` | Optional     | No       | `[]`    | LaunchDarkly Integrations Manifest (this schema) |
@@ -58,7 +58,7 @@ Specify which capabilities you'd like your integration to have
 
 `capabilities`
 
-- is **required**
+- is optional
 - type: `object`
 - defined in this schema
 

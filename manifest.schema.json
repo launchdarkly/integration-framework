@@ -536,8 +536,7 @@
                         "templates"
                     ]
                 }
-            },
-            "minProperties": 1
+            }
         }
     },
     "required": [
@@ -549,7 +548,6 @@
         "supportEmail",
         "links",
         "categories",
-        "icons",
-        "capabilities"
+        "icons"
     ]
 }
