@@ -25,9 +25,13 @@ jobs:
           name: Run tests
           command: yarn test
   deploy:
-    - aws-cli/install
-    - deploy:
-        command: ./scripts/copy_to_s3.sh
+    machine:
+      enabled: true
+    steps:
+      - checkout
+      - aws-cli/install
+      - deploy:
+          command: ./scripts/copy_to_s3.sh
 
 workflows:
   version: 2.1
