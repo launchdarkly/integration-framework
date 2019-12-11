@@ -24,6 +24,19 @@ jobs:
       - run:
           name: Run tests
           command: yarn test
-      - aws-cli/install
+  deploy:
+    - aws-cli/install
+    - deploy:
+        command: ./scripts/copy_to_s3.sh
+
+workflows:
+  version: 2.1
+  build-and-deploy:
+    jobs:
+      - build
       - deploy:
-          command: ./scripts/copy_to_s3.sh
+          requires:
+            - build
+          filters:
+            branches:
+              only: master
