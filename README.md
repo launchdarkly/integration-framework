@@ -33,7 +33,7 @@ outside of your directory.
 ### Step 3: Create your integration manifest
 
 Create an empty
-[`manifest.json`](https://github.com/launchdarkly/ld-integrations/blob/master/MANIFEST.md#launchdarkly-integrations-manifest-properties))
+[`manifest.json`](https://github.com/launchdarkly/ld-integrations/blob/master/MANIFEST.md#launchdarkly-integrations-manifest-properties)
 file inside your new directory. The `manifest.json` file will describe your
 integration's information and capabilities.
 
