@@ -1,0 +1,18 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-json
+        exclude: "\\.vscode/launch.json"
+      - id: check-symlinks
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+  - repo: local
+    hooks:
+      - id: validate-manifests
+        name: Validate manifests
+        entry: yarn run test-single
+        language: system
+        files: "integrations/.*manifest.json"
