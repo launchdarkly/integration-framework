@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "prepare": "jsonschema2md -d manifest.schema.json -o . -n && mv manifest.schema.md MANIFEST.md",
-    "test": "ajv test -s manifest.schema.json -d **/manifest.json --valid --errors=json"
+    "test": "ajv test -s manifest.schema.json -d **/manifest.json --valid --errors=json",
+    "test-single": "ajv test --valid --errors=json -s manifest.schema.json -d"
   },
   "repository": {
     "type": "git",
