@@ -6,9 +6,9 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "LaunchDarkly Docs": "https://docs.launchdarkly.com/docs/terraform",
-    "Terraform Docs": "https://www.terraform.io/docs/providers/launchdarkly/index.html",
-    "Launchdarkly Terraform Guide": "https://launchdarkly.com/blog/managing-feature-flags-with-terraform/"
+    "supportWebsite": "https://docs.launchdarkly.com/docs/terraform",
+    "site": "https://www.terraform.io/docs/providers/launchdarkly/index.html",
+    "privacyPolicy": "https://app.terraform.io/pages/privacy"
   },
   "categories": ["provisioning"],
   "icons": {
