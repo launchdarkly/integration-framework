@@ -1,27 +1,13 @@
 {
-	"@type": "MessageCard",
-	"@context": "https://schema.org/extensions",
-	"correlationId": "{{reqid}}",
-	"summary": "{{summary}}",
-	"themeColor": "{{env.color}}",
-	"sections": [
-		{
-			"activityTitle": "**{{actor.name}}** {{action.verb}} [{{action.target.name}}]({{action.target.url}})",
-			{{#if comment}}
-			"text": "> {{comment}}",
-			{{/if}}
-			{{#if updates}}
-			"facts": [
-				{{#each updates.details}}
-				{{#equal this.type "update"}}
-				{
-					"name": "",
-					"value": "* {{this.verb}} {{#if this.oldValue}}**{{this.oldValue}}** to {{/if}}**{{this.newValue}}**"
-				},
-        		{{/equal}}
-				{{/each}}
-			]
-			{{/if}}
-		}
-	]
+  "@type": "MessageCard",
+  "@context": "http://schema.org/extensions",
+  "themeColor": "0076D7",
+  "summary": "{{title}}",
+  "sections": [
+    {
+      "activityTitle": "{{markdownTitle}}",
+      "text": "{{#if comment}}> {{comment}}\n{{/if}}{{#if description}}{{description}}{{/if}}",
+      "markdown": true
+    }
+  ]
 }
