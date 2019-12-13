@@ -1,6 +1,5 @@
 {
-  "start_time": {{actionDttm}},
-  "message": "{{summary}}",
-  "type": "{{action}}",
-  "url": "{{url}}"
+  "message": "{{{title}}}",
+  "type": "LaunchDarkly",
+  "url": "https://ld-stg.launchdarkly.com{{_links.site.href}}"
 }

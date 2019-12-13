@@ -1,8 +1,8 @@
 {
-  "name": "Jira",
+  "name": "Jira Cloud",
   "version": "1.0.0",
-  "overview": "Short one-liner describing your integration",
-  "description": "Send flag data to space. Markdown based description.",
+  "overview": "LaunchDarkly's Jira app allows you to link your feature flags with your team's Jira issues.",
+  "description": "When a feature flag is turned on, off, or has its targeting rules update, its associated Jira issue pages display the flag's current status.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {

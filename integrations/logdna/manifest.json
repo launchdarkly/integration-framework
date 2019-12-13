@@ -1,0 +1,73 @@
+{
+  "name": "LogDNA",
+  "version": "1.0.0",
+  "overview": "Send audit log events to LogDNA",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to LogDNA.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://example.com",
+    "privacyPolicy": "https://example.com/privacy"
+  },
+  "categories": ["monitoring", "alerts"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "ingestionKey",
+      "name": "LogDNA ingestion key",
+      "description": "Enter your [LogDNA ingestion key](https://app.logdna.com/manage/profile) here",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "app",
+      "name": "App",
+      "description": "Enter the App for which events are being generated. If you have multiple apps using LaunchDarkly, you might want to change this to include your LaunchDarkly project name.",
+      "type": "string",
+      "isSecret": false,
+      "defaultValue": "LaunchDarkly"
+    },
+    {
+      "key": "hostname",
+      "name": "Hostname",
+      "description": "Enter the hostname from which events are being generated. For most customers the default value is correct.",
+      "type": "string",
+      "isSecret": false,
+      "defaultValue": "app.launchdarkly.com"
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://logs.logdna.com/logs/ingest?hostname={{hostname}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "apikey",
+            "value": "{{ingestionKey}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json; charset=UTF-8"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/template.json",
+        "project": "templates/template.json",
+        "environment": "templates/template.json",
+        "metric": "templates/template.json"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{ 
+    "lines": [ 
+      { 
+        "line":"{{{title}}}{{#if comment}}, Comment: {{comment}}{{/if}}", 
+        "app":"test-app",
+        "level": "INFO",
+        "env": "production"
+      }
+    ] 
+ }

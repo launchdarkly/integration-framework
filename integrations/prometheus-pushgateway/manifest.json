@@ -1,17 +1,43 @@
 {
-  "name": "Learn More-only Integration",
-  "version": "1.0.0",
-  "overview": "Short one-liner describing your integration",
-  "description": "Send flag data to space. Markdown based description.",
+  "name": "Prometheus Pushgateway",
+  "version": "0.0.1",
+  "overview": "Sends events to a Prometheus Pushgateway",
+  "description": "Sends events to a Prometheus Pushgateway or other endpoint that speaks the Prometheus line protocol.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://example.com",
-    "privacyPolicy": "https://example.com/privacy"
+    "site": "https://prometheus.io",
+    "privacyPolicy": "https://prometheus.io"
   },
-  "categories": ["apm", "monitoring", "alerts"],
+  "categories": ["monitoring"],
   "icons": {
-    "square": "assets/images/square.svg",
-    "horizontal": "assets/images/horizontal.svg"
+    "square": "assets/images/prometheus-square.svg",
+    "horizontal": "assets/images/prometheus-square.svg"
+  },
+  "formVariables": [
+    {
+      "key": "metricsUrl",
+      "name": "Metrics URL",
+      "description": "The URL to which Launch Darkly should POST metrics",
+      "placeholder": "http://pushgateway.example.org:9091/metrics/job/launch_darkly",
+      "type": "uri",
+      "isSecret": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{metricsUrl}}",
+        "method": "POST",
+        "headers": []
+      },
+      "templates": {
+        "flag": "templates/template",
+        "project": "templates/template",
+        "environment": "templates/template",
+        "metric": "templates/template"
+      },
+      "defaultPolicy": []
+    }
   }
 }
