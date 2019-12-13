@@ -11,8 +11,8 @@
   },
   "categories": ["apm", "monitoring", "alerts"],
   "icons": {
-    "square": "assets/images/honeycomb-square.svg",
-    "horizontal": "assets/images/honeycomb-rect.svg"
+    "square": "assets/images/solarwinds-square.svg",
+    "horizontal": "assets/images/horizontal.svg"
   },
   "formVariables": [
     {
@@ -40,7 +40,7 @@
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://{{username}}:{{apiKey}}metrics-api.librato.com/v1/annotations/demo-api{{streamName}}",
+        "url": "https://{{username}}:{{apiKey}}metrics-api.librato.com/v1/annotations/{{streamName}}",
         "method": "POST",
         "headers": [
           {
