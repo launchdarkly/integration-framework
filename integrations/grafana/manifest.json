@@ -22,6 +22,14 @@
       "placeholder": "https://grafana.example.org/api",
       "type": "uri",
       "isSecret": false
+    },
+    {
+      "key": "apiKey",
+      "name": "API Key",
+      "description": "An API key with editor privileges to your Grafana instance",
+      "placeholder": "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijk=",
+      "type": "string",
+      "isSecret": true
     }
   ],
   "capabilities": {
@@ -33,6 +41,12 @@
           {
             "name": "Content-Type",
             "value": "application/json"
+          }
+        ],
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ apiKey }}"
           }
         ]
       },
