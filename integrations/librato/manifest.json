@@ -40,7 +40,7 @@
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://{{username}}:{{apiKey}}metrics-api.librato.com/v1/annotations/{{streamName}}",
+        "url": "https://{{username}}:{{apiKey}}@metrics-api.librato.com/v1/annotations/{{streamName}}",
         "method": "POST",
         "headers": [
           {
