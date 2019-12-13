@@ -1,0 +1,3 @@
+# HELP launchdarkly_object_update_ms Help string goes here
+# TYPE launchdarkly_object_update_ms gauge
+launchdarkly_object_update_ms{kind="{{ kind }}", name="{{ name }}"} {{ date }}

@@ -1,6 +1,4 @@
 {
-  "start_time": {{actionDttm}},
-  "message": "{{summary}}",
-  "type": "{{action}}",
-  "url": "{{url}}"
+  "message": "{{title}}",
+  "type": "LaunchDarkly"
 }
