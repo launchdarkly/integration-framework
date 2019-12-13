@@ -1,0 +1,5 @@
+{
+  "time":{{ date }},
+  "tags":["launchdarkly","{{ kind }}","{{ name }}"],
+  "text":"{{ title }}"
+}

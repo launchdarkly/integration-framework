@@ -1,0 +1,71 @@
+{
+  "name": "AppDynamics",
+  "version": "1.0.0",
+  "overview": "Send audit log events to AppDynamics",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to AppDynamics.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://example.com",
+    "privacyPolicy": "https://example.com/privacy"
+  },
+  "categories": ["apm", "monitoring", "alerts"],
+  "icons": {
+    "square": "assets/images/appdynamics_square.svg",
+    "horizontal": "assets/images/appdynamics_horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "account",
+      "name": "Account",
+      "description": "Enter your AppDynamics Account as noted on your [License Management](https://docs.appdynamics.com/display/PRO45/License+Management) page",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "username",
+      "name": "AppDynamics User",
+      "description": "Enter your [AppDynamics username](https://docs.appdynamics.com/display/PRO45/API+Clients) here",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "password",
+      "name": "AppDynamics user password",
+      "description": "Enter your [AppDynamics user password](https://docs.appdynamics.com/display/PRO45/API+Clients) here",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "http://{{account}}.saas.appdynamics.com/controller/rest/applications/5/events?",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "user",
+            "value": "{{username}}@{{account}}:{{password}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/template.json",
+        "project": "templates/template.json",
+        "environment": "templates/template.json",
+        "metric": "templates/template.json"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}
