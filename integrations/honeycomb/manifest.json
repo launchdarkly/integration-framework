@@ -33,7 +33,7 @@
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "{{url}}",
+        "url": "https://api.honeycomb.io/1/markers/{{datasetName}}",
         "method": "POST",
         "headers": [
           {
