@@ -1,0 +1,12 @@
+{
+  "title": "{{{title}}}",
+  "type": "LaunchDarkly",
+  "url": "https://ld-stg.launchdarkly.com{{_links.site.href}}",
+  "links": [
+    {
+      "label": "{{name}}",
+      "href": "https://ld-stg.launchdarkly.com{{_links.site.href}}",
+      "rel": "launchdarkly"
+    }
+  ]
+}
