@@ -1,0 +1,10 @@
+
+ [{ 
+  "category": "AUDIT",
+  "dimensions": { 
+    "environment": "production", 
+    "project": "ben-dev" 
+  },
+  "eventType": "{{name}} {{kind}} {{titleVerb}}",
+  "timestamp": {{date}}
+}]
