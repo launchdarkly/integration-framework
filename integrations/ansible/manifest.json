@@ -7,7 +7,7 @@
     "supportEmail": "support@launchdarkly.com",
     "links": {
       "supportWebsite": "https://github.com/launchdarkly-labs/ansible-launchdarkly-collection/issues",
-      "site": "https://launchdarkly-labs.github.io/ansible-launchdarkly-collection/",
+      "site": "https://galaxy.ansible.com/launchdarkly_labs/collection",
       "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
     },
     "categories": ["provisioning", "config-and-deployment", "orchestration"],
