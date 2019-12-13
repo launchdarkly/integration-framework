@@ -3,7 +3,9 @@
   "category": "AUDIT",
   "dimensions": { 
     "environment": "production", 
-    "project": "ben-dev" 
+    "project": "ben-dev",
+    "event": "{{title}}",
+    "comment": "{{comment}}"
   },
   "eventType": "{{name}} {{kind}} {{titleVerb}}",
   "timestamp": {{date}}
