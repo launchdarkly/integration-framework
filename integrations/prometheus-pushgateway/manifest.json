@@ -1,5 +1,5 @@
 {
-  "name": "Prometheus Pushgateway",
+  "name": "Prometheus",
   "version": "0.0.1",
   "overview": "Sends events to a Prometheus Pushgateway",
   "description": "Sends events to a Prometheus Pushgateway or other endpoint that speaks the Prometheus line protocol.",
