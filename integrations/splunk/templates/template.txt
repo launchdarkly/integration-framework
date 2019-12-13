@@ -1,0 +1,1 @@
+{"sourcetype":"launchdarkly","time":"{{date}}","event":"kind={{kind}}&name={{name}}&member_email={{member.email}}&verb={{titleVerb}}&message={{title}}&comment={{{comment}}}"}
