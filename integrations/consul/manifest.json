@@ -1,0 +1,18 @@
+{
+  "name": "Consul - Feature store",
+  "version": "1.0.0",
+  "overview": "Use Consul as your persistant feature store",
+  "description": "This integration allows you to use Consul as a persistent feature store to keep flag data.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "supportWebsite": "https://docs.launchdarkly.com/docs/using-a-persistent-feature-store#section-using-consul",
+    "site": "https://docs.launchdarkly.com/docs/using-a-persistent-feature-store#section-using-consul",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["provisioning"],
+  "icons": {
+    "square": "assets/images/consul_square.svg",
+    "horizontal": "assets/images/consul_horizontal.svg"
+  }
+}
