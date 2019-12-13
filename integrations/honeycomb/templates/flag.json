@@ -1,4 +1,5 @@
 {
   "message": "{{title}}",
-  "type": "LaunchDarkly"
+  "type": "LaunchDarkly",
+  "url": "https://ld-stg.launchdarkly.com{{_links.site.href}}"
 }
