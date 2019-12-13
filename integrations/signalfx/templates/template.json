@@ -9,6 +9,6 @@
     "event": "{{{title}}}",
     "comment": "{{comment}}"
   },
-  "eventType": "LaunchDarkly flag change",
+  "eventType": "LaunchDarkly {{kind}} change",
   "timestamp": {{date}}
 }]
