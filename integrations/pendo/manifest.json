@@ -1,0 +1,18 @@
+{
+  "name": "Terraform Provider",
+  "version": "1.0.0",
+  "overview": "Manage your LaunchDarkly resources as Terraform resources",
+  "description": "Use the LaunchDarkly Terraform provider to manage LaunchDarkly resources as Terraform resources. This allows you to use Terraform scripts to configure and control feature flags, environments, projects, and more.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "supportWebsite": "https://docs.launchdarkly.com/docs/terraform",
+    "site": "https://www.terraform.io/docs/providers/launchdarkly/index.html",
+    "privacyPolicy": "https://app.terraform.io/pages/privacy"
+  },
+  "categories": ["provisioning"],
+  "icons": {
+    "square": "assets/images/terraform_square.svg",
+    "horizontal": "assets/images/terraform_horizontal.svg"
+  }
+}
