@@ -1,0 +1,1 @@
+This is an example of an integration that only generates a Learn More button.
