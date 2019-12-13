@@ -1,0 +1,10 @@
+{ 
+    "lines": [ 
+      { 
+        "line":"{{{title}}}", 
+        "app":"test-app",
+        "level": "INFO",
+        "env": "production"
+      }
+    ] 
+ }
