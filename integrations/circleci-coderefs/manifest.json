@@ -1,0 +1,17 @@
+{
+  "name": "CircleCI",
+  "version": "1.0.0",
+  "overview": "Use our open-source utility to track references to flags in your code, using CircleCI.",
+  "description": "You can use this utility with CircleCI to automatically populate code references in LaunchDarkly.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/docs/circleci-orbs",
+    "privacyPolicy": "https://example.com/privacy"
+  },
+  "categories": ["it-and-project-management", "config-and-deployment", "source-control"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  }
+}
