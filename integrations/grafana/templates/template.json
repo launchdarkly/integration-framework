@@ -1,5 +1,5 @@
 {
   "time":{{ date }},
-  "tags":["{{ kind }}","{{ memberName }}", "{{ action }}", "{{ resourceName }}"],
+  "tags":["launchdarkly","{{ kind }}","{{ name }}"],
   "text":"{{ title }}"
 }

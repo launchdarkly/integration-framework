@@ -11,8 +11,8 @@
   },
   "categories": ["monitoring"],
   "icons": {
-    "square": "assets/images/square.svg",
-    "horizontal": "assets/images/horizontal.svg"
+    "square": "assets/images/grafana.svg",
+    "horizontal": "assets/images/grafana.svg"
   },
   "formVariables": [
     {
@@ -41,9 +41,7 @@
           {
             "name": "Content-Type",
             "value": "application/json"
-          }
-        ],
-        "headers": [
+          },
           {
             "name": "Authorization",
             "value": "Bearer {{ apiKey }}"
