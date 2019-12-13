@@ -16,7 +16,7 @@
   },
   "formVariables": [
     {
-      "key": "endpointURL",
+      "key": "endpointUrl",
       "name": "API URL",
       "description": "The URL of your Grafana instance's API",
       "placeholder": "https://grafana.example.org/api",
