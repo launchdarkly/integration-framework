@@ -4,9 +4,11 @@
   "dimensions": { 
     "environment": "production", 
     "project": "ben-dev",
+    "flag": "{{name}}",
+    "kind": "{{kind}}",
     "event": "{{title}}",
     "comment": "{{comment}}"
   },
-  "eventType": "{{name}} {{kind}} {{titleVerb}}",
+  "eventType": "LaunchDarkly flag changed",
   "timestamp": {{date}}
 }]
