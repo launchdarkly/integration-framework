@@ -1,0 +1,13 @@
+{
+    "sourcetype":"launchdarkly",
+    "time":"{{date}}",
+    "event": {
+        "kind":"{{kind}}",
+        "name":"{{name}}",
+        "member_email":"{{member.email}}",
+        "member_name":"{{member.firstName}} {{member.lastName}}",
+        "verb":"{{titleVerb}}",
+        "message":"{{title}}",
+        "comment":"{{{comment}}}"
+    }
+}

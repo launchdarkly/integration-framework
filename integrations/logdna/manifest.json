@@ -18,7 +18,7 @@
     {
       "key": "ingestionKey",
       "name": "LogDNA ingestion key",
-      "description": "Enter your [LogDNA ingestion key](https://app.logdna.com/manage/profile) here",
+      "description": "Enter your [LogDNA ingestion key](https://app.logdna.com/manage/profile) here.",
       "type": "string",
       "isSecret": true
     },

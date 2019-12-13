@@ -1,0 +1,64 @@
+{
+  "name": "SignalFX",
+  "version": "1.0.0",
+  "overview": "Send audit log events to SignalFX",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to SignalFX.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://example.com",
+    "privacyPolicy": "https://example.com/privacy"
+  },
+  "categories": ["apm", "monitoring", "alerts"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "accessToken",
+      "name": "SignalFX access token",
+      "description": "Enter your [SignalFX access token](https://docs.signalfx.com/en/latest/admin-guide/tokens.html#working-with-access-tokens) here",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "realm",
+      "name": "Realm",
+      "description": "Enter your SignalFX realm as noted on your [profile page](https://app.us1.signalfx.com/#/myprofile).",
+      "type": "string",
+      "isSecret": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://ingest.{{realm}}.signalfx.com/v2/event",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "X-SF-Token",
+            "value": "{{accessToken}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/template.json",
+        "project": "templates/template.json",
+        "environment": "templates/template.json",
+        "metric": "templates/template.json"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

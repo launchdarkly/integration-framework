@@ -1,0 +1,65 @@
+{
+  "name": "Splunk",
+  "version": "1.0.0",
+  "overview": "Send audit log events to Splunk",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Splunk.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/docs/splunk",
+    "privacyPolicy": "https://www.splunk.com/en_us/legal/splunk-data-security-and-privacy.html"
+  },
+  "categories": ["monitoring", "alerts"],
+  "icons": {
+    "square": "assets/images/splunk-icon.svg",
+    "horizontal": "assets/images/splunk-logo.svg"
+  },
+  "formVariables": [
+    {
+      "key": "base-url",
+      "name": "HTTP Event Collector base URL",
+      "type": "string",
+      "description": "[Splunk HTTP Event Collector base URL](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)",
+      "isSecret": false
+    },
+    {
+      "key": "token",
+      "name": "Token",
+      "description": "HTTP Event Collector token value",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{base-url}}/services/collector/event",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Splunk {{token}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/template.json",
+        "project": "templates/template.json",
+        "environment": "templates/template.json",
+        "metric": "templates/template.json"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

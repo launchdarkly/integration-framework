@@ -1,0 +1,18 @@
+{
+  "name": "Bitbucket Pipelines (flags)",
+  "version": "1.0.0",
+  "overview": "Create and enable feature flags using Bitbucket Pipelines.",
+  "description": "The LaunchDarkly integration lets you insert feature flag actions directly into your Pipeline's continuous delivery flow. Bitbucket Pipelines is a continuous delivery platform that lets your team build, test, and deploy from Bitbucket. It exists within Bitbucket, giving you end-to-end visibility from coding to deployment.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "supportWebsite": "https://docs.launchdarkly.com/docs/bitbucket-pipelines",
+    "site": "https://docs.launchdarkly.com/docs/bitbucket-pipelines",
+    "privacyPolicy": "https://docs.launchdarkly.com/docs/git-code-references#section-configuring-context-lines"
+  },
+  "categories": ["source-control"],
+  "icons": {
+    "square": "assets/images/bitbucket_square.svg",
+    "horizontal": "assets/images/bitbucket_horizontal.svg"
+  }
+}
