@@ -1,0 +1,62 @@
+{
+  "name": "Dynatrace",
+  "version": "1.0.0",
+  "overview": "Send audit log events to Dynatrace",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Dynatrace.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/docs/msteams",
+    "privacyPolicy": "https://privacy.microsoft.com/en-us"
+  },
+  "categories": ["monitoring", "alerts", "apm"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "apiToken",
+      "name": "ApiToken",
+      "type": "string",
+      "description": "Your Dynatrace API token. The 'access problem and event feed, metrics, and topology' scope is required",
+      "isSecret": true
+    },
+    {
+      "key": "url",
+      "name": "Dynatrace URL",
+      "type": "uri",
+      "description": "Your Dynatrace URL (Managed or SaaS)",
+      "placeholder": "https://{your-environment-id}.live.dynatrace.com",
+      "isSecret": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{url}}//api/v1/events",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "value": "Api-Token {{apiToken}}"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/template.json"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

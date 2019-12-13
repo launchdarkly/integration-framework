@@ -1,0 +1,19 @@
+{
+  "eventType": "CUSTOM_ANNOTATION",
+  "attachRules": {
+    "tagRule": [
+      {
+        "meTypes": ["APPLICATION"],
+        "tags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "LaunchDarkly"
+          }
+        ]
+      }
+    ]
+  },
+  "source": "LaunchDarkly",
+  "annotationType": "Feature flag",
+  "annotationDescription": "{{{title}}}"
+}
