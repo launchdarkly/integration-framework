@@ -6,9 +6,9 @@
     "project": "ben-dev",
     "flag": "{{name}}",
     "kind": "{{kind}}",
-    "event": "{{title}}",
+    "event": "{{{title}}}",
     "comment": "{{comment}}"
   },
-  "eventType": "LaunchDarkly flag changed",
+  "eventType": "LaunchDarkly flag change",
   "timestamp": {{date}}
 }]
