@@ -1,0 +1,64 @@
+{
+  "name": "Librato",
+  "version": "1.0.0",
+  "overview": "Send LaunchDarkly audit events to Librato",
+  "description": "This integration sends LaunchDarkly audit events to Librato.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.librato.com/",
+    "privacyPolicy": "https://www.solarwinds.com/legal/privacy"
+  },
+  "categories": ["apm", "monitoring", "alerts"],
+  "icons": {
+    "square": "assets/images/honeycomb-square.svg",
+    "horizontal": "assets/images/honeycomb-rect.svg"
+  },
+  "formVariables": [
+    {
+      "key": "streamName",
+      "name": "Librato annotation stream name",
+      "description": "Enter the Annotation stream Name that will be used for the request to the [Annotation API](http://www.librato.com/docs/api/?python#create-an-annotation).",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "username",
+      "name": "Librato username/email",
+      "description": "Enter your Librato username/email.",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "apiKey",
+      "name": "Librato API Key",
+      "description": "Enter your Librato API Key here",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://{{username}}:{{apiKey}}metrics-api.librato.com/v1/annotations/demo-api{{streamName}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/flag.json"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}
