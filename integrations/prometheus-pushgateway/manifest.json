@@ -36,7 +36,8 @@
         "project": "templates/template",
         "environment": "templates/template",
         "metric": "templates/template"
-      }
+      },
+      "defaultPolicy": []
     }
   }
 }
