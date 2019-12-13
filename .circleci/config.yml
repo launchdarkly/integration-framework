@@ -9,6 +9,9 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
+      - install_precommit:
+          name: Installing pre-commit
+          command: curl https://pre-commit.com/install-local.py | python -
       - restore_cache:
           name: Restore Yarn Package Cache
           keys:
