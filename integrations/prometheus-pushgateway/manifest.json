@@ -19,15 +19,23 @@
       "key": "metricsUrl",
       "name": "Metrics URL",
       "description": "The URL to which Launch Darkly should POST metrics",
-      "placeholder": "http://pushgateway.example.org:9091/metrics/job/launch_darkly",
+      "placeholder": "http://pushgateway.example.org:9091/metrics",
       "type": "uri",
+      "isSecret": false
+    },
+    {
+      "key": "jobName",
+      "name": "Job Name",
+      "description": "The name of the job label to be applied to exported metrics",
+      "defaultValue": "launchdarkly",
+      "type": "string",
       "isSecret": false
     }
   ],
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "{{metricsUrl}}",
+        "url": "{{ metricsUrl }}/job/{{ jobName }}/instance/{{ kind }}:{{ name }}",
         "method": "POST",
         "headers": []
       },
