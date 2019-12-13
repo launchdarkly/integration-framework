@@ -1,0 +1,5 @@
+{
+  "time":{{ date }},
+  "tags":["{{ kind }}"],
+  "text":"{{ title }}"
+}

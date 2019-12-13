@@ -1,0 +1,48 @@
+{
+  "name": "Grafana",
+  "version": "0.0.1",
+  "overview": "Annotate your Grafana dashboards with Launch Darkly events",
+  "description": "Send flag, environment, and project updates to Grafana to add context to your graphs.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://grafana.com/",
+    "privacyPolicy": "https://grafana.com/terms/"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "endpointURL",
+      "name": "API URL",
+      "description": "The URL of your Grafana instance's API",
+      "placeholder": "https://grafana.example.org/api",
+      "type": "uri",
+      "isSecret": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{ endpointUrl }}/annotations",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/template.json",
+        "project": "templates/template.json",
+        "environment": "templates/template.json",
+        "metric": "templates/template.json"
+      },
+      "defaultPolicy": []
+    }
+  }
+}
