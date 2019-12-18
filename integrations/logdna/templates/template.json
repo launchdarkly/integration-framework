@@ -1,10 +1,10 @@
-{ 
-    "lines": [ 
-      { 
-        "line":"{{{title}}}{{#if comment}}, Comment: {{comment}}{{/if}}", 
-        "app":"test-app",
-        "level": "INFO",
-        "env": "production"
-      }
-    ] 
- }
+{
+  "lines": [
+    {
+      "line": "{{{title}}}{{#if comment}}, Comment: {{comment}}{{/if}}",
+      "app": "{{formVariables.app}}",
+      "level": "INFO",
+      "env": "production"
+    }
+  ]
+}

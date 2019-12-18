@@ -1,8 +1,8 @@
 {
-  "name": "SignalFX",
+  "name": "SignalFx",
   "version": "1.0.0",
-  "overview": "Send audit log events to SignalFX",
-  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to SignalFX.",
+  "overview": "Send audit log events to SignalFx",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to SignalFx.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -17,15 +17,15 @@
   "formVariables": [
     {
       "key": "accessToken",
-      "name": "SignalFX access token",
-      "description": "Enter your [SignalFX access token](https://docs.signalfx.com/en/latest/admin-guide/tokens.html#working-with-access-tokens) here",
+      "name": "SignalFx access token",
+      "description": "Enter your [SignalFx access token](https://docs.signalfx.com/en/latest/admin-guide/tokens.html#working-with-access-tokens) here.",
       "type": "string",
       "isSecret": true
     },
     {
       "key": "realm",
-      "name": "Realm",
-      "description": "Enter your SignalFX realm as noted on your [profile page](https://app.us1.signalfx.com/#/myprofile).",
+      "name": "SignalFx realm",
+      "description": "Enter your SignalFx realm as noted on your [profile page](https://app.us1.signalfx.com/#/myprofile).",
       "type": "string",
       "isSecret": false
     }
