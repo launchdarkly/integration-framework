@@ -53,6 +53,7 @@ configuration.
 
 The first part of the manifest describes your organization, contacts, URLs, and
 a few things we need to list your integration properly:
+
 ```
 {
   "name": "Sample Integration",
@@ -73,6 +74,7 @@ a few things we need to list your integration properly:
   ...
 }
 ```
+
 The example above describes the basic information about your integration. We
 will use most of the information above when rendering your integration
 configuration form inside the LaunchDarkly UI.
@@ -82,7 +84,6 @@ There are a few properties in the manifest that can accept simple
 [`description`](https://github.com/launchdarkly/ld-integrations/blob/master/MANIFEST.md#description).
 This markdown format will get converted to HTML in LaunchDarkly's UI. Only use
 simple markdown structures like links and basic text formatting.
-
 
 Notice that the
 [`icons`](https://github.com/launchdarkly/ld-integrations/blob/master/MANIFEST.md#icons)
@@ -106,9 +107,9 @@ your `README.md` as documentation to your integration.
 Most integrations will need to collect one or more pieces of configuration data
 that supports the integration. Some examples include:
 
-* API token
-* Webhook endpoint
-* URLs
+- API token
+- Webhook endpoint
+- URLs
 
 To support these configurations, you can describe a set of
 [`formVariables`](https://github.com/launchdarkly/ld-integrations/blob/master/MANIFEST.md#formvariables)
@@ -162,6 +163,7 @@ event in another service.
 
 Here's an example of an Audit Log Event Hook capability that subscribes to flag
 events in a LaunchDarkly account:
+
 ```
 {
     ...
@@ -196,6 +198,7 @@ events in a LaunchDarkly account:
     ...
 }
 ```
+
 The
 [`auditLogEventsHook`](https://github.com/launchdarkly/ld-integrations/blob/master/MANIFEST.md#auditlogeventshook)
 has three properties:
@@ -223,6 +226,7 @@ runtime. The main ones are the `endpoint.url` and the
 `endpoint.headers[].value`. This will allow you to configure a dynamic endpoint
 based on the `formVariables` your integration collects from the user. Here are
 some examples:
+
 ```
 This first example will utilize the `endpointUrl` formVariable as the URL of the endpoint and use the `apiToken` as a `Bearer` token in the `Authorization` header.
 ...
@@ -258,6 +262,7 @@ Before the `auditLogEventsHook` capability sends the request to the endpoint
 handling your webhook, you have the option to transform the body of the request
 sent to your handler. If you don't provide one or more templates, LaunchDarkly
 will send you a default JSON payload that looks like this:
+
 ```
 {
    "_links": {
@@ -311,6 +316,7 @@ will send you a default JSON payload that looks like this:
    }
 }
 ```
+
 However, if you choose to provide one or more
 [`templates`](https://github.com/launchdarkly/ld-integrations/blob/master/MANIFEST.md#templates),
 LaunchDarkly will render your template using the context data above. Your
@@ -328,7 +334,12 @@ helpers](https://github.com/aymerick/raymond#built-in-helpers): `if`, `unless`,
 To test your templates, you can use the [Handlebars
 Sandbox](http://tryhandlebarsjs.com/).
 
-### Step 7: Submitting your integration
+### Step 7: Validating your integration
+
+Run `npm install` to install the validation dependencies. Run `npm test` to run the validation suite. In addition, we
+recommend install pre-commit hooks with `pre-commit install` to have the validation suite run before every commit.
+
+### Step 8: Submitting your integration
 
 Once you're done with your integration, [submit a pull request against this
 repo](https://github.com/launchdarkly/ld-integrations/pull/new/master). Your
