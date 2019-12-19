@@ -1,0 +1,18 @@
+{
+  "name": "Pendo",
+  "version": "1.0.0",
+  "overview": "Associate your Pendo audiences with LaunchDarkly targeting rules",
+  "description": "Product teams often want to roll out new features iteratively, measuring adoption and collecting feedback from a subset of users before making the feature generally available. Pendo and LaunchDarkly have partnered to help our joint customers use Pendo to better target and engage users during this process.  Pendo data such as product adoption, renewal data, and ARR can help target the rollout of features through LaunchDarkly.",
+  "author": "Pendo",
+  "supportEmail": "support@pendo.com",
+  "links": {
+    "supportWebsite": "https://support.pendo.io/hc/en-us/articles/360032592312-LaunchDarkly-Recipe-Automate-the-feature-release-process",
+    "site": "https://support.pendo.io/hc/en-us/articles/360032592312-LaunchDarkly-Recipe-Automate-the-feature-release-process",
+    "privacyPolicy": "https://www.pendo.io/legal/privacy-policy/"
+  },
+  "categories": ["automation"],
+  "icons": {
+    "square": "assets/images/pendo_square.svg",
+    "horizontal": "assets/images/pendo_horizontal.svg"
+  }
+}

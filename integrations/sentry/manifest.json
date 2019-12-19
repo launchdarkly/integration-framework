@@ -1,0 +1,72 @@
+{
+  "name": "Sentry",
+  "version": "0.0.1",
+  "overview": "Send LaunchDarkly Events to Sentry",
+  "description": "Send flag, environment, and project updates to Sentry.io",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://sentry.io",
+    "privacyPolicy": "https://sentry.io/privacy/"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/images/sentry.svg",
+    "horizontal": "assets/images/sentry-banner.svg"
+  },
+  "formVariables": [
+    {
+      "key": "domain",
+      "name": "Sentry API Domain",
+      "description": "The Domain part of your Sentry DSN",
+      "placeholder": "sentry.io",
+      "defaultValue": "sentry.io",
+      "type": "string"
+    },
+    {
+      "key": "publicKey",
+      "name": "Sentry Public Key",
+      "description": "Public key part of your Sentry DSN",
+      "placeholder": "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijk=",
+      "type": "string"
+    },
+    {
+      "key": "projectId",
+      "name": "Project ID",
+      "description": "Sentry Project ID you'd like to assicate with LaunchDarkly events",
+      "placeholder": "123",
+      "type": "string"
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://{{domain}}/api/{{projectId}}/store/",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "X-Sentry-Auth",
+            "value": "Sentry sentry_version=7, sentry_key={{ publicKey }}"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/template.json",
+        "project": "templates/template.json",
+        "environment": "templates/template.json",
+        "metric": "templates/template.json"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

@@ -206,7 +206,7 @@ has three properties:
    `endpoint.headers[].value`) will accept template variables. These template
    variables can reference any `formVariables` you've defined in your manifest.
    The templating language we use is based off of
-   [Handlerbars](https://handlebarsjs.com/) syntax.
+   [Handlebars](https://handlebarsjs.com/) syntax.
 2. [`templates`](https://github.com/launchdarkly/ld-integrations/blob/master/MANIFEST.md#templates):
    A map of template paths relative to your integration's directory. These
    templates can be any file type.
