@@ -24,21 +24,34 @@ jobs:
       - run:
           name: Run tests
           command: yarn test
-  deploy:
+  deploy-to-s3:
     machine:
       enabled: true
     steps:
       - checkout
       - aws-cli/install
-      - deploy:
+      - run:
+          name: Deploy to production bucket
           command: ./scripts/copy_to_s3.sh
+          environment:
+            BUCKET_NAME: launchdarkly-integrations
+      - run:
+          name: Deploy to staging bucket
+          command: ./scripts/copy_to_s3.sh
+          environment:
+            BUCKET_NAME: launchdarkly-integrations-staging
+      - run:
+          name: Deploy to catfood bucket
+          command: ./scripts/copy_to_s3.sh
+          environment:
+            BUCKET_NAME: launchdarkly-integrations-catamorphic
 
 workflows:
   version: 2.1
   build-and-deploy:
     jobs:
       - build
-      - deploy:
+      - deploy-to-s3:
           requires:
             - build
           filters:
