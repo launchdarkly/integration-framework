@@ -34,7 +34,7 @@ jobs:
           name: Deploy to production bucket
           command: ./scripts/copy_to_s3.sh
           environment:
-            BUCKET_NAME: launchdarkly-integrations
+            BUCKET_NAME: launchdarkly-integrations-production
       - run:
           name: Deploy to staging bucket
           command: ./scripts/copy_to_s3.sh
