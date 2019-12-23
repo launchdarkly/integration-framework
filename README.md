@@ -285,7 +285,10 @@ will send you a default JSON payload that looks like this:
    },
    "_id": "5defebd006121dd9f7ea90d0",
    "_accountId": "",
-   "date": 1576004560130,
+   "timestamp": {
+       "milliseconds": 1576004560130,
+       "seconds": 1576004560,
+   },
    "kind": "flag",
    "name": "Example test",
    "description": "",
