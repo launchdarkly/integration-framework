@@ -1,6 +1,6 @@
 {
     "sourcetype":"launchdarkly",
-    "time":"{{date}}",
+    "time":"{{timestamp.milliseconds}}",
     "event": {
         "kind":"{{kind}}",
         "name":"{{name}}",
