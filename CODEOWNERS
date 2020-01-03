@@ -1,7 +1,2 @@
 # These owners will be the default owners for everything in the repo.
 * @launchdarkly/integrations
-
-integrations/sample-integrations @launchdarkly/integrations
-
-# Specify the owner of the integrations below. Follow this format:
-# integrations/<integration-directory> <@github-username or email>
