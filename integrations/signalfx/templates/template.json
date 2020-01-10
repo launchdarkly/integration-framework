@@ -1,8 +1,8 @@
 
- [{ 
+ [{
   "category": "AUDIT",
-  "dimensions": { 
-    "environment": "production", 
+  "dimensions": {
+    "environment": "production",
     "project": "ben-dev",
     "flag": "{{name}}",
     "kind": "{{kind}}",
@@ -10,5 +10,5 @@
     "comment": "{{comment}}"
   },
   "eventType": "LaunchDarkly {{kind}} change",
-  "timestamp": {{date}}
+  "timestamp": {{timestamp.milliseconds}}
 }]

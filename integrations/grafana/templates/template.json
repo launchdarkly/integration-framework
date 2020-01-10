@@ -1,5 +1,5 @@
 {
-  "time":{{ date }},
+  "time":{{ timestamp.milliseconds }},
   "tags":["launchdarkly","{{ kind }}","{{ name }}"],
   "text":"{{ title }}"
 }
