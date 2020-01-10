@@ -12,7 +12,7 @@
   "categories": ["apm", "monitoring", "alerts"],
   "icons": {
     "square": "assets/images/dd_icon_rgb.svg",
-    "horizontal": "assets/images/dd_logo_h_rbg.svg"
+    "horizontal": "assets/images/dd_logo_h_rgb.svg"
   },
   "formVariables": [
     {

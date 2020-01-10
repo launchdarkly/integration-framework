@@ -12,9 +12,13 @@ consume events from LaunchDarkly to provide their users with more context.
 
 There are several steps to creating an integration with LaunchDarkly.
 
+### Step 0: Replicate your desired behavior with `curl`
+
+Prior to connecting LaunchDarkly with a third-party service, you should replicate your integration's desired behavior in an isolated environment (standalone from LaunchDarkly). The easiest way to do this is by using [`curl`](https://curl.haxx.se/docs/manpage.html). A lot of API documentation has `curl` example commands provided for developers to use. Find the API documentation for your third-party service and execute sample commands against it. Take note of the request semantics. This will help streamline your manifest and template definitions.
+
 ### Step 1: Fork this Repository
 
-You will need to fork this repository to your own Github account. When you've
+You will need to fork this repository to your own GitHub account. When you've
 completed your integration, you can [submit a pull request to
 LaunchDarkly](#step-7-submitting-your-integration) for it to get approved and
 deployed.

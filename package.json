@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "prepare": "jsonschema2md -d manifest.schema.json -o . -n && mv manifest.schema.md MANIFEST.md",
-    "test": "ajv test -s manifest.schema.json -d **/manifest.json --valid --errors=json",
-    "test-single": "ajv test --valid --errors=json -s manifest.schema.json -d"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -18,9 +17,16 @@
     "url": "https://github.com/launchdarkly/ld-integrations/issues"
   },
   "homepage": "https://github.com/launchdarkly/ld-integrations#readme",
-  "dependencies": {},
   "devDependencies": {
     "@adobe/jsonschema2md": "3.3.1",
-    "ajv-cli": "3.0.0"
+    "ajv": "^6.10.2",
+    "jest": "24.9.0",
+    "lodash": "^4.17.15"
+  },
+  "prettier": {
+    "trailingComma": "es5",
+    "tabWidth": 2,
+    "semi": true,
+    "singleQuote": true
   }
 }
