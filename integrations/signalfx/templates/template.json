@@ -1,14 +1,13 @@
-
- [{
-  "category": "AUDIT",
-  "dimensions": {
-    "environment": "production",
-    "project": "ben-dev",
-    "flag": "{{name}}",
-    "kind": "{{kind}}",
-    "event": "{{{title}}}",
-    "comment": "{{comment}}"
-  },
-  "eventType": "LaunchDarkly {{kind}} change",
-  "timestamp": {{timestamp.milliseconds}}
+[{
+    "category": "AUDIT",
+    "dimensions": {
+      "environment": "{{project.environment.key}}",
+      "project": "{{project.key}}",
+      "flag": "{{name}}",
+      "kind": "{{kind}}",
+      "event": "{{{title}}}",
+      "comment": "{{comment}}"
+    },
+    "eventType": "LaunchDarkly {{kind}} change",
+    "timestamp": {{timestamp.milliseconds}}
 }]

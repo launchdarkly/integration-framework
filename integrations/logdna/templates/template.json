@@ -4,7 +4,7 @@
       "line": "{{{title}}}{{#if comment}}, Comment: {{comment}}{{/if}}",
       "app": "{{formVariables.app}}",
       "level": "INFO",
-      "env": "production"
+      "env": "{{project.environment.key}}"
     }
   ]
 }
