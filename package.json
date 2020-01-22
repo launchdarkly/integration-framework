@@ -5,7 +5,13 @@
   "main": "index.js",
   "scripts": {
     "prepare": "jsonschema2md -d manifest.schema.json -o . -n && mv manifest.schema.md MANIFEST.md",
-    "test": "jest"
+    "test": "jest",
+    "preview": "node preview.js"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "jest-expect-message"
+    ]
   },
   "repository": {
     "type": "git",
@@ -20,7 +26,9 @@
   "devDependencies": {
     "@adobe/jsonschema2md": "3.3.1",
     "ajv": "^6.10.2",
+    "handlebars": "4.7.2",
     "jest": "24.9.0",
+    "jest-expect-message": "1.0.2",
     "lodash": "^4.17.15"
   },
   "prettier": {

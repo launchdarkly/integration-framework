@@ -3,7 +3,7 @@
   "@type": "MessageCard",
   "themeColor": "0072C6",
   "title": "Visit the Outlook Dev Portal",
-  "text": "{{}}",
+  "text": "{{title}}",
   "potentialAction": [
     {
       "@type": "ActionCard",
@@ -29,7 +29,10 @@
       "@type": "OpenUri",
       "name": "Learn More",
       "targets": [
-        { "os": "default", "uri": "https://docs.microsoft.com/outlook/actionable-messages" }
+        {
+          "os": "default",
+          "uri": "https://docs.microsoft.com/outlook/actionable-messages"
+        }
       ]
     }
   ]
