@@ -54,7 +54,13 @@
         "environment": "templates/template.json",
         "metric": "templates/template.json"
       },
-      "defaultPolicy": []
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
     }
   }
 }

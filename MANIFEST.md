@@ -101,7 +101,7 @@ https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information
 `defaultPolicy`
 
 - is optional
-- type: `object[]`
+- type: `object[]`\* at least `1` items in the array
 
 ##### defaultPolicy Type
 

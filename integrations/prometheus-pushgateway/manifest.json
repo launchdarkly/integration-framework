@@ -37,7 +37,13 @@
         "environment": "templates/template",
         "metric": "templates/template"
       },
-      "defaultPolicy": []
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
     }
   }
 }

@@ -221,7 +221,17 @@ has three properties:
    An array of [LaunchDarkly
    policies](https://docs.launchdarkly.com/docs/policies-in-custom-roles) that
    act as a filter for which events to send to your webhook endpoint. These
-   policies can be overriden by users subscribing to your integration.
+   policies can be overriden by users subscribing to your integration. We recommend the following default policy which specifies that LaunchDarkly will notify your integration of all flag activity across production environments from all projects:
+   
+```json
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+```
 
 #### Endpoint template variables
 

@@ -436,6 +436,7 @@
                             "title": "Default Policy",
                             "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
                             "type": "array",
+                            "minItems": 1,
                             "items": {
                                 "$id": "#/properties/capability/audit-log-events-hook/policy",
                                 "title": "Policy",
