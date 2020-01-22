@@ -1,13 +1,35 @@
-const { readdirSync, existsSync } = require('fs');
+const { readdirSync, existsSync, readFileSync } = require('fs');
+const Handlebars = require('handlebars');
 const Ajv = require('ajv');
 const _ = require('lodash');
 
 const schema = require('../manifest.schema.json');
+const flagUpdateContext = require('../sample-context/flag-update');
 
 const getDirectories = source =>
   readdirSync(source, { withFileTypes: true })
     .filter(dir => dir.isDirectory())
     .map(dir => dir.name);
+
+const getFormVariableContext = formVariables => {
+  const endpointContext = {};
+  if (formVariables) {
+    formVariables.forEach(formVariable => {
+      switch (formVariable.type) {
+        case 'string':
+          endpointContext[formVariable.key] = formVariable.key;
+          break;
+        case 'boolean':
+          endpointContext[formVariable.key] = true;
+          break;
+        case 'uri':
+          endpointContext[formVariable.key] = `https://${formVariable.key}.com`;
+          break;
+      }
+    });
+  }
+  return endpointContext;
+};
 
 let manifests = [];
 const ajv = new Ajv();
@@ -35,46 +57,93 @@ describe('All integrations', () => {
     ).toBe(true);
   });
 
-  test.each(manifests)('Templates exist for %s', (key, manifest) => {
-    const flagTemplatePath = _.get(
-      manifest,
-      'capabilities.auditLogEventsHook.templates.flag',
-      null
-    );
-    const projectTemplatePath = _.get(
-      manifest,
-      'capabilities.auditLogEventsHook.templates.project',
-      null
-    );
-    const environmentTemplatePath = _.get(
-      manifest,
-      'capabilities.auditLogEventsHook.templates.environment',
-      null
-    );
-    const metricTemplatePath = _.get(
-      manifest,
-      'capabilities.auditLogEventsHook.templates.metric',
-      null
-    );
-    if (flagTemplatePath) {
-      expect(existsSync(`./integrations/${key}/${flagTemplatePath}`)).toBe(
-        true
+  test.each(manifests)(
+    'Referenced form variables exist for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      const endpoint = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.endpoint',
+        null
       );
+      if (endpoint) {
+        const endpointContext = getFormVariableContext(formVariables);
+        endpointContext.context = flagUpdateContext;
+        const urlTemplate = Handlebars.compile(endpoint.url, {
+          strict: true,
+        });
+        expect(
+          () => urlTemplate(endpointContext),
+          `${key}: request URL template must render successfully`
+        ).not.toThrow();
+        endpoint.headers.forEach(header => {
+          const headerTemplate = Handlebars.compile(header.value, {
+            strict: true,
+          });
+          expect(
+            () => headerTemplate(endpointContext),
+            `${key}: request header (${header.name}) value template must render successfully`
+          ).not.toThrow();
+        });
+      }
     }
-    if (projectTemplatePath) {
-      expect(existsSync(`./integrations/${key}/${projectTemplatePath}`)).toBe(
-        true
+  );
+
+  test.each(manifests)(
+    'Templates can be successfully rendered for %s',
+    (key, manifest) => {
+      const flagTemplatePath = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.templates.flag',
+        null
       );
-    }
-    if (environmentTemplatePath) {
-      expect(
-        existsSync(`./integrations/${key}/${environmentTemplatePath}`)
-      ).toBe(true);
-    }
-    if (metricTemplatePath) {
-      expect(existsSync(`./integrations/${key}/${metricTemplatePath}`)).toBe(
-        true
+      const projectTemplatePath = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.templates.project',
+        null
       );
+      const environmentTemplatePath = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.templates.environment',
+        null
+      );
+      const metricTemplatePath = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.templates.metric',
+        null
+      );
+      if (flagTemplatePath) {
+        const path = `./integrations/${key}/${flagTemplatePath}`;
+        expect(existsSync(path)).toBe(true);
+        const templateString = readFileSync(path, { encoding: 'utf-8' });
+        const flagTemplate = Handlebars.compile(templateString, {
+          strict: true,
+        });
+
+        const formVariables = _.get(manifest, 'formVariables', null);
+        const formVariableContext = getFormVariableContext(formVariables);
+        const fullContext = Object.assign({}, flagUpdateContext);
+        fullContext.formVariables = formVariableContext;
+        expect(
+          () => flagTemplate(fullContext),
+          `${key}: flag template must render successfully`
+        ).not.toThrow();
+      }
+      if (projectTemplatePath) {
+        expect(existsSync(`./integrations/${key}/${projectTemplatePath}`)).toBe(
+          true
+        );
+      }
+      if (environmentTemplatePath) {
+        expect(
+          existsSync(`./integrations/${key}/${environmentTemplatePath}`)
+        ).toBe(true);
+      }
+      if (metricTemplatePath) {
+        expect(existsSync(`./integrations/${key}/${metricTemplatePath}`)).toBe(
+          true
+        );
+      }
     }
-  });
+  );
 });

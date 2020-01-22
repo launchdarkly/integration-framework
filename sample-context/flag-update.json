@@ -1,0 +1,75 @@
+{
+    "_links": {
+       "canonical": {
+          "href": "/api/v2/flags/always-snippet/example-test",
+          "type": "application/json"
+       },
+       "parent": {
+          "href": "/api/v2/auditlog",
+          "type": "application/json"
+       },
+       "self": {
+          "href": "/api/v2/auditlog/5defebd006121dd9f7ea90d0",
+          "type": "application/json"
+       },
+       "site": {
+          "href": "/always-snippet/production/features/example-test",
+          "type": "text/html"
+       }
+    },
+    "_id": "5defebd006121dd9f7ea90d0",
+    "_accountId": "xyz123",
+    "date": 1576004560130,
+    "timestamp": {
+        "milliseconds": 1576004560130,
+        "seconds": 1576004560
+    },
+    "kind": "flag",
+    "name": "Example test",
+    "details": {
+        "plainText": "added testing@example.com to the variation true",
+        "markdown": "- added [testing@example.com](mailto:testing@example.com) to the variation *true*"
+    },
+    "description": "",
+    "shortDescription": "",
+    "comment": "This is just a test",
+    "member": {
+       "_links": {
+          "parent": {
+             "href": "/api/v2/members",
+             "type": "application/json"
+          },
+          "self": {
+             "href": "/api/v2/members/569f514183f2164430000002",
+             "type": "application/json"
+          }
+       },
+       "_id": "569f514183f2164430000002",
+       "email": "testing@example.com",
+       "firstName": "Henry",
+       "lastName": "Barrow"
+    },
+    "project": {
+        "name": "test project",
+        "key": "test-project",
+        "tags": ["project_tag"],
+        "environment": {
+            "name": "test environment",
+            "key": "test-environment",
+            "tags": ["env_tag", "env_tag2"]
+        }
+    },
+    "key": "test-key",
+    "tags": ["flag_tag", "flag_tag2"],
+    "titleVerb": "",
+    "markdownTitle": "[Henrietta Powell](mailto:testing@example.com) turned on the flag [Example test](http://app.launchdarkly/exampledotcom/production/features/example-test) in 'Production'",
+    "title": "Henrietta Powell turned on the flag Example test in 'Production'",
+    "titleObj": {
+        "plainText": "Henrietta Powell turned on the flag Example test in 'Production'",
+        "markdown": "[Henrietta Powell](mailto:testing@example.com) turned on the flag [Example test](http://app.launchdarkly/exampledotcom/production/features/example-test) in 'Production'"
+    },
+    "target": {
+       "_links": null,
+       "name": ""
+    }
+}
