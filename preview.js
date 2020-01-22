@@ -27,7 +27,7 @@ const getFormVariableContext = formVariables => {
 };
 
 if (args.length <= 2) {
-  console.log('please provide an integration name');
+  console.log('please provide an integration directory name');
   process.exit(1);
 }
 
