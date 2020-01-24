@@ -3,8 +3,9 @@ const Handlebars = require('handlebars');
 const Ajv = require('ajv');
 const _ = require('lodash');
 
+const jsonEscape = require('../utils/json-escape');
 const schema = require('../manifest.schema.json');
-const flagUpdateContext = require('../sample-context/flag-update');
+const flagUpdateContext = require('../sample-context/flag-update.client-side-sdk');
 
 const getDirectories = source =>
   readdirSync(source, { withFileTypes: true })
@@ -29,6 +30,11 @@ const getFormVariableContext = formVariables => {
     });
   }
   return endpointContext;
+};
+
+const isJSONTemplate = templateFilename => {
+  const lowercase = templateFilename.toLowerCase();
+  return lowercase.endsWith('.json') || lowercase.endsWith('.json.hbs');
 };
 
 let manifests = [];
@@ -122,12 +128,23 @@ describe('All integrations', () => {
 
         const formVariables = _.get(manifest, 'formVariables', null);
         const formVariableContext = getFormVariableContext(formVariables);
-        const fullContext = Object.assign({}, flagUpdateContext);
+        const isJSON = isJSONTemplate(flagTemplatePath);
+        const fullContext = isJSON
+          ? jsonEscape(Object.assign({}, flagUpdateContext))
+          : Object.assign({}, flagUpdateContext);
         fullContext.formVariables = formVariableContext;
         expect(
           () => flagTemplate(fullContext),
           `${key}: flag template must render successfully`
         ).not.toThrow();
+        // Validate json templates render to valid json
+        if (isJSON) {
+          const rendered = flagTemplate(fullContext);
+          expect(
+            () => JSON.parse(rendered),
+            `.json templates must render valid JSON\n${rendered}`
+          ).not.toThrow();
+        }
       }
       if (projectTemplatePath) {
         expect(existsSync(`./integrations/${key}/${projectTemplatePath}`)).toBe(

@@ -6,7 +6,7 @@
       "flag": "{{name}}",
       "kind": "{{kind}}",
       "event": "{{{title}}}",
-      "comment": "{{comment}}"
+      "comment": "{{#if comment}}{{comment}}{{/if}}"
     },
     "eventType": "LaunchDarkly {{kind}} change",
     "timestamp": {{timestamp.milliseconds}}

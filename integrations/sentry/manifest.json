@@ -33,7 +33,7 @@
     {
       "key": "projectId",
       "name": "Project ID",
-      "description": "Sentry Project ID you'd like to assicate with LaunchDarkly events",
+      "description": "Sentry Project ID you'd like to associate with LaunchDarkly events",
       "placeholder": "123",
       "type": "string"
     }

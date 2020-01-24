@@ -2,7 +2,9 @@ const { readFileSync } = require('fs');
 const Handlebars = require('handlebars');
 const _ = require('lodash');
 
-const flagUpdateContext = require('./sample-context/flag-update');
+const jsonEscape = require('./utils/json-escape');
+
+const flagUpdateContext = require('./sample-context/flag-update.client-side-sdk');
 
 const args = process.argv;
 
@@ -66,7 +68,7 @@ if (endpoint) {
   const templateString = readFileSync(path, { encoding: 'utf-8' });
   const flagTemplate = Handlebars.compile(templateString, { strict: true });
 
-  const fullContext = Object.assign({}, flagUpdateContext);
+  const fullContext = jsonEscape(Object.assign({}, flagUpdateContext));
   fullContext.formVariables = getFormVariableContext(formVariables);
   console.log('BODY:\tflag-update.json');
   console.log(flagTemplate(fullContext));

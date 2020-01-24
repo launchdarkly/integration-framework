@@ -20,12 +20,11 @@
   },
 
   "message": {
-    "formatted": "{{ title }}\n{{ description }}\n\n{{ comment }}"
+    "formatted": "{{ title }}\n{{ description }}{{#if comment}}\n\n{{ comment }}{{/if}}"
   },
   "user": {
     "id": "launchdarkly/member/{{ member._id }}",
     "email": "{{ member.email }}",
     "Member Name": "{{ member.firstName }} {{ member.lastName  }}"
   }
- 
 }

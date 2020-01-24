@@ -1,0 +1,74 @@
+{
+    "_links": {
+      "canonical": {
+        "href": "/api/v2/flags/default/demo-flag",
+        "type": "application/json"
+      },
+      "parent": {
+        "href": "/api/v2/auditlog",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "/api/v2/auditlog/5e28dbea06121d71dd129e79",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "/default/~/features/demo-flag",
+        "type": "text/html"
+      }
+    },
+    "_id": "5e28dbea06121d71dd129e79",
+    "_accountId": "",
+    "date": 0,
+    "timestamp": {
+      "milliseconds": 1579736042409,
+      "seconds": 1579736042
+    },
+    "kind": "flag",
+    "name": "Demo flag",
+    "details": {
+      "plainText": "Changed the flag to be available to client-side SDKs",
+      "markdown": "* Changed the flag to be available to client\\-side SDKs\n"
+    },
+    "description": "* Changed the flag to be available to client\\-side SDKs\n",
+    "shortDescription": "",
+    "project": {
+      "name": "Default Project",
+      "key": "default",
+      "tags": [],
+      "environment": {
+        "name": "Test",
+        "key": "test",
+        "tags": []
+      }
+    },
+    "key": "demo-flag",
+    "tags": [],
+    "member": {
+      "_links": {
+        "parent": {
+          "href": "/api/v2/members",
+          "type": "application/json"
+        },
+        "self": {
+          "href": "/api/v2/members/569f514183f2164430000002",
+          "type": "application/json"
+        }
+      },
+      "_id": "569f514183f2164430000002",
+      "email": "testing@launchdarkly.com",
+      "firstName": "Henrietta",
+      "lastName": "Powell"
+    },
+    "titleVerb": "updated the flag",
+    "markdownTitle": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the flag [Demo flag](http://localhost/default/~/features/demo-flag)",
+    "title": "Henrietta Powell updated the flag Demo flag",
+    "titleObj": {
+      "plainText": "Henrietta Powell updated the flag Demo flag",
+      "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the flag [Demo flag](http://localhost/default/~/features/demo-flag)"
+    },
+    "target": {
+      "_links": null,
+      "name": ""
+    }
+  }

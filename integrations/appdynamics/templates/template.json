@@ -1,9 +1,9 @@
-
- [{ 
-  "application_id": "LaunchDarkly",
-  "summary": "{{title}}",
-  "comment": "{{comment}}",
-  "eventtype": "APPLICATION_DEPLOYMENT", 
-  "severity": "INFO"  
+[
+  {
+    "application_id": "LaunchDarkly",
+    "summary": "{{title}}",
+    "comment": "{{#if comment}}{{comment}}{{/if}}",
+    "eventtype": "APPLICATION_DEPLOYMENT",
+    "severity": "INFO"
   }
 ]
