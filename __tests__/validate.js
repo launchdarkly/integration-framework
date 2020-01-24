@@ -96,6 +96,24 @@ describe('All integrations', () => {
   );
 
   test.each(manifests)(
+    'defaultValue types match the type of the formVariable for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (!_.isUndefined(formVariable.defaultValue)) {
+            if (formVariable.type === "string" || formVariable.type === "uri") {
+              expect(_.isString(formVariable.defaultValue)).toBe(true)
+            } else if (formVariable.type === "boolean") {
+              expect(_.isBoolean(formVariable.defaultValue)).toBe(true)
+            }
+          }
+        })
+      }
+    }
+  )
+
+  test.each(manifests)(
     'Templates can be successfully rendered for %s',
     (key, manifest) => {
       const flagTemplatePath = _.get(

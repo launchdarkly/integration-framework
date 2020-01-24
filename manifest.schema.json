@@ -263,7 +263,7 @@
                     "defaultValue": {
                         "$id": "#/properties/formVariables/variable/default-value",
                         "title": "Default value",
-                        "type": "string",
+                        "type": ["boolean","string"],
                         "description": "Default value for variable. Can be overridden by user in the UI"
                     }
                 },
