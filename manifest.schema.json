@@ -263,7 +263,10 @@
                     "defaultValue": {
                         "$id": "#/properties/formVariables/variable/default-value",
                         "title": "Default value",
-                        "type": ["boolean","string"],
+                        "type": [
+                            "boolean",
+                            "string"
+                        ],
                         "description": "Default value for variable. Can be overridden by user in the UI"
                     }
                 },
@@ -401,7 +404,7 @@
                                     "flag",
                                     "project",
                                     "environment",
-                                    "metric"
+                                    "default"
                                 ]
                             },
                             "properties": {
@@ -423,10 +426,10 @@
                                     "description": "Template to use for environment events",
                                     "type": "string"
                                 },
-                                "metric": {
+                                "default": {
                                     "$id": "#/properties/capability/audit-log-events-hook/templates/metric",
-                                    "title": "Metric template",
-                                    "description": "Template to use for metric events",
+                                    "title": "default template",
+                                    "description": "Template to use if the event does not have a corresponding named template",
                                     "type": "string"
                                 }
                             }

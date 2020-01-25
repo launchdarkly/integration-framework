@@ -131,7 +131,7 @@ describe('All integrations', () => {
         'capabilities.auditLogEventsHook.templates.environment',
         null
       );
-      const metricTemplatePath = _.get(
+      const defaultTemplatePath = _.get(
         manifest,
         'capabilities.auditLogEventsHook.templates.metric',
         null
@@ -174,10 +174,36 @@ describe('All integrations', () => {
           existsSync(`./integrations/${key}/${environmentTemplatePath}`)
         ).toBe(true);
       }
-      if (metricTemplatePath) {
-        expect(existsSync(`./integrations/${key}/${metricTemplatePath}`)).toBe(
+      if (defaultTemplatePath) {
+        expect(existsSync(`./integrations/${key}/${defaultTemplatePath}`)).toBe(
           true
         );
+        const path = `./integrations/${key}/${defaultTemplatePath}`;
+        expect(existsSync(path)).toBe(true);
+        const templateString = readFileSync(path, { encoding: 'utf-8' });
+        const flagTemplate = Handlebars.compile(templateString, {
+          strict: true,
+        });
+
+        const formVariables = _.get(manifest, 'formVariables', null);
+        const formVariableContext = getFormVariableContext(formVariables);
+        const isJSON = isJSONTemplate(flagTemplatePath);
+        const fullContext = isJSON
+          ? jsonEscape(Object.assign({}, flagUpdateContext))
+          : Object.assign({}, flagUpdateContext);
+        fullContext.formVariables = formVariableContext;
+        expect(
+          () => flagTemplate(fullContext),
+          `${key}: default template must render successfully`
+        ).not.toThrow();
+        // Validate json templates render to valid json
+        if (isJSON) {
+          const rendered = flagTemplate(fullContext);
+          expect(
+            () => JSON.parse(rendered),
+            `.json templates must render valid JSON\n${rendered}`
+          ).not.toThrow();
+        }
       }
     }
   );

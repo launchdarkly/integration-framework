@@ -409,10 +409,25 @@ Templates to use for body of the webhook request
 
 | Property      | Type   | Required |
 | ------------- | ------ | -------- |
+| `default`     | string | Optional |
 | `environment` | string | Optional |
 | `flag`        | string | Optional |
-| `metric`      | string | Optional |
 | `project`     | string | Optional |
+
+#### default
+
+##### default template
+
+Template to use if the event does not have a corresponding named template
+
+`default`
+
+- is optional
+- type: `string`
+
+##### default Type
+
+`string`
 
 #### environment
 
@@ -441,21 +456,6 @@ Template to use for flag events
 - type: `string`
 
 ##### flag Type
-
-`string`
-
-#### metric
-
-##### Metric template
-
-Template to use for metric events
-
-`metric`
-
-- is optional
-- type: `string`
-
-##### metric Type
 
 `string`
 
@@ -538,16 +538,16 @@ Array type: `object[]`
 
 All items must be of the type: `object` with following properties:
 
-| Property       | Type    | Required     | Default |
-| -------------- | ------- | ------------ | ------- |
-| `defaultValue` | string  | Optional     |         |
-| `description`  | string  | **Required** |         |
-| `isOptional`   | boolean | Optional     | `false` |
-| `isSecret`     | boolean | Optional     | `false` |
-| `key`          | string  | **Required** |         |
-| `name`         | string  | **Required** |         |
-| `placeholder`  | string  | Optional     |         |
-| `type`         | string  | **Required** |         |
+| Property       | Type           | Required     | Default |
+| -------------- | -------------- | ------------ | ------- |
+| `defaultValue` | boolean,string | Optional     |         |
+| `description`  | string         | **Required** |         |
+| `isOptional`   | boolean        | Optional     | `false` |
+| `isSecret`     | boolean        | Optional     | `false` |
+| `key`          | string         | **Required** |         |
+| `name`         | string         | **Required** |         |
+| `placeholder`  | string         | Optional     |         |
+| `type`         | string         | **Required** |         |
 
 #### defaultValue
 
@@ -558,11 +558,21 @@ Default value for variable. Can be overridden by user in the UI
 `defaultValue`
 
 - is optional
-- type: `string`
+- type: multiple
 
 ##### defaultValue Type
 
-`string`
+- type: `boolean,string`.
+
+```json
+{
+  "$id": "#/properties/formVariables/variable/default-value",
+  "title": "Default value",
+  "type": ["boolean", "string"],
+  "description": "Default value for variable. Can be overridden by user in the UI",
+  "simpletype": "multiple"
+}
+```
 
 #### description
 

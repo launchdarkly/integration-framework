@@ -35,7 +35,7 @@
         "flag": "templates/template",
         "project": "templates/template",
         "environment": "templates/template",
-        "metric": "templates/template"
+        "default": "templates/template"
       },
       "defaultPolicy": [
         {

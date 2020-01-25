@@ -31,7 +31,6 @@
         "markdown": "- added [testing@example.com](mailto:testing@example.com) to the variation *true*"
     },
     "description": "",
-    "shortDescription": "",
     "comment": "This is just a test",
     "member": {
        "_links": {

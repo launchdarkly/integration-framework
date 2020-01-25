@@ -70,6 +70,6 @@ if (endpoint) {
 
   const fullContext = jsonEscape(Object.assign({}, flagUpdateContext));
   fullContext.formVariables = getFormVariableContext(formVariables);
-  console.log('BODY:\tflag-update.json');
+  console.log('BODY:\tflag-update.client-side-sdk.json');
   console.log(flagTemplate(fullContext));
 }

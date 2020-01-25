@@ -31,7 +31,6 @@
       "markdown": "* Changed the flag to be available to client\\-side SDKs\n"
     },
     "description": "* Changed the flag to be available to client\\-side SDKs\n",
-    "shortDescription": "",
     "project": {
       "name": "Default Project",
       "key": "default",
