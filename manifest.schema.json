@@ -427,7 +427,7 @@
                                     "type": "string"
                                 },
                                 "default": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/templates/metric",
+                                    "$id": "#/properties/capability/audit-log-events-hook/templates/default",
                                     "title": "default template",
                                     "description": "Template to use if the event does not have a corresponding named template",
                                     "type": "string"
