@@ -562,7 +562,7 @@ Default value for variable. Can be overridden by user in the UI
 
 ##### defaultValue Type
 
-- type: `boolean,string`.
+Unknown type `boolean,string`.
 
 ```json
 {

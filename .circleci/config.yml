@@ -9,21 +9,12 @@ jobs:
       - image: circleci/node:latest
     steps:
       - checkout
-      - restore_cache:
-          name: Restore Yarn Package Cache
-          keys:
-            - yarn-packages-{{ checksum "yarn.lock" }}
       - run:
           name: Install Dependencies
-          command: yarn install --frozen-lockfile
-      - save_cache:
-          name: Save Yarn Package Cache
-          key: yarn-packages-{{ checksum "yarn.lock" }}
-          paths:
-            - ~/.cache/yarn
+          command: npm ci
       - run:
           name: Run tests
-          command: yarn test
+          command: npm test
   deploy-to-s3:
     machine:
       enabled: true
