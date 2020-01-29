@@ -30,7 +30,6 @@
         "plainText": "added testing@example.com to the variation true",
         "markdown": "- added [testing@example.com](mailto:testing@example.com) to the variation *true*"
     },
-    "description": "",
     "comment": "This is just a test",
     "member": {
        "_links": {
@@ -61,8 +60,6 @@
     "key": "test-key",
     "tags": ["flag_tag", "flag_tag2"],
     "titleVerb": "",
-    "markdownTitle": "[Henrietta Powell](mailto:testing@example.com) turned on the flag [Example test](http://app.launchdarkly/exampledotcom/production/features/example-test) in 'Production'",
-    "title": "Henrietta Powell turned on the flag Example test in 'Production'",
     "titleObj": {
         "plainText": "Henrietta Powell turned on the flag Example test in 'Production'",
         "markdown": "[Henrietta Powell](mailto:testing@example.com) turned on the flag [Example test](http://app.launchdarkly/exampledotcom/production/features/example-test) in 'Production'"

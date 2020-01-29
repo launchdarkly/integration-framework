@@ -1,7 +1,7 @@
 [
   {
     "application_id": "LaunchDarkly",
-    "summary": "{{title}}",
+    "summary": "{{titleObj.plainText}}",
     "comment": "{{#if comment}}{{comment}}{{/if}}",
     "eventtype": "APPLICATION_DEPLOYMENT",
     "severity": "INFO"

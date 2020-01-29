@@ -1,7 +1,7 @@
 {
   "lines": [
     {
-      "line": "{{{title}}}{{#if comment}}, Comment: {{comment}}{{/if}}",
+      "line": "{{{titleObj.plainText}}}{{#if comment}}, Comment: {{comment}}{{/if}}",
       "app": "{{formVariables.app}}",
       "level": "INFO",
       "env": "{{project.environment.key}}"

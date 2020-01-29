@@ -30,7 +30,6 @@
       "plainText": "Changed the flag to be available to client-side SDKs",
       "markdown": "* Changed the flag to be available to client\\-side SDKs\n"
     },
-    "description": "* Changed the flag to be available to client\\-side SDKs\n",
     "project": {
       "name": "Default Project",
       "key": "default",
@@ -60,8 +59,6 @@
       "lastName": "Powell"
     },
     "titleVerb": "updated the flag",
-    "markdownTitle": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the flag [Demo flag](http://localhost/default/~/features/demo-flag)",
-    "title": "Henrietta Powell updated the flag Demo flag",
     "titleObj": {
       "plainText": "Henrietta Powell updated the flag Demo flag",
       "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the flag [Demo flag](http://localhost/default/~/features/demo-flag)"

@@ -4,13 +4,13 @@
   "logger": "launchdarkly.integration",
   "platform": "other",
   "level": "info",
-  "transaction": "{{ title }}",
+  "transaction": "{{ titleObj.plainText }}",
   "server_name": "app.launchdarkly.com",
   "fingerprint": [
     "{{ _links.site.href }}",
     "{{ kind }}",
     "{{ name }}",
-    "{{ title }}"
+    "{{ titleObj.plainText }}"
   ],
 
   "tags": {
@@ -20,7 +20,7 @@
   },
 
   "message": {
-    "formatted": "{{ title }}\n{{ description }}{{#if comment}}\n\n{{ comment }}{{/if}}"
+    "formatted": "{{ titleObj.markdown }}\n{{ details.markdown }}{{#if comment}}\n\n{{ comment }}{{/if}}"
   },
   "user": {
     "id": "launchdarkly/member/{{ member._id }}",

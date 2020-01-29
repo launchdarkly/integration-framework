@@ -2,10 +2,10 @@
   "@type": "MessageCard",
   "@context": "http://schema.org/extensions",
   "themeColor": "0076D7",
-  "summary": "{{title}}",
+  "summary": "{{titleObj.plainText}}",
   "sections": [
     {
-      "activityTitle": "{{markdownTitle}}",
+      "activityTitle": "{{titleObj.markdown}}",
       "text": "{{#if comment}}> {{comment}}\n{{/if}}{{#if description}}{{description}}{{/if}}",
       "markdown": true
     }

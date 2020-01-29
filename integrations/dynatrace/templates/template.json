@@ -15,5 +15,5 @@
   },
   "source": "LaunchDarkly",
   "annotationType": "Feature flag",
-  "annotationDescription": "{{{title}}}"
+  "annotationDescription": "{{{titleObj.plainText}}}"
 }
