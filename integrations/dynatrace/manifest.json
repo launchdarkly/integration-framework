@@ -17,16 +17,16 @@
   "formVariables": [
     {
       "key": "apiToken",
-      "name": "ApiToken",
+      "name": "Dynatrace API Token",
       "type": "string",
-      "description": "Your Dynatrace API token. The 'access problem and event feed, metrics, and topology' scope is required",
+      "description": "Enter your Dynatrace API token. [Learn more](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token) about generating tokens. The 'access problem and event feed, metrics, and topology' scope is required.",
       "isSecret": true
     },
     {
       "key": "url",
       "name": "Dynatrace URL",
       "type": "uri",
-      "description": "Your Dynatrace URL (Managed or SaaS)",
+      "description": "Enter the URL used to access your Dynatrace (managed or hosted) service. Follow the pattern shown in the placeholder text.",
       "placeholder": "https://{your-environment-id}.live.dynatrace.com",
       "isSecret": false
     }
@@ -48,7 +48,7 @@
         ]
       },
       "templates": {
-        "flag": "templates/template.json"
+        "flag": "templates/flag.json"
       },
       "defaultPolicy": [
         {

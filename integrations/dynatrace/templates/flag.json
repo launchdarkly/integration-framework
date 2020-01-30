@@ -1,0 +1,28 @@
+{
+  "eventType": "CUSTOM_CONFIGURATION",
+  "attachRules": {
+    "tagRule": [
+      {
+        "meTypes": ["APPLICATION"],
+        "tags": [
+          {
+            "context": "CONTEXTLESS",
+            "key": "LaunchDarkly"
+          }
+        ]
+      }
+    ]
+  },
+  "configuration": "Feature flag \"{{name}}\"",
+  "customProperties": {
+    "Flag name": "{{name}}",
+    "Flag key": "{{key}}",
+    "Project name": "{{project.name}}",
+    "Project key": "{{project.key}}",
+    "Environment name": "{{project.environment.name}}",
+    "Environment key": "{{project.environment.key}}"
+  },
+  "start": {{ timestamp.milliseconds }},
+  "source": "LaunchDarkly",
+  "description": "{{{titleObj.plainText}}}"
+}
