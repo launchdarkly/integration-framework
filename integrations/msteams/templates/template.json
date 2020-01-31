@@ -5,9 +5,9 @@
   "summary": "{{titleObj.plainText}}",
   "sections": [
     {
-      "activityTitle": "{{titleObj.markdown}}",
-      "text": "{{#if comment}}> {{comment}}\n{{/if}}{{#if description}}{{description}}{{/if}}",
-      "markdown": true
+      "activityTitle": "{{{titleObj.html}}}",
+      "text": "{{#if details}}{{{details.html}}}{{/if}}{{#if comment}}\n<strong>Comment:</strong> {{{comment}}}\n{{/if}}",
+      "xml": true
     }
   ]
 }
