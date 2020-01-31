@@ -1,8 +1,8 @@
 {
-    "message": "{{{titleObj.plainText}}}",
-    "eventType": "LaunchDarkly",
-    "url": "https://app.launchdarkly.com{{_links.site.href}}",
-    "timestamp": "{{timestamp.milliseconds}}",
-    "name": "{{name}}",
-    "project": "{{project.name}}"
+  "message": "{{{titleObj.plainText}}}",
+  "eventType": "LaunchDarkly",
+  "url": "{{_links.site.href}}",
+  "timestamp": "{{timestamp.milliseconds}}",
+  "name": "{{name}}",
+  "project": "{{project.name}}"
 }

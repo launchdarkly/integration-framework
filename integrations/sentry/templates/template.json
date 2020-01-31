@@ -1,6 +1,6 @@
 {
   "event_id": "{{ _id }}00000000",
-  "culprit": "https://app.launchdarkly.com{{ _links.site.href }}",
+  "culprit": "{{ _links.site.href }}",
   "logger": "launchdarkly.integration",
   "platform": "other",
   "level": "info",

@@ -4,7 +4,7 @@
   "links": [
     {
       "label": "{{name}}",
-      "href": "https://ld-stg.launchdarkly.com{{_links.site.href}}",
+      "href": "{{_links.site.href}}",
       "rel": "launchdarkly"
     }
   ]
