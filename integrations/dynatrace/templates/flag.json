@@ -7,7 +7,7 @@
         "tags": [
           {
             "context": "CONTEXTLESS",
-            "key": "LaunchDarkly"
+            "key": "{{formVariables.tag}}"
           }
         ]
       }
