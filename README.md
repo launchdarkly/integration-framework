@@ -356,7 +356,7 @@ Sandbox](http://tryhandlebarsjs.com/).
 Run `npm install` to install the validation dependencies. Run `npm test` to run the validation suite. In addition, we
 recommend install pre-commit hooks with `pre-commit install` to have the validation suite run before every commit.
 
-Run `npm run preview YOUR_INTEGRATION_DIR_NAME` to preview your integration's templates with sample data.
+Run `npm run preview YOUR_INTEGRATION_DIR_NAME` to preview your integration's templates with sample data. Alternatively run `npm run curl YOUR_INTEGRATION_DIR_NAME` to produce a sample `curl` command to send data with your integration's service.
 
 ### Step 8: Submitting your integration
 

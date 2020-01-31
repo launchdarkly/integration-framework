@@ -6,7 +6,8 @@
   "scripts": {
     "prepare": "jsonschema2md -d manifest.schema.json -o . -n && mv manifest.schema.md MANIFEST.md && echo '' >> manifest.schema.json",
     "test": "jest",
-    "preview": "node preview.js"
+    "preview": "node preview.js",
+    "curl": "node preview.js --curl"
   },
   "jest": {
     "setupFilesAfterEnv": [
