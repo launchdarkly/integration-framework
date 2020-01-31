@@ -1,3 +1,7 @@
-Dynatrace is a software-intelligence monitoring platform that simplifies enterprise cloud complexity and accelerates digital transformation. With Davis (the Dynatrace AI causation engine) and complete automation, the Dynatrace all-in-one platform provides answers, not just data, about the performance of your applications, their underlying infrastructure, and the experience of your end users. Dynatrace is used to modernize and automate enterprise cloud operations, release higher-quality software faster, and deliver optimum digital experiences to your organization's customers.
+# Dynatrace
 
-Dynatrace seamlessly brings infrastructure and cloud, application performance, and digital experience monitoring into an all-in-one, automated solution that's powered by artificial intelligence. Dynatrace assists in driving performance results by providing development, operations, and business teams with a shared platform, metrics. In this way, Dynatrace can serve as your organization's single "source of truth."
+[User documentation](https://example.com)
+
+[API documentation](https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/events/post-event/)
+
+Run `npm run curl dynatrace` in the root repository directory to generate a `curl` command to send data to Dynatrace.
