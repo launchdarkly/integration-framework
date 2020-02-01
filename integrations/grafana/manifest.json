@@ -49,9 +49,6 @@
         ]
       },
       "templates": {
-        "flag": "templates/template.json",
-        "project": "templates/template.json",
-        "environment": "templates/template.json",
         "default": "templates/template.json"
       },
       "defaultPolicy": [

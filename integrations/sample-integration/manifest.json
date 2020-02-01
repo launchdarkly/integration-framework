@@ -80,10 +80,10 @@
         ]
       },
       "templates": {
-        "flag": "templates/template.json",
-        "project": "templates/template.json",
-        "environment": "templates/template.json",
-        "default": "templates/template.json"
+        "flag": "templates/flag.json",
+        "environment": "templates/environment.html",
+        "project": "templates/project.txt",
+        "default": "templates/default.json"
       },
       "defaultPolicy": [
         {
