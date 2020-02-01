@@ -32,6 +32,9 @@
         "headers": []
       },
       "templates": {
+        "flag": "templates/template",
+        "project": "templates/template",
+        "environment": "templates/template",
         "default": "templates/template"
       },
       "defaultPolicy": [
