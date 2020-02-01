@@ -17,22 +17,22 @@
   "formVariables": [
     {
       "key": "account",
-      "name": "Account",
-      "description": "Enter your AppDynamics Account as noted on your [License Management](https://docs.appdynamics.com/display/PRO45/License+Management) page",
+      "name": "Account name",
+      "description": "Enter your AppDynamics account name as noted on your [License Management](https://docs.appdynamics.com/display/PRO45/License+Management) page.",
       "type": "string",
       "isSecret": false
     },
     {
       "key": "username",
-      "name": "AppDynamics User",
-      "description": "Enter your [AppDynamics username](https://docs.appdynamics.com/display/PRO45/API+Clients) here",
+      "name": "AppDynamics account username",
+      "description": "Enter your [AppDynamics username](https://docs.appdynamics.com/display/PRO45/API+Clients).",
       "type": "string",
       "isSecret": false
     },
     {
       "key": "password",
-      "name": "AppDynamics user password",
-      "description": "Enter your [AppDynamics user password](https://docs.appdynamics.com/display/PRO45/API+Clients) here",
+      "name": "AppDynamics account password",
+      "description": "Enter your [AppDynamics user password](https://docs.appdynamics.com/display/PRO45/API+Clients).",
       "type": "string",
       "isSecret": true
     }

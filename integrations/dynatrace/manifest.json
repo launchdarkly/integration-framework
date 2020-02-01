@@ -17,7 +17,7 @@
   "formVariables": [
     {
       "key": "apiToken",
-      "name": "Dynatrace API Token",
+      "name": "Dynatrace API token",
       "type": "string",
       "description": "Enter your Dynatrace API token. [Learn more](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token) about generating tokens. The 'access problem and event feed, metrics, and topology' scope is required.",
       "isSecret": true
@@ -34,7 +34,7 @@
       "key": "tag",
       "name": "Entity tag",
       "type": "string",
-      "description": "Enter the tag associated with your Dynatrace entity. This tag will associate LaunchDarkly data with the corresponding Dynatrace entity. [Learn more](https://www.dynatrace.com/support/help/shortlink/tagging) about tagging.",
+      "description": "Enter the tag associated with your Dynatrace entity. This value will associate LaunchDarkly data with the corresponding Dynatrace entity. [Learn more](https://www.dynatrace.com/support/help/shortlink/tagging) about tagging.",
       "placeholder": "LaunchDarkly",
       "isSecret": false
     }

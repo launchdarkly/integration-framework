@@ -21,13 +21,14 @@
     "formVariables": [
         {
             "key": "accountId",
-            "name": "New Relic Account ID",
-            "description": "Enter your 6-digit [New Relic Account ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/account-id) found in the URL of your New Relic account.",
-            "type": "string"
+            "name": "New Relic account ID",
+            "description": "Enter your [New Relic account ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/account-id).",
+            "type": "string",
+            "placeholder": "123456"
         },
         {
             "key": "apiKey",
-            "name": "New Relic API Key",
+            "name": "New Relic API key",
             "description": "Enter your [New Relic API key](https://docs.newrelic.com/docs/insights/insights-data-sources/custom-data/introduction-event-api#register).",
             "type": "string",
             "isSecret": true

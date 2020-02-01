@@ -1,7 +1,7 @@
 {
   "event_id": "{{ _id }}00000000",
   "culprit": "{{ _links.site.href }}",
-  "logger": "launchdarkly.integration",
+  "logger": "launchdarkly",
   "platform": "other",
   "level": "info",
   "transaction": "{{ titleObj.plainText }}",
@@ -14,7 +14,7 @@
   ],
 
   "tags": {
-    "source": "launchdarkly",
+    "source": "LaunchDarkly",
     "launchdarkly_kind": "{{ kind }}",
     "launchdarkly_name": "{{ name }}"
   },

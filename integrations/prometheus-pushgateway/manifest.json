@@ -18,7 +18,7 @@
     {
       "key": "metricsUrl",
       "name": "Metrics URL",
-      "description": "The URL to which Launch Darkly should POST metrics",
+      "description": "Enter the URL to which LaunchDarkly should send metrics.",
       "placeholder": "http://pushgateway.example.org:9091/metrics/job/launch_darkly",
       "type": "uri",
       "isSecret": false

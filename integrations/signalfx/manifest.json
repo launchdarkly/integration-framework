@@ -18,7 +18,7 @@
     {
       "key": "accessToken",
       "name": "SignalFx access token",
-      "description": "Enter your [SignalFx access token](https://docs.signalfx.com/en/latest/admin-guide/tokens.html#working-with-access-tokens) here.",
+      "description": "Enter your [SignalFx access token](https://docs.signalfx.com/en/latest/admin-guide/tokens.html#working-with-access-tokens).",
       "type": "string",
       "isSecret": true
     },

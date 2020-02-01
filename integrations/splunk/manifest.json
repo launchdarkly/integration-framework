@@ -17,15 +17,16 @@
   "formVariables": [
     {
       "key": "base-url",
-      "name": "HTTP Event Collector base URL",
+      "name": "HTTP event collector base URL",
       "type": "string",
-      "description": "[Splunk HTTP Event Collector base URL](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector)",
-      "isSecret": false
+      "description": "Enter your [Splunk HTTP event collector base URL](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).",
+      "isSecret": false,
+      "placeholder": "https://todo/reasonable/placeholder/will/go/here" 
     },
     {
       "key": "token",
       "name": "Token",
-      "description": "HTTP Event Collector token value",
+      "description": "Enter your HTTP event collector token value.",
       "type": "string",
       "isSecret": true,
       "isOptional": false

@@ -18,17 +18,18 @@
     {
       "key": "ingestionKey",
       "name": "LogDNA ingestion key",
-      "description": "Enter your [LogDNA ingestion key](https://app.logdna.com/manage/profile) here.",
+      "description": "Enter your [LogDNA ingestion key](https://app.logdna.com/manage/profile).",
       "type": "string",
+      "placeholder": "1234567890abcdef1234567890abcdef",
       "isSecret": true
     },
     {
       "key": "app",
-      "name": "App",
-      "description": "Enter the App for which events are being generated. If you have multiple apps using LaunchDarkly, you might want to change this to include your LaunchDarkly project name.",
+      "name": "LogDNA app",
+      "description": "Enter the name of your LogDNA app. This value will associate LaunchDarkly data with the corresponding LogDNA app.",
       "type": "string",
       "isSecret": false,
-      "defaultValue": "LaunchDarkly"
+      "placeholder": "LaunchDarkly"
     },
     {
       "key": "hostname",

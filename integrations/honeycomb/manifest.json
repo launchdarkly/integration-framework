@@ -17,15 +17,16 @@
   "formVariables": [
     {
       "key": "datasetName",
-      "name": "Honeycomb Dataset Name",
-      "description": "Enter the Dataset Name that will be used for the request to the [Marker API](https://docs.honeycomb.io/api/markers/).",
+      "name": "Honeycomb dataset name",
+      "description": "Enter the name of your Honeycomb dataset. This value will associate LaunchDarkly data with the corresponding Honeycomb dataset.",
       "type": "string",
+      "placeholder": "production",
       "isSecret": false
     },
     {
       "key": "apiKey",
-      "name": "Honeycomb API Key",
-      "description": "Enter your [Honeycomb API key](https://ui.honeycomb.io/teams) here",
+      "name": "Honeycomb API key",
+      "description": "Enter your [Honeycomb API key](https://ui.honeycomb.io/teams).",
       "type": "string",
       "isSecret": true
     }

@@ -16,24 +16,23 @@
   },
   "formVariables": [
     {
-      "key": "domain",
-      "name": "Sentry API Domain",
-      "description": "The Domain part of your Sentry DSN",
-      "placeholder": "sentry.io",
-      "defaultValue": "sentry.io",
+      "key": "host",
+      "name": "Sentry API host",
+      "description": "Enter the host used to access your Sentry account.",
+      "placeholder": "https://sentry.io",
       "type": "string"
     },
     {
       "key": "publicKey",
-      "name": "Sentry Public Key",
-      "description": "Public key part of your Sentry DSN",
+      "name": "Sentry public key",
+      "description": "Enter the public key associated with your Sentry account.",
       "placeholder": "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijk=",
       "type": "string"
     },
     {
       "key": "projectId",
       "name": "Project ID",
-      "description": "Sentry Project ID you'd like to associate with LaunchDarkly events",
+      "description": "Enter the ID associated with your Sentry project. This ID will associate LaunchDarkly data with the corresponding Sentry project.",
       "placeholder": "123",
       "type": "string"
     }
@@ -41,7 +40,7 @@
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://{{domain}}/api/{{projectId}}/store/",
+        "url": "{{host}}/api/{{projectId}}/store/",
         "method": "POST",
         "headers": [
           {
