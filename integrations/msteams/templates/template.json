@@ -2,7 +2,7 @@
   "@type": "MessageCard",
   "@context": "http://schema.org/extensions",
   "themeColor": "0076D7",
-  "summary": "{{titleObj.plainText}}",
+  "summary": "{{{titleObj.plainText}}}",
   "sections": [
     {
       "activityTitle": "{{{titleObj.html}}}",

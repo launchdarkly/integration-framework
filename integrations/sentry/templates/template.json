@@ -4,7 +4,7 @@
   "logger": "launchdarkly",
   "platform": "other",
   "level": "info",
-  "transaction": "{{ titleObj.plainText }}",
+  "transaction": "{{{ titleObj.plainText }}}",
   "server_name": "app.launchdarkly.com",
   "fingerprint": [
     "{{ _links.site.href }}",
