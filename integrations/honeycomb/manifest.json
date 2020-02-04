@@ -48,7 +48,7 @@
         ]
       },
       "templates": {
-        "flag": "templates/flag.json"
+        "flag": "templates/flag.json.hbs"
       },
       "defaultPolicy": [
         {

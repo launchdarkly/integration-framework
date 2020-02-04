@@ -36,10 +36,10 @@
         ]
       },
       "templates": {
-        "flag": "templates/template.json",
-        "project": "templates/template.json",
-        "environment": "templates/template.json",
-        "default": "templates/template.json"
+        "flag": "templates/template.json.hbs",
+        "project": "templates/template.json.hbs",
+        "environment": "templates/template.json.hbs",
+        "default": "templates/template.json.hbs"
       },
       "defaultPolicy": [
         {
