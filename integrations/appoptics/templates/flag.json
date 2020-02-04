@@ -1,5 +1,5 @@
 {
-  "title": "{{{titleObj.plainText}}}",
+  "title": "{{{title.plainText}}}",
   "source": "LaunchDarkly",
   "links": [
     {

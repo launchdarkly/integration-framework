@@ -60,7 +60,7 @@
     "lastName": "Powell"
   },
   "titleVerb": "turned on the flag",
-  "titleObj": {
+  "title": {
     "plainText": "Henrietta Powell turned on the flag Demo flag in 'Production'",
     "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) turned on the flag [Demo flag](http://localhost/default/production/features/demo-flag) in `Production`",
     "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> turned on the flag <a href=\"http://localhost/default/production/features/demo-flag\">Demo flag</a> in <code>Production</code>"

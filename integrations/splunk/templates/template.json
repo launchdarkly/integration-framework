@@ -7,7 +7,7 @@
     "member_email": "{{member.email}}",
     "member_name": "{{member.firstName}} {{member.lastName}}",
     "verb": "{{titleVerb}}",
-    "message": "{{{titleObj.plainText}}}",
+    "message": "{{title.plainText}}",
     "comment": "{{#if comment}}{{{comment}}}{{/if}}"
   }
 }
