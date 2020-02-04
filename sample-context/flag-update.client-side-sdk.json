@@ -60,8 +60,8 @@
     "lastName": "Powell"
   },
   "titleVerb": "updated the flag",
-  "titleObj": {
-    "plainText": "Henrietta Powell updated the flag 'A new flag'",
+  "title": {
+    "plainText": "Henrietta Powell updated the flag A new flag",
     "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the flag [A new flag](http://localhost/default/~/features/a-new-flag)",
     "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> updated the flag <a href=\"http://localhost/default/~/features/a-new-flag\">A new flag</a>"
   },
