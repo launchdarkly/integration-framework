@@ -76,7 +76,7 @@ if (endpoint) {
     });
     return {
       name: header.name,
-      value: headerTemplate(endpointContext)
+      value: headerTemplate(endpointContext),
     };
   });
 
@@ -86,16 +86,22 @@ if (endpoint) {
   const templateString = readFileSync(path, { encoding: 'utf-8' });
   const flagTemplate = Handlebars.compile(templateString, { strict: true });
   const body = flagTemplate(fullContext);
-  
+
   if (curl) {
-    let command = `curl -X ${endpoint.method} \\\n` + `  ${urlTemplate(endpointContext)} \\\n`;
+    let command =
+      `curl -X ${endpoint.method} \\\n` +
+      `  ${urlTemplate(endpointContext)} \\\n`;
     headers.forEach(header => {
       command += `  -H '${header.name}: ${header.value}' \\\n`;
     });
     command += `  -d '${_.trimEnd(body)}'`;
 
-    console.log('Before running the following curl command, be sure to replace all variables denoted with $.');
-    console.log(`The following command was generated with the test file ${testFileName}.\n`);
+    console.log(
+      'Before running the following curl command, be sure to replace all variables denoted with $.'
+    );
+    console.log(
+      `The following command was generated with the test file ${testFileName}.\n`
+    );
     console.log(command);
   } else {
     console.log('URL:   ', urlTemplate(endpointContext));
@@ -107,6 +113,8 @@ if (endpoint) {
     console.log(body);
   }
 } else {
-  console.log(`The "${integrationName}" integration does not make any outbound requests from LaunchDarkly.\n`);
+  console.log(
+    `The "${integrationName}" integration does not make any outbound requests from LaunchDarkly.\n`
+  );
   process.exit(0);
 }

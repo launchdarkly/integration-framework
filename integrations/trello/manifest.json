@@ -9,7 +9,11 @@
     "site": "https://trello.com/power-ups/5d795c43ef5f7d1dc307da46/launchdarkly",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": ["communication-and-collaboration", "issue-tracking", "it-and-project-management"],
+  "categories": [
+    "communication-and-collaboration",
+    "issue-tracking",
+    "it-and-project-management"
+  ],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

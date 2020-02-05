@@ -6,6 +6,7 @@
   "scripts": {
     "prepare": "jsonschema2md -d manifest.schema.json -o . -n && mv manifest.schema.md MANIFEST.md && echo '' >> manifest.schema.json",
     "test": "jest",
+    "prettier:check": "prettier --list-different \"./**/*.{js,json}\"",
     "preview": "node preview.js",
     "curl": "node preview.js --curl"
   },

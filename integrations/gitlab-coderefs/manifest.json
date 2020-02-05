@@ -9,7 +9,11 @@
     "site": "https://docs.launchdarkly.com/docs/gitlab-ci",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": ["it-and-project-management", "config-and-deployment", "source-control"],
+  "categories": [
+    "it-and-project-management",
+    "config-and-deployment",
+    "source-control"
+  ],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

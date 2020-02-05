@@ -13,6 +13,9 @@ jobs:
           name: Install Dependencies
           command: npm ci
       - run:
+          name: prettier
+          command: npm run prettier:check
+      - run:
           name: Run tests
           command: npm test
   deploy-to-s3:

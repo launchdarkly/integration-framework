@@ -102,16 +102,16 @@ describe('All integrations', () => {
       if (formVariables) {
         formVariables.forEach(formVariable => {
           if (!_.isUndefined(formVariable.defaultValue)) {
-            if (formVariable.type === "string" || formVariable.type === "uri") {
-              expect(_.isString(formVariable.defaultValue)).toBe(true)
-            } else if (formVariable.type === "boolean") {
-              expect(_.isBoolean(formVariable.defaultValue)).toBe(true)
+            if (formVariable.type === 'string' || formVariable.type === 'uri') {
+              expect(_.isString(formVariable.defaultValue)).toBe(true);
+            } else if (formVariable.type === 'boolean') {
+              expect(_.isBoolean(formVariable.defaultValue)).toBe(true);
             }
           }
-        })
+        });
       }
     }
-  )
+  );
 
   test.each(manifests)(
     'Templates can be successfully rendered for %s',

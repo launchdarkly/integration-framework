@@ -1,19 +1,18 @@
 {
-    "name": "Heap",
-    "version": "1.0.0",
-    "overview": "Heap and LaunchDarkly integration",
-    "description": "To set this up, attach LaunchDarkly's user key and feature flags as user and event properties in Heap.",
-    "author": "Pendo",
-    "supportEmail": "support@heap.io",
-    "links": {
-      "supportWebsite": "https://docs.oracle.com/en/cloud/saas/data-cloud/data-cloud-help-center/index.html",
-      "site": "https://docs.heap.io/docs/additional-sources#section-launch-darkly",
-      "privacyPolicy": "https://heap.io/privacy"
-    },
-    "categories": ["analytics-and-reporting"],
-    "icons": {
-      "square": "assets/images/heapanalytics-square.svg",
-      "horizontal": "assets/images/heapanalytics-rect.svg"
-    }
+  "name": "Heap",
+  "version": "1.0.0",
+  "overview": "Heap and LaunchDarkly integration",
+  "description": "To set this up, attach LaunchDarkly's user key and feature flags as user and event properties in Heap.",
+  "author": "Pendo",
+  "supportEmail": "support@heap.io",
+  "links": {
+    "supportWebsite": "https://docs.oracle.com/en/cloud/saas/data-cloud/data-cloud-help-center/index.html",
+    "site": "https://docs.heap.io/docs/additional-sources#section-launch-darkly",
+    "privacyPolicy": "https://heap.io/privacy"
+  },
+  "categories": ["analytics-and-reporting"],
+  "icons": {
+    "square": "assets/images/heapanalytics-square.svg",
+    "horizontal": "assets/images/heapanalytics-rect.svg"
   }
-  
+}
