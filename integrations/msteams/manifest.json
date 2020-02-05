@@ -36,7 +36,9 @@
         ]
       },
       "templates": {
-        "default": "templates/template.json.hbs"
+        "project": "templates/project.json.hbs",
+        "environment": "templates/environment.json.hbs",
+        "default": "templates/default.json.hbs"
       },
       "defaultPolicy": [
         {

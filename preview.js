@@ -2,6 +2,7 @@ const { readFileSync } = require('fs');
 const Handlebars = require('handlebars');
 const _ = require('lodash');
 
+const helpers = require('./helpers');
 const jsonEscape = require('./utils/json-escape');
 
 const testFileName = 'flag-update.client-side-sdk.json';
@@ -29,6 +30,8 @@ const getFormVariableContext = formVariables => {
   }
   return endpointContext;
 };
+
+Handlebars.registerHelper('equal', helpers.equal);
 
 const curl = _.includes(args, '--curl');
 const integrationNameIndex = curl ? 3 : 2;
@@ -68,8 +71,18 @@ if (endpoint) {
     'capabilities.auditLogEventsHook.templates.flag',
     null
   );
+  const defaultTemplatePath = _.get(
+    manifest,
+    'capabilities.auditLogEventsHook.templates.default',
+    null
+  );
+  if (!(flagTemplatePath || defaultTemplatePath)) {
+    console.log('Could not find a flag/default template in manifest');
+    process.exit(1);
+  }
 
-  const path = `./integrations/${integrationName}/${flagTemplatePath}`;
+  const path = `./integrations/${integrationName}/${flagTemplatePath ||
+    defaultTemplatePath}`;
   const headers = endpoint.headers.map(header => {
     const headerTemplate = Handlebars.compile(header.value, {
       strict: true,

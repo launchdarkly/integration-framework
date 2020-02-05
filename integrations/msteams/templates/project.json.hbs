@@ -1,0 +1,13 @@
+{
+  "@type": "MessageCard",
+  "@context": "http://schema.org/extensions",
+  "themeColor": "0076D7",
+  "summary": "{{{title.plainText}}}",
+  "sections": [
+    {
+      "activityTitle": "{{{title.html}}}",
+      "text": "{{#if details}}{{{details.html}}}{{/if}}{{#if comment}}\n<strong>Comment:</strong> {{{comment}}}\n{{/if}}",
+      "xml": true
+    }
+  ]
+}

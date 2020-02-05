@@ -3,9 +3,12 @@ const Handlebars = require('handlebars');
 const Ajv = require('ajv');
 const _ = require('lodash');
 
+const helpers = require('../helpers');
 const jsonEscape = require('../utils/json-escape');
 const schema = require('../manifest.schema.json');
 const flagUpdateContext = require('../sample-context/flag-update.client-side-sdk');
+
+Handlebars.registerHelper('equal', helpers.equal);
 
 const getDirectories = source =>
   readdirSync(source, { withFileTypes: true })
