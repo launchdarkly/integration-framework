@@ -20,7 +20,8 @@
     "Project name": "{{project.name}}",
     "Project key": "{{project.key}}",
     "Environment name": "{{project.environment.name}}",
-    "Environment key": "{{project.environment.key}}"
+    "Environment key": "{{project.environment.key}}",
+    "Comment": "{{#if comment}}{{comment}}{{/if}}"
   },
   "start": {{ timestamp.milliseconds }},
   "source": "LaunchDarkly",
