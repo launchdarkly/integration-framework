@@ -8,6 +8,13 @@ const jsonEscape = require('./utils/json-escape');
 const testFileName = 'flag-update.client-side-sdk.json';
 const flagUpdateContext = require(`./sample-context/${testFileName}`);
 
+// Update the context to have a more recent timestamp. This is important
+// because some third-party services reject event payloads which are
+// identified as having happened in the more distant past.
+const now = new Date().getTime();
+flagUpdateContext.timestamp.milliseconds = now;
+flagUpdateContext.timestamp.seconds = Math.floor(now / 1000);
+
 const args = process.argv;
 
 const getFormVariableContext = formVariables => {
