@@ -1,13 +1,13 @@
 {
   "name": "Dynatrace",
   "version": "1.0.0",
-  "overview": "Send audit log events to Dynatrace",
-  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Dynatrace.",
+  "overview": "Send flag events to Dynatrace",
+  "description": "This integration sends LaunchDarkly flag events (including configuration changes) to Dynatrace.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/docs/msteams",
-    "privacyPolicy": "https://privacy.microsoft.com/en-us"
+    "site": "https://docs.launchdarkly.com/integrations/dynatrace",
+    "privacyPolicy": "https://www.dynatrace.com/company/trust-center/privacy/"
   },
   "categories": ["monitoring", "alerts", "apm"],
   "icons": {
