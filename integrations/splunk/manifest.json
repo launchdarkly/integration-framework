@@ -21,7 +21,7 @@
       "type": "string",
       "description": "Enter your [Splunk HTTP event collector base URL](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).",
       "isSecret": false,
-      "placeholder": "https://todo/reasonable/placeholder/will/go/here"
+      "placeholder": "https://mysplunkserver.example.com"
     },
     {
       "key": "token",

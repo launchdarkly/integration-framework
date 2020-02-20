@@ -3,11 +3,20 @@
   "time": "{{timestamp.milliseconds}}",
   "event": {
     "kind": "{{kind}}",
-    "name": "{{name}}",
-    "member_email": "{{member.email}}",
-    "member_name": "{{member.firstName}} {{member.lastName}}",
+    {{#equal kind 'flag'}}
+    "flag_name": "{{name}}",
+    "flag_key": "{{key}}",
+    {{/equal}}
     "verb": "{{titleVerb}}",
     "message": "{{title.plainText}}",
+    {{#if project}}
+    "project_name": "{{project.name}}",
+    "project_key": "{{project.key}}",
+    {{#if project.environment}}
+    "environment_name": "{{project.environment.name}}",
+    "environment_key": "{{project.environment.key}}",
+    {{/if}}
+    {{/if}}
     "comment": "{{#if comment}}{{{comment}}}{{/if}}"
   }
 }
