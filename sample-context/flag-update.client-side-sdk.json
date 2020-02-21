@@ -43,6 +43,16 @@
   },
   "key": "a-new-flag",
   "tags": [],
+  "customProperties": {
+    "dynatrace": {
+      "name": "Dynatrace",
+      "values": ["test1", "test2"]
+    },
+    "jira": {
+      "name": "Jira",
+      "values": ["thing1", "thing2"]
+    }
+  },
   "member": {
     "_links": {
       "parent": {

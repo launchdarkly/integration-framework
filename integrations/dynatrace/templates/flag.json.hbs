@@ -1,3 +1,6 @@
+{{#if customProperties}}
+{{#if customProperties.dynatrace}}
+{{#if customProperties.dynatrace.values}}
 {
   "eventType": "CUSTOM_CONFIGURATION",
   "attachRules": {
@@ -5,10 +8,14 @@
       {
         "meTypes": ["APPLICATION"],
         "tags": [
+          {{#with customProperties}}
+          {{#each dynatrace.values}}
           {
             "context": "CONTEXTLESS",
-            "key": "{{formVariables.tag}}"
-          }
+            "key": "{{{this}}}"
+          }{{#unless @last}},{{/unless}}
+          {{/each}}
+          {{/with}}
         ]
       }
     ]
@@ -27,3 +34,6 @@
   "source": "LaunchDarkly",
   "description": "{{{title.plainText}}}"
 }
+{{/if}}
+{{/if}}
+{{/if}}

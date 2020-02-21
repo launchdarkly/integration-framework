@@ -29,14 +29,6 @@
       "description": "Enter the URL used to access your Dynatrace (managed or hosted) service. Follow the pattern shown in the placeholder text.",
       "placeholder": "https://{your-environment-id}.live.dynatrace.com",
       "isSecret": false
-    },
-    {
-      "key": "tag",
-      "name": "Entity tag",
-      "type": "string",
-      "description": "Enter the tag associated with your Dynatrace entity. This value will associate LaunchDarkly data with the corresponding Dynatrace entity. [Learn more](https://www.dynatrace.com/support/help/shortlink/tagging) about tagging.",
-      "placeholder": "LaunchDarkly",
-      "isSecret": false
     }
   ],
   "capabilities": {
