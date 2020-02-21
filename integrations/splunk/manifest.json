@@ -34,7 +34,7 @@
     {
       "key": "skip-ca-verification",
       "name": "Skip certificate verification",
-      "description": "Splunk Cloud instances sign their own certificates by default. If you use Splunk Cloud, you may need to skip certificate validation.",
+      "description": "Splunk Cloud instances sign their own SSL certificates by default. If you use Splunk Cloud, you may need to skip certificate validation in order for this integration to work.",
       "type": "boolean"
     }
   ],
