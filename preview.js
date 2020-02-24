@@ -2,7 +2,7 @@ const { readFileSync } = require('fs');
 const Handlebars = require('handlebars');
 const _ = require('lodash');
 
-const helpers = require('./helpers');
+const { registerHelpers } = require('./helpers');
 const jsonEscape = require('./utils/json-escape');
 
 const testFileName = 'flag-update.client-side-sdk.json';
@@ -38,7 +38,7 @@ const getFormVariableContext = formVariables => {
   return endpointContext;
 };
 
-Handlebars.registerHelper('equal', helpers.equal);
+registerHelpers();
 
 const curl = _.includes(args, '--curl');
 const integrationNameIndex = curl ? 3 : 2;

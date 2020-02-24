@@ -21,7 +21,7 @@
       "type": "string",
       "description": "Enter your [Splunk HTTP event collector base URL](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).",
       "isSecret": false,
-      "placeholder": "https://todo/reasonable/placeholder/will/go/here"
+      "placeholder": "https://mysplunkserver.example.com"
     },
     {
       "key": "token",
@@ -30,6 +30,12 @@
       "type": "string",
       "isSecret": true,
       "isOptional": false
+    },
+    {
+      "key": "skip-ca-verification",
+      "name": "Skip certificate verification",
+      "description": "Splunk Cloud instances sign their own SSL certificates by default. If you use Splunk Cloud, you may need to skip certificate validation in order for this integration to work.",
+      "type": "boolean"
     }
   ],
   "capabilities": {
