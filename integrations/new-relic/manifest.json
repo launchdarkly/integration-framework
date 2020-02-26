@@ -1,7 +1,7 @@
 {
   "name": "New Relic",
   "version": "1.0.0",
-  "overview": "Send LaunchDarkly audit events to New Relic",
+  "overview": "Monitor LaunchDarkly flag changes in New Relic",
   "description": "This integration sends LaunchDarkly audit events to New Relic. Please note that it requires a paid Insights subscription to function.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -9,7 +9,7 @@
     "site": "https://newrelic.com/",
     "privacyPolicy": "https://newrelic.com/termsandconditions/privacy"
   },
-  "categories": ["apm", "monitoring", "alerts"],
+  "categories": ["monitoring", "notifications"],
   "icons": {
     "square": "assets/images/new-relic-square.svg",
     "horizontal": "assets/images/new-relic-horizontal.svg"

@@ -10,7 +10,7 @@
     "site": "https://docs.launchdarkly.com/docs/bitbucket-pipelines",
     "privacyPolicy": "https://docs.launchdarkly.com/docs/git-code-references#section-configuring-context-lines"
   },
-  "categories": ["source-control"],
+  "categories": ["automation", "developer-tools"],
   "icons": {
     "square": "assets/images/bitbucket_square.svg",
     "horizontal": "assets/images/bitbucket_horizontal.svg"

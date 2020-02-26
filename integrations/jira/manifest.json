@@ -9,7 +9,7 @@
     "site": "https://docs.launchdarkly.com/docs/jira",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": ["apm", "monitoring", "alerts"],
+  "categories": ["task-management"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

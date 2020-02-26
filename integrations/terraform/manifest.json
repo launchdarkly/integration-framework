@@ -10,7 +10,7 @@
     "site": "https://www.terraform.io/docs/providers/launchdarkly/index.html",
     "privacyPolicy": "https://app.terraform.io/pages/privacy"
   },
-  "categories": ["provisioning"],
+  "categories": ["infrastructure"],
   "icons": {
     "square": "assets/images/terraform_square.svg",
     "horizontal": "assets/images/terraform_horizontal.svg"

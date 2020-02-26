@@ -9,7 +9,7 @@
     "site": "https://docs.launchdarkly.com/docs/visual-studio-team-services-extension",
     "privacyPolicy": "https://privacy.microsoft.com/en-US/privacystatement"
   },
-  "categories": ["automation", "source-control"],
+  "categories": ["automation"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

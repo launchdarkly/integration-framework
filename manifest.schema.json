@@ -131,24 +131,18 @@
             "items": {
                 "type": "string",
                 "enum": [
-                    "alerts",
-                    "analytics-and-reporting",
-                    "apm",
+                    "authentication",
                     "automation",
-                    "communication-and-collaboration",
-                    "config-and-deployment",
-                    "exceptions",
-                    "experimentation",
-                    "hr-and-operations",
-                    "issue-tracking",
-                    "it-and-project-management",
-                    "marketing-and-social-media",
+                    "collaboration",
+                    "configuration",
+                    "data",
+                    "developer-tools",
+                    "infrastructure",
+                    "task-management",
                     "monitoring",
-                    "orchestration",
-                    "product-and-design",
-                    "provisioning",
-                    "security",
-                    "source-control"
+                    "notifications",
+                    "product-tools",
+                    "version-control"
                 ]
             }
         },

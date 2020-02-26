@@ -10,7 +10,7 @@
     "site": "https://galaxy.ansible.com/launchdarkly_labs/collection",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["provisioning", "config-and-deployment", "orchestration"],
+  "categories": ["automation"],
   "icons": {
     "square": "assets/square.svg",
     "horizontal": "assets/horizontal.svg"

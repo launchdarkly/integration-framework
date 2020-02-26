@@ -9,7 +9,7 @@
     "site": "https://docs.launchdarkly.com/docs/visual-studio-code",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": ["it-and-project-management", "product-and-design"],
+  "categories": ["developer-tools"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

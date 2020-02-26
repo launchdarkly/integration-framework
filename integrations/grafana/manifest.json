@@ -9,7 +9,7 @@
     "site": "https://grafana.com/",
     "privacyPolicy": "https://grafana.com/terms/"
   },
-  "categories": ["monitoring"],
+  "categories": ["monitoring", "notifications"],
   "icons": {
     "square": "assets/images/grafana.svg",
     "horizontal": "assets/images/grafana.svg"

@@ -1,7 +1,7 @@
 {
   "name": "AppOptics",
   "version": "1.0.0",
-  "overview": "Send LaunchDarkly audit events to AppOptics",
+  "overview": "Monitor LaunchDarkly flag changes in AppOptics",
   "description": "This integration sends LaunchDarkly audit events to AppOptics.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -9,7 +9,7 @@
     "site": "https://www.AppOptics.com/",
     "privacyPolicy": "https://www.solarwinds.com/legal/privacy"
   },
-  "categories": ["apm", "monitoring", "alerts"],
+  "categories": ["monitoring", "notifications"],
   "icons": {
     "square": "assets/images/solarwinds-square.svg",
     "horizontal": "assets/images/horizontal.svg"

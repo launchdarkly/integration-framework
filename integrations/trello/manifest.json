@@ -1,7 +1,7 @@
 {
   "name": "Trello",
   "version": "1.0.0",
-  "overview": "Dark launch new product features directly from within your Trello cards",
+  "overview": "Track and launch product features from your Trello cards",
   "description": "All from the back of your Trello cards, you can now browse and attach feature flags, enable or disable targetting status, and display the status of feature flags.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -9,11 +9,7 @@
     "site": "https://trello.com/power-ups/5d795c43ef5f7d1dc307da46/launchdarkly",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": [
-    "communication-and-collaboration",
-    "issue-tracking",
-    "it-and-project-management"
-  ],
+  "categories": ["task-management"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

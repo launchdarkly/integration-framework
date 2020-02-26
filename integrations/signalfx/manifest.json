@@ -1,7 +1,7 @@
 {
   "name": "SignalFx",
   "version": "1.0.0",
-  "overview": "Send audit log events to SignalFx",
+  "overview": "Monitor LaunchDarkly flag changes in SignalFx",
   "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to SignalFx.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -9,7 +9,7 @@
     "site": "https://example.com",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": ["apm", "monitoring", "alerts"],
+  "categories": ["monitoring", "notifications"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

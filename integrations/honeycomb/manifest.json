@@ -1,7 +1,7 @@
 {
   "name": "Honeycomb",
   "version": "1.0.0",
-  "overview": "Send LaunchDarkly audit events to Honeycomb",
+  "overview": "Monitor LaunchDarkly flag changes in Honeycomb",
   "description": "This integration sends LaunchDarkly audit events to Honeycomb.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -9,7 +9,7 @@
     "site": "https://honeycomb.io",
     "privacyPolicy": "https://honeycomb.io/privacy"
   },
-  "categories": ["apm", "monitoring", "alerts"],
+  "categories": ["monitoring", "notifications"],
   "icons": {
     "square": "assets/images/honeycomb-square.svg",
     "horizontal": "assets/images/honeycomb-rect.svg"

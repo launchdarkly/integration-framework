@@ -1,7 +1,7 @@
 {
   "name": "GitLab",
   "version": "1.0.0",
-  "overview": "Use our open-source utility to track references to flags in your code, using GitLab CI.",
+  "overview": "Use our open-source utility to track flag references in your code, using GitLab CI.",
   "description": "You can use this utility with GitLab CI to automatically populate code references in LaunchDarkly.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -9,11 +9,7 @@
     "site": "https://docs.launchdarkly.com/docs/gitlab-ci",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": [
-    "it-and-project-management",
-    "config-and-deployment",
-    "source-control"
-  ],
+  "categories": ["configuration", "version-control"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

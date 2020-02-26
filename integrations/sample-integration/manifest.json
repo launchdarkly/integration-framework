@@ -9,7 +9,7 @@
     "site": "https://example.com",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": ["apm", "monitoring", "alerts"],
+  "categories": ["collaboration", "monitoring", "version-control"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

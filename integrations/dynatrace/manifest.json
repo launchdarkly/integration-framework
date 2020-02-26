@@ -1,15 +1,15 @@
 {
   "name": "Dynatrace",
   "version": "1.0.0",
-  "overview": "Send flag events to Dynatrace",
-  "description": "This integration sends LaunchDarkly flag events (including configuration changes) to Dynatrace.",
+  "overview": "Monitor LaunchDarkly flag changes in Dynatrace",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Dynatrace.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://docs.launchdarkly.com/integrations/dynatrace",
     "privacyPolicy": "https://www.dynatrace.com/company/trust-center/privacy/"
   },
-  "categories": ["monitoring", "alerts", "apm"],
+  "categories": ["monitoring", "notifications"],
   "icons": {
     "square": "assets/square.svg",
     "horizontal": "assets/horizontal.svg"
