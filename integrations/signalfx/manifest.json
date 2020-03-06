@@ -25,7 +25,7 @@
     {
       "key": "realm",
       "name": "SignalFx realm",
-      "description": "Enter your SignalFx realm as noted on your [profile page](https://app.us1.signalfx.com/#/myprofile).",
+      "description": "Enter your [SignalFx realm](https://developers.signalfx.com/#realms-in-endpoints).",
       "type": "string",
       "isSecret": false
     }

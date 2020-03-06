@@ -1,11 +1,29 @@
 [{
     "category": "AUDIT",
     "dimensions": {
-      "environment": "{{project.environment.key}}",
-      "project": "{{project.key}}",
-      "flag": "{{name}}",
-      "kind": "{{kind}}",
-      "event": "{{{title.plainText}}}",
+      {{#equal kind 'flag'}}
+      "flag_key": "{{key}}",
+      {{/equal}}
+      {{#if project}}
+      "project_key": "{{project.key}}",
+      {{#if project.environment}}
+      "environment_key": "{{project.environment.key}}",
+      {{/if}}
+      {{/if}}
+      "kind": "{{kind}}"
+    },
+    "properties": {
+      {{#equal kind 'flag'}}
+      "flag_name": "{{name}}",
+      {{/equal}}
+      {{#if project}}
+      "project_name": "{{project.name}}",
+      {{#if project.environment}}
+      "environment_name": "{{project.environment.name}}",
+      {{/if}}
+      {{/if}}
+      "message": "{{{title.plainText}}}",
+      "verb": "{{titleVerb}}",
       "comment": "{{#if comment}}{{comment}}{{/if}}"
     },
     "eventType": "LaunchDarkly {{kind}} change",
