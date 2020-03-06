@@ -32,6 +32,12 @@
     }
   ],
   "capabilities": {
+    "reservedCustomProperties": [
+      {
+        "name": "Dynatrace tags",
+        "key": "dynatrace"
+      }
+    ],
     "auditLogEventsHook": {
       "endpoint": {
         "url": "{{url}}/api/v1/events",
