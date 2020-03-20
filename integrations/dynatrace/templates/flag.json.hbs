@@ -6,7 +6,7 @@
   "attachRules": {
     "tagRule": [
       {
-        "meTypes": ["APPLICATION"],
+        "meTypes": [{{#if formVariables.entity }}"{{formVariables.entity}}"{{else}}"APPLICATION"{{/if}}],
         "tags": [
           {{#with customProperties}}
           {{#each dynatrace.values}}

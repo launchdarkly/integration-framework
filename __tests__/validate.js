@@ -29,6 +29,9 @@ const getFormVariableContext = formVariables => {
         case 'uri':
           endpointContext[formVariable.key] = `https://${formVariable.key}.com`;
           break;
+        case 'enum':
+          endpointContext[formVariable.key] = formVariable.key;
+          break;
       }
     });
   }

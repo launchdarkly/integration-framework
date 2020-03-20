@@ -32,6 +32,9 @@ const getFormVariableContext = formVariables => {
         case 'uri':
           endpointContext[formVariable.key] = unsubstitutedKey;
           break;
+        case 'enum':
+          endpointContext[formVariable.key] = unsubstitutedKey;
+          break;
       }
     });
   }
