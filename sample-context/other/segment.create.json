@@ -1,0 +1,74 @@
+{
+  "_links": {
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c5bd06121dba45ba0f44",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/default/production/segments/new-segment",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c5bd06121dba45ba0f44",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580778941643,
+    "seconds": 1580778941
+  },
+  "kind": "segment",
+  "name": "New segment",
+  "details": {
+    "plainText": "",
+    "markdown": "",
+    "html": ""
+  },
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": ["demo"],
+    "environment": {
+      "name": "Production",
+      "key": "production",
+      "tags": []
+    }
+  },
+  "key": "new-segment",
+  "tags": [],
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "created the segment",
+  "verbKind": "createSegment",
+  "title": {
+    "plainText": "Henrietta Powell created the segment New segment",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) created the segment [New segment](https://app.launchdarkly.com/default/production/segments/new-segment)",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> created the segment <a href=\"https://app.launchdarkly.com/default/production/segments/new-segment\">New segment</a>"
+  },
+  "target": {
+    "_links": {
+      "site": {
+        "href": "https://app.launchdarkly.com/default/production/segments/new-segment",
+        "type": "text/html"
+      }
+    },
+    "name": "New segment"
+  }
+}

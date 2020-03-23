@@ -5,8 +5,8 @@ const _ = require('lodash');
 const { registerHelpers } = require('./helpers');
 const jsonEscape = require('./utils/json-escape');
 
-const testFileName = 'flag-update.client-side-sdk.json';
-const flagUpdateContext = require(`./sample-context/${testFileName}`);
+const testFileName = 'update-all-environments.json';
+const flagUpdateContext = require(`./sample-context/flag/${testFileName}`);
 
 // Update the context to have a more recent timestamp. This is important
 // because some third-party services reject event payloads which are

@@ -1,0 +1,83 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "https://app.launchdarkly.com/api/v2/flags/default/a-brand-new-flag",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c29606121dba45ba0f24",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/default/~/features/a-brand-new-flag",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c29606121dba45ba0f24",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580778134028,
+    "seconds": 1580778134
+  },
+  "kind": "flag",
+  "name": "A brand new flag",
+  "details": {
+    "plainText": "",
+    "markdown": "",
+    "html": ""
+  },
+  "comment": "Archiving this one",
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": [],
+    "environment": {
+      "name": "All environments",
+      "key": "~",
+      "tags": []
+    }
+  },
+  "key": "a-brand-new-flag",
+  "tags": [],
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "archived the flag",
+  "verbKind": "updateArchived",
+  "title": {
+    "plainText": "Henrietta Powell archived the flag A brand new flag",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) archived the flag [A brand new flag](https://app.launchdarkly.com/default/~/features/a-brand-new-flag)",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> archived the flag <a href=\"https://app.launchdarkly.com/default/~/features/a-brand-new-flag\">A brand new flag</a>"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "https://app.launchdarkly.com/api/v2/flags/default/a-brand-new-flag",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "https://app.launchdarkly.com/default/~/features/a-brand-new-flag",
+        "type": "text/html"
+      }
+    },
+    "name": "A brand new flag"
+  }
+}

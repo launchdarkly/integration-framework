@@ -6,7 +6,9 @@ const _ = require('lodash');
 const { registerHelpers } = require('../helpers');
 const jsonEscape = require('../utils/json-escape');
 const schema = require('../manifest.schema.json');
-const flagUpdateContext = require('../sample-context/flag-update.client-side-sdk');
+const flagContext = require('../sample-context/flag/update-all-environments');
+const projectContext = require('../sample-context/project/update');
+const environmentContext = require('../sample-context/environment/update');
 
 registerHelpers();
 
@@ -53,6 +55,24 @@ integrationDirs.forEach(dir => {
   manifests.push([dir, manifest]);
 });
 
+const getTemplate = path => {
+  const templateString = readFileSync(path, { encoding: 'utf-8' });
+  const template = Handlebars.compile(templateString, {
+    strict: true,
+  });
+  return template;
+};
+
+const getFullContext = (manifest, context, isJSON) => {
+  const formVariables = _.get(manifest, 'formVariables', null);
+  const formVariableContext = getFormVariableContext(formVariables);
+  const fullContext = isJSON
+    ? jsonEscape(Object.assign({}, context))
+    : Object.assign({}, context);
+  fullContext.formVariables = formVariableContext;
+  return fullContext;
+};
+
 describe('All integrations', () => {
   test.each(manifests)('Validate %s/manifest.json', (key, manifest) => {
     const res = validate(manifest);
@@ -80,7 +100,7 @@ describe('All integrations', () => {
       );
       if (endpoint) {
         const endpointContext = getFormVariableContext(formVariables);
-        endpointContext.context = flagUpdateContext;
+        endpointContext.context = flagContext;
         const urlTemplate = Handlebars.compile(endpoint.url, {
           strict: true,
         });
@@ -145,40 +165,66 @@ describe('All integrations', () => {
       if (flagTemplatePath) {
         const path = `./integrations/${key}/${flagTemplatePath}`;
         expect(existsSync(path)).toBe(true);
-        const templateString = readFileSync(path, { encoding: 'utf-8' });
-        const flagTemplate = Handlebars.compile(templateString, {
-          strict: true,
-        });
 
-        const formVariables = _.get(manifest, 'formVariables', null);
-        const formVariableContext = getFormVariableContext(formVariables);
+        const template = getTemplate(path);
         const isJSON = isJSONTemplate(flagTemplatePath);
-        const fullContext = isJSON
-          ? jsonEscape(Object.assign({}, flagUpdateContext))
-          : Object.assign({}, flagUpdateContext);
-        fullContext.formVariables = formVariableContext;
+        const fullContext = getFullContext(manifest, flagContext, isJSON);
         expect(
-          () => flagTemplate(fullContext),
+          () => template(fullContext),
           `${key}: flag template must render successfully`
         ).not.toThrow();
         // Validate json templates render to valid json
         if (isJSON) {
-          const rendered = flagTemplate(fullContext);
+          const rendered = template(fullContext);
           expect(
             () => JSON.parse(rendered),
-            `.json templates must render valid JSON\n${rendered}`
+            `${key} .json templates must render valid JSON\n${rendered}`
           ).not.toThrow();
         }
       }
       if (projectTemplatePath) {
-        expect(existsSync(`./integrations/${key}/${projectTemplatePath}`)).toBe(
-          true
-        );
+        const path = `./integrations/${key}/${projectTemplatePath}`;
+        expect(existsSync(path)).toBe(true);
+
+        const template = getTemplate(path);
+        const isJSON = isJSONTemplate(projectTemplatePath);
+        const fullContext = getFullContext(manifest, projectContext, isJSON);
+        expect(
+          () => template(fullContext),
+          `${key}: project template must render successfully`
+        ).not.toThrow();
+        // Validate json templates render to valid json
+        if (isJSON) {
+          const rendered = template(fullContext);
+          expect(
+            () => JSON.parse(rendered),
+            `${key} project .json templates must render valid JSON\n${rendered}`
+          ).not.toThrow();
+        }
       }
       if (environmentTemplatePath) {
+        const path = `./integrations/${key}/${environmentTemplatePath}`;
+        expect(existsSync(path)).toBe(true);
+
+        const template = getTemplate(path);
+        const isJSON = isJSONTemplate(environmentTemplatePath);
+        const fullContext = getFullContext(
+          manifest,
+          environmentContext,
+          isJSON
+        );
         expect(
-          existsSync(`./integrations/${key}/${environmentTemplatePath}`)
-        ).toBe(true);
+          () => template(fullContext),
+          `${key}: environment template must render successfully`
+        ).not.toThrow();
+        // Validate json templates render to valid json
+        if (isJSON) {
+          const rendered = template(fullContext);
+          expect(
+            () => JSON.parse(rendered),
+            `${key} environment .json templates must render valid JSON\n${rendered}`
+          ).not.toThrow();
+        }
       }
       if (defaultTemplatePath) {
         expect(existsSync(`./integrations/${key}/${defaultTemplatePath}`)).toBe(
@@ -186,28 +232,20 @@ describe('All integrations', () => {
         );
         const path = `./integrations/${key}/${defaultTemplatePath}`;
         expect(existsSync(path)).toBe(true);
-        const templateString = readFileSync(path, { encoding: 'utf-8' });
-        const flagTemplate = Handlebars.compile(templateString, {
-          strict: true,
-        });
 
-        const formVariables = _.get(manifest, 'formVariables', null);
-        const formVariableContext = getFormVariableContext(formVariables);
+        const template = getTemplate(path);
         const isJSON = isJSONTemplate(flagTemplatePath);
-        const fullContext = isJSON
-          ? jsonEscape(Object.assign({}, flagUpdateContext))
-          : Object.assign({}, flagUpdateContext);
-        fullContext.formVariables = formVariableContext;
+        const fullContext = getFullContext(manifest, flagContext, isJSON);
         expect(
-          () => flagTemplate(fullContext),
+          () => template(fullContext),
           `${key}: default template must render successfully`
         ).not.toThrow();
         // Validate json templates render to valid json
         if (isJSON) {
-          const rendered = flagTemplate(fullContext);
+          const rendered = template(fullContext);
           expect(
             () => JSON.parse(rendered),
-            `.json templates must render valid JSON\n${rendered}`
+            `${key} default .json templates must render valid JSON\n${rendered}`
           ).not.toThrow();
         }
       }

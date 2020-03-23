@@ -1,27 +1,28 @@
 {
   "_links": {
     "canonical": {
-      "href": "/api/v2/flags/default/demo-flag",
+      "href": "https://app.launchdarkly.com/api/v2/flags/default/demo-flag",
       "type": "application/json"
     },
     "parent": {
-      "href": "/api/v2/auditlog",
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
       "type": "application/json"
     },
     "self": {
-      "href": "/api/v2/auditlog/5e33896006121d53a82ad9fb",
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38bf6706121d8aaf15392a",
       "type": "application/json"
     },
     "site": {
-      "href": "/default/production/features/demo-flag",
+      "href": "https://app.launchdarkly.com/default/production/features/demo-flag",
       "type": "text/html"
     }
   },
-  "_id": "5e33896006121d53a82ad9fb",
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38bf6706121d8aaf15392a",
   "_accountId": "569f514156e003339cfd3917",
   "timestamp": {
-    "milliseconds": 1580435808417,
-    "seconds": 1580435808
+    "milliseconds": 1580777319650,
+    "seconds": 1580777319
   },
   "kind": "flag",
   "name": "Demo flag",
@@ -30,7 +31,7 @@
     "markdown": "",
     "html": ""
   },
-  "comment": "Turn it on!",
+  "comment": "Do it live!",
   "project": {
     "name": "The big project",
     "key": "default",
@@ -46,11 +47,11 @@
   "member": {
     "_links": {
       "parent": {
-        "href": "/api/v2/members",
+        "href": "https://app.launchdarkly.com/api/v2/members",
         "type": "application/json"
       },
       "self": {
-        "href": "/api/v2/members/569f514183f2164430000002",
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
         "type": "application/json"
       }
     },
@@ -60,19 +61,20 @@
     "lastName": "Powell"
   },
   "titleVerb": "turned on the flag",
+  "verbKind": "updateOn",
   "title": {
     "plainText": "Henrietta Powell turned on the flag Demo flag in 'Production'",
-    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) turned on the flag [Demo flag](http://localhost/default/production/features/demo-flag) in `Production`",
-    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> turned on the flag <a href=\"http://localhost/default/production/features/demo-flag\">Demo flag</a> in <code>Production</code>"
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) turned on the flag [Demo flag](https://app.launchdarkly.com/default/production/features/demo-flag) in `Production`",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> turned on the flag <a href=\"https://app.launchdarkly.com/default/production/features/demo-flag\">Demo flag</a> in <code>Production</code>"
   },
   "target": {
     "_links": {
       "canonical": {
-        "href": "/api/v2/flags/default/demo-flag",
+        "href": "https://app.launchdarkly.com/api/v2/flags/default/demo-flag",
         "type": "application/json"
       },
       "site": {
-        "href": "/default/production/features/demo-flag",
+        "href": "https://app.launchdarkly.com/default/production/features/demo-flag",
         "type": "text/html"
       }
     },

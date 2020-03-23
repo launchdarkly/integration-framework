@@ -1,0 +1,74 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "https://app.launchdarkly.com/api/v2/metrics/default/new-metric",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c67506121dba45ba0f49",
+      "type": "application/json"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c67506121dba45ba0f49",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580779125858,
+    "seconds": 1580779125
+  },
+  "kind": "metric",
+  "name": "New metric",
+  "details": {
+    "plainText": "",
+    "markdown": "",
+    "html": ""
+  },
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": ["demo"],
+    "environment": {
+      "name": "",
+      "key": "",
+      "tags": null
+    }
+  },
+  "key": "new-metric",
+  "tags": [],
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "created the metric",
+  "verbKind": "createMetric",
+  "title": {
+    "plainText": "Henrietta Powell created the metric New metric",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) created the metric New metric",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> created the metric New metric"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "https://app.launchdarkly.com/api/v2/metrics/default/new-metric",
+        "type": "application/json"
+      }
+    },
+    "name": "New metric"
+  }
+}
