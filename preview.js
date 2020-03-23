@@ -91,8 +91,9 @@ if (endpoint) {
     process.exit(1);
   }
 
-  const path = `./integrations/${integrationName}/${flagTemplatePath ||
-    defaultTemplatePath}`;
+  const path = `./integrations/${integrationName}/${
+    flagTemplatePath || defaultTemplatePath
+  }`;
   const headers = endpoint.headers.map(header => {
     const headerTemplate = Handlebars.compile(header.value, {
       strict: true,

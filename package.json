@@ -4,9 +4,9 @@
   "description": "Feature flags not only provide you control over your deployment and rollout, but also provides context to other related systems -- giving your team visibility into how your services react due to changes to flags. This repository contains LaunchDarkly integrations built by our community. Most of these integrations consume events from LaunchDarkly in order to provide their users more context.",
   "main": "index.js",
   "scripts": {
-    "prepare": "jsonschema2md -d manifest.schema.json -o . -n && mv manifest.schema.md MANIFEST.md && echo '' >> manifest.schema.json",
     "test": "jest",
     "prettier:check": "prettier --list-different \"./**/*.{js,json}\"",
+    "prettier:write": "prettier --write \"./**/*.{js,json}\"",
     "preview": "node preview.js",
     "curl": "node preview.js --curl"
   },
@@ -26,17 +26,11 @@
   },
   "homepage": "https://github.com/launchdarkly/ld-integrations#readme",
   "devDependencies": {
-    "@adobe/jsonschema2md": "3.3.1",
     "ajv": "^6.10.2",
-    "handlebars": "4.7.2",
-    "jest": "24.9.0",
+    "handlebars": "4.7.3",
+    "jest": "25.1.0",
     "jest-expect-message": "1.0.2",
-    "lodash": "^4.17.15"
-  },
-  "prettier": {
-    "trailingComma": "es5",
-    "tabWidth": 2,
-    "semi": true,
-    "singleQuote": true
+    "lodash": "^4.17.15",
+    "prettier": "^2.0.1"
   }
 }
