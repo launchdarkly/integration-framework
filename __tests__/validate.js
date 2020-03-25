@@ -159,7 +159,7 @@ describe('All integrations', () => {
       );
       const defaultTemplatePath = _.get(
         manifest,
-        'capabilities.auditLogEventsHook.templates.metric',
+        'capabilities.auditLogEventsHook.templates.default',
         null
       );
       if (flagTemplatePath) {
@@ -227,14 +227,12 @@ describe('All integrations', () => {
         }
       }
       if (defaultTemplatePath) {
-        expect(existsSync(`./integrations/${key}/${defaultTemplatePath}`)).toBe(
-          true
-        );
         const path = `./integrations/${key}/${defaultTemplatePath}`;
+        expect(existsSync(path)).toBe(true);
         expect(existsSync(path)).toBe(true);
 
         const template = getTemplate(path);
-        const isJSON = isJSONTemplate(flagTemplatePath);
+        const isJSON = isJSONTemplate(defaultTemplatePath);
         const fullContext = getFullContext(manifest, flagContext, isJSON);
         expect(
           () => template(fullContext),

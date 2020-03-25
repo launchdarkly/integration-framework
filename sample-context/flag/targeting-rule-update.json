@@ -43,7 +43,21 @@
     }
   },
   "key": "demo-flag",
-  "tags": [],
+  "tags": ["ops", "security"],
+  "customProperties": {
+    "dynatrace": {
+      "name": "Dynatrace tags",
+      "values": ["test1", "test2"]
+    },
+    "datadog": {
+      "name": "Datadog tags",
+      "values": ["dd1", "dd2"]
+    },
+    "jira": {
+      "name": "Jira",
+      "values": ["thing1", "thing2"]
+    }
+  },
   "member": {
     "_links": {
       "parent": {

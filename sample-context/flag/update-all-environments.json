@@ -46,8 +46,12 @@
   "tags": [],
   "customProperties": {
     "dynatrace": {
-      "name": "Dynatrace",
+      "name": "Dynatrace tags",
       "values": ["test1", "test2"]
+    },
+    "datadog": {
+      "name": "Datadog tags",
+      "values": ["dd1", "dd2"]
     },
     "jira": {
       "name": "Jira",

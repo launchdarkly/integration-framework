@@ -1,0 +1,23 @@
+{
+    "title": "{{{title.plainText}}}",
+    "text": "{{#if details.plainText}}{{{details.plainText}}}{{#if comment}}\n{{/if}}{{/if}}{{#if comment}}comment: {{comment}}{{/if}}",
+    "date_happened": {{timestamp.seconds}},
+    "tags": [
+        {{#if customProperties}}
+        {{#if customProperties.datadog}}
+        {{#if customProperties.datadog.values}}
+        {{#with customProperties}}
+        {{#each datadog.values}}
+        "{{{this}}}",
+        {{/each}}
+        {{/with}}
+        {{/if}}{{/if}}{{/if}}
+        {{#each tags}}
+        "{{{this}}}",
+        {{/each}}
+        {{#if project.key}}"project_key:{{project.key}}",
+        "action:{{verbKind}}",
+        "member:{{member.email}}"
+    ],
+    "source_type_name": "launchdarkly"
+}
