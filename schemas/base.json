@@ -1,0 +1,286 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://launchdarkly.com/schemas/v1.0/manifest.schema.json#",
+  "title": "LaunchDarkly Integrations Manifest",
+  "description": "Describes the capabilities and intent of a LaunchDarkly integration",
+  "type": "object",
+  "additionalProperties": false,
+  "propertyNames": {
+    "enum": [
+      "name",
+      "version",
+      "overview",
+      "description",
+      "author",
+      "supportEmail",
+      "links",
+      "categories",
+      "icons",
+      "formVariables",
+      "capabilities"
+    ]
+  },
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "title": "Integration name",
+      "description": "Your integration's name.",
+      "minLength": 3,
+      "maxLength": 100,
+      "type": "string"
+    },
+    "version": {
+      "$id": "#/properties/version",
+      "title": "Version",
+      "description": "A semantic version of the integration. See https://semver.org for more info.",
+      "examples": ["0.0.1", "1.0.0", "1.0.1-beta"],
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 14,
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    },
+    "overview": {
+      "$id": "#/properties/overview",
+      "title": "Short description",
+      "description": "A short-one liner describing your integration",
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 100,
+      "pattern": "^(.*)$"
+    },
+    "description": {
+      "$id": "#/properties/description",
+      "title": "Long description",
+      "description": "A longer description of your integration",
+      "type": "string",
+      "minLength": 50,
+      "maxLength": 2048,
+      "pattern": "^(.*)$"
+    },
+    "author": {
+      "$id": "#/properties/author",
+      "title": "Author",
+      "description": "Name of the author or organization responsible for the integration",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100,
+      "pattern": "^(.*)$"
+    },
+    "supportEmail": {
+      "$id": "#/properties/links/support-email",
+      "title": "Support Email",
+      "description": "Email address for your integration's support",
+      "type": "string",
+      "format": "email"
+    },
+    "links": {
+      "$id": "#/properties/links",
+      "title": "Links",
+      "description": "A set of reference links supporting your integration",
+      "type": "object",
+      "propertyNames": {
+        "enum": ["site", "privacyPolicy", "supportWebsite"]
+      },
+      "properties": {
+        "site": {
+          "$id": "#/properties/links/site",
+          "title": "Website",
+          "description": "URL to your website",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        },
+        "privacyPolicy": {
+          "$id": "#/properties/links/privacy-policy",
+          "title": "Privacy Policy",
+          "description": "URL to your organization's privacy policy",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        },
+        "supportWebsite": {
+          "$id": "#/properties/links/support-website",
+          "title": "Support Website",
+          "description": "URL to your integration's support website",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        }
+      },
+      "required": ["site", "privacyPolicy"]
+    },
+    "categories": {
+      "$id": "#/properties/categories",
+      "title": "Categories",
+      "description": "Categories that describe your integration",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "string",
+        "enum": [
+          "authentication",
+          "automation",
+          "collaboration",
+          "configuration",
+          "data",
+          "developer-tools",
+          "infrastructure",
+          "task-management",
+          "monitoring",
+          "notifications",
+          "product-tools",
+          "version-control"
+        ]
+      }
+    },
+    "icons": {
+      "$id": "#/properties/icons",
+      "title": "Icons",
+      "description": "Logos describing your integration in SVG format",
+      "type": "object",
+      "propertyNames": {
+        "enum": ["square", "horizontal"]
+      },
+      "properties": {
+        "square": {
+          "$id": "#/properties/icons/square",
+          "title": "Square logo",
+          "description": "A square version of your integration's logo in SVG format",
+          "type": "string",
+          "pattern": "\\.svg$"
+        },
+        "horizontal": {
+          "$id": "#/properties/icons/horizontal",
+          "title": "Horizontal logo",
+          "description": "A horizontal version of your integration's logo in SVG format",
+          "type": "string",
+          "pattern": "\\.svg$"
+        }
+      },
+      "required": ["square", "horizontal"]
+    },
+    "formVariables": {
+      "$id": "#/properties/formVariables",
+      "title": "Form variables",
+      "description": "Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.",
+      "type": "array",
+      "items": {
+        "$id": "#/properties/formVariables/variable",
+        "title": "Form variable",
+        "description": "A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an integration.",
+        "type": "object",
+        "propertyNames": {
+          "enum": [
+            "key",
+            "name",
+            "type",
+            "description",
+            "placeholder",
+            "isSecret",
+            "isOptional",
+            "defaultValue",
+            "allowedValues"
+          ]
+        },
+        "properties": {
+          "key": {
+            "$id": "#/properties/formVariables/variable/key",
+            "title": "Key",
+            "type": "string",
+            "description": "A key will be used as the token name when the variable is substituted",
+            "maxLength": 20,
+            "pattern": "^[^\\s]*$"
+          },
+          "name": {
+            "$id": "#/properties/formVariables/variable/name",
+            "title": "Name",
+            "type": "string",
+            "description": "A descriptive name that will be used as the form label on the UI",
+            "maxLength": 50
+          },
+          "type": {
+            "$id": "#/properties/formVariables/variable/type",
+            "title": "Type",
+            "type": "string",
+            "description": "The type of the variable",
+            "enum": ["string", "boolean", "uri", "enum"]
+          },
+          "description": {
+            "$id": "#/properties/formVariables/variable/description",
+            "title": "Description",
+            "type": "string",
+            "description": "Describes the variable in the UI. Markdown links allowed.",
+            "maxLength": 250
+          },
+          "placeholder": {
+            "$id": "#/properties/formVariables/variable/placeholder",
+            "title": "Description",
+            "type": "string",
+            "description": "Placeholder value to use in the form element if applicable"
+          },
+          "isSecret": {
+            "$id": "#/properties/formVariables/variable/is-secret",
+            "title": "Is this variable a secret?",
+            "type": "boolean",
+            "description": "Secret variables will be masked in the UI",
+            "default": false
+          },
+          "isOptional": {
+            "$id": "#/properties/formVariables/variable/is-optional",
+            "title": "Is this variable optional?",
+            "type": "boolean",
+            "description": "Variables marked as optional won't be required on the UI",
+            "default": false
+          },
+          "defaultValue": {
+            "$id": "#/properties/formVariables/variable/default-value",
+            "title": "Default value",
+            "type": ["boolean", "string"],
+            "description": "Default value for variable. Can be overridden by user in the UI"
+          },
+          "allowedValues": {
+            "$id": "#/properties/formVariables/variable/allowed-values",
+            "title": "Allowed values",
+            "type": "array",
+            "description": "allowed string values for enum-type formVariables",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["key", "name", "type", "description"]
+      },
+      "default": []
+    },
+    "capabilities": {
+      "$id": "#/properties/capabilities",
+      "title": "Capabilities",
+      "description": "Specify which capabilities you'd like your integration to have",
+      "type": "object",
+      "propertyNames": {
+        "enum": ["auditLogEventsHook", "reservedCustomProperties"]
+      },
+      "properties": {
+        "auditLogEventsHook": {
+          "$ref": "schemas/capabilities/auditLogEventsHook.json#/auditLogEventsHook"
+        },
+        "reservedCustomProperties": {
+          "$ref": "schemas/capabilities/reservedCustomProperties.json#/reservedCustomProperties"
+        }
+      }
+    }
+  },
+  "required": [
+    "name",
+    "version",
+    "overview",
+    "description",
+    "author",
+    "supportEmail",
+    "links",
+    "categories",
+    "icons"
+  ]
+}

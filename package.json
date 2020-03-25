@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "build": "node bundleSchema.js && prettier --write manifest.schema.json",
     "prettier:check": "prettier --list-different \"./**/*.{js,json}\"",
     "prettier:write": "prettier --write \"./**/*.{js,json}\"",
     "preview": "node preview.js",
@@ -26,6 +27,7 @@
   },
   "homepage": "https://github.com/launchdarkly/ld-integrations#readme",
   "devDependencies": {
+    "@apidevtools/json-schema-ref-parser": "^8.0.0",
     "ajv": "^6.10.2",
     "handlebars": "4.7.3",
     "jest": "25.1.0",

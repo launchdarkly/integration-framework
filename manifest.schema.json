@@ -1,592 +1,601 @@
 {
-    "$schema": "http://json-schema.org/draft-07/schema#",
-    "$id": "https://launchdarkly.com/schemas/v1.0/integrations",
-    "title": "LaunchDarkly Integrations Manifest",
-    "description": "Describes the capabilities and intent of a LaunchDarkly integration",
-    "type": "object",
-    "additionalProperties": false,
-    "propertyNames": {
-        "enum": [
-            "name",
-            "version",
-            "overview",
-            "description",
-            "author",
-            "supportEmail",
-            "links",
-            "categories",
-            "icons",
-            "formVariables",
-            "capabilities"
-        ]
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://launchdarkly.com/schemas/v1.0/manifest.schema.json#",
+  "title": "LaunchDarkly Integrations Manifest",
+  "description": "Describes the capabilities and intent of a LaunchDarkly integration",
+  "type": "object",
+  "additionalProperties": false,
+  "propertyNames": {
+    "enum": [
+      "name",
+      "version",
+      "overview",
+      "description",
+      "author",
+      "supportEmail",
+      "links",
+      "categories",
+      "icons",
+      "formVariables",
+      "capabilities"
+    ]
+  },
+  "properties": {
+    "name": {
+      "$id": "#/properties/name",
+      "title": "Integration name",
+      "description": "Your integration's name.",
+      "minLength": 3,
+      "maxLength": 100,
+      "type": "string"
     },
-    "properties": {
-        "name": {
-            "$id": "#/properties/name",
-            "title": "Integration name",
-            "description": "Your integration's name.",
-            "minLength": 3,
-            "maxLength": 100,
-            "type": "string"
+    "version": {
+      "$id": "#/properties/version",
+      "title": "Version",
+      "description": "A semantic version of the integration. See https://semver.org for more info.",
+      "examples": [
+        "0.0.1",
+        "1.0.0",
+        "1.0.1-beta"
+      ],
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 14,
+      "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
+    },
+    "overview": {
+      "$id": "#/properties/overview",
+      "title": "Short description",
+      "description": "A short-one liner describing your integration",
+      "type": "string",
+      "minLength": 10,
+      "maxLength": 100,
+      "pattern": "^(.*)$"
+    },
+    "description": {
+      "$id": "#/properties/description",
+      "title": "Long description",
+      "description": "A longer description of your integration",
+      "type": "string",
+      "minLength": 50,
+      "maxLength": 2048,
+      "pattern": "^(.*)$"
+    },
+    "author": {
+      "$id": "#/properties/author",
+      "title": "Author",
+      "description": "Name of the author or organization responsible for the integration",
+      "type": "string",
+      "minLength": 3,
+      "maxLength": 100,
+      "pattern": "^(.*)$"
+    },
+    "supportEmail": {
+      "$id": "#/properties/links/support-email",
+      "title": "Support Email",
+      "description": "Email address for your integration's support",
+      "type": "string",
+      "format": "email"
+    },
+    "links": {
+      "$id": "#/properties/links",
+      "title": "Links",
+      "description": "A set of reference links supporting your integration",
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "site",
+          "privacyPolicy",
+          "supportWebsite"
+        ]
+      },
+      "properties": {
+        "site": {
+          "$id": "#/properties/links/site",
+          "title": "Website",
+          "description": "URL to your website",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
         },
-        "version": {
-            "$id": "#/properties/version",
-            "title": "Version",
-            "description": "A semantic version of the integration. See https://semver.org for more info.",
-            "examples": [
-                "0.0.1",
-                "1.0.0",
-                "1.0.1-beta"
+        "privacyPolicy": {
+          "$id": "#/properties/links/privacy-policy",
+          "title": "Privacy Policy",
+          "description": "URL to your organization's privacy policy",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        },
+        "supportWebsite": {
+          "$id": "#/properties/links/support-website",
+          "title": "Support Website",
+          "description": "URL to your integration's support website",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        }
+      },
+      "required": [
+        "site",
+        "privacyPolicy"
+      ]
+    },
+    "categories": {
+      "$id": "#/properties/categories",
+      "title": "Categories",
+      "description": "Categories that describe your integration",
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "maxItems": 3,
+      "items": {
+        "type": "string",
+        "enum": [
+          "authentication",
+          "automation",
+          "collaboration",
+          "configuration",
+          "data",
+          "developer-tools",
+          "infrastructure",
+          "task-management",
+          "monitoring",
+          "notifications",
+          "product-tools",
+          "version-control"
+        ]
+      }
+    },
+    "icons": {
+      "$id": "#/properties/icons",
+      "title": "Icons",
+      "description": "Logos describing your integration in SVG format",
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "square",
+          "horizontal"
+        ]
+      },
+      "properties": {
+        "square": {
+          "$id": "#/properties/icons/square",
+          "title": "Square logo",
+          "description": "A square version of your integration's logo in SVG format",
+          "type": "string",
+          "pattern": "\\.svg$"
+        },
+        "horizontal": {
+          "$id": "#/properties/icons/horizontal",
+          "title": "Horizontal logo",
+          "description": "A horizontal version of your integration's logo in SVG format",
+          "type": "string",
+          "pattern": "\\.svg$"
+        }
+      },
+      "required": [
+        "square",
+        "horizontal"
+      ]
+    },
+    "formVariables": {
+      "$id": "#/properties/formVariables",
+      "title": "Form variables",
+      "description": "Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.",
+      "type": "array",
+      "items": {
+        "$id": "#/properties/formVariables/variable",
+        "title": "Form variable",
+        "description": "A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an integration.",
+        "type": "object",
+        "propertyNames": {
+          "enum": [
+            "key",
+            "name",
+            "type",
+            "description",
+            "placeholder",
+            "isSecret",
+            "isOptional",
+            "defaultValue",
+            "allowedValues"
+          ]
+        },
+        "properties": {
+          "key": {
+            "$id": "#/properties/formVariables/variable/key",
+            "title": "Key",
+            "type": "string",
+            "description": "A key will be used as the token name when the variable is substituted",
+            "maxLength": 20,
+            "pattern": "^[^\\s]*$"
+          },
+          "name": {
+            "$id": "#/properties/formVariables/variable/name",
+            "title": "Name",
+            "type": "string",
+            "description": "A descriptive name that will be used as the form label on the UI",
+            "maxLength": 50
+          },
+          "type": {
+            "$id": "#/properties/formVariables/variable/type",
+            "title": "Type",
+            "type": "string",
+            "description": "The type of the variable",
+            "enum": [
+              "string",
+              "boolean",
+              "uri",
+              "enum"
+            ]
+          },
+          "description": {
+            "$id": "#/properties/formVariables/variable/description",
+            "title": "Description",
+            "type": "string",
+            "description": "Describes the variable in the UI. Markdown links allowed.",
+            "maxLength": 250
+          },
+          "placeholder": {
+            "$id": "#/properties/formVariables/variable/placeholder",
+            "title": "Description",
+            "type": "string",
+            "description": "Placeholder value to use in the form element if applicable"
+          },
+          "isSecret": {
+            "$id": "#/properties/formVariables/variable/is-secret",
+            "title": "Is this variable a secret?",
+            "type": "boolean",
+            "description": "Secret variables will be masked in the UI",
+            "default": false
+          },
+          "isOptional": {
+            "$id": "#/properties/formVariables/variable/is-optional",
+            "title": "Is this variable optional?",
+            "type": "boolean",
+            "description": "Variables marked as optional won't be required on the UI",
+            "default": false
+          },
+          "defaultValue": {
+            "$id": "#/properties/formVariables/variable/default-value",
+            "title": "Default value",
+            "type": [
+              "boolean",
+              "string"
             ],
-            "type": "string",
-            "minLength": 5,
-            "maxLength": 14,
-            "pattern": "^(0|[1-9]\\d*)\\.(0|[1-9]\\d*)\\.(0|[1-9]\\d*)(?:-((?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*)(?:\\.(?:0|[1-9]\\d*|\\d*[a-zA-Z-][0-9a-zA-Z-]*))*))?(?:\\+([0-9a-zA-Z-]+(?:\\.[0-9a-zA-Z-]+)*))?$"
-        },
-        "overview": {
-            "$id": "#/properties/overview",
-            "title": "Short description",
-            "description": "A short-one liner describing your integration",
-            "type": "string",
-            "minLength": 10,
-            "maxLength": 100,
-            "pattern": "^(.*)$"
-        },
-        "description": {
-            "$id": "#/properties/description",
-            "title": "Long description",
-            "description": "A longer description of your integration",
-            "type": "string",
-            "minLength": 50,
-            "maxLength": 2048,
-            "pattern": "^(.*)$"
-        },
-        "author": {
-            "$id": "#/properties/author",
-            "title": "Author",
-            "description": "Name of the author or organization responsible for the integration",
-            "type": "string",
-            "minLength": 3,
-            "maxLength": 100,
-            "pattern": "^(.*)$"
-        },
-        "supportEmail": {
-            "$id": "#/properties/links/support-email",
-            "title": "Support Email",
-            "description": "Email address for your integration's support",
-            "type": "string",
-            "format": "email"
-        },
-        "links": {
-            "$id": "#/properties/links",
-            "title": "Links",
-            "description": "A set of reference links supporting your integration",
-            "type": "object",
-            "propertyNames": {
-                "enum": [
-                    "site",
-                    "privacyPolicy",
-                    "supportWebsite"
-                ]
-            },
-            "properties": {
-                "site": {
-                    "$id": "#/properties/links/site",
-                    "title": "Website",
-                    "description": "URL to your website",
-                    "type": "string",
-                    "maxLength": 2048,
-                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
-                },
-                "privacyPolicy": {
-                    "$id": "#/properties/links/privacy-policy",
-                    "title": "Privacy Policy",
-                    "description": "URL to your organization's privacy policy",
-                    "type": "string",
-                    "maxLength": 2048,
-                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
-                },
-                "supportWebsite": {
-                    "$id": "#/properties/links/support-website",
-                    "title": "Support Website",
-                    "description": "URL to your integration's support website",
-                    "type": "string",
-                    "maxLength": 2048,
-                    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
-                }
-            },
-            "required": [
-                "site",
-                "privacyPolicy"
-            ]
-        },
-        "categories": {
-            "$id": "#/properties/categories",
-            "title": "Categories",
-            "description": "Categories that describe your integration",
+            "description": "Default value for variable. Can be overridden by user in the UI"
+          },
+          "allowedValues": {
+            "$id": "#/properties/formVariables/variable/allowed-values",
+            "title": "Allowed values",
             "type": "array",
-            "uniqueItems": true,
-            "minItems": 1,
-            "maxItems": 3,
+            "description": "allowed string values for enum-type formVariables",
             "items": {
-                "type": "string",
-                "enum": [
-                    "authentication",
-                    "automation",
-                    "collaboration",
-                    "configuration",
-                    "data",
-                    "developer-tools",
-                    "infrastructure",
-                    "task-management",
-                    "monitoring",
-                    "notifications",
-                    "product-tools",
-                    "version-control"
-                ]
+              "type": "string"
             }
+          }
         },
-        "icons": {
-            "$id": "#/properties/icons",
-            "title": "Icons",
-            "description": "Logos describing your integration in SVG format",
-            "type": "object",
-            "propertyNames": {
-                "enum": [
-                    "square",
-                    "horizontal"
-                ]
-            },
-            "properties": {
-                "square": {
-                    "$id": "#/properties/icons/square",
-                    "title": "Square logo",
-                    "description": "A square version of your integration's logo in SVG format",
-                    "type": "string",
-                    "pattern": "\\.svg$"
-                },
-                "horizontal": {
-                    "$id": "#/properties/icons/horizontal",
-                    "title": "Horizontal logo",
-                    "description": "A horizontal version of your integration's logo in SVG format",
-                    "type": "string",
-                    "pattern": "\\.svg$"
-                }
-            },
-            "required": [
-                "square",
-                "horizontal"
+        "required": [
+          "key",
+          "name",
+          "type",
+          "description"
+        ]
+      },
+      "default": []
+    },
+    "capabilities": {
+      "$id": "#/properties/capabilities",
+      "title": "Capabilities",
+      "description": "Specify which capabilities you'd like your integration to have",
+      "type": "object",
+      "propertyNames": {
+        "enum": [
+          "auditLogEventsHook",
+          "reservedCustomProperties"
+        ]
+      },
+      "properties": {
+        "auditLogEventsHook": {
+          "$id": "#/properties/capability/audit-log-events-hook",
+          "title": "Audit Log Events Hook",
+          "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "endpoint",
+              "templates",
+              "defaultPolicy"
             ]
-        },
-        "formVariables": {
-            "$id": "#/properties/formVariables",
-            "title": "Form variables",
-            "description": "Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.",
-            "type": "array",
-            "items": {
-                "$id": "#/properties/formVariables/variable",
-                "title": "Form variable",
-                "description": "A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an integration.",
-                "type": "object",
-                "propertyNames": {
-                    "enum": [
-                        "key",
-                        "name",
-                        "type",
-                        "description",
-                        "placeholder",
-                        "isSecret",
-                        "isOptional",
-                        "defaultValue",
-                        "allowedValues"
-                    ]
-                },
-                "properties": {
-                    "key": {
-                        "$id": "#/properties/formVariables/variable/key",
-                        "title": "Key",
-                        "type": "string",
-                        "description": "A key will be used as the token name when the variable is substituted",
-                        "maxLength": 20,
-                        "pattern": "^[^\\s]*$"
-                    },
-                    "name": {
-                        "$id": "#/properties/formVariables/variable/name",
-                        "title": "Name",
-                        "type": "string",
-                        "description": "A descriptive name that will be used as the form label on the UI",
-                        "maxLength": 50
-                    },
-                    "type": {
-                        "$id": "#/properties/formVariables/variable/type",
-                        "title": "Type",
-                        "type": "string",
-                        "description": "The type of the variable",
-                        "enum": [
-                            "string",
-                            "boolean",
-                            "uri",
-                            "enum"
-                        ]
-                    },
-                    "description": {
-                        "$id": "#/properties/formVariables/variable/description",
-                        "title": "Description",
-                        "type": "string",
-                        "description": "Describes the variable in the UI. Markdown links allowed.",
-                        "maxLength": 250
-                    },
-                    "placeholder": {
-                        "$id": "#/properties/formVariables/variable/placeholder",
-                        "title": "Description",
-                        "type": "string",
-                        "description": "Placeholder value to use in the form element if applicable"
-                    },
-                    "isSecret": {
-                        "$id": "#/properties/formVariables/variable/is-secret",
-                        "title": "Is this variable a secret?",
-                        "type": "boolean",
-                        "description": "Secret variables will be masked in the UI",
-                        "default": false
-                    },
-                    "isOptional": {
-                        "$id": "#/properties/formVariables/variable/is-optional",
-                        "title": "Is this variable optional?",
-                        "type": "boolean",
-                        "description": "Variables marked as optional won't be required on the UI",
-                        "default": false
-                    },
-                    "defaultValue": {
-                        "$id": "#/properties/formVariables/variable/default-value",
-                        "title": "Default value",
-                        "type": [
-                            "boolean",
-                            "string"
-                        ],
-                        "description": "Default value for variable. Can be overridden by user in the UI"
-                    },
-                    "allowedValues": {
-                        "$id": "#/properties/formVariables/variable/allowed-values",
-                        "title": "Allowed values",
-                        "type": "array",
-                        "description": "allowed string values for enum-type formVariables",
-                        "items": {
-                            "type": "string"
-                        }
-                    }
-                },
-                "required": [
-                    "key",
-                    "name",
-                    "type",
-                    "description"
-                ]
-            },
-            "default": []
-        },
-        "capabilities": {
-            "$id": "#/properties/capabilities",
-            "title": "Capabilities",
-            "description": "Specify which capabilities you'd like your integration to have",
-            "type": "object",
-            "propertyNames": {
+          },
+          "properties": {
+            "endpoint": {
+              "$id": "#/properties/capability/audit-log-events-hook/receiving-endpoint",
+              "title": "Endpoint",
+              "description": "Properties that describe the HTTP endpoint LaunchDarkly will send hooks to",
+              "type": "object",
+              "propertyNames": {
                 "enum": [
-                    "auditLogEventsHook", "reservedCustomProperties"
+                  "url",
+                  "method",
+                  "headers"
                 ]
-            },
-            "properties": {
-                "auditLogEventsHook": {
-                    "$id": "#/properties/capability/audit-log-events-hook",
-                    "title": "Audit Log Events Hook",
-                    "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
+              },
+              "properties": {
+                "url": {
+                  "$id": "#/properties/capability/audit-log-events-hook/url",
+                  "title": "URL",
+                  "type": "string",
+                  "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.",
+                  "minLength": 3
+                },
+                "method": {
+                  "$id": "#/properties/capability/audit-log-events-hook/method",
+                  "title": "HTTP method",
+                  "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                  "enum": [
+                    "POST",
+                    "PUT",
+                    "PATCH"
+                  ],
+                  "default": "POST"
+                },
+                "headers": {
+                  "$id": "#/properties/capability/audit-log-events-hook/headers",
+                  "title": "HTTP headers",
+                  "description": "Headers to send with the webhook request",
+                  "type": "array",
+                  "items": {
+                    "$id": "#/properties/capability/audit-log-events-hook/header/items",
+                    "title": "Header items",
+                    "description": "A name and value pair to send as headers with the hook request",
                     "type": "object",
                     "propertyNames": {
-                        "enum": [
-                            "endpoint",
-                            "templates",
-                            "defaultPolicy"
-                        ]
+                      "enum": [
+                        "name",
+                        "value"
+                      ]
                     },
                     "properties": {
-                        "endpoint": {
-                            "$id": "#/properties/capability/audit-log-events-hook/receiving-endpoint",
-                            "title": "Endpoint",
-                            "description": "Properties that describe the HTTP endpoint LaunchDarkly will send hooks to",
-                            "type": "object",
-                            "propertyNames": {
-                                "enum": [
-                                    "url",
-                                    "method",
-                                    "headers"
-                                ]
-                            },
-                            "properties": {
-                                "url": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/url",
-                                    "title": "URL",
-                                    "type": "string",
-                                    "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.",
-                                    "minLength": 3
-                                },
-                                "method": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/method",
-                                    "title": "HTTP method",
-                                    "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                                    "enum": [
-                                        "POST",
-                                        "PUT",
-                                        "PATCH"
-                                    ],
-                                    "default": "POST"
-                                },
-                                "headers": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/headers",
-                                    "title": "HTTP headers",
-                                    "description": "Headers to send with the webhook request",
-                                    "type": "array",
-                                    "items": {
-                                        "$id": "#/properties/capability/audit-log-events-hook/header/items",
-                                        "title": "Header items",
-                                        "description": "A name and value pair to send as headers with the hook request",
-                                        "type": "object",
-                                        "propertyNames": {
-                                            "enum": [
-                                                "name",
-                                                "value"
-                                            ]
-                                        },
-                                        "properties": {
-                                            "name": {
-                                                "$id": "#/properties/fcapability/audit-log-events-hook/header/items/name",
-                                                "title": "Name",
-                                                "type": "string",
-                                                "description": "Name of the header",
-                                                "maxLength": 50,
-                                                "pattern": "^[^\\s]*$"
-                                            },
-                                            "value": {
-                                                "$id": "#/properties/fcapability/audit-log-events-hook/header/items/value",
-                                                "title": "Value",
-                                                "type": "string",
-                                                "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
-                                            }
-                                        },
-                                        "required": [
-                                            "name",
-                                            "value"
-                                        ]
-                                    },
-                                    "default": [
-                                        {
-                                            "name": "Content-Type",
-                                            "value": "application/json"
-                                        }
-                                    ],
-                                    "examples": [
-                                        {
-                                            "name": "Content-Type",
-                                            "value": "application/json"
-                                        },
-                                        {
-                                            "name": "Authorization",
-                                            "value": "Bearer {{apiToken}}"
-                                        }
-                                    ],
-                                    "minProperties": 1
-                                }
-                            },
-                            "required": [
-                                "url"
-                            ]
-                        },
-                        "templates": {
-                            "$id": "#/properties/capability/audit-log-events-hook/templates",
-                            "title": "Webhook body template",
-                            "description": "Templates to use for body of the webhook request",
-                            "type": "object",
-                            "propertyNames": {
-                                "enum": [
-                                    "flag",
-                                    "project",
-                                    "environment",
-                                    "default"
-                                ]
-                            },
-                            "properties": {
-                                "flag": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/templates/flag",
-                                    "title": "Flag template",
-                                    "description": "Template to use for flag events",
-                                    "type": "string"
-                                },
-                                "project": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/templates/project",
-                                    "title": "Project template",
-                                    "description": "Template to use for project events",
-                                    "type": "string"
-                                },
-                                "environment": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/templates/environment",
-                                    "title": "Environment template",
-                                    "description": "Template to use for environment events",
-                                    "type": "string"
-                                },
-                                "default": {
-                                    "$id": "#/properties/capability/audit-log-events-hook/templates/default",
-                                    "title": "default template",
-                                    "description": "Template to use if the event does not have a corresponding named template",
-                                    "type": "string"
-                                }
-                            }
-                        },
-                        "defaultPolicy": {
-                            "$id": "#/properties/capability/audit-log-events-hook/default-policy",
-                            "title": "Default Policy",
-                            "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
-                            "type": "array",
-                            "minItems": 1,
-                            "items": {
-                                "$id": "#/properties/capability/audit-log-events-hook/policy",
-                                "title": "Policy",
-                                "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
-                                "type": "object",
-                                "propertyNames": {
-                                    "enum": [
-                                        "actions",
-                                        "effect",
-                                        "notActions",
-                                        "notResources",
-                                        "resources"
-                                    ]
-                                },
-                                "properties": {
-                                    "actions": {
-                                        "$id": "#/properties/capability/audit-log-events-hook/policy/actions",
-                                        "title": "Actions",
-                                        "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
-                                        "default": [
-                                            "*"
-                                        ],
-                                        "examples": [
-                                            "updateOn",
-                                            "createFlag",
-                                            "updateRules",
-                                            "updateTargets"
-                                        ],
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "effect": {
-                                        "$id": "#/properties/capability/audit-log-events-hook/policy/effect",
-                                        "title": "Effect",
-                                        "description": "This attribute defines whether the statement allows or denies access to the named resources and actions.",
-                                        "default": "allow",
-                                        "type": "string",
-                                        "enum": [
-                                            "allow",
-                                            "deny"
-                                        ]
-                                    },
-                                    "notActions": {
-                                        "$id": "#/properties/capability/audit-log-events-hook/policy/not-actions",
-                                        "title": "Not actions",
-                                        "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
-                                        "default": [
-                                            "*"
-                                        ],
-                                        "examples": [
-                                            "createFlag",
-                                            "deleteFlag",
-                                            "cloneFlag"
-                                        ],
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "notResources": {
-                                        "$id": "#/properties/capability/audit-log-events-hook/policy/not-resources",
-                                        "title": "Not resources",
-                                        "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
-                                        "default": [
-                                            "*"
-                                        ],
-                                        "examples": [
-                                            "proj/*:env/production:flag/*"
-                                        ],
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        }
-                                    },
-                                    "resources": {
-                                        "$id": "#/properties/capability/audit-log-events-hook/policy/resources",
-                                        "title": "Resources",
-                                        "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
-                                        "default": [
-                                            "*"
-                                        ],
-                                        "examples": [
-                                            "proj/*:env/production:flag/*"
-                                        ],
-                                        "type": "array",
-                                        "items": {
-                                            "type": "string"
-                                        }
-                                    }
-                                }
-                            }
-                        }
+                      "name": {
+                        "$id": "#/properties/fcapability/audit-log-events-hook/header/items/name",
+                        "title": "Name",
+                        "type": "string",
+                        "description": "Name of the header",
+                        "maxLength": 50,
+                        "pattern": "^[^\\s]*$"
+                      },
+                      "value": {
+                        "$id": "#/properties/fcapability/audit-log-events-hook/header/items/value",
+                        "title": "Value",
+                        "type": "string",
+                        "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                      }
                     },
                     "required": [
-                        "endpoint",
-                        "templates"
+                      "name",
+                      "value"
                     ]
+                  },
+                  "default": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer {{apiToken}}"
+                    }
+                  ],
+                  "minProperties": 1
+                }
+              },
+              "required": [
+                "url"
+              ]
+            },
+            "templates": {
+              "$id": "#/properties/capability/audit-log-events-hook/templates",
+              "title": "Webhook body template",
+              "description": "Templates to use for body of the webhook request",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "flag",
+                  "project",
+                  "environment",
+                  "default"
+                ]
+              },
+              "properties": {
+                "flag": {
+                  "$id": "#/properties/capability/audit-log-events-hook/templates/flag",
+                  "title": "Flag template",
+                  "description": "Template to use for flag events",
+                  "type": "string"
                 },
-                "reservedCustomProperties": {
-                    "$id": "#/properties/capability/reserved-custom-properties",
-                    "title": "Reserved custom properties",
-                    "description": "This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/advanced/custom-properties for more information on custom properties",
+                "project": {
+                  "$id": "#/properties/capability/audit-log-events-hook/templates/project",
+                  "title": "Project template",
+                  "description": "Template to use for project events",
+                  "type": "string"
+                },
+                "environment": {
+                  "$id": "#/properties/capability/audit-log-events-hook/templates/environment",
+                  "title": "Environment template",
+                  "description": "Template to use for environment events",
+                  "type": "string"
+                },
+                "default": {
+                  "$id": "#/properties/capability/audit-log-events-hook/templates/default",
+                  "title": "default template",
+                  "description": "Template to use if the event does not have a corresponding named template",
+                  "type": "string"
+                }
+              }
+            },
+            "defaultPolicy": {
+              "$id": "#/properties/capability/audit-log-events-hook/default-policy",
+              "title": "Default Policy",
+              "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "$id": "#/properties/capability/audit-log-events-hook/policy",
+                "title": "Policy",
+                "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "actions",
+                    "effect",
+                    "notActions",
+                    "notResources",
+                    "resources"
+                  ]
+                },
+                "properties": {
+                  "actions": {
+                    "$id": "#/properties/capability/audit-log-events-hook/policy/actions",
+                    "title": "Actions",
+                    "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+                    "default": [
+                      "*"
+                    ],
+                    "examples": [
+                      "updateOn",
+                      "createFlag",
+                      "updateRules",
+                      "updateTargets"
+                    ],
                     "type": "array",
                     "items": {
-                      "$id": "#/properties/capability/reserved-custom-properties/items",
-                      "type": "object",
-                      "propertyNames": {"enum": ["name", "key"]},
-                      "properties": {
-                        "name": {
-                          "$id": "#/properties/capability/reserved-custom-properties/items/name",
-                          "title": "Name",
-                          "type": "string",
-                          "description": "The reserved custom property's display name.",
-                          "maxLength": 64
-                        },
-                        "key": {
-                          "$id": "#/properties/capability/reserved-custom-properties/items/key",
-                          "title": "Key",
-                          "type": "string",
-                          "description": "The custom property's API response key.",
-                          "maxLength": 64
-                        }
-                      },
-                      "required": ["name", "key"]
-                    },
-                    "minLength": 1,
-                    "maxLength": 3
+                      "type": "string"
+                    }
+                  },
+                  "effect": {
+                    "$id": "#/properties/capability/audit-log-events-hook/policy/effect",
+                    "title": "Effect",
+                    "description": "This attribute defines whether the statement allows or denies access to the named resources and actions.",
+                    "default": "allow",
+                    "type": "string",
+                    "enum": [
+                      "allow",
+                      "deny"
+                    ]
+                  },
+                  "notActions": {
+                    "$id": "#/properties/capability/audit-log-events-hook/policy/not-actions",
+                    "title": "Not actions",
+                    "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+                    "default": [
+                      "*"
+                    ],
+                    "examples": [
+                      "createFlag",
+                      "deleteFlag",
+                      "cloneFlag"
+                    ],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "notResources": {
+                    "$id": "#/properties/capability/audit-log-events-hook/policy/not-resources",
+                    "title": "Not resources",
+                    "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+                    "default": [
+                      "*"
+                    ],
+                    "examples": [
+                      "proj/*:env/production:flag/*"
+                    ],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "resources": {
+                    "$id": "#/properties/capability/audit-log-events-hook/policy/resources",
+                    "title": "Resources",
+                    "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+                    "default": [
+                      "*"
+                    ],
+                    "examples": [
+                      "proj/*:env/production:flag/*"
+                    ],
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
                   }
+                }
+              }
             }
+          },
+          "required": [
+            "endpoint",
+            "templates"
+          ]
+        },
+        "reservedCustomProperties": {
+          "$id": "#/properties/capability/reserved-custom-properties",
+          "title": "Reserved custom properties",
+          "description": "This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/advanced/custom-properties for more information on custom properties",
+          "type": "array",
+          "items": {
+            "$id": "#/properties/capability/reserved-custom-properties/items",
+            "type": "object",
+            "propertyNames": {
+              "enum": [
+                "name",
+                "key"
+              ]
+            },
+            "properties": {
+              "name": {
+                "$id": "#/properties/capability/reserved-custom-properties/items/name",
+                "title": "Name",
+                "type": "string",
+                "description": "The reserved custom property's display name.",
+                "maxLength": 64
+              },
+              "key": {
+                "$id": "#/properties/capability/reserved-custom-properties/items/key",
+                "title": "Key",
+                "type": "string",
+                "description": "The custom property's API response key.",
+                "maxLength": 64
+              }
+            },
+            "required": [
+              "name",
+              "key"
+            ]
+          },
+          "minLength": 1,
+          "maxLength": 3
         }
-    },
-    "required": [
-        "name",
-        "version",
-        "overview",
-        "description",
-        "author",
-        "supportEmail",
-        "links",
-        "categories",
-        "icons"
-    ]
+      }
+    }
+  },
+  "required": [
+    "name",
+    "version",
+    "overview",
+    "description",
+    "author",
+    "supportEmail",
+    "links",
+    "categories",
+    "icons"
+  ]
 }

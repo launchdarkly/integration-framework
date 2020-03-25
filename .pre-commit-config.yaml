@@ -11,9 +11,15 @@ repos:
       - id: check-added-large-files
   - repo: local
     hooks:
+      - id: build-schema
+        name: Build schema
+        entry: npm run build
+        language: system
+        pass_filenames: false
+
       - id: validate-manifests
         name: Validate manifests
-        entry: yarn test
+        entry: npm run test
         language: system
         pass_filenames: false
 
