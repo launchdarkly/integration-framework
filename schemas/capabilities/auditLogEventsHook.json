@@ -22,8 +22,7 @@
             "$id": "#/properties/capability/audit-log-events-hook/url",
             "title": "URL",
             "type": "string",
-            "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.",
-            "minLength": 3
+            "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
           },
           "method": {
             "$id": "#/properties/capability/audit-log-events-hook/method",

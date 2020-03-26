@@ -4,5 +4,6 @@
       "fileMatch": ["manifest.json"],
       "url": "./manifest.schema.json"
     }
-  ]
+  ],
+  "editor.tabSize": 2
 }

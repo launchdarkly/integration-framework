@@ -292,7 +292,8 @@
       "propertyNames": {
         "enum": [
           "auditLogEventsHook",
-          "reservedCustomProperties"
+          "reservedCustomProperties",
+          "externalCondition"
         ]
       },
       "properties": {
@@ -326,8 +327,7 @@
                   "$id": "#/properties/capability/audit-log-events-hook/url",
                   "title": "URL",
                   "type": "string",
-                  "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.",
-                  "minLength": 3
+                  "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
                 },
                 "method": {
                   "$id": "#/properties/capability/audit-log-events-hook/method",
@@ -583,6 +583,144 @@
           },
           "minLength": 1,
           "maxLength": 3
+        },
+        "externalCondition": {
+          "$id": "#/properties/capability/external-condition",
+          "title": "External condition",
+          "description": "This capability is used to manage external feature workflow conditions",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "creation"
+            ]
+          },
+          "required": [
+            "creation"
+          ],
+          "properties": {
+            "creation": {
+              "$id": "#/properties/capability/external-condition/creation",
+              "title": "Creation",
+              "description": "Properties that describe a request to an integration-controlled API endpoint to establish the external condition",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "endpoint",
+                  "template",
+                  "parser"
+                ]
+              },
+              "required": [
+                "endpoint",
+                "template",
+                "parser"
+              ],
+              "properties": {
+                "endpoint": {
+                  "$id": "#/properties/capability/external-condition/creation/endpoint",
+                  "title": "Creation endpoint",
+                  "description": "Properties that describe the HTTP endpoint LaunchDarkly will use to create an external condition",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "url",
+                      "method",
+                      "headers"
+                    ]
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "properties": {
+                    "url": {
+                      "$id": "#/properties/capability/external-condition/creation/endpoint/url",
+                      "title": "URL",
+                      "type": "string",
+                      "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+                    },
+                    "method": {
+                      "$id": "#/properties/capability/external-condition/creation/method",
+                      "title": "HTTP method",
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                      "enum": [
+                        "POST",
+                        "PUT",
+                        "PATCH"
+                      ],
+                      "default": "POST"
+                    },
+                    "headers": {
+                      "$id": "#/properties/capability/external-condition/creation/headers",
+                      "title": "HTTP headers",
+                      "description": "Headers to send with the webhook request",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/properties/capability/external-condition/creation/endpoint/header/items",
+                        "title": "Header items",
+                        "description": "A name and value pair to send as headers with the hook request",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "name",
+                            "value"
+                          ]
+                        },
+                        "properties": {
+                          "name": {
+                            "$id": "#/properties/capability/external-condition/creation/endpoint/header/items/name",
+                            "title": "Name",
+                            "type": "string",
+                            "description": "Name of the header",
+                            "maxLength": 50,
+                            "pattern": "^[^\\s]*$"
+                          },
+                          "value": {
+                            "$id": "#/properties/capability/external-condition/creation/endpoint/header/items/value",
+                            "title": "Value",
+                            "type": "string",
+                            "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ]
+                      },
+                      "default": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "examples": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer {{apiToken}}"
+                        }
+                      ],
+                      "minProperties": 1
+                    }
+                  }
+                },
+                "template": {
+                  "$id": "#/properties/capability/external-condition/creation/template",
+                  "title": "Creation template",
+                  "description": "Relative path to template used to render external condition creation request body",
+                  "type": "string"
+                },
+                "parser": {
+                  "$id": "#/properties/capability/external-condition/creation/parser",
+                  "title": "Creation parser",
+                  "description": "Relative path to JSON object containing mappings of attributes to JSON pointer statements",
+                  "type": "string"
+                }
+              }
+            }
+          }
         }
       }
     }

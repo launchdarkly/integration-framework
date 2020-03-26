@@ -260,7 +260,11 @@
       "description": "Specify which capabilities you'd like your integration to have",
       "type": "object",
       "propertyNames": {
-        "enum": ["auditLogEventsHook", "reservedCustomProperties"]
+        "enum": [
+          "auditLogEventsHook",
+          "reservedCustomProperties",
+          "externalCondition"
+        ]
       },
       "properties": {
         "auditLogEventsHook": {
@@ -268,6 +272,9 @@
         },
         "reservedCustomProperties": {
           "$ref": "schemas/capabilities/reservedCustomProperties.json#/reservedCustomProperties"
+        },
+        "externalCondition": {
+          "$ref": "schemas/capabilities/externalCondition.json#/externalCondition"
         }
       }
     }
