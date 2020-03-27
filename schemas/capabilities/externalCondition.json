@@ -16,9 +16,9 @@
         "description": "Properties that describe a request to an integration-controlled API endpoint to establish the external condition",
         "type": "object",
         "propertyNames": {
-          "enum": ["endpoint", "template", "parser"]
+          "enum": ["endpoint", "template", "parser", "sampleResponse"]
         },
-        "required": ["endpoint", "template", "parser"],
+        "required": ["endpoint", "template", "parser", "sampleResponse"],
         "properties": {
           "endpoint": {
             "$id": "#/properties/capability/external-condition/creation/endpoint",
@@ -101,10 +101,14 @@
             "type": "string"
           },
           "parser": {
-            "$id": "#/properties/capability/external-condition/creation/parser",
-            "title": "Creation parser",
-            "description": "Relative path to JSON object containing mappings of attributes to JSON pointer statements",
-            "type": "string"
+            "$ref": "parser/parser.json#/parser"
+          },
+          "sampleResponse": {
+            "$id": "#/properties/capability/external-condition/creation/sample-response",
+            "title": "Sample successful creation response",
+            "description": "relative path to sample JSON formatted response",
+            "type": "string",
+            "pattern": ".*\\.json$"
           }
         }
       }

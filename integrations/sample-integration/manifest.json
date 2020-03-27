@@ -106,7 +106,11 @@
           ]
         },
         "template": "templates/ticket-creation-request.json.hbs",
-        "parser": "parsers/ticket-creation.json"
+        "parser": {
+          "id": "/id",
+          "url": "/links/self/href"
+        },
+        "sampleResponse": "sample-responses/ticket-creation.json"
       }
     }
   }

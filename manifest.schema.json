@@ -607,13 +607,15 @@
                 "enum": [
                   "endpoint",
                   "template",
-                  "parser"
+                  "parser",
+                  "sampleResponse"
                 ]
               },
               "required": [
                 "endpoint",
                 "template",
-                "parser"
+                "parser",
+                "sampleResponse"
               ],
               "properties": {
                 "endpoint": {
@@ -713,10 +715,34 @@
                   "type": "string"
                 },
                 "parser": {
-                  "$id": "#/properties/capability/external-condition/creation/parser",
-                  "title": "Creation parser",
-                  "description": "Relative path to JSON object containing mappings of attributes to JSON pointer statements",
-                  "type": "string"
+                  "$id": "#/parser",
+                  "title": "Response parser schema",
+                  "description": "Describes a mapping of property name to a location in the JSON response specified by a JSON pointer",
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "$id": "#/properties/id",
+                      "title": "JSON Pointer to external condition ID",
+                      "type": "string"
+                    },
+                    "url": {
+                      "$id": "#/properties/url",
+                      "title": "JSON Pointer to external condition url",
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "url"
+                  ]
+                },
+                "sampleResponse": {
+                  "$id": "#/properties/capability/external-condition/creation/sample-response",
+                  "title": "Sample successful creation response",
+                  "description": "relative path to sample JSON formatted response",
+                  "type": "string",
+                  "pattern": ".*\\.json$"
                 }
               }
             }
