@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "parser": {
     "$id": "#/parser",
-    "title": "Response parser schema",
+    "title": "Response parser",
     "description": "Describes a mapping of property name to a location in the JSON response specified by a JSON pointer",
     "type": "object",
     "additionalProperties": false,
