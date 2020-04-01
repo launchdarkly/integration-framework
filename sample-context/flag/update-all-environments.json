@@ -22,7 +22,8 @@
   "_accountId": "569f514156e003339cfd3917",
   "timestamp": {
     "milliseconds": 1580777778959,
-    "seconds": 1580777778
+    "seconds": 1580777778,
+    "rfc3339": "2020-02-04T00:56:18Z"
   },
   "kind": "flag",
   "name": "Demo flag",
