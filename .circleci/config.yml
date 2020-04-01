@@ -1,5 +1,12 @@
 version: 2.1
 
+# Keep this at the top to reduce noise in chatrooms when we mess up circleci setup
+experimental:
+  notify:
+    branches:
+      only:
+        - master
+
 orbs:
   aws-cli: circleci/aws-cli@0.1.16
   linter: thekevjames/linter@1.0.49
