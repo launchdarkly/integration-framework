@@ -22,7 +22,8 @@
   "_accountId": "569f514156e003339cfd3917",
   "timestamp": {
     "milliseconds": 1580778556395,
-    "seconds": 1580778556
+    "seconds": 1580778556,
+    "rfc3339": "2020-02-04T01:09:16Z"
   },
   "kind": "project",
   "name": "A new project",

@@ -22,7 +22,8 @@
   "_accountId": "569f514156e003339cfd3917",
   "timestamp": {
     "milliseconds": 1580778761928,
-    "seconds": 1580778761
+    "seconds": 1580778761,
+    "rfc3339": "2020-02-04T01:12:41Z"
   },
   "kind": "environment",
   "name": "Local dev",
