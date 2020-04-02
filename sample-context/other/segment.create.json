@@ -18,7 +18,8 @@
   "_accountId": "569f514156e003339cfd3917",
   "timestamp": {
     "milliseconds": 1580778941643,
-    "seconds": 1580778941
+    "seconds": 1580778941,
+    "rfc3339": "2020-02-04T01:15:41Z"
   },
   "kind": "segment",
   "name": "New segment",

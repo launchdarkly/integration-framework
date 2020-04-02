@@ -22,7 +22,8 @@
   "_accountId": "569f514156e003339cfd3917",
   "timestamp": {
     "milliseconds": 1580779057946,
-    "seconds": 1580779057
+    "seconds": 1580779057,
+    "rfc3339": "2020-02-04T01:17:37Z"
   },
   "kind": "webhook",
   "name": "Test webhook",
