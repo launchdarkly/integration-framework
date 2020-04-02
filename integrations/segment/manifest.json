@@ -11,7 +11,7 @@
   },
   "categories": ["data", "infrastructure"],
   "icons": {
-    "square": "assets/images/squaree.svg",
-    "horizontal": "assets/images/squaree.svg"
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
   }
 }
