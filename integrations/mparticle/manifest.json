@@ -1,0 +1,17 @@
+{
+  "name": "mParticle",
+  "version": "1.0.0",
+  "overview": "Export real-time flag analytics data.",
+  "description": "Export your real-time flag analytics data to mParticle.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/integrations/data-export/mparticle",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data", "infrastructure"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  }
+}
