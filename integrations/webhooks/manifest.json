@@ -9,7 +9,7 @@
     "site": "https://docs.launchdarkly.com/integrations/webhooks",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["developer-tools"],
+  "categories": ["notifications"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/square.svg"

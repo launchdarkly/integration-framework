@@ -6,10 +6,10 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://launchdarkly.slack.com/apps/AKEEF9DTM-launchdarkly",
+    "site": "https://slack.com/apps/AKEEF9DTM-launchdarkly",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["collaboration", "notifications"],
+  "categories": ["notifications"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

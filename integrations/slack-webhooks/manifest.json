@@ -1,5 +1,5 @@
 {
-  "name": "Slack Incoming Webhooks",
+  "name": "Slack incoming webhooks",
   "version": "1.0.0",
   "overview": "Create webhook notifications filtered by roles or permissions.",
   "description": "Create webhook notifications filtered by roles or permissions.",

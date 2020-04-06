@@ -9,7 +9,7 @@
     "site": "https://docs.launchdarkly.com/integrations/data-export/segment",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["data", "infrastructure"],
+  "categories": ["data"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/square.svg"
