@@ -13,5 +13,8 @@
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/square.svg"
+  },
+  "legacy": {
+    "kind": "webhooks"
   }
 }
