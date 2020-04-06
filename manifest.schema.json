@@ -17,8 +17,7 @@
       "categories",
       "icons",
       "formVariables",
-      "capabilities",
-      "legacy"
+      "capabilities"
     ]
   },
   "properties": {
@@ -177,33 +176,6 @@
       "required": [
         "square",
         "horizontal"
-      ]
-    },
-    "legacy": {
-      "$id": "#/properties/legacy",
-      "title": "Is legacy integration",
-      "description": "Integration is legacy integrations",
-      "type": "object",
-      "propertyNames": {
-        "enum": [
-          "kind"
-        ]
-      },
-      "properties": {
-        "kind": {
-          "$id": "#/properties/legacy/kind",
-          "title": "Kind of integration",
-          "description": "Kind of legacy integration",
-          "type": "string",
-          "enum": [
-            "data_export",
-            "webhooks",
-            "slack-webhooks"
-          ]
-        }
-      },
-      "required": [
-        "kind"
       ]
     },
     "formVariables": {
