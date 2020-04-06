@@ -1,0 +1,40 @@
+{
+  "date": "{{timestamp.rfc3339}}",
+  "event": {
+    "kind": "{{kind}}",
+    "action": "{{verbKind}}"
+  },
+  "tags": "{{tags}}",
+  "target": {
+    "name": "{{name}}",
+    "key": "{{key}}",
+    "link": "{{target._links.site.href}}"
+  },
+  {{#if project}}
+  "project": {
+      "name": "{{project.name}}",
+      "key": "{{project.key}}",
+      "tags": "{{project.tags}}"
+  },
+  {{#if project.environment}}
+  "environment": {
+    "name": "{{project.environment.name}}",
+    "key": "{{project.environment.key}}",
+    "tags": "{{project.environment.tags}}"
+  },
+  {{/if}}
+  {{/if}}
+  "user": {
+    "id": "{{member._id}}",
+    "email": "{{member.email}}",
+    "name": {
+      "first": "{{member.firstName}}",
+      "last": "{{member.lastName}}",
+      "full": "{{member.firstName}} {{member.lastName}}"
+    },
+    "link": "{{member._links.self.href}}"
+  },
+  "message": "{{{title.plainText}}}",
+  "details": "{{{details.plainText}}}",
+  "comment": "{{{comment}}}"
+}
