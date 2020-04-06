@@ -1,0 +1,20 @@
+{
+  "name": "Slack incoming webhooks",
+  "version": "1.0.0",
+  "overview": "Create webhook notifications filtered by roles or permissions.",
+  "description": "Create webhook notifications filtered by roles or permissions.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/integrations/slack/webhooks",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["notifications"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "legacy": {
+    "kind": "slack-webhooks"
+  }
+}

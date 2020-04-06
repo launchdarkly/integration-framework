@@ -1,0 +1,17 @@
+{
+  "name": "Git",
+  "version": "1.0.0",
+  "overview": "Use our open-source utility to track references to flags in your code, running in your CI build.",
+  "description": "Use our open-source utility to track references to flags in your code, running in your CI build.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/integrations/git-code-references",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["version-control"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  }
+}
