@@ -29,7 +29,7 @@
   "devDependencies": {
     "@apidevtools/json-schema-ref-parser": "^8.0.0",
     "ajv": "^6.10.2",
-    "handlebars": "4.7.3",
+    "handlebars": "^4.7.6",
     "jest": "25.1.0",
     "jest-expect-message": "1.0.2",
     "jsonpointer": "^4.0.1",
