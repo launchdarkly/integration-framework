@@ -6,7 +6,7 @@
   "author": "Sleuth",
   "supportEmail": "support@sleuth.io",
   "links": {
-    "site": "https://www.sleuth.io/post/integrating-launchdarkly-with-sleuth",
+    "site": "https://help.sleuth.io/integrations/launchdarkly",
     "privacyPolicy": "https://www.sleuth.io/privacy"
   },
   "categories": ["monitoring"],
