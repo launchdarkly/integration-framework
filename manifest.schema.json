@@ -4,7 +4,6 @@
   "title": "LaunchDarkly Integrations Manifest",
   "description": "Describes the capabilities and intent of a LaunchDarkly integration",
   "type": "object",
-  "additionalProperties": false,
   "propertyNames": {
     "enum": [
       "name",
@@ -719,7 +718,6 @@
                   "title": "Response parser",
                   "description": "Describes a mapping of property name to a location in the JSON response specified by a JSON pointer",
                   "type": "object",
-                  "additionalProperties": false,
                   "properties": {
                     "id": {
                       "$id": "#/properties/id",

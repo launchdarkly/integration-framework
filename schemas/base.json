@@ -4,7 +4,6 @@
   "title": "LaunchDarkly Integrations Manifest",
   "description": "Describes the capabilities and intent of a LaunchDarkly integration",
   "type": "object",
-  "additionalProperties": false,
   "propertyNames": {
     "enum": [
       "name",
