@@ -1,6 +1,6 @@
-# Elastic Integration
+# The Elastic (ELK) Stack Integration
 
-[User documentation](https://TODO.com)
+[User documentation](https://docs.launchdarkly.com/integrations/elastic)
 
 [API documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html)
 
