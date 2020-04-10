@@ -1,0 +1,17 @@
+{
+  "name": "Sleuth",
+  "version": "1.0.0",
+  "overview": "Track feature flags as a source of change in your DevOps stack",
+  "description": "Sleuth's native LaunchDarkly integration tracks the status and impact of feature flags relative to other source changes in your projects, such as code, issues, etc. With the Sleuth integration, Sleuth can capture the full state of feature flags at deployment time. This helps you keep track of the affected code deploys, what environment the change occurred in, who changed the flag, and flag descriptions and flag value states, both before and after code deploys.",
+  "author": "Sleuth",
+  "supportEmail": "support@sleuth.io",
+  "links": {
+    "site": "https://help.sleuth.io/integrations/launchdarkly",
+    "privacyPolicy": "https://www.sleuth.io/privacy"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/images/logo_new_logo_symbol.svg",
+    "horizontal": "assets/images/logo_new_logo_dark.svg"
+  }
+}
