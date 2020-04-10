@@ -197,7 +197,8 @@
           "enum": [
             "dataExport",
             "webhooks",
-            "slackWebhooks"
+            "slackWebhooks",
+            "codeRefs"
           ]
         }
       },
