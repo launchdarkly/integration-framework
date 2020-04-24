@@ -27,26 +27,19 @@ jobs:
           name: Run tests
           command: npm test
   deploy-to-s3:
+    parameters:
+      bucket-name:
+        type: string
     machine:
       enabled: true
     steps:
       - checkout
       - aws-cli/install
       - run:
-          name: Deploy to production bucket
+          name: Deploy to s3 bucket
           command: ./scripts/copy_to_s3.sh
           environment:
-            BUCKET_NAME: launchdarkly-integrations-production
-      - run:
-          name: Deploy to staging bucket
-          command: ./scripts/copy_to_s3.sh
-          environment:
-            BUCKET_NAME: launchdarkly-integrations-staging
-      - run:
-          name: Deploy to catfood bucket
-          command: ./scripts/copy_to_s3.sh
-          environment:
-            BUCKET_NAME: launchdarkly-integrations-catamorphic
+            BUCKET_NAME: << parameters.bucket-name >>
 
 workflows:
   version: 2.1
@@ -61,3 +54,18 @@ workflows:
           filters:
             branches:
               only: master
+          bucket-name: launchdarkly-integrations-staging
+      - deploy-to-s3:
+          requires:
+            - build
+          filters:
+            branches:
+              only: deploy-catamorphic
+          bucket-name: launchdarkly-integrations-catamorphic
+      - deploy-to-s3:
+          requires:
+            - build
+          filters:
+            branches:
+              only: deploy-production
+          bucket-name: launchdarkly-integrations-production

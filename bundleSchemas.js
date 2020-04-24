@@ -5,10 +5,13 @@ const manifestBaseSchema = require('./schemas/base.json');
 
 const bundle = async () => {
   try {
-    const manifestSchema = await $RefParser.bundle(manifestBaseSchema);
+    const bundledManifestSchema = await $RefParser.bundle(manifestBaseSchema);
+    const dereferencedManifestSchema = await $RefParser.dereference(
+      bundledManifestSchema
+    );
     fs.writeFileSync(
       'manifest.schema.json',
-      JSON.stringify(manifestSchema, null, 2) + '\n'
+      JSON.stringify(dereferencedManifestSchema, null, 2) + '\n'
     );
   } catch (e) {
     console.error(e);

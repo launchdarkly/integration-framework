@@ -175,7 +175,13 @@
           "title": "Kind",
           "description": "Kind of legacy integration",
           "type": "string",
-          "enum": ["dataExport", "webhooks", "slackWebhooks", "codeRefs"]
+          "enum": [
+            "codeRefs",
+            "datadog",
+            "dataExport",
+            "slackWebhooks",
+            "webhooks"
+          ]
         }
       },
       "required": ["kind"]

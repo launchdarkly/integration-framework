@@ -5,7 +5,7 @@
   "platform": "other",
   "level": "info",
   "transaction": "{{ title.plainText }}",
-  "server_name": "app.launchdarkly.com",
+  "server_name": "{{ baseURL }}",
   "fingerprint": [
     "{{ _links.site.href }}",
     "{{ kind }}",
@@ -16,11 +16,12 @@
   "tags": {
     "source": "LaunchDarkly",
     "launchdarkly_kind": "{{ kind }}",
-    "launchdarkly_name": "{{ name }}"
+    "launchdarkly_name": "{{ name }}",
+    "launchdarkly_key": "{{key}}"
   },
 
   "message": {
-    "formatted": "{{ title.markdown }}\n{{ details.markdown }}{{#if comment}}\n\n{{ comment }}{{/if}}"
+    "formatted": "{{{ title.plainText }}}\n{{{ details.plainText }}}{{#if comment}}\n\n{{ comment }}{{/if}}"
   },
   "user": {
     "id": "launchdarkly/member/{{ member._id }}",

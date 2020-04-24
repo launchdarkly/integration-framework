@@ -1,6 +1,6 @@
 {
-  "name": "Elastic",
-  "version": "0.1.0",
+  "name": "Elastic (ELK) Stack",
+  "version": "1.0.0",
   "overview": "Observe LaunchDarkly flag changes in the Elastic (ELK) Stack",
   "description": "This integration sends LaunchDarkly audit log events to an Elasticsearch endpoint.",
   "author": "LaunchDarkly",
