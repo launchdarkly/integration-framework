@@ -25,15 +25,15 @@
     {
       "key": "publicKey",
       "name": "Sentry public key",
-      "description": "Enter the public key associated with your Sentry account.",
+      "description": "Enter the public key associated with your Sentry account. This is the hash at the beginning of your [Sentry DSN](https://docs.sentry.io/error-reporting/configuration/).",
       "placeholder": "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijk=",
       "type": "string"
     },
     {
       "key": "projectId",
       "name": "Project ID",
-      "description": "Enter the ID associated with your Sentry project. This ID will associate LaunchDarkly data with the corresponding Sentry project.",
-      "placeholder": "123",
+      "description": "Enter the ID associated with the Sentry project you want events sent to. This can be found in the URL of your project or at the end of your [Sentry DSN](https://docs.sentry.io/error-reporting/configuration/).",
+      "placeholder": "1234567",
       "type": "string"
     }
   ],
