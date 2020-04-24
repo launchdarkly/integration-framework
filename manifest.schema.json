@@ -620,7 +620,8 @@
           "type": "object",
           "propertyNames": {
             "enum": [
-              "creation"
+              "creation",
+              "pollingUpdate"
             ]
           },
           "required": [
@@ -643,8 +644,7 @@
               "required": [
                 "endpoint",
                 "template",
-                "parser",
-                "sampleResponse"
+                "parser"
               ],
               "properties": {
                 "endpoint": {
@@ -748,29 +748,277 @@
                   "title": "Response parser",
                   "description": "Describes a mapping of property name to a location in the JSON response specified by a JSON pointer",
                   "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "id",
+                      "url",
+                      "status",
+                      "validation"
+                    ]
+                  },
                   "properties": {
                     "id": {
                       "$id": "#/properties/id",
-                      "title": "JSON Pointer to external condition ID",
+                      "title": "ID pointer",
+                      "description": "JSON Pointer to external condition ID",
                       "type": "string"
                     },
                     "url": {
                       "$id": "#/properties/url",
-                      "title": "JSON Pointer to external condition url",
+                      "title": "URL pointer",
+                      "description": "JSON pointer to external condition url",
                       "type": "string"
+                    },
+                    "status": {
+                      "$id": "#/properties/status",
+                      "title": "Status parser",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "pointer",
+                          "completionMatcher"
+                        ]
+                      },
+                      "required": [
+                        "pointer",
+                        "completionMatcher"
+                      ],
+                      "properties": {
+                        "pointer": {
+                          "$id": "#/properties/status/pointer",
+                          "title": "Status pointer",
+                          "description": "JSON pointer to condition status",
+                          "type": "string"
+                        },
+                        "completionMatcher": {
+                          "$id": "#/properties/status/completion-matcher",
+                          "title": "Completion matcher",
+                          "description": "regex pattern used to determine if the response should be considered 'complete'",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "validation": {
+                      "$id": "#/properties/validation",
+                      "title": "Validation",
+                      "description": "Validation helpers (only used for testing)",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "sampleResponse"
+                        ]
+                      },
+                      "required": [
+                        "sampleResponse"
+                      ],
+                      "properties": {
+                        "sampleResponse": {
+                          "$id": "#/properties/validation/sample-response",
+                          "title": "Sample response",
+                          "description": "relative path to sample JSON formatted sample successful response",
+                          "type": "string",
+                          "pattern": ".*\\.json$"
+                        }
+                      }
                     }
                   },
                   "required": [
                     "id",
                     "url"
                   ]
+                }
+              }
+            },
+            "pollingUpdate": {
+              "$id": "#/properties/capability/external-condition/polling-update",
+              "title": "Polling Update",
+              "description": "Properties that describe a polling request to get the status of the external condition",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "endpoint",
+                  "parser"
+                ]
+              },
+              "required": [
+                "endpoint",
+                "parser"
+              ],
+              "properties": {
+                "endpoint": {
+                  "$id": "#/properties/capability/external-condition/polling-update/endpoint",
+                  "title": "Polling update endpoint",
+                  "description": "Properties that describe the HTTP endpoint LaunchDarkly will use to get the status of an external condition via polling",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "url",
+                      "method",
+                      "headers"
+                    ]
+                  },
+                  "required": [
+                    "url"
+                  ],
+                  "properties": {
+                    "url": {
+                      "$id": "#/properties/capability/external-condition/polling-update/endpoint/url",
+                      "title": "URL",
+                      "type": "string",
+                      "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+                    },
+                    "method": {
+                      "$id": "#/properties/capability/external-condition/polling-update/method",
+                      "title": "HTTP method",
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                      "enum": [
+                        "GET",
+                        "POST",
+                        "PUT",
+                        "PATCH"
+                      ],
+                      "default": "GET"
+                    },
+                    "headers": {
+                      "$id": "#/properties/capability/external-condition/polling-update/headers",
+                      "title": "HTTP headers",
+                      "description": "Headers to send with the webhook request",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/properties/capability/external-condition/polling-update/endpoint/header/items",
+                        "title": "Header items",
+                        "description": "A name and value pair to send as headers with the hook request",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "name",
+                            "value"
+                          ]
+                        },
+                        "properties": {
+                          "name": {
+                            "$id": "#/properties/capability/external-condition/polling-update/endpoint/header/items/name",
+                            "title": "Name",
+                            "type": "string",
+                            "description": "Name of the header",
+                            "maxLength": 50,
+                            "pattern": "^[^\\s]*$"
+                          },
+                          "value": {
+                            "$id": "#/properties/capability/external-condition/polling-update/endpoint/header/items/value",
+                            "title": "Value",
+                            "type": "string",
+                            "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ]
+                      },
+                      "default": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "examples": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer {{apiToken}}"
+                        }
+                      ],
+                      "minProperties": 1
+                    }
+                  }
                 },
-                "sampleResponse": {
-                  "$id": "#/properties/capability/external-condition/creation/sample-response",
-                  "title": "Sample successful creation response",
-                  "description": "relative path to sample JSON formatted response",
-                  "type": "string",
-                  "pattern": ".*\\.json$"
+                "parser": {
+                  "$id": "#/parser",
+                  "title": "Response parser",
+                  "description": "Describes a mapping of property name to a location in the JSON response specified by a JSON pointer",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "id",
+                      "url",
+                      "status",
+                      "validation"
+                    ]
+                  },
+                  "properties": {
+                    "id": {
+                      "$id": "#/properties/id",
+                      "title": "ID pointer",
+                      "description": "JSON Pointer to external condition ID",
+                      "type": "string"
+                    },
+                    "url": {
+                      "$id": "#/properties/url",
+                      "title": "URL pointer",
+                      "description": "JSON pointer to external condition url",
+                      "type": "string"
+                    },
+                    "status": {
+                      "$id": "#/properties/status",
+                      "title": "Status parser",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "pointer",
+                          "completionMatcher"
+                        ]
+                      },
+                      "required": [
+                        "pointer",
+                        "completionMatcher"
+                      ],
+                      "properties": {
+                        "pointer": {
+                          "$id": "#/properties/status/pointer",
+                          "title": "Status pointer",
+                          "description": "JSON pointer to condition status",
+                          "type": "string"
+                        },
+                        "completionMatcher": {
+                          "$id": "#/properties/status/completion-matcher",
+                          "title": "Completion matcher",
+                          "description": "regex pattern used to determine if the response should be considered 'complete'",
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "validation": {
+                      "$id": "#/properties/validation",
+                      "title": "Validation",
+                      "description": "Validation helpers (only used for testing)",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "sampleResponse"
+                        ]
+                      },
+                      "required": [
+                        "sampleResponse"
+                      ],
+                      "properties": {
+                        "sampleResponse": {
+                          "$id": "#/properties/validation/sample-response",
+                          "title": "Sample response",
+                          "description": "relative path to sample JSON formatted sample successful response",
+                          "type": "string",
+                          "pattern": ".*\\.json$"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "url"
+                  ]
                 }
               }
             }
