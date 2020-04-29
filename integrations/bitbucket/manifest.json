@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "overview": "Use our open-source utility to track references to flags in your code, using Bitbucket Pipes.",
   "description": "Use our open-source utility to track references to flags in your code, using Bitbucket Pipes.",
+  "details": "Bitbucket is Git code management that gives teams one place to plan projects, collaborate on code, test, and deploy. Use our open-source utility to track references to flags in your code, using Bitbucket Pipes.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {

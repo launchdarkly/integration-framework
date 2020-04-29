@@ -10,6 +10,7 @@
       "version",
       "overview",
       "description",
+      "details",
       "author",
       "supportEmail",
       "links",
@@ -56,6 +57,15 @@
       "$id": "#/properties/description",
       "title": "Long description",
       "description": "A longer description of your integration",
+      "type": "string",
+      "minLength": 50,
+      "maxLength": 2048,
+      "pattern": "^(.*)$"
+    },
+    "details": {
+      "#id": "#/properties/details",
+      "title": "Learn more details",
+      "description": "Details about your integration and next steps if the installation happens outside of LaunchDarkly",
       "type": "string",
       "minLength": 50,
       "maxLength": 2048,

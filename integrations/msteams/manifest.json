@@ -2,7 +2,7 @@
   "name": "Microsoft Teams",
   "version": "1.0.0",
   "overview": "Receive flag change notifications in your Teams workspaces",
-  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Microsoft Teams.",
+  "description": "Receive LaunchDarkly notifications in your Teams workspaces. Subscribe to changes in flags, projects, and other resources.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {

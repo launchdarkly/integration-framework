@@ -1,13 +1,13 @@
 {
   "name": "LogDNA",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag changes in LogDNA",
+  "overview": "Monitor LaunchDarkly flag events in LogDNA",
   "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to LogDNA.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://example.com",
-    "privacyPolicy": "https://example.com/privacy"
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["monitoring", "notifications"],
   "icons": {

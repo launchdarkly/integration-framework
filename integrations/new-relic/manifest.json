@@ -1,7 +1,7 @@
 {
   "name": "New Relic",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag changes in New Relic",
+  "overview": "Monitor LaunchDarkly flag events in New Relic",
   "description": "This integration sends LaunchDarkly audit events to New Relic. Please note that it requires a paid Insights subscription to function.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

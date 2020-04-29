@@ -3,11 +3,12 @@
   "version": "1.0.0",
   "overview": "Use our open-source utility to track flag references in your code, using GitLab CI.",
   "description": "You can use this utility with GitLab CI to automatically populate code references in LaunchDarkly.",
+  "details": "GitLab CI/CD pipelines help you build, test, deploy, and monitor your code as part of a single, integrated workflow. Use our open-source utility to automatically send feature flag code references to LaunchDarkly.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://docs.launchdarkly.com/docs/gitlab-ci",
-    "privacyPolicy": "https://example.com/privacy"
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["configuration", "version-control"],
   "icons": {

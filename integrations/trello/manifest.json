@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://trello.com/power-ups/5d795c43ef5f7d1dc307da46/launchdarkly",
-    "privacyPolicy": "https://example.com/privacy"
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["task-management"],
   "icons": {
