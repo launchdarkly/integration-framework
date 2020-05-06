@@ -1,7 +1,7 @@
 {
   "name": "Sentry",
   "version": "0.0.1",
-  "overview": "Monitor LaunchDarkly flag changes in Sentry",
+  "overview": "Monitor LaunchDarkly flag events in Sentry",
   "description": "Send flag, environment, and project updates to Sentry.io",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

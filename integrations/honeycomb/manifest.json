@@ -1,7 +1,7 @@
 {
   "name": "Honeycomb",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag changes in Honeycomb",
+  "overview": "Monitor LaunchDarkly flag events in Honeycomb.",
   "description": "This integration sends LaunchDarkly audit events to Honeycomb.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
