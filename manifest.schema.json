@@ -338,7 +338,7 @@
       "properties": {
         "auditLogEventsHook": {
           "$id": "#/properties/capability/audit-log-events-hook",
-          "title": "Audit Log Events Hook",
+          "title": "Audit log events hook",
           "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
           "type": "object",
           "propertyNames": {
