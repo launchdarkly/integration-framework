@@ -1,6 +1,6 @@
 # LaunchDarkly Integration Framework
 
-[![CircleCI](https://circleci.com/gh/launchdarkly/integration-framework.svg?style=svg&circle-token=c12dfaa51d070b8bbc8dea0c0adf4c402b5b9123)](https://circleci.com/gh/launchdarkly/integration-framework)
+[![CircleCI](https://circleci.com/gh/launchdarkly/integration-framework.svg?style=svg&circle-token=9a44436c3b22e7fb6a22df1ad9a2455a0d6f2d34)](https://circleci.com/gh/launchdarkly/integration-framework)
 
 Feature flags not only provide you control over your deployment and rollout but
 also provides context to other related systems -- giving your team visibility
