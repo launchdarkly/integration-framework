@@ -41,6 +41,17 @@ const getFormVariableContext = formVariables => {
   return endpointContext;
 };
 
+const getOAuthContext = requiresOAuth => {
+  if (requiresOAuth) {
+    const oauthContext = {
+      baseURI: '$OAUTH_BASE_URI',
+      accessToken: '$OAUTH_ACCESS_TOKEN',
+    };
+    return oauthContext;
+  }
+  return null;
+};
+
 registerHelpers();
 
 const curl = _.includes(args, '--curl');
@@ -68,9 +79,11 @@ const endpoint = _.get(
   'capabilities.auditLogEventsHook.endpoint',
   null
 );
+const requiresOAuth = _.get(manifest, 'requiresOAuth', null);
 
 if (endpoint) {
   const endpointContext = getFormVariableContext(formVariables);
+  endpointContext.oauth = getOAuthContext(requiresOAuth);
   endpointContext.context = flagUpdateContext;
   const urlTemplate = Handlebars.compile(endpoint.url, {
     strict: true,
