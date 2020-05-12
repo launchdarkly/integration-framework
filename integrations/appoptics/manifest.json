@@ -1,0 +1,64 @@
+{
+  "name": "AppOptics",
+  "version": "1.0.0",
+  "overview": "Monitor LaunchDarkly flag events in AppOptics",
+  "description": "This integration sends LaunchDarkly audit events to AppOptics.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.AppOptics.com/",
+    "privacyPolicy": "https://www.solarwinds.com/legal/privacy"
+  },
+  "categories": ["monitoring", "notifications"],
+  "icons": {
+    "square": "assets/images/solarwinds-square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "streamName",
+      "name": "AppOptics annotation stream name",
+      "description": "Enter the Annotation stream Name that will be used for the request to the [Annotation API](https://docs.appoptics.com/api/?shell#create-an-annotation).",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "username",
+      "name": "AppOptics username",
+      "description": "Enter your AppOptics username.",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "apiKey",
+      "name": "AppOptics API key",
+      "description": "Enter your AppOptics API Key as shown on your [account page](https://my.appoptics.com/organization/tokens).",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://{{username}}:{{apiKey}}@metrics-api.librato.com/v1/annotations/{{streamName}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/flag.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

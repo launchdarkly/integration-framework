@@ -1,0 +1,76 @@
+{
+  "_links": {
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c61306121dba45ba0f45",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/default/production/segments/new-segment",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c61306121dba45ba0f45",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580779027718,
+    "seconds": 1580779027,
+    "rfc3339": "2020-02-04T01:17:07Z"
+  },
+  "kind": "segment",
+  "name": "New segment",
+  "details": {
+    "plainText": "Added the included user 'Ushki'\nChanged the targeting rules",
+    "markdown": "* Added the included user `Ushki`\n\n* Changed the targeting rules\n",
+    "html": "<ul><li>Added the included user <code>Ushki</code></li></ul>\n<ul><li>Changed the targeting rules</li></ul>"
+  },
+  "comment": "Update test",
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": ["demo"],
+    "environment": {
+      "name": "Production",
+      "key": "production",
+      "tags": []
+    }
+  },
+  "key": "new-segment",
+  "tags": [],
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "updated the segment",
+  "verbKind": "updateRules",
+  "title": {
+    "plainText": "Henrietta Powell updated the segment New segment",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the segment [New segment](https://app.launchdarkly.com/default/production/segments/new-segment)",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> updated the segment <a href=\"https://app.launchdarkly.com/default/production/segments/new-segment\">New segment</a>"
+  },
+  "target": {
+    "_links": {
+      "site": {
+        "href": "https://app.launchdarkly.com/default/production/segments/new-segment",
+        "type": "text/html"
+      }
+    },
+    "name": "New segment"
+  }
+}

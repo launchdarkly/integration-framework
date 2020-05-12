@@ -1,3 +1,4 @@
+node_modules/
 .cache
 .env
 *.log
@@ -8,3 +9,4 @@ build
 dist
 public
 .DS_Store
+latest

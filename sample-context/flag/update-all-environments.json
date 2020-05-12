@@ -1,0 +1,98 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "https://app.launchdarkly.com/api/v2/flags/default/demo-flag",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c13206121d8aaf15392c",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/default/~/features/demo-flag",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c13206121d8aaf15392c",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580777778959,
+    "seconds": 1580777778,
+    "rfc3339": "2020-02-04T00:56:18Z"
+  },
+  "kind": "flag",
+  "name": "Demo flag",
+  "details": {
+    "plainText": "Changed the flag to be hidden from client-side SDKs\nAdded tag 'demo'",
+    "markdown": "* Changed the flag to be hidden from client\\-side SDKs\n\n* Added tag `demo`\n",
+    "html": "<ul><li>Changed the flag to be hidden from client-side SDKs</li></ul>\n<ul><li>Added tag <code>demo</code></li></ul>"
+  },
+  "comment": "This will propagate to all environments",
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": [],
+    "environment": {
+      "name": "All environments",
+      "key": "~",
+      "tags": null
+    }
+  },
+  "key": "demo-flag",
+  "tags": [],
+  "customProperties": {
+    "dynatrace": {
+      "name": "Dynatrace tags",
+      "values": ["test1", "test2"]
+    },
+    "datadog": {
+      "name": "Datadog tags",
+      "values": ["dd1", "dd2"]
+    },
+    "jira": {
+      "name": "Jira",
+      "values": ["thing1", "thing2"]
+    }
+  },
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "updated the flag",
+  "verbKind": "updateTag",
+  "title": {
+    "plainText": "Henrietta Powell updated the flag Demo flag",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the flag [Demo flag](https://app.launchdarkly.com/default/~/features/demo-flag)",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> updated the flag <a href=\"https://app.launchdarkly.com/default/~/features/demo-flag\">Demo flag</a>"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "https://app.launchdarkly.com/api/v2/flags/default/demo-flag",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "https://app.launchdarkly.com/default/~/features/demo-flag",
+        "type": "text/html"
+      }
+    },
+    "name": "Demo flag"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Azure Active Directory",
+  "version": "1.0.0",
+  "overview": "Provision users and manage single sign-on with Azure AD (Enterprise only)",
+  "description": "Use your Azure identity provider (IdP) to manage your LaunchDarkly users. This integration is only available for LaunchDarkly customers on an Enterprise plan.",
+  "details": "Azure Active Directory (Azure AD) is Microsoft’s cloud-based identity and access management service. Provision LaunchDarkly users and manage single sign-on with Azure AD.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/docs/azure",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["authentication"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  }
+}

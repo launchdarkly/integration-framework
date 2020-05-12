@@ -1,0 +1,83 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "https://app.launchdarkly.com/api/v2/projects/a-new-project",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c43c06121dba45ba0f2c",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/settings/projects",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c43c06121dba45ba0f2c",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580778556395,
+    "seconds": 1580778556,
+    "rfc3339": "2020-02-04T01:09:16Z"
+  },
+  "kind": "project",
+  "name": "A new project",
+  "details": {
+    "plainText": "",
+    "markdown": "",
+    "html": ""
+  },
+  "project": {
+    "name": "A new project",
+    "key": "a-new-project",
+    "tags": [],
+    "environment": {
+      "name": "",
+      "key": "",
+      "tags": null
+    }
+  },
+  "key": "a-new-project",
+  "tags": [],
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "deleted the project",
+  "verbKind": "deleteProject",
+  "title": {
+    "plainText": "Henrietta Powell deleted the project A new project",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) deleted the project A new project",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> deleted the project A new project"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "https://app.launchdarkly.com/api/v2/projects/a-new-project",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "https://app.launchdarkly.com/settings/projects",
+        "type": "text/html"
+      }
+    },
+    "name": "A new project"
+  }
+}

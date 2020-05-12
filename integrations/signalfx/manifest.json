@@ -1,0 +1,61 @@
+{
+  "name": "SignalFx",
+  "version": "1.0.0",
+  "overview": "Monitor LaunchDarkly flag changes in SignalFx",
+  "description": "Monitor LaunchDarkly flag and other change events with clear data markers in SignalFx to correlate feature flag rollouts with changes in operational health.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/integrations/signalfx",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["monitoring", "notifications"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "accessToken",
+      "name": "SignalFx access token",
+      "description": "Enter your [SignalFx access token](https://docs.signalfx.com/en/latest/admin-guide/tokens.html#working-with-access-tokens).",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "realm",
+      "name": "SignalFx realm",
+      "description": "Enter your [SignalFx realm](https://developers.signalfx.com/#realms-in-endpoints).",
+      "type": "string",
+      "isSecret": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://ingest.{{realm}}.signalfx.com/v2/event",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "X-SF-Token",
+            "value": "{{accessToken}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/template.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

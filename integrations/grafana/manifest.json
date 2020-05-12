@@ -1,0 +1,63 @@
+{
+  "name": "Grafana",
+  "version": "0.0.1",
+  "overview": "Annotate your Grafana dashboards with LaunchDarkly events",
+  "description": "Send flag, environment, and project updates to Grafana to add context to your graphs.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://grafana.com/",
+    "privacyPolicy": "https://grafana.com/terms/"
+  },
+  "categories": ["monitoring", "notifications"],
+  "icons": {
+    "square": "assets/images/grafana.svg",
+    "horizontal": "assets/images/grafana.svg"
+  },
+  "formVariables": [
+    {
+      "key": "endpointUrl",
+      "name": "Grafana URL",
+      "description": "Enter your Grafana instance's URL. This instance must be accessible to LaunchDarkly's servers.",
+      "placeholder": "https://grafana.example.org",
+      "type": "uri",
+      "isSecret": false
+    },
+    {
+      "key": "apiKey",
+      "name": "API key",
+      "description": "Enter an API key to your Grafana instance. This API key must have editor privileges.",
+      "placeholder": "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijk=",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{ endpointUrl }}/api/annotations",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ apiKey }}"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/template.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

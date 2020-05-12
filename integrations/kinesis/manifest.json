@@ -1,0 +1,20 @@
+{
+  "name": "Amazon Kinesis",
+  "version": "1.0.0",
+  "overview": "Export real-time flag analytics data.",
+  "description": "Export your real-time flag analytics data to Amazon Kinesis.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/integrations/data-export/kinesis",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "legacy": {
+    "kind": "dataExport"
+  }
+}

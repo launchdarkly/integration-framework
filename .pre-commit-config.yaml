@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v2.4.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-json
+        files: "(integrations/.*/manifest\\.json|sample-context/.*\\.json|schemas/.*\\.json)"
+      - id: check-symlinks
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-added-large-files
+
+  - repo: local
+    hooks:
+      - id: build-schema
+        name: Build schema
+        entry: npm run build
+        language: system
+        pass_filenames: false
+
+      - id: validate-manifests
+        name: Validate manifests
+        entry: npm run test
+        language: system
+        pass_filenames: false
+
+      - id: prettier
+        name: prettier
+        language: system
+        entry: npx prettier -l
+        files: '.*(js|json)$'

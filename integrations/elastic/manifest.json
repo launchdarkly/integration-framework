@@ -1,0 +1,73 @@
+{
+  "name": "Elastic (ELK) Stack",
+  "version": "1.0.0",
+  "overview": "Observe LaunchDarkly flag changes in the Elastic (ELK) Stack",
+  "description": "This integration sends LaunchDarkly audit log events to an Elasticsearch endpoint.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://elastic.co",
+    "privacyPolicy": "https://www.elastic.co/legal/privacy-statement"
+  },
+  "categories": ["monitoring", "notifications"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "url",
+      "name": "Elasticsearch endpoint URL",
+      "description": "Enter the URL for your Elasticsearch endpoint including socket",
+      "type": "uri",
+      "isSecret": false,
+      "placeholder": "https://cluster.region.aws.found.io:9243",
+      "isOptional": false
+    },
+    {
+      "key": "token",
+      "name": "Authentication token",
+      "description": "Enter the [base64 _credentials_ based on your API Key](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-create-api-key.html)",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": false
+    },
+    {
+      "key": "index",
+      "name": "Index",
+      "description": "Enter the index name where you want to store your LaunchDarkly data",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": false,
+      "defaultValue": "launchdarkly-audit"
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{url}}/{{index}}/_doc",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "ApiKey {{token}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/template.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

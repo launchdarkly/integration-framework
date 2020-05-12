@@ -1,0 +1,83 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "https://app.launchdarkly.com/api/v2/projects/default/environments/local-dev",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c48806121dba45ba0f2f",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/settings/projects",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c48806121dba45ba0f2f",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580778632128,
+    "seconds": 1580778632,
+    "rfc3339": "2020-02-04T01:10:32Z"
+  },
+  "kind": "environment",
+  "name": "Local dev",
+  "details": {
+    "plainText": "",
+    "markdown": "",
+    "html": ""
+  },
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": ["demo"],
+    "environment": {
+      "name": "",
+      "key": "local-dev",
+      "tags": []
+    }
+  },
+  "key": "local-dev",
+  "tags": [],
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "created the environment",
+  "verbKind": "createEnvironment",
+  "title": {
+    "plainText": "Henrietta Powell created the environment Local dev",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) created the environment [Local dev](https://app.launchdarkly.com/settings/projects)",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> created the environment <a href=\"https://app.launchdarkly.com/settings/projects\">Local dev</a>"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "https://app.launchdarkly.com/api/v2/projects/default/environments/local-dev",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "https://app.launchdarkly.com/settings/projects",
+        "type": "text/html"
+      }
+    },
+    "name": "Local dev"
+  }
+}

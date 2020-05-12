@@ -1,0 +1,69 @@
+{
+  "name": "Splunk",
+  "version": "1.0.0",
+  "overview": "Monitor LaunchDarkly flag changes in Splunk",
+  "description": "Monitor LaunchDarkly flag and other change events in Splunk and include these events in your reports, charts, alerts and dashboards.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/docs/splunk",
+    "privacyPolicy": "https://www.splunk.com/en_us/legal/splunk-data-security-and-privacy.html"
+  },
+  "categories": ["monitoring", "notifications"],
+  "icons": {
+    "square": "assets/images/splunk-icon.svg",
+    "horizontal": "assets/images/splunk-logo.svg"
+  },
+  "formVariables": [
+    {
+      "key": "base-url",
+      "name": "HTTP event collector base URL",
+      "type": "string",
+      "description": "Enter your [Splunk HTTP event collector base URL](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).",
+      "isSecret": false,
+      "placeholder": "https://mysplunkserver.example.com"
+    },
+    {
+      "key": "token",
+      "name": "Token",
+      "description": "Enter your HTTP event collector token value.",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": false
+    },
+    {
+      "key": "skip-ca-verification",
+      "name": "Skip certificate verification",
+      "description": "Splunk Cloud instances sign their own SSL certificates by default. If you use Splunk Cloud, you may need to skip certificate validation in order for this integration to work.",
+      "type": "boolean"
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{base-url}}/services/collector/event",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Splunk {{token}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/template.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

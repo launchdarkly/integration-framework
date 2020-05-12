@@ -1,0 +1,98 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "https://app.launchdarkly.com/api/v2/flags/default/demo-flag",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38bf6706121d8aaf15392a",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/default/production/features/demo-flag",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38bf6706121d8aaf15392a",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580777319650,
+    "seconds": 1580777319,
+    "rfc3339": "2020-02-04T00:48:39Z"
+  },
+  "kind": "flag",
+  "name": "Demo flag",
+  "details": {
+    "plainText": "",
+    "markdown": "",
+    "html": ""
+  },
+  "comment": "Do it live!",
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": [],
+    "environment": {
+      "name": "Production",
+      "key": "production",
+      "tags": []
+    }
+  },
+  "key": "demo-flag",
+  "tags": [],
+  "customProperties": {
+    "dynatrace": {
+      "name": "Dynatrace tags",
+      "values": ["test1", "test2"]
+    },
+    "datadog": {
+      "name": "Datadog tags",
+      "values": ["dd1", "dd2"]
+    },
+    "jira": {
+      "name": "Jira",
+      "values": ["thing1", "thing2"]
+    }
+  },
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "turned on the flag",
+  "verbKind": "updateOn",
+  "title": {
+    "plainText": "Henrietta Powell turned on the flag Demo flag in 'Production'",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) turned on the flag [Demo flag](https://app.launchdarkly.com/default/production/features/demo-flag) in `Production`",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> turned on the flag <a href=\"https://app.launchdarkly.com/default/production/features/demo-flag\">Demo flag</a> in <code>Production</code>"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "https://app.launchdarkly.com/api/v2/flags/default/demo-flag",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "https://app.launchdarkly.com/default/production/features/demo-flag",
+        "type": "text/html"
+      }
+    },
+    "name": "Demo flag"
+  }
+}

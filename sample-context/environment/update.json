@@ -1,0 +1,83 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "https://app.launchdarkly.com/api/v2/projects/default/environments/local-dev",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c50906121dba45ba0f42",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/settings/projects",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c50906121dba45ba0f42",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580778761928,
+    "seconds": 1580778761,
+    "rfc3339": "2020-02-04T01:12:41Z"
+  },
+  "kind": "environment",
+  "name": "Local dev",
+  "details": {
+    "plainText": "Changed the color from '#5e00ff' to '#342749'\nAdded tag 'demo'",
+    "markdown": "* Changed the color from ~~`#5e00ff`~~ to `#342749`\n\n* Added tag `demo`\n",
+    "html": "<ul><li>Changed the color from <strike><code>#5e00ff</code></strike> to <code>#342749</code></li></ul>\n<ul><li>Added tag <code>demo</code></li></ul>"
+  },
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": ["demo"],
+    "environment": {
+      "name": "Local dev",
+      "key": "local-dev",
+      "tags": []
+    }
+  },
+  "key": "local-dev",
+  "tags": [],
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "updated the environment",
+  "verbKind": "updateTags",
+  "title": {
+    "plainText": "Henrietta Powell updated the environment Local dev",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the environment [Local dev](https://app.launchdarkly.com/settings/projects)",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> updated the environment <a href=\"https://app.launchdarkly.com/settings/projects\">Local dev</a>"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "https://app.launchdarkly.com/api/v2/projects/default/environments/local-dev",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "https://app.launchdarkly.com/settings/projects",
+        "type": "text/html"
+      }
+    },
+    "name": "Local dev"
+  }
+}

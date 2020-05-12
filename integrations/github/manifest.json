@@ -1,0 +1,21 @@
+{
+  "name": "GitHub",
+  "version": "1.0.0",
+  "overview": "Use our open-source utility to track references to flags in your code, using GitHub Actions.",
+  "description": "Use our open-source utility to track references to flags in your code, using GitHub Actions.",
+  "details": "GitHub is a development platform inspired by the way you work. From open-source to business, you can host and review code, manage projects, and build software alongside 40 million developers. Use our open-source utility to track references to flags in your code, using GitHub Actions.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/integrations/git-code-references/github-actions",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["version-control"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "legacy": {
+    "kind": "codeRefs"
+  }
+}

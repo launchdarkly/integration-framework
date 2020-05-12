@@ -1,0 +1,83 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "https://app.launchdarkly.com/api/v2/projects/default",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c37806121dba45ba0f26",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/settings/projects",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c37806121dba45ba0f26",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580778360145,
+    "seconds": 1580778360,
+    "rfc3339": "2020-02-04T01:06:00Z"
+  },
+  "kind": "project",
+  "name": "The big project",
+  "details": {
+    "plainText": "Added tag 'demo'\nChanged new flags to be available to client-side SDKs by default",
+    "markdown": "* Added tag `demo`\n\n* Changed new flags to be available to client\\-side SDKs by default\n",
+    "html": "<ul><li>Added tag <code>demo</code></li></ul>\n<ul><li>Changed new flags to be available to client-side SDKs by default</li></ul>"
+  },
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": [],
+    "environment": {
+      "name": "",
+      "key": "",
+      "tags": null
+    }
+  },
+  "key": "default",
+  "tags": [],
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "updated the project",
+  "verbKind": "updateTags",
+  "title": {
+    "plainText": "Henrietta Powell updated the project The big project",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the project [The big project](https://app.launchdarkly.com/settings/projects)",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> updated the project <a href=\"https://app.launchdarkly.com/settings/projects\">The big project</a>"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "https://app.launchdarkly.com/api/v2/projects/default",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "https://app.launchdarkly.com/settings/projects",
+        "type": "text/html"
+      }
+    },
+    "name": "The big project"
+  }
+}

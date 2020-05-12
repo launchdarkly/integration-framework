@@ -1,0 +1,18 @@
+{
+  "name": "Active Directory Federation Services (ADFS)",
+  "version": "1.0.0",
+  "overview": "Provision users and manage single sign-on with ADFS (Enterprise only)",
+  "description": "Use your ADFS identity provider (IdP) to manage your LaunchDarkly users. This integration is only available for LaunchDarkly customers on an Enterprise plan.",
+  "details": "Active Directory Federation Services (ADFS) is a service provided by Microsoft as a standard role for Windows Server. It provides a web login using existing Active Directory credentials. Provision your LaunchDarkly users and manage single sign-on with ADFS.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/docs/adfs",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["authentication"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "name": "Sample Integration",
+  "version": "1.0.0",
+  "overview": "Short one-liner describing your integration",
+  "description": "Send flag data to space. Markdown based description.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://example.com",
+    "privacyPolicy": "https://example.com/privacy"
+  },
+  "categories": ["collaboration", "monitoring", "version-control"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "requiresOAuth": true,
+  "formVariables": [
+    {
+      "key": "optional",
+      "name": "Optional attribute",
+      "description": "This is an optional property",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": true
+    },
+    {
+      "key": "required",
+      "name": "Required attribute",
+      "description": "This is a required property",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "URL",
+      "name": "URL",
+      "description": "This field will be validated as a URL",
+      "type": "uri",
+      "isSecret": false,
+      "isOptional": true
+    },
+    {
+      "key": "hasPlaceholder",
+      "name": "Placeholder",
+      "description": "This field has a placeholder",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": true,
+      "placeholder": "I am a placeholder"
+    },
+    {
+      "key": "hasDefault",
+      "name": "Default",
+      "description": "This field has a default value",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": true,
+      "placeholder": "I'm a placeholder",
+      "defaultValue": "I'm the default value"
+    },
+    {
+      "key": "secret",
+      "name": "Secret",
+      "description": "I have a secret that I'm hiding",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://example.com/webhookin",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/flag.json.hbs",
+        "environment": "templates/environment.html.hbs",
+        "project": "templates/project.txt.hbs",
+        "default": "templates/default.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    },
+    "externalCondition": {
+      "creation": {
+        "endpoint": {
+          "url": "https://example.com/create-condition",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "template": "templates/ticket-creation-request.json.hbs",
+        "parser": {
+          "id": "/id",
+          "url": "/links/self/href"
+        },
+        "sampleResponse": "sample-responses/ticket-creation.json"
+      }
+    }
+  }
+}

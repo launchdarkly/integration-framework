@@ -1,0 +1,84 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "https://app.launchdarkly.com/api/v2/flags/default/demo-flag",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c2ff06121dba45ba0f25",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "https://app.launchdarkly.com/default/~/features/demo-flag",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "https://app.launchdarkly.com",
+  "_id": "5e38c2ff06121dba45ba0f25",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1580778239748,
+    "seconds": 1580778239,
+    "rfc3339": "2020-02-04T01:03:59Z"
+  },
+  "kind": "flag",
+  "name": "Demo flag",
+  "details": {
+    "plainText": "Copied flag settings from Production to Test\nRemoved 'Ushki' from the variation 'true'\nAdded the rule \n  If 'email' ends with '.edu'\n  serve '43%' 'true'\n\nRemoved the rule \n  If 'email' ends with '.edu'\n  serve '50%' 'true'\n",
+    "markdown": "## Copied flag settings from Production to Test ##\n* Removed ~~`Ushki`~~ from the variation `true`\n* Added the rule \n    > **If** `email` **ends with** `.edu`  \n    **serve** `43%` `true`\n    \n    \n* Removed the rule \n    > **If** `email` **ends with** `.edu`  \n    **serve** `50%` `true`\n    \n    \n",
+    "html": "<h2>Copied flag settings from Production to Test</h2>\n<ul><li>Removed <strike><code>Ushki</code></strike> from the variation <code>true</code></li>\n<li>Added the rule <blockquote><strong>If</strong> <code>email</code> <strong>ends with</strong> <code>.edu</code><br/><strong>serve</strong> <code>43%</code> <code>true</code></blockquote></li>\n<li>Removed the rule <blockquote><strong>If</strong> <code>email</code> <strong>ends with</strong> <code>.edu</code><br/><strong>serve</strong> <code>50%</code> <code>true</code></blockquote></li></ul>"
+  },
+  "comment": "Copy test",
+  "project": {
+    "name": "The big project",
+    "key": "default",
+    "tags": [],
+    "environment": {
+      "name": "Test",
+      "key": "test",
+      "tags": []
+    }
+  },
+  "key": "demo-flag",
+  "tags": ["demo"],
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "https://app.launchdarkly.com/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "https://app.launchdarkly.com/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "firstName": "Henrietta",
+    "lastName": "Powell"
+  },
+  "titleVerb": "updated the flag",
+  "verbKind": "copyFlagConfigTo",
+  "title": {
+    "plainText": "Henrietta Powell updated the flag Demo flag",
+    "markdown": "[Henrietta Powell](mailto:testing@launchdarkly.com) updated the flag [Demo flag](https://app.launchdarkly.com/default/~/features/demo-flag)",
+    "html": "<a href=\"mailto:testing@launchdarkly.com\">Henrietta Powell</a> updated the flag <a href=\"https://app.launchdarkly.com/default/~/features/demo-flag\">Demo flag</a>"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "https://app.launchdarkly.com/api/v2/flags/default/demo-flag",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "https://app.launchdarkly.com/default/~/features/demo-flag",
+        "type": "text/html"
+      }
+    },
+    "name": "Demo flag"
+  }
+}

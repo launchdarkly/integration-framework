@@ -1,0 +1,9 @@
+{
+  "id": "e207f6bc-75d0-4142-98f1-ee102d0ca6ca",
+  "extra_field": "this is some extra response data",
+  "links": {
+    "self": {
+      "href": "https://example.com/ticket/e207f6bc-75d0-4142-98f1-ee102d0ca6ca"
+    }
+  }
+}

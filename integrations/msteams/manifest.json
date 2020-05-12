@@ -1,0 +1,52 @@
+{
+  "name": "Microsoft Teams",
+  "version": "1.0.0",
+  "overview": "Receive flag change notifications in your Teams workspaces",
+  "description": "Receive LaunchDarkly notifications in your Teams workspaces. Subscribe to changes in flags, projects, and other resources.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/docs/msteams",
+    "privacyPolicy": "https://privacy.microsoft.com/en-us"
+  },
+  "categories": ["notifications"],
+  "icons": {
+    "square": "assets/images/microsoft-teams.svg",
+    "horizontal": "assets/images/microsoft-teams.svg"
+  },
+  "formVariables": [
+    {
+      "key": "url",
+      "name": "Incoming webhook URL",
+      "type": "uri",
+      "description": "Enter your Microsoft Teams [incoming webhook URL](https://docs.launchdarkly.com/docs/microsoft-teams#section-setting-up-a-connector-in-microsoft-teams).",
+      "isSecret": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{url}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "project": "templates/project.json.hbs",
+        "environment": "templates/environment.json.hbs",
+        "default": "templates/default.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

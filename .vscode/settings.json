@@ -1,0 +1,13 @@
+{
+  "json.schemas": [
+    {
+      "fileMatch": ["manifest.json"],
+      "url": "./manifest.schema.json"
+    },
+    {
+      "fileMatch": ["/**/parsers/*.json"],
+      "url": "./parser.schema.json"
+    }
+  ],
+  "editor.tabSize": 2
+}

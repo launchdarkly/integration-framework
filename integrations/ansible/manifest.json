@@ -1,0 +1,18 @@
+{
+  "name": "Ansible Collection",
+  "version": "0.2.0",
+  "overview": "Manage your LaunchDarkly resources using Ansible",
+  "description": "LaunchDarkly Labs project to manage LaunchDarkly resources using Ansible. This allows you to use Ansible to configure and control feature flags, environments, projects, and more.",
+  "author": "LaunchDarkly Labs",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "supportWebsite": "https://github.com/launchdarkly-labs/ansible-launchdarkly-collection/issues",
+    "site": "https://galaxy.ansible.com/launchdarkly_labs/collection",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["automation"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "name": "integration-framework",
+  "version": "1.0.0",
+  "description": "Feature flags not only provide you control over your deployment and rollout, but also provides context to other related systems -- giving your team visibility into how your services react due to changes to flags. This repository contains LaunchDarkly integrations built by our community. Most of these integrations consume events from LaunchDarkly in order to provide their users more context.",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "build": "node bundleSchemas.js && prettier --write ./*.schema.json",
+    "prettier:check": "prettier --list-different \"./**/*.{js,json}\"",
+    "prettier:write": "prettier --write \"./**/*.{js,json}\"",
+    "preview": "node preview.js",
+    "curl": "node preview.js --curl"
+  },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "jest-expect-message"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/launchdarkly/integration-framework.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/launchdarkly/integration-framework/issues"
+  },
+  "homepage": "https://github.com/launchdarkly/integration-framework#readme",
+  "devDependencies": {
+    "@apidevtools/json-schema-ref-parser": "^8.0.0",
+    "ajv": "^6.10.2",
+    "handlebars": "^4.7.6",
+    "jest": "25.1.0",
+    "jest-expect-message": "1.0.2",
+    "jsonpointer": "^4.0.1",
+    "lodash": "^4.17.15",
+    "prettier": "^2.0.1"
+  }
+}

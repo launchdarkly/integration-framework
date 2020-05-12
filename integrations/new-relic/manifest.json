@@ -1,0 +1,61 @@
+{
+  "name": "New Relic",
+  "version": "1.0.0",
+  "overview": "Monitor LaunchDarkly flag events in New Relic",
+  "description": "This integration sends LaunchDarkly audit events to New Relic. Please note that it requires a paid Insights subscription to function.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://newrelic.com/",
+    "privacyPolicy": "https://newrelic.com/termsandconditions/privacy"
+  },
+  "categories": ["monitoring", "notifications"],
+  "icons": {
+    "square": "assets/images/new-relic-square.svg",
+    "horizontal": "assets/images/new-relic-horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "accountId",
+      "name": "New Relic account ID",
+      "description": "Enter your [New Relic account ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/account-id).",
+      "type": "string",
+      "placeholder": "123456"
+    },
+    {
+      "key": "apiKey",
+      "name": "New Relic API key",
+      "description": "Enter your [New Relic API key](https://docs.newrelic.com/docs/insights/insights-data-sources/custom-data/introduction-event-api#register).",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://insights-collector.newrelic.com/v1/accounts/{{accountId}}/events",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "X-Insert-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/flag.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}
