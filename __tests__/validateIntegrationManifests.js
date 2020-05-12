@@ -168,6 +168,20 @@ describe('All integrations', () => {
   );
 
   test.each(manifests)(
+    'no non-string formVariables have been set to isSecret for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type != 'string') {
+            expect(formVariable.isSecret).not.toBe(true);
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
     'Templates can be successfully rendered for %s',
     (key, manifest) => {
       const flagTemplatePath = _.get(
