@@ -1,6 +1,6 @@
 # LaunchDarkly Integration Framework
 
-[![CircleCI](https://circleci.com/gh/launchdarkly/ld-integrations.svg?style=svg&circle-token=c12dfaa51d070b8bbc8dea0c0adf4c402b5b9123)](https://circleci.com/gh/launchdarkly/ld-integrations)
+[![CircleCI](https://circleci.com/gh/launchdarkly/integration-framework.svg?style=svg&circle-token=c12dfaa51d070b8bbc8dea0c0adf4c402b5b9123)](https://circleci.com/gh/launchdarkly/integration-framework)
 
 Feature flags not only provide you control over your deployment and rollout but
 also provides context to other related systems -- giving your team visibility
@@ -20,7 +20,7 @@ Leveraging the Integration Framework is just one step in creating a technology p
 
 ## Submitting bug reports and feature requests
 
-The LaunchDarkly integration team monitors the [issue tracker](https://github.com/launchdarkly/ld-integrations/issues) in this repository. Bug reports and feature requests specific to the platform and integrations should be filed in this issue tracker. The integration team will respond to all newly filed issues within two business days.
+The LaunchDarkly integration team monitors the [issue tracker](https://github.com/launchdarkly/integration-framework/issues) in this repository. Bug reports and feature requests specific to the platform and integrations should be filed in this issue tracker. The integration team will respond to all newly filed issues within two business days.
 
 If you want to reach out more privately, email [integrations@launchdarkly.com](mailto:integrations@launchdarkly.com).
 

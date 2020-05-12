@@ -1,5 +1,5 @@
 {
-  "name": "ld-integrations",
+  "name": "integration-framework",
   "version": "1.0.0",
   "description": "Feature flags not only provide you control over your deployment and rollout, but also provides context to other related systems -- giving your team visibility into how your services react due to changes to flags. This repository contains LaunchDarkly integrations built by our community. Most of these integrations consume events from LaunchDarkly in order to provide their users more context.",
   "main": "index.js",
@@ -18,14 +18,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/launchdarkly/ld-integrations.git"
+    "url": "git+https://github.com/launchdarkly/integration-framework.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/launchdarkly/ld-integrations/issues"
+    "url": "https://github.com/launchdarkly/integration-framework/issues"
   },
-  "homepage": "https://github.com/launchdarkly/ld-integrations#readme",
+  "homepage": "https://github.com/launchdarkly/integration-framework#readme",
   "devDependencies": {
     "@apidevtools/json-schema-ref-parser": "^8.0.0",
     "ajv": "^6.10.2",

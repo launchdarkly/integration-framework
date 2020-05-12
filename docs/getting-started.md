@@ -68,7 +68,7 @@ the README should link to your user documentation worked mentioned above.
 ## Step 8: Submit your integration
 
 Once you're done with your integration, [submit a pull request against this
-repo](https://github.com/launchdarkly/ld-integrations/pull/new/master). Your
+repo](https://github.com/launchdarkly/integration-framework/pull/new/master). Your
 branch will run through some automated validations and will be reviewed by
 our team. Once everything checks out, we'll publish your integration
 when you give us the green light.
