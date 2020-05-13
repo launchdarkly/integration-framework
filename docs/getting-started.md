@@ -2,75 +2,84 @@
 
 There are several steps to building an integration with LaunchDarkly.
 
-## Step 0: Replicate your desired behavior with `curl`
+## Prerequisites
 
-Prior to connecting LaunchDarkly with a third-party service, you should replicate your integration's desired behavior in an isolated environment (standalone from LaunchDarkly). The easiest way to do this is by using [`curl`](https://curl.haxx.se/docs/manpage.html). A lot of API documentation has `curl` example commands provided for developers to use. Find the API documentation for your third-party service and execute sample commands against it. Take note of the request semantics. This will help streamline your manifest and template definitions.
+Before you connect LaunchDarkly with a third-party service, replicate your integration's desired behavior in an isolated standalone environment separate from LaunchDarkly.
 
-## Step 1: Fork this Repository
+The easiest way to do this is to use [`curl`](https://curl.haxx.se/docs/manpage.html). Find the API documentation for your third-party service and execute sample commands against it. A lot of API documentation has `curl` example commands provided for developers to use.
 
-You will need to fork this repository to your own GitHub account. When you've
-completed your integration, you can [submit a pull request to
-LaunchDarkly](#step-8-submit-your-integration) for it to get approved and
-deployed.
+When you execute your sample commands, observe the request semantics. This helps streamline your manifest and template definitions.
+
+## Step 1: Fork this repository
+
+Fork this repository to your own GitHub account.
+
+After you finish building your integration, you can submit a pull request to LaunchDarkly to have it approved and deployed.
+
+To learn more about submitting a pull request, read [Step 8: Submit your integration](#step-8-submit-your-integration).
 
 ## Step 2: Create a new directory inside `./integrations`
 
-Create a new directory inside the [integrations](../integrations) directory named
-after your organization or integration's name (e.g., `example-dot-com`). Make
-sure the directory has no spaces and uses
+Create a new directory inside the [integrations](../integrations) directory. Name it
+after your organization or give it the integration's name (For example, `your-company-name-dot-com`).
+
+The directory name must not have any spaces and must use
 [kebab-casing](https://wiki.c2.com/?KebabCase).
 
-You should only change files and directories inside your new directory. Our
-validation process will reject any pull requests that attempt to modify content
-outside of your directory.
+Only change files and directories inside your new directory. Our validation process rejects any pull requests with modified content outside of your directory.
 
 ## Step 3: Create your integration manifest
 
-Each integration contains a manifest defining how basics about your integration and organization,
-and instructing how LaunchDarkly should interact with your integration. Defining your manifest is the single most important step in contributing your integration to LaunchDarkly's platform.
+Each integration contains a manifest defining basic concepts about your integration and organization. Manifests also instruct LaunchDarkly in how to interact with your integration.
 
-[Read more](manifest.md).
+Defining your manifest is the single most important step in contributing your integration to LaunchDarkly's platform. It's important to configure your manifest correctly.
+
+To learn more, read [Integration manifest](manifest.md).
 
 ## Step 4: Collect integration configuration data from LaunchDarkly users
 
-Most integrations will need to collect one or more pieces of configuration data
-that supports the integration. Some examples include API tokens or webhook endpoints.
+Most integrations need to collect one or more pieces of configuration data
+that support the integration (for example, API tokens or webhook endpoints).
 
-To support these configurations, you can describe a set of
-`formVariables` that define these configuration properties.
+You can describe a set of `formVariables` that define these configuration properties.
 
-[Read more](form-variables.md).
+To learn more, read [Form variables](form-variables.md).
 
 ## Step 5: Define your integration's capabilities
 
-The third part of defining your LaunchDarkly integration is describing its
-`capabilities`. Your integration's `capabilities` describe how it interacts with LaunchDarkly.
+The next step to define your LaunchDarkly integration is describing its
+`capabilities`. Your integration's `capabilities` are how it interacts with LaunchDarkly.
 
-[Read more](capabilities.md).
+To learn more, read [Capabilities](capabilities.md).
 
 ## Step 6: Validate your integration
 
-Run `npm install` to install the validation dependencies. Run `npm test` to run the validation suite. In addition, we
-recommend install [pre-commit](https://pre-commit.com/#install) hooks with `pre-commit install` to have the validation suite run before every commit.
+To validate your integration:
 
-Additionally, some of the capabilities have their own validation tools. Refer to the [capabilities documentation](capabilities.md) for more information.
+1. Run `npm install` to install the validation dependencies.
+2. Run `npm test` to run the validation suite.
+
+Additionally, we
+recommend you install [pre-commit hooks](https://pre-commit.com/#install) with `pre-commit install`. This will make the validation suite run before every commit, saving you time if you need to troubleshoot anything.
+
+Some of the capabilities have their own validation tools. To learn more, read [Capabilities](capabilities.md).
 
 ## Step 7: Create your user documentation and README
 
-Now that your integration is built and validated, you'll want to provide documentation --
-both for users and integration maintainers.
+Now that your integration is built and validated, you must provide documentation for users and integration maintainers.
 
-LaunchDarkly's user documentation is accessible on [docs.launchdarkly.com](https://docs.launchdarkly.com/integrations). Third-party contributions can be submitted to our [LaunchDarkly-Docs repository](https://github.com/launchdarkly/LaunchDarkly-Docs). You'll want to submit a pull request to this repository with a new integrations guide. Follow the pattern and language used by existing integration guides.
+Find LaunchDarkly's user documentation at [docs.launchdarkly.com](https://docs.launchdarkly.com/integrations). You can submit new docs to the [LaunchDarkly-Docs repository](https://github.com/launchdarkly/LaunchDarkly-Docs).
 
-In addition to user documentation, you'll want to provide guidance on how to maintain and test your integration. You should specify this developer-focused information in an integration README (`README.md`) in your integration's directory. Additionally
-the README should link to your user documentation worked mentioned above.
+Submit a pull request to this repository with a new integrations guide. Follow the pattern and language used by existing integration guides.
+
+In addition to user documentation, you must to provide guidance on how to maintain and test your integration. Specify this developer-focused information in an integration README (`README.md`) in your integration's directory. The README should also link to the user documentation you provide.
 
 ## Step 8: Submit your integration
 
-Once you're done with your integration, [submit a pull request against this
-repo](https://github.com/launchdarkly/integration-framework/pull/new/master). Your
-branch will run through some automated validations and will be reviewed by
-our team. Once everything checks out, we'll publish your integration
-when you give us the green light.
+After you've built your integration, [submit a pull request against this
+repo](https://github.com/launchdarkly/integration-framework/pull/new/master).
 
-We'll also work with you on submitting and approving your user documentation to our [LaunchDarkly-Docs repository](https://github.com/launchdarkly/LaunchDarkly-Docs).
+When you do, your branch will run through some automated validations and be reviewed by
+our team. If we're ready to publish your integration, we'll get your permission and make it live on our site.
+
+We'll also work with you on submitting your user documentation to our [documentation site](https://github.com/launchdarkly/LaunchDarkly-Docs).
