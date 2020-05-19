@@ -4,8 +4,8 @@ Your integration's `capabilities` describe how it interacts with LaunchDarkly.
 
 We support two capabilities:
 
-* [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`), and
-* [Reserved custom properties](#reserved-custom-properties-reservedcustomproperties) (`reservedCustomProperties`)
+- [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`), and
+- [Reserved custom properties](#reserved-custom-properties-reservedcustomproperties) (`reservedCustomProperties`)
 
 ## Audit log events hook (`auditLogEventsHook`)
 
@@ -116,58 +116,58 @@ sends you a default JSON payload that looks like this:
 
 ```json
 {
-   "_links": {
-      "canonical": {
-         "href": "/api/v2/flags/always-snippet/example-test",
-         "type": "application/json"
-      },
+  "_links": {
+    "canonical": {
+      "href": "/api/v2/flags/always-snippet/example-test",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "/api/v2/auditlog/5defebd006121dd9f7ea90d0",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "/always-snippet/production/features/example-test",
+      "type": "text/html"
+    }
+  },
+  "_id": "5defebd006121dd9f7ea90d0",
+  "_accountId": "",
+  "timestamp": {
+    "milliseconds": 1576004560130,
+    "seconds": 1576004560
+  },
+  "kind": "flag",
+  "name": "Example test",
+  "description": "",
+  "shortDescription": "",
+  "comment": "This is just a test",
+  "member": {
+    "_links": {
       "parent": {
-         "href": "/api/v2/auditlog",
-         "type": "application/json"
+        "href": "/api/v2/members",
+        "type": "application/json"
       },
       "self": {
-         "href": "/api/v2/auditlog/5defebd006121dd9f7ea90d0",
-         "type": "application/json"
-      },
-      "site": {
-         "href": "/always-snippet/production/features/example-test",
-         "type": "text/html"
+        "href": "/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
       }
-   },
-   "_id": "5defebd006121dd9f7ea90d0",
-   "_accountId": "",
-   "timestamp": {
-       "milliseconds": 1576004560130,
-       "seconds": 1576004560,
-   },
-   "kind": "flag",
-   "name": "Example test",
-   "description": "",
-   "shortDescription": "",
-   "comment": "This is just a test",
-   "member": {
-      "_links": {
-         "parent": {
-            "href": "/api/v2/members",
-            "type": "application/json"
-         },
-         "self": {
-            "href": "/api/v2/members/569f514183f2164430000002",
-            "type": "application/json"
-         }
-      },
-      "_id": "569f514183f2164430000002",
-      "email": "testing@example.com",
-      "firstName": "Henry",
-      "lastName": "Barrow"
-   },
-   "titleVerb": "",
-   "markdownTitle": "[Henrietta Powell](mailto:testing@example.com) turned on the flag [Example test](http://app.launchdarkly/exampledotcom/production/features/example-test) in `Production`",
-   "title": "Henrietta Powell turned on the flag Example test in 'Production'",
-   "target": {
-      "_links": null,
-      "name": ""
-   }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@example.com",
+    "firstName": "Henry",
+    "lastName": "Barrow"
+  },
+  "titleVerb": "",
+  "markdownTitle": "[Henrietta Powell](mailto:testing@example.com) turned on the flag [Example test](http://app.launchdarkly/exampledotcom/production/features/example-test) in `Production`",
+  "title": "Henrietta Powell turned on the flag Example test in 'Production'",
+  "target": {
+    "_links": null,
+    "name": ""
+  }
 }
 ```
 
@@ -184,17 +184,22 @@ your template.
 To learn more about Handlebars' sysntax, read [Handlebars' Language
 Guide](https://handlebarsjs.com/guide/).
 
-In addition to the basic language syntax, we also support the following [built-in
-helpers](https://github.com/aymerick/raymond#built-in-helpers):
+In addition to the basic language syntax, we support the following [built-in
+helpers](https://handlebarsjs.com/guide/builtin-helpers.html):
 
-* `if`
-* `unless`
-* `each`
-* `with`
-* `lookup`
-* `equal`
+- `if`
+- `unless`
+- `each`
+- `with`
+- `lookup`
 
-To test your templates, you can use the [Handlebars
+Furthermore, the following custom helpers are supported:
+
+- `equal` - renders a block if the string version of both arguments are equals
+- `pathEncode` - URL path encodes the string version of the argument
+- `queryEncode` - URL query encodes the string version of the argument
+
+To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars
 Sandbox](http://tryhandlebarsjs.com/).
 
 ### Default policy
