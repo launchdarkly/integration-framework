@@ -21,6 +21,17 @@
       "type": "string",
       "description": "Enter your Datadog [API key](https://app.datadoghq.com/account/settings#api).",
       "isSecret": true
+    },
+    {
+      "key": "hostURL",
+      "name": "Datadog host URL",
+      "description": "Your Datadog host URL. The default host URL is [https://api.datadoghq.com](https://api.datadoghq.com). Use [https://api.datadoghq.eu](https://api.datadoghq.eu) if you are on the Datadog EU site.",
+      "type": "enum",
+      "allowedValues": [
+        "https://api.datadoghq.com",
+        "https://api.datadoghq.eu"
+      ],
+      "defaultValue": "https://api.datadoghq.com"
     }
   ],
   "capabilities": {
@@ -32,7 +43,7 @@
     ],
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://api.datadoghq.com/api/v1/events",
+        "url": "{{hostURL}}/api/v1/events",
         "method": "POST",
         "headers": [
           {
