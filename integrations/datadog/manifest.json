@@ -1,8 +1,15 @@
 {
+<<<<<<< HEAD
   "name": "Datadog V2",
   "version": "1.0.0",
   "overview": "Monitor LaunchDarkly changes in Datadog",
   "description": "Monitor LaunchDarkly flag and other change events in DataDog. Correlate feature rollouts to changes in your system’s operational health.",
+=======
+  "name": "Datadog",
+  "version": "1.0.0",
+  "overview": "Monitor LaunchDarkly changes in Datadog",
+  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Datadog.",
+>>>>>>> private/master
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -21,6 +28,20 @@
       "type": "string",
       "description": "Enter your Datadog [API key](https://app.datadoghq.com/account/settings#api).",
       "isSecret": true
+<<<<<<< HEAD
+=======
+    },
+    {
+      "key": "hostURL",
+      "name": "Datadog host URL",
+      "description": "Your Datadog host URL. The default host URL is [https://api.datadoghq.com](https://api.datadoghq.com). Use [https://api.datadoghq.eu](https://api.datadoghq.eu) if you are on the Datadog EU site.",
+      "type": "enum",
+      "allowedValues": [
+        "https://api.datadoghq.com",
+        "https://api.datadoghq.eu"
+      ],
+      "defaultValue": "https://api.datadoghq.com"
+>>>>>>> private/master
     }
   ],
   "capabilities": {
@@ -32,7 +53,11 @@
     ],
     "auditLogEventsHook": {
       "endpoint": {
+<<<<<<< HEAD
         "url": "https://api.datadoghq.com/api/v1/events",
+=======
+        "url": "{{hostURL}}/api/v1/events",
+>>>>>>> private/master
         "method": "POST",
         "headers": [
           {

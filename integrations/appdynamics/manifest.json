@@ -14,6 +14,10 @@
     "square": "assets/images/appdynamics_square.svg",
     "horizontal": "assets/images/appdynamics_horizontal.svg"
   },
+<<<<<<< HEAD
+=======
+  "requiresOAuth": true,
+>>>>>>> private/master
   "formVariables": [
     {
       "key": "account",
@@ -23,6 +27,7 @@
       "isSecret": false
     },
     {
+<<<<<<< HEAD
       "key": "username",
       "name": "AppDynamics account username",
       "description": "Enter your [AppDynamics username](https://docs.appdynamics.com/display/PRO45/API+Clients).",
@@ -35,11 +40,19 @@
       "description": "Enter your [AppDynamics user password](https://docs.appdynamics.com/display/PRO45/API+Clients).",
       "type": "string",
       "isSecret": true
+=======
+      "key": "applicationID",
+      "name": "Application Name",
+      "description": "Enter your AppDynamics application name or ID",
+      "type": "string",
+      "isSecret": false
+>>>>>>> private/master
     }
   ],
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
+<<<<<<< HEAD
         "url": "http://{{account}}.saas.appdynamics.com/controller/rest/applications/5/events?",
         "method": "POST",
         "headers": [
@@ -50,11 +63,23 @@
           {
             "name": "Content-Type",
             "value": "application/json"
+=======
+        "url": "{{oauth.baseURI}}/controller/rest/applications/{{pathEncode applicationID}}/events?summary={{queryEncode 'LaunchDarkly: '}}{{queryEncode context.title.html}}{{#if context.details.html}}%0D%0A{{queryEncode context.details.html}}{{/if}}{{#if context.comment}}&comment={{queryEncode context.comment}}{{/if}}&eventtype=CUSTOM&customeventtype=LaunchDarkly&severity=INFO",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{oauth.accessToken}}"
+>>>>>>> private/master
           }
         ]
       },
       "templates": {
+<<<<<<< HEAD
         "default": "templates/template.json.hbs"
+=======
+        "default": "templates/template.text.hbs"
+>>>>>>> private/master
       },
       "defaultPolicy": [
         {

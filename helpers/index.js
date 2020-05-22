@@ -7,6 +7,15 @@ const registerHelpers = () => {
     }
     return options.inverse(this);
   });
+<<<<<<< HEAD
+=======
+  Handlebars.registerHelper('pathEncode', function (v) {
+    return encodeURI(v);
+  });
+  Handlebars.registerHelper('queryEncode', function (v) {
+    return encodeURIComponent(v);
+  });
+>>>>>>> private/master
 };
 
 module.exports = { registerHelpers };

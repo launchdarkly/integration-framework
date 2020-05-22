@@ -2,9 +2,34 @@
   "lines": [
     {
       "line": "{{{title.plainText}}}{{#if comment}}, Comment: {{comment}}{{/if}}",
+<<<<<<< HEAD
       "app": "{{formVariables.app}}",
       "level": "INFO",
       "env": "{{project.environment.key}}"
+=======
+      "app": "{{project.key}}",
+      "level": "{{formVariables.level}}",
+      "env": "{{project.environment.key}}",
+      "timestamp": "{{timestamp.milliseconds}}",
+      "meta": {
+        {{#equal kind 'flag'}}
+        "flag_key": "{{key}}",
+        "flag_name": "{{name}}",
+        {{/equal}}
+        {{#if project}}
+        "project_key": "{{project.key}}",
+        "project_name": "{{project.name}}",
+        {{#if project.environment}}
+        "environment_key": "{{project.environment.key}}",
+        "environment_name": "{{project.environment.name}}",
+        {{/if}}
+        {{/if}}
+        "kind": "{{kind}}",
+        "member_id": "{{member._id}}",
+        "member_email": "{{member.email}}",
+        "member_name": "{{member.firstName}} {{member.lastName}}"
+      }
+>>>>>>> private/master
     }
   ]
 }
