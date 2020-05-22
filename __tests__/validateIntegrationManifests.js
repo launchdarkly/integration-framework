@@ -9,12 +9,8 @@ const schema = require('../manifest.schema.json');
 const flagContext = require('../sample-context/flag/update-all-environments');
 const projectContext = require('../sample-context/project/update');
 const environmentContext = require('../sample-context/environment/update');
-<<<<<<< HEAD
-const OAUTH_INTEGRATIONS = ['sample-integration']; // add oauth integrations here
-=======
 
 const OAUTH_INTEGRATIONS = ['appdynamics', 'sample-integration']; // add oauth integrations here
->>>>>>> private/master
 
 registerHelpers();
 

@@ -4,13 +4,8 @@ Your integration's `capabilities` describe how it interacts with LaunchDarkly.
 
 We support two capabilities:
 
-<<<<<<< HEAD
-* [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`), and
-* [Reserved custom properties](#reserved-custom-properties-reservedcustomproperties) (`reservedCustomProperties`)
-=======
 - [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`), and
 - [Reserved custom properties](#reserved-custom-properties-reservedcustomproperties) (`reservedCustomProperties`)
->>>>>>> private/master
 
 ## Audit log events hook (`auditLogEventsHook`)
 
@@ -121,60 +116,6 @@ sends you a default JSON payload that looks like this:
 
 ```json
 {
-<<<<<<< HEAD
-   "_links": {
-      "canonical": {
-         "href": "/api/v2/flags/always-snippet/example-test",
-         "type": "application/json"
-      },
-      "parent": {
-         "href": "/api/v2/auditlog",
-         "type": "application/json"
-      },
-      "self": {
-         "href": "/api/v2/auditlog/5defebd006121dd9f7ea90d0",
-         "type": "application/json"
-      },
-      "site": {
-         "href": "/always-snippet/production/features/example-test",
-         "type": "text/html"
-      }
-   },
-   "_id": "5defebd006121dd9f7ea90d0",
-   "_accountId": "",
-   "timestamp": {
-       "milliseconds": 1576004560130,
-       "seconds": 1576004560,
-   },
-   "kind": "flag",
-   "name": "Example test",
-   "description": "",
-   "shortDescription": "",
-   "comment": "This is just a test",
-   "member": {
-      "_links": {
-         "parent": {
-            "href": "/api/v2/members",
-            "type": "application/json"
-         },
-         "self": {
-            "href": "/api/v2/members/569f514183f2164430000002",
-            "type": "application/json"
-         }
-      },
-      "_id": "569f514183f2164430000002",
-      "email": "testing@example.com",
-      "firstName": "Henry",
-      "lastName": "Barrow"
-   },
-   "titleVerb": "",
-   "markdownTitle": "[Henrietta Powell](mailto:testing@example.com) turned on the flag [Example test](http://app.launchdarkly/exampledotcom/production/features/example-test) in `Production`",
-   "title": "Henrietta Powell turned on the flag Example test in 'Production'",
-   "target": {
-      "_links": null,
-      "name": ""
-   }
-=======
   "_links": {
     "canonical": {
       "href": "/api/v2/flags/always-snippet/example-test",
@@ -228,7 +169,6 @@ sends you a default JSON payload that looks like this:
     "_links": null,
     "name": ""
   }
->>>>>>> private/master
 }
 ```
 
@@ -245,19 +185,6 @@ your template.
 To learn more about Handlebars' sysntax, read [Handlebars' Language
 Guide](https://handlebarsjs.com/guide/).
 
-<<<<<<< HEAD
-In addition to the basic language syntax, we also support the following [built-in
-helpers](https://github.com/aymerick/raymond#built-in-helpers):
-
-* `if`
-* `unless`
-* `each`
-* `with`
-* `lookup`
-* `equal`
-
-To test your templates, you can use the [Handlebars
-=======
 In addition to the basic language syntax, we support the following [built-in
 helpers](https://handlebarsjs.com/guide/builtin-helpers.html):
 
@@ -274,7 +201,6 @@ Furthermore, the following custom helpers are supported:
 - `queryEncode` - URL query encodes the string version of the argument
 
 To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars
->>>>>>> private/master
 Sandbox](http://tryhandlebarsjs.com/).
 
 ### Default policy
@@ -300,15 +226,9 @@ Here is the policy:
 
 ### Validation
 
-<<<<<<< HEAD
-To preview your integration's templates with sample data, run `npm run preview YOUR_INTEGRATION_DIR_NAME`.
-
-Alternatively, to produce a sample `curl` command, run `npm run curl YOUR_INTEGRATION_DIR_NAME`. This returns data with your integration's service as if it was sent by the audit log event hook capability.
-=======
 To preview your integration's templates with sample data, run `npm run preview INTEGRATION_NAME`.
 
 Alternatively, to produce a sample `curl` command, run `npm run curl INTEGRATION_NAME`. This returns data with your integration's service as if it was sent by the audit log event hook capability.
->>>>>>> private/master
 
 ## Reserved custom properties (`reservedCustomProperties`)
 

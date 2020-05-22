@@ -1,10 +1,6 @@
 # LogDNA
 
-<<<<<<< HEAD
-[User documentation](https://example.com)
-=======
 [User documentation](https://docs.launchdarkly.com/integrations/logdna)
->>>>>>> private/master
 
 [API documentation](https://docs.logdna.com/reference#api)
 
