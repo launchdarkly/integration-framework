@@ -18,7 +18,8 @@
       "icons",
       "formVariables",
       "capabilities",
-      "legacy"
+      "legacy",
+      "requiresOAuth"
     ]
   },
   "properties": {
@@ -217,6 +218,13 @@
         "kind"
       ]
     },
+    "requiresOAuth": {
+      "$id": "#/properties/requires-oauth",
+      "title": "Requires OAuth",
+      "type": "boolean",
+      "description": "Whether the integration authenticates using OAuth",
+      "default": false
+    },
     "formVariables": {
       "$id": "#/properties/formVariables",
       "title": "Form variables",
@@ -265,7 +273,8 @@
               "string",
               "boolean",
               "uri",
-              "enum"
+              "enum",
+              "oauth"
             ]
           },
           "description": {
@@ -338,7 +347,7 @@
       "properties": {
         "auditLogEventsHook": {
           "$id": "#/properties/capability/audit-log-events-hook",
-          "title": "Audit Log Events Hook",
+          "title": "Audit log events hook",
           "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
           "type": "object",
           "propertyNames": {

@@ -1,0 +1,242 @@
+# Capabilities
+
+Your integration's `capabilities` describe how it interacts with LaunchDarkly.
+
+We support two capabilities:
+
+- [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`), and
+- [Reserved custom properties](#reserved-custom-properties-reservedcustomproperties) (`reservedCustomProperties`)
+
+## Audit log events hook (`auditLogEventsHook`)
+
+An audit log events hook is a webhook that LaunchDarkly sends whenever an
+event happens inside of LaunchDarkly. Each of these events
+result in an event being published to LaunchDarkly's audit log.
+You can use this capability to send data to or trigger an event in another service.
+
+The `auditLogEventsHook` has three properties:
+
+1. [`endpoint`](#endpoint):
+   Describes the HTTP handler that will receive the webhook.
+2. [`templates`](#templates):
+   A map of template paths relative to your integration's directory. You can use templates to transform the raw audit log events to a format that your integration expects. These templates can be any file type.
+3. [`defaultPolicy`](#default-policy):
+   An array of [LaunchDarkly
+   policies](https://docs.launchdarkly.com/home/account-security/custom-roles/policies) that
+   act as a filter determining which events to send to your webhook endpoint.
+
+Here's an example of an audit log events hook capability that subscribes to flag
+events in a LaunchDarkly account:
+
+```json
+    "capabilities": {
+        "auditLogEventsHook": {
+            "endpoint": {
+                "url": "{{endpointUrl}}",
+                "method": "POST",
+                "headers": [
+                    {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "name": "Authorization",
+                        "value": "Bearer {{apiToken}}"
+                    }
+                ]
+            },
+            "templates": {
+                "flag": "templates/flag.json"
+            },
+            "defaultPolicy": [
+                {
+                    "effect": "allow",
+                    "resources": ["proj/*:env/production:flag/*"],
+                    "actions": ["*"]
+                }
+            ]
+        }
+    }
+```
+
+### Endpoint
+
+Every `auditLogEventsHook` capability must specify the endpoint to which LaunchDarkly should send webhook data. This specification must include all appropriate request semantics including the URL, method, and headers.
+
+In the example
+above, a few of the properties (`endpoint.url` and
+`endpoint.headers[].value`) accept template variables. These template
+variables can reference any `formVariables` you've defined in your manifest.
+The templating language we use is based off of a subset of the
+Handlebars syntax.
+
+To learn more, read [Handlebars' documentation](https://handlebarsjs.com/).
+
+There are a few properties that allow you to substitute template variables at
+runtime. The main ones are the `endpoint.url` and the
+`endpoint.headers[].value`. This lets you configure a dynamic endpoint
+based on the `formVariables` your integration collects from the user. Examples follow.
+
+This example uses the `endpointUrl` form variable as the URL of the endpoint and the `apiToken` as a `Bearer` token in the `Authorization` header:
+
+```json
+    "endpoint": {
+        "url": "{{endpointUrl}}",
+        "method": "POST",
+        "headers": [
+            {
+                "name": "Content-Type",
+                "value": "application/json"
+            },
+            {
+                "name": "Authorization",
+                "value": "Bearer {{apiToken}}"
+            }
+        ]
+    },
+```
+
+This example uses the `apiToken` formVariable as a query parameter on the URL:
+
+```json
+    "endpoint": {
+        "url": "https://example.com/apiToken?={{apiToken}}",
+        "method": "POST"
+    },
+```
+
+### Templates
+
+Before the `auditLogEventsHook` capability sends the request to the endpoint
+handling your webhook, you can transform the body of the request
+sent to your handler.
+
+If you don't provide one or more templates, LaunchDarkly
+sends you a default JSON payload that looks like this:
+
+```json
+{
+  "_links": {
+    "canonical": {
+      "href": "/api/v2/flags/always-snippet/example-test",
+      "type": "application/json"
+    },
+    "parent": {
+      "href": "/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "/api/v2/auditlog/5defebd006121dd9f7ea90d0",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "/always-snippet/production/features/example-test",
+      "type": "text/html"
+    }
+  },
+  "_id": "5defebd006121dd9f7ea90d0",
+  "_accountId": "",
+  "timestamp": {
+    "milliseconds": 1576004560130,
+    "seconds": 1576004560
+  },
+  "kind": "flag",
+  "name": "Example test",
+  "description": "",
+  "shortDescription": "",
+  "comment": "This is just a test",
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@example.com",
+    "firstName": "Henry",
+    "lastName": "Barrow"
+  },
+  "titleVerb": "",
+  "markdownTitle": "[Henrietta Powell](mailto:testing@example.com) turned on the flag [Example test](http://app.launchdarkly/exampledotcom/production/features/example-test) in `Production`",
+  "title": "Henrietta Powell turned on the flag Example test in 'Production'",
+  "target": {
+    "_links": null,
+    "name": ""
+  }
+}
+```
+
+If you choose to provide one or more
+`templates`,
+LaunchDarkly renders your template using the context data above. Your
+template can be any text based format, but you must specify the appropriate
+`Content-Type` header in your `endpoint.headers` property to match the content
+type of your template body.
+
+We use a basic subset of the Handlebars template syntax to render
+your template.
+
+To learn more about Handlebars' sysntax, read [Handlebars' Language
+Guide](https://handlebarsjs.com/guide/).
+
+In addition to the basic language syntax, we support the following [built-in
+helpers](https://handlebarsjs.com/guide/builtin-helpers.html):
+
+- `if`
+- `unless`
+- `each`
+- `with`
+- `lookup`
+
+Furthermore, the following custom helpers are supported:
+
+- `equal` - renders a block if the string version of both arguments are equals
+- `pathEncode` - URL path encodes the string version of the argument
+- `queryEncode` - URL query encodes the string version of the argument
+
+To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars
+Sandbox](http://tryhandlebarsjs.com/).
+
+### Default policy
+
+When you configure your integration, customers can specify an array of [LaunchDarkly
+policies](https://docs.launchdarkly.com/home/account-security/custom-roles/policies) filter which events to send to your webhook endpoint.
+
+To simplify onboarding your integration, you can specify a default policy which follows best practices for your integration's use case.
+
+Assuming your integration only cares about flag activity, we recommend the following default policy. This policy specifies that LaunchDarkly will notify your integration of all flag activity across production environments from all projects.
+
+Here is the policy:
+
+```json
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+```
+
+### Validation
+
+To preview your integration's templates with sample data, run `npm run preview YOUR_INTEGRATION_DIR_NAME`.
+
+Alternatively, to produce a sample `curl` command, run `npm run curl YOUR_INTEGRATION_DIR_NAME`. This returns data with your integration's service as if it was sent by the audit log event hook capability.
+
+## Reserved custom properties (`reservedCustomProperties`)
+
+Custom properties allow you to store data in LaunchDarkly alongside a feature flag. For example, you can use custom properties to indicate flag-level associations with data on your service. If you don't have any flag-level associations or configurations, you don't need to use this capability.
+
+To learn more, read [Custom properties](https://docs.launchdarkly.com/home/advanced/custom-properties).
+
+By default, users must specify a custom property name and key when they attach the custom property value to a feature flag. This step introduces the possibility of user error. To prevent this, developers can _reserve_ a custom property for their integration, which makes it much easier for users to correctly add the property's value to feature flags.
+
+Reserved custom properties are simple to define. Their only requirements are a `name` and `key`.
+
+After your integration is configured by a user, the custom property starts appearing in the dropdown on the flag's Settings page.

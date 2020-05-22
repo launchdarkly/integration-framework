@@ -10,6 +10,8 @@ const flagContext = require('../sample-context/flag/update-all-environments');
 const projectContext = require('../sample-context/project/update');
 const environmentContext = require('../sample-context/environment/update');
 
+const OAUTH_INTEGRATIONS = ['appdynamics', 'sample-integration']; // add oauth integrations here
+
 registerHelpers();
 
 const getDirectories = source =>
@@ -40,6 +42,17 @@ const getFormVariableContext = formVariables => {
   return endpointContext;
 };
 
+const getOAuthContext = requiresOAuth => {
+  if (requiresOAuth) {
+    const oauthContext = {
+      baseURI: '$OAUTH_BASE_URI',
+      accessToken: '$OAUTH_ACCESS_TOKEN',
+    };
+    return oauthContext;
+  }
+  return null;
+};
+
 const isJSONTemplate = templateFilename => {
   const lowercase = templateFilename.toLowerCase();
   return lowercase.endsWith('.json') || lowercase.endsWith('.json.hbs');
@@ -65,11 +78,13 @@ const getTemplate = path => {
 
 const getFullContext = (manifest, context, isJSON) => {
   const formVariables = _.get(manifest, 'formVariables', null);
-  const formVariableContext = getFormVariableContext(formVariables);
+  const requiresOAuth = _.get(manifest, 'requiresOAuth', null);
+  const endpointContext = getFormVariableContext(formVariables);
+  endpointContext.oauth = getOAuthContext(requiresOAuth);
   const fullContext = isJSON
     ? jsonEscape(Object.assign({}, context))
     : Object.assign({}, context);
-  fullContext.formVariables = formVariableContext;
+  fullContext.formVariables = endpointContext;
   return fullContext;
 };
 
@@ -93,6 +108,7 @@ describe('All integrations', () => {
     'Referenced form variables exist for %s',
     (key, manifest) => {
       const formVariables = _.get(manifest, 'formVariables', null);
+      const requiresOAuth = _.get(manifest, 'requiresOAuth', null);
       const endpoint = _.get(
         manifest,
         'capabilities.auditLogEventsHook.endpoint',
@@ -101,6 +117,7 @@ describe('All integrations', () => {
       if (endpoint) {
         const endpointContext = getFormVariableContext(formVariables);
         endpointContext.context = flagContext;
+        endpointContext.oauth = getOAuthContext(requiresOAuth);
         const urlTemplate = Handlebars.compile(endpoint.url, {
           strict: true,
         });
@@ -122,6 +139,18 @@ describe('All integrations', () => {
   );
 
   test.each(manifests)(
+    'OAuth parameters are correctly set and accessible for %s',
+    (key, manifest) => {
+      const requiresOAuth = _.get(manifest, 'requiresOAuth', null);
+      if (requiresOAuth) {
+        expect(OAUTH_INTEGRATIONS).toEqual(expect.arrayContaining([key]));
+        const oauthContext = getOAuthContext(requiresOAuth);
+        expect(oauthContext).not.toBe(null);
+      }
+    }
+  );
+
+  test.each(manifests)(
     'defaultValue types match the type of the formVariable for %s',
     (key, manifest) => {
       const formVariables = _.get(manifest, 'formVariables', null);
@@ -133,6 +162,20 @@ describe('All integrations', () => {
             } else if (formVariable.type === 'boolean') {
               expect(_.isBoolean(formVariable.defaultValue)).toBe(true);
             }
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'no non-string formVariables have been set to isSecret for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type != 'string') {
+            expect(formVariable.isSecret).not.toBe(true);
           }
         });
       }

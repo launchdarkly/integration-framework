@@ -14,6 +14,7 @@
     "square": "assets/images/appdynamics_square.svg",
     "horizontal": "assets/images/appdynamics_horizontal.svg"
   },
+  "requiresOAuth": true,
   "formVariables": [
     {
       "key": "account",
@@ -23,38 +24,27 @@
       "isSecret": false
     },
     {
-      "key": "username",
-      "name": "AppDynamics account username",
-      "description": "Enter your [AppDynamics username](https://docs.appdynamics.com/display/PRO45/API+Clients).",
+      "key": "applicationID",
+      "name": "Application Name",
+      "description": "Enter your AppDynamics application name or ID",
       "type": "string",
       "isSecret": false
-    },
-    {
-      "key": "password",
-      "name": "AppDynamics account password",
-      "description": "Enter your [AppDynamics user password](https://docs.appdynamics.com/display/PRO45/API+Clients).",
-      "type": "string",
-      "isSecret": true
     }
   ],
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "http://{{account}}.saas.appdynamics.com/controller/rest/applications/5/events?",
+        "url": "{{oauth.baseURI}}/controller/rest/applications/{{pathEncode applicationID}}/events?summary={{queryEncode 'LaunchDarkly: '}}{{queryEncode context.title.html}}{{#if context.details.html}}%0D%0A{{queryEncode context.details.html}}{{/if}}{{#if context.comment}}&comment={{queryEncode context.comment}}{{/if}}&eventtype=CUSTOM&customeventtype=LaunchDarkly&severity=INFO",
         "method": "POST",
         "headers": [
           {
-            "name": "user",
-            "value": "{{username}}@{{account}}:{{password}}"
-          },
-          {
-            "name": "Content-Type",
-            "value": "application/json"
+            "name": "Authorization",
+            "value": "Bearer {{oauth.accessToken}}"
           }
         ]
       },
       "templates": {
-        "default": "templates/template.json.hbs"
+        "default": "templates/template.text.hbs"
       },
       "defaultPolicy": [
         {
