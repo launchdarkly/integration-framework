@@ -137,8 +137,9 @@ sends you a default JSON payload that looks like this:
   "_id": "5defebd006121dd9f7ea90d0",
   "_accountId": "",
   "timestamp": {
-    "milliseconds": 1576004560130,
-    "seconds": 1576004560
+    "milliseconds": 1580778134028,
+    "seconds": 1580778134,
+    "rfc3339": "2020-02-04T01:02:14Z"
   },
   "kind": "flag",
   "name": "Example test",
@@ -225,9 +226,9 @@ Here is the policy:
 
 ### Validation
 
-To preview your integration's templates with sample data, run `npm run preview YOUR_INTEGRATION_DIR_NAME`.
+To preview your integration's templates with sample data, run `npm run preview INTEGRATION_NAME`.
 
-Alternatively, to produce a sample `curl` command, run `npm run curl YOUR_INTEGRATION_DIR_NAME`. This returns data with your integration's service as if it was sent by the audit log event hook capability.
+Alternatively, to produce a sample `curl` command, run `npm run curl INTEGRATION_NAME`. This returns data with your integration's service as if it was sent by the audit log event hook capability.
 
 ## Reserved custom properties (`reservedCustomProperties`)
 

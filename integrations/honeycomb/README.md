@@ -1,6 +1,6 @@
 # Honeycomb
 
-[User documentation](https://example.com)
+[User documentation](https://docs.launchdarkly.com/integrations/honeycomb)
 
 [API documentation](https://docs.honeycomb.io/api/markers/)
 
