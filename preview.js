@@ -70,7 +70,9 @@ let manifest;
 try {
   manifest = require(`./integrations/${integrationName}/manifest.json`);
 } catch (e) {
-  console.log(`The "${integrationName}" integration does not exist.\n`);
+  console.log(
+    `The "${integrationName}" integration does not exist. This value should be your integration directory name.\n`
+  );
   process.exit(1);
 }
 const formVariables = _.get(manifest, 'formVariables', null);
