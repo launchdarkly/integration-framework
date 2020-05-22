@@ -6,7 +6,7 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://example.com",
+    "site": "https://docs.launchdarkly.com/integrations/logdna",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["monitoring", "notifications"],
@@ -24,26 +24,18 @@
       "isSecret": true
     },
     {
-      "key": "app",
-      "name": "LogDNA app",
-      "description": "Enter the name of your LogDNA app. This value will associate LaunchDarkly data with the corresponding LogDNA app.",
+      "key": "level",
+      "name": "Log level",
+      "description": "The log level with which LaunchDarkly messages will be published.",
       "type": "string",
       "isSecret": false,
-      "placeholder": "LaunchDarkly"
-    },
-    {
-      "key": "hostname",
-      "name": "Hostname",
-      "description": "Enter the hostname from which events are being generated. For most customers the default value is correct.",
-      "type": "string",
-      "isSecret": false,
-      "defaultValue": "app.launchdarkly.com"
+      "defaultValue": "INFO"
     }
   ],
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://logs.logdna.com/logs/ingest?hostname={{hostname}}",
+        "url": "https://logs.logdna.com/logs/ingest?hostname=launchdarkly",
         "method": "POST",
         "headers": [
           {

@@ -137,8 +137,9 @@ sends you a default JSON payload that looks like this:
   "_id": "5defebd006121dd9f7ea90d0",
   "_accountId": "",
   "timestamp": {
-    "milliseconds": 1576004560130,
-    "seconds": 1576004560
+    "milliseconds": 1580778134028,
+    "seconds": 1580778134,
+    "rfc3339": "2020-02-04T01:02:14Z"
   },
   "kind": "flag",
   "name": "Example test",

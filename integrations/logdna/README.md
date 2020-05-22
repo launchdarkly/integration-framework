@@ -1,6 +1,6 @@
 # LogDNA
 
-[User documentation](https://example.com)
+[User documentation](https://docs.launchdarkly.com/integrations/logdna)
 
 [API documentation](https://docs.logdna.com/reference#api)
 
