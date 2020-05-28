@@ -51,6 +51,7 @@ in the LaunchDarkly UI.
 }
 ```
 
+
 There are a few properties in the manifest that can accept simple
 [markdown](https://daringfireball.net/projects/markdown/). One of them is the
 `description`.
