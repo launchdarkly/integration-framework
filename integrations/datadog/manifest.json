@@ -57,7 +57,9 @@
         ]
       },
       "templates": {
-        "default": "templates/default.json.hbs"
+        "default": "templates/default.json.hbs",
+        "project": "templates/project.json.hbs",
+        "environment": "templates/environment.json.hbs"
       },
       "defaultPolicy": [
         {
