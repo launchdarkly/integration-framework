@@ -15,6 +15,10 @@
     "site": {
       "href": "https://app.launchdarkly.com/settings/projects",
       "type": "text/html"
+    },
+    "details": {
+      "href": "https://app.launchdarkly.com/default/local-dev/audit/5e38c50906121dba45ba0f42/details",
+      "type": "text/html"
     }
   },
   "baseURL": "https://app.launchdarkly.com",

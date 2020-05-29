@@ -11,6 +11,10 @@
     "site": {
       "href": "https://app.launchdarkly.com/default/production/segments/new-segment",
       "type": "text/html"
+    },
+    "details": {
+      "href": "https://app.launchdarkly.com/default/production/audit/5e38c5bd06121dba45ba0f44/details",
+      "type": "text/html"
     }
   },
   "baseURL": "https://app.launchdarkly.com",

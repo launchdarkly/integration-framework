@@ -15,6 +15,10 @@
     "site": {
       "href": "https://app.launchdarkly.com/default/~/features/a-brand-new-flag",
       "type": "text/html"
+    },
+    "details": {
+      "href": "https://app.launchdarkly.com/settings/history/5e38c29606121dba45ba0f24/details",
+      "type": "text/html"
     }
   },
   "baseURL": "https://app.launchdarkly.com",
