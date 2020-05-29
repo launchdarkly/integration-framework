@@ -148,7 +148,7 @@ if (endpoint) {
     headers.forEach(header => {
       console.log(`HEADER: ${header.name}: ${header.value}`);
     });
-    console.log(`BODY:\t${testFileName}.json`);
+    console.log(`BODY:\t${testFileName}`);
     console.log(body);
   }
 } else {
