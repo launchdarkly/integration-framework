@@ -96,6 +96,7 @@
       "propertyNames": {
         "enum": [
           "site",
+          "launchdarklyDocs",
           "privacyPolicy",
           "supportWebsite"
         ]
@@ -105,6 +106,14 @@
           "$id": "#/properties/links/site",
           "title": "Website",
           "description": "URL to your website",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        },
+        "launchdarklyDocs": {
+          "$id": "#/properties/links/launchdarkly-docs",
+          "title": "LaunchDarkly Documentation",
+          "description": "URL to the LaunchDarkly documentation for this integration",
           "type": "string",
           "maxLength": 2048,
           "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
