@@ -272,7 +272,6 @@ describe('All integrations', () => {
       if (defaultTemplatePath) {
         const path = `./integrations/${key}/${defaultTemplatePath}`;
         expect(existsSync(path)).toBe(true);
-        expect(existsSync(path)).toBe(true);
 
         const template = getTemplate(path);
         const isJSON = isJSONTemplate(defaultTemplatePath);
