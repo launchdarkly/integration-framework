@@ -57,7 +57,7 @@ workflows:
           filters:
             branches:
               only: master
-          bucket-name: launchdarkly-integrations-staging
+          bucket-name: integrations-stg.launchdarkly.com
       - deploy-to-s3:
           requires:
             - build
