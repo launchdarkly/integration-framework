@@ -7,7 +7,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/git-code-references/github-actions",
+    "site": "https://github.com/features/actions",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/git-code-references/github-actions",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["version-control"],

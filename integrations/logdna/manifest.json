@@ -6,7 +6,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/logdna",
+    "site": "https://logdna.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/logdna",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["monitoring", "notifications"],

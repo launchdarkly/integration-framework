@@ -6,7 +6,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/docs/msteams",
+    "site": "https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/msteams",
     "privacyPolicy": "https://privacy.microsoft.com/en-us"
   },
   "categories": ["notifications"],

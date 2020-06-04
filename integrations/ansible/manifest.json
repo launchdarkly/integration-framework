@@ -6,8 +6,9 @@
   "author": "LaunchDarkly Labs",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "supportWebsite": "https://github.com/launchdarkly-labs/ansible-launchdarkly-collection/issues",
     "site": "https://galaxy.ansible.com/launchdarkly_labs/collection",
+    "launchdarklyDocs": "https://launchdarkly-labs.github.io/ansible-launchdarkly-collection/",
+    "supportWebsite": "https://github.com/launchdarkly-labs/ansible-launchdarkly-collection/issues",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["automation"],

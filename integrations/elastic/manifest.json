@@ -7,6 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://elastic.co",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/elastic-stack",
     "privacyPolicy": "https://www.elastic.co/legal/privacy-statement"
   },
   "categories": ["monitoring", "notifications"],

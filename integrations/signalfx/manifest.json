@@ -6,7 +6,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/signalfx",
+    "site": "https://www.signalfx.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/signalfx",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["monitoring", "notifications"],

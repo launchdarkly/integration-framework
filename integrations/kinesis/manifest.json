@@ -6,7 +6,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/data-export/kinesis",
+    "site": "https://aws.amazon.com/kinesis/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/data-export/kinesis",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],

@@ -6,7 +6,9 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/data-export/segment",
+    "site": "https://segment.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/data-export/segment",
+    "supportWebsite": "https://segment.com/docs/connections/sources/catalog/cloud-apps/launchdarkly/",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],

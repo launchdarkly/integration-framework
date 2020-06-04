@@ -7,7 +7,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/git-code-references/bitbucket-pipes",
+    "site": "https://bitbucket.org/product/features/pipelines",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/git-code-references/bitbucket-pipes",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["version-control"],

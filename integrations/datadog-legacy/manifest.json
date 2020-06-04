@@ -6,7 +6,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/datadog",
+    "site": "https://www.datadoghq.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/datadog",
     "privacyPolicy": "https://www.datadoghq.com/legal/privacy"
   },
   "categories": ["monitoring", "notifications"],

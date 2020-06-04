@@ -7,7 +7,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/docs/gitlab-ci",
+    "site": "https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/gitlab-ci",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["configuration", "version-control"],
