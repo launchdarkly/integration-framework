@@ -19,7 +19,7 @@
     {
       "key": "accountId",
       "name": "New Relic account ID",
-      "description": "Enter your [New Relic account ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/account-id).",
+      "description": "Enter your [New Relic account ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/account-id). The associated account must be enabled for Insights Pro.",
       "type": "string",
       "placeholder": "123456"
     },
@@ -48,7 +48,7 @@
         ]
       },
       "templates": {
-        "flag": "templates/flag.json.hbs"
+        "default": "templates/template.json.hbs"
       },
       "defaultPolicy": [
         {
