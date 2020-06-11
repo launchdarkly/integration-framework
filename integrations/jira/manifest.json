@@ -11,7 +11,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/docs/jira",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["task-management"],
+  "categories": ["issue-tracking"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

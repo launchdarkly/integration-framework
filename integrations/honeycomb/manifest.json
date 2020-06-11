@@ -10,7 +10,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/honeycomb",
     "privacyPolicy": "https://honeycomb.io/privacy"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/images/honeycomb-square.svg",
     "horizontal": "assets/images/honeycomb-rect.svg"

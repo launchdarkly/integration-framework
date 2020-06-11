@@ -11,7 +11,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/git-code-references/bitbucket-pipes",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["version-control"],
+  "categories": ["code-references"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

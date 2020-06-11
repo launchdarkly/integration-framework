@@ -10,7 +10,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/slack",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["notifications"],
+  "categories": ["messaging"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

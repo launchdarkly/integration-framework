@@ -11,7 +11,7 @@
     "site": "https://www.pendo.io/",
     "privacyPolicy": "https://www.pendo.io/legal/privacy-policy/"
   },
-  "categories": ["product-tools"],
+  "categories": ["analytics"],
   "icons": {
     "square": "assets/images/pendo_square.svg",
     "horizontal": "assets/images/pendo_horizontal.svg"

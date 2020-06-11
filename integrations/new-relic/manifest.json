@@ -10,7 +10,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/new-relic",
     "privacyPolicy": "https://newrelic.com/termsandconditions/privacy"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/images/new-relic-square.svg",
     "horizontal": "assets/images/new-relic-horizontal.svg"

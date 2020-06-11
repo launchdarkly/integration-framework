@@ -10,7 +10,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/docs/msteams",
     "privacyPolicy": "https://privacy.microsoft.com/en-us"
   },
-  "categories": ["notifications"],
+  "categories": ["messaging"],
   "icons": {
     "square": "assets/images/microsoft-teams.svg",
     "horizontal": "assets/images/microsoft-teams.svg"

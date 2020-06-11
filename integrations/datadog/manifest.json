@@ -10,7 +10,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/datadog",
     "privacyPolicy": "https://www.datadoghq.com/legal/privacy"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/square.svg",
     "horizontal": "assets/horizontal.svg"

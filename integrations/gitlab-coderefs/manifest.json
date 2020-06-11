@@ -11,7 +11,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/docs/gitlab-ci",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["configuration", "version-control"],
+  "categories": ["code-references"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

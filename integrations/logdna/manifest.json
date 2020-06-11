@@ -10,7 +10,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/logdna",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["log-management"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

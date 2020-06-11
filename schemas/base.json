@@ -139,17 +139,22 @@
       "items": {
         "type": "string",
         "enum": [
+          "analytics",
           "authentication",
           "automation",
+          "code-references",
           "collaboration",
           "configuration",
           "data",
           "developer-tools",
           "infrastructure",
-          "task-management",
+          "issue-tracking",
+          "log-management",
+          "messaging",
           "monitoring",
           "notifications",
           "product-tools",
+          "task-management",
           "version-control"
         ]
       }

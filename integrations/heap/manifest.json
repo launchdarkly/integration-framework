@@ -11,7 +11,7 @@
     "site": "https://heap.io/",
     "privacyPolicy": "https://heap.io/privacy"
   },
-  "categories": ["product-tools"],
+  "categories": ["analytics"],
   "icons": {
     "square": "assets/images/heapanalytics-square.svg",
     "horizontal": "assets/images/heapanalytics-rect.svg"
