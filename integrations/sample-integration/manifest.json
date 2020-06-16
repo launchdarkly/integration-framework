@@ -9,7 +9,7 @@
     "site": "https://example.com",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": ["collaboration", "monitoring", "version-control"],
+  "categories": ["monitoring", "code-references"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"

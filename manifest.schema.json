@@ -155,8 +155,6 @@
           "authentication",
           "automation",
           "code-references",
-          "collaboration",
-          "configuration",
           "data",
           "developer-tools",
           "infrastructure",
@@ -164,10 +162,7 @@
           "log-management",
           "messaging",
           "monitoring",
-          "notifications",
-          "product-tools",
-          "task-management",
-          "version-control"
+          "notifications"
         ]
       }
     },
