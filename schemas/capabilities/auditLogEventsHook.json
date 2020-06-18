@@ -46,7 +46,7 @@
               },
               "properties": {
                 "name": {
-                  "$id": "#/properties/fcapability/audit-log-events-hook/header/items/name",
+                  "$id": "#/properties/capability/audit-log-events-hook/header/items/name",
                   "title": "Name",
                   "type": "string",
                   "description": "Name of the header",
@@ -54,7 +54,7 @@
                   "pattern": "^[^\\s]*$"
                 },
                 "value": {
-                  "$id": "#/properties/fcapability/audit-log-events-hook/header/items/value",
+                  "$id": "#/properties/capability/audit-log-events-hook/header/items/value",
                   "title": "Value",
                   "type": "string",
                   "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
@@ -89,7 +89,7 @@
         "description": "Templates to use for body of the webhook request",
         "type": "object",
         "propertyNames": {
-          "enum": ["flag", "project", "environment", "default"]
+          "enum": ["flag", "project", "environment", "default", "validation"]
         },
         "properties": {
           "flag": {
@@ -114,6 +114,12 @@
             "$id": "#/properties/capability/audit-log-events-hook/templates/default",
             "title": "default template",
             "description": "Template to use if the event does not have a corresponding named template",
+            "type": "string"
+          },
+          "validation": {
+            "$id": "#/properties/capability/audit-log-events-hook/templates/validation",
+            "title": "validation template",
+            "description": "Template to use when sending test events with the 'validate connection' button",
             "type": "string"
           }
         }

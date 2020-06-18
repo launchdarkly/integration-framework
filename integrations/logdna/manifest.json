@@ -50,7 +50,8 @@
         ]
       },
       "templates": {
-        "default": "templates/template.json.hbs"
+        "default": "templates/template.json.hbs",
+        "validation": "templates/template.json.hbs"
       },
       "defaultPolicy": [
         {

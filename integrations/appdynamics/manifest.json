@@ -45,7 +45,8 @@
         ]
       },
       "templates": {
-        "default": "templates/template.text.hbs"
+        "default": "templates/template.text.hbs",
+        "validation": "templates/template.text.hbs"
       },
       "defaultPolicy": [
         {
