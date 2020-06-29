@@ -1,0 +1,22 @@
+{
+  "name": "Code references",
+  "version": "1.0.0",
+  "overview": "Use our open-source utility to track references to flags in your code, running in your CI build.",
+  "description": "Use our open-source utility to track references to flags in your code, running in your CI build.",
+  "details": "Use our open-source utility to track references to flags in your code, running in your CI build.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://github.com/launchdarkly/ld-find-code-refs/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/git-code-references",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["code-references"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "legacy": {
+    "kind": "codeRefs"
+  }
+}
