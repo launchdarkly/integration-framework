@@ -1,5 +1,5 @@
 {
-  "name": "GitLab",
+  "name": "GitLab code references",
   "version": "1.0.0",
   "overview": "Use our open-source utility to track flag references in your code, using GitLab CI.",
   "description": "You can use this utility with GitLab CI to automatically populate code references in LaunchDarkly.",

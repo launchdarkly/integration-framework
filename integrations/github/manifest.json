@@ -1,5 +1,5 @@
 {
-  "name": "GitHub",
+  "name": "GitHub code references",
   "version": "1.0.0",
   "overview": "Use our open-source utility to track references to flags in your code, using GitHub Actions.",
   "description": "Use our open-source utility to track references to flags in your code, using GitHub Actions.",
@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://github.com/features/actions",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/git-code-references/github-actions",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/code-references/github-actions",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["code-references"],

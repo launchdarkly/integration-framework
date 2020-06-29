@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "overview": "Use our open-source utility to track references to flags in your code, running in your CI build.",
   "description": "Use our open-source utility to track references to flags in your code, running in your CI build.",
-  "details": "Git is the most widely used modern version control system in the world. It is a mature, actively maintained open-source project relied on by many leading software projects around the world. Use our open-source utility to track references to flags in your code, running in your CI build.",
+  "details": "Use our open-source utility to track references to flags in your code, running in your CI build.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -14,7 +14,7 @@
   "categories": ["code-references"],
   "icons": {
     "square": "assets/images/square.svg",
-    "horizontal": "assets/images/horizontal.svg"
+    "horizontal": "assets/images/square.svg"
   },
   "legacy": {
     "kind": "codeRefs"

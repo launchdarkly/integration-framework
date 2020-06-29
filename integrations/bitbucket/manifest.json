@@ -1,5 +1,5 @@
 {
-  "name": "Bitbucket",
+  "name": "Bitbucket code references",
   "version": "1.0.0",
   "overview": "Use our open-source utility to track references to flags in your code, using Bitbucket Pipes.",
   "description": "Use our open-source utility to track references to flags in your code, using Bitbucket Pipes.",
@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://bitbucket.org/product/features/pipelines",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/git-code-references/bitbucket-pipes",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/code-references/bitbucket-pipes",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["code-references"],
