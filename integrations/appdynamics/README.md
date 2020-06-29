@@ -1,6 +1,8 @@
 # AppDynamics
 
-[User documentation](https://example.com)
+[User documentation](https://docs.launchdarkly.com/integrations/appdynamics)
+
+## Setup
 
 1. Create a new OAuth API client within AppDynamics following the documentation outlined [here](https://docs.appdynamics.com/display/PRO45/API+Clients). Your client will need the **Create Events** permission.
 
