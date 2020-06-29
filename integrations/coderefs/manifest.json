@@ -1,5 +1,5 @@
 {
-  "name": "Git",
+  "name": "Code references",
   "version": "1.0.0",
   "overview": "Use our open-source utility to track references to flags in your code, running in your CI build.",
   "description": "Use our open-source utility to track references to flags in your code, running in your CI build.",
