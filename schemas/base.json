@@ -314,7 +314,8 @@
         "enum": [
           "auditLogEventsHook",
           "reservedCustomProperties",
-          "externalCondition"
+          "externalCondition",
+          "remoteUpdate"
         ]
       },
       "properties": {
@@ -326,6 +327,9 @@
         },
         "externalCondition": {
           "$ref": "schemas/capabilities/externalCondition.json#/externalCondition"
+        },
+        "remoteUpdate": {
+          "$ref": "schemas/capabilities/remoteUpdate.json#/remoteUpdate"
         }
       }
     }
