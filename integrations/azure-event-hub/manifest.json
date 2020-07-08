@@ -2,7 +2,7 @@
   "name": "Azure Event Hub",
   "version": "1.0.0",
   "overview": "Export real-time flag analytics data.",
-  "description": "Export your real-time flag analytics data to mParticle.",
+  "description": "Export your real-time flag analytics data to Azure Event Hub.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
