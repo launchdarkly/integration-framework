@@ -2,9 +2,10 @@
 
 Your integration's `capabilities` describe how it interacts with LaunchDarkly.
 
-We support two capabilities:
+We support three capabilities:
 
-- [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`), and
+- [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`)
+- [Trigger](#trigger) (`trigger`)
 - [Reserved custom properties](#reserved-custom-properties-reservedcustomproperties) (`reservedCustomProperties`)
 
 ## Audit log events hook (`auditLogEventsHook`)
@@ -229,6 +230,10 @@ Here is the policy:
 To preview your integration's templates with sample data, run `npm run preview INTEGRATION_NAME`.
 
 Alternatively, to produce a sample `curl` command, run `npm run curl INTEGRATION_NAME`. This returns data with your integration's service as if it was sent by the audit log event hook capability.
+
+## Trigger (`trigger`)
+
+The Trigger capability is used to generate a unique webhook URL that your service can request to generate a user-defined flag change in LaunchDarkly. By default, the trigger URL contains a globally unique path parameter to provide security in the form of an [unguessable URL](https://www.schneier.com/blog/archives/2015/07/googles_unguess.html). However, if your service supports additional security settings such as shared secrets when firing webhooks, you can specify those with the optional `authentication` object. The required `documentation` field must be a link to documentation outlining how webhooks should be configured in your service.
 
 ## Reserved custom properties (`reservedCustomProperties`)
 

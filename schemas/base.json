@@ -315,7 +315,7 @@
           "auditLogEventsHook",
           "reservedCustomProperties",
           "externalCondition",
-          "remoteUpdate"
+          "trigger"
         ]
       },
       "properties": {
@@ -328,8 +328,8 @@
         "externalCondition": {
           "$ref": "schemas/capabilities/externalCondition.json#/externalCondition"
         },
-        "remoteUpdate": {
-          "$ref": "schemas/capabilities/remoteUpdate.json#/remoteUpdate"
+        "trigger": {
+          "$ref": "schemas/capabilities/trigger.json#/trigger"
         }
       }
     }

@@ -351,7 +351,7 @@
           "auditLogEventsHook",
           "reservedCustomProperties",
           "externalCondition",
-          "remoteUpdate"
+          "trigger"
         ]
       },
       "properties": {
@@ -1060,9 +1060,9 @@
             }
           }
         },
-        "remoteUpdate": {
-          "$id": "#/properties/capability/remote-update",
-          "title": "Remote update",
+        "trigger": {
+          "$id": "#/properties/capability/trigger",
+          "title": "Trigger",
           "description": "This capability is used to manage inbound webhook entry points that trigger feature flag changes in LaunchDarkly",
           "type": "object",
           "propertyNames": {
@@ -1077,15 +1077,15 @@
           ],
           "properties": {
             "documentation": {
-              "$id": "#/properties/capability/remote-update/auth",
+              "$id": "#/properties/capability/trigger/auth",
               "title": "Documentation link",
-              "description": "URL to documentation describing how to configure the remote update.",
+              "description": "URL to documentation describing how to configure the trigger.",
               "type": "string",
               "maxLength": 2048,
               "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
             },
             "auth": {
-              "$id": "#/properties/capability/remote-update/auth",
+              "$id": "#/properties/capability/trigger/auth",
               "title": "Authentication",
               "description": "Authentication type - currently the only option is sharedSecret.",
               "type": "string",
@@ -1094,7 +1094,7 @@
               ]
             },
             "parser": {
-              "$id": "#/properties/capability/remote-update/parser",
+              "$id": "#/properties/capability/trigger/parser",
               "title": "Body parser",
               "description": "The body parser describes a mapping of property name to a location in the JSON payload specified by a JSON pointer",
               "type": "object",
@@ -1107,19 +1107,19 @@
               },
               "properties": {
                 "alertName": {
-                  "$id": "#/properties/capability/remote-update/parser/alert-name",
+                  "$id": "#/properties/capability/trigger/parser/alert-name",
                   "title": "Alert name pointer",
                   "description": "JSON pointer to an alert name",
                   "type": "string"
                 },
                 "value": {
-                  "$id": "#/properties/capability/remote-update/parser/value",
+                  "$id": "#/properties/capability/trigger/parser/value",
                   "title": "Value pointer",
                   "description": "JSON pointer to a metric value",
                   "type": "string"
                 },
                 "url": {
-                  "$id": "#/properties/capability/remote-update/parser/url",
+                  "$id": "#/properties/capability/trigger/parser/url",
                   "title": "URL pointer",
                   "description": "JSON pointer to the external alert URL",
                   "type": "string"
