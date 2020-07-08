@@ -1,5 +1,5 @@
 {
-  "name": "Azure Envent Hub WIP",
+  "name": "Azure Event Hub",
   "version": "1.0.0",
   "overview": "Export real-time flag analytics data.",
   "description": "Export your real-time flag analytics data to mParticle.",
