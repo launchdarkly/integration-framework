@@ -1,8 +1,8 @@
 {
-  "name": "New Relic Insights Pro [Deprecated]",
+  "name": "New Relic",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag events in New Relic Insights Pro",
-  "description": "This integration sends LaunchDarkly audit events to New Relic. Please note that it requires a paid Insights subscription to function.",
+  "overview": "Monitor LaunchDarkly flag events in New Relic APM",
+  "description": "This integration sends LaunchDarkly audit events to New Relic APM as [deployment events](https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/record-monitor-deployments).",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -17,28 +17,28 @@
   },
   "formVariables": [
     {
-      "key": "accountId",
-      "name": "New Relic account ID",
-      "description": "Enter your [New Relic account ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/account-id). The associated account must be enabled for Insights Pro.",
-      "type": "string",
-      "placeholder": "123456"
-    },
-    {
       "key": "apiKey",
-      "name": "New Relic API key",
-      "description": "Enter your [New Relic API key](https://docs.newrelic.com/docs/insights/insights-data-sources/custom-data/introduction-event-api#register).",
+      "name": "New Relic REST API key",
+      "description": "Enter your [New Relic REST API key](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#rest-api-key).",
       "type": "string",
       "isSecret": true
+    },
+    {
+      "key": "applicationId",
+      "name": "New Relic application ID",
+      "description": "Enter your [New Relic application ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/app-id-other-product-ids#ui).",
+      "type": "string",
+      "placeholder": "123456"
     }
   ],
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://insights-collector.newrelic.com/v1/accounts/{{accountId}}/events",
+        "url": "https://api.newrelic.com/v2/applications/{{applicationId}}/deployments.json",
         "method": "POST",
         "headers": [
           {
-            "name": "X-Insert-Key",
+            "name": "X-Api-Key",
             "value": "{{apiKey}}"
           },
           {
@@ -48,8 +48,8 @@
         ]
       },
       "templates": {
-        "default": "templates/template.json.hbs",
-        "validation": "templates/template.json.hbs"
+        "flag": "templates/flag.json.hbs",
+        "validation": "templates/flag.json.hbs"
       },
       "defaultPolicy": [
         {
