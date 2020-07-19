@@ -33,7 +33,7 @@
     "jest": "25.1.0",
     "jest-expect-message": "1.0.2",
     "jsonpointer": "^4.0.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "prettier": "^2.0.1"
   }
 }
