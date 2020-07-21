@@ -39,8 +39,7 @@
       "templates": {
         "project": "templates/project.json.hbs",
         "environment": "templates/environment.json.hbs",
-        "default": "templates/default.json.hbs",
-        "validation": "templates/default.json.hbs"
+        "default": "templates/default.json.hbs"
       },
       "defaultPolicy": [
         {
