@@ -70,6 +70,13 @@
           "actions": ["*"]
         }
       ]
+    },
+    "trigger": {
+      "documentation": "https://docs.launchdarkly.com/integrations/datadog",
+      "parser": {
+        "alertName": "/alert_name",
+        "url": "/url"
+      }
     }
   }
 }
