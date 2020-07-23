@@ -13,10 +13,13 @@ Run `npm run curl datadog` in the root repository directory to generate a `curl`
 
 Consult the [Datadog documentation](https://docs.datadoghq.com/integrations/webhooks/) to set up outgoing webhooks from your Datadog account.
 
-When configuring a new webhook in Datadog, there will be the option to specify the payload. In order for LaunchDarkly to parse the payload correctly, it will need to be as follows:
+When [configuring a new webhook in Datadog](https://app.datadoghq.com/account/settings#integrations/webhooks), there will be the option to specify the payload. In order for LaunchDarkly to parse the payload correctly, it will need to be as follows:
 ```
 {
 "alert_name": "$ALERT_METRIC",
 "url": "$LINK",
 }
 ```
+If we wish to change this in the future, the full list of fields we can configure in Datadog webhooks can be found [here](https://docs.datadoghq.com/integrations/webhooks/).
+
+To test, you'll have to attach the webhook to a monitor by putting `@webhook-<webhook_name>` into the text of the alert you want and then test from the monitor configuration page by clicking the 'Test Notifications' button at the bottom.

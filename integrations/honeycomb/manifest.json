@@ -59,6 +59,14 @@
           "actions": ["*"]
         }
       ]
+    },
+    "trigger": {
+      "documentation": "https://docs.launchdarkly.com/integrations/honeycomb",
+      "parser": {
+        "alertName": "/name",
+        "value": "/threshold",
+        "url": "/result_url"
+      }
     }
   }
 }
