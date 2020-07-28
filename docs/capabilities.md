@@ -245,7 +245,13 @@ Alternatively, to produce a sample `curl` command, run `npm run curl INTEGRATION
 
 ## Trigger (`trigger`)
 
-The trigger capability is used to generate a unique webhook URL that your service can request to generate a user-defined flag change in LaunchDarkly. By default, the trigger URL contains a globally unique path parameter to provide security in the form of an [unguessable URL](https://www.schneier.com/blog/archives/2015/07/googles_unguess.html). However, if your service supports additional security settings such as shared secrets when firing webhooks, you can specify those with the optional `auth` object. The required `documentation` field must be a link to documentation outlining how webhooks should be configured in your service.
+**At the time of this writing, LaunchDarkly's trigger functionality is only available to customers opted in to an early access program. Email [partnerships@launchdarkly.com](mailto:partnerships@launchdarkly.com) to request access.**
+
+The trigger capability is used to generate a unique webhook URL that your service can request to generate a user-defined flag change in LaunchDarkly.
+
+By default, the trigger URL contains a globally unique path parameter to provide security in the form of an [unguessable URL](https://www.schneier.com/blog/archives/2015/07/googles_unguess.html). However, if your service supports additional security settings such as shared secrets when firing webhooks, you can specify those with the optional `auth` object. **Note**: at launch, the `auth` attribute is unsupported and should be omitted.
+
+The required `documentation` field must be a link to documentation outlining how webhooks should be configured in your service.
 
 If your webhooks' request bodies are non-empty, you can specify the optional `parser` object with one or more of `alertName`, `value`, and `url`. The provided values will flow through LaunchDarkly into the resulting audit log messages when your service invokes a trigger in LaunchDarkly.
 
