@@ -6,10 +6,11 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/signalfx",
+    "site": "https://www.signalfx.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/signalfx",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
@@ -47,7 +48,8 @@
         ]
       },
       "templates": {
-        "default": "templates/template.json.hbs"
+        "default": "templates/template.json.hbs",
+        "validation": "templates/template.json.hbs"
       },
       "defaultPolicy": [
         {

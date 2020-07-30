@@ -90,13 +90,21 @@
       "description": "A set of reference links supporting your integration",
       "type": "object",
       "propertyNames": {
-        "enum": ["site", "privacyPolicy", "supportWebsite"]
+        "enum": ["site", "launchdarklyDocs", "privacyPolicy", "supportWebsite"]
       },
       "properties": {
         "site": {
           "$id": "#/properties/links/site",
           "title": "Website",
           "description": "URL to your website",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        },
+        "launchdarklyDocs": {
+          "$id": "#/properties/links/launchdarkly-docs",
+          "title": "LaunchDarkly Documentation",
+          "description": "URL to the LaunchDarkly documentation for this integration",
           "type": "string",
           "maxLength": 2048,
           "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
@@ -131,18 +139,18 @@
       "items": {
         "type": "string",
         "enum": [
+          "analytics",
           "authentication",
           "automation",
-          "collaboration",
-          "configuration",
+          "code-references",
           "data",
           "developer-tools",
           "infrastructure",
-          "task-management",
+          "issue-tracking",
+          "log-management",
+          "messaging",
           "monitoring",
-          "notifications",
-          "product-tools",
-          "version-control"
+          "notifications"
         ]
       }
     },
@@ -306,7 +314,8 @@
         "enum": [
           "auditLogEventsHook",
           "reservedCustomProperties",
-          "externalCondition"
+          "externalCondition",
+          "trigger"
         ]
       },
       "properties": {
@@ -318,6 +327,9 @@
         },
         "externalCondition": {
           "$ref": "schemas/capabilities/externalCondition.json#/externalCondition"
+        },
+        "trigger": {
+          "$ref": "schemas/capabilities/trigger.json#/trigger"
         }
       }
     }

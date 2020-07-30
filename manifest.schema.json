@@ -96,6 +96,7 @@
       "propertyNames": {
         "enum": [
           "site",
+          "launchdarklyDocs",
           "privacyPolicy",
           "supportWebsite"
         ]
@@ -105,6 +106,14 @@
           "$id": "#/properties/links/site",
           "title": "Website",
           "description": "URL to your website",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        },
+        "launchdarklyDocs": {
+          "$id": "#/properties/links/launchdarkly-docs",
+          "title": "LaunchDarkly Documentation",
+          "description": "URL to the LaunchDarkly documentation for this integration",
           "type": "string",
           "maxLength": 2048,
           "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
@@ -142,18 +151,18 @@
       "items": {
         "type": "string",
         "enum": [
+          "analytics",
           "authentication",
           "automation",
-          "collaboration",
-          "configuration",
+          "code-references",
           "data",
           "developer-tools",
           "infrastructure",
-          "task-management",
+          "issue-tracking",
+          "log-management",
+          "messaging",
           "monitoring",
-          "notifications",
-          "product-tools",
-          "version-control"
+          "notifications"
         ]
       }
     },
@@ -341,7 +350,8 @@
         "enum": [
           "auditLogEventsHook",
           "reservedCustomProperties",
-          "externalCondition"
+          "externalCondition",
+          "trigger"
         ]
       },
       "properties": {
@@ -406,7 +416,7 @@
                     },
                     "properties": {
                       "name": {
-                        "$id": "#/properties/fcapability/audit-log-events-hook/header/items/name",
+                        "$id": "#/properties/capability/audit-log-events-hook/header/items/name",
                         "title": "Name",
                         "type": "string",
                         "description": "Name of the header",
@@ -414,7 +424,7 @@
                         "pattern": "^[^\\s]*$"
                       },
                       "value": {
-                        "$id": "#/properties/fcapability/audit-log-events-hook/header/items/value",
+                        "$id": "#/properties/capability/audit-log-events-hook/header/items/value",
                         "title": "Value",
                         "type": "string",
                         "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
@@ -458,7 +468,8 @@
                   "flag",
                   "project",
                   "environment",
-                  "default"
+                  "default",
+                  "validation"
                 ]
               },
               "properties": {
@@ -484,6 +495,12 @@
                   "$id": "#/properties/capability/audit-log-events-hook/templates/default",
                   "title": "default template",
                   "description": "Template to use if the event does not have a corresponding named template",
+                  "type": "string"
+                },
+                "validation": {
+                  "$id": "#/properties/capability/audit-log-events-hook/templates/validation",
+                  "title": "validation template",
+                  "description": "Template to use when sending test events with the 'validate connection' button",
                   "type": "string"
                 }
               }
@@ -1038,6 +1055,74 @@
                     "id",
                     "url"
                   ]
+                }
+              }
+            }
+          }
+        },
+        "trigger": {
+          "$id": "#/properties/capability/trigger",
+          "title": "Trigger",
+          "description": "This capability is used to manage inbound webhook entry points that trigger feature flag changes in LaunchDarkly",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "documentation",
+              "auth",
+              "parser"
+            ]
+          },
+          "required": [
+            "documentation"
+          ],
+          "properties": {
+            "documentation": {
+              "$id": "#/properties/capability/trigger/auth",
+              "title": "Documentation link",
+              "description": "URL to documentation describing how to configure the trigger.",
+              "type": "string",
+              "maxLength": 2048,
+              "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+            },
+            "auth": {
+              "$id": "#/properties/capability/trigger/auth",
+              "title": "Authentication",
+              "description": "Authentication type - currently the only option is sharedSecret.",
+              "type": "string",
+              "enum": [
+                "sharedSecret"
+              ]
+            },
+            "parser": {
+              "$id": "#/properties/capability/trigger/trigger-parser",
+              "title": "Trigger parser",
+              "description": "Describes a mapping of property name to a location in the JSON response payload specified by a JSON pointer",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "alertName",
+                  "value",
+                  "url"
+                ]
+              },
+              "properties": {
+                "alertName": {
+                  "$id": "#/properties/capability/trigger/trigger-parser/alert-name",
+                  "title": "Alert name pointer",
+                  "description": "JSON pointer to an alert name",
+                  "type": "string"
+                },
+                "value": {
+                  "$id": "#/properties/capability/trigger/trigger-parser/value",
+                  "title": "Value pointer",
+                  "description": "JSON pointer to a metric value",
+                  "type": "string"
+                },
+                "url": {
+                  "$id": "#/properties/capability/trigger/trigger-parser/url",
+                  "title": "URL pointer",
+                  "description": "JSON pointer to the external alert URL",
+                  "type": "string"
                 }
               }
             }

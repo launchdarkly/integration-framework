@@ -1,0 +1,63 @@
+{
+  "name": "New Relic",
+  "version": "1.0.0",
+  "overview": "Monitor LaunchDarkly flag events in New Relic APM",
+  "description": "This integration sends LaunchDarkly audit events to New Relic APM as [deployment events](https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/record-monitor-deployments).",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://newrelic.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/new-relic",
+    "privacyPolicy": "https://newrelic.com/termsandconditions/privacy"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/images/new-relic-square.svg",
+    "horizontal": "assets/images/new-relic-horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "apiKey",
+      "name": "New Relic REST API key",
+      "description": "Enter your [New Relic REST API key](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#rest-api-key).",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "applicationId",
+      "name": "New Relic application ID",
+      "description": "Enter your [New Relic application ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/app-id-other-product-ids#ui).",
+      "type": "string",
+      "placeholder": "123456"
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://api.newrelic.com/v2/applications/{{applicationId}}/deployments.json",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "X-Api-Key",
+            "value": "{{apiKey}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/flag.json.hbs",
+        "validation": "templates/flag.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}

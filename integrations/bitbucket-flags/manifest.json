@@ -7,8 +7,9 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
+    "site": "https://bitbucket.org/product/features/pipelines",
     "supportWebsite": "https://docs.launchdarkly.com/docs/bitbucket-pipelines",
-    "site": "https://docs.launchdarkly.com/docs/bitbucket-pipelines",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/bitbucket-pipelines",
     "privacyPolicy": "https://docs.launchdarkly.com/docs/git-code-references#section-configuring-context-lines"
   },
   "categories": ["automation", "developer-tools"],

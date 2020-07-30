@@ -6,10 +6,11 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/docs/splunk",
+    "site": "https://www.splunk.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/splunk",
     "privacyPolicy": "https://www.splunk.com/en_us/legal/splunk-data-security-and-privacy.html"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/images/splunk-icon.svg",
     "horizontal": "assets/images/splunk-logo.svg"
@@ -55,7 +56,8 @@
         ]
       },
       "templates": {
-        "default": "templates/template.json.hbs"
+        "default": "templates/template.json.hbs",
+        "validation": "templates/template.json.hbs"
       },
       "defaultPolicy": [
         {

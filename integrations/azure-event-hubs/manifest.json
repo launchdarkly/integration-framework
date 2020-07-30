@@ -1,0 +1,21 @@
+{
+  "name": "Azure Event Hubs",
+  "version": "1.0.0",
+  "overview": "Export real-time flag analytics data.",
+  "description": "Export your real-time flag analytics data to Azure Event Hubs.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://azure.microsoft.com/en-us/services/event-hubs/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/data-export/event-hub",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "legacy": {
+    "kind": "dataExport"
+  }
+}

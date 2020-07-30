@@ -15,6 +15,10 @@
     "site": {
       "href": "https://app.launchdarkly.com/default/production/features/demo-flag",
       "type": "text/html"
+    },
+    "details": {
+      "href": "https://app.launchdarkly.com/default/production/audit/5e38bf6706121d8aaf15392a/details",
+      "type": "text/html"
     }
   },
   "baseURL": "https://app.launchdarkly.com",

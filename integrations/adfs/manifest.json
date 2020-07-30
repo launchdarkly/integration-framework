@@ -7,7 +7,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/docs/adfs",
+    "site": "https://docs.microsoft.com/en-us/windows-server/identity/active-directory-federation-services",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/adfs",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["authentication"],

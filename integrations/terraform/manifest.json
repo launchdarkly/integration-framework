@@ -7,7 +7,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "supportWebsite": "https://docs.launchdarkly.com/docs/terraform",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/terraform",
+    "supportWebsite": "https://www.terraform.io/docs/providers/launchdarkly/index.html",
     "site": "https://www.terraform.io/docs/providers/launchdarkly/index.html",
     "privacyPolicy": "https://app.terraform.io/pages/privacy"
   },

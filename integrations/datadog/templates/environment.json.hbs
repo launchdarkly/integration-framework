@@ -16,8 +16,13 @@
         "{{{this}}}",
         {{/each}}
         "project_key:{{project.key}}",
+        "project_name:{{project.name}}",
         "environment_key:{{key}}",
+        "environment_name:{{project.environment.name}}",
+        {{!-- The following tag was added to provide backwards compatibility with the legacy integration. --}}
+        "{{project.environment.name}}",
         "action:{{verbKind}}",
+        "kind:{{kind}}",
         "member:{{member.email}}"
     ],
     "source_type_name": "launchdarkly"

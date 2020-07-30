@@ -28,7 +28,11 @@
     "Project key": "{{project.key}}",
     "Environment name": "{{project.environment.name}}",
     "Environment key": "{{project.environment.key}}",
-    "Comment": "{{#if comment}}{{comment}}{{/if}}"
+    "Comment": "{{#if comment}}{{comment}}{{/if}}",
+    {{#if member.firstName}}{{#if member.lastName}}
+    "User name": "{{member.firstName}} {{member.lastName}}",
+    {{/if}}{{/if}}
+    "User email": "{{ member.email }}"
   },
   "start": {{ timestamp.milliseconds }},
   "source": "LaunchDarkly",

@@ -6,10 +6,11 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/dynatrace",
+    "site": "https://www.dynatrace.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/dynatrace",
     "privacyPolicy": "https://www.dynatrace.com/company/trust-center/privacy/"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/square.svg",
     "horizontal": "assets/horizontal.svg"

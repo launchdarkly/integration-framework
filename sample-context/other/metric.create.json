@@ -11,6 +11,10 @@
     "self": {
       "href": "https://app.launchdarkly.com/api/v2/auditlog/5e38c67506121dba45ba0f49",
       "type": "application/json"
+    },
+    "details": {
+      "href": "https://app.launchdarkly.com/settings/history/5e38c67506121dba45ba0f49/details",
+      "type": "text/html"
     }
   },
   "baseURL": "https://app.launchdarkly.com",

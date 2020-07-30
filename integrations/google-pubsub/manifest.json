@@ -6,7 +6,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/data-export/google-pubsub",
+    "site": "https://cloud.google.com/pubsub",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/data-export/google-pubsub",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],

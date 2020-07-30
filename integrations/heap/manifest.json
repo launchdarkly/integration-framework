@@ -7,11 +7,12 @@
   "author": "Heap",
   "supportEmail": "support@heap.io",
   "links": {
-    "supportWebsite": "https://docs.oracle.com/en/cloud/saas/data-cloud/data-cloud-help-center/index.html",
-    "site": "https://docs.heap.io/docs/additional-sources#section-launch-darkly",
+    "supportWebsite": "https://help.heap.io/",
+    "site": "https://heap.io/",
+    "launchdarklyDocs": "https://help.heap.io/integrations/testing-and-personalization/launchdarkly/",
     "privacyPolicy": "https://heap.io/privacy"
   },
-  "categories": ["product-tools"],
+  "categories": ["analytics"],
   "icons": {
     "square": "assets/images/heapanalytics-square.svg",
     "horizontal": "assets/images/heapanalytics-rect.svg"

@@ -9,7 +9,7 @@
     "site": "https://www.AppOptics.com/",
     "privacyPolicy": "https://www.solarwinds.com/legal/privacy"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/images/solarwinds-square.svg",
     "horizontal": "assets/images/horizontal.svg"
@@ -50,7 +50,8 @@
         ]
       },
       "templates": {
-        "flag": "templates/flag.json.hbs"
+        "flag": "templates/flag.json.hbs",
+        "validation": "templates/flag.json.hbs"
       },
       "defaultPolicy": [
         {

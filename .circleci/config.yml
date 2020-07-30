@@ -57,18 +57,18 @@ workflows:
           filters:
             branches:
               only: master
-          bucket-name: launchdarkly-integrations-staging
+          bucket-name: integrations-stg.launchdarkly.com
       - deploy-to-s3:
           requires:
             - build
           filters:
             branches:
               only: deploy-catamorphic
-          bucket-name: launchdarkly-integrations-catamorphic
+          bucket-name: integrations-cat.catamorphic.com
       - deploy-to-s3:
           requires:
             - build
           filters:
             branches:
               only: deploy-production
-          bucket-name: launchdarkly-integrations-production
+          bucket-name: integrations-prod.launchdarkly.com

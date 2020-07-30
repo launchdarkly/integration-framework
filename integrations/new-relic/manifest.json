@@ -1,15 +1,16 @@
 {
-  "name": "New Relic",
+  "name": "New Relic Insights Pro [Deprecated]",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag events in New Relic",
+  "overview": "Monitor LaunchDarkly flag events in New Relic Insights Pro",
   "description": "This integration sends LaunchDarkly audit events to New Relic. Please note that it requires a paid Insights subscription to function.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://newrelic.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/new-relic",
     "privacyPolicy": "https://newrelic.com/termsandconditions/privacy"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/images/new-relic-square.svg",
     "horizontal": "assets/images/new-relic-horizontal.svg"
@@ -18,7 +19,7 @@
     {
       "key": "accountId",
       "name": "New Relic account ID",
-      "description": "Enter your [New Relic account ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/account-id).",
+      "description": "Enter your [New Relic account ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/account-id). The associated account must be enabled for Insights Pro.",
       "type": "string",
       "placeholder": "123456"
     },
@@ -47,7 +48,8 @@
         ]
       },
       "templates": {
-        "flag": "templates/flag.json.hbs"
+        "default": "templates/template.json.hbs",
+        "validation": "templates/template.json.hbs"
       },
       "defaultPolicy": [
         {

@@ -6,10 +6,11 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/docs/msteams",
+    "site": "https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/msteams",
     "privacyPolicy": "https://privacy.microsoft.com/en-us"
   },
-  "categories": ["notifications"],
+  "categories": ["messaging"],
   "icons": {
     "square": "assets/images/microsoft-teams.svg",
     "horizontal": "assets/images/microsoft-teams.svg"
@@ -38,7 +39,8 @@
       "templates": {
         "project": "templates/project.json.hbs",
         "environment": "templates/environment.json.hbs",
-        "default": "templates/default.json.hbs"
+        "default": "templates/default.json.hbs",
+        "validation": "templates/default.json.hbs"
       },
       "defaultPolicy": [
         {

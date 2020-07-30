@@ -15,8 +15,10 @@
         {{#each tags}}
         "{{{this}}}",
         {{/each}}
-        {{#if project.key}}"project_key:{{project.key}}",
+        "project_key:{{project.key}}",
+        "project_name:{{project.name}}",
         "action:{{verbKind}}",
+        "kind:{{kind}}",
         "member:{{member.email}}"
     ],
     "source_type_name": "launchdarkly"

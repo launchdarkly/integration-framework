@@ -1,0 +1,21 @@
+{
+  "message": "{{{title.plainText}}}",
+  "eventType": "LaunchDarkly",
+  "url": "{{_links.details.href}}",
+  "timestamp": "{{timestamp.milliseconds}}",
+  "kind": "{{kind}}",
+  {{#equal kind 'flag'}}
+  "flag_name": "{{name}}",
+  "flag_key": "{{key}}",
+  {{/equal}}
+  {{#if project}}
+  "project_name": "{{project.name}}",
+  "project_key": "{{project.key}}",
+  {{#if project.environment}}
+  "environment_name": "{{project.environment.name}}",
+  "environment_key": "{{project.environment.key}}",
+  {{/if}}
+  {{/if}}
+  "user": "{{#if member.firstName}}{{member.firstName}}{{#if member.lastName}} {{/if}}{{/if}}{{#if member.lastName}}{{member.lastName}}{{/if}}",
+  "user_email": "{{member.email}}"
+}

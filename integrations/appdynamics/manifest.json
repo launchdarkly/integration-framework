@@ -6,10 +6,11 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://example.com",
+    "site": "https://www.appdynamics.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/appdynamics",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/images/appdynamics_square.svg",
     "horizontal": "assets/images/appdynamics_horizontal.svg"
@@ -34,7 +35,7 @@
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "{{oauth.baseURI}}/controller/rest/applications/{{pathEncode applicationID}}/events?summary={{queryEncode 'LaunchDarkly: '}}{{queryEncode context.title.html}}{{#if context.details.html}}%0D%0A{{queryEncode context.details.html}}{{/if}}{{#if context.comment}}&comment={{queryEncode context.comment}}{{/if}}&eventtype=CUSTOM&customeventtype=LaunchDarkly&severity=INFO",
+        "url": "{{oauth.baseURI}}/controller/rest/applications/{{pathEncode applicationID}}/events?summary={{queryEncode 'LaunchDarkly: '}}{{queryEncode context.title.html}}{{#if context.comment}}%0D%0A{{queryEncode '<strong>Comment: </strong>'}}{{queryEncode context.comment}}{{/if}}{{#if context.details.html}}%0D%0A{{queryEncode context.details.html}}{{/if}}&eventtype=CUSTOM&customeventtype=LaunchDarkly&severity=INFO{{#equal context.kind 'flag' }}&propertynames=flag_key&propertyvalues={{queryEncode context.key}}&propertynames=flag_name&propertyvalues={{queryEncode context.name}}{{/equal}}{{#if context.project}}&propertynames=project_key&propertyvalues={{queryEncode context.project.key}}&propertynames=project_name&propertyvalues={{queryEncode context.project.name}}{{#if context.project.environment}}&propertynames=environment_key&propertyvalues={{queryEncode context.project.environment.key}}&propertynames=environment_name&propertyvalues={{queryEncode context.project.environment.name}}{{/if}}{{/if}}&propertynames=kind&propertyvalues={{context.kind}}",
         "method": "POST",
         "headers": [
           {
@@ -44,7 +45,8 @@
         ]
       },
       "templates": {
-        "default": "templates/template.text.hbs"
+        "default": "templates/template.text.hbs",
+        "validation": "templates/template.text.hbs"
       },
       "defaultPolicy": [
         {

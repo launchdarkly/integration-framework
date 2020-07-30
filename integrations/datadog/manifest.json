@@ -2,14 +2,15 @@
   "name": "Datadog",
   "version": "1.0.0",
   "overview": "Monitor LaunchDarkly changes in Datadog",
-  "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Datadog.",
+  "description": "Monitor LaunchDarkly flag and other change events in DataDog. Correlate feature rollouts to changes in your system’s operational health.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations/datadog",
+    "site": "https://www.datadoghq.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/datadog",
     "privacyPolicy": "https://www.datadoghq.com/legal/privacy"
   },
-  "categories": ["monitoring", "notifications"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/square.svg",
     "horizontal": "assets/horizontal.svg"
@@ -57,7 +58,10 @@
         ]
       },
       "templates": {
-        "default": "templates/default.json.hbs"
+        "default": "templates/default.json.hbs",
+        "project": "templates/project.json.hbs",
+        "environment": "templates/environment.json.hbs",
+        "validation": "templates/default.json.hbs"
       },
       "defaultPolicy": [
         {
@@ -66,6 +70,13 @@
           "actions": ["*"]
         }
       ]
+    },
+    "trigger": {
+      "documentation": "https://docs.launchdarkly.com/integrations/datadog",
+      "parser": {
+        "alertName": "/alert_name",
+        "url": "/url"
+      }
     }
   }
 }

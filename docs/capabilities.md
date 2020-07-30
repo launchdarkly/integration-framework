@@ -2,9 +2,10 @@
 
 Your integration's `capabilities` describe how it interacts with LaunchDarkly.
 
-We support two capabilities:
+We support three capabilities:
 
-- [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`), and
+- [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`)
+- [Trigger](#trigger-trigger) (`trigger`)
 - [Reserved custom properties](#reserved-custom-properties-reservedcustomproperties) (`reservedCustomProperties`)
 
 ## Audit log events hook (`auditLogEventsHook`)
@@ -110,6 +111,18 @@ This example uses the `apiToken` formVariable as a query parameter on the URL:
 Before the `auditLogEventsHook` capability sends the request to the endpoint
 handling your webhook, you can transform the body of the request
 sent to your handler.
+
+In your manifest, you can specify templates to be executed when webhook events are of kinds `flag`, `project`, and `environment`. Additionally, you can specify a `default` template as a catch-all for any event without a more specific template. A `validation` template is also provided in case you want to provide users with the ability to validate their connection by sending a test event from LaunchDarkly to your service.
+
+```json
+    "templates": {
+      "default": "templates/default.json.hbs",
+      "flag": "templates/flag.json.hbs",
+      "project": "templates/project.json.hbs",
+      "environment": "templates/environment.json.hbs",
+      "validation": "templates/default.json.hbs"
+    },
+```
 
 If you don't provide one or more templates, LaunchDarkly
 sends you a default JSON payload that looks like this:
@@ -230,6 +243,34 @@ To preview your integration's templates with sample data, run `npm run preview I
 
 Alternatively, to produce a sample `curl` command, run `npm run curl INTEGRATION_NAME`. This returns data with your integration's service as if it was sent by the audit log event hook capability.
 
+## Trigger (`trigger`)
+
+**At the time of this writing, LaunchDarkly's trigger functionality is only available to customers opted in to an early access program. Email [partnerships@launchdarkly.com](mailto:partnerships@launchdarkly.com) to request access.**
+
+The trigger capability is used to generate a unique webhook URL that your service can request to generate a user-defined flag change in LaunchDarkly.
+
+By default, the trigger URL contains a globally unique path parameter to provide security in the form of an [unguessable URL](https://www.schneier.com/blog/archives/2015/07/googles_unguess.html). However, if your service supports additional security settings such as shared secrets when firing webhooks, you can specify those with the optional `auth` object. **Note**: at launch, the `auth` attribute is unsupported and should be omitted.
+
+The required `documentation` field must be a link to documentation outlining how webhooks should be configured in your service.
+
+If your webhooks' request bodies are non-empty, you can specify the optional `parser` object with one or more of `alertName`, `value`, and `url`. The provided values will flow through LaunchDarkly into the resulting audit log messages when your service invokes a trigger in LaunchDarkly.
+
+Here is a sample `trigger` capability including all optional properties:
+
+```json
+    "trigger": {
+      "documentation": "https://example.com/configuring-webhooks",
+      "auth": {
+        "type": "sharedSecret"
+      },
+      "parser": {
+        "alertName": "/alert",
+        "value": "/value",
+        "url": "/links/self/href"
+      },
+    }
+```
+
 ## Reserved custom properties (`reservedCustomProperties`)
 
 Custom properties allow you to store data in LaunchDarkly alongside a feature flag. For example, you can use custom properties to indicate flag-level associations with data on your service. If you don't have any flag-level associations or configurations, you don't need to use this capability.
@@ -241,3 +282,14 @@ By default, users must specify a custom property name and key when they attach t
 Reserved custom properties are simple to define. Their only requirements are a `name` and `key`.
 
 After your integration is configured by a user, the custom property starts appearing in the dropdown on the flag's Settings page.
+
+Here is a sample `reservedCustomProperties` capability:
+
+```json
+    "reservedCustomProperties": [
+      {
+        "name": "Foobar Entities",
+        "key": "foobar"
+      }
+    ],
+```

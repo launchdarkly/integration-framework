@@ -205,6 +205,11 @@ describe('All integrations', () => {
         'capabilities.auditLogEventsHook.templates.default',
         null
       );
+      const validationTemplatePath = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.templates.validation',
+        null
+      );
       if (flagTemplatePath) {
         const path = `./integrations/${key}/${flagTemplatePath}`;
         expect(existsSync(path)).toBe(true);
@@ -272,7 +277,6 @@ describe('All integrations', () => {
       if (defaultTemplatePath) {
         const path = `./integrations/${key}/${defaultTemplatePath}`;
         expect(existsSync(path)).toBe(true);
-        expect(existsSync(path)).toBe(true);
 
         const template = getTemplate(path);
         const isJSON = isJSONTemplate(defaultTemplatePath);
@@ -287,6 +291,36 @@ describe('All integrations', () => {
           expect(
             () => JSON.parse(rendered),
             `${key} default .json templates must render valid JSON\n${rendered}`
+          ).not.toThrow();
+        }
+      }
+      if (validationTemplatePath) {
+        const path = `./integrations/${key}/${validationTemplatePath}`;
+        expect(existsSync(path)).toBe(true);
+        const template = getTemplate(path);
+        const isJSON = isJSONTemplate(validationTemplatePath);
+        const fullContext = getFullContext(
+          manifest,
+          environmentContext,
+          isJSON
+        );
+        expect(
+          () => template(fullContext),
+          `${key}: validation template must render successfully`
+        ).not.toThrow();
+
+        // Validation templates must not render an empty string
+        const rendered = template(fullContext);
+        expect(
+          rendered.trim(),
+          `${key} validation template must not render an empty string`
+        ).not.toEqual('');
+
+        // Validate json templates render to valid json
+        if (isJSON) {
+          expect(
+            () => JSON.parse(rendered),
+            `${key} validation .json templates must render valid JSON\n${rendered}`
           ).not.toThrow();
         }
       }
