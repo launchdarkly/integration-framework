@@ -22,7 +22,7 @@ git remote add private git@github.com:launchdarkly/integration-framework-private
 git checkout master
 git fetch private
 git merge private/master --squash --strategy-option=theirs
-git commit -a -m "${1}" # Merge conflicts will need to be resolved manually
+git commit -a -m "${COMMIT_MSG}" # Merge conflicts will need to be resolved manually
 git push origin master
 
 cd ../..

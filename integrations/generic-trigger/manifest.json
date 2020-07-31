@@ -1,0 +1,27 @@
+{
+  "name": "Generic",
+  "version": "1.0.0",
+  "overview": "Remotely trigger flag changes using a unique webhook URL",
+  "description": "Remotely trigger flag changes using a unique webhook URL",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://launchdarkly.com",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy"
+  },
+  "categories": ["automation", "developer-tools"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "capabilities": {
+    "trigger": {
+      "documentation": "https://docs.launchdarkly.com",
+      "parser": {
+        "alertName": "alertName",
+        "value": "value",
+        "url": "url"
+      }
+    }
+  }
+}
