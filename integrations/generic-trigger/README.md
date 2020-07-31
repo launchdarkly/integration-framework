@@ -1,4 +1,4 @@
-# Incoming webhook trigger
+# Generic trigger
 
 TODO:
  - Add new icon

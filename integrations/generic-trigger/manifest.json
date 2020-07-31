@@ -1,5 +1,5 @@
 {
-  "name": "Incoming Webhook Trigger",
+  "name": "Generic",
   "version": "1.0.0",
   "overview": "Remotely trigger flag changes using a unique webhook URL",
   "description": "Remotely trigger flag changes using a unique webhook URL",
