@@ -271,6 +271,8 @@ Here is a sample `trigger` capability including all optional properties:
     }
 ```
 
+**Note**: if an integration only has the trigger capability, the word "trigger" will be added to its name in the LaunchDarkly UI. For this reason, do not include the word "trigger" in the manifest name. See the [generic-trigger manifest](/integrations/generic-trigger/manifest.json) for an example.
+
 ## Reserved custom properties (`reservedCustomProperties`)
 
 Custom properties allow you to store data in LaunchDarkly alongside a feature flag. For example, you can use custom properties to indicate flag-level associations with data on your service. If you don't have any flag-level associations or configurations, you don't need to use this capability.
