@@ -54,6 +54,7 @@ workflows:
       - deploy-to-s3:
           requires:
             - build
+          context: org-global
           filters:
             branches:
               only: master
@@ -61,6 +62,7 @@ workflows:
       - deploy-to-s3:
           requires:
             - build
+          context: org-global
           filters:
             branches:
               only: deploy-catamorphic
@@ -68,6 +70,7 @@ workflows:
       - deploy-to-s3:
           requires:
             - build
+          context: org-global
           filters:
             branches:
               only: deploy-production
