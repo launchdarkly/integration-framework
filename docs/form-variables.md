@@ -39,6 +39,6 @@ The `formVariables[].description` will be used as a field label on the UI. You
 can use simple markdown to link a word or phrase to an external URL.
 
 Accepted form variable types are `string`, `boolean`, `uri`, and `enum`.
-Optionally, you can set `isSecret` or `isOptional` if necessary, or provide guidance with `placeholder` and `defaultValue`.
+Optionally, you can set `isSecret` or `isOptional` if necessary, or provide guidance with `placeholder` and `defaultValue`. If you provide a `defaultValue`, you must also set `isOptional` to `true`.
 
 To learn more, read the [manifest schema](../manifest.schema.json).

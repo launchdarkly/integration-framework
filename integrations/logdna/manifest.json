@@ -30,7 +30,8 @@
       "description": "The log level with which LaunchDarkly messages will be published.",
       "type": "string",
       "isSecret": false,
-      "defaultValue": "INFO"
+      "defaultValue": "INFO",
+      "isOptional": true
     }
   ],
   "capabilities": {

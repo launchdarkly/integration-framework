@@ -37,6 +37,7 @@
       "type": "enum",
       "description": "Select the Dynatrace entity `meType` to associate with all events.",
       "defaultValue": "APPLICATION",
+      "isOptional": true,
       "allowedValues": [
         "APPLICATION",
         "APPLICATION_METHOD",

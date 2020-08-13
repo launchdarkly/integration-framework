@@ -157,6 +157,10 @@ describe('All integrations', () => {
       if (formVariables) {
         formVariables.forEach(formVariable => {
           if (!_.isUndefined(formVariable.defaultValue)) {
+            expect(
+              formVariable.isOptional,
+              '"defaultValue" is only valid if "isOptional" is true. Use "placeholder" if you do not want the variable to be optional.'
+            ).toBe(true);
             if (formVariable.type === 'string' || formVariable.type === 'uri') {
               expect(_.isString(formVariable.defaultValue)).toBe(true);
             } else if (formVariable.type === 'boolean') {

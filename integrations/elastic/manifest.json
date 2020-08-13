@@ -40,7 +40,7 @@
       "type": "string",
       "isSecret": false,
       "isOptional": false,
-      "defaultValue": "launchdarkly-audit"
+      "placeholder": "launchdarkly-audit"
     }
   ],
   "capabilities": {
