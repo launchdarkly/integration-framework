@@ -11,8 +11,8 @@
   },
   "categories": ["automation", "developer-tools"],
   "icons": {
-    "square": "assets/images/square.svg",
-    "horizontal": "assets/images/horizontal.svg"
+    "square": "assets/images/webhook-trigger.svg",
+    "horizontal": "assets/images/webhook-trigger.svg"
   },
   "capabilities": {
     "trigger": {
