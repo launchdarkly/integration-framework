@@ -61,7 +61,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/honeycomb",
+      "documentation": "https://docs.launchdarkly.com/integrations/honeycomb/triggers#connecting-a-launchdarkly-trigger-to-honeycomb",
       "parser": {
         "alertName": "/name",
         "url": "/result_url"
