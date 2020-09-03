@@ -19,7 +19,9 @@
   "capabilities": {
     "trigger": {
       "documentation": "https://docs.launchdarkly.com/integrations/triggers#creating-a-new-trigger",
+      "defaultEventName": "An event",
       "parser": {
+        "eventName": "eventName",
         "alertName": "alertName",
         "value": "value",
         "url": "url"
