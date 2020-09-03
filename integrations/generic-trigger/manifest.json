@@ -1,8 +1,8 @@
 {
   "name": "Generic",
   "version": "1.0.0",
-  "overview": "Remotely trigger flag changes using a unique webhook URL",
-  "description": "Remotely trigger flag changes using a unique webhook URL",
+  "overview": "Remotely trigger flag changes using a unique webhook URL.",
+  "description": "Remotely trigger flag changes using a unique webhook URL.",
   "details": "Triggers let you remotely execute flag changes, and generic triggers can be set up to work with any service that fires a webhook. Use a generic trigger from scripts, in-house tools, and monitoring or tracker services to turn flags on or off directly from your application.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

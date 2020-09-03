@@ -104,6 +104,10 @@ describe('All integrations', () => {
     ).toBe(true);
   });
 
+  test.each(manifests)('Overview ends in a period for %s', (key, manifest) => {
+    expect(_.get(manifest, 'overview', '').endsWith('.')).toBe(true);
+  });
+
   test.each(manifests)(
     'Referenced form variables exist for %s',
     (key, manifest) => {

@@ -1,7 +1,7 @@
 {
   "name": "New Relic Insights Pro [Deprecated]",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag events in New Relic Insights Pro",
+  "overview": "Monitor LaunchDarkly flag events in New Relic Insights Pro.",
   "description": "This integration sends LaunchDarkly audit events to New Relic. Please note that it requires a paid Insights subscription to function.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

@@ -1,7 +1,7 @@
 {
   "name": "SignalFx",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag changes in SignalFx",
+  "overview": "Monitor LaunchDarkly flag changes in SignalFx.",
   "description": "Monitor LaunchDarkly flag and other change events with clear data markers in SignalFx to correlate feature flag rollouts with changes in operational health.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

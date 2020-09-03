@@ -1,7 +1,7 @@
 {
   "name": "Datadog",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly changes in Datadog",
+  "overview": "Monitor LaunchDarkly changes in Datadog.",
   "description": "Monitor LaunchDarkly flag and other change events in DataDog. Correlate feature rollouts to changes in your system’s operational health.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

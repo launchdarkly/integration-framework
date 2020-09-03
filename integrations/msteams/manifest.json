@@ -1,7 +1,7 @@
 {
   "name": "Microsoft Teams",
   "version": "1.0.0",
-  "overview": "Receive flag change notifications in your Teams workspaces",
+  "overview": "Receive flag change notifications in your Teams workspaces.",
   "description": "Receive LaunchDarkly notifications in your Teams workspaces. Subscribe to changes in flags, projects, and other resources.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

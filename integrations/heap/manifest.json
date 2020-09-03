@@ -1,7 +1,7 @@
 {
   "name": "Heap",
   "version": "1.0.0",
-  "overview": "Add LaunchDarkly user IDs and feature flag events to Heap as user and event properties",
+  "overview": "Add LaunchDarkly user IDs and feature flag events to Heap as user and event properties.",
   "description": "To set this up, attach LaunchDarkly's user key and feature flags as user and event properties in Heap.",
   "details": "Heap offers a smarter way to build digital products. With comprehensive data collection and structured processes, Heap helps Product Managers understand their users, make data-driven decisions, and craft delightful digital experiences. Add LaunchDarkly user IDs and feature flag events to Heap to better understand users and their experiences.",
   "author": "Heap",

@@ -1,7 +1,7 @@
 {
   "name": "Grafana",
   "version": "0.0.1",
-  "overview": "Annotate your Grafana dashboards with LaunchDarkly events",
+  "overview": "Annotate your Grafana dashboards with LaunchDarkly events.",
   "description": "Send flag, environment, and project updates to Grafana to add context to your graphs.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

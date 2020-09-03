@@ -1,7 +1,7 @@
 {
   "name": "Google Apps",
   "version": "1.0.0",
-  "overview": "Provision users and manage single sign-on with Google (Enterprise only)",
+  "overview": "Provision users and manage single sign-on with Google (Enterprise only).",
   "description": "Use your Google Apps identity provider (IdP) to manage your LaunchDarkly users. This integration is only available for LaunchDarkly customers on an Enterprise plan.",
   "details": "Single sign-on (SSO) lets users sign in to all their enterprise cloud applications using their managed Google account credentials. Provision LaunchDarkly users and manage single sign-on with Google.",
   "author": "LaunchDarkly",

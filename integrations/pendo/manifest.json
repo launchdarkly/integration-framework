@@ -1,7 +1,7 @@
 {
   "name": "Pendo",
   "version": "1.0.0",
-  "overview": "Target your Pendo audiences with LaunchDarkly rules",
+  "overview": "Target your Pendo audiences with LaunchDarkly rules.",
   "description": "Product teams often want to roll out new features iteratively, measuring adoption and collecting feedback from a subset of users before making the feature generally available. Pendo and LaunchDarkly have partnered to help our joint customers use Pendo to better target and engage users during this process.  Pendo data such as product adoption, renewal data, and ARR can help target the rollout of features through LaunchDarkly.",
   "details": "Pendo helps product teams understand product usage, collect feedback, measure sentiment, onboard users, and announce new features in app—all without requiring engineering resources. Access Pendo audiences with LaunchDarkly targeting rules to deliver your new features to the right users.",
   "author": "Pendo",
