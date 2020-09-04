@@ -1,7 +1,7 @@
 {
   "name": "Dynatrace",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag changes in Dynatrace",
+  "overview": "Monitor LaunchDarkly flag changes in Dynatrace.",
   "description": "Monitor LaunchDarkly flag change events alongside your Dynatrace performance graphs. Correlate feature rollouts to changes in your system’s operational health.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -37,6 +37,7 @@
       "type": "enum",
       "description": "Select the Dynatrace entity `meType` to associate with all events.",
       "defaultValue": "APPLICATION",
+      "isOptional": true,
       "allowedValues": [
         "APPLICATION",
         "APPLICATION_METHOD",

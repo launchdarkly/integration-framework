@@ -1,7 +1,7 @@
 {
   "name": "AppOptics",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag events in AppOptics",
+  "overview": "Monitor LaunchDarkly flag events in AppOptics.",
   "description": "This integration sends LaunchDarkly audit events to AppOptics.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

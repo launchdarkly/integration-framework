@@ -1,7 +1,7 @@
 {
   "name": "AppDynamics",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag events in AppDynamics",
+  "overview": "Monitor LaunchDarkly flag events in AppDynamics.",
   "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to AppDynamics.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

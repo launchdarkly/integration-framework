@@ -1,7 +1,7 @@
 {
   "name": "Datadog",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly changes in Datadog",
+  "overview": "Monitor LaunchDarkly changes in Datadog.",
   "description": "This integration sends LaunchDarkly audit log events (flag, project, environment changes) to Datadog.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

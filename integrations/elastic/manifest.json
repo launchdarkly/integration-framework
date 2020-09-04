@@ -1,7 +1,7 @@
 {
   "name": "Elastic (ELK) Stack",
   "version": "1.0.0",
-  "overview": "Observe LaunchDarkly flag changes in the Elastic (ELK) Stack",
+  "overview": "Observe LaunchDarkly flag changes in the Elastic (ELK) Stack.",
   "description": "This integration sends LaunchDarkly audit log events to an Elasticsearch endpoint.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -40,7 +40,7 @@
       "type": "string",
       "isSecret": false,
       "isOptional": false,
-      "defaultValue": "launchdarkly-audit"
+      "placeholder": "launchdarkly-audit"
     }
   ],
   "capabilities": {

@@ -1,7 +1,7 @@
 {
   "name": "New Relic",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag events in New Relic APM",
+  "overview": "Monitor LaunchDarkly flag events in New Relic APM.",
   "description": "This integration sends LaunchDarkly audit events to New Relic APM as [deployment events](https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/record-monitor-deployments).",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

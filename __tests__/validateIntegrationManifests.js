@@ -104,6 +104,10 @@ describe('All integrations', () => {
     ).toBe(true);
   });
 
+  test.each(manifests)('Overview ends in a period for %s', (key, manifest) => {
+    expect(_.get(manifest, 'overview', '').endsWith('.')).toBe(true);
+  });
+
   test.each(manifests)(
     'Referenced form variables exist for %s',
     (key, manifest) => {
@@ -157,6 +161,10 @@ describe('All integrations', () => {
       if (formVariables) {
         formVariables.forEach(formVariable => {
           if (!_.isUndefined(formVariable.defaultValue)) {
+            expect(
+              formVariable.isOptional,
+              '"defaultValue" is only valid if "isOptional" is true. Use "placeholder" if you do not want the variable to be optional.'
+            ).toBe(true);
             if (formVariable.type === 'string' || formVariable.type === 'uri') {
               expect(_.isString(formVariable.defaultValue)).toBe(true);
             } else if (formVariable.type === 'boolean') {

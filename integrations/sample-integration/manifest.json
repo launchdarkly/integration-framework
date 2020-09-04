@@ -1,7 +1,7 @@
 {
   "name": "Sample Integration",
   "version": "1.0.0",
-  "overview": "Short one-liner describing your integration",
+  "overview": "Short one-liner describing your integration.",
   "description": "Send flag data to space. Markdown based description.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",

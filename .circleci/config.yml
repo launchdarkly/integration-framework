@@ -27,11 +27,10 @@ jobs:
           name: Run tests
           command: npm test
   deploy-to-s3:
+    executor: aws-cli/default
     parameters:
       bucket-name:
         type: string
-    machine:
-      enabled: true
     steps:
       - checkout
       - aws-cli/install
@@ -45,7 +44,6 @@ jobs:
             BUCKET_NAME: << parameters.bucket-name >>
 
 workflows:
-  version: 2.1
   build-and-deploy:
     jobs:
       - linter/pre-commit:
@@ -54,21 +52,24 @@ workflows:
       - deploy-to-s3:
           requires:
             - build
+          context: org-global
           filters:
             branches:
               only: master
-          bucket-name: integrations-stg.launchdarkly.com
+          bucket-name: launchdarkly-integrations-staging
       - deploy-to-s3:
           requires:
             - build
+          context: org-global
           filters:
             branches:
               only: deploy-catamorphic
-          bucket-name: integrations-cat.catamorphic.com
+          bucket-name: launchdarkly-integrations-catamorphic
       - deploy-to-s3:
           requires:
             - build
+          context: org-global
           filters:
             branches:
               only: deploy-production
-          bucket-name: integrations-prod.launchdarkly.com
+          bucket-name: launchdarkly-integrations-production

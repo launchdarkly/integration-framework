@@ -1,7 +1,7 @@
 {
   "name": "Terraform",
   "version": "1.0.0",
-  "overview": "Manage your LaunchDarkly resources as Terraform resources",
+  "overview": "Manage your LaunchDarkly resources as Terraform resources.",
   "description": "Use the LaunchDarkly Terraform provider to manage LaunchDarkly resources as Terraform resources. This allows you to use Terraform scripts to configure and control feature flags, environments, projects, and more.",
   "details": "Terraform is a tool for building, changing, and versioning infrastructure safely and efficiently. Terraform can manage existing and popular service providers as well as custom in-house solutions. Use Terraform to script and control your feature flag configurations.",
   "author": "LaunchDarkly",

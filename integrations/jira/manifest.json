@@ -1,7 +1,7 @@
 {
   "name": "Jira Cloud",
   "version": "1.0.0",
-  "overview": "Link your feature flags with your team's Jira issues",
+  "overview": "Link your feature flags with your team's Jira issues.",
   "description": "Integrate LaunchDarkly with Jira to see your feature flags alongside your team's Jira issues.",
   "details": "Jira is the #1 software development tool used by agile teams to plan, track, and release great software. Built for all team members, Jira enables collaboration by providing everyone with visibility into important information for planning and coordinating projects, tracking progress, and reporting results in real-time. Integrate LaunchDarkly with Jira to see your feature flags alongside your team's Jira issues.",
   "author": "LaunchDarkly",
