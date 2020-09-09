@@ -64,4 +64,7 @@ workflows:
               only: master
       - send-webhook:
           requires:
-            - build
+            - upload-to-s3
+          filters:
+            branches:
+              only: master
