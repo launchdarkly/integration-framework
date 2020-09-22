@@ -8,6 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://docs.launchdarkly.com/docs/azure",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/azure",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["authentication"],
