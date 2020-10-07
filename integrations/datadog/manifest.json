@@ -76,7 +76,6 @@
       "documentation": "https://docs.launchdarkly.com/integrations/datadog/triggers#connecting-a-trigger-to-datadog",
       "parser": {
         "eventName": "/title",
-        "alertName": "/title",
         "url": "/url"
       }
     }

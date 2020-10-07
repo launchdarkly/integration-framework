@@ -63,7 +63,6 @@
       "documentation": "https://docs.launchdarkly.com/integrations/signalfx/triggers#connecting-a-launchdarkly-trigger-to-signalfx",
       "parser": {
         "eventName": "/eventType",
-        "alertName": "/detector",
         "url": "/detectorUrl"
       }
     }

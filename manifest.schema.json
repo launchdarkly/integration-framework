@@ -1109,7 +1109,6 @@
               "propertyNames": {
                 "enum": [
                   "eventName",
-                  "alertName",
                   "value",
                   "url"
                 ]
@@ -1119,12 +1118,6 @@
                   "$id": "#/properties/capability/trigger/trigger-parser/event-name",
                   "title": "Event name pointer",
                   "description": "JSON pointer to an event name",
-                  "type": "string"
-                },
-                "alertName": {
-                  "$id": "#/properties/capability/trigger/trigger-parser/alert-name",
-                  "title": "Alert name pointer",
-                  "description": "DEPRECATED (use eventName): JSON pointer to an alert name",
                   "type": "string"
                 },
                 "value": {

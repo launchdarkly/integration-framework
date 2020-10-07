@@ -38,19 +38,13 @@
         "description": "Describes a mapping of property name to a location in the JSON response payload specified by a JSON pointer",
         "type": "object",
         "propertyNames": {
-          "enum": ["eventName", "alertName", "value", "url"]
+          "enum": ["eventName", "value", "url"]
         },
         "properties": {
           "eventName": {
             "$id": "#/properties/capability/trigger/trigger-parser/event-name",
             "title": "Event name pointer",
             "description": "JSON pointer to an event name",
-            "type": "string"
-          },
-          "alertName": {
-            "$id": "#/properties/capability/trigger/trigger-parser/alert-name",
-            "title": "Alert name pointer",
-            "description": "DEPRECATED (use eventName): JSON pointer to an alert name",
             "type": "string"
           },
           "value": {
