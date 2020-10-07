@@ -1070,7 +1070,8 @@
               "documentation",
               "auth",
               "parser",
-              "defaultEventName"
+              "defaultEventName",
+              "testEventNameRegexp"
             ]
           },
           "required": [
@@ -1100,6 +1101,13 @@
               "description": "The default event name string used in the audit log if an eventName cannot be parsed in the trigger request body.",
               "type": "string",
               "default": "An alert"
+            },
+            "testEventNameRegexp": {
+              "$id": "#/properties/capability/trigger/test-event-name-regexp",
+              "title": "Test Event Name Regex",
+              "description": "The expected eventName of the integration partner's test events",
+              "type": "string",
+              "default": ".*[Tt][Ee][Ss][Tt].*"
             },
             "parser": {
               "$id": "#/properties/capability/trigger/trigger-parser",
