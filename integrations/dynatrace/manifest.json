@@ -162,6 +162,14 @@
           "actions": ["*"]
         }
       ]
+    },
+    "trigger": {
+      "documentation": "https://docs.launchdarkly.com/integrations/dynatrace/triggers#connecting-a-launchdarkly-trigger-to-dynatrace",
+      "testEventNameRegexp": "^Dynatrace problem notification test run$",
+      "parser": {
+        "eventName": "/title",
+        "url": "/url"
+      }
     }
   }
 }
