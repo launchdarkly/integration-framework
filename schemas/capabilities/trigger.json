@@ -6,7 +6,13 @@
     "description": "This capability is used to manage inbound webhook entry points that trigger feature flag changes in LaunchDarkly",
     "type": "object",
     "propertyNames": {
-      "enum": ["documentation", "auth", "parser", "defaultEventName"]
+      "enum": [
+        "documentation",
+        "auth",
+        "parser",
+        "defaultEventName",
+        "testEventNameRegexp"
+      ]
     },
     "required": ["documentation"],
     "properties": {
@@ -32,25 +38,26 @@
         "type": "string",
         "default": "An alert"
       },
+      "testEventNameRegexp": {
+        "$id": "#/properties/capability/trigger/test-event-name-regexp",
+        "title": "Test Event Name Regex",
+        "description": "The expected eventName of the integration partner's test events",
+        "type": "string",
+        "default": ".*[Tt][Ee][Ss][Tt].*"
+      },
       "parser": {
         "$id": "#/properties/capability/trigger/trigger-parser",
         "title": "Trigger parser",
         "description": "Describes a mapping of property name to a location in the JSON response payload specified by a JSON pointer",
         "type": "object",
         "propertyNames": {
-          "enum": ["eventName", "alertName", "value", "url"]
+          "enum": ["eventName", "value", "url"]
         },
         "properties": {
           "eventName": {
             "$id": "#/properties/capability/trigger/trigger-parser/event-name",
             "title": "Event name pointer",
             "description": "JSON pointer to an event name",
-            "type": "string"
-          },
-          "alertName": {
-            "$id": "#/properties/capability/trigger/trigger-parser/alert-name",
-            "title": "Alert name pointer",
-            "description": "DEPRECATED (use eventName): JSON pointer to an alert name",
             "type": "string"
           },
           "value": {

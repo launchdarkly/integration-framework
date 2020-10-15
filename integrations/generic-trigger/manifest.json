@@ -22,7 +22,6 @@
       "defaultEventName": "An event",
       "parser": {
         "eventName": "/eventName",
-        "alertName": "/alertName",
         "value": "/value",
         "url": "/url"
       }

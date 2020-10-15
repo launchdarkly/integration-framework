@@ -253,7 +253,9 @@ By default, the trigger URL contains a globally unique path parameter to provide
 
 The required `documentation` field must be a link to documentation outlining how webhooks should be configured in your service.
 
-If your webhooks' request bodies are non-empty, you can specify the optional `parser` object with one or more of `alertName`, `value`, and `url`. The provided values will flow through LaunchDarkly into the resulting audit log messages when your service invokes a trigger in LaunchDarkly.
+If the integration offers the option to send test events / webhook requests, the optional `testEventNameRegexp` fields allows you to specify regex to match the expected `eventName` value below. This will tell our integration framework not to make any real flag or resource changes associated with matching events.
+
+If your webhooks' request bodies are non-empty, you can specify the optional `parser` object with one or more of `eventName`, `value`, and `url`. The provided values will flow through LaunchDarkly into the resulting audit log messages when your service invokes a trigger in LaunchDarkly.
 
 Here is a sample `trigger` capability including all optional properties:
 
@@ -264,7 +266,7 @@ Here is a sample `trigger` capability including all optional properties:
         "type": "sharedSecret"
       },
       "parser": {
-        "alertName": "/alert",
+        "eventName": "/event",
         "value": "/value",
         "url": "/links/self/href"
       },

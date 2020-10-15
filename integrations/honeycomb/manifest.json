@@ -64,7 +64,6 @@
       "documentation": "https://docs.launchdarkly.com/integrations/honeycomb/triggers#connecting-a-launchdarkly-trigger-to-honeycomb",
       "parser": {
         "eventName": "/name",
-        "alertName": "/name",
         "url": "/result_url"
       }
     }

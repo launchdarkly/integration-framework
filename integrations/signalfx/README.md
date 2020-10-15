@@ -4,6 +4,8 @@
 
 [API documentation](https://developers.signalfx.com/ingest_data_reference.html#operation/Send%20Custom%20Events)
 
+[Webhook (trigger) documentation](https://docs.signalfx.com/en/latest/admin-guide/integrate-notifications.html)
+
 ### Set up for testing
 You shouldn't need to plug SignalFx into anything to test the SignalFx-Goaltender integration. Instead, just follow the following steps to locate the LD events after logging in to SignalFx:
 1. Under the 'Dashboards' tab, expand the 'Built-in Dashboard Groups' section.
