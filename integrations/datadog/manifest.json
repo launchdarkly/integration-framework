@@ -74,6 +74,7 @@
     },
     "trigger": {
       "documentation": "https://docs.launchdarkly.com/integrations/datadog/triggers#connecting-a-trigger-to-datadog",
+      "testEventNameRegexp": ".+ \\[TEST\\].+",
       "parser": {
         "eventName": "/title",
         "url": "/url"
