@@ -14,7 +14,7 @@ Here's an example:
             "key": "endpointUrl",
             "name": "Webhook endpoint URL",
             "description": "Enter the URL to the webhook endpoint",
-            "default": "https://example.com/inbound_webhook",
+            "defaultValue": "https://example.com/inbound_webhook",
             "type": "url"
         },
         {
