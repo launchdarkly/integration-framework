@@ -191,6 +191,23 @@ describe('All integrations', () => {
   );
 
   test.each(manifests)(
+    'dynamicOptions is specified on dynamicEnum formVariable fields for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type == 'dynamicEnum') {
+            expect(formVariable.dynamicOptions).toBeDefined();
+          }
+          if (formVariable.dynamicOptions) {
+            expect(formVariable.type).toBe('dynamicEnum');
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
     'Templates can be successfully rendered for %s',
     (key, manifest) => {
       const flagTemplatePath = _.get(

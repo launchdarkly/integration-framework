@@ -10,78 +10,7 @@
     },
     "properties": {
       "endpoint": {
-        "$id": "#/properties/capability/audit-log-events-hook/receiving-endpoint",
-        "title": "Endpoint",
-        "description": "Properties that describe the HTTP endpoint LaunchDarkly will send hooks to",
-        "type": "object",
-        "propertyNames": {
-          "enum": ["url", "method", "headers"]
-        },
-        "properties": {
-          "url": {
-            "$id": "#/properties/capability/audit-log-events-hook/url",
-            "title": "URL",
-            "type": "string",
-            "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
-          },
-          "method": {
-            "$id": "#/properties/capability/audit-log-events-hook/method",
-            "title": "HTTP method",
-            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-            "enum": ["POST", "PUT", "PATCH"],
-            "default": "POST"
-          },
-          "headers": {
-            "$id": "#/properties/capability/audit-log-events-hook/headers",
-            "title": "HTTP headers",
-            "description": "Headers to send with the webhook request",
-            "type": "array",
-            "items": {
-              "$id": "#/properties/capability/audit-log-events-hook/header/items",
-              "title": "Header items",
-              "description": "A name and value pair to send as headers with the hook request",
-              "type": "object",
-              "propertyNames": {
-                "enum": ["name", "value"]
-              },
-              "properties": {
-                "name": {
-                  "$id": "#/properties/capability/audit-log-events-hook/header/items/name",
-                  "title": "Name",
-                  "type": "string",
-                  "description": "Name of the header",
-                  "maxLength": 50,
-                  "pattern": "^[^\\s]*$"
-                },
-                "value": {
-                  "$id": "#/properties/capability/audit-log-events-hook/header/items/value",
-                  "title": "Value",
-                  "type": "string",
-                  "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
-                }
-              },
-              "required": ["name", "value"]
-            },
-            "default": [
-              {
-                "name": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "examples": [
-              {
-                "name": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "name": "Authorization",
-                "value": "Bearer {{apiToken}}"
-              }
-            ],
-            "minProperties": 1
-          }
-        },
-        "required": ["url"]
+        "$ref": "../definitions.json#/endpoint"
       },
       "templates": {
         "$id": "#/properties/capability/audit-log-events-hook/templates",

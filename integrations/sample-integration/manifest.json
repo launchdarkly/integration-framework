@@ -66,6 +66,28 @@
       "type": "string",
       "isSecret": true,
       "isOptional": false
+    },
+    {
+      "key": "dropdownOptions",
+      "name": "Dropdown Options",
+      "description": "this is a dynamic enum",
+      "type": "dynamicEnum",
+      "isSecret": false,
+      "isOptional": true,
+      "dynamicOptions": {
+        "endpoint": {
+          "url": "https://www.sample.com/",
+          "method": "GET",
+          "headers": []
+        },
+        "parser": {
+          "optionsPath": "/items",
+          "optionsItems": {
+            "label": "/name",
+            "value": "/value"
+          }
+        }
+      }
     }
   ],
   "capabilities": {
