@@ -36,6 +36,9 @@ const getFormVariableContext = formVariables => {
         case 'enum':
           endpointContext[formVariable.key] = formVariable.key;
           break;
+        case 'dynamicEnum':
+          endpointContext[formVariable.key] = formVariable.key;
+          break;
       }
     });
   }

@@ -68,23 +68,23 @@
       "isOptional": false
     },
     {
-      "key": "dropdownOptions",
-      "name": "Dropdown Options",
+      "key": "color",
+      "name": "Dynamic color options",
       "description": "this is a dynamic enum",
       "type": "dynamicEnum",
       "isSecret": false,
       "isOptional": true,
       "dynamicOptions": {
         "endpoint": {
-          "url": "https://www.sample.com/",
+          "url": "https://reqres.in/api/unknown",
           "method": "GET",
           "headers": []
         },
         "parser": {
-          "optionsPath": "/items",
+          "optionsPath": "/data",
           "optionsItems": {
             "label": "/name",
-            "value": "/value"
+            "value": "/color"
           }
         }
       }
@@ -93,7 +93,7 @@
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://example.com/webhookin",
+        "url": "https://example.com/webhookin?color={{color}}",
         "method": "POST",
         "headers": [
           {
