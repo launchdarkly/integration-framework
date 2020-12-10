@@ -1,5 +1,86 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
+  "documentation": {
+    "$id": "#/definitions/documentation",
+    "title": "Documentation link",
+    "description": "URL to documentation describing how to configure the integration.",
+    "type": "string",
+    "maxLength": 2048,
+    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+  },
+  "endpointUrl": {
+    "$id": "#/definitions/endpoint/url",
+    "title": "URL",
+    "type": "string",
+    "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+  },
+  "endpointMethod": {
+    "$id": "#/definitions/endpoint/method",
+    "title": "HTTP method",
+    "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+    "enum": ["POST", "PUT", "PATCH", "GET"],
+    "default": "POST"
+  },
+  "endpointHeaders": {
+    "$id": "#/definitions/endpoint/headers",
+    "title": "HTTP headers",
+    "description": "Headers to send with the webhook request",
+    "type": "array",
+    "items": {
+      "$id": "#/definitions/endpoint/header/items",
+      "title": "Header items",
+      "description": "A name and value pair to send as headers with the hook request",
+      "type": "object",
+      "propertyNames": {
+        "enum": ["name", "value"]
+      },
+      "properties": {
+        "name": {
+          "$id": "#/definitions/endpoint/header/items/name",
+          "title": "Name",
+          "type": "string",
+          "description": "Name of the header",
+          "maxLength": 50,
+          "pattern": "^[^\\s]*$"
+        },
+        "value": {
+          "$id": "#/definitions/endpoint/header/items/value",
+          "title": "Value",
+          "type": "string",
+          "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+        }
+      },
+      "required": ["name", "value"]
+    },
+    "default": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      }
+    ],
+    "examples": [
+      {
+        "name": "Content-Type",
+        "value": "application/json"
+      },
+      {
+        "name": "Authorization",
+        "value": "Bearer {{apiToken}}"
+      }
+    ],
+    "minProperties": 1
+  },
+  "endpointProperties": {
+    "url": {
+      "$ref": "#/endpointUrl"
+    },
+    "method": {
+      "$ref": "#/endpointMethod"
+    },
+    "headers": {
+      "$ref": "#/endpointHeaders"
+    }
+  },
   "endpoint": {
     "$id": "#/definitions/endpoint",
     "title": "Endpoint",
@@ -9,68 +90,7 @@
       "enum": ["url", "method", "headers"]
     },
     "properties": {
-      "url": {
-        "$id": "#/definitions/endpoint/url",
-        "title": "URL",
-        "type": "string",
-        "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
-      },
-      "method": {
-        "$id": "#/definitions/endpoint/method",
-        "title": "HTTP method",
-        "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-        "enum": ["POST", "PUT", "PATCH", "GET"],
-        "default": "POST"
-      },
-      "headers": {
-        "$id": "#/definitions/endpoint/headers",
-        "title": "HTTP headers",
-        "description": "Headers to send with the webhook request",
-        "type": "array",
-        "items": {
-          "$id": "#/definitions/endpoint/header/items",
-          "title": "Header items",
-          "description": "A name and value pair to send as headers with the hook request",
-          "type": "object",
-          "propertyNames": {
-            "enum": ["name", "value"]
-          },
-          "properties": {
-            "name": {
-              "$id": "#/definitions/endpoint/header/items/name",
-              "title": "Name",
-              "type": "string",
-              "description": "Name of the header",
-              "maxLength": 50,
-              "pattern": "^[^\\s]*$"
-            },
-            "value": {
-              "$id": "#/definitions/endpoint/header/items/value",
-              "title": "Value",
-              "type": "string",
-              "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
-            }
-          },
-          "required": ["name", "value"]
-        },
-        "default": [
-          {
-            "name": "Content-Type",
-            "value": "application/json"
-          }
-        ],
-        "examples": [
-          {
-            "name": "Content-Type",
-            "value": "application/json"
-          },
-          {
-            "name": "Authorization",
-            "value": "Bearer {{apiToken}}"
-          }
-        ],
-        "minProperties": 1
-      }
+      "$ref": "#/endpointProperties"
     },
     "required": ["url"]
   }

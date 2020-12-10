@@ -859,34 +859,32 @@
                       "headers"
                     ]
                   },
-                  "required": [
-                    "url"
-                  ],
                   "properties": {
                     "url": {
-                      "$id": "#/properties/capability/external-condition/creation/endpoint/url",
+                      "$id": "#/definitions/endpoint/url",
                       "title": "URL",
                       "type": "string",
                       "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
                     },
                     "method": {
-                      "$id": "#/properties/capability/external-condition/creation/method",
+                      "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
                       "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
                       "enum": [
                         "POST",
                         "PUT",
-                        "PATCH"
+                        "PATCH",
+                        "GET"
                       ],
                       "default": "POST"
                     },
                     "headers": {
-                      "$id": "#/properties/capability/external-condition/creation/headers",
+                      "$id": "#/definitions/endpoint/headers",
                       "title": "HTTP headers",
                       "description": "Headers to send with the webhook request",
                       "type": "array",
                       "items": {
-                        "$id": "#/properties/capability/external-condition/creation/endpoint/header/items",
+                        "$id": "#/definitions/endpoint/header/items",
                         "title": "Header items",
                         "description": "A name and value pair to send as headers with the hook request",
                         "type": "object",
@@ -898,7 +896,7 @@
                         },
                         "properties": {
                           "name": {
-                            "$id": "#/properties/capability/external-condition/creation/endpoint/header/items/name",
+                            "$id": "#/definitions/endpoint/header/items/name",
                             "title": "Name",
                             "type": "string",
                             "description": "Name of the header",
@@ -906,7 +904,7 @@
                             "pattern": "^[^\\s]*$"
                           },
                           "value": {
-                            "$id": "#/properties/capability/external-condition/creation/endpoint/header/items/value",
+                            "$id": "#/definitions/endpoint/header/items/value",
                             "title": "Value",
                             "type": "string",
                             "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
@@ -935,7 +933,10 @@
                       ],
                       "minProperties": 1
                     }
-                  }
+                  },
+                  "required": [
+                    "url"
+                  ]
                 },
                 "template": {
                   "$id": "#/properties/capability/external-condition/creation/template",
@@ -944,7 +945,7 @@
                   "type": "string"
                 },
                 "parser": {
-                  "$id": "#/parser",
+                  "$id": "#/external-condition-parser",
                   "title": "Response parser",
                   "description": "Describes a mapping of property name to a location in the JSON response specified by a JSON pointer",
                   "type": "object",
@@ -1062,30 +1063,30 @@
                   ],
                   "properties": {
                     "url": {
-                      "$id": "#/properties/capability/external-condition/polling-update/endpoint/url",
+                      "$id": "#/definitions/endpoint/url",
                       "title": "URL",
                       "type": "string",
                       "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
                     },
                     "method": {
-                      "$id": "#/properties/capability/external-condition/polling-update/method",
+                      "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
                       "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
                       "enum": [
-                        "GET",
                         "POST",
                         "PUT",
-                        "PATCH"
+                        "PATCH",
+                        "GET"
                       ],
-                      "default": "GET"
+                      "default": "POST"
                     },
                     "headers": {
-                      "$id": "#/properties/capability/external-condition/polling-update/headers",
+                      "$id": "#/definitions/endpoint/headers",
                       "title": "HTTP headers",
                       "description": "Headers to send with the webhook request",
                       "type": "array",
                       "items": {
-                        "$id": "#/properties/capability/external-condition/polling-update/endpoint/header/items",
+                        "$id": "#/definitions/endpoint/header/items",
                         "title": "Header items",
                         "description": "A name and value pair to send as headers with the hook request",
                         "type": "object",
@@ -1097,7 +1098,7 @@
                         },
                         "properties": {
                           "name": {
-                            "$id": "#/properties/capability/external-condition/polling-update/endpoint/header/items/name",
+                            "$id": "#/definitions/endpoint/header/items/name",
                             "title": "Name",
                             "type": "string",
                             "description": "Name of the header",
@@ -1105,7 +1106,7 @@
                             "pattern": "^[^\\s]*$"
                           },
                           "value": {
-                            "$id": "#/properties/capability/external-condition/polling-update/endpoint/header/items/value",
+                            "$id": "#/definitions/endpoint/header/items/value",
                             "title": "Value",
                             "type": "string",
                             "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
@@ -1137,7 +1138,7 @@
                   }
                 },
                 "parser": {
-                  "$id": "#/parser",
+                  "$id": "#/external-condition-parser",
                   "title": "Response parser",
                   "description": "Describes a mapping of property name to a location in the JSON response specified by a JSON pointer",
                   "type": "object",
@@ -1243,9 +1244,9 @@
           ],
           "properties": {
             "documentation": {
-              "$id": "#/properties/capability/trigger/auth",
+              "$id": "#/definitions/documentation",
               "title": "Documentation link",
-              "description": "URL to documentation describing how to configure the trigger.",
+              "description": "URL to documentation describing how to configure the integration.",
               "type": "string",
               "maxLength": 2048,
               "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
@@ -1274,7 +1275,7 @@
               "default": ".*[Tt][Ee][Ss][Tt].*"
             },
             "parser": {
-              "$id": "#/properties/capability/trigger/trigger-parser",
+              "$id": "#/trigger-parser",
               "title": "Trigger parser",
               "description": "Describes a mapping of property name to a location in the JSON response payload specified by a JSON pointer",
               "type": "object",
@@ -1287,19 +1288,19 @@
               },
               "properties": {
                 "eventName": {
-                  "$id": "#/properties/capability/trigger/trigger-parser/event-name",
+                  "$id": "#/properties/event-name",
                   "title": "Event name pointer",
                   "description": "JSON pointer to an event name",
                   "type": "string"
                 },
                 "value": {
-                  "$id": "#/properties/capability/trigger/trigger-parser/value",
+                  "$id": "#/properties/value",
                   "title": "Value pointer",
                   "description": "JSON pointer to a metric value",
                   "type": "string"
                 },
                 "url": {
-                  "$id": "#/properties/capability/trigger/trigger-parser/url",
+                  "$id": "#/properties/url",
                   "title": "URL pointer",
                   "description": "JSON pointer to the external alert URL",
                   "type": "string"

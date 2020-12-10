@@ -28,71 +28,10 @@
             "propertyNames": {
               "enum": ["url", "method", "headers"]
             },
-            "required": ["url"],
             "properties": {
-              "url": {
-                "$id": "#/properties/capability/external-condition/creation/endpoint/url",
-                "title": "URL",
-                "type": "string",
-                "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
-              },
-              "method": {
-                "$id": "#/properties/capability/external-condition/creation/method",
-                "title": "HTTP method",
-                "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                "enum": ["POST", "PUT", "PATCH"],
-                "default": "POST"
-              },
-              "headers": {
-                "$id": "#/properties/capability/external-condition/creation/headers",
-                "title": "HTTP headers",
-                "description": "Headers to send with the webhook request",
-                "type": "array",
-                "items": {
-                  "$id": "#/properties/capability/external-condition/creation/endpoint/header/items",
-                  "title": "Header items",
-                  "description": "A name and value pair to send as headers with the hook request",
-                  "type": "object",
-                  "propertyNames": {
-                    "enum": ["name", "value"]
-                  },
-                  "properties": {
-                    "name": {
-                      "$id": "#/properties/capability/external-condition/creation/endpoint/header/items/name",
-                      "title": "Name",
-                      "type": "string",
-                      "description": "Name of the header",
-                      "maxLength": 50,
-                      "pattern": "^[^\\s]*$"
-                    },
-                    "value": {
-                      "$id": "#/properties/capability/external-condition/creation/endpoint/header/items/value",
-                      "title": "Value",
-                      "type": "string",
-                      "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
-                    }
-                  },
-                  "required": ["name", "value"]
-                },
-                "default": [
-                  {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "examples": [
-                  {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "name": "Authorization",
-                    "value": "Bearer {{apiToken}}"
-                  }
-                ],
-                "minProperties": 1
-              }
-            }
+              "$ref": "../definitions.json#/endpointProperties"
+            },
+            "required": ["url"]
           },
           "template": {
             "$id": "#/properties/capability/external-condition/creation/template",
@@ -101,7 +40,7 @@
             "type": "string"
           },
           "parser": {
-            "$ref": "parser/parser.json#/parser"
+            "$ref": "parser/parser.json#/externalConditionParser"
           }
         }
       },
@@ -125,72 +64,11 @@
             },
             "required": ["url"],
             "properties": {
-              "url": {
-                "$id": "#/properties/capability/external-condition/polling-update/endpoint/url",
-                "title": "URL",
-                "type": "string",
-                "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
-              },
-              "method": {
-                "$id": "#/properties/capability/external-condition/polling-update/method",
-                "title": "HTTP method",
-                "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                "enum": ["GET", "POST", "PUT", "PATCH"],
-                "default": "GET"
-              },
-              "headers": {
-                "$id": "#/properties/capability/external-condition/polling-update/headers",
-                "title": "HTTP headers",
-                "description": "Headers to send with the webhook request",
-                "type": "array",
-                "items": {
-                  "$id": "#/properties/capability/external-condition/polling-update/endpoint/header/items",
-                  "title": "Header items",
-                  "description": "A name and value pair to send as headers with the hook request",
-                  "type": "object",
-                  "propertyNames": {
-                    "enum": ["name", "value"]
-                  },
-                  "properties": {
-                    "name": {
-                      "$id": "#/properties/capability/external-condition/polling-update/endpoint/header/items/name",
-                      "title": "Name",
-                      "type": "string",
-                      "description": "Name of the header",
-                      "maxLength": 50,
-                      "pattern": "^[^\\s]*$"
-                    },
-                    "value": {
-                      "$id": "#/properties/capability/external-condition/polling-update/endpoint/header/items/value",
-                      "title": "Value",
-                      "type": "string",
-                      "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
-                    }
-                  },
-                  "required": ["name", "value"]
-                },
-                "default": [
-                  {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                  }
-                ],
-                "examples": [
-                  {
-                    "name": "Content-Type",
-                    "value": "application/json"
-                  },
-                  {
-                    "name": "Authorization",
-                    "value": "Bearer {{apiToken}}"
-                  }
-                ],
-                "minProperties": 1
-              }
+              "$ref": "../definitions.json#/endpointProperties"
             }
           },
           "parser": {
-            "$ref": "parser/parser.json#/parser"
+            "$ref": "parser/parser.json#/externalConditionParser"
           }
         }
       }
