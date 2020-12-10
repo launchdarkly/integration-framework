@@ -1,0 +1,19 @@
+{
+  "name": "Tray",
+  "version": "1.0.0",
+  "overview": "Utilize LaunchDarkly in your Tray.io workflows.",
+  "description": "To set this up, grant Tray.io access to your LaunchDarkly account with an access token.",
+  "details": "Use LaunchDarkly as a connector in Tray.io to automate workflows. Connector operations allow you to incorporate LaunchDarkly workflows with many other web services. Tray.io's flexible automation allows you to use LaunchDarkly data and operations in endless ways, including exporting flag status, triggering an update to expiring users, and more.",
+  "author": "Tray.io",
+  "supportEmail": "support@tray.io",
+  "links": {
+    "site": "https://tray.io/",
+    "launchdarklyDocs": "https://tray.io/documentation/platform/connectors/docs/service/launchdarkly/",
+    "privacyPolicy": "https://tray.io/privacy"
+  },
+  "categories": ["automation"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  }
+}
