@@ -378,7 +378,7 @@
                       "PATCH",
                       "GET"
                     ],
-                    "default": "POST"
+                    "type": "string"
                   },
                   "headers": {
                     "$id": "#/definitions/endpoint/headers",
@@ -437,7 +437,8 @@
                   }
                 },
                 "required": [
-                  "url"
+                  "url",
+                  "method"
                 ]
               },
               "parser": {
@@ -560,7 +561,7 @@
                     "PATCH",
                     "GET"
                   ],
-                  "default": "POST"
+                  "type": "string"
                 },
                 "headers": {
                   "$id": "#/definitions/endpoint/headers",
@@ -619,7 +620,8 @@
                 }
               },
               "required": [
-                "url"
+                "url",
+                "method"
               ]
             },
             "templates": {
@@ -876,7 +878,7 @@
                         "PATCH",
                         "GET"
                       ],
-                      "default": "POST"
+                      "type": "string"
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",
@@ -935,7 +937,8 @@
                     }
                   },
                   "required": [
-                    "url"
+                    "url",
+                    "method"
                   ]
                 },
                 "template": {
@@ -1059,7 +1062,8 @@
                     ]
                   },
                   "required": [
-                    "url"
+                    "url",
+                    "method"
                   ],
                   "properties": {
                     "url": {
@@ -1078,7 +1082,7 @@
                         "PATCH",
                         "GET"
                       ],
-                      "default": "POST"
+                      "type": "string"
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",

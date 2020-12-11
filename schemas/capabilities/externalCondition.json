@@ -31,7 +31,7 @@
             "properties": {
               "$ref": "../definitions.json#/endpointProperties"
             },
-            "required": ["url"]
+            "required": ["url", "method"]
           },
           "template": {
             "$id": "#/properties/capability/external-condition/creation/template",
@@ -62,7 +62,7 @@
             "propertyNames": {
               "enum": ["url", "method", "headers"]
             },
-            "required": ["url"],
+            "required": ["url", "method"],
             "properties": {
               "$ref": "../definitions.json#/endpointProperties"
             }
