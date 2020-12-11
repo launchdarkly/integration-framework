@@ -240,7 +240,7 @@
       "description": "Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.",
       "type": "array",
       "items": {
-        "$id": "#/properties/form-variables/variable",
+        "$id": "#/definitions/form-variable",
         "title": "Form variable",
         "description": "A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an integration.",
         "type": "object",
@@ -260,7 +260,7 @@
         },
         "properties": {
           "key": {
-            "$id": "#/properties/form-variables/variable/key",
+            "$id": "#/definitions/form-variable/key",
             "title": "Key",
             "type": "string",
             "description": "A key will be used as the token name when the variable is substituted",
@@ -268,14 +268,14 @@
             "pattern": "^[^\\s]*$"
           },
           "name": {
-            "$id": "#/properties/form-variables/variable/name",
+            "$id": "#/definitions/form-variable/name",
             "title": "Name",
             "type": "string",
             "description": "A descriptive name that will be used as the form label on the UI",
             "maxLength": 50
           },
           "type": {
-            "$id": "#/properties/form-variables/variable/type",
+            "$id": "#/definitions/form-variable/type",
             "title": "Type",
             "type": "string",
             "description": "The type of the variable",
@@ -289,34 +289,34 @@
             ]
           },
           "description": {
-            "$id": "#/properties/form-variables/variable/description",
+            "$id": "#/definitions/form-variable/description",
             "title": "Description",
             "type": "string",
             "description": "Describes the variable in the UI. Markdown links allowed.",
             "maxLength": 250
           },
           "placeholder": {
-            "$id": "#/properties/form-variables/variable/placeholder",
+            "$id": "#/definitions/form-variable/placeholder",
             "title": "Description",
             "type": "string",
             "description": "Placeholder value to use in the form element if applicable"
           },
           "isSecret": {
-            "$id": "#/properties/form-variables/variable/is-secret",
+            "$id": "#/definitions/form-variable/is-secret",
             "title": "Is this variable a secret?",
             "type": "boolean",
             "description": "Secret variables will be masked in the UI",
             "default": false
           },
           "isOptional": {
-            "$id": "#/properties/form-variables/variable/is-optional",
+            "$id": "#/definitions/form-variable/is-optional",
             "title": "Is this variable optional?",
             "type": "boolean",
             "description": "Variables marked as optional won't be required on the UI",
             "default": false
           },
           "defaultValue": {
-            "$id": "#/properties/form-variables/variable/default-value",
+            "$id": "#/definitions/form-variable/default-value",
             "title": "Default value",
             "type": [
               "boolean",
@@ -325,7 +325,7 @@
             "description": "Default value for variable. Can be overridden by user in the UI"
           },
           "allowedValues": {
-            "$id": "#/properties/form-variables/variable/allowed-values",
+            "$id": "#/definitions/form-variable/allowed-values",
             "title": "Allowed values",
             "type": "array",
             "description": "allowed string values for enum-type formVariables",
@@ -334,7 +334,7 @@
             }
           },
           "dynamicOptions": {
-            "$id": "#/properties/form-variables/variable/dynamic-options",
+            "$id": "#/definitions/form-variable/dynamic-options",
             "title": "Dynamic options",
             "type": "object",
             "description": "Parser and endpoint for handling dynamicEnum",
@@ -442,7 +442,7 @@
                 ]
               },
               "parser": {
-                "$id": "#/properties/form-variables/variable/dynamic-options/parser",
+                "$id": "#/definitions/form-variable/dynamic-options/parser",
                 "title": "Dynamic options parser",
                 "description": "Mapping of property names to location in JSON response",
                 "type": "object",
@@ -458,13 +458,13 @@
                 },
                 "properties": {
                   "optionsPath": {
-                    "$id": "#/properties/form-variables/variable/dynamic-options/parser/options-path",
+                    "$id": "#/definitions/form-variable/dynamic-options/parser/options-path",
                     "title": "Options array path",
                     "description": "JSON path to the array containing options for parsing",
                     "type": "string"
                   },
                   "optionsItems": {
-                    "$id": "#/properties/form-variables/variable/dynamic-options/parser/options-items",
+                    "$id": "#/definitions/form-variable/dynamic-options/parser/options-items",
                     "title": "Options array",
                     "propertyNames": {
                       "enum": [
@@ -478,13 +478,13 @@
                     ],
                     "properties": {
                       "label": {
-                        "$id": "#/properties/form-variables/variable/dynamic-options/parser/options-items/label",
+                        "$id": "#/definitions/form-variable/dynamic-options/parser/options-items/label",
                         "title": "Label",
                         "description": "Relative JSON path to values for each item in the options array to be used as UI dropdown labels",
                         "type": "string"
                       },
                       "value": {
-                        "$id": "#/properties/form-variables/variable/dynamic-options/parser/options-items/value",
+                        "$id": "#/definitions/form-variable/dynamic-options/parser/options-items/value",
                         "title": "Value",
                         "description": "Relative JSON path to values for each item in the options array to be used as dropdown values",
                         "type": "string"
