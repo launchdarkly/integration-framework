@@ -1,0 +1,74 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "approval": {
+    "$id": "#/capabilities/approval",
+    "title": "Approval",
+    "description": "This capability enables integration-driven flag change approvals",
+    "type": "object",
+    "propertyNames": {
+      "enum": [
+        "environmentFormVariables",
+        "memberFormVariables",
+        "creationRequest",
+        "statusRequest"
+      ]
+    },
+    "required": ["creationRequest", "statusRequest"],
+    "properties": {
+      "environmentFormVariables": {
+        "$id": "#/capabilities/approval/environment-form-variables",
+        "title": "Environment form variables",
+        "description": "Environment-specific form variables that render on the environment approval settings modal",
+        "type": "array",
+        "items": {
+          "$ref": "../definitions.json#/formVariable"
+        },
+        "default": []
+      },
+      "memberFormVariables": {
+        "$id": "#/capabilities/approval/member-form-variables",
+        "title": "Member form variables",
+        "description": "Member-specific form variables that are used to connect integration users to LaunchDarkly members",
+        "type": "array",
+        "items": {
+          "$ref": "../definitions.json#/formVariable"
+        },
+        "default": []
+      },
+      "creationRequest": {
+        "$id": "#/capabilities/approval/creation-request",
+        "title": "Creation request",
+        "description": "Describes the approval creation HTTP request and the parser used to process the JSON response",
+        "propertyNames": {
+          "enum": ["endpoint", "parser"]
+        },
+        "required": ["endpoint"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
+          },
+          "parser": {
+            "$ref": "parser/parser.json#/approvalParser"
+          }
+        }
+      },
+      "statusRequest": {
+        "$id": "#/capabilities/approval/status-request",
+        "title": "Status Request",
+        "description": "Describes the approval status check HTTP request and the parser used to determine if the approval should be consider approved or rejected",
+        "propertyNames": {
+          "enum": ["endpoint", "parser"]
+        },
+        "required": ["endpoint", "parser"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
+          },
+          "parser": {
+            "$ref": "parser/parser.json#/approvalParser"
+          }
+        }
+      }
+    }
+  }
+}

@@ -94,5 +94,46 @@
         "type": "string"
       }
     }
+  },
+  "approvalParser": {
+    "$id": "#/approval-parser",
+    "title": "Approval parser",
+    "description": "Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer",
+    "type": "object",
+    "propertyNames": {
+      "enum": [
+        "statusValue",
+        "statusDisplay",
+        "approvalMatcher",
+        "rejectionMatcher"
+      ]
+    },
+    "required": ["statusValue", "approvalMatcher"],
+    "properties": {
+      "statusValue": {
+        "$id": "#/approval-parser/status-value",
+        "title": "Status Value pointer",
+        "description": "JSON pointer to a status value",
+        "type": "string"
+      },
+      "statusDisplay": {
+        "$id": "#/approval-parser/status-display",
+        "title": "Status Value display pointer",
+        "description": "JSON pointer to a human-readable status",
+        "type": "string"
+      },
+      "approvalMatcher": {
+        "$id": "#/approval-parser/approval-matcher",
+        "title": "Approval matcher",
+        "description": "regex pattern used to determine if the approval should be considered 'approved'",
+        "type": "string"
+      },
+      "rejectionMatcher": {
+        "$id": "#/approval-parser/rejection-matcher",
+        "title": "Rejection matcher",
+        "description": "regex pattern used to determine if the approval should be considered 'rejected'",
+        "type": "string"
+      }
+    }
   }
 }

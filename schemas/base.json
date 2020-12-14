@@ -232,7 +232,8 @@
           "auditLogEventsHook",
           "reservedCustomProperties",
           "externalCondition",
-          "trigger"
+          "trigger",
+          "approval"
         ]
       },
       "properties": {
@@ -247,6 +248,9 @@
         },
         "trigger": {
           "$ref": "schemas/capabilities/trigger.json#/trigger"
+        },
+        "approval": {
+          "$ref": "schemas/capabilities/approval.json#/approval"
         }
       }
     }
