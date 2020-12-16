@@ -2,7 +2,7 @@
   "name": "@launchdarkly/integration-framework",
   "version": "1.0.0",
   "description": "Feature flags not only provide you control over your deployment and rollout, but also provides context to other related systems -- giving your team visibility into how your services react due to changes to flags. This repository contains LaunchDarkly integrations built by our community. Most of these integrations consume events from LaunchDarkly in order to provide their users more context.",
-	"types": "manifest.schema.d.ts",
+  "types": "manifest.schema.d.ts",
   "scripts": {
     "test": "jest",
     "test:ci": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
