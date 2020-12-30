@@ -10,7 +10,7 @@ const flagContext = require('../sample-context/flag/update-all-environments');
 const projectContext = require('../sample-context/project/update');
 const environmentContext = require('../sample-context/environment/update');
 
-const OAUTH_INTEGRATIONS = ['appdynamics', 'sample-integration']; // add oauth integrations here
+const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow']; // add oauth integrations here
 
 registerHelpers();
 

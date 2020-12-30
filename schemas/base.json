@@ -140,6 +140,7 @@
         "type": "string",
         "enum": [
           "analytics",
+          "approval",
           "authentication",
           "automation",
           "code-references",
