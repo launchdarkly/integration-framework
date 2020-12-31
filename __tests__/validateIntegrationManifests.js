@@ -168,11 +168,33 @@ describe('All integrations', () => {
               formVariable.isOptional,
               '"defaultValue" is only valid if "isOptional" is true. Use "placeholder" if you do not want the variable to be optional.'
             ).toBe(true);
-            if (formVariable.type === 'string' || formVariable.type === 'uri') {
+            if (
+              formVariable.type === 'string' ||
+              formVariable.type === 'uri' ||
+              formVariable.type === 'enum' ||
+              formVariable.type === 'dynamicEnum'
+            ) {
               expect(_.isString(formVariable.defaultValue)).toBe(true);
             } else if (formVariable.type === 'boolean') {
               expect(_.isBoolean(formVariable.defaultValue)).toBe(true);
             }
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'defaultValue is always provided when isOptional true for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.isOptional) {
+            expect(
+              formVariable.defaultValue,
+              '"isOptional" is only valid if "defaultValue" is provided.'
+            ).toBeDefined();
           }
         });
       }

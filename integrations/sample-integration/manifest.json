@@ -21,7 +21,8 @@
       "description": "This is an optional property",
       "type": "string",
       "isSecret": false,
-      "isOptional": true
+      "isOptional": true,
+      "defaultValue": ""
     },
     {
       "key": "required",
@@ -37,7 +38,8 @@
       "description": "This field will be validated as a URL",
       "type": "uri",
       "isSecret": false,
-      "isOptional": true
+      "isOptional": true,
+      "defaultValue": "https://example.com"
     },
     {
       "key": "hasPlaceholder",
@@ -46,6 +48,7 @@
       "type": "string",
       "isSecret": false,
       "isOptional": true,
+      "defaultValue": "",
       "placeholder": "I am a placeholder"
     },
     {
@@ -72,7 +75,6 @@
       "description": "this is a dynamic enum",
       "type": "dynamicEnum",
       "isSecret": false,
-      "isOptional": true,
       "dynamicOptions": {
         "endpoint": {
           "url": "https://reqres.in/api/unknown",
