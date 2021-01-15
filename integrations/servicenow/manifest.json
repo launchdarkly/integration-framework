@@ -74,7 +74,7 @@
       ],
       "creationRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}/?requested_by={{member.username}}",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}",
           "method": "POST",
           "headers": [
             {
@@ -84,7 +84,7 @@
           ]
         },
         "parser": {
-          "approvalId": "/result/sys_id",
+          "approvalId": "/result/sys_id/value",
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
           "approvalMatcher": "0",
