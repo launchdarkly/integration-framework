@@ -84,6 +84,7 @@
           ]
         },
         "parser": {
+          "approvalId": "/result/sys_id",
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
           "approvalMatcher": "0",

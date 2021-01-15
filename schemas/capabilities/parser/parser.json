@@ -102,6 +102,7 @@
     "type": "object",
     "propertyNames": {
       "enum": [
+        "approvalId",
         "statusValue",
         "statusDisplay",
         "approvalMatcher",
@@ -110,6 +111,12 @@
     },
     "required": ["statusValue", "approvalMatcher"],
     "properties": {
+      "approvalId": {
+        "$id": "#/approval-parser/approval-id",
+        "title": "Approval ID pointer",
+        "description": "Externally-created approval entity ID",
+        "type": "string"
+      },
       "statusValue": {
         "$id": "#/approval-parser/status-value",
         "title": "Status Value pointer",

@@ -55,6 +55,7 @@ export type SupportWebsite = string;
 export type Categories =
   | [
       | "analytics"
+      | "approval"
       | "authentication"
       | "automation"
       | "code-references"
@@ -70,6 +71,7 @@ export type Categories =
   | [
       (
         | "analytics"
+        | "approval"
         | "authentication"
         | "automation"
         | "code-references"
@@ -84,6 +86,7 @@ export type Categories =
       ),
       (
         | "analytics"
+        | "approval"
         | "authentication"
         | "automation"
         | "code-references"
@@ -100,6 +103,7 @@ export type Categories =
   | [
       (
         | "analytics"
+        | "approval"
         | "authentication"
         | "automation"
         | "code-references"
@@ -114,6 +118,7 @@ export type Categories =
       ),
       (
         | "analytics"
+        | "approval"
         | "authentication"
         | "automation"
         | "code-references"
@@ -128,6 +133,7 @@ export type Categories =
       ),
       (
         | "analytics"
+        | "approval"
         | "authentication"
         | "automation"
         | "code-references"
@@ -349,6 +355,10 @@ export type EnvironmentFormVariables = FormVariable[];
  * Member-specific form variables that are used to connect integration users to LaunchDarkly members
  */
 export type MemberFormVariables = FormVariable[];
+/**
+ * Externally-created approval entity ID
+ */
+export type ApprovalIDPointer = string;
 /**
  * JSON pointer to a status value
  */
@@ -614,6 +624,7 @@ export interface CreationRequest {
  * Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer
  */
 export interface ApprovalParser {
+  approvalId?: ApprovalIDPointer;
   statusValue: StatusValuePointer;
   statusDisplay?: StatusValueDisplayPointer;
   approvalMatcher: ApprovalMatcher;
