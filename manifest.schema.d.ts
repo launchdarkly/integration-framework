@@ -375,6 +375,10 @@ export type ApprovalMatcher = string;
  * regex pattern used to determine if the approval should be considered 'rejected'
  */
 export type RejectionMatcher = string;
+/**
+ * expected format for the external creation request URL. Values can be substituted in using {{value}}
+ */
+export type URLTemplate = string;
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -629,6 +633,7 @@ export interface ApprovalParser {
   statusDisplay?: StatusValueDisplayPointer;
   approvalMatcher: ApprovalMatcher;
   rejectionMatcher?: RejectionMatcher;
+  urlTemplate?: URLTemplate;
   [k: string]: unknown;
 }
 /**

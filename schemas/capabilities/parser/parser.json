@@ -106,7 +106,8 @@
         "statusValue",
         "statusDisplay",
         "approvalMatcher",
-        "rejectionMatcher"
+        "rejectionMatcher",
+        "urlTemplate"
       ]
     },
     "required": ["statusValue", "approvalMatcher"],
@@ -139,6 +140,12 @@
         "$id": "#/approval-parser/rejection-matcher",
         "title": "Rejection matcher",
         "description": "regex pattern used to determine if the approval should be considered 'rejected'",
+        "type": "string"
+      },
+      "urlTemplate": {
+        "$id": "#/approval-parser/url-template",
+        "title": "URL template",
+        "description": "expected format for the external creation request URL. Values can be substituted in using {{value}}",
         "type": "string"
       }
     }
