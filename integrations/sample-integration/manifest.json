@@ -14,7 +14,6 @@
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
-  "requiresOAuth": true,
   "formVariables": [
     {
       "key": "optional",
@@ -22,7 +21,8 @@
       "description": "This is an optional property",
       "type": "string",
       "isSecret": false,
-      "isOptional": true
+      "isOptional": true,
+      "defaultValue": ""
     },
     {
       "key": "required",
@@ -38,7 +38,8 @@
       "description": "This field will be validated as a URL",
       "type": "uri",
       "isSecret": false,
-      "isOptional": true
+      "isOptional": true,
+      "defaultValue": "https://example.com"
     },
     {
       "key": "hasPlaceholder",
@@ -47,6 +48,7 @@
       "type": "string",
       "isSecret": false,
       "isOptional": true,
+      "defaultValue": "",
       "placeholder": "I am a placeholder"
     },
     {
@@ -66,12 +68,33 @@
       "type": "string",
       "isSecret": true,
       "isOptional": false
+    },
+    {
+      "key": "color",
+      "name": "Dynamic color options",
+      "description": "this is a dynamic enum",
+      "type": "dynamicEnum",
+      "isSecret": false,
+      "dynamicOptions": {
+        "endpoint": {
+          "url": "https://reqres.in/api/unknown",
+          "method": "GET",
+          "headers": []
+        },
+        "parser": {
+          "optionsPath": "/data",
+          "optionsItems": {
+            "label": "/name",
+            "value": "/color"
+          }
+        }
+      }
     }
   ],
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://example.com/webhookin",
+        "url": "https://example.com/webhookin?color={{color}}",
         "method": "POST",
         "headers": [
           {

@@ -10,7 +10,7 @@ const flagContext = require('../sample-context/flag/update-all-environments');
 const projectContext = require('../sample-context/project/update');
 const environmentContext = require('../sample-context/environment/update');
 
-const OAUTH_INTEGRATIONS = ['appdynamics', 'sample-integration']; // add oauth integrations here
+const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow']; // add oauth integrations here
 
 registerHelpers();
 
@@ -34,6 +34,9 @@ const getFormVariableContext = formVariables => {
           endpointContext[formVariable.key] = `https://${formVariable.key}.com`;
           break;
         case 'enum':
+          endpointContext[formVariable.key] = formVariable.key;
+          break;
+        case 'dynamicEnum':
           endpointContext[formVariable.key] = formVariable.key;
           break;
       }
@@ -165,11 +168,33 @@ describe('All integrations', () => {
               formVariable.isOptional,
               '"defaultValue" is only valid if "isOptional" is true. Use "placeholder" if you do not want the variable to be optional.'
             ).toBe(true);
-            if (formVariable.type === 'string' || formVariable.type === 'uri') {
+            if (
+              formVariable.type === 'string' ||
+              formVariable.type === 'uri' ||
+              formVariable.type === 'enum' ||
+              formVariable.type === 'dynamicEnum'
+            ) {
               expect(_.isString(formVariable.defaultValue)).toBe(true);
             } else if (formVariable.type === 'boolean') {
               expect(_.isBoolean(formVariable.defaultValue)).toBe(true);
             }
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'defaultValue is always provided when isOptional true for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.isOptional) {
+            expect(
+              formVariable.defaultValue,
+              '"isOptional" is only valid if "defaultValue" is provided.'
+            ).toBeDefined();
           }
         });
       }
@@ -184,6 +209,23 @@ describe('All integrations', () => {
         formVariables.forEach(formVariable => {
           if (formVariable.type != 'string') {
             expect(formVariable.isSecret).not.toBe(true);
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'dynamicOptions is specified on dynamicEnum formVariable fields for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type == 'dynamicEnum') {
+            expect(formVariable.dynamicOptions).toBeDefined();
+          }
+          if (formVariable.dynamicOptions) {
+            expect(formVariable.type).toBe('dynamicEnum');
           }
         });
       }

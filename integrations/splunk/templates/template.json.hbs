@@ -20,9 +20,7 @@
     {{#if comment}}
     "comment": "{{{comment}}}",
     {{/if}}
-    {{#if member.firstName}}{{#if member.lastName}}
-    "user": "{{member.firstName}} {{member.lastName}}",
-    {{/if}}{{/if}}
+    "user": "{{member.displayName}}",
     "user_email": "{{member.email}}"
   }
 }

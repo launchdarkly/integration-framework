@@ -1,0 +1,114 @@
+{
+  "name": "ServiceNow",
+  "version": "1.0.0",
+  "overview": "Create feature flag change requests in ServiceNow.",
+  "description": "Create feature flag change requests in ServiceNow.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.servicenow.com/",
+    "privacyPolicy": "https://www.servicenow.com/privacy-statement.html"
+  },
+  "categories": ["approval"],
+  "icons": {
+    "square": "assets/images/logo_square.svg",
+    "horizontal": "assets/images/logo_square.svg"
+  },
+  "requiresOAuth": true,
+  "formVariables": [],
+  "capabilities": {
+    "approval": {
+      "environmentFormVariables": [
+        {
+          "key": "template",
+          "name": "Standard Change Template",
+          "description": "The standard change template to be utilized for all flag changes in this environment.",
+          "type": "dynamicEnum",
+          "dynamicOptions": {
+            "endpoint": {
+              "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/template",
+              "method": "GET",
+              "headers": [
+                {
+                  "name": "Authorization",
+                  "value": "Bearer {{oauth.accessToken}}"
+                }
+              ]
+            },
+            "parser": {
+              "optionsPath": "/result",
+              "optionsItems": {
+                "label": "/sys_name/display_value",
+                "value": "/sys_id/value"
+              }
+            }
+          }
+        }
+      ],
+      "memberFormVariables": [
+        {
+          "key": "username",
+          "name": "ServiceNow username",
+          "description": "The ServiceNow username used to attribute change requests",
+          "type": "dynamicEnum",
+          "dynamicOptions": {
+            "endpoint": {
+              "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=name,email,user_name,sys_id",
+              "method": "GET",
+              "headers": [
+                {
+                  "name": "Authorization",
+                  "value": "Bearer {{oauth.accessToken}}"
+                }
+              ]
+            },
+            "parser": {
+              "optionsPath": "/result",
+              "optionsItems": {
+                "label": "/name",
+                "value": "/user_name"
+              }
+            }
+          }
+        }
+      ],
+      "creationRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "approvalId": "/result/sys_id/value",
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "0",
+          "rejectionMatcher": "-2"
+        }
+      },
+      "statusRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{creation.id}}",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "0",
+          "rejectionMatcher": "-2"
+        }
+      }
+    }
+  }
+}

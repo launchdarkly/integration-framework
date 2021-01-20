@@ -1,11 +1,12 @@
 {
-  "name": "integration-framework",
+  "name": "@launchdarkly/integration-framework",
   "version": "1.0.0",
   "description": "Feature flags not only provide you control over your deployment and rollout, but also provides context to other related systems -- giving your team visibility into how your services react due to changes to flags. This repository contains LaunchDarkly integrations built by our community. Most of these integrations consume events from LaunchDarkly in order to provide their users more context.",
-  "main": "index.js",
+  "types": "manifest.schema.d.ts",
   "scripts": {
     "test": "jest",
-    "build": "node bundleSchemas.js && prettier --write ./*.schema.json",
+    "test:ci": "jest --ci --runInBand --reporters=default --reporters=jest-junit",
+    "build": "node bundleSchemas.js && prettier --write ./*.schema.json && json2ts schemas/base.json > manifest.schema.d.ts",
     "prettier:check": "prettier --list-different \"./**/*.{js,json}\"",
     "prettier:write": "prettier --write \"./**/*.{js,json}\"",
     "preview": "node preview.js",
@@ -30,8 +31,10 @@
     "@apidevtools/json-schema-ref-parser": "^8.0.0",
     "ajv": "^6.10.2",
     "handlebars": "^4.7.6",
-    "jest": "25.1.0",
+    "jest": "^26.6.3",
     "jest-expect-message": "1.0.2",
+    "jest-junit": "^12.0.0",
+    "json-schema-to-typescript": "^10.0.0",
     "jsonpointer": "^4.0.1",
     "lodash": "^4.17.19",
     "prettier": "^2.0.1"

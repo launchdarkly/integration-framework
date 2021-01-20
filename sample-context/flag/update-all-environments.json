@@ -77,7 +77,8 @@
     "_id": "569f514183f2164430000002",
     "email": "testing@launchdarkly.com",
     "firstName": "Henrietta",
-    "lastName": "Powell"
+    "lastName": "Powell",
+    "displayName": "Henrietta Powell"
   },
   "titleVerb": "updated the flag",
   "verbKind": "updateTag",

@@ -14,7 +14,7 @@ Here's an example:
             "key": "endpointUrl",
             "name": "Webhook endpoint URL",
             "description": "Enter the URL to the webhook endpoint",
-            "default": "https://example.com/inbound_webhook",
+            "defaultValue": "https://example.com/inbound_webhook",
             "type": "url"
         },
         {
@@ -38,7 +38,7 @@ Form variables apply to the entire integration configuration. There are no capab
 The `formVariables[].description` will be used as a field label on the UI. You
 can use simple markdown to link a word or phrase to an external URL.
 
-Accepted form variable types are `string`, `boolean`, `uri`, and `enum`.
-Optionally, you can set `isSecret` or `isOptional` if necessary, or provide guidance with `placeholder` and `defaultValue`. If you provide a `defaultValue`, you must also set `isOptional` to `true`.
+Accepted form variable types are `string`, `boolean`, `uri`, `enum`, and `dynamicEnum`.
+Optionally, you can set `isSecret` or `isOptional` if necessary, or provide guidance with `placeholder` and `defaultValue`. If you provide a `defaultValue`, you must also set `isOptional` to `true` and vice versa.
 
 To learn more, read the [manifest schema](../manifest.schema.json).
