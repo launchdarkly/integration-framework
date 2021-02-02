@@ -206,7 +206,7 @@ export type URL = string;
 /**
  * HTTP method to use when LaunchDarkly makes the request to your endpoint
  */
-export type HTTPMethod = "POST" | "PUT" | "PATCH" | "GET";
+export type HTTPMethod = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
 /**
  * Name of the header
  */
@@ -614,6 +614,7 @@ export interface Approval {
   memberFormVariables?: MemberFormVariables;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
+  deletionRequest?: DeletionRequest;
   [k: string]: unknown;
 }
 /**
@@ -642,5 +643,12 @@ export interface ApprovalParser {
 export interface StatusRequest {
   endpoint: Endpoint;
   parser: ApprovalParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes the HTTP request for the deletion of the external approval entity
+ */
+export interface DeletionRequest {
+  endpoint: Endpoint;
   [k: string]: unknown;
 }

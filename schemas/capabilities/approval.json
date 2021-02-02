@@ -10,7 +10,8 @@
         "environmentFormVariables",
         "memberFormVariables",
         "creationRequest",
-        "statusRequest"
+        "statusRequest",
+        "deletionRequest"
       ]
     },
     "required": ["creationRequest", "statusRequest"],
@@ -66,6 +67,20 @@
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
+          }
+        }
+      },
+      "deletionRequest": {
+        "$id": "#/capabilities/approval/deletion-request",
+        "title": "Deletion Request",
+        "description": "Describes the HTTP request for the deletion of the external approval entity",
+        "propertyNames": {
+          "enum": ["endpoint"]
+        },
+        "required": ["endpoint"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
           }
         }
       }
