@@ -93,8 +93,8 @@
       },
       "statusRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{creation.id}}",
-          "method": "POST",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}",
+          "method": "GET",
           "headers": [
             {
               "name": "Authorization",
