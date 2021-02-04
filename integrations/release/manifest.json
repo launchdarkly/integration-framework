@@ -1,0 +1,19 @@
+{
+  "name": "Release",
+  "version": "1.0.0",
+  "overview": "Manages your LaunchDarkly environments when deploying your Release Environments.",
+  "description": "Release creates production-like environments on every pull request.  Release can describe and deploy simple Jamstack apps to the most complicated applications consisting of many microservices and data sources. Release's LaunchDarkly integration manages creating and deleting a specific LaunchDarkly environment when a Release Environment is created and deleted respectively.  With our integration you can test any and all LaunchDarkly flags in an isolated environment.  This allows you to safely test new product features and functionality in complete isolation and safety before your pull requests make it to production. ",
+  "author": "Release",
+  "supportEmail": "support@releaseapp.io",
+  "links": {
+    "site": "https://releaseapp.io/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/release",
+    "supportWebsite": "https://docs.releaseapp.io/integrations/integrations-overview/launchdarkly-integration",
+    "privacyPolicy": "https://releaseapp.io/privacy-policy"
+  },
+  "categories": ["automation"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  }
+}
