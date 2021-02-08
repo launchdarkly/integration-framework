@@ -87,8 +87,8 @@
           "approvalId": "/result/sys_id/value",
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "0",
-          "rejectionMatcher": "-2"
+          "approvalMatcher": "-1",
+          "rejectionMatcher": "n/a"
         }
       },
       "statusRequest": {
@@ -105,8 +105,8 @@
         "parser": {
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "0",
-          "rejectionMatcher": "-2"
+          "approvalMatcher": "-1",
+          "rejectionMatcher": "n/a"
         }
       }
     }
