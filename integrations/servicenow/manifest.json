@@ -74,7 +74,7 @@
       ],
       "creationRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}&{{#if context.details.plainText}}&justification={{queryEncode context.details.plainText}}{{/if}}",
           "method": "POST",
           "headers": [
             {
@@ -88,7 +88,8 @@
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
           "approvalMatcher": "-1",
-          "rejectionMatcher": "n/a"
+          "rejectionMatcher": "n/a",
+          "urlTemplate": "{{oauth.baseURI}}/change_request.do?sys_id={{queryEncode context.approvalId}}"
         }
       },
       "statusRequest": {
