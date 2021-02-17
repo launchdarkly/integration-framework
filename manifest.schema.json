@@ -2342,7 +2342,7 @@
                     ]
                   },
                   "properties": {
-                    "memerArrayPath": {
+                    "memberArrayPath": {
                       "$id": "#/member-list-parser/member-array-path",
                       "title": "Member array path",
                       "description": "JSON path to the array containing integration member details",

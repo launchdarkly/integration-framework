@@ -670,7 +670,7 @@ export interface MemberListRequest {
  * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
  */
 export interface MemberListParser {
-  memerArrayPath?: MemberArrayPath;
+  memberArrayPath: MemberArrayPath;
   memberItems: MemberItemsArray;
   [k: string]: unknown;
 }
