@@ -1330,6 +1330,7 @@
               "memberFormVariables",
               "creationRequest",
               "statusRequest",
+              "memberListRequest",
               "deletionRequest"
             ]
           },
@@ -2212,6 +2213,168 @@
                       "title": "URL template",
                       "description": "expected format for the external creation request URL. Values can be substituted in using {{value}}",
                       "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "memberListRequest": {
+              "$id": "#/capabilities/approval/member-list-request",
+              "title": "Member List Request",
+              "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
+              "propertyNames": {
+                "enum": [
+                  "endpoint",
+                  "parser"
+                ]
+              },
+              "required": [
+                "endpoint",
+                "parser"
+              ],
+              "properties": {
+                "endpoint": {
+                  "$id": "#/definitions/endpoint",
+                  "title": "Endpoint",
+                  "description": "Properties that describe an HTTP request to an external endpoint",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "url",
+                      "method",
+                      "headers"
+                    ]
+                  },
+                  "properties": {
+                    "url": {
+                      "$id": "#/definitions/endpoint/url",
+                      "title": "URL",
+                      "type": "string",
+                      "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+                    },
+                    "method": {
+                      "$id": "#/definitions/endpoint/method",
+                      "title": "HTTP method",
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                      "enum": [
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "GET",
+                        "DELETE"
+                      ],
+                      "type": "string"
+                    },
+                    "headers": {
+                      "$id": "#/definitions/endpoint/headers",
+                      "title": "HTTP headers",
+                      "description": "Headers to send with the webhook request",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/definitions/endpoint/header/items",
+                        "title": "Header items",
+                        "description": "A name and value pair to send as headers with the hook request",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "name",
+                            "value"
+                          ]
+                        },
+                        "properties": {
+                          "name": {
+                            "$id": "#/definitions/endpoint/header/items/name",
+                            "title": "Name",
+                            "type": "string",
+                            "description": "Name of the header",
+                            "maxLength": 50,
+                            "pattern": "^[^\\s]*$"
+                          },
+                          "value": {
+                            "$id": "#/definitions/endpoint/header/items/value",
+                            "title": "Value",
+                            "type": "string",
+                            "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ]
+                      },
+                      "default": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "examples": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer {{apiToken}}"
+                        }
+                      ],
+                      "minProperties": 1
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "method"
+                  ]
+                },
+                "parser": {
+                  "$id": "#/member-list-parser",
+                  "title": "Member list parser",
+                  "description": "Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer",
+                  "type": "object",
+                  "required": [
+                    "memberArrayPath",
+                    "memberItems"
+                  ],
+                  "propertyNames": {
+                    "enum": [
+                      "memberArrayPath",
+                      "memberItems"
+                    ]
+                  },
+                  "properties": {
+                    "memerArrayPath": {
+                      "$id": "#/member-list-parser/member-array-path",
+                      "title": "Member array path",
+                      "description": "JSON path to the array containing integration member details",
+                      "type": "string"
+                    },
+                    "memberItems": {
+                      "$id": "#/member-list-parser/member-items",
+                      "title": "Member items array",
+                      "propertyNames": {
+                        "enum": [
+                          "email",
+                          "memberId"
+                        ]
+                      },
+                      "required": [
+                        "email",
+                        "memberId"
+                      ],
+                      "properties": {
+                        "email": {
+                          "$id": "#/member-list-parser/member-items/email",
+                          "title": "Email",
+                          "description": "Relative JSON path to the email field in each member item in the array",
+                          "type": "string"
+                        },
+                        "memberId": {
+                          "$id": "#/member-list-parser/member-items/member-id",
+                          "title": "Member ID",
+                          "description": "Relative JSON path to the integration member ID field in each member item in the array",
+                          "type": "string"
+                        }
+                      }
                     }
                   }
                 }

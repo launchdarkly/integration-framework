@@ -11,6 +11,7 @@
         "memberFormVariables",
         "creationRequest",
         "statusRequest",
+        "memberListRequest",
         "deletionRequest"
       ]
     },
@@ -67,6 +68,23 @@
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
+          }
+        }
+      },
+      "memberListRequest": {
+        "$id": "#/capabilities/approval/member-list-request",
+        "title": "Member List Request",
+        "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
+        "propertyNames": {
+          "enum": ["endpoint", "parser"]
+        },
+        "required": ["endpoint", "parser"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
+          },
+          "parser": {
+            "$ref": "parser/parser.json#/memberListParser"
           }
         }
       },

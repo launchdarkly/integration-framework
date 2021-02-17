@@ -109,6 +109,25 @@
           "approvalMatcher": "-1",
           "rejectionMatcher": "n/a"
         }
+      },
+      "memberListRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,sys_id",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "memberArrayPath": "/result",
+          "memberItems": {
+            "memberId": "/sys_id",
+            "email": "/email"
+          }
+        }
       }
     }
   }

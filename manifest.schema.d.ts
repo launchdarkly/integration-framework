@@ -379,6 +379,18 @@ export type RejectionMatcher = string;
  * expected format for the external creation request URL. Values can be substituted in using {{value}}
  */
 export type URLTemplate = string;
+/**
+ * JSON path to the array containing integration member details
+ */
+export type MemberArrayPath = string;
+/**
+ * Relative JSON path to the email field in each member item in the array
+ */
+export type Email = string;
+/**
+ * Relative JSON path to the integration member ID field in each member item in the array
+ */
+export type MemberID = string;
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -614,6 +626,7 @@ export interface Approval {
   memberFormVariables?: MemberFormVariables;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
+  memberListRequest?: MemberListRequest;
   deletionRequest?: DeletionRequest;
   [k: string]: unknown;
 }
@@ -643,6 +656,27 @@ export interface ApprovalParser {
 export interface StatusRequest {
   endpoint: Endpoint;
   parser: ApprovalParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes the HTTP request to get integration users for mapping to Launchdarkly users
+ */
+export interface MemberListRequest {
+  endpoint: Endpoint;
+  parser: MemberListParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
+ */
+export interface MemberListParser {
+  memerArrayPath?: MemberArrayPath;
+  memberItems: MemberItemsArray;
+  [k: string]: unknown;
+}
+export interface MemberItemsArray {
+  email: Email;
+  memberId: MemberID;
   [k: string]: unknown;
 }
 /**

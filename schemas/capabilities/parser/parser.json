@@ -149,5 +149,45 @@
         "type": "string"
       }
     }
+  },
+  "memberListParser": {
+    "$id": "#/member-list-parser",
+    "title": "Member list parser",
+    "description": "Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer",
+    "type": "object",
+    "required": ["memberArrayPath", "memberItems"],
+    "propertyNames": {
+      "enum": ["memberArrayPath", "memberItems"]
+    },
+    "properties": {
+      "memerArrayPath": {
+        "$id": "#/member-list-parser/member-array-path",
+        "title": "Member array path",
+        "description": "JSON path to the array containing integration member details",
+        "type": "string"
+      },
+      "memberItems": {
+        "$id": "#/member-list-parser/member-items",
+        "title": "Member items array",
+        "propertyNames": {
+          "enum": ["email", "memberId"]
+        },
+        "required": ["email", "memberId"],
+        "properties": {
+          "email": {
+            "$id": "#/member-list-parser/member-items/email",
+            "title": "Email",
+            "description": "Relative JSON path to the email field in each member item in the array",
+            "type": "string"
+          },
+          "memberId": {
+            "$id": "#/member-list-parser/member-items/member-id",
+            "title": "Member ID",
+            "description": "Relative JSON path to the integration member ID field in each member item in the array",
+            "type": "string"
+          }
+        }
+      }
+    }
   }
 }
