@@ -11,8 +11,8 @@
   },
   "categories": ["approval"],
   "icons": {
-    "square": "assets/images/logo_square.svg",
-    "horizontal": "assets/images/logo_square.svg"
+    "square": "assets/images/servicenow-icon.svg",
+    "horizontal": "assets/images/servicenow-rectangle.svg"
   },
   "requiresOAuth": true,
   "formVariables": [],
