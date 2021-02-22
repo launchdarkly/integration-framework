@@ -10,10 +10,12 @@
         "environmentFormVariables",
         "memberFormVariables",
         "creationRequest",
-        "statusRequest"
+        "statusRequest",
+        "memberListRequest",
+        "deletionRequest"
       ]
     },
-    "required": ["creationRequest", "statusRequest"],
+    "required": ["creationRequest", "statusRequest", "memberListRequest"],
     "properties": {
       "environmentFormVariables": {
         "$id": "#/capabilities/approval/environment-form-variables",
@@ -66,6 +68,37 @@
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
+          }
+        }
+      },
+      "memberListRequest": {
+        "$id": "#/capabilities/approval/member-list-request",
+        "title": "Member List Request",
+        "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
+        "propertyNames": {
+          "enum": ["endpoint", "parser"]
+        },
+        "required": ["endpoint", "parser"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
+          },
+          "parser": {
+            "$ref": "parser/parser.json#/memberListParser"
+          }
+        }
+      },
+      "deletionRequest": {
+        "$id": "#/capabilities/approval/deletion-request",
+        "title": "Deletion Request",
+        "description": "Describes the HTTP request for the deletion of the external approval entity",
+        "propertyNames": {
+          "enum": ["endpoint"]
+        },
+        "required": ["endpoint"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
           }
         }
       }

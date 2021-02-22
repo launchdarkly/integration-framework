@@ -18,7 +18,7 @@
     "$id": "#/definitions/endpoint/method",
     "title": "HTTP method",
     "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-    "enum": ["POST", "PUT", "PATCH", "GET"],
+    "enum": ["POST", "PUT", "PATCH", "GET", "DELETE"],
     "type": "string"
   },
   "endpointHeaders": {

@@ -11,8 +11,8 @@
   },
   "categories": ["approval"],
   "icons": {
-    "square": "assets/images/logo_square.svg",
-    "horizontal": "assets/images/logo_square.svg"
+    "square": "assets/images/servicenow-icon.svg",
+    "horizontal": "assets/images/servicenow-rectangle.svg"
   },
   "requiresOAuth": true,
   "formVariables": [],
@@ -74,7 +74,7 @@
       ],
       "creationRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}&{{#if context.details.plainText}}&justification={{queryEncode context.details.plainText}}{{/if}}",
           "method": "POST",
           "headers": [
             {
@@ -87,14 +87,15 @@
           "approvalId": "/result/sys_id/value",
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "0",
-          "rejectionMatcher": "-2"
+          "approvalMatcher": "-1",
+          "rejectionMatcher": "n/a",
+          "urlTemplate": "{{oauth.baseURI}}/change_request.do?sys_id={{queryEncode context.approvalId}}"
         }
       },
       "statusRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{creation.id}}",
-          "method": "POST",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}",
+          "method": "GET",
           "headers": [
             {
               "name": "Authorization",
@@ -105,8 +106,27 @@
         "parser": {
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "0",
-          "rejectionMatcher": "-2"
+          "approvalMatcher": "-1",
+          "rejectionMatcher": "n/a"
+        }
+      },
+      "memberListRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,sys_id",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "memberArrayPath": "/result",
+          "memberItems": {
+            "memberId": "/sys_id",
+            "email": "/email"
+          }
         }
       }
     }
