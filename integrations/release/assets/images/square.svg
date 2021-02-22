@@ -1,17 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="650px" height="650px" viewBox="0 0 650 650" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 63.1 (92452) - https://sketch.com -->
-    <title>svglogoonly</title>
-    <desc>Created with Sketch.</desc>
+<svg width="586px" height="538px" viewBox="0 0 586 538" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Untitled</title>
     <defs>
-        <radialGradient cx="91.4415775%" cy="100%" fx="91.4415775%" fy="100%" r="82.9398897%" gradientTransform="translate(0.914416,1.000000),scale(0.918089,1.000000),rotate(-114.215991),scale(1.000000,5.411796),translate(-0.914416,-1.000000)" id="radialGradient-1">
+        <radialGradient cx="91.4416085%" cy="100.000021%" fx="91.4416085%" fy="100.000021%" r="82.9398937%" gradientTransform="translate(0.914416,1.000000),scale(0.918089,1.000000),rotate(-114.215997),translate(-0.914416,-1.000000)" id="radialGradient-1">
             <stop stop-color="#50C6C8" offset="0%"></stop>
             <stop stop-color="#822BBF" offset="100%"></stop>
         </radialGradient>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Purple-Logo" transform="translate(32.000000, 56.000000)" fill="url(#radialGradient-1)" fill-rule="nonzero">
-            <path d="M450.048,-1.93043935e-12 L450.048,93.5652174 L93.759,93.565 L93.76,538 L-1.25055521e-12,538 L-1.25055521e-12,-1.69596024e-12 L450.048,-1.93043935e-12 Z M586,-1.69596024e-12 L586,536.007407 L492.24,536.007407 L492.239,535.66 L131.264,535.660869 L131.264,442.095652 L492.239,442.095 L492.24,-1.69596024e-12 L586,-1.69596024e-12 Z" id="Combined-Shape"></path>
+        <g id="square" fill="url(#radialGradient-1)" fill-rule="nonzero">
+            <path d="M450.048,-1.93267624e-12 L450.048,93.5652174 L93.759,93.565 L93.76,538 L-1.25055521e-12,538 L-1.25055521e-12,-1.93267624e-12 L450.048,-1.93267624e-12 Z M586,-1.70530257e-12 L586,536.007407 L492.24,536.007407 L492.239,535.66 L131.264,535.660869 L131.264,442.095652 L492.239,442.095 L492.24,-1.70530257e-12 L586,-1.70530257e-12 Z" id="Combined-Shape"></path>
         </g>
     </g>
 </svg>
