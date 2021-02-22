@@ -1336,7 +1336,8 @@
           },
           "required": [
             "creationRequest",
-            "statusRequest"
+            "statusRequest",
+            "memberListRequest"
           ],
           "properties": {
             "environmentFormVariables": {

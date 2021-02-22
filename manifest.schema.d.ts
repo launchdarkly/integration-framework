@@ -626,7 +626,7 @@ export interface Approval {
   memberFormVariables?: MemberFormVariables;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
-  memberListRequest?: MemberListRequest;
+  memberListRequest: MemberListRequest;
   deletionRequest?: DeletionRequest;
   [k: string]: unknown;
 }
