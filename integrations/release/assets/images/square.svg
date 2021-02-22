@@ -1,19 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="586" height="538">
-  <svg viewBox="0 0 568 538" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-      <title>new-square</title>
-      <defs>
-          <radialGradient cx="91.4416144%" cy="99.9999836%" fx="91.4416144%" fy="99.9999836%" r="82.9398977%" gradientTransform="translate(0.914416,1.000000),scale(0.918089,1.000000),rotate(-114.216003),translate(-0.914416,-1.000000)" id="radialGradient-1">
-              <stop stop-color="#50C6C8" offset="0%"></stop>
-              <stop stop-color="#822BBF" offset="100%"></stop>
-          </radialGradient>
-      </defs>
-      <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-          <g id="Desktop" fill="url(#radialGradient-1)" fill-rule="nonzero">
-              <g id="new-square">
-                  <path d="M450.048,-1.93267624e-12 L450.048,93.5652174 L93.759,93.565 L93.76,538 L-1.25055521e-12,538 L-1.25055521e-12,-1.93267624e-12 L450.048,-1.93267624e-12 Z M586,-1.70530257e-12 L586,536.007407 L492.24,536.007407 L492.239,535.66 L131.264,535.660869 L131.264,442.095652 L492.239,442.095 L492.24,-1.70530257e-12 L586,-1.70530257e-12 Z" id="Combined-Shape"></path>
-              </g>
-          </g>
+<svg viewBox="0 0 568 538" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>new-square</title>
+<defs>
+  <radialGradient cx="91.4416144%" cy="99.9999836%" fx="91.4416144%" fy="99.9999836%" r="82.9398977%" gradientTransform="translate(0.914416,1.000000),scale(0.918089,1.000000),rotate(-114.216003),translate(-0.914416,-1.000000)" id="radialGradient-1">
+      <stop stop-color="#50C6C8" offset="0%"></stop>
+      <stop stop-color="#822BBF" offset="100%"></stop>
+  </radialGradient>
+</defs>
+<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+  <g id="Desktop" fill="url(#radialGradient-1)" fill-rule="nonzero">
+      <g id="new-square">
+	  <path d="M450.048,-1.93267624e-12 L450.048,93.5652174 L93.759,93.565 L93.76,538 L-1.25055521e-12,538 L-1.25055521e-12,-1.93267624e-12 L450.048,-1.93267624e-12 Z M586,-1.70530257e-12 L586,536.007407 L492.24,536.007407 L492.239,535.66 L131.264,535.660869 L131.264,442.095652 L492.239,442.095 L492.24,-1.70530257e-12 L586,-1.70530257e-12 Z" id="Combined-Shape"></path>
       </g>
-  </svg>
+  </g>
+</g>
 </svg>
