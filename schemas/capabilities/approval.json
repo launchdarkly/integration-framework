@@ -15,7 +15,12 @@
         "deletionRequest"
       ]
     },
-    "required": ["creationRequest", "statusRequest", "memberListRequest"],
+    "required": [
+      "creationRequest",
+      "statusRequest",
+      "deletionRequest",
+      "memberListRequest"
+    ],
     "properties": {
       "environmentFormVariables": {
         "$id": "#/capabilities/approval/environment-form-variables",

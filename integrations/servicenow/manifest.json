@@ -110,6 +110,18 @@
           "rejectionMatcher": "n/a"
         }
       },
+      "deletionRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}?state=Canceled",
+          "method": "PATCH",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        }
+      },
       "memberListRequest": {
         "endpoint": {
           "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,sys_id",

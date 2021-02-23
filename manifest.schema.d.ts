@@ -627,7 +627,7 @@ export interface Approval {
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
   memberListRequest: MemberListRequest;
-  deletionRequest?: DeletionRequest;
+  deletionRequest: DeletionRequest;
   [k: string]: unknown;
 }
 /**

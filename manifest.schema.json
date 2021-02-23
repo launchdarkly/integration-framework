@@ -1337,6 +1337,7 @@
           "required": [
             "creationRequest",
             "statusRequest",
+            "deletionRequest",
             "memberListRequest"
           ],
           "properties": {
