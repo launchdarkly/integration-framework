@@ -45,33 +45,6 @@
           }
         }
       ],
-      "memberFormVariables": [
-        {
-          "key": "username",
-          "name": "ServiceNow username",
-          "description": "The ServiceNow username used to attribute change requests",
-          "type": "dynamicEnum",
-          "dynamicOptions": {
-            "endpoint": {
-              "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=name,email,user_name,sys_id",
-              "method": "GET",
-              "headers": [
-                {
-                  "name": "Authorization",
-                  "value": "Bearer {{oauth.accessToken}}"
-                }
-              ]
-            },
-            "parser": {
-              "optionsPath": "/result",
-              "optionsItems": {
-                "label": "/name",
-                "value": "/user_name"
-              }
-            }
-          }
-        }
-      ],
       "creationRequest": {
         "endpoint": {
           "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}&{{#if context.details.plainText}}&justification={{queryEncode context.details.plainText}}{{/if}}",
@@ -110,6 +83,24 @@
           "rejectionMatcher": "n/a"
         }
       },
+      "postApplyRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}?state=Review",
+          "method": "PATCH",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "-1",
+          "rejectionMatcher": "n/a"
+        }
+      },
       "deletionRequest": {
         "endpoint": {
           "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}?state=Canceled",
@@ -120,6 +111,12 @@
               "value": "Bearer {{oauth.accessToken}}"
             }
           ]
+        },
+        "parser": {
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "-1",
+          "rejectionMatcher": "n/a"
         }
       },
       "memberListRequest": {

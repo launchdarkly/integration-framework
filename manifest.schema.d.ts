@@ -348,13 +348,21 @@ export type ValuePointer = string;
  */
 export type URLPointer1 = string;
 /**
+ * JSON path to the array containing integration member details
+ */
+export type MemberArrayPath = string;
+/**
+ * Relative JSON path to the email field in each member item in the array
+ */
+export type Email = string;
+/**
+ * Relative JSON path to the integration member ID field in each member item in the array
+ */
+export type MemberID = string;
+/**
  * Environment-specific form variables that render on the environment approval settings modal
  */
 export type EnvironmentFormVariables = FormVariable[];
-/**
- * Member-specific form variables that are used to connect integration users to LaunchDarkly members
- */
-export type MemberFormVariables = FormVariable[];
 /**
  * Externally-created approval entity ID
  */
@@ -379,18 +387,6 @@ export type RejectionMatcher = string;
  * expected format for the external creation request URL. Values can be substituted in using {{value}}
  */
 export type URLTemplate = string;
-/**
- * JSON path to the array containing integration member details
- */
-export type MemberArrayPath = string;
-/**
- * Relative JSON path to the email field in each member item in the array
- */
-export type Email = string;
-/**
- * Relative JSON path to the integration member ID field in each member item in the array
- */
-export type MemberID = string;
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -622,12 +618,33 @@ export interface TriggerParser {
  * This capability enables integration-driven flag change approvals
  */
 export interface Approval {
+  memberListRequest: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
-  memberFormVariables?: MemberFormVariables;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
-  memberListRequest: MemberListRequest;
+  postApplyRequest: PostApplyRequest;
   deletionRequest: DeletionRequest;
+  [k: string]: unknown;
+}
+/**
+ * Describes the HTTP request to get integration users for mapping to Launchdarkly users
+ */
+export interface MemberListRequest {
+  endpoint: Endpoint;
+  parser: MemberListParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
+ */
+export interface MemberListParser {
+  memberArrayPath: MemberArrayPath;
+  memberItems: MemberItemsArray;
+  [k: string]: unknown;
+}
+export interface MemberItemsArray {
+  email: Email;
+  memberId: MemberID;
   [k: string]: unknown;
 }
 /**
@@ -659,24 +676,11 @@ export interface StatusRequest {
   [k: string]: unknown;
 }
 /**
- * Describes the HTTP request to get integration users for mapping to Launchdarkly users
+ * Describes the HTTP request to make after the changes have been applied in LaunchDarkly
  */
-export interface MemberListRequest {
+export interface PostApplyRequest {
   endpoint: Endpoint;
-  parser: MemberListParser;
-  [k: string]: unknown;
-}
-/**
- * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
- */
-export interface MemberListParser {
-  memberArrayPath: MemberArrayPath;
-  memberItems: MemberItemsArray;
-  [k: string]: unknown;
-}
-export interface MemberItemsArray {
-  email: Email;
-  memberId: MemberID;
+  parser: ApprovalParser;
   [k: string]: unknown;
 }
 /**
@@ -684,5 +688,6 @@ export interface MemberItemsArray {
  */
 export interface DeletionRequest {
   endpoint: Endpoint;
+  parser: ApprovalParser;
   [k: string]: unknown;
 }
