@@ -47,7 +47,7 @@
       ],
       "creationRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}&{{#if context.details.plainText}}&justification={{queryEncode context.details.plainText}}{{/if}}",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}&{{#if context.details.plainText}}&justification={{queryEncode context.details.plainText}}{{/if}}&requested_by={{queryEncode context.member.externalMemberId}}",
           "method": "POST",
           "headers": [
             {
@@ -121,7 +121,7 @@
       },
       "memberListRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,sys_id",
+          "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,user_name",
           "method": "GET",
           "headers": [
             {
@@ -133,7 +133,7 @@
         "parser": {
           "memberArrayPath": "/result",
           "memberItems": {
-            "memberId": "/sys_id",
+            "memberId": "/user_name",
             "email": "/email"
           }
         }
