@@ -60,8 +60,8 @@
           "approvalId": "/result/sys_id/value",
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "-1",
-          "rejectionMatcher": "n/a",
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4",
           "urlTemplate": "{{oauth.baseURI}}/change_request.do?sys_id={{queryEncode context.approvalId}}"
         }
       },
@@ -79,8 +79,8 @@
         "parser": {
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "-1",
-          "rejectionMatcher": "n/a"
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4"
         }
       },
       "postApplyRequest": {
@@ -97,8 +97,8 @@
         "parser": {
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "-1",
-          "rejectionMatcher": "n/a"
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4"
         }
       },
       "deletionRequest": {
@@ -115,8 +115,8 @@
         "parser": {
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "-1",
-          "rejectionMatcher": "n/a"
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4"
         }
       },
       "memberListRequest": {
