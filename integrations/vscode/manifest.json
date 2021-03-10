@@ -1,5 +1,5 @@
 {
-  "name": "Visual Studio Code",
+  "name": "Visual Studio Code (VSCode)",
   "version": "1.0.0",
   "overview": "Interact with feature flags from within VSCode.",
   "description": "With this extension, you'll be able to view feature flag details when you hover over a feature flag key in your source code, autocomplete feature flag keys, and more -- all within VSCode!",
@@ -7,7 +7,7 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://marketplace.visualstudio.com/items?itemName=launchdarkly.launchdarkly",
+    "site": "https://marketplace.visualstudio.com/items?itemName=LaunchDarklyOfficial.launchdarkly",
     "launchdarklyDocs": "https://docs.launchdarkly.com/docs/visual-studio-code",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
