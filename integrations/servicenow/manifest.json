@@ -47,7 +47,7 @@
       ],
       "creationRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}&justification={{queryEncode context._links.approval.href}}{{#if context.details.plainText}}%0A%0A{{queryEncode context.details.plainText}}{{/if}}&requested_by={{queryEncode context.member.externalMemberId}}",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}&justification={{queryEncode context._links.approval.href}}{{#if context.details.plainText}}%0A%0A{{queryEncode context.details.plainText}}{{/if}}&requested_by={{queryEncode context.member.externalId}}",
           "method": "POST",
           "headers": [
             {
