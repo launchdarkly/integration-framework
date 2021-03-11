@@ -2,11 +2,12 @@
   "name": "ServiceNow",
   "version": "1.0.0",
   "overview": "Create feature flag change requests in ServiceNow.",
-  "description": "Create feature flag change requests in ServiceNow.",
+  "description": "Efficiently comply with company-wide change management policies by embedding LaunchDarkly approvals into existing ServiceNow workflows.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.servicenow.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/servicenow",
     "privacyPolicy": "https://www.servicenow.com/privacy-statement.html"
   },
   "categories": ["approval"],
@@ -21,7 +22,7 @@
       "environmentFormVariables": [
         {
           "key": "template",
-          "name": "Standard Change Template",
+          "name": "Standard change template",
           "description": "The standard change template to be utilized for all flag changes in this environment.",
           "type": "dynamicEnum",
           "dynamicOptions": {
