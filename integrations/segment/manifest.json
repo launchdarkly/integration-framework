@@ -14,7 +14,7 @@
   "categories": ["data"],
   "icons": {
     "square": "assets/images/square.svg",
-    "horizontal": "assets/images/square.svg"
+    "horizontal": "assets/images/horizontal.svg"
   },
   "legacy": {
     "kind": "dataExport"

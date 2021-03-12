@@ -13,7 +13,7 @@
   "categories": ["approval"],
   "icons": {
     "square": "assets/images/servicenow-icon.svg",
-    "horizontal": "assets/images/servicenow-rectangle.svg"
+    "horizontal": "assets/images/servicenow-horizontal.svg"
   },
   "requiresOAuth": true,
   "formVariables": [],
