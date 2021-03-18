@@ -1,0 +1,19 @@
+{
+  "name": "IntelliJ",
+  "version": "1.0.0",
+  "overview": "Interact with feature flags from within IntelliJ-based IDEs.",
+  "description": "With this plugin, you'll be able to view feature flag details when you hover over a feature flag key in your source code, view all of your flags in a tool window and more -- all within IntelliJ!",
+  "details": "IntelliJ is a platform developed by JetBrains for IDEs and language-aware developer tools. Interact with feature flags from within IntelliJ.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://plugins.jetbrains.com/plugin/15159-launchdarkly",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/intellij",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["developer-tools"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  }
+}
