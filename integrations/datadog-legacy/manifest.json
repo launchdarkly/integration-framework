@@ -17,5 +17,6 @@
   },
   "legacy": {
     "kind": "datadog"
-  }
+  },
+  "otherCapabilities": ["external"]
 }

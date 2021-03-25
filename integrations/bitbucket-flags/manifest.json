@@ -16,5 +16,6 @@
   "icons": {
     "square": "assets/images/bitbucket_square.svg",
     "horizontal": "assets/images/bitbucket_horizontal.svg"
-  }
+  },
+  "otherCapabilities": ["external"]
 }

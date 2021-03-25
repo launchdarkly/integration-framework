@@ -160,6 +160,13 @@ export type HorizontalLogo = string;
  */
 export type Kind = "codeRefs" | "datadog" | "dataExport" | "slackWebhooks" | "webhooks";
 /**
+ * Capabilities not configured by manifests
+ */
+export type OtherCapabilities = [
+  "codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks",
+  ...("codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks")[]
+];
+/**
  * Whether the integration authenticates using OAuth
  */
 export type RequiresOAuth = boolean;
@@ -379,6 +386,7 @@ export interface LaunchDarklyIntegrationsManifest {
   categories: Categories;
   icons: Icons;
   legacy?: Legacy;
+  otherCapabilities?: OtherCapabilities;
   requiresOAuth?: RequiresOAuth;
   formVariables?: FormVariables;
   capabilities?: Capabilities;

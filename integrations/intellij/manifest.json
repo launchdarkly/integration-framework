@@ -15,5 +15,6 @@
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/square.svg"
-  }
+  },
+  "otherCapabilities": ["ide"]
 }

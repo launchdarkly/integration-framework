@@ -16,5 +16,6 @@
   "icons": {
     "square": "assets/images/heapanalytics-square.svg",
     "horizontal": "assets/images/heapanalytics-rect.svg"
-  }
+  },
+  "otherCapabilities": ["external"]
 }

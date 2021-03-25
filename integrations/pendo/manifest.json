@@ -15,5 +15,6 @@
   "icons": {
     "square": "assets/images/pendo_square.svg",
     "horizontal": "assets/images/pendo_horizontal.svg"
-  }
+  },
+  "otherCapabilities": ["external"]
 }

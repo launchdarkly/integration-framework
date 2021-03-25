@@ -19,6 +19,7 @@
       "formVariables",
       "capabilities",
       "legacy",
+      "otherCapabilities",
       "requiresOAuth"
     ]
   },
@@ -227,6 +228,24 @@
       "required": [
         "kind"
       ]
+    },
+    "otherCapabilities": {
+      "$id": "#/properties/other-capabilities",
+      "title": "Other capabilities",
+      "description": "Capabilities not configured by manifests",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": [
+          "codeRefs",
+          "dataExport",
+          "external",
+          "ide",
+          "sso",
+          "webhooks"
+        ]
+      }
     },
     "requiresOAuth": {
       "$id": "#/properties/requires-oauth",

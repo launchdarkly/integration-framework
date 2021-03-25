@@ -15,5 +15,6 @@
   "icons": {
     "square": "assets/square.svg",
     "horizontal": "assets/horizontal.svg"
-  }
+  },
+  "otherCapabilities": ["external"]
 }

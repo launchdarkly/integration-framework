@@ -233,6 +233,18 @@ describe('All integrations', () => {
   );
 
   test.each(manifests)(
+    'at least one externalCapability has been defined if no manifest capabilities for %s',
+    (key, manifest) => {
+      const capabilities = _.get(manifest, 'capabilities', null);
+      if (!capabilities) {
+        const otherCapabilities = _.get(manifest, 'otherCapabilities', null);
+        expect(otherCapabilities).not.toBeNull();
+        expect(otherCapabilities.length).toBeGreaterThan(0);
+      }
+    }
+  );
+
+  test.each(manifests)(
     'Templates can be successfully rendered for %s',
     (key, manifest) => {
       const flagTemplatePath = _.get(
