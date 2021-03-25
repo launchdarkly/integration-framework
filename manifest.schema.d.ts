@@ -296,30 +296,6 @@ export type ReservedCustomProperties = {
   [k: string]: unknown;
 }[];
 /**
- * Relative path to template used to render external condition creation request body
- */
-export type CreationTemplate = string;
-/**
- * JSON Pointer to external condition ID
- */
-export type IDPointer = string;
-/**
- * JSON pointer to external condition url
- */
-export type URLPointer = string;
-/**
- * JSON pointer to condition status
- */
-export type StatusPointer = string;
-/**
- * regex pattern used to determine if the response should be considered 'complete'
- */
-export type CompletionMatcher = string;
-/**
- * relative path to sample JSON formatted sample successful response
- */
-export type SampleResponse = string;
-/**
  * URL to documentation describing how to configure the integration.
  */
 export type DocumentationLink = string;
@@ -346,7 +322,7 @@ export type ValuePointer = string;
 /**
  * JSON pointer to the external alert URL
  */
-export type URLPointer1 = string;
+export type URLPointer = string;
 /**
  * JSON path to the array containing integration member details
  */
@@ -493,7 +469,6 @@ export interface OptionsArray {
 export interface Capabilities {
   auditLogEventsHook?: AuditLogEventsHook;
   reservedCustomProperties?: ReservedCustomProperties;
-  externalCondition?: ExternalCondition;
   trigger?: Trigger;
   approval?: Approval;
   [k: string]: unknown;
@@ -530,71 +505,6 @@ export interface Policy {
   [k: string]: unknown;
 }
 /**
- * This capability is used to manage external feature workflow conditions
- */
-export interface ExternalCondition {
-  creation: Creation;
-  pollingUpdate?: PollingUpdate;
-  [k: string]: unknown;
-}
-/**
- * Properties that describe a request to an integration-controlled API endpoint to establish the external condition
- */
-export interface Creation {
-  endpoint: CreationEndpoint;
-  template: CreationTemplate;
-  parser: ResponseParser;
-  [k: string]: unknown;
-}
-/**
- * Properties that describe the HTTP endpoint LaunchDarkly will use to create an external condition
- */
-export interface CreationEndpoint {
-  url: URL;
-  method: HTTPMethod;
-  headers?: HTTPHeaders;
-  [k: string]: unknown;
-}
-/**
- * Describes a mapping of property name to a location in the JSON response specified by a JSON pointer
- */
-export interface ResponseParser {
-  id: IDPointer;
-  url: URLPointer;
-  status?: StatusParser;
-  validation?: Validation;
-  [k: string]: unknown;
-}
-export interface StatusParser {
-  pointer: StatusPointer;
-  completionMatcher: CompletionMatcher;
-  [k: string]: unknown;
-}
-/**
- * Validation helpers (only used for testing)
- */
-export interface Validation {
-  sampleResponse: SampleResponse;
-  [k: string]: unknown;
-}
-/**
- * Properties that describe a polling request to get the status of the external condition
- */
-export interface PollingUpdate {
-  endpoint: PollingUpdateEndpoint;
-  parser: ResponseParser;
-  [k: string]: unknown;
-}
-/**
- * Properties that describe the HTTP endpoint LaunchDarkly will use to get the status of an external condition via polling
- */
-export interface PollingUpdateEndpoint {
-  url: URL;
-  method: HTTPMethod;
-  headers?: HTTPHeaders;
-  [k: string]: unknown;
-}
-/**
  * This capability is used to manage inbound webhook entry points that trigger feature flag changes in LaunchDarkly
  */
 export interface Trigger {
@@ -611,7 +521,7 @@ export interface Trigger {
 export interface TriggerParser {
   eventName?: EventNamePointer;
   value?: ValuePointer;
-  url?: URLPointer1;
+  url?: URLPointer;
   [k: string]: unknown;
 }
 /**

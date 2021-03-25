@@ -232,7 +232,6 @@
         "enum": [
           "auditLogEventsHook",
           "reservedCustomProperties",
-          "externalCondition",
           "trigger",
           "approval"
         ]
@@ -243,9 +242,6 @@
         },
         "reservedCustomProperties": {
           "$ref": "schemas/capabilities/reservedCustomProperties.json#/reservedCustomProperties"
-        },
-        "externalCondition": {
-          "$ref": "schemas/capabilities/externalCondition.json#/externalCondition"
         },
         "trigger": {
           "$ref": "schemas/capabilities/trigger.json#/trigger"
