@@ -212,6 +212,7 @@ Furthermore, the following custom helpers are supported:
 - `equal` - renders a block if the string version of both arguments are equals
 - `pathEncode` - URL path encodes the string version of the argument
 - `queryEncode` - URL query encodes the string version of the argument
+- `basicAuthHeaderValue` - transforms `username` and `password` arguments into the `Authorization` header value required for a basic auth (including the `Basic ` prefix).
 
 To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars
 Sandbox](http://tryhandlebarsjs.com/).
