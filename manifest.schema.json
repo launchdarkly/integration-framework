@@ -951,6 +951,7 @@
               "propertyNames": {
                 "enum": [
                   "endpoint",
+                  "jsonBody",
                   "parser"
                 ]
               },
@@ -1051,6 +1052,12 @@
                     "url",
                     "method"
                   ]
+                },
+                "jsonBody": {
+                  "$id": "#/definitions/json-body",
+                  "title": "JSON Body",
+                  "description": "Template string used to render the JSON request body",
+                  "type": "string"
                 },
                 "parser": {
                   "$id": "#/member-list-parser",
@@ -1385,6 +1392,7 @@
               "propertyNames": {
                 "enum": [
                   "endpoint",
+                  "jsonBody",
                   "parser"
                 ]
               },
@@ -1485,6 +1493,12 @@
                     "method"
                   ]
                 },
+                "jsonBody": {
+                  "$id": "#/definitions/json-body",
+                  "title": "JSON Body",
+                  "description": "Template string used to render the JSON request body",
+                  "type": "string"
+                },
                 "parser": {
                   "$id": "#/approval-parser",
                   "title": "Approval parser",
@@ -1552,6 +1566,7 @@
               "propertyNames": {
                 "enum": [
                   "endpoint",
+                  "jsonBody",
                   "parser"
                 ]
               },
@@ -1652,6 +1667,12 @@
                     "url",
                     "method"
                   ]
+                },
+                "jsonBody": {
+                  "$id": "#/definitions/json-body",
+                  "title": "JSON Body",
+                  "description": "Template string used to render the JSON request body",
+                  "type": "string"
                 },
                 "parser": {
                   "$id": "#/approval-parser",
@@ -1720,6 +1741,7 @@
               "propertyNames": {
                 "enum": [
                   "endpoint",
+                  "jsonBody",
                   "parser"
                 ]
               },
@@ -1821,6 +1843,12 @@
                     "method"
                   ]
                 },
+                "jsonBody": {
+                  "$id": "#/definitions/json-body",
+                  "title": "JSON Body",
+                  "description": "Template string used to render the JSON request body",
+                  "type": "string"
+                },
                 "parser": {
                   "$id": "#/approval-parser",
                   "title": "Approval parser",
@@ -1888,6 +1916,7 @@
               "propertyNames": {
                 "enum": [
                   "endpoint",
+                  "jsonBody",
                   "parser"
                 ]
               },
@@ -1988,6 +2017,12 @@
                     "url",
                     "method"
                   ]
+                },
+                "jsonBody": {
+                  "$id": "#/definitions/json-body",
+                  "title": "JSON Body",
+                  "description": "Template string used to render the JSON request body",
+                  "type": "string"
                 },
                 "parser": {
                   "$id": "#/approval-parser",

@@ -331,6 +331,10 @@ export type ValuePointer = string;
  */
 export type URLPointer = string;
 /**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody = string;
+/**
  * JSON path to the array containing integration member details
  */
 export type MemberArrayPath = string;
@@ -549,6 +553,7 @@ export interface Approval {
  */
 export interface MemberListRequest {
   endpoint: Endpoint;
+  jsonBody?: JSONBody;
   parser: MemberListParser;
   [k: string]: unknown;
 }
@@ -570,6 +575,7 @@ export interface MemberItemsArray {
  */
 export interface CreationRequest {
   endpoint: Endpoint;
+  jsonBody?: JSONBody;
   parser?: ApprovalParser;
   [k: string]: unknown;
 }
@@ -590,6 +596,7 @@ export interface ApprovalParser {
  */
 export interface StatusRequest {
   endpoint: Endpoint;
+  jsonBody?: JSONBody;
   parser: ApprovalParser;
   [k: string]: unknown;
 }
@@ -598,6 +605,7 @@ export interface StatusRequest {
  */
 export interface PostApplyRequest {
   endpoint: Endpoint;
+  jsonBody?: JSONBody;
   parser: ApprovalParser;
   [k: string]: unknown;
 }
@@ -606,6 +614,7 @@ export interface PostApplyRequest {
  */
 export interface DeletionRequest {
   endpoint: Endpoint;
+  jsonBody?: JSONBody;
   parser: ApprovalParser;
   [k: string]: unknown;
 }

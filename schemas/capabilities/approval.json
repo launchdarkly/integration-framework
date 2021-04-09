@@ -28,12 +28,15 @@
         "title": "Member List Request",
         "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
         "propertyNames": {
-          "enum": ["endpoint", "parser"]
+          "enum": ["endpoint", "jsonBody", "parser"]
         },
         "required": ["endpoint", "parser"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
           },
           "parser": {
             "$ref": "parser/parser.json#/memberListParser"
@@ -55,12 +58,15 @@
         "title": "Creation request",
         "description": "Describes the approval creation HTTP request and the parser used to process the JSON response",
         "propertyNames": {
-          "enum": ["endpoint", "parser"]
+          "enum": ["endpoint", "jsonBody", "parser"]
         },
         "required": ["endpoint"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
@@ -72,12 +78,15 @@
         "title": "Status Request",
         "description": "Describes the approval status check HTTP request and the parser used to determine if the approval should be consider approved or rejected",
         "propertyNames": {
-          "enum": ["endpoint", "parser"]
+          "enum": ["endpoint", "jsonBody", "parser"]
         },
         "required": ["endpoint", "parser"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
@@ -89,12 +98,15 @@
         "title": "Post Apply Request",
         "description": "Describes the HTTP request to make after the changes have been applied in LaunchDarkly",
         "propertyNames": {
-          "enum": ["endpoint", "parser"]
+          "enum": ["endpoint", "jsonBody", "parser"]
         },
         "required": ["endpoint", "parser"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
@@ -106,12 +118,15 @@
         "title": "Deletion Request",
         "description": "Describes the HTTP request for the deletion of the external approval entity",
         "propertyNames": {
-          "enum": ["endpoint", "parser"]
+          "enum": ["endpoint", "jsonBody", "parser"]
         },
         "required": ["endpoint", "parser"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
