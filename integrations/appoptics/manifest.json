@@ -12,7 +12,7 @@
   "categories": ["monitoring"],
   "icons": {
     "square": "assets/images/solarwinds-square.svg",
-    "horizontal": "assets/images/horizontal.svg"
+    "horizontal": "assets/images/appoptics.svg"
   },
   "formVariables": [
     {
