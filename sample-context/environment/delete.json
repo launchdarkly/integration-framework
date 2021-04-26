@@ -27,7 +27,8 @@
   "timestamp": {
     "milliseconds": 1580778870198,
     "seconds": 1580778870,
-    "rfc3339": "2020-02-04T01:14:30Z"
+    "rfc3339": "2020-02-04T01:14:30Z",
+    "simple": "2020-02-04 01:14:30"
   },
   "kind": "environment",
   "name": "Local dev",
