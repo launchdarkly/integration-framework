@@ -48,7 +48,7 @@
       ],
       "creationRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}&justification={{queryEncode context._links.approval.href}}{{#if context.details.plainText}}%0A%0A{{queryEncode context.details.plainText}}{{/if}}&requested_by={{queryEncode context.member.externalId}}",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}",
           "method": "POST",
           "headers": [
             {
@@ -57,6 +57,7 @@
             }
           ]
         },
+        "jsonBody": "{\"short_description\": \"{{{title.plainText}}}\", \"justification\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"requested_by\": \"{{{member.externalId}}}\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{timestamp.simple}}\"}",
         "parser": {
           "approvalId": "/result/sys_id/value",
           "statusValue": "/result/state/value",
