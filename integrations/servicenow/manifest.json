@@ -2,17 +2,18 @@
   "name": "ServiceNow",
   "version": "1.0.0",
   "overview": "Create feature flag change requests in ServiceNow.",
-  "description": "Create feature flag change requests in ServiceNow.",
+  "description": "Efficiently comply with company-wide change management policies by embedding LaunchDarkly approvals into existing ServiceNow workflows.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.servicenow.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/servicenow",
     "privacyPolicy": "https://www.servicenow.com/privacy-statement.html"
   },
   "categories": ["approval"],
   "icons": {
     "square": "assets/images/servicenow-icon.svg",
-    "horizontal": "assets/images/servicenow-rectangle.svg"
+    "horizontal": "assets/images/servicenow-horizontal.svg"
   },
   "requiresOAuth": true,
   "formVariables": [],
@@ -21,7 +22,7 @@
       "environmentFormVariables": [
         {
           "key": "template",
-          "name": "Standard Change Template",
+          "name": "Standard change template",
           "description": "The standard change template to be utilized for all flag changes in this environment.",
           "type": "dynamicEnum",
           "dynamicOptions": {
@@ -45,36 +46,9 @@
           }
         }
       ],
-      "memberFormVariables": [
-        {
-          "key": "username",
-          "name": "ServiceNow username",
-          "description": "The ServiceNow username used to attribute change requests",
-          "type": "dynamicEnum",
-          "dynamicOptions": {
-            "endpoint": {
-              "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=name,email,user_name,sys_id",
-              "method": "GET",
-              "headers": [
-                {
-                  "name": "Authorization",
-                  "value": "Bearer {{oauth.accessToken}}"
-                }
-              ]
-            },
-            "parser": {
-              "optionsPath": "/result",
-              "optionsItems": {
-                "label": "/name",
-                "value": "/user_name"
-              }
-            }
-          }
-        }
-      ],
       "creationRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}?short_description={{queryEncode context.title.plainText}}&{{#if context.details.plainText}}&justification={{queryEncode context.details.plainText}}{{/if}}",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}",
           "method": "POST",
           "headers": [
             {
@@ -83,12 +57,13 @@
             }
           ]
         },
+        "jsonBody": "{\"short_description\": \"{{{title.plainText}}}\", \"justification\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"requested_by\": \"{{{member.externalId}}}\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{timestamp.simple}}\"}",
         "parser": {
           "approvalId": "/result/sys_id/value",
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "-1",
-          "rejectionMatcher": "n/a",
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4",
           "urlTemplate": "{{oauth.baseURI}}/change_request.do?sys_id={{queryEncode context.approvalId}}"
         }
       },
@@ -106,13 +81,49 @@
         "parser": {
           "statusValue": "/result/state/value",
           "statusDisplay": "/result/state/display_value",
-          "approvalMatcher": "-1",
-          "rejectionMatcher": "n/a"
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4"
+        }
+      },
+      "postApplyRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}?state=Review",
+          "method": "PATCH",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4"
+        }
+      },
+      "deletionRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}?state=Canceled",
+          "method": "PATCH",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4"
         }
       },
       "memberListRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,sys_id",
+          "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,user_name",
           "method": "GET",
           "headers": [
             {
@@ -124,7 +135,7 @@
         "parser": {
           "memberArrayPath": "/result",
           "memberItems": {
-            "memberId": "/sys_id",
+            "memberId": "/user_name",
             "email": "/email"
           }
         }

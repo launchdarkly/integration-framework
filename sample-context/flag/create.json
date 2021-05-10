@@ -27,7 +27,8 @@
   "timestamp": {
     "milliseconds": 1580777968396,
     "seconds": 1580777968,
-    "rfc3339": "2020-02-04T00:59:28Z"
+    "rfc3339": "2020-02-04T00:59:28Z",
+    "simple": "2020-02-04 00:59:28"
   },
   "kind": "flag",
   "name": "A brand new flag",

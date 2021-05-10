@@ -13,6 +13,14 @@ const registerHelpers = () => {
   Handlebars.registerHelper('queryEncode', function (v) {
     return encodeURIComponent(v);
   });
+  Handlebars.registerHelper(
+    'basicAuthHeaderValue',
+    function (username, password) {
+      return `Basic ${Buffer.from(`${username}:${password}`).toString(
+        'base64'
+      )}`;
+    }
+  );
 };
 
 module.exports = { registerHelpers };

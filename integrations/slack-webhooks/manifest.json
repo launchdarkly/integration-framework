@@ -17,5 +17,6 @@
   },
   "legacy": {
     "kind": "slackWebhooks"
-  }
+  },
+  "otherCapabilities": ["webhooks"]
 }

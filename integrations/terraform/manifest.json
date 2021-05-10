@@ -16,5 +16,6 @@
   "icons": {
     "square": "assets/images/terraform_square.svg",
     "horizontal": "assets/images/terraform_horizontal.svg"
-  }
+  },
+  "otherCapabilities": ["external"]
 }

@@ -17,5 +17,6 @@
   },
   "legacy": {
     "kind": "webhooks"
-  }
+  },
+  "otherCapabilities": ["webhooks"]
 }

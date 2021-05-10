@@ -100,6 +100,10 @@
           {
             "name": "Content-Type",
             "value": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "value": "{{{basicAuthHeaderValue required secret}}}"
           }
         ]
       },
@@ -117,26 +121,6 @@
           "actions": ["*"]
         }
       ]
-    },
-    "externalCondition": {
-      "creation": {
-        "endpoint": {
-          "url": "https://example.com/create-condition",
-          "method": "POST",
-          "headers": [
-            {
-              "name": "Content-Type",
-              "value": "application/json"
-            }
-          ]
-        },
-        "template": "templates/ticket-creation-request.json.hbs",
-        "parser": {
-          "id": "/id",
-          "url": "/links/self/href"
-        },
-        "sampleResponse": "sample-responses/ticket-creation.json"
-      }
     }
   }
 }

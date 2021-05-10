@@ -160,6 +160,13 @@ export type HorizontalLogo = string;
  */
 export type Kind = "codeRefs" | "datadog" | "dataExport" | "slackWebhooks" | "webhooks";
 /**
+ * Capabilities not configured by manifests
+ */
+export type OtherCapabilities = [
+  "codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks",
+  ...("codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks")[]
+];
+/**
  * Whether the integration authenticates using OAuth
  */
 export type RequiresOAuth = boolean;
@@ -296,30 +303,6 @@ export type ReservedCustomProperties = {
   [k: string]: unknown;
 }[];
 /**
- * Relative path to template used to render external condition creation request body
- */
-export type CreationTemplate = string;
-/**
- * JSON Pointer to external condition ID
- */
-export type IDPointer = string;
-/**
- * JSON pointer to external condition url
- */
-export type URLPointer = string;
-/**
- * JSON pointer to condition status
- */
-export type StatusPointer = string;
-/**
- * regex pattern used to determine if the response should be considered 'complete'
- */
-export type CompletionMatcher = string;
-/**
- * relative path to sample JSON formatted sample successful response
- */
-export type SampleResponse = string;
-/**
  * URL to documentation describing how to configure the integration.
  */
 export type DocumentationLink = string;
@@ -346,15 +329,27 @@ export type ValuePointer = string;
 /**
  * JSON pointer to the external alert URL
  */
-export type URLPointer1 = string;
+export type URLPointer = string;
+/**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody = string;
+/**
+ * JSON path to the array containing integration member details
+ */
+export type MemberArrayPath = string;
+/**
+ * Relative JSON path to the email field in each member item in the array
+ */
+export type Email = string;
+/**
+ * Relative JSON path to the integration member ID field in each member item in the array
+ */
+export type MemberID = string;
 /**
  * Environment-specific form variables that render on the environment approval settings modal
  */
 export type EnvironmentFormVariables = FormVariable[];
-/**
- * Member-specific form variables that are used to connect integration users to LaunchDarkly members
- */
-export type MemberFormVariables = FormVariable[];
 /**
  * Externally-created approval entity ID
  */
@@ -379,18 +374,6 @@ export type RejectionMatcher = string;
  * expected format for the external creation request URL. Values can be substituted in using {{value}}
  */
 export type URLTemplate = string;
-/**
- * JSON path to the array containing integration member details
- */
-export type MemberArrayPath = string;
-/**
- * Relative JSON path to the email field in each member item in the array
- */
-export type Email = string;
-/**
- * Relative JSON path to the integration member ID field in each member item in the array
- */
-export type MemberID = string;
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -407,6 +390,7 @@ export interface LaunchDarklyIntegrationsManifest {
   categories: Categories;
   icons: Icons;
   legacy?: Legacy;
+  otherCapabilities?: OtherCapabilities;
   requiresOAuth?: RequiresOAuth;
   formVariables?: FormVariables;
   capabilities?: Capabilities;
@@ -497,7 +481,6 @@ export interface OptionsArray {
 export interface Capabilities {
   auditLogEventsHook?: AuditLogEventsHook;
   reservedCustomProperties?: ReservedCustomProperties;
-  externalCondition?: ExternalCondition;
   trigger?: Trigger;
   approval?: Approval;
   [k: string]: unknown;
@@ -534,71 +517,6 @@ export interface Policy {
   [k: string]: unknown;
 }
 /**
- * This capability is used to manage external feature workflow conditions
- */
-export interface ExternalCondition {
-  creation: Creation;
-  pollingUpdate?: PollingUpdate;
-  [k: string]: unknown;
-}
-/**
- * Properties that describe a request to an integration-controlled API endpoint to establish the external condition
- */
-export interface Creation {
-  endpoint: CreationEndpoint;
-  template: CreationTemplate;
-  parser: ResponseParser;
-  [k: string]: unknown;
-}
-/**
- * Properties that describe the HTTP endpoint LaunchDarkly will use to create an external condition
- */
-export interface CreationEndpoint {
-  url: URL;
-  method: HTTPMethod;
-  headers?: HTTPHeaders;
-  [k: string]: unknown;
-}
-/**
- * Describes a mapping of property name to a location in the JSON response specified by a JSON pointer
- */
-export interface ResponseParser {
-  id: IDPointer;
-  url: URLPointer;
-  status?: StatusParser;
-  validation?: Validation;
-  [k: string]: unknown;
-}
-export interface StatusParser {
-  pointer: StatusPointer;
-  completionMatcher: CompletionMatcher;
-  [k: string]: unknown;
-}
-/**
- * Validation helpers (only used for testing)
- */
-export interface Validation {
-  sampleResponse: SampleResponse;
-  [k: string]: unknown;
-}
-/**
- * Properties that describe a polling request to get the status of the external condition
- */
-export interface PollingUpdate {
-  endpoint: PollingUpdateEndpoint;
-  parser: ResponseParser;
-  [k: string]: unknown;
-}
-/**
- * Properties that describe the HTTP endpoint LaunchDarkly will use to get the status of an external condition via polling
- */
-export interface PollingUpdateEndpoint {
-  url: URL;
-  method: HTTPMethod;
-  headers?: HTTPHeaders;
-  [k: string]: unknown;
-}
-/**
  * This capability is used to manage inbound webhook entry points that trigger feature flag changes in LaunchDarkly
  */
 export interface Trigger {
@@ -615,19 +533,41 @@ export interface Trigger {
 export interface TriggerParser {
   eventName?: EventNamePointer;
   value?: ValuePointer;
-  url?: URLPointer1;
+  url?: URLPointer;
   [k: string]: unknown;
 }
 /**
  * This capability enables integration-driven flag change approvals
  */
 export interface Approval {
+  memberListRequest: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
-  memberFormVariables?: MemberFormVariables;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
-  memberListRequest: MemberListRequest;
-  deletionRequest?: DeletionRequest;
+  postApplyRequest: PostApplyRequest;
+  deletionRequest: DeletionRequest;
+  [k: string]: unknown;
+}
+/**
+ * Describes the HTTP request to get integration users for mapping to Launchdarkly users
+ */
+export interface MemberListRequest {
+  endpoint: Endpoint;
+  jsonBody?: JSONBody;
+  parser: MemberListParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
+ */
+export interface MemberListParser {
+  memberArrayPath: MemberArrayPath;
+  memberItems: MemberItemsArray;
+  [k: string]: unknown;
+}
+export interface MemberItemsArray {
+  email: Email;
+  memberId: MemberID;
   [k: string]: unknown;
 }
 /**
@@ -635,6 +575,7 @@ export interface Approval {
  */
 export interface CreationRequest {
   endpoint: Endpoint;
+  jsonBody?: JSONBody;
   parser?: ApprovalParser;
   [k: string]: unknown;
 }
@@ -655,28 +596,17 @@ export interface ApprovalParser {
  */
 export interface StatusRequest {
   endpoint: Endpoint;
+  jsonBody?: JSONBody;
   parser: ApprovalParser;
   [k: string]: unknown;
 }
 /**
- * Describes the HTTP request to get integration users for mapping to Launchdarkly users
+ * Describes the HTTP request to make after the changes have been applied in LaunchDarkly
  */
-export interface MemberListRequest {
+export interface PostApplyRequest {
   endpoint: Endpoint;
-  parser: MemberListParser;
-  [k: string]: unknown;
-}
-/**
- * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
- */
-export interface MemberListParser {
-  memberArrayPath: MemberArrayPath;
-  memberItems: MemberItemsArray;
-  [k: string]: unknown;
-}
-export interface MemberItemsArray {
-  email: Email;
-  memberId: MemberID;
+  jsonBody?: JSONBody;
+  parser: ApprovalParser;
   [k: string]: unknown;
 }
 /**
@@ -684,5 +614,7 @@ export interface MemberItemsArray {
  */
 export interface DeletionRequest {
   endpoint: Endpoint;
+  jsonBody?: JSONBody;
+  parser: ApprovalParser;
   [k: string]: unknown;
 }

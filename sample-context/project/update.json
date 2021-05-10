@@ -27,7 +27,8 @@
   "timestamp": {
     "milliseconds": 1580778360145,
     "seconds": 1580778360,
-    "rfc3339": "2020-02-04T01:06:00Z"
+    "rfc3339": "2020-02-04T01:06:00Z",
+    "simple": "2020-02-04 01:06:00"
   },
   "kind": "project",
   "name": "The big project",

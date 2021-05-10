@@ -19,6 +19,7 @@
       "formVariables",
       "capabilities",
       "legacy",
+      "otherCapabilities",
       "requiresOAuth"
     ]
   },
@@ -206,6 +207,17 @@
       },
       "required": ["kind"]
     },
+    "otherCapabilities": {
+      "$id": "#/properties/other-capabilities",
+      "title": "Other capabilities",
+      "description": "Capabilities not configured by manifests",
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "enum": ["codeRefs", "dataExport", "external", "ide", "sso", "webhooks"]
+      }
+    },
     "requiresOAuth": {
       "$id": "#/properties/requires-oauth",
       "title": "Requires OAuth",
@@ -232,7 +244,6 @@
         "enum": [
           "auditLogEventsHook",
           "reservedCustomProperties",
-          "externalCondition",
           "trigger",
           "approval"
         ]
@@ -243,9 +254,6 @@
         },
         "reservedCustomProperties": {
           "$ref": "schemas/capabilities/reservedCustomProperties.json#/reservedCustomProperties"
-        },
-        "externalCondition": {
-          "$ref": "schemas/capabilities/externalCondition.json#/externalCondition"
         },
         "trigger": {
           "$ref": "schemas/capabilities/trigger.json#/trigger"

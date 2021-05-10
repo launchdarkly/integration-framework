@@ -23,7 +23,8 @@
   "timestamp": {
     "milliseconds": 1580779027718,
     "seconds": 1580779027,
-    "rfc3339": "2020-02-04T01:17:07Z"
+    "rfc3339": "2020-02-04T01:17:07Z",
+    "simple": "2020-02-04 01:17:07"
   },
   "kind": "segment",
   "name": "New segment",

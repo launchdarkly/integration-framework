@@ -13,7 +13,8 @@
   },
   "categories": ["monitoring"],
   "icons": {
-    "square": "assets/images/logo_new_logo_symbol.svg",
-    "horizontal": "assets/images/logo_new_logo_dark.svg"
-  }
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
 }

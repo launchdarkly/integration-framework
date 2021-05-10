@@ -27,7 +27,8 @@
   "timestamp": {
     "milliseconds": 1580777319650,
     "seconds": 1580777319,
-    "rfc3339": "2020-02-04T00:48:39Z"
+    "rfc3339": "2020-02-04T00:48:39Z",
+    "simple": "2020-02-04 00:48:39"
   },
   "kind": "flag",
   "name": "Demo flag",

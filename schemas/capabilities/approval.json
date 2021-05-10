@@ -8,29 +8,45 @@
     "propertyNames": {
       "enum": [
         "environmentFormVariables",
-        "memberFormVariables",
         "creationRequest",
         "statusRequest",
-        "memberListRequest",
-        "deletionRequest"
+        "postApplyRequest",
+        "deletionRequest",
+        "memberListRequest"
       ]
     },
-    "required": ["creationRequest", "statusRequest", "memberListRequest"],
+    "required": [
+      "creationRequest",
+      "statusRequest",
+      "postApplyRequest",
+      "deletionRequest",
+      "memberListRequest"
+    ],
     "properties": {
+      "memberListRequest": {
+        "$id": "#/capabilities/approval/member-list-request",
+        "title": "Member List Request",
+        "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
+        "propertyNames": {
+          "enum": ["endpoint", "jsonBody", "parser"]
+        },
+        "required": ["endpoint", "parser"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
+          },
+          "parser": {
+            "$ref": "parser/parser.json#/memberListParser"
+          }
+        }
+      },
       "environmentFormVariables": {
         "$id": "#/capabilities/approval/environment-form-variables",
         "title": "Environment form variables",
         "description": "Environment-specific form variables that render on the environment approval settings modal",
-        "type": "array",
-        "items": {
-          "$ref": "../definitions.json#/formVariable"
-        },
-        "default": []
-      },
-      "memberFormVariables": {
-        "$id": "#/capabilities/approval/member-form-variables",
-        "title": "Member form variables",
-        "description": "Member-specific form variables that are used to connect integration users to LaunchDarkly members",
         "type": "array",
         "items": {
           "$ref": "../definitions.json#/formVariable"
@@ -42,12 +58,15 @@
         "title": "Creation request",
         "description": "Describes the approval creation HTTP request and the parser used to process the JSON response",
         "propertyNames": {
-          "enum": ["endpoint", "parser"]
+          "enum": ["endpoint", "jsonBody", "parser"]
         },
         "required": ["endpoint"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
@@ -59,32 +78,38 @@
         "title": "Status Request",
         "description": "Describes the approval status check HTTP request and the parser used to determine if the approval should be consider approved or rejected",
         "propertyNames": {
-          "enum": ["endpoint", "parser"]
+          "enum": ["endpoint", "jsonBody", "parser"]
         },
         "required": ["endpoint", "parser"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
           }
         }
       },
-      "memberListRequest": {
-        "$id": "#/capabilities/approval/member-list-request",
-        "title": "Member List Request",
-        "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
+      "postApplyRequest": {
+        "$id": "#/capabilities/approval/post-apply-request",
+        "title": "Post Apply Request",
+        "description": "Describes the HTTP request to make after the changes have been applied in LaunchDarkly",
         "propertyNames": {
-          "enum": ["endpoint", "parser"]
+          "enum": ["endpoint", "jsonBody", "parser"]
         },
         "required": ["endpoint", "parser"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
           },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
+          },
           "parser": {
-            "$ref": "parser/parser.json#/memberListParser"
+            "$ref": "parser/parser.json#/approvalParser"
           }
         }
       },
@@ -93,12 +118,18 @@
         "title": "Deletion Request",
         "description": "Describes the HTTP request for the deletion of the external approval entity",
         "propertyNames": {
-          "enum": ["endpoint"]
+          "enum": ["endpoint", "jsonBody", "parser"]
         },
-        "required": ["endpoint"],
+        "required": ["endpoint", "parser"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
+          },
+          "parser": {
+            "$ref": "parser/parser.json#/approvalParser"
           }
         }
       }

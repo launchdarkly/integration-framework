@@ -94,6 +94,12 @@
     },
     "required": ["url", "method"]
   },
+  "jsonBody": {
+    "$id": "#/definitions/json-body",
+    "title": "JSON Body",
+    "description": "Template string used to render the JSON request body",
+    "type": "string"
+  },
   "formVariable": {
     "$id": "#/definitions/form-variable",
     "title": "Form variable",
