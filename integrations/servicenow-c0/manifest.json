@@ -26,11 +26,10 @@
           "type": "string"
         },
         {
-          "key": "password",
+          "key": "pw",
           "name": "ServiceNow password",
           "description": "Your ServiceNow integration user's password",
-          "type": "string",
-          "isSecret": true
+          "type": "string"
         },
         {
           "key": "host",
@@ -64,7 +63,7 @@
           "headers": [
             {
               "name": "Authorization",
-              "value": "{{{basicAuthHeaderValue environment.username environment.password}}}"
+              "value": "{{{basicAuthHeaderValue environment.username environment.pw}}}"
             },
             {
               "name": "Content-Type",
