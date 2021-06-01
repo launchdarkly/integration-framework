@@ -59,7 +59,7 @@
       ],
       "creationRequest": {
         "endpoint": {
-          "url": "{{environment.host}}/api/sn_chg_rest/change/standard/{{environment.template}}",
+          "url": "{{environment.host}}/api/now/import/u_create_change",
           "method": "POST",
           "headers": [
             {
