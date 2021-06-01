@@ -78,7 +78,7 @@
           "statusDisplay": "/result/0/status",
           "approvalMatcher": "inserted",
           "rejectionMatcher": "error",
-          "urlTemplate": "{{environment.host}}/change_request.do?sys_id={{queryEncode context.approvalId}}"
+          "urlTemplate": "{{environment.host}}/itsmhome/?id=itsm_form&number={{queryEncode context.approvalId}}&table=change_request"
         }
       },
       "statusRequest": {
