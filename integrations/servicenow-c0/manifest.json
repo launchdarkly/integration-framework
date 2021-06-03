@@ -26,10 +26,11 @@
           "type": "string"
         },
         {
-          "key": "pw",
+          "key": "password",
           "name": "ServiceNow password",
           "description": "Your ServiceNow integration user's password",
-          "type": "string"
+          "type": "string",
+          "isSecret": true
         },
         {
           "key": "host",
@@ -54,6 +55,12 @@
           "name": "Requesting user ID",
           "description": "TEMPORARY: The requesting user for all flag changes in this environment.",
           "type": "string"
+        },
+        {
+          "key": "appId",
+          "name": "App ID",
+          "description": "TEMPORARY: The App ID used for all flag changes in this environment.",
+          "type": "string"
         }
       ],
       "creationRequest": {
@@ -63,7 +70,7 @@
           "headers": [
             {
               "name": "Authorization",
-              "value": "{{{basicAuthHeaderValue environment.username environment.pw}}}"
+              "value": "{{{basicAuthHeaderValue environment.username environment.password}}}"
             },
             {
               "name": "Content-Type",
@@ -71,14 +78,14 @@
             }
           ]
         },
-        "jsonBody": "{\"assignment_group\": \"{{environmentFormVariables.assignment}}\", \"description\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"opened_by\": \"{{environmentFormVariables.user}}\", \"requested_by\": \"{{environmentFormVariables.user}}\", \"short_description\": \"{{{title.plainText}}}\", \"u_creating_group\": \"{{environmentFormVariables.assignment}}\", \"u_requesting_group\": \"{{environmentFormVariables.assignment}}\", \"u_template\": \"{{environmentFormVariables.template}}\", \"risk\": \"low\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{timestamp.simple}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\"}",
+        "jsonBody": "{\"assignment_group\": \"{{environmentFormVariables.assignment}}\", \"description\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"opened_by\": \"{{environmentFormVariables.user}}\", \"requested_by\": \"{{environmentFormVariables.user}}\", \"short_description\": \"{{{title.plainText}}}\", \"u_creating_group\": \"{{environmentFormVariables.assignment}}\", \"u_requesting_group\": \"{{environmentFormVariables.assignment}}\", \"u_template\": \"{{environmentFormVariables.template}}\", \"risk\": \"low\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{timestamp.simple}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\", \"approval\": \"Requested for Approval\", \"state\": \"Closed Complete\", \"u_affected_ci\": \"{{environmentFormVariables.appId}}\"}",
         "parser": {
-          "approvalId": "/result/0/display_value",
+          "approvalId": "/result/0/sys_id",
           "statusValue": "/result/0/status",
           "statusDisplay": "/result/0/status",
           "approvalMatcher": "inserted",
           "rejectionMatcher": "error",
-          "urlTemplate": "{{environment.host}}/itsmhome/?id=itsm_form&number={{queryEncode context.approvalId}}&table=change_request"
+          "urlTemplate": "{{environment.host}}/itsmhome/?id=itsm_form&sys_id={{queryEncode context.approvalId}}&table=change_request"
         }
       },
       "statusRequest": {
