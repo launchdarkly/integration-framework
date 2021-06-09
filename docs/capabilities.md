@@ -152,7 +152,8 @@ sends you a default JSON payload that looks like this:
   "timestamp": {
     "milliseconds": 1580778134028,
     "seconds": 1580778134,
-    "rfc3339": "2020-02-04T01:02:14Z"
+    "rfc3339": "2020-02-04T01:02:14Z",
+    "simple": "2020-02-04 01:02:14"
   },
   "kind": "flag",
   "name": "Example test",
@@ -213,6 +214,14 @@ Furthermore, the following custom helpers are supported:
 - `pathEncode` - URL path encodes the string version of the argument
 - `queryEncode` - URL query encodes the string version of the argument
 - `basicAuthHeaderValue` - transforms `username` and `password` arguments into the `Authorization` header value required for a basic auth (including the `Basic ` prefix).
+- `formatWithOffset` - adds an offset in seconds to a unix milliseconds timestamp and formats the timestamp using one of the supported formats detailed below.
+
+The following timestamp formats are supported:
+
+- `milliseconds` - unix milliseconds
+- `seconds` - unix seconds
+- `rfc3339` - [RFC3339 format](https://datatracker.ietf.org/doc/html/rfc3339), e.g., `2020-02-04T01:02:14Z`
+- `simple` - timestamp string formatted as `yyyy-mm-dd h:MM:ss`, e.g., `2020-02-04 01:03:59`
 
 To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars
 Sandbox](http://tryhandlebarsjs.com/).
