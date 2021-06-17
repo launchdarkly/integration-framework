@@ -1,0 +1,19 @@
+{
+  "name": "Zendesk",
+  "version": "1.0.0",
+  "overview": "View flag variations served to your customers from Zendesk.",
+  "description": "Zendesk is a service-first CRM company that builds software designed to improve customer relationships. Our Zendesk app gives you and your team members a read-only view of flag variations served to your customers without leaving Zendesk, thus dramatically shortening the time to close tickets.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.zendesk.com",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/zendesk",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["customer-support"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}
