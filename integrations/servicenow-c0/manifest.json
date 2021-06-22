@@ -17,6 +17,20 @@
   },
   "formVariables": [],
   "capabilities": {
+    "reservedCustomProperties": [
+      {
+        "name": "ServiceNow App ID",
+        "key": "servicenowAppId"
+      },
+      {
+        "name": "ServiceNow user ID",
+        "key": "servicenowUserId"
+      },
+      {
+        "name": "ServiceNow assignment group",
+        "key": "servicenowAssignmentGroup"
+      }
+    ],
     "approval": {
       "environmentFormVariables": [
         {
@@ -43,24 +57,6 @@
           "name": "Change request template",
           "description": "The change request template to be utilized for all flag changes in this environment.",
           "type": "string"
-        },
-        {
-          "key": "assignment",
-          "name": "Assignment group",
-          "description": "TEMPORARY: The assignment group to be utilized for all flag changes in this environment.",
-          "type": "string"
-        },
-        {
-          "key": "user",
-          "name": "Requesting user ID",
-          "description": "TEMPORARY: The requesting user for all flag changes in this environment.",
-          "type": "string"
-        },
-        {
-          "key": "appId",
-          "name": "App ID",
-          "description": "TEMPORARY: The App ID used for all flag changes in this environment.",
-          "type": "string"
         }
       ],
       "creationRequest": {
@@ -78,7 +74,7 @@
             }
           ]
         },
-        "jsonBody": "{\"assignment_group\": \"{{environmentFormVariables.assignment}}\", \"description\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"opened_by\": \"{{environmentFormVariables.user}}\", \"requested_by\": \"{{environmentFormVariables.user}}\", \"assigned_to\": \"{{environmentFormVariables.user}}\", \"short_description\": \"{{{title.plainText}}}\", \"u_creating_group\": \"{{environmentFormVariables.assignment}}\", \"u_requesting_group\": \"{{environmentFormVariables.assignment}}\", \"u_template\": \"{{environmentFormVariables.template}}\", \"start_date\": \"{{formatWithOffset timestamp.milliseconds 60 'simple'}}\", \"end_date\": \"{{formatWithOffset timestamp.milliseconds 60 'simple'}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\", \"approval\": \"Requested for Approval\", \"state\": \"Closed Complete\", \"u_affected_ci\": \"{{environmentFormVariables.appId}}\"}",
+        "jsonBody": "{\"assignment_group\": \"{{{customProperties.servicenowAssignmentGroup.values.[0]}}}\", \"description\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"opened_by\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"requested_by\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"assigned_to\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"short_description\": \"{{{title.plainText}}}\", \"u_creating_group\": \"{{{customProperties.servicenowAssignmentGroup.values.[0]}}}\", \"u_requesting_group\": \"{{{customProperties.servicenowAssignmentGroup.values.[0]}}}\", \"u_template\": \"{{environmentFormVariables.template}}\", \"start_date\": \"{{formatWithOffset timestamp.milliseconds 60 'simple'}}\", \"end_date\": \"{{formatWithOffset timestamp.milliseconds 60 'simple'}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\", \"approval\": \"Requested for Approval\", \"u_affected_ci\": \"{{{customProperties.servicenowAppId.values.[0]}}}\",\"state\": \"Closed Complete\"}",
         "parser": {
           "approvalId": "/result/0/sys_id",
           "statusValue": "/result/0/status",
