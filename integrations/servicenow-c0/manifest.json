@@ -112,7 +112,7 @@
             }
           ]
         },
-        "jsonBody": "{ \"number\": \"{{approvalId}}\", \"requested_by\": \"{{environmentFormVariables.user}}\", \"state\": \"Closed Complete\", \"u_close_task_state\": \"Closed Complete,Closed Complete,Closed Complete,Closed Skipped\", \"u_closure_code\": \"Successful\", \"u_close_tasks\": \"TODO\", \"u_closure_comments\": \"Closed by LaunchDarkly\", \"u_uuid\": \"TODO\" }",
+        "jsonBody": "{ \"number\": \"{{{creationResponseBody.result.[0].display_value}}}\", \"requested_by\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"state\": \"Closed Complete\", \"u_close_task_state\": \"Closed Complete,Closed Complete,Closed Complete,Closed Skipped\", \"u_closure_code\": \"Successful\", \"u_close_tasks\": \"{{{creationResponseBody.result.[0].AllTasks}}}\", \"u_closure_comments\": \"Closed by LaunchDarkly: {{{comment}}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\" }",
         "parser": {
           "statusValue": "/result/0/status",
           "statusDisplay": "/result/0/status",
@@ -122,7 +122,7 @@
       },
       "deletionRequest": {
         "endpoint": {
-          "url": "{{environment.host}}/api/now/import/u_update_change",
+          "url": "{{environment.host}}/api/now/change/cancel_change_request",
           "method": "POST",
           "headers": [
             {
@@ -135,7 +135,7 @@
             }
           ]
         },
-        "jsonBody": "{ \"number\": \"{{approvalId}}\", \"requested_by\": \"{{environmentFormVariables.user}}\", \"state\": \"Closed Complete\", \"u_close_task_state\": \"Closed Complete,Closed Complete,Closed Complete,Closed Skipped\", \"u_closure_code\": \"Successful\", \"u_close_tasks\": \"TODO\", \"u_closure_comments\": \"Closed by LaunchDarkly\", \"u_uuid\": \"TODO\" }",
+        "jsonBody": "{ \"number\": \"{{{creationResponseBody.result.[0].display_value}}}\", \"requested_by\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"closure_comments\": \"The approval request was deleted in LaunchDarkly. No changes were made.\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\" }",
         "parser": {
           "statusValue": "/state",
           "statusDisplay": "/state",
