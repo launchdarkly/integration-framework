@@ -811,7 +811,8 @@
             "propertyNames": {
               "enum": [
                 "name",
-                "key"
+                "key",
+                "description"
               ]
             },
             "properties": {
@@ -828,6 +829,13 @@
                 "type": "string",
                 "description": "The custom property's API response key.",
                 "maxLength": 64
+              },
+              "description": {
+                "$id": "#/properties/capability/reserved-custom-properties/items/description",
+                "title": "Description",
+                "type": "string",
+                "description": "The custom property's description.",
+                "maxLength": 250
               }
             },
             "required": [

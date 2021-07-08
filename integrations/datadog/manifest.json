@@ -40,6 +40,7 @@
     "reservedCustomProperties": [
       {
         "name": "Datadog tags",
+        "description": "Tags are a way of adding additional dimension to LaunchDarkly change events in Datadog so they can be filtered, aggregated, and compared in visualizations.",
         "key": "datadog"
       }
     ],
