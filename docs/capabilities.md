@@ -293,7 +293,7 @@ To learn more, read [Custom properties](https://docs.launchdarkly.com/home/advan
 
 By default, users must specify a custom property name and key when they attach the custom property value to a feature flag. This step introduces the possibility of user error. To prevent this, developers can _reserve_ a custom property for their integration, which makes it much easier for users to correctly add the property's value to feature flags.
 
-Reserved custom properties are simple to define. Their only requirements are a `name` and `key`.
+Reserved custom properties are simple to define. Their only requirements are a `name` and `key`, adding a `description` is optional.
 
 After your integration is configured by a user, the custom property starts appearing in the dropdown on the flag's Settings page.
 
@@ -303,6 +303,7 @@ Here is a sample `reservedCustomProperties` capability:
     "reservedCustomProperties": [
       {
         "name": "Foobar Entities",
+        "description": "Foobar Description",
         "key": "foobar"
       }
     ],
