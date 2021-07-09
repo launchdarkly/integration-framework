@@ -301,11 +301,16 @@ export type Name2 = string;
  */
 export type Key1 = string;
 /**
+ * The custom property's description.
+ */
+export type Description2 = string;
+/**
  * This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/advanced/custom-properties for more information on custom properties
  */
 export type ReservedCustomProperties = {
   name: Name2;
   key: Key1;
+  description?: Description2;
   [k: string]: unknown;
 }[];
 /**
