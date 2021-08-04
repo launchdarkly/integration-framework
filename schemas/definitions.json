@@ -173,13 +173,13 @@
         "$id": "#/definitions/form-variable/default-value",
         "title": "Default value",
         "type": ["boolean", "string"],
-        "description": "Default value for variable. Can be overridden by user in the UI"
+        "description": "Default value for variable. Can be overridden by the user in the UI"
       },
       "allowedValues": {
         "$id": "#/definitions/form-variable/allowed-values",
         "title": "Allowed values",
         "type": "array",
-        "description": "allowed string values for enum-type formVariables",
+        "description": "Allowed string values for enum-type formVariables",
         "items": {
           "type": "string"
         }

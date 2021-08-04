@@ -205,11 +205,11 @@ export type IsThisVariableASecret = boolean;
  */
 export type IsThisVariableOptional = boolean;
 /**
- * Default value for variable. Can be overridden by user in the UI
+ * Default value for variable. Can be overridden by the user in the UI
  */
 export type DefaultValue = boolean | string;
 /**
- * allowed string values for enum-type formVariables
+ * Allowed string values for enum-type formVariables
  */
 export type AllowedValues = string[];
 /**
@@ -361,6 +361,10 @@ export type MemberID = string;
  * Environment-specific form variables that render on the environment approval settings modal
  */
 export type EnvironmentFormVariables = FormVariable[];
+/**
+ * Flag-specific form variables that render on the approval request creation modal
+ */
+export type FlagFormVariables = FormVariable[];
 /**
  * Externally-created approval entity ID
  */
@@ -553,6 +557,7 @@ export interface TriggerParser {
 export interface Approval {
   memberListRequest: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
+  flagFormVariables?: FlagFormVariables;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
   postApplyRequest: PostApplyRequest;
