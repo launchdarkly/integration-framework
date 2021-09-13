@@ -246,7 +246,8 @@
           "auditLogEventsHook",
           "reservedCustomProperties",
           "trigger",
-          "approval"
+          "approval",
+          "featureStore"
         ]
       },
       "properties": {
@@ -261,6 +262,9 @@
         },
         "approval": {
           "$ref": "schemas/capabilities/approval.json#/approval"
+        },
+        "featureStore": {
+          "$ref": "schemas/capabilities/featureStore.json#/featureStore"
         }
       }
     }

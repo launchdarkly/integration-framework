@@ -389,6 +389,10 @@ export type RejectionMatcher = string;
  * expected format for the external creation request URL. Values can be substituted in using {{value}}
  */
 export type URLTemplate = string;
+/**
+ * Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store
+ */
+export type ProviderFormVariables = FormVariable[];
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -498,6 +502,7 @@ export interface Capabilities {
   reservedCustomProperties?: ReservedCustomProperties;
   trigger?: Trigger;
   approval?: Approval;
+  featureStore?: FeatureStore;
   [k: string]: unknown;
 }
 /**
@@ -632,5 +637,12 @@ export interface DeletionRequest {
   endpoint: Endpoint;
   jsonBody?: JSONBody;
   parser: ApprovalParser;
+  [k: string]: unknown;
+}
+/**
+ * This capability allows LaunchDarkly to write feature flag data to a given provider
+ */
+export interface FeatureStore {
+  formVariables: ProviderFormVariables;
   [k: string]: unknown;
 }

@@ -1,0 +1,45 @@
+{
+  "name": "Cloudflare",
+  "version": "1.0.0",
+  "overview": "Evaluate LaunchDarkly feature flags in Cloudflare Workers.",
+  "description": "Evaluate LaunchDarkly feature flags in Cloudflare Workers by storing flag data in Cloudflare's KV offering.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.cloudflare.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/cloudflare",
+    "privacyPolicy": "https://www.cloudflare.com/privacypolicy/"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "featureStore": {
+      "formVariables": [
+        {
+          "key": "accountId",
+          "name": "Account ID",
+          "description": "Enter your Cloudflare account ID",
+          "type": "string",
+          "isSecret": false
+        },
+        {
+          "key": "namespaceId",
+          "name": "KV Namespace",
+          "description": "Enter the KV namespace associated with your Worker",
+          "type": "string",
+          "isSecret": false
+        },
+        {
+          "key": "apiToken",
+          "name": "API Token",
+          "description": "Enter the API token generated from Cloudflare",
+          "type": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  }
+}
