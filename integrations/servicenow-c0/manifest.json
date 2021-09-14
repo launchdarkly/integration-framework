@@ -19,12 +19,8 @@
   "capabilities": {
     "reservedCustomProperties": [
       {
-        "name": "ServiceNow App ID",
+        "name": "ServiceNow app ID",
         "key": "servicenowAppId"
-      },
-      {
-        "name": "ServiceNow user ID",
-        "key": "servicenowUserId"
       },
       {
         "name": "ServiceNow assignment group",
@@ -32,6 +28,15 @@
       }
     ],
     "approval": {
+      "flagFormVariables": [
+        {
+          "key": "assignmentGroup",
+          "name": "ServiceNow assignment group (override)",
+          "description": "Your ServiceNow assignment group. This value will override the flag's ServiceNow assignment group custom property.",
+          "type": "string",
+          "isOptional": true
+        }
+      ],
       "environmentFormVariables": [
         {
           "key": "username",
@@ -74,7 +79,7 @@
             }
           ]
         },
-        "jsonBody": "{\"assignment_group\": \"{{{customProperties.servicenowAssignmentGroup.values.[0]}}}\", \"description\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"opened_by\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"requested_by\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"assigned_to\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"short_description\": \"{{{title.plainText}}}\", \"u_creating_group\": \"{{{customProperties.servicenowAssignmentGroup.values.[0]}}}\", \"u_requesting_group\": \"{{{customProperties.servicenowAssignmentGroup.values.[0]}}}\", \"u_template\": \"{{environmentFormVariables.template}}\", \"start_date\": \"{{formatWithOffset timestamp.milliseconds 25 'simple'}}\", \"end_date\": \"{{formatWithOffset timestamp.milliseconds 26 'simple'}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\", \"approval\": \"Requested for Approval\", \"u_affected_ci\": \"{{{customProperties.servicenowAppId.values.[0]}}}\",\"state\": \"Closed Complete\"}",
+        "jsonBody": "{ {{#if flagFormVariables.assignmentGroup}} \"assignment_group\": \"{{{flagFormVariables.assignmentGroup}}}\", \"u_requesting_group\": \"{{{flagFormVariables.assignmentGroup}}}\", \"u_creating_group\": \"{{{flagFormVariables.assignmentGroup}}}\",{{else}} \"assignment_group\": \"{{{customProperties.servicenowAssignmentGroup.values.[0]}}}\", \"u_requesting_group\": \"{{{customProperties.servicenowAssignmentGroup.values.[0]}}}\", \"u_creating_group\": \"{{{customProperties.servicenowAssignmentGroup.values.[0]}}}\",{{/if}} \"opened_by\": \"{{{member.emailLocalPart}}}\", \"requested_by\": \"{{{member.emailLocalPart}}}\", \"assigned_to\": \"{{{member.emailLocalPart}}}\", \"description\": \"\\nBusiness Justification: Updating {{flag.name}} flag for {{customProperties.servicenowAppId.values.[0]}} Application.\\n{{{details.plainText}}}\\nRequested By: {{member.displayName}}\\nEmail Address: {{member.email}}\",  \"short_description\": \"Updating Feature Flag for {{customProperties.servicenowAppId.values.[0]}}\",  \"u_template\": \"{{environmentFormVariables.template}}\", \"start_date\": \"{{formatWithOffset timestamp.milliseconds 1 'simple'}}\", \"end_date\": \"{{formatWithOffset timestamp.milliseconds 2 'simple'}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\", \"approval\": \"Requested for Approval\", \"u_affected_ci\": \"{{{customProperties.servicenowAppId.values.[0]}}}\"}",
         "parser": {
           "approvalId": "/result/0/sys_id",
           "statusValue": "/result/0/status",
@@ -112,7 +117,7 @@
             }
           ]
         },
-        "jsonBody": "{ \"number\": \"{{{creationResponseBody.result.[0].display_value}}}\", \"requested_by\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"state\": \"Closed Complete\", \"u_close_task_state\": \"Closed Complete,Closed Complete,Closed Complete,Closed Skipped\", \"u_closure_code\": \"Successful\", \"u_close_tasks\": \"{{{creationResponseBody.result.[0].AllTasks}}}\", \"u_closure_comments\": \"Closed by LaunchDarkly: {{{comment}}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\" }",
+        "jsonBody": "{ \"number\": \"{{{creationResponseBody.result.[0].display_value}}}\", \"requested_by\": \"{{{member.emailLocalPart}}}\",  \"state\": \"Closed Complete\", \"u_close_task_state\": \"Closed Complete,Closed Complete,Closed Complete,Closed Skipped\", \"u_closure_code\": \"Successful\", \"u_close_tasks\": \"{{{creationResponseBody.result.[0].AllTasks}}}\", \"u_closure_comments\": \"Closed by LaunchDarkly: {{{comment}}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\" }",
         "parser": {
           "statusValue": "/result/0/status",
           "statusDisplay": "/result/0/status",
@@ -135,7 +140,7 @@
             }
           ]
         },
-        "jsonBody": "{ \"number\": \"{{{creationResponseBody.result.[0].display_value}}}\", \"requested_by\": \"{{{customProperties.servicenowUserId.values.[0]}}}\", \"closure_comments\": \"The approval request was deleted in LaunchDarkly. No changes were made.\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\" }",
+        "jsonBody": "{ \"number\": \"{{{creationResponseBody.result.[0].display_value}}}\",\"requested_by\": \"{{{member.emailLocalPart}}}\", \"closure_comments\": \"The approval request was deleted in LaunchDarkly. No changes were made.\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\" }",
         "parser": {
           "statusValue": "/state",
           "statusDisplay": "/state",

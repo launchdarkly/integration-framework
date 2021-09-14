@@ -58,6 +58,7 @@
     },
     "_id": "569f514183f2164430000002",
     "email": "testing@launchdarkly.com",
+    "emailLocalPart": "testing",
     "firstName": "Henrietta",
     "lastName": "Powell",
     "displayName": "Henrietta Powell"
