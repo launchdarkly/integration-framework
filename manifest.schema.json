@@ -551,7 +551,8 @@
             "enum": [
               "endpoint",
               "templates",
-              "defaultPolicy"
+              "defaultPolicy",
+              "includeErrorResponseBody"
             ]
           },
           "properties": {
@@ -794,6 +795,13 @@
                   }
                 }
               }
+            },
+            "includeErrorResponseBody": {
+              "$id": "#/properties/include-error-response-body",
+              "title": "Include error response body",
+              "type": "boolean",
+              "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
+              "default": false
             }
           },
           "required": [

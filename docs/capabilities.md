@@ -32,6 +32,7 @@ events in a LaunchDarkly account:
 ```json
     "capabilities": {
         "auditLogEventsHook": {
+            "includeErrorResponseBody": false,
             "endpoint": {
                 "url": "{{endpointUrl}}",
                 "method": "POST",
@@ -245,6 +246,20 @@ Here is the policy:
           "actions": ["*"]
         }
       ]
+```
+
+### Include error response body  (`includeErrorResponseBody`)
+
+For endpoints defined with static domains - where the domain part of the endpoint isn't a template variable (see example below), you have the option to specify an optional property `includeErrorResponseBody` in your `auditLogEventsHook` configuration to view any errors LaunchDarkly receives when it sends events to your endpoint. This is particularly useful for users troubleshooting issues with their integration.
+
+Heres the example:
+
+```json
+    "includeErrorResponseBody": true,
+    "endpoint": {
+        "url": "https://static-domian.com/apiToken?={{apiToken}}",
+        "method": "POST"
+    },
 ```
 
 ### Validation

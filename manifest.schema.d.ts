@@ -293,6 +293,10 @@ export type NotResources = string[];
  */
 export type Resources = string[];
 /**
+ * Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI
+ */
+export type IncludeErrorResponseBody = boolean;
+/**
  * The reserved custom property's display name.
  */
 export type Name2 = string;
@@ -512,6 +516,7 @@ export interface AuditLogEventsHook {
   endpoint: Endpoint;
   templates: WebhookBodyTemplate;
   defaultPolicy?: DefaultPolicy;
+  includeErrorResponseBody?: IncludeErrorResponseBody;
   [k: string]: unknown;
 }
 /**
