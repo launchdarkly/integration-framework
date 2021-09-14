@@ -6,7 +6,12 @@
     "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
     "type": "object",
     "propertyNames": {
-      "enum": ["endpoint", "templates", "defaultPolicy"]
+      "enum": [
+        "endpoint",
+        "templates",
+        "defaultPolicy",
+        "includeErrorResponseBody"
+      ]
     },
     "properties": {
       "endpoint": {
@@ -133,6 +138,13 @@
             }
           }
         }
+      },
+      "includeErrorResponseBody": {
+        "$id": "#/properties/include-error-response-body",
+        "title": "Include error response body",
+        "type": "boolean",
+        "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
+        "default": false
       }
     },
     "required": ["endpoint", "templates"]
