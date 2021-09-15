@@ -33,6 +33,7 @@
   ],
   "capabilities": {
     "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
       "endpoint": {
         "url": "https://api.newrelic.com/v2/applications/{{applicationId}}/deployments.json",
         "method": "POST",

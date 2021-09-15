@@ -34,6 +34,7 @@
   ],
   "capabilities": {
     "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
       "endpoint": {
         "url": "https://api.honeycomb.io/1/markers/{{datasetName}}",
         "method": "POST",

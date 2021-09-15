@@ -33,6 +33,7 @@
   ],
   "capabilities": {
     "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
       "endpoint": {
         "url": "https://insights-collector.newrelic.com/v1/accounts/{{accountId}}/events",
         "method": "POST",

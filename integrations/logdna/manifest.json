@@ -36,6 +36,7 @@
   ],
   "capabilities": {
     "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
       "endpoint": {
         "url": "https://logs.logdna.com/logs/ingest?hostname=launchdarkly",
         "method": "POST",
