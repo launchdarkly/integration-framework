@@ -1,14 +1,15 @@
 on: pull_request
 name: Pull request
 jobs:
-  setClubhouseLinkInPR:
+  setShortcutLinkInPR:
     if: github.repository == 'launchdarkly/integration-framework-private'
-    name: Set Clubhouse Link in PR
+    name: Set Shortcut Link in PR
     runs-on: ubuntu-latest
     steps:
-      - name: Set Clubhouse Link in PR
-        uses: launchdarkly/ld-gh-actions-clubhouse/set-ch-link@master
+      - uses: actions/checkout@v2
+      - name: Set Shortcut Link in PR
+        uses: launchdarkly-labs/ld-gh-actions-shortcut/set-link@master
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          STORY_BASE_URL: https://app.clubhouse.io/launchdarkly/story
-          CREATE_STORY_URL: https://app.clubhouse.io/launchdarkly/stories/new?template_id=5f3fbdce-dfa0-446b-91c5-0cf6e01f5045
+          AUTOLINK_PREFIX: 'SC-'
+          CREATE_STORY_URL: https://app.shortcut.com/launchdarkly/stories/new?template_id=5f3fbdce-dfa0-446b-91c5-0cf6e01f5045
