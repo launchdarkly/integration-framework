@@ -397,6 +397,17 @@ export type URLTemplate = string;
  * Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store
  */
 export type ProviderFormVariables = FormVariable[];
+/**
+ * List of UI display details corresponding to properties on the LaunchDarkly Flag References tab
+ */
+export type FlagReferencesUIBlocks = {
+  [k: string]: unknown;
+}[];
+export type UIBlockPointerItems = string;
+/**
+ * An array of JSON pointers to UI block items
+ */
+export type UIBlockPointers = UIBlockPointerItems[];
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -507,6 +518,7 @@ export interface Capabilities {
   trigger?: Trigger;
   approval?: Approval;
   featureStore?: FeatureStore;
+  externalReferences?: ExternalFlagReferences;
   [k: string]: unknown;
 }
 /**
@@ -649,5 +661,27 @@ export interface DeletionRequest {
  */
 export interface FeatureStore {
   formVariables: ProviderFormVariables;
+  [k: string]: unknown;
+}
+/**
+ * This capability is used to manage inbound flag reference webhooks
+ */
+export interface ExternalFlagReferences {
+  connector?: ExternalFlagReferencesConnector;
+  parser?: ExternalReferencesParser;
+  [k: string]: unknown;
+}
+/**
+ * Receiver configuration for inbound flag reference
+ */
+export interface ExternalFlagReferencesConnector {
+  uiBlocks?: FlagReferencesUIBlocks;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer
+ */
+export interface ExternalReferencesParser {
+  uiBlocks?: UIBlockPointers;
   [k: string]: unknown;
 }

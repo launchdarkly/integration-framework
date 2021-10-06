@@ -247,7 +247,8 @@
           "reservedCustomProperties",
           "trigger",
           "approval",
-          "featureStore"
+          "featureStore",
+          "externalReferences"
         ]
       },
       "properties": {
@@ -265,6 +266,9 @@
         },
         "featureStore": {
           "$ref": "schemas/capabilities/featureStore.json#/featureStore"
+        },
+        "externalReferences": {
+          "$ref": "schemas/capabilities/externalReferences.json#/externalReferences"
         }
       }
     }
