@@ -1,0 +1,71 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "externalReferences": {
+    "$id": "#/properties/capability/external-references",
+    "title": "External Flag References",
+    "description": "This capability is used to manage inbound flag reference webhooks",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["connector", "parser"]
+    },
+    "properties": {
+      "connector": {
+        "$id": "#/properties/capability/external-references/connector",
+        "title": "External Flag References Connector",
+        "description": "Receiver configuration for inbound flag reference",
+        "type": "object",
+        "properties": {
+          "uiBlocks": {
+            "$id": "#/properties/capability/external-references/connector/ui-blocks",
+            "title": "Flag References UI Blocks",
+            "description": "List of UI display details corresponding to properties on the LaunchDarkly Flag References tab",
+            "type": "array",
+            "items": {
+              "type": "object"
+            },
+            "propertyNames": {
+              "enum": ["key", "name", "type", "path"]
+            },
+            "properties": {
+              "key": {
+                "$id": "#/properties/capability/external-references/connector/ui-blocks/key",
+                "title": "Key",
+                "type": "string",
+                "description": "The unique key corresponding to the property to be displayed",
+                "maxLength": 50
+              },
+              "name": {
+                "$id": "#/properties/capability/external-references/connector/ui-blocks/name",
+                "title": "Name",
+                "type": "string",
+                "description": "The display name of the property",
+                "maxLength": 50
+              },
+              "type": {
+                "$id": "#/properties/capability/external-references/connector/ui-blocks/type",
+                "title": "Type",
+                "type": "enum",
+                "allowedValues": [
+                  "context",
+                  "avatar",
+                  "message",
+                  "codeSnippet"
+                ],
+                "description": "The type of the information this UI block will display"
+              },
+              "path": {
+                "$id": "#/properties/capability/external-references/connector/ui-blocks/path",
+                "title": "Path",
+                "type": "string",
+                "description": "The JSON path corresponding to where the information can be found in the incoming payload"
+              }
+            }
+          }
+        }
+      },
+      "parser": {
+        "$ref": "parser/parser.json#/externalReferencesParser"
+      }
+    }
+  }
+}
