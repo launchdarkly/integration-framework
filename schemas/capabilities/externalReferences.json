@@ -15,10 +15,10 @@
         "description": "Receiver configuration for inbound flag reference",
         "type": "object",
         "properties": {
-          "uiBlocks": {
-            "$id": "#/properties/capability/external-references/connector/ui-blocks",
-            "title": "Flag References UI Blocks",
-            "description": "List of UI display details corresponding to properties on the LaunchDarkly Flag References tab",
+          "metadata": {
+            "$id": "#/properties/capability/external-references/connector/metadata",
+            "title": "Flag References Metadata",
+            "description": "List of metadata blocks corresponding to information on the LaunchDarkly External References tab",
             "type": "array",
             "items": {
               "type": "object",
@@ -44,8 +44,8 @@
                   "$id": "#/properties/capability/external-references/connector/ui-blocks/type",
                   "title": "Type",
                   "type": "string",
-                  "enum": ["context", "avatar", "message", "codeSnippet"],
-                  "description": "The type of the information this UI block will display"
+                  "enum": ["avatar", "codeSnippet", "string", "multilineText"],
+                  "description": "The data type of the information this metadata block will display"
                 },
                 "path": {
                   "$id": "#/properties/capability/external-references/connector/ui-blocks/path",

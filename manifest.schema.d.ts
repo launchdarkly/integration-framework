@@ -406,17 +406,17 @@ export type Key2 = string;
  */
 export type Name3 = string;
 /**
- * The type of the information this UI block will display
+ * The data type of the information this metadata block will display
  */
-export type Type1 = "context" | "avatar" | "message" | "codeSnippet";
+export type Type1 = "avatar" | "codeSnippet" | "string" | "multilineText";
 /**
  * The JSON path corresponding to where the information can be found in the incoming payload
  */
 export type Path = string;
 /**
- * List of UI display details corresponding to properties on the LaunchDarkly Flag References tab
+ * List of metadata blocks corresponding to information on the LaunchDarkly External References tab
  */
-export type FlagReferencesUIBlocks = {
+export type FlagReferencesMetadata = {
   key?: Key2;
   name?: Name3;
   type?: Type1;
@@ -689,6 +689,6 @@ export interface ExternalFlagReferences {
  * Receiver configuration for inbound flag reference
  */
 export interface ExternalFlagReferencesConnector {
-  uiBlocks?: FlagReferencesUIBlocks;
+  metadata?: FlagReferencesMetadata;
   [k: string]: unknown;
 }
