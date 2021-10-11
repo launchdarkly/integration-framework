@@ -398,16 +398,31 @@ export type URLTemplate = string;
  */
 export type ProviderFormVariables = FormVariable[];
 /**
+ * The unique key corresponding to the property to be displayed
+ */
+export type Key2 = string;
+/**
+ * The display name of the property
+ */
+export type Name3 = string;
+/**
+ * The type of the information this UI block will display
+ */
+export type Type1 = "context" | "avatar" | "message" | "codeSnippet";
+/**
+ * The JSON path corresponding to where the information can be found in the incoming payload
+ */
+export type Path = string;
+/**
  * List of UI display details corresponding to properties on the LaunchDarkly Flag References tab
  */
 export type FlagReferencesUIBlocks = {
+  key?: Key2;
+  name?: Name3;
+  type?: Type1;
+  path?: Path;
   [k: string]: unknown;
 }[];
-export type UIBlockPointerItems = string;
-/**
- * An array of JSON pointers to UI block items
- */
-export type UIBlockPointers = UIBlockPointerItems[];
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -668,7 +683,6 @@ export interface FeatureStore {
  */
 export interface ExternalFlagReferences {
   connector?: ExternalFlagReferencesConnector;
-  parser?: ExternalReferencesParser;
   [k: string]: unknown;
 }
 /**
@@ -676,12 +690,5 @@ export interface ExternalFlagReferences {
  */
 export interface ExternalFlagReferencesConnector {
   uiBlocks?: FlagReferencesUIBlocks;
-  [k: string]: unknown;
-}
-/**
- * Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer
- */
-export interface ExternalReferencesParser {
-  uiBlocks?: UIBlockPointers;
   [k: string]: unknown;
 }
