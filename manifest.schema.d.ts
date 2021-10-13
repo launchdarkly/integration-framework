@@ -398,16 +398,31 @@ export type URLTemplate = string;
  */
 export type ProviderFormVariables = FormVariable[];
 /**
- * List of UI display details corresponding to properties on the LaunchDarkly Flag References tab
+ * The unique key corresponding to the property to be displayed
  */
-export type FlagReferencesUIBlocks = {
+export type Key2 = string;
+/**
+ * The display name of the property
+ */
+export type Name3 = string;
+/**
+ * The data type of the information this metadata block will display
+ */
+export type Type1 = "avatar" | "codeSnippet" | "string" | "multilineText";
+/**
+ * The JSON path corresponding to where the information can be found in the incoming payload
+ */
+export type Path = string;
+/**
+ * List of metadata blocks corresponding to information on the LaunchDarkly External References tab
+ */
+export type FlagReferencesMetadata = {
+  key?: Key2;
+  name?: Name3;
+  type?: Type1;
+  path?: Path;
   [k: string]: unknown;
 }[];
-export type UIBlockPointerItems = string;
-/**
- * An array of JSON pointers to UI block items
- */
-export type UIBlockPointers = UIBlockPointerItems[];
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -668,20 +683,12 @@ export interface FeatureStore {
  */
 export interface ExternalFlagReferences {
   connector?: ExternalFlagReferencesConnector;
-  parser?: ExternalReferencesParser;
   [k: string]: unknown;
 }
 /**
  * Receiver configuration for inbound flag reference
  */
 export interface ExternalFlagReferencesConnector {
-  uiBlocks?: FlagReferencesUIBlocks;
-  [k: string]: unknown;
-}
-/**
- * Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer
- */
-export interface ExternalReferencesParser {
-  uiBlocks?: UIBlockPointers;
+  metadata?: FlagReferencesMetadata;
   [k: string]: unknown;
 }

@@ -123,27 +123,5 @@
         }
       }
     }
-  },
-  "externalReferencesParser": {
-    "$id": "#/external-references-parser",
-    "title": "External references parser",
-    "description": "Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer",
-    "type": "object",
-    "propertyNames": {
-      "enum": ["uiBlocks"]
-    },
-    "properties": {
-      "uiBlocks": {
-        "$id": "#/external-references-parser/ui-blocks",
-        "title": "UI block pointers",
-        "description": "An array of JSON pointers to UI block items",
-        "type": "array",
-        "items": {
-          "$id": "#/external-references-parser/ui-blocks/items",
-          "title": "UI block pointer items",
-          "type": "string"
-        }
-      }
-    }
   }
 }
