@@ -1,8 +1,8 @@
 {
   "name": "Cloudflare",
   "version": "1.0.0",
-  "overview": "Evaluate LaunchDarkly feature flags in Cloudflare Workers.",
-  "description": "Evaluate LaunchDarkly feature flags in Cloudflare Workers by storing flag data in Cloudflare's KV offering.",
+  "overview": "Evaluate feature flags and bootstrap the LaunchDarkly Javascript SDK from Cloudflare Workers.",
+  "description": "Evaluate feature flags and bootstrap the LaunchDarkly Javascript SDK from Cloudflare Workers by storing flag data in Cloudflare's KV offering.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -21,21 +21,21 @@
         {
           "key": "accountId",
           "name": "Account ID",
-          "description": "Enter your Cloudflare account ID",
+          "description": "Enter your Cloudflare account ID. This can be found on your Workers Dashboard or using [Wrangler CLI](https://developers.cloudflare.com/workers/get-started/guide)",
           "type": "string",
           "isSecret": false
         },
         {
           "key": "namespaceId",
           "name": "KV Namespace",
-          "description": "Enter the KV namespace associated with your Worker",
+          "description": "You must have a KV namespace available for flag updates. Enter the KV namespace associated with your Worker",
           "type": "string",
           "isSecret": false
         },
         {
           "key": "apiToken",
           "name": "API Token",
-          "description": "Enter the API token generated from Cloudflare",
+          "description": "Enter the API token generated from Cloudflare. Instructions for generating a [Cloudflare API token](https://developers.cloudflare.com/api/tokens/create)",
           "type": "string",
           "isSecret": true
         }
