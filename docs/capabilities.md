@@ -23,7 +23,7 @@ The `auditLogEventsHook` has three properties:
    A map of template paths relative to your integration's directory. You can use templates to transform the raw audit log events to a format that your integration expects. These templates can be any file type.
 3. [`defaultPolicy`](#default-policy):
    An array of [LaunchDarkly
-   policies](https://docs.launchdarkly.com/home/account-security/custom-roles/policies) that
+   policies](https://docs.launchdarkly.com/home/members/role-policies) that
    act as a filter determining which events to send to your webhook endpoint.
 
 Here's an example of an audit log events hook capability that subscribes to flag
@@ -230,7 +230,7 @@ Sandbox](http://tryhandlebarsjs.com/).
 ### Default policy
 
 When you configure your integration, customers can specify an array of [LaunchDarkly
-policies](https://docs.launchdarkly.com/home/account-security/custom-roles/policies) filter which events to send to your webhook endpoint.
+policies](https://docs.launchdarkly.com/home/members/role-policies) filter which events to send to your webhook endpoint.
 
 To simplify onboarding your integration, you can specify a default policy which follows best practices for your integration's use case.
 
@@ -304,7 +304,7 @@ Here is a sample `trigger` capability including all optional properties:
 
 Custom properties allow you to store data in LaunchDarkly alongside a feature flag. For example, you can use custom properties to indicate flag-level associations with data on your service. If you don't have any flag-level associations or configurations, you don't need to use this capability.
 
-To learn more, read [Custom properties](https://docs.launchdarkly.com/home/advanced/custom-properties).
+To learn more, read [Custom properties](https://docs.launchdarkly.com/home/connecting/custom-properties).
 
 By default, users must specify a custom property name and key when they attach the custom property value to a feature flag. This step introduces the possibility of user error. To prevent this, developers can _reserve_ a custom property for their integration, which makes it much easier for users to correctly add the property's value to feature flags.
 

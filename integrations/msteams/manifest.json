@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/msteams",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/microsoft-teams",
     "privacyPolicy": "https://privacy.microsoft.com/en-us"
   },
   "categories": ["messaging"],
@@ -20,7 +20,7 @@
       "key": "url",
       "name": "Incoming webhook URL",
       "type": "uri",
-      "description": "Enter your Microsoft Teams [incoming webhook URL](https://docs.launchdarkly.com/docs/microsoft-teams#section-setting-up-a-connector-in-microsoft-teams).",
+      "description": "Enter your Microsoft Teams [incoming webhook URL](https://docs.launchdarkly.com/integrations/microsoft-teams#setting-up-a-connector-in-microsoft-teams).",
       "isSecret": false
     }
   ],

@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.atlassian.com/software/jira",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/jira",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/jira",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["issue-tracking"],

@@ -269,11 +269,11 @@ export type DefaultTemplate = string;
  */
 export type ValidationTemplate = string;
 /**
- * LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.
+ * LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/home/members/role-policies for more information.
  */
 export type DefaultPolicy = [Policy, ...Policy[]];
 /**
- * A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.
+ * A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/home/members/role-actions for more information.
  */
 export type Actions = string[];
 /**
@@ -281,15 +281,15 @@ export type Actions = string[];
  */
 export type Effect = "allow" | "deny";
 /**
- * A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.
+ * A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-actions for more information.
  */
 export type NotActions = string[];
 /**
- * A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.
+ * A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-resources for more information.
  */
 export type NotResources = string[];
 /**
- * A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.
+ * A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/home/members/role-resources for more information.
  */
 export type Resources = string[];
 /**
@@ -309,7 +309,7 @@ export type Key1 = string;
  */
 export type Description2 = string;
 /**
- * This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/advanced/custom-properties for more information on custom properties
+ * This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/connecting/custom-properties for more information on custom properties
  */
 export type ReservedCustomProperties = {
   name: Name2;
@@ -558,7 +558,7 @@ export interface WebhookBodyTemplate {
   [k: string]: unknown;
 }
 /**
- * A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.
+ * A LaunchDarkly policy. See https://docs.launchdarkly.com/home/members/role-policies for more information.
  */
 export interface Policy {
   actions?: Actions;

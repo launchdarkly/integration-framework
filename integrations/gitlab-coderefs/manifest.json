@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://about.gitlab.com/stages-devops-lifecycle/continuous-integration/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/gitlab-ci",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/code/gitlab",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["code-references"],

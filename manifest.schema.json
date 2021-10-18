@@ -700,13 +700,13 @@
             "defaultPolicy": {
               "$id": "#/properties/capability/audit-log-events-hook/default-policy",
               "title": "Default Policy",
-              "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+              "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/home/members/role-policies for more information.",
               "type": "array",
               "minItems": 1,
               "items": {
                 "$id": "#/properties/capability/audit-log-events-hook/policy",
                 "title": "Policy",
-                "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+                "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/home/members/role-policies for more information.",
                 "type": "object",
                 "propertyNames": {
                   "enum": [
@@ -721,7 +721,7 @@
                   "actions": {
                     "$id": "#/properties/capability/audit-log-events-hook/policy/actions",
                     "title": "Actions",
-                    "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+                    "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/home/members/role-actions for more information.",
                     "default": [
                       "*"
                     ],
@@ -750,7 +750,7 @@
                   "notActions": {
                     "$id": "#/properties/capability/audit-log-events-hook/policy/not-actions",
                     "title": "Not actions",
-                    "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+                    "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-actions for more information.",
                     "default": [
                       "*"
                     ],
@@ -767,7 +767,7 @@
                   "notResources": {
                     "$id": "#/properties/capability/audit-log-events-hook/policy/not-resources",
                     "title": "Not resources",
-                    "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+                    "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-resources for more information.",
                     "default": [
                       "*"
                     ],
@@ -782,7 +782,7 @@
                   "resources": {
                     "$id": "#/properties/capability/audit-log-events-hook/policy/resources",
                     "title": "Resources",
-                    "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+                    "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/home/members/role-resources for more information.",
                     "default": [
                       "*"
                     ],
@@ -813,7 +813,7 @@
         "reservedCustomProperties": {
           "$id": "#/properties/capability/reserved-custom-properties",
           "title": "Reserved custom properties",
-          "description": "This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/advanced/custom-properties for more information on custom properties",
+          "description": "This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/connecting/custom-properties for more information on custom properties",
           "type": "array",
           "items": {
             "$id": "#/properties/capability/reserved-custom-properties/items",

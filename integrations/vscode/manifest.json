@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://marketplace.visualstudio.com/items?itemName=LaunchDarklyOfficial.launchdarkly",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/visual-studio-code",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/vscode",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["developer-tools"],

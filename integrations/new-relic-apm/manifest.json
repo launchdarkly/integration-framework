@@ -61,7 +61,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/new-relic/triggers#connecting-a-launchdarkly-trigger-to-new-relic-one",
+      "documentation": "https://docs.launchdarkly.com/integrations/new-relic/triggers#connecting-a-flag-trigger-to-new-relic-one",
       "testEventNameRegexp": "^New Relic Alert - Test Condition$",
       "parser": {
         "eventName": "/condition_name",

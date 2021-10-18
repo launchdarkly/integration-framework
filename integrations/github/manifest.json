@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://github.com/features/actions",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/code-references/github-actions",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/code/github-actions",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["code-references"],

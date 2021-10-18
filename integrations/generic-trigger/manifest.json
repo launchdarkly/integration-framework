@@ -7,7 +7,7 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/triggers",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/feature-workflows/triggers",
     "site": "https://launchdarkly.com",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy"
   },
@@ -18,7 +18,7 @@
   },
   "capabilities": {
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/triggers#creating-a-new-trigger",
+      "documentation": "https://docs.launchdarkly.com/home/feature-workflows/triggers#creating-a-new-flag-trigger",
       "defaultEventName": "An event",
       "parser": {
         "eventName": "/eventName",

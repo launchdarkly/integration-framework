@@ -8,9 +8,9 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://bitbucket.org/product/features/pipelines",
-    "supportWebsite": "https://docs.launchdarkly.com/docs/bitbucket-pipelines",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/bitbucket-pipelines",
-    "privacyPolicy": "https://docs.launchdarkly.com/docs/git-code-references#section-configuring-context-lines"
+    "supportWebsite": "https://docs.launchdarkly.com/integrations/bitbucket-pipelines",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/bitbucket-pipelines",
+    "privacyPolicy": "https://docs.launchdarkly.com/home/code/code-references#configuring-context-lines"
   },
   "categories": ["automation", "developer-tools"],
   "icons": {

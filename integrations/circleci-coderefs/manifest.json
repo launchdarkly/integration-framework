@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://circleci.com/orbs/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/circleci-orbs",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/code/circleci",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["code-references"],
