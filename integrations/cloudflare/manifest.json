@@ -27,15 +27,15 @@
         },
         {
           "key": "namespaceId",
-          "name": "KV Namespace",
-          "description": "You must have a KV namespace available for flag updates. Enter the KV namespace associated with your Worker",
+          "name": "KV Namespace ID",
+          "description": "You must have a KV namespace available for flag updates. Enter the KV namespace ID associated with your Worker.",
           "type": "string",
           "isSecret": false
         },
         {
           "key": "apiToken",
           "name": "API Token",
-          "description": "Enter the API token generated from Cloudflare. Instructions for generating a [Cloudflare API token](https://developers.cloudflare.com/api/tokens/create)",
+          "description": "Enter the API token generated from Cloudflare. Instructions for generating a [Cloudflare API token](https://developers.cloudflare.com/api/tokens/create).",
           "type": "string",
           "isSecret": true
         }
