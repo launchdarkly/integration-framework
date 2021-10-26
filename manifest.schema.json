@@ -2673,8 +2673,7 @@
           "type": "object",
           "propertyNames": {
             "enum": [
-              "connector",
-              "parser"
+              "connector"
             ]
           },
           "properties": {
@@ -2721,6 +2720,7 @@
                         "enum": [
                           "avatar",
                           "codeSnippet",
+                          "hyperlink",
                           "string",
                           "multilineText"
                         ],

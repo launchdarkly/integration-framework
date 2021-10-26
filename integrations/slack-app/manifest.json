@@ -18,5 +18,37 @@
   "legacy": {
     "kind": "webhooks"
   },
+  "capabilities": {
+    "externalReferences": {
+      "connector": {
+        "metadata": [
+          {
+            "key": "user-avatar",
+            "name": "User Avatar",
+            "type": "avatar",
+            "path": "/user_profile/image_original"
+          },
+          {
+            "key": "timestamp",
+            "name": "Timestamp",
+            "type": "string",
+            "path": "/message_ts"
+          },
+          {
+            "key": "message-permalink",
+            "name": "Message Permalink",
+            "type": "hyperlink",
+            "path": "/message_permalink"
+          },
+          {
+            "key": "channel",
+            "name": "Channel Name",
+            "type": "string",
+            "path": "/channel_info/name"
+          }
+        ]
+      }
+    }
+  },
   "otherCapabilities": ["webhooks"]
 }
