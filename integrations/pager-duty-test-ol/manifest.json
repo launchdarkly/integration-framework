@@ -1,0 +1,66 @@
+{
+  "name": "PagerDuty",
+  "version": "1.0.0",
+  "overview": "Test for PagerDuty",
+  "description": "Send Flag data to PagerDuty to create an incident.",
+  "author": "oliverlinton.uk",
+  "supportEmail": "oliverwlinton@gmail.com",
+  "links": {
+    "site": "https://pagerduty.com",
+    "privacyPolicy": "https://pagerduty.com/privacy"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "requiresOAuth": false,
+  "formVariables": [
+    {
+        "key": "endpointUrl",
+        "name": "Webhook endpoint URL",
+        "description": "Enter the URL to the webhook endpoint",
+        "defaultValue": "*",
+        "type": "uri",
+        "placeholder": "https://example.com"
+        
+    },
+    {
+        "key": "apiToken",
+        "name": "API Key",
+        "description": "Enter your [API key](https://developer.pagerduty.com/api-reference/ZG9jOjUxNzk5-changelog) here",
+        "type": "string",
+        "isSecret": true,
+        "placeholder": "1234ae"
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+        "endpoint": {
+            "url": "{{endpointUrl}}",
+            "method": "POST",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                },
+                {
+                    "name": "Authorization",
+                    "value": "Bearer {{apiToken}}"
+                }
+            ]
+        },
+        "templates": {
+            "flag": "templates/flag.json.hbs"
+        },
+        "defaultPolicy": [
+            {
+                "effect": "allow",
+                "resources": ["proj/*:env/production:flag/*"],
+                "actions": ["*"]
+            }
+        ]
+    }
+}  
+}
+
