@@ -2868,6 +2868,9 @@
                             "isTimestamp"
                           ]
                         },
+                        "required": [
+                          "text"
+                        ],
                         "properties": {
                           "text": {
                             "$id": "#/definitions/ui-block-element/text",
@@ -2946,6 +2949,9 @@
                             "isTimestamp"
                           ]
                         },
+                        "required": [
+                          "text"
+                        ],
                         "properties": {
                           "text": {
                             "$id": "#/definitions/ui-block-element/text",

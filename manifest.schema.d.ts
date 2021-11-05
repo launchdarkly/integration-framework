@@ -795,7 +795,7 @@ export interface Title1 {
  * A sub component of a UI block that can be combined with other elements to form a UI block
  */
 export interface UIBlockElement {
-  text?: Text;
+  text: Text;
   isBold?: IsBold;
   isTimestamp?: IsTimestamp;
   url?: Url;

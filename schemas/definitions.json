@@ -250,6 +250,7 @@
     "propertyNames": {
       "enum": ["text", "isBold", "url", "isTimestamp"]
     },
+    "required": ["text"],
     "properties": {
       "text": {
         "$id": "#/definitions/ui-block-element/text",
