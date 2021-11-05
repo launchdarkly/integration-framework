@@ -54,21 +54,21 @@
       },
       "uiBlocks": {
         "image": {
-          "sourceUrl": "{{_metadata.iconUrl}}",
+          "sourceUrl": "{{metadata.iconUrl}}",
           "isIcon": true
         },
         "title": {
           "linkToReference": true,
           "elements": [
-            { "text": "{{_metadata.issueKey}}: {{_metadata.issueTitle}}" }
+            { "text": "{{metadata.issueKey}}: {{metadata.issueTitle}}" }
           ]
         },
         "context": {
           "elements": [
             { "text": "Created by" },
-            { "text": "{{_metadata.creator}}", "isBold": true },
+            { "text": "{{metadata.creator}}", "isBold": true },
             { "text": "on" },
-            { "isTimestamp": true }
+            { "text": "{{timestamp.milliseconds}}", "isTimestamp": true }
           ]
         }
       }
