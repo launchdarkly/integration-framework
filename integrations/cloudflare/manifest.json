@@ -23,6 +23,7 @@
           "name": "Account ID",
           "description": "Enter your Cloudflare account ID. This can be found on your Workers Dashboard or using [Wrangler CLI](https://developers.cloudflare.com/workers/get-started/guide)",
           "type": "string",
+          "placeholder": "e.g. 01a7362d577a6c3019a474fd6f485823",
           "isSecret": false
         },
         {
@@ -30,12 +31,14 @@
           "name": "KV Namespace ID",
           "description": "You must have a KV namespace available for flag updates. Enter the KV namespace ID associated with your Worker.",
           "type": "string",
+          "placeholder": "e.g. 0f2ac74b498b48028cb68387c421e279",
           "isSecret": false
         },
         {
           "key": "apiToken",
           "name": "API Token",
           "description": "Enter the API token generated from Cloudflare. Instructions for generating a [Cloudflare API token](https://developers.cloudflare.com/api/tokens/create).",
+          "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
           "type": "string",
           "isSecret": true
         }
