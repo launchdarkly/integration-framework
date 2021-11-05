@@ -2673,10 +2673,50 @@
           "type": "object",
           "propertyNames": {
             "enum": [
-              "connector"
+              "connector",
+              "uiBlocks",
+              "emptyState",
+              "header"
             ]
           },
+          "required": [
+            "uiBlocks",
+            "header",
+            "emptyState"
+          ],
           "properties": {
+            "header": {
+              "$id": "#/properties/capability/external-references/header",
+              "title": "Reference group header",
+              "description": "Title to show for all references for this integration",
+              "type": "string"
+            },
+            "emptyState": {
+              "$id": "#/properties/capability/external-references/empty-state",
+              "title": "Empty state",
+              "description": "Content to display when there are no references to display for this integration",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "title",
+                  "leadText"
+                ]
+              },
+              "properties": {
+                "title": {
+                  "$id": "#/properties/capability/external-references/empty-state/title",
+                  "title": "Title",
+                  "type": "string",
+                  "description": "Title of the message"
+                },
+                "leadText": {
+                  "$id": "#/properties/capability/external-references/empty-state/lead-text",
+                  "title": "Lead text",
+                  "type": "string",
+                  "description": "Text or markup content describing how references can be created for this integration"
+                }
+              }
+            },
             "connector": {
               "$id": "#/properties/capability/external-references/connector",
               "title": "External Flag References Connector",
@@ -2722,7 +2762,8 @@
                           "codeSnippet",
                           "hyperlink",
                           "string",
-                          "multilineText"
+                          "multilineText",
+                          "timestamp"
                         ],
                         "description": "The data type of the information this metadata block will display"
                       },
@@ -2732,6 +2773,209 @@
                         "type": "string",
                         "description": "The JSON path corresponding to where the information can be found in the incoming payload"
                       }
+                    }
+                  }
+                }
+              }
+            },
+            "uiBlocks": {
+              "$id": "#/properties/capability/external-references/ui-blocks",
+              "title": "UI Blocks",
+              "description": "UI blocks are visual components that represents a section of the view layout for a reference displayed in LaunchDarkly",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "image",
+                  "name",
+                  "title",
+                  "context",
+                  "description"
+                ]
+              },
+              "properties": {
+                "image": {
+                  "$id": "#/properties/capability/external-references/ui-blocks/image",
+                  "title": "Image",
+                  "type": "object",
+                  "description": "A visual block used to render an image in LaunchDarkly UI",
+                  "propertyNames": {
+                    "enum": [
+                      "sourceUrl",
+                      "isIcon",
+                      "isAvatar"
+                    ]
+                  },
+                  "required": [
+                    "sourceUrl"
+                  ],
+                  "properties": {
+                    "sourceUrl": {
+                      "$id": "#/properties/capability/external-references/ui-blocks/image/source-url",
+                      "title": "Source Url",
+                      "description": "Url of the image",
+                      "type": "string"
+                    },
+                    "isIcon": {
+                      "$id": "#/properties/capability/external-references/ui-blocks/image/is-icon",
+                      "title": "Is icon",
+                      "description": "Indicates whether the image should be rendered as an icon",
+                      "type": "boolean"
+                    },
+                    "isAvatar": {
+                      "$id": "#/properties/capability/external-references/ui-blocks/image/is-avatar",
+                      "title": "Is avatar",
+                      "description": "Indicates whether the image should be rendered as an avatar",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "name": {
+                  "$id": "#/properties/capability/external-references/ui-blocks/name",
+                  "title": "Name",
+                  "type": "string",
+                  "description": "Template string used to render a visual block in LaunchDarkly UI to display a name"
+                },
+                "title": {
+                  "$id": "#/properties/capability/external-references/ui-blocks/title",
+                  "title": "Title",
+                  "type": "object",
+                  "description": "Object with visual elements used to display a reference title in LaunchDarkly UI",
+                  "propertyNames": {
+                    "enum": [
+                      "elements",
+                      "linkToReference"
+                    ]
+                  },
+                  "required": [
+                    "elements"
+                  ],
+                  "properties": {
+                    "elements": {
+                      "$id": "#/properties/capability/external-references/ui-blocks/title/elements",
+                      "title": "Elements",
+                      "description": "An array of elements to be combined to create a title block",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/definitions/ui-block-element",
+                        "title": "UI Block Element",
+                        "description": "A sub component of a UI block that can be combined with other elements to form a UI block",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "text",
+                            "isBold",
+                            "url",
+                            "isTimestamp"
+                          ]
+                        },
+                        "properties": {
+                          "text": {
+                            "$id": "#/definitions/ui-block-element/text",
+                            "title": "Text",
+                            "description": "Text to be displayed for the element. The text can contain template variables",
+                            "type": "string"
+                          },
+                          "isBold": {
+                            "$id": "#/definitions/ui-block-element/text",
+                            "title": "Is bold",
+                            "description": "Indicates whether the element should be bolded",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "isTimestamp": {
+                            "$id": "#/definitions/ui-block-element/is-timestamp",
+                            "title": "Is timestamp",
+                            "description": "Indicates whether the element should be rendered as a timestamp",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "url": {
+                            "$id": "#/definitions/ui-block-element/url",
+                            "title": "Url",
+                            "description": "URL to be set for the element which also indicates the element should be rendered as a hyperlink",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "minLength": 1
+                    },
+                    "linkToReference": {
+                      "$id": "#/properties/capability/external-references/ui-blocks/title/link-to-reference",
+                      "title": "Link to reference",
+                      "description": "Indicates whether the title should be displayed as a hyperlink in LaunchDarkly UI",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  }
+                },
+                "description": {
+                  "$id": "#/properties/capability/external-references/ui-blocks/description",
+                  "title": "Description",
+                  "type": "string",
+                  "description": "Markdown string used to render a visual block in LaunchDarkly UI to display a reference description"
+                },
+                "context": {
+                  "$id": "#/properties/capability/external-references/ui-blocks/reference-context",
+                  "title": "Reference Context",
+                  "type": "object",
+                  "description": "Object with visual elements used to display context information for a reference in LaunchDarkly UI",
+                  "propertyNames": {
+                    "enum": [
+                      "elements"
+                    ]
+                  },
+                  "required": [
+                    "elements"
+                  ],
+                  "properties": {
+                    "elements": {
+                      "$id": "#/properties/capability/external-references/ui-blocks/context/elements",
+                      "description": "An array of elements to be combined to create a context block",
+                      "title": "Elements",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/definitions/ui-block-element",
+                        "title": "UI Block Element",
+                        "description": "A sub component of a UI block that can be combined with other elements to form a UI block",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "text",
+                            "isBold",
+                            "url",
+                            "isTimestamp"
+                          ]
+                        },
+                        "properties": {
+                          "text": {
+                            "$id": "#/definitions/ui-block-element/text",
+                            "title": "Text",
+                            "description": "Text to be displayed for the element. The text can contain template variables",
+                            "type": "string"
+                          },
+                          "isBold": {
+                            "$id": "#/definitions/ui-block-element/text",
+                            "title": "Is bold",
+                            "description": "Indicates whether the element should be bolded",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "isTimestamp": {
+                            "$id": "#/definitions/ui-block-element/is-timestamp",
+                            "title": "Is timestamp",
+                            "description": "Indicates whether the element should be rendered as a timestamp",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "url": {
+                            "$id": "#/definitions/ui-block-element/url",
+                            "title": "Url",
+                            "description": "URL to be set for the element which also indicates the element should be rendered as a hyperlink",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "minLength": 1
                     }
                   }
                 }

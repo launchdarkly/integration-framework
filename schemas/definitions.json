@@ -241,5 +241,42 @@
       }
     },
     "required": ["key", "name", "type", "description"]
+  },
+  "uiBlockElement": {
+    "$id": "#/definitions/ui-block-element",
+    "title": "UI Block Element",
+    "description": "A sub component of a UI block that can be combined with other elements to form a UI block",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["text", "isBold", "url", "isTimestamp"]
+    },
+    "properties": {
+      "text": {
+        "$id": "#/definitions/ui-block-element/text",
+        "title": "Text",
+        "description": "Text to be displayed for the element. The text can contain template variables",
+        "type": "string"
+      },
+      "isBold": {
+        "$id": "#/definitions/ui-block-element/text",
+        "title": "Is bold",
+        "description": "Indicates whether the element should be bolded",
+        "type": "boolean",
+        "default": false
+      },
+      "isTimestamp": {
+        "$id": "#/definitions/ui-block-element/is-timestamp",
+        "title": "Is timestamp",
+        "description": "Indicates whether the element should be rendered as a timestamp",
+        "type": "boolean",
+        "default": false
+      },
+      "url": {
+        "$id": "#/definitions/ui-block-element/url",
+        "title": "Url",
+        "description": "URL to be set for the element which also indicates the element should be rendered as a hyperlink",
+        "type": "string"
+      }
+    }
   }
 }
