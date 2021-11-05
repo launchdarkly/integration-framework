@@ -398,6 +398,18 @@ export type URLTemplate = string;
  */
 export type ProviderFormVariables = FormVariable[];
 /**
+ * Title to show for all references for this integration
+ */
+export type ReferenceGroupHeader = string;
+/**
+ * Title of the message
+ */
+export type Title = string;
+/**
+ * Text or markup content describing how references can be created for this integration
+ */
+export type LeadText = string;
+/**
  * The unique key corresponding to the property to be displayed
  */
 export type Key2 = string;
@@ -408,7 +420,7 @@ export type Name3 = string;
 /**
  * The data type of the information this metadata block will display
  */
-export type Type1 = "avatar" | "codeSnippet" | "hyperlink" | "string" | "multilineText";
+export type Type1 = "avatar" | "codeSnippet" | "hyperlink" | "string" | "multilineText" | "timestamp";
 /**
  * The JSON path corresponding to where the information can be found in the incoming payload
  */
@@ -423,6 +435,50 @@ export type FlagReferencesMetadata = {
   path?: Path;
   [k: string]: unknown;
 }[];
+/**
+ * Template string used to render a visual block in LaunchDarkly UI to display an icon for a reference
+ */
+export type IconURL = string;
+/**
+ * Template string used to render a visual block in LaunchDarkly UI to display an avatar for a reference
+ */
+export type AvatarURL = string;
+/**
+ * Template string used to render a visual block in LaunchDarkly UI to display a name
+ */
+export type Name4 = string;
+/**
+ * The type of element
+ */
+export type Type2 = "text" | "timestamp";
+/**
+ * Text to be displayed for the element. The text can contain template variables
+ */
+export type Text = string;
+/**
+ * Indicates whether the element should be bolded
+ */
+export type IsBold = boolean;
+/**
+ * URL to be set for the element which also indicates the element should be rendered as a hyperlink
+ */
+export type Url = string;
+/**
+ * An array of elements to be combined to create a title block
+ */
+export type Elements = UIBlockElement[];
+/**
+ * Indicates whether the title should be displayed as a hyperlink in LaunchDarkly UI
+ */
+export type LinkToReference = boolean;
+/**
+ * Markdown string used to render a visual block in LaunchDarkly UI to display a reference description
+ */
+export type Description3 = string;
+/**
+ * An array of elements to be combined to create a context block
+ */
+export type Elements1 = UIBlockElement[];
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -682,7 +738,18 @@ export interface FeatureStore {
  * This capability is used to manage inbound flag reference webhooks
  */
 export interface ExternalFlagReferences {
+  header?: ReferenceGroupHeader;
+  emptyState?: EmptyState;
   connector?: ExternalFlagReferencesConnector;
+  uiBlocks: UIBlocks;
+  [k: string]: unknown;
+}
+/**
+ * Content to display when there are no references to display for this integration
+ */
+export interface EmptyState {
+  title?: Title;
+  leadText?: LeadText;
   [k: string]: unknown;
 }
 /**
@@ -690,5 +757,42 @@ export interface ExternalFlagReferences {
  */
 export interface ExternalFlagReferencesConnector {
   metadata?: FlagReferencesMetadata;
+  [k: string]: unknown;
+}
+/**
+ * UI blocks are visual components that represents a section of the view layout for a reference displayed in LaunchDarkly
+ */
+export interface UIBlocks {
+  iconUrl?: IconURL;
+  avatarUrl?: AvatarURL;
+  name?: Name4;
+  title?: Title1;
+  description?: Description3;
+  context?: ReferenceContext;
+  [k: string]: unknown;
+}
+/**
+ * Object with visual elements used to display a reference title in LaunchDarkly UI
+ */
+export interface Title1 {
+  elements: Elements;
+  linkToReference?: LinkToReference;
+  [k: string]: unknown;
+}
+/**
+ * A sub component of a UI block that can be combined with other elements to form a UI block
+ */
+export interface UIBlockElement {
+  type?: Type2;
+  text?: Text;
+  isBold?: IsBold;
+  url?: Url;
+  [k: string]: unknown;
+}
+/**
+ * Object with visual elements used to display context information for a reference in LaunchDarkly UI
+ */
+export interface ReferenceContext {
+  elements: Elements1;
   [k: string]: unknown;
 }
