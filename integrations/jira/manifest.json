@@ -53,7 +53,10 @@
         ]
       },
       "uiBlocks": {
-        "iconUrl": "{{_metadata.iconUrl}}",
+        "image": {
+          "sourceUrl": "{{_metadata.iconUrl}}",
+          "isIcon": true
+        },
         "title": {
           "linkToReference": true,
           "elements": [
@@ -65,7 +68,7 @@
             { "text": "Created by" },
             { "text": "{{_metadata.creator}}", "isBold": true },
             { "text": "on" },
-            { "type": "timestamp" }
+            { "isTimestamp": true }
           ]
         }
       }

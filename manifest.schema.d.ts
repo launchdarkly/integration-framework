@@ -436,21 +436,21 @@ export type FlagReferencesMetadata = {
   [k: string]: unknown;
 }[];
 /**
- * Template string used to render a visual block in LaunchDarkly UI to display an icon for a reference
+ * Url of the image
  */
-export type IconURL = string;
+export type SourceUrl = string;
 /**
- * Template string used to render a visual block in LaunchDarkly UI to display an avatar for a reference
+ * Indicates whether the image should be rendered as an icon
  */
-export type AvatarURL = string;
+export type IsIcon = boolean;
+/**
+ * Indicates whether the image should be rendered as an avatar
+ */
+export type IsAvatar = boolean;
 /**
  * Template string used to render a visual block in LaunchDarkly UI to display a name
  */
 export type Name4 = string;
-/**
- * The type of element
- */
-export type Type2 = "text" | "timestamp";
 /**
  * Text to be displayed for the element. The text can contain template variables
  */
@@ -459,6 +459,10 @@ export type Text = string;
  * Indicates whether the element should be bolded
  */
 export type IsBold = boolean;
+/**
+ * Indicates whether the element should be rendered as a timestamp
+ */
+export type IsTimestamp = boolean;
 /**
  * URL to be set for the element which also indicates the element should be rendered as a hyperlink
  */
@@ -738,8 +742,8 @@ export interface FeatureStore {
  * This capability is used to manage inbound flag reference webhooks
  */
 export interface ExternalFlagReferences {
-  header?: ReferenceGroupHeader;
-  emptyState?: EmptyState;
+  header: ReferenceGroupHeader;
+  emptyState: EmptyState;
   connector?: ExternalFlagReferencesConnector;
   uiBlocks: UIBlocks;
   [k: string]: unknown;
@@ -763,12 +767,20 @@ export interface ExternalFlagReferencesConnector {
  * UI blocks are visual components that represents a section of the view layout for a reference displayed in LaunchDarkly
  */
 export interface UIBlocks {
-  iconUrl?: IconURL;
-  avatarUrl?: AvatarURL;
+  image?: Image;
   name?: Name4;
   title?: Title1;
   description?: Description3;
   context?: ReferenceContext;
+  [k: string]: unknown;
+}
+/**
+ * A visual block used to render an image in LaunchDarkly UI
+ */
+export interface Image {
+  sourceUrl: SourceUrl;
+  isIcon?: IsIcon;
+  isAvatar?: IsAvatar;
   [k: string]: unknown;
 }
 /**
@@ -783,9 +795,9 @@ export interface Title1 {
  * A sub component of a UI block that can be combined with other elements to form a UI block
  */
 export interface UIBlockElement {
-  type?: Type2;
   text?: Text;
   isBold?: IsBold;
+  isTimestamp?: IsTimestamp;
   url?: Url;
   [k: string]: unknown;
 }

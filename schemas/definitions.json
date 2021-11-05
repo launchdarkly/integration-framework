@@ -248,17 +248,9 @@
     "description": "A sub component of a UI block that can be combined with other elements to form a UI block",
     "type": "object",
     "propertyNames": {
-      "enum": ["type", "text", "isBold", "url"]
+      "enum": ["text", "isBold", "url", "isTimestamp"]
     },
     "properties": {
-      "type": {
-        "$id": "#/definitions/ui-block-element/type",
-        "title": "Type",
-        "description": "The type of element",
-        "type": "string",
-        "enum": ["text", "timestamp"],
-        "default": "text"
-      },
       "text": {
         "$id": "#/definitions/ui-block-element/text",
         "title": "Text",
@@ -269,6 +261,13 @@
         "$id": "#/definitions/ui-block-element/text",
         "title": "Is bold",
         "description": "Indicates whether the element should be bolded",
+        "type": "boolean",
+        "default": false
+      },
+      "isTimestamp": {
+        "$id": "#/definitions/ui-block-element/is-timestamp",
+        "title": "Is timestamp",
+        "description": "Indicates whether the element should be rendered as a timestamp",
         "type": "boolean",
         "default": false
       },

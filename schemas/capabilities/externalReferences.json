@@ -8,7 +8,7 @@
     "propertyNames": {
       "enum": ["connector", "uiBlocks", "emptyState", "header"]
     },
-    "required": ["uiBlocks"],
+    "required": ["uiBlocks", "header", "emptyState"],
     "properties": {
       "header": {
         "$id": "#/properties/capability/external-references/header",
@@ -19,7 +19,7 @@
       "emptyState": {
         "$id": "#/properties/capability/external-references/empty-state",
         "title": "Empty state",
-        "description": "Content to display when there are no references to display for this integration ",
+        "description": "Content to display when there are no references to display for this integration",
         "type": "object",
         "propertyNames": {
           "enum": ["title", "leadText"]
@@ -101,27 +101,38 @@
         "description": "UI blocks are visual components that represents a section of the view layout for a reference displayed in LaunchDarkly",
         "type": "object",
         "propertyNames": {
-          "enum": [
-            "iconUrl",
-            "avatarUrl",
-            "name",
-            "title",
-            "context",
-            "description"
-          ]
+          "enum": ["image", "name", "title", "context", "description"]
         },
         "properties": {
-          "iconUrl": {
-            "$id": "#/properties/capability/external-references/ui-blocks/icon-url",
-            "title": "Icon URL",
-            "type": "string",
-            "description": "Template string used to render a visual block in LaunchDarkly UI to display an icon for a reference"
-          },
-          "avatarUrl": {
-            "$id": "#/properties/capability/external-references/ui-blocks/avatar-url",
-            "title": "Avatar URL",
-            "type": "string",
-            "description": "Template string used to render a visual block in LaunchDarkly UI to display an avatar for a reference"
+          "image": {
+            "$id": "#/properties/capability/external-references/ui-blocks/image",
+            "title": "Image",
+            "type": "object",
+            "description": "A visual block used to render an image in LaunchDarkly UI",
+            "propertyNames": {
+              "enum": ["sourceUrl", "isIcon", "isAvatar"]
+            },
+            "required": ["sourceUrl"],
+            "properties": {
+              "sourceUrl": {
+                "$id": "#/properties/capability/external-references/ui-blocks/image/source-url",
+                "title": "Source Url",
+                "description": "Url of the image",
+                "type": "string"
+              },
+              "isIcon": {
+                "$id": "#/properties/capability/external-references/ui-blocks/image/is-icon",
+                "title": "Is icon",
+                "description": "Indicates whether the image should be rendered as an icon",
+                "type": "boolean"
+              },
+              "isAvatar": {
+                "$id": "#/properties/capability/external-references/ui-blocks/image/is-avatar",
+                "title": "Is avatar",
+                "description": "Indicates whether the image should be rendered as an avatar",
+                "type": "boolean"
+              }
+            }
           },
           "name": {
             "$id": "#/properties/capability/external-references/ui-blocks/name",
