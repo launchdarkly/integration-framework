@@ -68,7 +68,11 @@
             { "text": "Created by" },
             { "text": "{{metadata.creator}}", "isBold": true },
             { "text": "on" },
-            { "text": "{{timestamp.milliseconds}}", "isTimestamp": true }
+            {
+              "text": "{{timestamp.milliseconds}}",
+              "isTimestamp": true,
+              "isBold": true
+            }
           ]
         }
       }
