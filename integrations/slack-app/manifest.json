@@ -79,7 +79,7 @@
             { "text": "#{{metadata.channelName}}", "isBold": true },
             { "text": "on" },
             {
-              "text": "{{metadata.timestamp}}",
+              "text": "{{timestamp.milliseconds}}",
               "isTimestamp": true,
               "isBold": true
             },
