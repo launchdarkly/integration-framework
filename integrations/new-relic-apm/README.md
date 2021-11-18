@@ -8,4 +8,4 @@ Run `npm run curl new-relic-apm` in the root repository directory to generate a 
 
 Please note that this integration requires a New Relic APM account to function.
 You should be able to see all LaunchDarkly flag events on the Deployment page
-of you APM console.
+of your APM console.
