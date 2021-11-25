@@ -362,13 +362,9 @@ export type Email = string;
  */
 export type MemberID = string;
 /**
- * Template string used to render the JSON request body
+ * Environment-specific form variables that render on the environment approval settings modal
  */
-export type JSONBody = string;
-/**
- * JSON path to the array containing integration member details
- */
-export type MemberArrayPath = string;
+export type EnvironmentFormVariables = FormVariable[];
 /**
  * Flag-specific form variables that render on the approval request creation modal
  */

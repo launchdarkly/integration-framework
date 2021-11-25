@@ -1394,17 +1394,7 @@
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "url",
-                    "method"
-                  ]
-                },
-                "jsonBody": {
-                  "$id": "#/definitions/json-body",
-                  "title": "JSON Body",
-                  "description": "Template string used to render the JSON request body",
-                  "type": "string"
+                  }
                 },
                 "required": [
                   "key",
@@ -1623,28 +1613,69 @@
                           "method"
                         ]
                       },
-                      "required": [
-                        "email",
-                        "memberId"
-                      ],
-                      "properties": {
-                        "email": {
-                          "$id": "#/member-list-parser/member-items/email",
-                          "title": "Email",
-                          "description": "Relative JSON path to the email field in each member item in the array",
-                          "type": "string"
+                      "parser": {
+                        "$id": "#/definitions/form-variable/dynamic-options/parser",
+                        "title": "Dynamic options parser",
+                        "description": "Mapping of property names to location in JSON response",
+                        "type": "object",
+                        "required": [
+                          "optionsPath",
+                          "optionsItems"
+                        ],
+                        "propertyNames": {
+                          "enum": [
+                            "optionsPath",
+                            "optionsItems"
+                          ]
                         },
-                        "memberId": {
-                          "$id": "#/member-list-parser/member-items/member-id",
-                          "title": "Member ID",
-                          "description": "Relative JSON path to the integration member ID field in each member item in the array",
-                          "type": "string"
+                        "properties": {
+                          "optionsPath": {
+                            "$id": "#/definitions/form-variable/dynamic-options/parser/options-path",
+                            "title": "Options array path",
+                            "description": "JSON path to the array containing options for parsing",
+                            "type": "string"
+                          },
+                          "optionsItems": {
+                            "$id": "#/definitions/form-variable/dynamic-options/parser/options-items",
+                            "title": "Options array",
+                            "propertyNames": {
+                              "enum": [
+                                "label",
+                                "value"
+                              ]
+                            },
+                            "required": [
+                              "label",
+                              "value"
+                            ],
+                            "properties": {
+                              "label": {
+                                "$id": "#/definitions/form-variable/dynamic-options/parser/options-items/label",
+                                "title": "Label",
+                                "description": "Relative JSON path to values for each item in the options array to be used as UI dropdown labels",
+                                "type": "string"
+                              },
+                              "value": {
+                                "$id": "#/definitions/form-variable/dynamic-options/parser/options-items/value",
+                                "title": "Value",
+                                "description": "Relative JSON path to values for each item in the options array to be used as dropdown values",
+                                "type": "string"
+                              }
+                            }
+                          }
                         }
                       }
                     }
                   }
-                }
-              }
+                },
+                "required": [
+                  "key",
+                  "name",
+                  "type",
+                  "description"
+                ]
+              },
+              "default": []
             },
             "creationRequest": {
               "$id": "#/capabilities/approval/creation-request",
