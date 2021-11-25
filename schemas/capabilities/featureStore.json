@@ -1,0 +1,25 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "featureStore": {
+    "$id": "#/properties/capability/feature-store",
+    "title": "Feature store",
+    "description": "This capability allows LaunchDarkly to write feature flag data to a given provider",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["formVariables"]
+    },
+    "required": ["formVariables"],
+    "properties": {
+      "formVariables": {
+        "$id": "#/capabilities/feature-store/form-variables",
+        "title": "Provider form variables",
+        "description": "Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store",
+        "type": "array",
+        "items": {
+          "$ref": "../definitions.json#/formVariable"
+        },
+        "default": []
+      }
+    }
+  }
+}

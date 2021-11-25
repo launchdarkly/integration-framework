@@ -59,6 +59,7 @@ export type Categories =
       | "authentication"
       | "automation"
       | "code-references"
+      | "customer-support"
       | "data"
       | "developer-tools"
       | "infrastructure"
@@ -75,6 +76,7 @@ export type Categories =
         | "authentication"
         | "automation"
         | "code-references"
+        | "customer-support"
         | "data"
         | "developer-tools"
         | "infrastructure"
@@ -90,6 +92,7 @@ export type Categories =
         | "authentication"
         | "automation"
         | "code-references"
+        | "customer-support"
         | "data"
         | "developer-tools"
         | "infrastructure"
@@ -107,6 +110,7 @@ export type Categories =
         | "authentication"
         | "automation"
         | "code-references"
+        | "customer-support"
         | "data"
         | "developer-tools"
         | "infrastructure"
@@ -122,6 +126,7 @@ export type Categories =
         | "authentication"
         | "automation"
         | "code-references"
+        | "customer-support"
         | "data"
         | "developer-tools"
         | "infrastructure"
@@ -137,6 +142,7 @@ export type Categories =
         | "authentication"
         | "automation"
         | "code-references"
+        | "customer-support"
         | "data"
         | "developer-tools"
         | "infrastructure"
@@ -199,11 +205,11 @@ export type IsThisVariableASecret = boolean;
  */
 export type IsThisVariableOptional = boolean;
 /**
- * Default value for variable. Can be overridden by user in the UI
+ * Default value for variable. Can be overridden by the user in the UI
  */
 export type DefaultValue = boolean | string;
 /**
- * allowed string values for enum-type formVariables
+ * Allowed string values for enum-type formVariables
  */
 export type AllowedValues = string[];
 /**
@@ -263,11 +269,11 @@ export type DefaultTemplate = string;
  */
 export type ValidationTemplate = string;
 /**
- * LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.
+ * LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/home/members/role-policies for more information.
  */
 export type DefaultPolicy = [Policy, ...Policy[]];
 /**
- * A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.
+ * A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/home/members/role-actions for more information.
  */
 export type Actions = string[];
 /**
@@ -275,17 +281,21 @@ export type Actions = string[];
  */
 export type Effect = "allow" | "deny";
 /**
- * A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.
+ * A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-actions for more information.
  */
 export type NotActions = string[];
 /**
- * A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.
+ * A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-resources for more information.
  */
 export type NotResources = string[];
 /**
- * A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.
+ * A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/home/members/role-resources for more information.
  */
 export type Resources = string[];
+/**
+ * Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI
+ */
+export type IncludeErrorResponseBody = boolean;
 /**
  * The reserved custom property's display name.
  */
@@ -295,11 +305,16 @@ export type Name2 = string;
  */
 export type Key1 = string;
 /**
- * This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/advanced/custom-properties for more information on custom properties
+ * The custom property's description.
+ */
+export type Description2 = string;
+/**
+ * This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/connecting/custom-properties for more information on custom properties
  */
 export type ReservedCustomProperties = {
   name: Name2;
   key: Key1;
+  description?: Description2;
   [k: string]: unknown;
 }[];
 /**
@@ -347,9 +362,17 @@ export type Email = string;
  */
 export type MemberID = string;
 /**
- * Environment-specific form variables that render on the environment approval settings modal
+ * Template string used to render the JSON request body
  */
-export type EnvironmentFormVariables = FormVariable[];
+export type JSONBody = string;
+/**
+ * JSON path to the array containing integration member details
+ */
+export type MemberArrayPath = string;
+/**
+ * Flag-specific form variables that render on the approval request creation modal
+ */
+export type FlagFormVariables = FormVariable[];
 /**
  * Externally-created approval entity ID
  */
@@ -374,6 +397,96 @@ export type RejectionMatcher = string;
  * expected format for the external creation request URL. Values can be substituted in using {{value}}
  */
 export type URLTemplate = string;
+/**
+ * Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store
+ */
+export type ProviderFormVariables = FormVariable[];
+/**
+ * Title to show for all references for this integration
+ */
+export type ReferenceGroupHeader = string;
+/**
+ * Title of the message
+ */
+export type Title = string;
+/**
+ * Text or markup content describing how references can be created for this integration
+ */
+export type LeadText = string;
+/**
+ * The unique key corresponding to the property to be displayed
+ */
+export type Key2 = string;
+/**
+ * The display name of the property
+ */
+export type Name3 = string;
+/**
+ * The data type of the information this metadata block will display
+ */
+export type Type1 = "avatar" | "codeSnippet" | "hyperlink" | "string" | "multilineText" | "timestamp";
+/**
+ * The JSON path corresponding to where the information can be found in the incoming payload
+ */
+export type Path = string;
+/**
+ * List of metadata blocks corresponding to information on the LaunchDarkly External References tab
+ */
+export type FlagReferencesMetadata = {
+  key?: Key2;
+  name?: Name3;
+  type?: Type1;
+  path?: Path;
+  [k: string]: unknown;
+}[];
+/**
+ * Url of the image
+ */
+export type SourceUrl = string;
+/**
+ * Indicates whether the image should be rendered as an icon
+ */
+export type IsIcon = boolean;
+/**
+ * Indicates whether the image should be rendered as an avatar
+ */
+export type IsAvatar = boolean;
+/**
+ * Template string used to render a visual block in LaunchDarkly UI to display a name
+ */
+export type Name4 = string;
+/**
+ * Text to be displayed for the element. The text can contain template variables
+ */
+export type Text = string;
+/**
+ * Indicates whether the element should be bolded
+ */
+export type IsBold = boolean;
+/**
+ * Indicates whether the element should be rendered as a timestamp
+ */
+export type IsTimestamp = boolean;
+/**
+ * URL to be set for the element which also indicates the element should be rendered as a hyperlink
+ */
+export type Url = string;
+/**
+ * An array of elements to be combined to create a title block
+ */
+export type Elements = UIBlockElement[];
+/**
+ * Indicates whether the title should be displayed as a hyperlink in LaunchDarkly UI
+ */
+export type LinkToReference = boolean;
+/**
+ * Markdown string used to render a visual block in LaunchDarkly UI to display a reference description
+ */
+export type Description3 = string;
+/**
+ * An array of elements to be combined to create a context block
+ */
+export type Elements1 = UIBlockElement[];
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -483,6 +596,8 @@ export interface Capabilities {
   reservedCustomProperties?: ReservedCustomProperties;
   trigger?: Trigger;
   approval?: Approval;
+  featureStore?: FeatureStore;
+  externalReferences?: ExternalFlagReferences;
   [k: string]: unknown;
 }
 /**
@@ -492,6 +607,7 @@ export interface AuditLogEventsHook {
   endpoint: Endpoint;
   templates: WebhookBodyTemplate;
   defaultPolicy?: DefaultPolicy;
+  includeErrorResponseBody?: IncludeErrorResponseBody;
   [k: string]: unknown;
 }
 /**
@@ -506,7 +622,7 @@ export interface WebhookBodyTemplate {
   [k: string]: unknown;
 }
 /**
- * A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.
+ * A LaunchDarkly policy. See https://docs.launchdarkly.com/home/members/role-policies for more information.
  */
 export interface Policy {
   actions?: Actions;
@@ -542,6 +658,7 @@ export interface TriggerParser {
 export interface Approval {
   memberListRequest: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
+  flagFormVariables?: FlagFormVariables;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
   postApplyRequest: PostApplyRequest;
@@ -616,5 +733,82 @@ export interface DeletionRequest {
   endpoint: Endpoint;
   jsonBody?: JSONBody;
   parser: ApprovalParser;
+  [k: string]: unknown;
+}
+/**
+ * This capability allows LaunchDarkly to write feature flag data to a given provider
+ */
+export interface FeatureStore {
+  formVariables: ProviderFormVariables;
+  [k: string]: unknown;
+}
+/**
+ * This capability is used to manage inbound flag reference webhooks
+ */
+export interface ExternalFlagReferences {
+  header: ReferenceGroupHeader;
+  emptyState: EmptyState;
+  connector?: ExternalFlagReferencesConnector;
+  uiBlocks: UIBlocks;
+  [k: string]: unknown;
+}
+/**
+ * Content to display when there are no references to display for this integration
+ */
+export interface EmptyState {
+  title?: Title;
+  leadText?: LeadText;
+  [k: string]: unknown;
+}
+/**
+ * Receiver configuration for inbound flag reference
+ */
+export interface ExternalFlagReferencesConnector {
+  metadata?: FlagReferencesMetadata;
+  [k: string]: unknown;
+}
+/**
+ * UI blocks are visual components that represents a section of the view layout for a reference displayed in LaunchDarkly
+ */
+export interface UIBlocks {
+  image?: Image;
+  name?: Name4;
+  title?: Title1;
+  description?: Description3;
+  context?: ReferenceContext;
+  [k: string]: unknown;
+}
+/**
+ * A visual block used to render an image in LaunchDarkly UI
+ */
+export interface Image {
+  sourceUrl: SourceUrl;
+  isIcon?: IsIcon;
+  isAvatar?: IsAvatar;
+  [k: string]: unknown;
+}
+/**
+ * Object with visual elements used to display a reference title in LaunchDarkly UI
+ */
+export interface Title1 {
+  elements: Elements;
+  linkToReference?: LinkToReference;
+  [k: string]: unknown;
+}
+/**
+ * A sub component of a UI block that can be combined with other elements to form a UI block
+ */
+export interface UIBlockElement {
+  text: Text;
+  isBold?: IsBold;
+  isTimestamp?: IsTimestamp;
+  url?: Url;
+  [k: string]: unknown;
+}
+/**
+ * Object with visual elements used to display context information for a reference in LaunchDarkly UI
+ */
+export interface ReferenceContext {
+  elements: Elements1;
   [k: string]: unknown;
 }

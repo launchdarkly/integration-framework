@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.mparticle.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/data-export/mparticle",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/data-export/mparticle",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],

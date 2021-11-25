@@ -93,6 +93,7 @@
   ],
   "capabilities": {
     "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
       "endpoint": {
         "url": "https://example.com/webhookin?color={{color}}",
         "method": "POST",

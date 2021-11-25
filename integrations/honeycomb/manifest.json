@@ -34,6 +34,7 @@
   ],
   "capabilities": {
     "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
       "endpoint": {
         "url": "https://api.honeycomb.io/1/markers/{{datasetName}}",
         "method": "POST",
@@ -61,7 +62,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/honeycomb/triggers#connecting-a-launchdarkly-trigger-to-honeycomb",
+      "documentation": "https://docs.launchdarkly.com/integrations/honeycomb/triggers#connecting-a-flag-trigger-to-honeycomb",
       "parser": {
         "eventName": "/name",
         "url": "/result_url"

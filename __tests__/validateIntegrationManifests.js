@@ -12,6 +12,8 @@ const environmentContext = require('../sample-context/environment/update');
 
 const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow']; // add oauth integrations here
 
+var parse = require('url-parse');
+
 registerHelpers();
 
 const getDirectories = source =>
@@ -153,6 +155,54 @@ describe('All integrations', () => {
         expect(OAUTH_INTEGRATIONS).toEqual(expect.arrayContaining([key]));
         const oauthContext = getOAuthContext(requiresOAuth);
         expect(oauthContext).not.toBe(null);
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'includeErrorResponseBody is only true if endpoint domain is static for %s',
+    (key, manifest) => {
+      const includeErrorResponseBody = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.includeErrorResponseBody',
+        null
+      );
+      if (includeErrorResponseBody) {
+        // if there is no host domain replacement in the `endpoint` field then we are fine
+        const endpointUrlTemplate = _.get(
+          manifest,
+          'capabilities.auditLogEventsHook.endpoint.url',
+          null
+        );
+        if (endpointUrlTemplate.startsWith('{{')) {
+          const varName = endpointUrlTemplate.substring(
+            2,
+            endpointUrlTemplate.indexOf('}')
+          );
+          // if there is and that variable is an enum or has some form of validation, we are fine
+          const formVariables = _.get(manifest, 'formVariables', null);
+          for (let i = 0; i < formVariables.length; i++) {
+            if (formVariables[i].key == varName) {
+              expect(formVariables[i].type).toBe('enum');
+              expect(formVariables[i].allowedValues).not.toBe(null);
+            }
+          }
+        }
+        // we also want to check that there are no dynamic subdomains, ex. signalfx
+        const hostname = parse(endpointUrlTemplate, true).hostname;
+        if (hostname.includes('{{')) {
+          const regexp = /{{(\w+)}}/g;
+          const dynamicHostVars = [...hostname.matchAll(regexp)];
+          const formVariables = _.get(manifest, 'formVariables', null);
+          for (let i = 0; i < formVariables.length; i++) {
+            for (let j = 0; j < dynamicHostVars.length; j++) {
+              if (formVariables[i].key.lower() == dynamicHostVars[j][1]) {
+                expect(formVariables[i].type).toBe('enum');
+                expect(formVariables[i].allowedValues).not.toBe(null);
+              }
+            }
+          }
+        }
       }
     }
   );

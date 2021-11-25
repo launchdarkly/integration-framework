@@ -40,10 +40,12 @@
     "reservedCustomProperties": [
       {
         "name": "Datadog tags",
+        "description": "Tags are a way of adding additional dimension to LaunchDarkly change events in Datadog so they can be filtered, aggregated, and compared in visualizations.",
         "key": "datadog"
       }
     ],
     "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
       "endpoint": {
         "url": "{{hostURL}}/api/v1/events",
         "method": "POST",
@@ -73,7 +75,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/datadog/triggers#connecting-a-trigger-to-datadog",
+      "documentation": "https://docs.launchdarkly.com/integrations/datadog/triggers#connecting-a-flag-trigger-to-datadog",
       "testEventNameRegexp": ".+ \\[TEST\\].+",
       "parser": {
         "eventName": "/title",

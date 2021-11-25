@@ -3,12 +3,12 @@
   "reservedCustomProperties": {
     "$id": "#/properties/capability/reserved-custom-properties",
     "title": "Reserved custom properties",
-    "description": "This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/advanced/custom-properties for more information on custom properties",
+    "description": "This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/connecting/custom-properties for more information on custom properties",
     "type": "array",
     "items": {
       "$id": "#/properties/capability/reserved-custom-properties/items",
       "type": "object",
-      "propertyNames": { "enum": ["name", "key"] },
+      "propertyNames": { "enum": ["name", "key", "description"] },
       "properties": {
         "name": {
           "$id": "#/properties/capability/reserved-custom-properties/items/name",
@@ -23,6 +23,13 @@
           "type": "string",
           "description": "The custom property's API response key.",
           "maxLength": 64
+        },
+        "description": {
+          "$id": "#/properties/capability/reserved-custom-properties/items/description",
+          "title": "Description",
+          "type": "string",
+          "description": "The custom property's description.",
+          "maxLength": 250
         }
       },
       "required": ["name", "key"]

@@ -1,6 +1,6 @@
 # SignalFx
 
-[User documentation](https://docs.launchdarkly.com/docs/signalfx)
+[User documentation](https://docs.launchdarkly.com/integrations/signalfx)
 
 [API documentation](https://developers.signalfx.com/ingest_data_reference.html#operation/Send%20Custom%20Events)
 

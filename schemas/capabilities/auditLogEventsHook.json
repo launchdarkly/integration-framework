@@ -6,7 +6,12 @@
     "description": "This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.",
     "type": "object",
     "propertyNames": {
-      "enum": ["endpoint", "templates", "defaultPolicy"]
+      "enum": [
+        "endpoint",
+        "templates",
+        "defaultPolicy",
+        "includeErrorResponseBody"
+      ]
     },
     "properties": {
       "endpoint": {
@@ -56,13 +61,13 @@
       "defaultPolicy": {
         "$id": "#/properties/capability/audit-log-events-hook/default-policy",
         "title": "Default Policy",
-        "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+        "description": "LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/home/members/role-policies for more information.",
         "type": "array",
         "minItems": 1,
         "items": {
           "$id": "#/properties/capability/audit-log-events-hook/policy",
           "title": "Policy",
-          "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/docs/policies-in-custom-roles for more information.",
+          "description": "A LaunchDarkly policy. See https://docs.launchdarkly.com/home/members/role-policies for more information.",
           "type": "object",
           "propertyNames": {
             "enum": [
@@ -77,7 +82,7 @@
             "actions": {
               "$id": "#/properties/capability/audit-log-events-hook/policy/actions",
               "title": "Actions",
-              "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+              "description": "A list of action specifiers defining the actions to which the statement applies. See https://docs.launchdarkly.com/home/members/role-actions for more information.",
               "default": ["*"],
               "examples": [
                 "updateOn",
@@ -101,7 +106,7 @@
             "notActions": {
               "$id": "#/properties/capability/audit-log-events-hook/policy/not-actions",
               "title": "Not actions",
-              "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/docs/actions-in-custom-roles for more information.",
+              "description": "A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-actions for more information.",
               "default": ["*"],
               "examples": ["createFlag", "deleteFlag", "cloneFlag"],
               "type": "array",
@@ -112,7 +117,7 @@
             "notResources": {
               "$id": "#/properties/capability/audit-log-events-hook/policy/not-resources",
               "title": "Not resources",
-              "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+              "description": "A list of resource specifiers defining the resources to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-resources for more information.",
               "default": ["*"],
               "examples": ["proj/*:env/production:flag/*"],
               "type": "array",
@@ -123,7 +128,7 @@
             "resources": {
               "$id": "#/properties/capability/audit-log-events-hook/policy/resources",
               "title": "Resources",
-              "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/docs/resources-in-custom-roles for more information.",
+              "description": "A list of resource specifiers defining the resources to which the statement applies. See https://docs.launchdarkly.com/home/members/role-resources for more information.",
               "default": ["*"],
               "examples": ["proj/*:env/production:flag/*"],
               "type": "array",
@@ -133,6 +138,13 @@
             }
           }
         }
+      },
+      "includeErrorResponseBody": {
+        "$id": "#/properties/include-error-response-body",
+        "title": "Include error response body",
+        "type": "boolean",
+        "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
+        "default": false
       }
     },
     "required": ["endpoint", "templates"]

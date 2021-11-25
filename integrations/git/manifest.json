@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://github.com/launchdarkly/ld-find-code-refs/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/git-code-references",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/code/code-references",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["code-references"],

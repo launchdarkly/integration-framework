@@ -59,6 +59,8 @@ To validate your integration:
 1. Run `npm install` to install the validation dependencies.
 2. Run `npm test` to run the validation suite.
 
+**Note:** Please use Node.js v14 when running the above npm commands.
+
 Additionally, we
 recommend you install [pre-commit hooks](https://pre-commit.com/#install) with `pre-commit install`. This will make the validation suite run before every commit, saving you time if you need to troubleshoot anything.
 

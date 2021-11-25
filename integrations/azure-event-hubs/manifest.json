@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://azure.microsoft.com/en-us/services/event-hubs/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/data-export/event-hub",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/data-export/event-hub",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],

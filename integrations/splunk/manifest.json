@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.splunk.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/splunk",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/splunk",
     "privacyPolicy": "https://www.splunk.com/en_us/legal/splunk-data-security-and-privacy.html"
   },
   "categories": ["monitoring"],

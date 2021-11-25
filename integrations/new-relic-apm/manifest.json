@@ -29,12 +29,21 @@
       "description": "Enter your [New Relic application ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/app-id-other-product-ids#ui).",
       "type": "string",
       "placeholder": "123456"
+    },
+    {
+      "key": "domain",
+      "name": "Data Center",
+      "description": "Your New Relic data center. The default(US) is \"api.newrelic.com\". Use \"api.eu.newrelic.com\" if you are using the EU data center.",
+      "type": "enum",
+      "allowedValues": ["api.newrelic.com", "api.eu.newrelic.com"],
+      "isOptional": true,
+      "defaultValue": "api.newrelic.com"
     }
   ],
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://api.newrelic.com/v2/applications/{{applicationId}}/deployments.json",
+        "url": "https://{{#if domain}}{{domain}}{{else}}api.newrelic.com{{/if}}/v2/applications/{{applicationId}}/deployments.json",
         "method": "POST",
         "headers": [
           {
@@ -60,7 +69,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/new-relic/triggers#connecting-a-launchdarkly-trigger-to-new-relic-one",
+      "documentation": "https://docs.launchdarkly.com/integrations/new-relic/triggers#connecting-a-flag-trigger-to-new-relic-one",
       "testEventNameRegexp": "^New Relic Alert - Test Condition$",
       "parser": {
         "eventName": "/condition_name",

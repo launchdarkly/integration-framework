@@ -1,0 +1,48 @@
+{
+  "name": "Cloudflare",
+  "version": "1.0.0",
+  "overview": "Evaluate feature flags and bootstrap the LaunchDarkly Javascript SDK from Cloudflare Workers.",
+  "description": "Evaluate feature flags and bootstrap the LaunchDarkly Javascript SDK from Cloudflare Workers by storing flag data in Cloudflare's KV offering.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.cloudflare.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/cloudflare",
+    "privacyPolicy": "https://www.cloudflare.com/privacypolicy/"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "featureStore": {
+      "formVariables": [
+        {
+          "key": "accountId",
+          "name": "Account ID",
+          "description": "Enter your Cloudflare account ID. This can be found on your Workers Dashboard or using [Wrangler CLI](https://developers.cloudflare.com/workers/get-started/guide)",
+          "type": "string",
+          "placeholder": "e.g. 01a7362d577a6c3019a474fd6f485823",
+          "isSecret": false
+        },
+        {
+          "key": "namespaceId",
+          "name": "KV Namespace ID",
+          "description": "You must have a KV namespace available for flag updates. Enter the KV namespace ID associated with your Worker.",
+          "type": "string",
+          "placeholder": "e.g. 0f2ac74b498b48028cb68387c421e279",
+          "isSecret": false
+        },
+        {
+          "key": "apiToken",
+          "name": "API Token",
+          "description": "Enter the API token generated from Cloudflare. Instructions for generating a [Cloudflare API token](https://developers.cloudflare.com/api/tokens/create).",
+          "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
+          "type": "string",
+          "isSecret": true
+        }
+      ]
+    }
+  }
+}

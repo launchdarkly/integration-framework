@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://cloud.google.com/identity/sso",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/google-apps",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/account-security/google",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["authentication"],

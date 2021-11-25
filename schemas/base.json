@@ -145,6 +145,7 @@
           "authentication",
           "automation",
           "code-references",
+          "customer-support",
           "data",
           "developer-tools",
           "infrastructure",
@@ -245,7 +246,9 @@
           "auditLogEventsHook",
           "reservedCustomProperties",
           "trigger",
-          "approval"
+          "approval",
+          "featureStore",
+          "externalReferences"
         ]
       },
       "properties": {
@@ -260,6 +263,12 @@
         },
         "approval": {
           "$ref": "schemas/capabilities/approval.json#/approval"
+        },
+        "featureStore": {
+          "$ref": "schemas/capabilities/featureStore.json#/featureStore"
+        },
+        "externalReferences": {
+          "$ref": "schemas/capabilities/externalReferences.json#/externalReferences"
         }
       }
     }

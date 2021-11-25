@@ -23,7 +23,7 @@ The `auditLogEventsHook` has three properties:
    A map of template paths relative to your integration's directory. You can use templates to transform the raw audit log events to a format that your integration expects. These templates can be any file type.
 3. [`defaultPolicy`](#default-policy):
    An array of [LaunchDarkly
-   policies](https://docs.launchdarkly.com/home/account-security/custom-roles/policies) that
+   policies](https://docs.launchdarkly.com/home/members/role-policies) that
    act as a filter determining which events to send to your webhook endpoint.
 
 Here's an example of an audit log events hook capability that subscribes to flag
@@ -32,6 +32,7 @@ events in a LaunchDarkly account:
 ```json
     "capabilities": {
         "auditLogEventsHook": {
+            "includeErrorResponseBody": false,
             "endpoint": {
                 "url": "{{endpointUrl}}",
                 "method": "POST",
@@ -152,7 +153,8 @@ sends you a default JSON payload that looks like this:
   "timestamp": {
     "milliseconds": 1580778134028,
     "seconds": 1580778134,
-    "rfc3339": "2020-02-04T01:02:14Z"
+    "rfc3339": "2020-02-04T01:02:14Z",
+    "simple": "2020-02-04 01:02:14"
   },
   "kind": "flag",
   "name": "Example test",
@@ -213,6 +215,14 @@ Furthermore, the following custom helpers are supported:
 - `pathEncode` - URL path encodes the string version of the argument
 - `queryEncode` - URL query encodes the string version of the argument
 - `basicAuthHeaderValue` - transforms `username` and `password` arguments into the `Authorization` header value required for a basic auth (including the `Basic ` prefix).
+- `formatWithOffset` - adds an offset in seconds to a unix milliseconds timestamp and formats the timestamp using one of the supported formats detailed below.
+
+The following timestamp formats are supported:
+
+- `milliseconds` - unix milliseconds
+- `seconds` - unix seconds
+- `rfc3339` - [RFC3339 format](https://datatracker.ietf.org/doc/html/rfc3339), e.g., `2020-02-04T01:02:14Z`
+- `simple` - timestamp string formatted as `yyyy-mm-dd h:MM:ss`, e.g., `2020-02-04 01:03:59`
 
 To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars
 Sandbox](http://tryhandlebarsjs.com/).
@@ -220,7 +230,7 @@ Sandbox](http://tryhandlebarsjs.com/).
 ### Default policy
 
 When you configure your integration, customers can specify an array of [LaunchDarkly
-policies](https://docs.launchdarkly.com/home/account-security/custom-roles/policies) filter which events to send to your webhook endpoint.
+policies](https://docs.launchdarkly.com/home/members/role-policies) filter which events to send to your webhook endpoint.
 
 To simplify onboarding your integration, you can specify a default policy which follows best practices for your integration's use case.
 
@@ -236,6 +246,20 @@ Here is the policy:
           "actions": ["*"]
         }
       ]
+```
+
+### Include error response body  (`includeErrorResponseBody`)
+
+For endpoints defined with static domains - where the domain part of the endpoint isn't a template variable (see example below), you have the option to specify an optional property `includeErrorResponseBody` in your `auditLogEventsHook` configuration to view any errors LaunchDarkly receives when it sends events to your endpoint. This is particularly useful for users troubleshooting issues with their integration.
+
+Heres the example:
+
+```json
+    "includeErrorResponseBody": true,
+    "endpoint": {
+        "url": "https://static-domian.com/apiToken?={{apiToken}}",
+        "method": "POST"
+    },
 ```
 
 ### Validation
@@ -280,11 +304,11 @@ Here is a sample `trigger` capability including all optional properties:
 
 Custom properties allow you to store data in LaunchDarkly alongside a feature flag. For example, you can use custom properties to indicate flag-level associations with data on your service. If you don't have any flag-level associations or configurations, you don't need to use this capability.
 
-To learn more, read [Custom properties](https://docs.launchdarkly.com/home/advanced/custom-properties).
+To learn more, read [Custom properties](https://docs.launchdarkly.com/home/connecting/custom-properties).
 
 By default, users must specify a custom property name and key when they attach the custom property value to a feature flag. This step introduces the possibility of user error. To prevent this, developers can _reserve_ a custom property for their integration, which makes it much easier for users to correctly add the property's value to feature flags.
 
-Reserved custom properties are simple to define. Their only requirements are a `name` and `key`.
+Reserved custom properties are simple to define. Their only requirements are a `name` and `key`, adding a `description` is optional.
 
 After your integration is configured by a user, the custom property starts appearing in the dropdown on the flag's Settings page.
 
@@ -294,6 +318,7 @@ Here is a sample `reservedCustomProperties` capability:
     "reservedCustomProperties": [
       {
         "name": "Foobar Entities",
+        "description": "Foobar Description",
         "key": "foobar"
       }
     ],

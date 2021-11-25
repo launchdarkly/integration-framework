@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.okta.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/docs/okta",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/account-security/okta",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["authentication"],
