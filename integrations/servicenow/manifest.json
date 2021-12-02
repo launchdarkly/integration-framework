@@ -44,6 +44,15 @@
               }
             }
           }
+        },
+        {
+          "key": "detail_column",
+          "name": "Detailed information column name",
+          "description": "The name of the ServiceNow Change Request column used by LaunchDarkly to populate detailed approval request information.",
+          "type": "string",
+          "defaultValue": "justification",
+          "isOptional": true,
+          "placeholder": "justification"
         }
       ],
       "creationRequest": {
@@ -57,7 +66,7 @@
             }
           ]
         },
-        "jsonBody": "{\"short_description\": \"{{{title.plainText}}}\", \"justification\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"requested_by\": \"{{{member.externalId}}}\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{timestamp.simple}}\"}",
+        "jsonBody": "{\"short_description\": \"{{{title.plainText}}}\", \"{{#if environmentFormVariables.detail_column}}{{environmentFormVariables.detail_column}}{{else}}justification{{/if}}\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"requested_by\": \"{{{member.externalId}}}\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{timestamp.simple}}\"}",
         "parser": {
           "approvalId": "/result/sys_id/value",
           "statusValue": "/result/state/value",
