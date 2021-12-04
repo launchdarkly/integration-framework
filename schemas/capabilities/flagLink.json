@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
-  "flagLinks": {
-    "$id": "#/properties/capability/flag-links",
-    "title": "Flag Links",
+  "flagLink": {
+    "$id": "#/properties/capability/flag-link",
+    "title": "flagLink",
     "description": "This capability is used to manage inbound flag links",
     "type": "object",
     "propertyNames": {
@@ -11,43 +11,43 @@
     "required": ["uiBlocks", "header", "emptyState"],
     "properties": {
       "header": {
-        "$id": "#/properties/capability/flag-links/header",
-        "title": "Reference group header",
-        "description": "Title to show for all references for this integration",
+        "$id": "#/properties/capability/flag-link/header",
+        "title": "Link group header",
+        "description": "Title to show for all links for this integration",
         "type": "string"
       },
       "emptyState": {
-        "$id": "#/properties/capability/flag-links/empty-state",
+        "$id": "#/properties/capability/flag-link/empty-state",
         "title": "Empty state",
-        "description": "Content to display when there are no references to display for this integration",
+        "description": "Content to display when there are no links to display for this integration",
         "type": "object",
         "propertyNames": {
           "enum": ["title", "leadText"]
         },
         "properties": {
           "title": {
-            "$id": "#/properties/capability/flag-links/empty-state/title",
+            "$id": "#/properties/capability/flag-link/empty-state/title",
             "title": "Title",
             "type": "string",
             "description": "Title of the message"
           },
           "leadText": {
-            "$id": "#/properties/capability/flag-links/empty-state/lead-text",
+            "$id": "#/properties/capability/flag-link/empty-state/lead-text",
             "title": "Lead text",
             "type": "string",
-            "description": "Text or markup content describing how references can be created for this integration"
+            "description": "Text or markup content describing how links can be created for this integration"
           }
         }
       },
       "connector": {
-        "$id": "#/properties/capability/flag-links/connector",
-        "title": "Flag Links Connector",
+        "$id": "#/properties/capability/flag-link/connector",
+        "title": "flagLink Connector",
         "description": "Receiver configuration for inbound flag links",
         "type": "object",
         "properties": {
           "metadata": {
-            "$id": "#/properties/capability/flag-links/connector/metadata",
-            "title": "Flag Links Metadata",
+            "$id": "#/properties/capability/flag-link/connector/metadata",
+            "title": "flagLink Metadata",
             "description": "List of metadata blocks corresponding to information on the LaunchDarkly links tab",
             "type": "array",
             "items": {
@@ -57,21 +57,21 @@
               },
               "properties": {
                 "key": {
-                  "$id": "#/properties/capability/flag-links/connector/ui-blocks/key",
+                  "$id": "#/properties/capability/flag-link/connector/ui-blocks/key",
                   "title": "Key",
                   "type": "string",
                   "description": "The unique key corresponding to the property to be displayed",
                   "maxLength": 50
                 },
                 "name": {
-                  "$id": "#/properties/capability/flag-links/connector/ui-blocks/name",
+                  "$id": "#/properties/capability/flag-link/connector/ui-blocks/name",
                   "title": "Name",
                   "type": "string",
                   "description": "The display name of the property",
                   "maxLength": 50
                 },
                 "type": {
-                  "$id": "#/properties/capability/flag-links/connector/ui-blocks/type",
+                  "$id": "#/properties/capability/flag-link/connector/ui-blocks/type",
                   "title": "Type",
                   "type": "string",
                   "enum": [
@@ -85,7 +85,7 @@
                   "description": "The data type of the information this metadata block will display"
                 },
                 "path": {
-                  "$id": "#/properties/capability/flag-links/connector/ui-blocks/path",
+                  "$id": "#/properties/capability/flag-link/connector/ui-blocks/path",
                   "title": "Path",
                   "type": "string",
                   "description": "The JSON path corresponding to where the information can be found in the incoming payload"
@@ -96,16 +96,16 @@
         }
       },
       "uiBlocks": {
-        "$id": "#/properties/capability/flag-links/ui-blocks",
+        "$id": "#/properties/capability/flag-link/ui-blocks",
         "title": "UI Blocks",
-        "description": "UI blocks are visual components that represents a section of the view layout for a reference displayed in LaunchDarkly",
+        "description": "UI blocks are visual components that represents a section of the view layout for a flag link displayed in LaunchDarkly",
         "type": "object",
         "propertyNames": {
           "enum": ["image", "name", "title", "context", "description"]
         },
         "properties": {
           "image": {
-            "$id": "#/properties/capability/flag-links/ui-blocks/image",
+            "$id": "#/properties/capability/flag-link/ui-blocks/image",
             "title": "Image",
             "type": "object",
             "description": "A visual block used to render an image in LaunchDarkly UI",
@@ -115,19 +115,19 @@
             "required": ["sourceUrl"],
             "properties": {
               "sourceUrl": {
-                "$id": "#/properties/capability/flag-links/ui-blocks/image/source-url",
+                "$id": "#/properties/capability/flag-link/ui-blocks/image/source-url",
                 "title": "Source Url",
                 "description": "Url of the image",
                 "type": "string"
               },
               "isIcon": {
-                "$id": "#/properties/capability/flag-links/ui-blocks/image/is-icon",
+                "$id": "#/properties/capability/flag-link/ui-blocks/image/is-icon",
                 "title": "Is icon",
                 "description": "Indicates whether the image should be rendered as an icon",
                 "type": "boolean"
               },
               "isAvatar": {
-                "$id": "#/properties/capability/flag-links/ui-blocks/image/is-avatar",
+                "$id": "#/properties/capability/flag-link/ui-blocks/image/is-avatar",
                 "title": "Is avatar",
                 "description": "Indicates whether the image should be rendered as an avatar",
                 "type": "boolean"
@@ -135,23 +135,23 @@
             }
           },
           "name": {
-            "$id": "#/properties/capability/flag-links/ui-blocks/name",
+            "$id": "#/properties/capability/flag-link/ui-blocks/name",
             "title": "Name",
             "type": "string",
             "description": "Template string used to render a visual block in LaunchDarkly UI to display a name"
           },
           "title": {
-            "$id": "#/properties/capability/flag-links/ui-blocks/title",
+            "$id": "#/properties/capability/flag-link/ui-blocks/title",
             "title": "Title",
             "type": "object",
-            "description": "Object with visual elements used to display a reference title in LaunchDarkly UI",
+            "description": "Object with visual elements used to display a link title in LaunchDarkly UI",
             "propertyNames": {
               "enum": ["elements", "linkToReference"]
             },
             "required": ["elements"],
             "properties": {
               "elements": {
-                "$id": "#/properties/capability/flag-links/ui-blocks/title/elements",
+                "$id": "#/properties/capability/flag-link/ui-blocks/title/elements",
                 "title": "Elements",
                 "description": "An array of elements to be combined to create a title block",
                 "type": "array",
@@ -161,7 +161,7 @@
                 "minLength": 1
               },
               "linkToReference": {
-                "$id": "#/properties/capability/flag-links/ui-blocks/title/link-to-reference",
+                "$id": "#/properties/capability/flag-link/ui-blocks/title/link-to-reference",
                 "title": "Link to reference",
                 "description": "Indicates whether the title should be displayed as a hyperlink in LaunchDarkly UI",
                 "type": "boolean",
@@ -170,23 +170,23 @@
             }
           },
           "description": {
-            "$id": "#/properties/capability/flag-links/ui-blocks/description",
+            "$id": "#/properties/capability/flag-link/ui-blocks/description",
             "title": "Description",
             "type": "string",
-            "description": "Markdown string used to render a visual block in LaunchDarkly UI to display a reference description"
+            "description": "Markdown string used to render a visual block in LaunchDarkly UI to display a link description"
           },
           "context": {
-            "$id": "#/properties/capability/flag-links/ui-blocks/reference-context",
-            "title": "Reference Context",
+            "$id": "#/properties/capability/flag-link/ui-blocks/link-context",
+            "title": "Link Context",
             "type": "object",
-            "description": "Object with visual elements used to display context information for a reference in LaunchDarkly UI",
+            "description": "Object with visual elements used to display context information for a link in LaunchDarkly UI",
             "propertyNames": {
               "enum": ["elements"]
             },
             "required": ["elements"],
             "properties": {
               "elements": {
-                "$id": "#/properties/capability/flag-links/ui-blocks/context/elements",
+                "$id": "#/properties/capability/flag-link/ui-blocks/context/elements",
                 "description": "An array of elements to be combined to create a context block",
                 "title": "Elements",
                 "type": "array",
