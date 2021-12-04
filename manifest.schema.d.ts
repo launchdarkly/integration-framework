@@ -426,9 +426,9 @@ export type Type1 = "avatar" | "codeSnippet" | "hyperlink" | "string" | "multili
  */
 export type Path = string;
 /**
- * List of metadata blocks corresponding to information on the LaunchDarkly External References tab
+ * List of metadata blocks corresponding to information on the LaunchDarkly links tab
  */
-export type FlagReferencesMetadata = {
+export type FlagLinksMetadata = {
   key?: Key2;
   name?: Name3;
   type?: Type1;
@@ -593,7 +593,7 @@ export interface Capabilities {
   trigger?: Trigger;
   approval?: Approval;
   featureStore?: FeatureStore;
-  externalReferences?: ExternalFlagReferences;
+  flagLinks?: FlagLinks;
   [k: string]: unknown;
 }
 /**
@@ -739,12 +739,12 @@ export interface FeatureStore {
   [k: string]: unknown;
 }
 /**
- * This capability is used to manage inbound flag reference webhooks
+ * This capability is used to manage inbound flag links
  */
-export interface ExternalFlagReferences {
+export interface FlagLinks {
   header: ReferenceGroupHeader;
   emptyState: EmptyState;
-  connector?: ExternalFlagReferencesConnector;
+  connector?: FlagLinksConnector;
   uiBlocks: UIBlocks;
   [k: string]: unknown;
 }
@@ -757,10 +757,10 @@ export interface EmptyState {
   [k: string]: unknown;
 }
 /**
- * Receiver configuration for inbound flag reference
+ * Receiver configuration for inbound flag links
  */
-export interface ExternalFlagReferencesConnector {
-  metadata?: FlagReferencesMetadata;
+export interface FlagLinksConnector {
+  metadata?: FlagLinksMetadata;
   [k: string]: unknown;
 }
 /**

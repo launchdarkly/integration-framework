@@ -248,7 +248,7 @@
           "trigger",
           "approval",
           "featureStore",
-          "externalReferences"
+          "flagLinks"
         ]
       },
       "properties": {
@@ -267,8 +267,8 @@
         "featureStore": {
           "$ref": "schemas/capabilities/featureStore.json#/featureStore"
         },
-        "externalReferences": {
-          "$ref": "schemas/capabilities/externalReferences.json#/externalReferences"
+        "flagLinks": {
+          "$ref": "schemas/capabilities/flagLinks.json#/flagLinks"
         }
       }
     }
