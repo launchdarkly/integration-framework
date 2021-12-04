@@ -771,7 +771,7 @@ export interface UIBlocks {
   name?: Name4;
   title?: Title1;
   description?: Description3;
-  context?: LinkContext;
+  context?: FlagLinkContext;
   [k: string]: unknown;
 }
 /**
@@ -804,7 +804,7 @@ export interface UIBlockElement {
 /**
  * Object with visual elements used to display context information for a link in LaunchDarkly UI
  */
-export interface LinkContext {
+export interface FlagLinkContext {
   elements: Elements1;
   [k: string]: unknown;
 }

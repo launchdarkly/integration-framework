@@ -177,7 +177,7 @@
           },
           "context": {
             "$id": "#/properties/capability/flag-link/ui-blocks/link-context",
-            "title": "Link Context",
+            "title": "Flag Link Context",
             "type": "object",
             "description": "Object with visual elements used to display context information for a link in LaunchDarkly UI",
             "propertyNames": {
