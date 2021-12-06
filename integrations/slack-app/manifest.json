@@ -20,7 +20,7 @@
   },
   "otherCapabilities": ["webhooks"],
   "capabilities": {
-    "externalReferences": {
+    "flagLink": {
       "header": "Slack conversations",
       "emptyState": {
         "title": "There are no Slack conversations that reference this flag.",
