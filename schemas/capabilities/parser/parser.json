@@ -123,5 +123,27 @@
         }
       }
     }
+  },
+  "featureStoreRequestParser": {
+    "$id": "#/feature-store-request-parser",
+    "title": "Feature store request parser",
+    "description": "Mapping to success/errors value(s) in a JSON response body",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["success", "errors"]
+    },
+    "required": ["success"],
+    "properties": {
+      "success": {
+        "$id": "#/capabilities/feature-store/feature-store-request/parser/success",
+        "title": "Success pointer",
+        "type": "string"
+      },
+      "errors": {
+        "$id": "#/capabilities/feature-store/feature-store-request/parser/errors",
+        "title": "Errors pointer",
+        "type": "string"
+      }
+    }
   }
 }

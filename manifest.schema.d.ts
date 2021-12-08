@@ -397,6 +397,8 @@ export type URLTemplate = string;
  * Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store
  */
 export type ProviderFormVariables = FormVariable[];
+export type SuccessPointer = string;
+export type ErrorsPointer = string;
 /**
  * Title to show for all links for this integration
  */
@@ -736,6 +738,32 @@ export interface DeletionRequest {
  */
 export interface FeatureStore {
   formVariables: ProviderFormVariables;
+  validationRequest?: ValidationRequest;
+  featureStoreRequest: FeatureStoreRequest;
+  [k: string]: unknown;
+}
+/**
+ * Details needed to make a request to test that the provided form variables are valid
+ */
+export interface ValidationRequest {
+  endpoint: Endpoint;
+  parser: FeatureStoreRequestParser;
+  [k: string]: unknown;
+}
+/**
+ * Mapping to success/errors value(s) in a JSON response body
+ */
+export interface FeatureStoreRequestParser {
+  success: SuccessPointer;
+  errors?: ErrorsPointer;
+  [k: string]: unknown;
+}
+/**
+ * Details needed to make a request to deliver the flag payload to the feature store
+ */
+export interface FeatureStoreRequest {
+  endpoint: Endpoint;
+  parser: FeatureStoreRequestParser;
   [k: string]: unknown;
 }
 /**
