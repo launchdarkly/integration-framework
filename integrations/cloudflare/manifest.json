@@ -42,7 +42,42 @@
           "type": "string",
           "isSecret": true
         }
-      ]
+      ],
+      "validationRequest": {
+        "endpoint": {
+          "url": "https://api.cloudflare.com/client/v4/accounts/{{accountId}}/storage/kv/namespaces/{{namespaceId}}/keys",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{apiToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "success": "success"
+        }
+      },
+      "featureStoreRequest": {
+        "endpoint": {
+          "url": "https://api.cloudflare.com/client/v4/accounts/{{accountId}}/storage/kv/namespaces/{{namespaceId}}/values/{{_featureStoreKey}}",
+          "method": "PUT",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{apiToken}}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/plain"
+            }
+          ]
+        },
+        "parser": {
+          "success": "success",
+          "errors": "errors"
+        }
+      }
     }
   }
 }
