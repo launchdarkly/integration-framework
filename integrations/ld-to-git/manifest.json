@@ -26,13 +26,13 @@
       "isOptional": false
     },
     {
-      "key": "token",
+      "key": "apiToken",
       "name": "Authentication token",
       "description": "Enter the [base64 _credentials_ based on your API Key]",
       "type": "string",
       "isSecret": true,
-      "isOptional": false,
-      "placeholder": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
+      "isOptional": true,
+      "defaultValue": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
     },
     {
       "key": "branch",
@@ -40,9 +40,50 @@
       "description": "Enter the branch name where you want to commit flags",
       "type": "string",
       "isSecret": false,
-      "isOptional": false,
-      "placeholder": "master"
+      "isOptional": false
+    },
+    {
+      "key": "user",
+      "name": "user",
+      "description": "Enter the user name for making Git operations",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": "user"
+    },
+    {
+      "key": "secret",
+      "name": "secret",
+      "description": "Enter the secret for making Git operations",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": true,
+      "defaultValue": "password"
     }
   ],
-  "otherCapabilities": ["dataExport"]
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://cobg36dyj6.execute-api.us-east-1.amazonaws.com/",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/template.json.hbs",
+        "validation": "templates/template.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/*:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
 }
