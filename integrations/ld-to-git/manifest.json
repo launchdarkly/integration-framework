@@ -1,0 +1,48 @@
+{
+  "name": "LD to Git",
+  "version": "1.0.0",
+  "overview": "Send LaunchDarkly flag changes to Git.",
+  "description": "This integration sends LaunchDarkly audit log events to git repository",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://launchdarkly.atlassian.net/wiki/spaces/ENG/pages/1993211935/Marry+git+to+your+flags+planning",
+    "launchdarklyDocs": "https://launchdarkly.atlassian.net/wiki/spaces/ENG/pages/1993211935/Marry+git+to+your+flags+planning",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "formVariables": [
+    {
+      "key": "url",
+      "name": "Git repo URL",
+      "description": "Enter the URL for your target repository",
+      "type": "uri",
+      "isSecret": false,
+      "placeholder": "https://github.com/launchdarkly",
+      "isOptional": false
+    },
+    {
+      "key": "token",
+      "name": "Authentication token",
+      "description": "Enter the [base64 _credentials_ based on your API Key]",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": false,
+      "placeholder": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
+    },
+    {
+      "key": "branch",
+      "name": "branch",
+      "description": "Enter the branch name where you want to commit flags",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": false,
+      "placeholder": "master"
+    }
+  ],
+  "otherCapabilities": ["dataExport"]
+}
