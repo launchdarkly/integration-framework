@@ -17,7 +17,16 @@
   },
   "formVariables": [
     {
-      "key": "url",
+      "key": "lambdaEndpoint",
+      "name": "Endpoint for updater lambda",
+      "description": "Updater Lambda endpoint where audit log would be forwarded",
+      "type": "uri",
+      "isSecret": false,
+      "placeholder": "https://cobg36dyj6.execute-api.us-east-1.amazonaws.com/",
+      "isOptional": false
+    },
+    {
+      "key": "repoUrl",
       "name": "Git repo URL",
       "description": "Enter the URL for your target repository",
       "type": "uri",
@@ -28,11 +37,11 @@
     {
       "key": "apiToken",
       "name": "Authentication token",
-      "description": "Enter the [base64 _credentials_ based on your API Key]",
+      "description": "Enter the API token. For more information https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token",
       "type": "string",
       "isSecret": true,
       "isOptional": true,
-      "defaultValue": "https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token"
+      "defaultValue": ""
     },
     {
       "key": "branch",
@@ -49,7 +58,7 @@
       "type": "string",
       "isSecret": false,
       "isOptional": true,
-      "defaultValue": "user"
+      "defaultValue": ""
     },
     {
       "key": "secret",
@@ -58,13 +67,13 @@
       "type": "string",
       "isSecret": true,
       "isOptional": true,
-      "defaultValue": "password"
+      "defaultValue": ""
     }
   ],
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "https://cobg36dyj6.execute-api.us-east-1.amazonaws.com/",
+        "url": "{{lambdaEndpoint}}",
         "method": "POST",
         "headers": [
           {
