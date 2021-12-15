@@ -2,12 +2,11 @@
   "name": "LD to Git",
   "version": "1.0.0",
   "overview": "Send LaunchDarkly flag changes to Git.",
-  "description": "This integration sends LaunchDarkly audit log events to git repository",
+  "description": "This integration sends LaunchDarkly audit log events to a git repository",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://launchdarkly.atlassian.net/wiki/spaces/ENG/pages/1993211935/Marry+git+to+your+flags+planning",
-    "launchdarklyDocs": "https://launchdarkly.atlassian.net/wiki/spaces/ENG/pages/1993211935/Marry+git+to+your+flags+planning",
+    "site": "https://docs.launchdarkly.com/integrations",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],
