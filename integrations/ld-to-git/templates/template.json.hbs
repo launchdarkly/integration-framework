@@ -1,8 +1,11 @@
 {
   "repoURL": "{{formVariables.repoUrl}}",
   "auditLogLink": "{{{_links.self.href}}}",
+  {{#if formVariables.apiToken}}
   "apiToken": "{{formVariables.apiToken}}",
-  "branch": "{{formVariables.branch}}",
+  {{else}}
   "user": "{{formVariables.user}}",
-  "secret": "{{formVariables.secret}}"
+  "secret": "{{formVariables.secret}}",
+  {{/if}}
+  "branch": "{{formVariables.branch}}"
 }
