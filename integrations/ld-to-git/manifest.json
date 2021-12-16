@@ -17,25 +17,24 @@
   "formVariables": [
     {
       "key": "lambdaEndpoint",
-      "name": "Endpoint for updater lambda",
+      "name": "API gateway endpoint for processing audit log.",
       "description": "Updater Lambda endpoint where audit log would be forwarded",
       "type": "uri",
       "isSecret": false,
-      "placeholder": "https://cobg36dyj6.execute-api.us-east-1.amazonaws.com/",
       "isOptional": false
     },
     {
       "key": "ldApiToken",
       "name": "LaunchDarkly API token",
-      "description": "API token used for accessing LaunchDarkly API. Instructions for generating a [LaunchDarkly API token](https://docs.launchdarkly.com/home/account-security/api-access-tokens)",
+      "description": "Enter the API token generated from LaunchDarkly. Instructions for generating a [LaunchDarkly API token](https://docs.launchdarkly.com/home/account-security/api-access-tokens)",
       "type": "string",
       "isSecret": true,
       "isOptional": false
     },
     {
       "key": "repoUrl",
-      "name": "Git repo URL",
-      "description": "Enter the URL for your target repository",
+      "name": "Git repository URL",
+      "description": "Enter the URL for your target repository.",
       "type": "uri",
       "isSecret": false,
       "placeholder": "https://github.com/launchdarkly",
@@ -44,7 +43,7 @@
     {
       "key": "gitApiToken",
       "name": "Authentication token",
-      "description": "Enter the API token. For example, a [Github API Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)",
+      "description": "Enter the API token with access to git repository. For example, instructions for generating a [Github API Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)",
       "type": "string",
       "isSecret": true,
       "isOptional": true,
@@ -52,16 +51,17 @@
     },
     {
       "key": "branch",
-      "name": "branch",
-      "description": "Enter the branch name where you want to commit flags",
+      "name": "Git branch name",
+      "description": "Enter the branch name for sending LaunchDarkly resources.",
       "type": "string",
       "isSecret": false,
-      "isOptional": false
+      "isOptional": false,
+      "placeholder": "master"
     },
     {
       "key": "user",
-      "name": "user",
-      "description": "Enter the user name for making Git operations. This is required if not using git api token",
+      "name": "Username",
+      "description": "Enter the user name for accessing git repository. This is required if not using git api token",
       "type": "string",
       "isSecret": false,
       "isOptional": true,
@@ -69,8 +69,8 @@
     },
     {
       "key": "secret",
-      "name": "secret",
-      "description": "Enter the secret for making Git operations. This is required if not using git api token",
+      "name": "Secret",
+      "description": "Enter the secret for accessing git repository. This is required if not using git api token",
       "type": "string",
       "isSecret": true,
       "isOptional": true,
@@ -97,6 +97,11 @@
         {
           "effect": "allow",
           "resources": ["proj/*:env/*:flag/*"],
+          "actions": ["*"]
+        },
+        {
+          "effect": "allow",
+          "resources": ["integration/*"],
           "actions": ["*"]
         }
       ]
