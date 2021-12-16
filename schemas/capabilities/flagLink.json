@@ -79,8 +79,7 @@
                     "codeSnippet",
                     "hyperlink",
                     "string",
-                    "multilineText",
-                    "timestamp"
+                    "multilineText"
                   ],
                   "description": "The data type of the information this metadata block will display"
                 },

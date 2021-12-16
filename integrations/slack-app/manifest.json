@@ -68,22 +68,22 @@
       },
       "uiBlocks": {
         "image": {
-          "sourceUrl": "{{metadata.avatar}}",
+          "sourceUrl": "{{{metadata.avatar}}}",
           "isAvatar": true
         },
-        "name": "{{metadata.displayName}}",
-        "description": "{{metadata.conversation}}",
+        "name": "{{{metadata.displayName}}}",
+        "description": "{{{metadata.conversation}}}",
         "context": {
           "elements": [
             { "text": "Posted in" },
-            { "text": "#{{metadata.channelName}}", "isBold": true },
+            { "text": "#{{{metadata.channelName}}}", "isBold": true },
             { "text": "on" },
             {
               "text": "{{timestamp.milliseconds}}",
               "isTimestamp": true,
               "isBold": true
             },
-            { "text": "View message", "url": "{{metadata.messagePermalink}}" }
+            { "text": "View message", "url": "{{{metadata.messagePermalink}}}" }
           ]
         }
       }

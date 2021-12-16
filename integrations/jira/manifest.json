@@ -54,19 +54,19 @@
       },
       "uiBlocks": {
         "image": {
-          "sourceUrl": "{{metadata.iconUrl}}",
+          "sourceUrl": "{{{metadata.iconUrl}}}",
           "isIcon": true
         },
         "title": {
           "linkToReference": true,
           "elements": [
-            { "text": "{{metadata.issueKey}}: {{metadata.issueTitle}}" }
+            { "text": "{{{metadata.issueKey}}}: {{{metadata.issueTitle}}}" }
           ]
         },
         "context": {
           "elements": [
             { "text": "Created by" },
-            { "text": "{{metadata.creator}}", "isBold": true },
+            { "text": "{{{metadata.creator}}}", "isBold": true },
             { "text": "on" },
             {
               "text": "{{timestamp.milliseconds}}",
