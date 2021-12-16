@@ -1,0 +1,110 @@
+{
+  "name": "LD to Git",
+  "version": "1.0.0",
+  "overview": "Send LaunchDarkly flag changes to Git.",
+  "description": "This integration sends LaunchDarkly audit log events to a git repository",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com/integrations",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "formVariables": [
+    {
+      "key": "lambdaEndpoint",
+      "name": "API gateway endpoint for processing audit log.",
+      "description": "Updater Lambda endpoint where audit log would be forwarded",
+      "type": "uri",
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "ldApiToken",
+      "name": "LaunchDarkly API token",
+      "description": "Enter the API token generated from LaunchDarkly. Instructions for generating a LaunchDarkly API token can be found [here](https://docs.launchdarkly.com/home/account-security/api-access-tokens)",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": false
+    },
+    {
+      "key": "repoUrl",
+      "name": "Git repository URL",
+      "description": "Enter the URL for your target repository.",
+      "type": "uri",
+      "isSecret": false,
+      "placeholder": "https://github.com/launchdarkly",
+      "isOptional": false
+    },
+    {
+      "key": "gitApiToken",
+      "name": "Authentication token",
+      "description": "Enter the API token with access to git repository. For example, instructions for generating a Github API Token can be found [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "branch",
+      "name": "Git branch name",
+      "description": "Enter the branch name for sending LaunchDarkly resources.",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": false,
+      "placeholder": "master"
+    },
+    {
+      "key": "user",
+      "name": "Username",
+      "description": "Enter the user name for accessing your git repository. This is required if not using an API token",
+      "type": "string",
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "secret",
+      "name": "Secret",
+      "description": "Enter the secret for accessing your git repository. This is required if not using an API token",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": true,
+      "defaultValue": ""
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{lambdaEndpoint}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/template.json.hbs",
+        "validation": "templates/template.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/*:flag/*"],
+          "actions": ["*"]
+        },
+        {
+          "effect": "allow",
+          "resources": ["integration/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}
