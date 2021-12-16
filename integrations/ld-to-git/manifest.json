@@ -43,7 +43,7 @@
     {
       "key": "gitApiToken",
       "name": "Authentication token",
-      "description": "Enter the API token with access to git repository. For example, instructions for generating a [Github API Token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)",
+      "description": "Enter the API token with access to git repository. For example, instructions for generating a Github API Token can be found [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token)",
       "type": "string",
       "isSecret": true,
       "isOptional": true,
