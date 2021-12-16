@@ -61,7 +61,7 @@
     {
       "key": "user",
       "name": "Username",
-      "description": "Enter the user name for accessing git repository. This is required if not using git api token",
+      "description": "Enter the user name for accessing your git repository. This is required if not using an API token",
       "type": "string",
       "isSecret": false,
       "isOptional": true,
