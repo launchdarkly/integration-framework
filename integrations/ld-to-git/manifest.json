@@ -70,7 +70,7 @@
     {
       "key": "secret",
       "name": "Secret",
-      "description": "Enter the secret for accessing git repository. This is required if not using git api token",
+      "description": "Enter the secret for accessing your git repository. This is required if not using an API token",
       "type": "string",
       "isSecret": true,
       "isOptional": true,
