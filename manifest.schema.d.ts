@@ -422,7 +422,7 @@ export type Name3 = string;
 /**
  * The data type of the information this metadata block will display
  */
-export type Type1 = "avatar" | "codeSnippet" | "hyperlink" | "string" | "multilineText" | "timestamp";
+export type Type1 = "avatar" | "codeSnippet" | "hyperlink" | "string" | "multilineText";
 /**
  * The JSON path corresponding to where the information can be found in the incoming payload
  */
