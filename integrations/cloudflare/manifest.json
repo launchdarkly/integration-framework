@@ -55,7 +55,7 @@
           ]
         },
         "parser": {
-          "success": "success"
+          "success": "/success"
         }
       },
       "featureStoreRequest": {
@@ -74,8 +74,8 @@
           ]
         },
         "parser": {
-          "success": "success",
-          "errors": "errors"
+          "success": "/success",
+          "errors": "/errors"
         }
       }
     }
