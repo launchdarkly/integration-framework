@@ -2,11 +2,12 @@
 
 Your integration's `capabilities` describe how it interacts with LaunchDarkly.
 
-We support three capabilities:
+We support four capabilities:
 
 - [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`)
 - [Trigger](#trigger-trigger) (`trigger`)
 - [Reserved custom properties](#reserved-custom-properties-reservedcustomproperties) (`reservedCustomProperties`)
+- [Feature store](#feature-store-featurestore) (`featureStore`)
 
 ## Audit log events hook (`auditLogEventsHook`)
 
@@ -63,49 +64,7 @@ events in a LaunchDarkly account:
 
 ### Endpoint
 
-Every `auditLogEventsHook` capability must specify the endpoint to which LaunchDarkly should send webhook data. This specification must include all appropriate request semantics including the URL, method, and headers.
-
-In the example
-above, a few of the properties (`endpoint.url` and
-`endpoint.headers[].value`) accept template variables. These template
-variables can reference any `formVariables` you've defined in your manifest.
-The templating language we use is based off of a subset of the
-Handlebars syntax.
-
-To learn more, read [Handlebars' documentation](https://handlebarsjs.com/).
-
-There are a few properties that allow you to substitute template variables at
-runtime. The main ones are the `endpoint.url` and the
-`endpoint.headers[].value`. This lets you configure a dynamic endpoint
-based on the `formVariables` your integration collects from the user. Examples follow.
-
-This example uses the `endpointUrl` form variable as the URL of the endpoint and the `apiToken` as a `Bearer` token in the `Authorization` header:
-
-```json
-    "endpoint": {
-        "url": "{{endpointUrl}}",
-        "method": "POST",
-        "headers": [
-            {
-                "name": "Content-Type",
-                "value": "application/json"
-            },
-            {
-                "name": "Authorization",
-                "value": "Bearer {{apiToken}}"
-            }
-        ]
-    },
-```
-
-This example uses the `apiToken` formVariable as a query parameter on the URL:
-
-```json
-    "endpoint": {
-        "url": "https://example.com/apiToken?={{apiToken}}",
-        "method": "POST"
-    },
-```
+Every `auditLogEventsHook` capability must specify the [endpoint](endpoint.md) to which LaunchDarkly should send webhook data.
 
 ### Templates
 
@@ -270,7 +229,7 @@ Alternatively, to produce a sample `curl` command, run `npm run curl INTEGRATION
 
 ## Trigger (`trigger`)
 
-**At the time of this writing, LaunchDarkly's trigger functionality is only available to customers opted in to an early access program. Email [partnerships@launchdarkly.com](mailto:partnerships@launchdarkly.com) to request access.**
+**LaunchDarkly's trigger functionality is only available to customers who have opted in to an Early Access Program (EAP). To access to this feature, [join the EAP](https://launchdarkly.com/eap).**
 
 The trigger capability is used to generate a unique webhook URL that your service can request to generate a user-defined flag change in LaunchDarkly.
 
@@ -282,7 +241,7 @@ If the integration offers the option to send test events / webhook requests, the
 
 If your webhooks' request bodies are non-empty, you can specify the optional `parser` object with one or more of `eventName`, `value`, and `url`. The provided values will flow through LaunchDarkly into the resulting audit log messages when your service invokes a trigger in LaunchDarkly.
 
-Here is a sample `trigger` capability including all optional properties:
+Here is an example `trigger` capability including all optional properties:
 
 ```json
     "trigger": {
@@ -312,7 +271,7 @@ Reserved custom properties are simple to define. Their only requirements are a `
 
 After your integration is configured by a user, the custom property starts appearing in the dropdown on the flag's Settings page.
 
-Here is a sample `reservedCustomProperties` capability:
+Here is an example `reservedCustomProperties` capability:
 
 ```json
     "reservedCustomProperties": [
@@ -322,4 +281,73 @@ Here is a sample `reservedCustomProperties` capability:
         "key": "foobar"
       }
     ],
+```
+
+## Feature store (`featureStore`)
+
+**LaunchDarkly's feature store functionality is only available to customers who have opted in to an Early Access Program (EAP). To access to this feature, [join the EAP](https://launchdarkly.com/eap).**
+
+The feature store capability allows you to specify an endpoint that can receive a payload containing up-to-date flag data from LaunchDarkly.
+
+In addition to [`formVariables`](form-variables.md), the `featureStore` has two properties, a required `featureStoreRequest` and an optional `validationRequest`. You can define both using an [`endpoint`](endpoint.md) and a `parser`.
+
+The `parser` object allows LaunchDarkly to interpret the response of the request. It allows a mapping of success and errors for the given response body of the request in the form of a [JSON pointer](https://datatracker.ietf.org/doc/html/rfc6901). The `parser` object has two properties, a required `success` and an optional `error`.
+
+```json
+    "parser": {
+      "success": "/success",
+      "error": "/error"
+    },
+```
+
+### `featureStoreRequest`
+
+This specifies the request that LaunchDarkly makes when flag data are updated.
+
+In addition to the form variables defined in your manifest, you can use the special variable `_featureStoreKey`. `_featureStoreKey` is provided by LaunchDarkly, and is unique per environment.
+
+### `validationRequest` (Optional)
+
+Specifying a validation request allows customers to verify that they have properly filled out the details to correctly make a request.
+
+Choose an endpoint that will indicate by its response that the specified form variables are correct, but which has no side effects.
+
+Here is an example `featureStore` capability:
+
+```json
+    "featureStoreRequest": {
+      "endpoint": {
+        "url": "https://example.com/{{accountId}}/dictionary/{{dictId}}/item/{{_featureStoreKey}}",
+        "method": "PUT",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{apiToken}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "text/plain"
+          }
+        ]
+      },
+      "parser": {
+        "success": "/success",
+        "errors": "/errors"
+      }
+    },
+    "validationRequest": {
+      "endpoint": {
+        "url": "https://example.com/{{accountId}}/dictionary/{{dictId}}/items",
+        "method": "GET",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{apiToken}}"
+          }
+        ]
+      },
+      "parser": {
+        "success": "/success"
+      }
+    }
 ```
