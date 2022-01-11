@@ -21,8 +21,8 @@
     "flagLink": {
       "header": "JIRA issues",
       "emptyState": {
-        "title": "There are no JIRA issues that link to this flag.",
-        "leadText": "JIRA tickets connected to this feature flag will automatically appear here. To connect a ticket to a feature flag [read our documentation](https://docs.launchdarkly.com/integrations/jira)"
+        "title": "There are no Jira issues that link to this flag.",
+        "leadText": "Jira issues connected to this feature flag will automatically appear here. To learn how to enable the Jira integration or to connect an issue to a feature flag, [read our documentation](https://docs.launchdarkly.com/integrations/jira)"
       },
       "connector": {
         "metadata": [
