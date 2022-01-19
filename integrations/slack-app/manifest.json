@@ -33,9 +33,6 @@
         "displayName": {
           "type": "string"
         },
-        "timestamp": {
-          "type": "string"
-        },
         "permalink": {
           "type": "uri"
         },
