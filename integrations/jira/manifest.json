@@ -24,33 +24,19 @@
         "title": "There are no JIRA issues that link to this flag.",
         "leadText": "JIRA tickets connected to this feature flag will automatically appear here. To connect a ticket to a feature flag [read our documentation](https://docs.launchdarkly.com/integrations/jira)"
       },
-      "connector": {
-        "metadata": [
-          {
-            "key": "creator",
-            "path": "/creator/name",
-            "name": "Creator",
-            "type": "string"
-          },
-          {
-            "key": "iconUrl",
-            "path": "/issue/iconUrl",
-            "name": "Issue Icon URL",
-            "type": "string"
-          },
-          {
-            "key": "issueKey",
-            "path": "/issue/key",
-            "name": "Issue Key",
-            "type": "string"
-          },
-          {
-            "key": "issueTitle",
-            "path": "/issue/title",
-            "name": "Title",
-            "type": "string"
-          }
-        ]
+      "metadata": {
+        "creator": {
+          "type": "string"
+        },
+        "iconUrl": {
+          "type": "uri"
+        },
+        "issueKey": {
+          "type": "string"
+        },
+        "issueTitle": {
+          "type": "string"
+        }
       },
       "uiBlocks": {
         "image": {

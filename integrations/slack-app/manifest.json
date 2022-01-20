@@ -26,53 +26,30 @@
         "title": "There are no Slack conversations that reference this flag.",
         "leadText": "Slack conversations that are associated with this feature flag will automatically appear here. To learn more about how to associate a slack conversation with a feature flag [read our documentation](https://docs.launchdarkly.com/integrations/slack)"
       },
-      "connector": {
-        "metadata": [
-          {
-            "key": "avatar",
-            "name": "User Avatar",
-            "type": "avatar",
-            "path": "/user_profile/image_original"
-          },
-          {
-            "key": "displayName",
-            "name": "Reference creator",
-            "type": "string",
-            "path": "/user_profile/display_name"
-          },
-          {
-            "key": "timestamp",
-            "name": "Timestamp",
-            "type": "string",
-            "path": "/message_ts"
-          },
-          {
-            "key": "messagePermalink",
-            "name": "Message Permalink",
-            "type": "hyperlink",
-            "path": "/message_permalink"
-          },
-          {
-            "key": "channelName",
-            "name": "Channel Name",
-            "type": "string",
-            "path": "/channel_info/name"
-          },
-          {
-            "key": "conversation",
-            "name": "Conversation",
-            "type": "string",
-            "path": "/message_text"
-          }
-        ]
+      "metadata": {
+        "avatarUrl": {
+          "type": "uri"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "permalink": {
+          "type": "uri"
+        },
+        "channelName": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
       },
       "uiBlocks": {
         "image": {
-          "sourceUrl": "{{{metadata.avatar}}}",
+          "sourceUrl": "{{{metadata.avatarUrl}}}",
           "isAvatar": true
         },
         "name": "{{{metadata.displayName}}}",
-        "description": "{{{metadata.conversation}}}",
+        "description": "{{{metadata.message}}}",
         "context": {
           "elements": [
             { "text": "Posted in" },
@@ -83,7 +60,7 @@
               "isTimestamp": true,
               "isBold": true
             },
-            { "text": "View message", "url": "{{{metadata.messagePermalink}}}" }
+            { "text": "View message", "url": "{{{metadata.permalink}}}" }
           ]
         }
       }
