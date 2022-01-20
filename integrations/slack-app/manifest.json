@@ -33,9 +33,6 @@
         "displayName": {
           "type": "string"
         },
-        "permalink": {
-          "type": "uri"
-        },
         "channelName": {
           "type": "string"
         },
@@ -60,7 +57,7 @@
               "isTimestamp": true,
               "isBold": true
             },
-            { "text": "View message", "url": "{{{metadata.permalink}}}" }
+            { "text": "View message", "url": "{{{deepLink}}}" }
           ]
         }
       }
