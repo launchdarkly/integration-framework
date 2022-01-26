@@ -24,7 +24,7 @@
       "header": "Slack conversations",
       "emptyState": {
         "title": "There are no Slack conversations that reference this flag.",
-        "leadText": "Slack conversations connected to this feature flag will automatically appear here. To learn how to enable the Slack integration or to connect a slack conversation to a feature flag, [read our documentation](https://docs.launchdarkly.com/integrations/slack)"
+        "leadText": "Slack conversations connected to this feature flag will automatically appear here. To learn how to enable the Slack integration or to connect a slack conversation to a feature flag, [read our documentation](https://docs.launchdarkly.com/home/flags/links#creating-slack-flag-links)"
       },
       "metadata": {
         "avatarUrl": {
