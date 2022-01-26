@@ -6,7 +6,7 @@
     "description": "This capability is used to manage inbound flag links",
     "type": "object",
     "propertyNames": {
-      "enum": ["connector", "uiBlocks", "emptyState", "header"]
+      "enum": ["uiBlocks", "emptyState", "header", "metadata"]
     },
     "required": ["uiBlocks", "header", "emptyState"],
     "properties": {
@@ -39,57 +39,24 @@
           }
         }
       },
-      "connector": {
-        "$id": "#/properties/capability/flag-link/connector",
-        "title": "flagLink Connector",
-        "description": "Receiver configuration for inbound flag links",
+      "metadata": {
+        "$id": "#/properties/capability/flag-link/metadata",
+        "title": "FlagLink Metadata",
+        "description": "Key/value pairs describing attributes for the flag link's payload metadata property. The key is the name of the metadata field and the value is the configuration object for the field.",
         "type": "object",
-        "properties": {
-          "metadata": {
-            "$id": "#/properties/capability/flag-link/connector/metadata",
-            "title": "flagLink Metadata",
-            "description": "List of metadata blocks corresponding to information on the LaunchDarkly links tab",
-            "type": "array",
-            "items": {
-              "type": "object",
-              "propertyNames": {
-                "enum": ["key", "name", "type", "path"]
-              },
-              "properties": {
-                "key": {
-                  "$id": "#/properties/capability/flag-link/connector/ui-blocks/key",
-                  "title": "Key",
-                  "type": "string",
-                  "description": "The unique key corresponding to the property to be displayed",
-                  "maxLength": 50
-                },
-                "name": {
-                  "$id": "#/properties/capability/flag-link/connector/ui-blocks/name",
-                  "title": "Name",
-                  "type": "string",
-                  "description": "The display name of the property",
-                  "maxLength": 50
-                },
-                "type": {
-                  "$id": "#/properties/capability/flag-link/connector/ui-blocks/type",
-                  "title": "Type",
-                  "type": "string",
-                  "enum": [
-                    "avatar",
-                    "codeSnippet",
-                    "hyperlink",
-                    "string",
-                    "multilineText"
-                  ],
-                  "description": "The data type of the information this metadata block will display"
-                },
-                "path": {
-                  "$id": "#/properties/capability/flag-link/connector/ui-blocks/path",
-                  "title": "Path",
-                  "type": "string",
-                  "description": "The JSON path corresponding to where the information can be found in the incoming payload"
-                }
-              }
+        "additionalProperties": {
+          "type": "object",
+          "propertyNames": {
+            "enum": ["type"]
+          },
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "$id": "#/properties/capability/flag-link/metadata/type",
+              "title": "Type",
+              "type": "string",
+              "description": "Data type for the metadata attribute",
+              "enum": ["string", "uri"]
             }
           }
         }

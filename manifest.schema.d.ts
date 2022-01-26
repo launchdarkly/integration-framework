@@ -412,31 +412,9 @@ export type Title = string;
  */
 export type LeadText = string;
 /**
- * The unique key corresponding to the property to be displayed
+ * Data type for the metadata attribute
  */
-export type Key2 = string;
-/**
- * The display name of the property
- */
-export type Name3 = string;
-/**
- * The data type of the information this metadata block will display
- */
-export type Type1 = "avatar" | "codeSnippet" | "hyperlink" | "string" | "multilineText";
-/**
- * The JSON path corresponding to where the information can be found in the incoming payload
- */
-export type Path = string;
-/**
- * List of metadata blocks corresponding to information on the LaunchDarkly links tab
- */
-export type FlagLinkMetadata = {
-  key?: Key2;
-  name?: Name3;
-  type?: Type1;
-  path?: Path;
-  [k: string]: unknown;
-}[];
+export type Type1 = "string" | "uri";
 /**
  * Url of the image
  */
@@ -452,7 +430,7 @@ export type IsAvatar = boolean;
 /**
  * Template string used to render a visual block in LaunchDarkly UI to display a name
  */
-export type Name4 = string;
+export type Name3 = string;
 /**
  * Text to be displayed for the element. The text can contain template variables
  */
@@ -772,7 +750,7 @@ export interface FeatureStoreRequest {
 export interface FlagLink {
   header: LinkGroupHeader;
   emptyState: EmptyState;
-  connector?: FlagLinkConnector;
+  metadata?: FlagLinkMetadata;
   uiBlocks: UIBlocks;
   [k: string]: unknown;
 }
@@ -785,18 +763,20 @@ export interface EmptyState {
   [k: string]: unknown;
 }
 /**
- * Receiver configuration for inbound flag links
+ * Key/value pairs describing attributes for the flag link's payload metadata property. The key is the name of the metadata field and the value is the configuration object for the field.
  */
-export interface FlagLinkConnector {
-  metadata?: FlagLinkMetadata;
-  [k: string]: unknown;
+export interface FlagLinkMetadata {
+  [k: string]: {
+    type: Type1;
+    [k: string]: unknown;
+  };
 }
 /**
  * UI blocks are visual components that represents a section of the view layout for a flag link displayed in LaunchDarkly
  */
 export interface UIBlocks {
   image?: Image;
-  name?: Name4;
+  name?: Name3;
   title?: Title1;
   description?: Description3;
   context?: FlagLinkContext;
