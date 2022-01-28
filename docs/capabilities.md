@@ -289,9 +289,19 @@ Here is an example `reservedCustomProperties` capability:
 
 The feature store capability allows you to specify an endpoint that can receive a payload containing up-to-date flag data from LaunchDarkly.
 
-In addition to [`formVariables`](form-variables.md), the `featureStore` has two properties, a required `featureStoreRequest` and an optional `validationRequest`. You can define both using an [`endpoint`](endpoint.md) and a `parser`.
+In addition to [`formVariables`](form-variables.md), the `featureStore` has two properties, a required `featureStoreRequest` and an optional `validationRequest`.
 
-The `parser` object allows LaunchDarkly to interpret the response of the request. It allows a mapping of success and errors for the given response body of the request in the form of a [JSON pointer](https://datatracker.ietf.org/doc/html/rfc6901). The `parser` object has two properties, a required `success` and an optional `error`.
+### `featureStoreRequest`
+
+This specifies the request [`endpoint`](endpoint.md) that LaunchDarkly makes when flag data are updated. You can do this using an [`endpoint`](endpoint.md) and a `parser`.
+
+In addition to the form variables defined in your manifest, you can use the special variable `_featureStoreKey`. `_featureStoreKey` is provided by LaunchDarkly, and is unique per environment.
+
+### `validationRequest` (Optional)
+
+Specifying a validation request allows customers to verify that they have properly filled out the details to correctly make a request.
+
+The `parser` object allows LaunchDarkly to interpret the response of the validation request. It allows a mapping of success and errors for the given response body of the request in the form of a [JSON pointer](https://datatracker.ietf.org/doc/html/rfc6901). The `parser` object has two properties: a required `success` and an optional `error`.
 
 ```json
     "parser": {
@@ -299,16 +309,6 @@ The `parser` object allows LaunchDarkly to interpret the response of the request
       "error": "/error"
     },
 ```
-
-### `featureStoreRequest`
-
-This specifies the request that LaunchDarkly makes when flag data are updated.
-
-In addition to the form variables defined in your manifest, you can use the special variable `_featureStoreKey`. `_featureStoreKey` is provided by LaunchDarkly, and is unique per environment.
-
-### `validationRequest` (Optional)
-
-Specifying a validation request allows customers to verify that they have properly filled out the details to correctly make a request.
 
 Choose an endpoint that will indicate by its response that the specified form variables are correct, but which has no side effects.
 
@@ -329,10 +329,6 @@ Here is an example `featureStore` capability:
             "value": "text/plain"
           }
         ]
-      },
-      "parser": {
-        "success": "/success",
-        "errors": "/errors"
       }
     },
     "validationRequest": {

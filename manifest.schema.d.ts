@@ -725,13 +725,13 @@ export interface FeatureStore {
  */
 export interface ValidationRequest {
   endpoint: Endpoint;
-  parser: FeatureStoreRequestParser;
+  parser: FeatureStoreValidationParser;
   [k: string]: unknown;
 }
 /**
  * Mapping to success/errors value(s) in a JSON response body
  */
-export interface FeatureStoreRequestParser {
+export interface FeatureStoreValidationParser {
   success: SuccessPointer;
   errors?: ErrorsPointer;
   [k: string]: unknown;
@@ -741,7 +741,6 @@ export interface FeatureStoreRequestParser {
  */
 export interface FeatureStoreRequest {
   endpoint: Endpoint;
-  parser: FeatureStoreRequestParser;
   [k: string]: unknown;
 }
 /**

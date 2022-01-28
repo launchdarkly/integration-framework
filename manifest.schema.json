@@ -2777,8 +2777,8 @@
                   ]
                 },
                 "parser": {
-                  "$id": "#/feature-store-request-parser",
-                  "title": "Feature store request parser",
+                  "$id": "#/feature-store-validation-parser",
+                  "title": "Feature store validation parser",
                   "description": "Mapping to success/errors value(s) in a JSON response body",
                   "type": "object",
                   "propertyNames": {
@@ -2792,12 +2792,12 @@
                   ],
                   "properties": {
                     "success": {
-                      "$id": "#/capabilities/feature-store/feature-store-request/parser/success",
+                      "$id": "#/capabilities/feature-store/feature-store-validation/parser/success",
                       "title": "Success pointer",
                       "type": "string"
                     },
                     "errors": {
-                      "$id": "#/capabilities/feature-store/feature-store-request/parser/errors",
+                      "$id": "#/capabilities/feature-store/feature-store-validation/parser/errors",
                       "title": "Errors pointer",
                       "type": "string"
                     }
@@ -2812,13 +2812,11 @@
               "type": "object",
               "propertyNames": {
                 "enum": [
-                  "endpoint",
-                  "parser"
+                  "endpoint"
                 ]
               },
               "required": [
-                "endpoint",
-                "parser"
+                "endpoint"
               ],
               "properties": {
                 "endpoint": {
@@ -2913,33 +2911,6 @@
                     "url",
                     "method"
                   ]
-                },
-                "parser": {
-                  "$id": "#/feature-store-request-parser",
-                  "title": "Feature store request parser",
-                  "description": "Mapping to success/errors value(s) in a JSON response body",
-                  "type": "object",
-                  "propertyNames": {
-                    "enum": [
-                      "success",
-                      "errors"
-                    ]
-                  },
-                  "required": [
-                    "success"
-                  ],
-                  "properties": {
-                    "success": {
-                      "$id": "#/capabilities/feature-store/feature-store-request/parser/success",
-                      "title": "Success pointer",
-                      "type": "string"
-                    },
-                    "errors": {
-                      "$id": "#/capabilities/feature-store/feature-store-request/parser/errors",
-                      "title": "Errors pointer",
-                      "type": "string"
-                    }
-                  }
                 }
               }
             }

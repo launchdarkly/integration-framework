@@ -72,10 +72,6 @@
               "value": "text/plain"
             }
           ]
-        },
-        "parser": {
-          "success": "/success",
-          "errors": "/errors"
         }
       }
     }

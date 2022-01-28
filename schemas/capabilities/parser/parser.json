@@ -124,9 +124,9 @@
       }
     }
   },
-  "featureStoreRequestParser": {
-    "$id": "#/feature-store-request-parser",
-    "title": "Feature store request parser",
+  "featureStoreValidationParser": {
+    "$id": "#/feature-store-validation-parser",
+    "title": "Feature store validation parser",
     "description": "Mapping to success/errors value(s) in a JSON response body",
     "type": "object",
     "propertyNames": {
@@ -135,12 +135,12 @@
     "required": ["success"],
     "properties": {
       "success": {
-        "$id": "#/capabilities/feature-store/feature-store-request/parser/success",
+        "$id": "#/capabilities/feature-store/feature-store-validation/parser/success",
         "title": "Success pointer",
         "type": "string"
       },
       "errors": {
-        "$id": "#/capabilities/feature-store/feature-store-request/parser/errors",
+        "$id": "#/capabilities/feature-store/feature-store-validation/parser/errors",
         "title": "Errors pointer",
         "type": "string"
       }

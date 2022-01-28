@@ -34,7 +34,7 @@
             "$ref": "../definitions.json#/endpoint"
           },
           "parser": {
-            "$ref": "./parser/parser.json#/featureStoreRequestParser"
+            "$ref": "./parser/parser.json#/featureStoreValidationParser"
           }
         }
       },
@@ -44,15 +44,12 @@
         "description": "Details needed to make a request to deliver the flag payload to the feature store",
         "type": "object",
         "propertyNames": {
-          "enum": ["endpoint", "parser"]
+          "enum": ["endpoint"]
         },
-        "required": ["endpoint", "parser"],
+        "required": ["endpoint"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
-          },
-          "parser": {
-            "$ref": "./parser/parser.json#/featureStoreRequestParser"
           }
         }
       }
