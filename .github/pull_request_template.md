@@ -1,6 +1,6 @@
 **Requirements**
 
-- [ ] I have followed the repository's [pull request submission guidelines](../blob/master/README.md#submitting-pull-requests)
+- [ ] I have followed the repository's [pull request submission guidelines](../blob/main/README.md#submitting-pull-requests)
 - [ ] I have updated my user documentation
 - [ ] I have updated my developer documentation (my integration README)
 

@@ -61,10 +61,10 @@ workflows:
           context: org-global
           filters:
             branches:
-              only: master
+              only: main
       - send-webhook:
           requires:
             - upload-to-s3
           filters:
             branches:
-              only: master
+              only: main
