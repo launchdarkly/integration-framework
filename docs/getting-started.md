@@ -79,7 +79,7 @@ In addition to user documentation, you must to provide guidance on how to mainta
 ## Step 8: Submit your integration
 
 After you've built your integration, [submit a pull request against this
-repo](https://github.com/launchdarkly/integration-framework/pull/new/master).
+repo](https://github.com/launchdarkly/integration-framework/pull/new/main).
 
 When you do, your branch will run through some automated validations and be reviewed by
 our team. If we're ready to publish your integration, we'll get your permission and make it live on our site.
