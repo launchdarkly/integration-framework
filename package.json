@@ -41,6 +41,6 @@
   },
   "dependencies": {
     "dateformat": "^4.5.1",
-    "url-parse": "^1.5.3"
+    "url-parse": "^1.5.8"
   }
 }
