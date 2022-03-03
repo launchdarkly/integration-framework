@@ -22,7 +22,7 @@
       "header": "Jira issue",
       "emptyState": {
         "title": "No Jira issues link to this flag.",
-        "leadText": "To enable the Jira integration, [read our documentation](https://docs.launchdarkly.com/home/flags/links#creating-jira-flag-links)"
+        "leadText": "To enable the Jira integration, [read the documentation](https://docs.launchdarkly.com/home/flags/links#creating-jira-flag-links)"
       },
       "metadata": {
         "creator": {

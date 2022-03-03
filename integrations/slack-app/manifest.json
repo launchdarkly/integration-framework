@@ -24,7 +24,7 @@
       "header": "Slack conversation",
       "emptyState": {
         "title": "No Slack conversations link to this flag.",
-        "leadText": "To enable the Slack integration, [read our documentation](https://docs.launchdarkly.com/home/flags/links#creating-slack-flag-links)"
+        "leadText": "To enable the Slack integration, [read the documentation](https://docs.launchdarkly.com/home/flags/links#creating-slack-flag-links)"
       },
       "metadata": {
         "avatarUrl": {
