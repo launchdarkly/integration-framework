@@ -19,10 +19,10 @@
   "otherCapabilities": ["external"],
   "capabilities": {
     "flagLink": {
-      "header": "Jira issues",
+      "header": "Jira issue",
       "emptyState": {
-        "title": "There are no Jira issues that link to this flag.",
-        "leadText": "Jira issues connected to this feature flag will automatically appear here. To learn how to enable the Jira integration or to connect an issue to a feature flag, [read our documentation](https://docs.launchdarkly.com/home/flags/links#creating-jira-flag-links)"
+        "title": "No Jira issues link to this flag.",
+        "leadText": "To enable the Jira integration, [read our documentation](https://docs.launchdarkly.com/home/flags/links#creating-jira-flag-links)"
       },
       "metadata": {
         "creator": {
