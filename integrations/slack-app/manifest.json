@@ -51,12 +51,6 @@
           "elements": [
             { "text": "Posted in" },
             { "text": "#{{{metadata.channelName}}}", "isBold": true },
-            { "text": "on" },
-            {
-              "text": "{{timestamp.milliseconds}}",
-              "isTimestamp": true,
-              "isBold": true
-            },
             { "text": "View message", "url": "{{{deepLink}}}" }
           ]
         }
