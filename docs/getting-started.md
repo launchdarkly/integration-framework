@@ -10,6 +10,8 @@ The easiest way to do this is to use [`curl`](https://curl.haxx.se/docs/manpage.
 
 When you execute your sample commands, observe the request semantics. This helps streamline your manifest and template definitions.
 
+If you are looking to integrate with a third-party service that you are not directly associated with, please open a [Feature Request](https://github.com/launchdarkly/integration-framework/issues/new/choose) describing your goal and expectations for the integration before submitting any Pull Request.
+
 ## Step 1: Fork this repository
 
 Fork this repository to your own GitHub account.
