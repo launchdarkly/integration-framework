@@ -51,7 +51,7 @@
         },
         "context": {
           "elements": [
-            { "text": "Created by" },
+            { "text": "Issue created by" },
             { "text": "{{{metadata.creator}}}", "isBold": true }
           ]
         }
