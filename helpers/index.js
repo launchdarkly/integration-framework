@@ -9,6 +9,13 @@ const registerHelpers = () => {
     }
     return options.inverse(this);
   });
+  // We don't use this here - the rendering in goaltender is done with the GO implementation of handlebars, where we need to use a helper called equalWithElse, as equal is taken and doesn't support else
+  Handlebars.registerHelper('equalWithElse', function (v1, v2, options) {
+    if (v1 === v2) {
+      return options.fn(this);
+    }
+    return options.inverse(this);
+  });
   Handlebars.registerHelper('pathEncode', function (v) {
     return encodeURI(v);
   });
