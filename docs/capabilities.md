@@ -11,10 +11,7 @@ We support four capabilities:
 
 ## Audit log events hook (`auditLogEventsHook`)
 
-An audit log events hook is a webhook that LaunchDarkly sends whenever an
-event happens inside of LaunchDarkly. Each of these events
-result in an event being published to LaunchDarkly's audit log.
-You can use this capability to send data to or trigger an event in another service.
+An audit log events hook is a webhook that LaunchDarkly sends whenever an event happens inside of LaunchDarkly. Each of these events result in an event being published to LaunchDarkly's audit log. You can use this capability to send data to or trigger an event in another service.
 
 The `auditLogEventsHook` has three properties:
 
@@ -27,8 +24,7 @@ The `auditLogEventsHook` has three properties:
    policies](https://docs.launchdarkly.com/home/members/role-policies) that
    act as a filter determining which events to send to your webhook endpoint.
 
-Here's an example of an audit log events hook capability that subscribes to flag
-events in a LaunchDarkly account:
+Here's an example of an audit log events hook capability that subscribes to flag events in a LaunchDarkly account:
 
 ```json
     "capabilities": {
@@ -68,9 +64,7 @@ Every `auditLogEventsHook` capability must specify the [endpoint](endpoint.md) t
 
 ### Templates
 
-Before the `auditLogEventsHook` capability sends the request to the endpoint
-handling your webhook, you can transform the body of the request
-sent to your handler.
+Before the `auditLogEventsHook` capability sends the request to the endpoint handling your webhook, you can transform the body of the request sent to your handler.
 
 In your manifest, you can specify templates to be executed when webhook events are of kinds `flag`, `project`, and `environment`. Additionally, you can specify a `default` template as a catch-all for any event without a more specific template. A `validation` template is also provided in case you want to provide users with the ability to validate their connection by sending a test event from LaunchDarkly to your service.
 
@@ -84,8 +78,7 @@ In your manifest, you can specify templates to be executed when webhook events a
     },
 ```
 
-If you don't provide one or more templates, LaunchDarkly
-sends you a default JSON payload that looks like this:
+If you don't provide one or more templates, LaunchDarkly sends you a default JSON payload that looks like this:
 
 ```json
 {
@@ -146,21 +139,13 @@ sends you a default JSON payload that looks like this:
 }
 ```
 
-If you choose to provide one or more
-`templates`,
-LaunchDarkly renders your template using the context data above. Your
-template can be any text based format, but you must specify the appropriate
-`Content-Type` header in your `endpoint.headers` property to match the content
-type of your template body.
+If you choose to provide one or more `templates`, LaunchDarkly renders your template using the context data above. Your template can be any text based format, but you must specify the appropriate `Content-Type` header in your `endpoint.headers` property to match the content type of your template body.
 
-We use a basic subset of the Handlebars template syntax to render
-your template.
+We use a basic subset of the Handlebars template syntax to render your template.
 
-To learn more about Handlebars' sysntax, read [Handlebars' Language
-Guide](https://handlebarsjs.com/guide/).
+To learn more about Handlebars' sysntax, read [Handlebars' Language Guide](https://handlebarsjs.com/guide/).
 
-In addition to the basic language syntax, we support the following [built-in
-helpers](https://handlebarsjs.com/guide/builtin-helpers.html):
+In addition to the basic language syntax, we support the following [built-in helpers](https://handlebarsjs.com/guide/builtin-helpers.html):
 
 - `if`
 - `unless`
@@ -183,13 +168,11 @@ The following timestamp formats are supported:
 - `rfc3339` - [RFC3339 format](https://datatracker.ietf.org/doc/html/rfc3339), e.g., `2020-02-04T01:02:14Z`
 - `simple` - timestamp string formatted as `yyyy-mm-dd h:MM:ss`, e.g., `2020-02-04 01:03:59`
 
-To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars
-Sandbox](http://tryhandlebarsjs.com/).
+To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars Sandbox](http://tryhandlebarsjs.com/).
 
 ### Default policy
 
-When you configure your integration, customers can specify an array of [LaunchDarkly
-policies](https://docs.launchdarkly.com/home/members/role-policies) filter which events to send to your webhook endpoint.
+When you configure your integration, customers can specify an array of [LaunchDarkly policies](https://docs.launchdarkly.com/home/members/role-policies) filter which events to send to your webhook endpoint.
 
 To simplify onboarding your integration, you can specify a default policy which follows best practices for your integration's use case.
 
@@ -207,7 +190,7 @@ Here is the policy:
       ]
 ```
 
-### Include error response body  (`includeErrorResponseBody`)
+### Include error response body (`includeErrorResponseBody`)
 
 For endpoints defined with static domains - where the domain part of the endpoint isn't a template variable (see example below), you have the option to specify an optional property `includeErrorResponseBody` in your `auditLogEventsHook` configuration to view any errors LaunchDarkly receives when it sends events to your endpoint. This is particularly useful for users troubleshooting issues with their integration.
 

@@ -4,9 +4,7 @@
 
 Feature flags give you control over your deployment and rollout, but that's not all they do. They also provide context to other related systems, giving your team visibility into how your services react due to flag changes.
 
-This repository contains
-LaunchDarkly integrations built by our community. Most of these integrations
-consume events from LaunchDarkly to provide their users with more context.
+This repository contains LaunchDarkly integrations built by our community. Most of these integrations consume events from LaunchDarkly to provide their users with more context.
 
 LaunchDarkly's integration framework lets you build one-way integrations from LaunchDarkly to a third party service. We support a small subset of actions that let you subscribe to LaunchDarkly events to trigger an action or event in your service. You can think of this capability as a webhook, with the added convenience of not having to write your own service to manage the integration. LaunchDarkly manages the configuration, authentication, and transformation of our events to what your service expects without having to create an intermediary service.
 

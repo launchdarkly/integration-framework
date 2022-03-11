@@ -22,18 +22,11 @@ Some capabilities require specifying an endpoint that LaunchDarkly can make requ
 This specification must include all appropriate request semantics including the URL, method, and headers.
 
 In the example
-above, the properties `endpoint.url` and
-`endpoint.headers[].value` accept template variables. These template
-variables can reference any [`formVariables`](form-variables.md) you've defined in your manifest.
-The templating language LaunchDarkly uses is based off of a subset of the
-Handlebars syntax.
+above, the properties `endpoint.url` and `endpoint.headers[].value` accept template variables. These template variables can reference any [`formVariables`](form-variables.md) you've defined in your manifest. The templating language LaunchDarkly uses is based off of a subset of the Handlebars syntax.
 
 To learn more, read the [Handlebars documentation](https://handlebarsjs.com/).
 
-There are a few properties that allow you to substitute template variables at
-runtime. The main ones are the `endpoint.url` and the
-`endpoint.headers[].value`. This lets you configure a dynamic endpoint
-based on the `formVariables` your integration collects from the user.
+There are a few properties that allow you to substitute template variables at runtime. The main ones are the `endpoint.url` and the `endpoint.headers[].value`. This lets you configure a dynamic endpoint based on the `formVariables` your integration collects from the user.
 
 This example uses the `endpointUrl` form variable as the URL of the endpoint and the `apiToken` as a `Bearer` token in the `Authorization` header:
 

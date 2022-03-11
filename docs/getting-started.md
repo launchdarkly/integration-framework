@@ -22,11 +22,9 @@ To learn more about submitting a pull request, read [Step 8: Submit your integra
 
 ## Step 2: Create a new directory inside `./integrations`
 
-Create a new directory inside the [integrations](../integrations) directory. Name it
-after your organization or give it the integration's name (For example, `your-company-name-dot-com`).
+Create a new directory inside the [integrations](../integrations) directory. Name it after your organization or give it the integration's name (For example, `your-company-name-dot-com`).
 
-The directory name must not have any spaces and must use
-[kebab-casing](https://wiki.c2.com/?KebabCase).
+The directory name must not have any spaces and must use [kebab-casing](https://wiki.c2.com/?KebabCase).
 
 Only change files and directories inside your new directory. Our validation process rejects any pull requests with modified content outside of your directory.
 
@@ -40,8 +38,7 @@ To learn more, read [Integration manifest](manifest.md).
 
 ## Step 4: Collect integration configuration data from LaunchDarkly users
 
-Most integrations need to collect one or more pieces of configuration data
-that support the integration (for example, API tokens or webhook endpoints).
+Most integrations need to collect one or more pieces of configuration data that support the integration (for example, API tokens or webhook endpoints).
 
 You can describe a set of `formVariables` that define these configuration properties.
 
@@ -49,8 +46,7 @@ To learn more, read [Form variables](form-variables.md).
 
 ## Step 5: Define your integration's capabilities
 
-The next step to define your LaunchDarkly integration is describing its
-`capabilities`. Your integration's `capabilities` are how it interacts with LaunchDarkly.
+The next step to define your LaunchDarkly integration is describing its `capabilities`. Your integration's `capabilities` are how it interacts with LaunchDarkly.
 
 To learn more, read [Capabilities](capabilities.md).
 
@@ -61,10 +57,9 @@ To validate your integration:
 1. Run `npm install` to install the validation dependencies.
 2. Run `npm test` to run the validation suite.
 
-**Note:** Please use Node.js v14 when running the above npm commands.
+**Note:** Please use Node.js v16 when running the above npm commands.
 
-Additionally, we
-recommend you install [pre-commit hooks](https://pre-commit.com/#install) with `pre-commit install`. This will make the validation suite run before every commit, saving you time if you need to troubleshoot anything.
+Additionally, we recommend you install [pre-commit hooks](https://pre-commit.com/#install) with `pre-commit install`. This will make the validation suite run before every commit, saving you time if you need to troubleshoot anything.
 
 Some of the capabilities have their own validation tools. To learn more, read [Capabilities](capabilities.md).
 
@@ -80,10 +75,8 @@ In addition to user documentation, you must to provide guidance on how to mainta
 
 ## Step 8: Submit your integration
 
-After you've built your integration, [submit a pull request against this
-repo](https://github.com/launchdarkly/integration-framework/pull/new/main).
+After you've built your integration, [submit a pull request against this repo](https://github.com/launchdarkly/integration-framework/pull/new/main).
 
-When you do, your branch will run through some automated validations and be reviewed by
-our team. If we're ready to publish your integration, we'll get your permission and make it live on our site.
+When you do, your branch will run through some automated validations and be reviewed by our team. If we're ready to publish your integration, we'll get your permission and make it live on our site.
 
 We'll also work with you on submitting your user documentation to our [documentation site](https://github.com/launchdarkly/LaunchDarkly-Docs).
