@@ -1,0 +1,16 @@
+{
+  "api_key": "{{formVariables.apiKey}}",
+  "event": "{{name}}",
+  "properties": {
+    "launchDarklyEventId": "{{_id}}",
+    "launchDarklyEventAccountId": "{{_accountId}}",
+    "launchDarklyEventType": "{{kind}}",
+    "comment": "{{comment}}",
+    "distinct_id": "{{member._id}}",
+    "email": "{{member.email}}",
+    "firstName": "{{member.firstName}}",
+    "lastName": "{{member.lastName}}",
+    "title": "{{title.plainText}}"
+  },
+  "timestamp": "{{timestamp.rfc3339}}"
+}

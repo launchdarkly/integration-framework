@@ -1,0 +1,60 @@
+{
+  "name": "Posthog",
+  "version": "1.0.0",
+  "overview": "Export real-time flag analytics data.",
+  "description": "Export your real-time flag analytics data to Posthog.",
+  "author": "Posthog",
+  "supportEmail": "support@posthog.com",
+  "links": {
+    "site": "https://posthog.com",
+    "privacyPolicy": "https://posthog.com/privacy"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "requiresOAuth": false,
+  "formVariables": [
+    {
+        "key": "endpointUrl",
+        "name": "Posthog endpoint URL",
+        "description": "Enter the URL to your Posthog instance (e.g.: https://app.posthog.com)",
+        "type": "uri",
+        "isOptional": false
+    },
+    {
+        "key": "apiKey",
+        "name": "API Key",
+        "description": "Enter your [API key](https://posthog.com/docs/api#personal-api-keys-recommended) here",
+        "type": "string",
+        "isSecret": true,
+        "isOptional": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+        "includeErrorResponseBody": false,
+        "endpoint": {
+            "url": "{{endpointUrl}}/capture",
+            "method": "POST",
+            "headers": [
+                {
+                    "name": "Content-Type",
+                    "value": "application/json"
+                }
+            ]
+        },
+        "templates": {
+            "default": "templates/default.hbs"
+        },
+        "defaultPolicy": [
+            {
+                "effect": "allow",
+                "resources": ["proj/*:env/production:flag/*"],
+                "actions": ["*"]
+            }
+        ]
+    }
+}
+}
