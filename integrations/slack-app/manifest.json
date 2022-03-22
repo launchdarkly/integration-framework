@@ -21,10 +21,10 @@
   "otherCapabilities": ["webhooks"],
   "capabilities": {
     "flagLink": {
-      "header": "Slack conversations",
+      "header": "Slack conversation",
       "emptyState": {
-        "title": "There are no Slack conversations that reference this flag.",
-        "leadText": "Slack conversations connected to this feature flag will automatically appear here. To learn how to enable the Slack integration or to connect a slack conversation to a feature flag, [read our documentation](https://docs.launchdarkly.com/home/flags/links#creating-slack-flag-links)"
+        "title": "No Slack conversations link to this flag.",
+        "leadText": "To enable the Slack integration, [read the documentation](https://docs.launchdarkly.com/home/flags/links#creating-slack-flag-links)"
       },
       "metadata": {
         "avatarUrl": {
@@ -51,12 +51,6 @@
           "elements": [
             { "text": "Posted in" },
             { "text": "#{{{metadata.channelName}}}", "isBold": true },
-            { "text": "on" },
-            {
-              "text": "{{timestamp.milliseconds}}",
-              "isTimestamp": true,
-              "isBold": true
-            },
             { "text": "View message", "url": "{{{deepLink}}}" }
           ]
         }
