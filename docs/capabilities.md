@@ -11,24 +11,18 @@ We support four capabilities:
 
 ## Audit log events hook (`auditLogEventsHook`)
 
-An audit log events hook is a webhook that LaunchDarkly sends whenever an
-event happens inside of LaunchDarkly. Each of these events
-result in an event being published to LaunchDarkly's audit log.
-You can use this capability to send data to or trigger an event in another service.
+An audit log events hook is a webhook that LaunchDarkly sends whenever an event happens inside of LaunchDarkly. Each of these events result in an event being published to LaunchDarkly's audit log. You can use this capability to send data to or trigger an event in another service.
 
 The `auditLogEventsHook` has three properties:
 
 1. [`endpoint`](#endpoint):
-   Describes the HTTP handler that will receive the webhook.
+   The HTTP handler that will receive the webhook.
 2. [`templates`](#templates):
    A map of template paths relative to your integration's directory. You can use templates to transform the raw audit log events to a format that your integration expects. These templates can be any file type.
 3. [`defaultPolicy`](#default-policy):
-   An array of [LaunchDarkly
-   policies](https://docs.launchdarkly.com/home/members/role-policies) that
-   act as a filter determining which events to send to your webhook endpoint.
+   An array of LaunchDarkly policies. The policies determine which events to send to your webhook endpoint. To learn more, read [Using policies](https://docs.launchdarkly.com/home/members/role-policies).
 
-Here's an example of an audit log events hook capability that subscribes to flag
-events in a LaunchDarkly account:
+Here's an example of an audit log events hook capability that subscribes to flag events in a LaunchDarkly account:
 
 ```json
     "capabilities": {
@@ -68,11 +62,11 @@ Every `auditLogEventsHook` capability must specify the [endpoint](endpoint.md) t
 
 ### Templates
 
-Before the `auditLogEventsHook` capability sends the request to the endpoint
-handling your webhook, you can transform the body of the request
-sent to your handler.
+Before the `auditLogEventsHook` capability sends the request to the endpoint handling your webhook, you can transform the body of the request sent to your handler.
 
-In your manifest, you can specify templates to be executed when webhook events are of kinds `flag`, `project`, and `environment`. Additionally, you can specify a `default` template as a catch-all for any event without a more specific template. A `validation` template is also provided in case you want to provide users with the ability to validate their connection by sending a test event from LaunchDarkly to your service.
+In your manifest, you can specify templates to be executed when webhook events are of kinds `flag`, `project`, and `environment`. Additionally, you can specify a `default` template as a catch-all for any event without a more specific template. You can also specify a `validation` template to provide users with the ability to validate their connection by sending a test event from LaunchDarkly to your service.
+
+Here is an example:
 
 ```json
     "templates": {
@@ -84,8 +78,7 @@ In your manifest, you can specify templates to be executed when webhook events a
     },
 ```
 
-If you don't provide one or more templates, LaunchDarkly
-sends you a default JSON payload that looks like this:
+If you don't provide one or more templates, LaunchDarkly sends you a default JSON payload that looks like this:
 
 ```json
 {
@@ -146,21 +139,11 @@ sends you a default JSON payload that looks like this:
 }
 ```
 
-If you choose to provide one or more
-`templates`,
-LaunchDarkly renders your template using the context data above. Your
-template can be any text based format, but you must specify the appropriate
-`Content-Type` header in your `endpoint.headers` property to match the content
-type of your template body.
+If you choose to provide one or more templates, LaunchDarkly renders your template using the context data above. Your template can be any text-based format, but you must specify the appropriate `Content-Type` header in your `endpoint.headers` property to match the content type of your template body.
 
-We use a basic subset of the Handlebars template syntax to render
-your template.
+We use a basic subset of the Handlebars template syntax to render your template. To learn more about Handlebars syntax, read [Handlebars Language Guide](https://handlebarsjs.com/guide/).
 
-To learn more about Handlebars' sysntax, read [Handlebars' Language
-Guide](https://handlebarsjs.com/guide/).
-
-In addition to the basic language syntax, we support the following [built-in
-helpers](https://handlebarsjs.com/guide/builtin-helpers.html):
+In addition to the basic language syntax, we support the following [built-in helpers](https://handlebarsjs.com/guide/builtin-helpers.html):
 
 - `if`
 - `unless`
@@ -168,28 +151,26 @@ helpers](https://handlebarsjs.com/guide/builtin-helpers.html):
 - `with`
 - `lookup`
 
-Furthermore, the following custom helpers are supported:
+We also support the following custom helpers:
 
-- `equal` - renders a block if the string version of both arguments are equals
+- `equal`: renders a block if the string version of both arguments are equal
 - `pathEncode` - URL path encodes the string version of the argument
 - `queryEncode` - URL query encodes the string version of the argument
-- `basicAuthHeaderValue` - transforms `username` and `password` arguments into the `Authorization` header value required for a basic auth (including the `Basic ` prefix).
-- `formatWithOffset` - adds an offset in seconds to a unix milliseconds timestamp and formats the timestamp using one of the supported formats detailed below.
+- `basicAuthHeaderValue`: transforms `username` and `password` arguments into the `Authorization` header value required for a basic auth, including the `Basic ` prefix
+- `formatWithOffset`: adds an offset in seconds to a unix milliseconds timestamp and formats the timestamp using one of the supported formats detailed below
 
-The following timestamp formats are supported:
+We support the following timestamp formats:
 
-- `milliseconds` - unix milliseconds
-- `seconds` - unix seconds
-- `rfc3339` - [RFC3339 format](https://datatracker.ietf.org/doc/html/rfc3339), e.g., `2020-02-04T01:02:14Z`
-- `simple` - timestamp string formatted as `yyyy-mm-dd h:MM:ss`, e.g., `2020-02-04 01:03:59`
+- `milliseconds`: Unix milliseconds
+- `seconds`: Unix seconds
+- `rfc3339`: [RFC3339 format](https://datatracker.ietf.org/doc/html/rfc3339), for example, `2020-02-04T01:02:14Z`
+- `simple`: timestamp string formatted as `yyyy-mm-dd h:MM:ss`, for example, `2020-02-04 01:03:59`
 
-To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars
-Sandbox](http://tryhandlebarsjs.com/).
+To test your templates, you can run `npm run preview $INTEGRATION_NAME` or use the [Handlebars Sandbox](http://tryhandlebarsjs.com/).
 
 ### Default policy
 
-When you configure your integration, customers can specify an array of [LaunchDarkly
-policies](https://docs.launchdarkly.com/home/members/role-policies) filter which events to send to your webhook endpoint.
+Users of your integration can specify an array of [LaunchDarkly policies](https://docs.launchdarkly.com/home/members/role-policies) to filter which events to send to your webhook endpoint.
 
 To simplify onboarding your integration, you can specify a default policy which follows best practices for your integration's use case.
 
@@ -207,11 +188,11 @@ Here is the policy:
       ]
 ```
 
-### Include error response body  (`includeErrorResponseBody`)
+### Include error response body (`includeErrorResponseBody`)
 
-For endpoints defined with static domains - where the domain part of the endpoint isn't a template variable (see example below), you have the option to specify an optional property `includeErrorResponseBody` in your `auditLogEventsHook` configuration to view any errors LaunchDarkly receives when it sends events to your endpoint. This is particularly useful for users troubleshooting issues with their integration.
+A static domain is one in which the domain part of the endpoint is not a template variable. For endpoints defined with static domains, you can specify the optional property `includeErrorResponseBody` in your `auditLogEventsHook` configuration to view any errors LaunchDarkly receives when it sends events to your endpoint. This is particularly useful for users troubleshooting issues with their integration.
 
-Heres the example:
+Here is an example:
 
 ```json
     "includeErrorResponseBody": true,
@@ -223,32 +204,27 @@ Heres the example:
 
 ### Validation
 
-To preview your integration's templates with sample data, run `npm run preview INTEGRATION_NAME`.
+To preview your integration's templates with sample data, run `npm run preview $INTEGRATION_NAME`.
 
-Alternatively, to produce a sample `curl` command, run `npm run curl INTEGRATION_NAME`. This returns data with your integration's service as if it was sent by the audit log event hook capability.
+Alternatively, to produce a sample `curl` command, run `npm run curl $INTEGRATION_NAME`. This returns data with your integration's service as if it was sent by the audit log event hook capability.
 
 ## Trigger (`trigger`)
 
 **LaunchDarkly's trigger functionality is only available to customers who have opted in to an Early Access Program (EAP). To access to this feature, [join the EAP](https://launchdarkly.com/eap).**
 
-The trigger capability is used to generate a unique webhook URL that your service can request to generate a user-defined flag change in LaunchDarkly.
-
-By default, the trigger URL contains a globally unique path parameter to provide security in the form of an [unguessable URL](https://www.schneier.com/blog/archives/2015/07/googles_unguess.html). However, if your service supports additional security settings such as shared secrets when firing webhooks, you can specify those with the optional `auth` object. **Note**: at launch, the `auth` attribute is unsupported and should be omitted.
+The trigger capability is used to generate a unique webhook URL that your service can request to generate a user-defined flag change in LaunchDarkly. By default, the trigger URL contains a globally unique path parameter to provide security in the form of an [unguessable URL](https://www.schneier.com/blog/archives/2015/07/googles_unguess.html).
 
 The required `documentation` field must be a link to documentation outlining how webhooks should be configured in your service.
 
-If the integration offers the option to send test events / webhook requests, the optional `testEventNameRegexp` fields allows you to specify regex to match the expected `eventName` value below. This will tell our integration framework not to make any real flag or resource changes associated with matching events.
+If the integration offers the option to send test events or webhook requests, the optional `testEventNameRegexp` field lets you to specify regex to match the expected `eventName` value. This tells our integration framework not to make any real flag or resource changes associated with matching events.
 
 If your webhooks' request bodies are non-empty, you can specify the optional `parser` object with one or more of `eventName`, `value`, and `url`. The provided values will flow through LaunchDarkly into the resulting audit log messages when your service invokes a trigger in LaunchDarkly.
 
-Here is an example `trigger` capability including all optional properties:
+Here is an example `trigger` capability:
 
 ```json
     "trigger": {
       "documentation": "https://example.com/configuring-webhooks",
-      "auth": {
-        "type": "sharedSecret"
-      },
       "parser": {
         "eventName": "/event",
         "value": "/value",
@@ -257,7 +233,7 @@ Here is an example `trigger` capability including all optional properties:
     }
 ```
 
-**Note**: if an integration only has the trigger capability, the word "trigger" will be added to its name in the LaunchDarkly UI. For this reason, do not include the word "trigger" in the manifest name. See the [generic-trigger manifest](/integrations/generic-trigger/manifest.json) for an example.
+If an integration only has the trigger capability, the word "trigger" will be added to its name in the LaunchDarkly UI. For this reason, do not include the word "trigger" in the manifest name. Review the [generic-trigger manifest](/integrations/generic-trigger/manifest.json) for an example.
 
 ## Reserved custom properties (`reservedCustomProperties`)
 
@@ -267,9 +243,9 @@ To learn more, read [Custom properties](https://docs.launchdarkly.com/home/conne
 
 By default, users must specify a custom property name and key when they attach the custom property value to a feature flag. This step introduces the possibility of user error. To prevent this, developers can _reserve_ a custom property for their integration, which makes it much easier for users to correctly add the property's value to feature flags.
 
-Reserved custom properties are simple to define. Their only requirements are a `name` and `key`, adding a `description` is optional.
+Reserved custom properties require a `name` and `key`. Adding a `description` is optional.
 
-After your integration is configured by a user, the custom property starts appearing in the dropdown on the flag's Settings page.
+After your integration is configured by a user, the custom property starts appearing in the dropdown on the flag's **Settings** page.
 
 Here is an example `reservedCustomProperties` capability:
 
@@ -297,11 +273,13 @@ This specifies the request [`endpoint`](endpoint.md) that LaunchDarkly makes whe
 
 In addition to the form variables defined in your manifest, you can use the special variable `_featureStoreKey`. `_featureStoreKey` is provided by LaunchDarkly, and is unique per environment.
 
-### `validationRequest` (Optional)
+### `validationRequest` (optional)
 
 Specifying a validation request allows customers to verify that they have properly filled out the details to correctly make a request.
 
 The `parser` object allows LaunchDarkly to interpret the response of the validation request. It allows a mapping of success and errors for the given response body of the request in the form of a [JSON pointer](https://datatracker.ietf.org/doc/html/rfc6901). The `parser` object has two properties: a required `success` and an optional `error`.
+
+Here is an example `parse` object:
 
 ```json
     "parser": {

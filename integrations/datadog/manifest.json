@@ -37,6 +37,14 @@
       ],
       "isOptional": true,
       "defaultValue": "https://api.datadoghq.com"
+    },
+    {
+      "key": "hideMemberDetails",
+      "name": "Hide member details",
+      "description": "Don't send related member email and names.",
+      "type": "boolean",
+      "defaultValue": false,
+      "isOptional": true
     }
   ],
   "capabilities": {
