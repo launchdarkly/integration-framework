@@ -1,0 +1,21 @@
+{
+  "name": "Compass",
+  "version": "1.0.0",
+  "overview": "Visualize feature flag changes for software components in Atlassian Compass.",
+  "description": "Add a visual timeline of LaunchDarkly feature flag changes to related software components in Atlassian Compass.",
+  "author": "Atlassian",
+  "supportEmail": "compassfb@customerfeedback.atlassian.net",
+  "links": {
+    "site": "https://www.atlassian.com/software/compass",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/compass",
+    "supportWebsite": "https://community.atlassian.com/t5/Compass-Alpha/gh-p/compass-alpha",
+    "privacyPolicy": "https://www.atlassian.com/legal/privacy-policy"
+  },
+  "categories": ["developer-tools", "infrastructure"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "requiresOAuth": false,
+  "otherCapabilities": ["external"]
+}
