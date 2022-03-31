@@ -1,6 +1,9 @@
+{{#equalWithElse kind "member"}}
+{{#if formVariables.hideMemberDetails}}
+{{else}}
 {
-    "title": "{{{title.plainText}}}",
-    "text": "%%% \n {{{title.markdown}}}{{#if details.markdown}}\n{{{details.markdown}}}{{/if}}{{#if comment}}\n**comment:** {{{comment}}}{{/if}} \n %%%",
+    "title": {{#if formVariables.hideMemberDetails}}"A member {{{titleVerb}}} {{{target.name}}}"{{else}}"{{{title.plainText}}}"{{/if}},
+    "text": "%%% \n {{#if formVariables.hideMemberDetails}}A member {{{titleVerb}}} [{{{target.name}}}]({{{target._links.site.href}}}){{else}}{{{title.markdown}}}{{/if}}{{#if details.markdown}}\n{{{details.markdown}}}{{/if}}{{#if comment}}\n**comment:** {{{comment}}}{{/if}} \n %%%",
     "date_happened": {{timestamp.seconds}},
     "tags": [
         {{#if customProperties}}
@@ -24,8 +27,42 @@
         "{{kind}}_key:{{key}}",
         "{{kind}}_name:{{name}}",
         "action:{{verbKind}}",
-        "kind:{{kind}}",
-        "member:{{member.email}}"
+        {{#unless formVariables.hideMemberDetails }}"member:{{member.email}}",{{/unless}}
+        "kind:{{kind}}"
     ],
     "source_type_name": "launchdarkly"
 }
+{{/if}}
+{{else}}
+{
+    "title": {{#if formVariables.hideMemberDetails}}"A member {{{titleVerb}}} {{{target.name}}}"{{else}}"{{{title.plainText}}}"{{/if}},
+    "text": "%%% \n {{#if formVariables.hideMemberDetails}}A member {{{titleVerb}}} [{{{target.name}}}]({{{target._links.site.href}}}){{else}}{{{title.markdown}}}{{/if}}{{#if details.markdown}}\n{{{details.markdown}}}{{/if}}{{#if comment}}\n**comment:** {{{comment}}}{{/if}} \n %%%",
+    "date_happened": {{timestamp.seconds}},
+    "tags": [
+        {{#if customProperties}}
+        {{#if customProperties.datadog}}
+        {{#if customProperties.datadog.values}}
+        {{#with customProperties}}
+        {{#each datadog.values}}
+        "{{{this}}}",
+        {{/each}}
+        {{/with}}
+        {{/if}}{{/if}}{{/if}}
+        {{#each tags}}
+        "{{{this}}}",
+        {{/each}}
+        {{#if project.key}}"project_key:{{project.key}}",
+        "project_name:{{project.name}}",
+        {{#if project.environment.key}}"environment_key:{{project.environment.key}}",
+        "environment_name:{{project.environment.name}}",
+        {{!-- The following tag was added to provide backwards compatibility with the legacy integration. --}}
+        "{{project.environment.name}}",{{/if}}{{/if}}
+        "{{kind}}_key:{{key}}",
+        "{{kind}}_name:{{name}}",
+        "action:{{verbKind}}",
+        {{#unless formVariables.hideMemberDetails }}"member:{{member.email}}",{{/unless}}
+        "kind:{{kind}}"
+    ],
+    "source_type_name": "launchdarkly"
+}
+{{/equalWithElse}}

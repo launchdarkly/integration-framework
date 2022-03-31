@@ -18,61 +18,41 @@
   },
   "otherCapabilities": ["external"],
   "capabilities": {
-    "externalReferences": {
-      "header": "JIRA issues",
+    "flagLink": {
+      "header": "Jira issue",
       "emptyState": {
-        "title": "There are no JIRA issues that link to this flag.",
-        "leadText": "JIRA tickets connected to this feature flag will automatically appear here. To connect a ticket to a feature flag [read our documentation](https://docs.launchdarkly.com/integrations/jira)"
+        "title": "No Jira issues link to this flag.",
+        "leadText": "To enable the Jira integration, [read the documentation](https://docs.launchdarkly.com/home/flags/links#creating-jira-flag-links)"
       },
-      "connector": {
-        "metadata": [
-          {
-            "key": "creator",
-            "path": "/creator/name",
-            "name": "Creator",
-            "type": "string"
-          },
-          {
-            "key": "iconUrl",
-            "path": "/issue/iconUrl",
-            "name": "Issue Icon URL",
-            "type": "string"
-          },
-          {
-            "key": "issueKey",
-            "path": "/issue/key",
-            "name": "Issue Key",
-            "type": "string"
-          },
-          {
-            "key": "issueTitle",
-            "path": "/issue/title",
-            "name": "Title",
-            "type": "string"
-          }
-        ]
+      "metadata": {
+        "creator": {
+          "type": "string"
+        },
+        "iconUrl": {
+          "type": "uri"
+        },
+        "issueKey": {
+          "type": "string"
+        },
+        "issueTitle": {
+          "type": "string"
+        }
       },
       "uiBlocks": {
         "image": {
-          "sourceUrl": "{{metadata.iconUrl}}",
+          "sourceUrl": "{{{metadata.iconUrl}}}",
           "isIcon": true
         },
         "title": {
           "linkToReference": true,
           "elements": [
-            { "text": "{{metadata.issueKey}}: {{metadata.issueTitle}}" }
+            { "text": "{{{metadata.issueKey}}}: {{{metadata.issueTitle}}}" }
           ]
         },
         "context": {
           "elements": [
-            { "text": "Created by" },
-            { "text": "{{metadata.creator}}", "isBold": true },
-            { "text": "on" },
-            {
-              "text": "{{timestamp.milliseconds}}",
-              "isTimestamp": true,
-              "isBold": true
-            }
+            { "text": "Issue created by" },
+            { "text": "{{{metadata.creator}}}", "isBold": true }
           ]
         }
       }

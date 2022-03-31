@@ -397,44 +397,24 @@ export type URLTemplate = string;
  * Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store
  */
 export type ProviderFormVariables = FormVariable[];
+export type SuccessPointer = string;
+export type ErrorsPointer = string;
 /**
- * Title to show for all references for this integration
+ * Title to show for all links for this integration
  */
-export type ReferenceGroupHeader = string;
+export type LinkGroupHeader = string;
 /**
  * Title of the message
  */
 export type Title = string;
 /**
- * Text or markup content describing how references can be created for this integration
+ * Text or markup content describing how links can be created for this integration
  */
 export type LeadText = string;
 /**
- * The unique key corresponding to the property to be displayed
+ * Data type for the metadata attribute
  */
-export type Key2 = string;
-/**
- * The display name of the property
- */
-export type Name3 = string;
-/**
- * The data type of the information this metadata block will display
- */
-export type Type1 = "avatar" | "codeSnippet" | "hyperlink" | "string" | "multilineText" | "timestamp";
-/**
- * The JSON path corresponding to where the information can be found in the incoming payload
- */
-export type Path = string;
-/**
- * List of metadata blocks corresponding to information on the LaunchDarkly External References tab
- */
-export type FlagReferencesMetadata = {
-  key?: Key2;
-  name?: Name3;
-  type?: Type1;
-  path?: Path;
-  [k: string]: unknown;
-}[];
+export type Type1 = "string" | "uri";
 /**
  * Url of the image
  */
@@ -450,7 +430,7 @@ export type IsAvatar = boolean;
 /**
  * Template string used to render a visual block in LaunchDarkly UI to display a name
  */
-export type Name4 = string;
+export type Name3 = string;
 /**
  * Text to be displayed for the element. The text can contain template variables
  */
@@ -476,7 +456,7 @@ export type Elements = UIBlockElement[];
  */
 export type LinkToReference = boolean;
 /**
- * Markdown string used to render a visual block in LaunchDarkly UI to display a reference description
+ * Markdown string used to render a visual block in LaunchDarkly UI to display a link description
  */
 export type Description3 = string;
 /**
@@ -593,7 +573,7 @@ export interface Capabilities {
   trigger?: Trigger;
   approval?: Approval;
   featureStore?: FeatureStore;
-  externalReferences?: ExternalFlagReferences;
+  flagLink?: FlagLink;
   [k: string]: unknown;
 }
 /**
@@ -736,20 +716,45 @@ export interface DeletionRequest {
  */
 export interface FeatureStore {
   formVariables: ProviderFormVariables;
+  validationRequest?: ValidationRequest;
+  featureStoreRequest: FeatureStoreRequest;
   [k: string]: unknown;
 }
 /**
- * This capability is used to manage inbound flag reference webhooks
+ * Details needed to make a request to test that the provided form variables are valid
  */
-export interface ExternalFlagReferences {
-  header: ReferenceGroupHeader;
+export interface ValidationRequest {
+  endpoint: Endpoint;
+  parser: FeatureStoreValidationParser;
+  [k: string]: unknown;
+}
+/**
+ * Mapping to success/errors value(s) in a JSON response body
+ */
+export interface FeatureStoreValidationParser {
+  success: SuccessPointer;
+  errors?: ErrorsPointer;
+  [k: string]: unknown;
+}
+/**
+ * Details needed to make a request to deliver the flag payload to the feature store
+ */
+export interface FeatureStoreRequest {
+  endpoint: Endpoint;
+  [k: string]: unknown;
+}
+/**
+ * This capability is used to manage inbound flag links
+ */
+export interface FlagLink {
+  header: LinkGroupHeader;
   emptyState: EmptyState;
-  connector?: ExternalFlagReferencesConnector;
+  metadata?: FlagLinkMetadata;
   uiBlocks: UIBlocks;
   [k: string]: unknown;
 }
 /**
- * Content to display when there are no references to display for this integration
+ * Content to display when there are no links to display for this integration
  */
 export interface EmptyState {
   title?: Title;
@@ -757,21 +762,23 @@ export interface EmptyState {
   [k: string]: unknown;
 }
 /**
- * Receiver configuration for inbound flag reference
+ * Key/value pairs describing attributes for the flag link's payload metadata property. The key is the name of the metadata field and the value is the configuration object for the field.
  */
-export interface ExternalFlagReferencesConnector {
-  metadata?: FlagReferencesMetadata;
-  [k: string]: unknown;
+export interface FlagLinkMetadata {
+  [k: string]: {
+    type: Type1;
+    [k: string]: unknown;
+  };
 }
 /**
- * UI blocks are visual components that represents a section of the view layout for a reference displayed in LaunchDarkly
+ * UI blocks are visual components that represents a section of the view layout for a flag link displayed in LaunchDarkly
  */
 export interface UIBlocks {
   image?: Image;
-  name?: Name4;
+  name?: Name3;
   title?: Title1;
   description?: Description3;
-  context?: ReferenceContext;
+  context?: FlagLinkContext;
   [k: string]: unknown;
 }
 /**
@@ -784,7 +791,7 @@ export interface Image {
   [k: string]: unknown;
 }
 /**
- * Object with visual elements used to display a reference title in LaunchDarkly UI
+ * Object with visual elements used to display a link title in LaunchDarkly UI
  */
 export interface Title1 {
   elements: Elements;
@@ -802,9 +809,9 @@ export interface UIBlockElement {
   [k: string]: unknown;
 }
 /**
- * Object with visual elements used to display context information for a reference in LaunchDarkly UI
+ * Object with visual elements used to display context information for a link in LaunchDarkly UI
  */
-export interface ReferenceContext {
+export interface FlagLinkContext {
   elements: Elements1;
   [k: string]: unknown;
 }

@@ -1,0 +1,29 @@
+{
+  "name": "Dynatrace Cloud Automation",
+  "version": "1.0.0",
+  "overview": "Trigger LaunchDarkly flag changes using Dynatrace Cloud Automation sequence.",
+  "description": "Automatically trigger LaunchDarkly flag change events from your Dynatrace Cloud Automation sequence",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.dynatrace.com/platform/cloud-automation/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/dynatrace-cloud-automation",
+    "privacyPolicy": "https://www.dynatrace.com/company/trust-center/privacy/"
+  },
+  "categories": ["automation", "developer-tools"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "trigger": {
+      "documentation": "https://docs.launchdarkly.com/integrations/dynatrace/triggers#connecting-a-launchdarkly-trigger-to-dynatrace-cloud-automation",
+      "defaultEventName": "An event",
+      "parser": {
+        "eventName": "/eventName",
+        "value": "/value",
+        "url": "/url"
+      }
+    }
+  }
+}
