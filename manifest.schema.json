@@ -661,7 +661,8 @@
                   "project",
                   "environment",
                   "default",
-                  "validation"
+                  "validation",
+                  "member"
                 ]
               },
               "properties": {
@@ -693,6 +694,12 @@
                   "$id": "#/properties/capability/audit-log-events-hook/templates/validation",
                   "title": "validation template",
                   "description": "Template to use when sending test events with the 'validate connection' button",
+                  "type": "string"
+                },
+                "member": {
+                  "$id": "#/properties/capability/audit-log-events-hook/templates/member",
+                  "title": "Member template",
+                  "description": "Template to use for member events",
                   "type": "string"
                 }
               }

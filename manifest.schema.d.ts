@@ -269,6 +269,10 @@ export type DefaultTemplate = string;
  */
 export type ValidationTemplate = string;
 /**
+ * Template to use for member events
+ */
+export type MemberTemplate = string;
+/**
  * LaunchDarkly policy that allows you to filter events sent to your webhook. See https://docs.launchdarkly.com/home/members/role-policies for more information.
  */
 export type DefaultPolicy = [Policy, ...Policy[]];
@@ -595,6 +599,7 @@ export interface WebhookBodyTemplate {
   environment?: EnvironmentTemplate;
   default?: DefaultTemplate;
   validation?: ValidationTemplate;
+  member?: MemberTemplate;
   [k: string]: unknown;
 }
 /**
