@@ -1,0 +1,23 @@
+{
+    "title": {{#if formVariables.hideMemberDetails}}"Member {{member._id}} {{{titleVerb}}} {{{target._id}}}"{{else}}"{{{title.plainText}}}"{{/if}},
+    "text": "%%% \n {{#if formVariables.hideMemberDetails}}Member {{member._id}} {{{titleVerb}}} [{{{target._id}}}]({{{target._links.site.href}}}){{else}}{{{title.markdown}}}{{/if}}{{#if details.markdown}}\n{{{details.markdown}}}{{/if}}{{#if comment}}\n**comment:** {{{comment}}}{{/if}} \n %%%",
+    "date_happened": {{timestamp.seconds}},
+    "tags": [
+        {{#if customProperties}}
+        {{#if customProperties.datadog}}
+        {{#if customProperties.datadog.values}}
+        {{#with customProperties}}
+        {{#each datadog.values}}
+        "{{{this}}}",
+        {{/each}}
+        {{/with}}
+        {{/if}}{{/if}}{{/if}}
+        {{#each tags}}
+        "{{{this}}}",
+        {{/each}}
+        "action:{{verbKind}}",
+        {{#unless formVariables.hideMemberDetails }}"member:{{member.email}}",{{/unless}}
+        "kind:{{kind}}"
+    ],
+    "source_type_name": "launchdarkly"
+}
