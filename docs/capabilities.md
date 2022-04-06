@@ -210,8 +210,6 @@ Alternatively, to produce a sample `curl` command, run `npm run curl $INTEGRATIO
 
 ## Trigger (`trigger`)
 
-**LaunchDarkly's trigger functionality is only available to customers who have opted in to an Early Access Program (EAP). To access to this feature, [join the EAP](https://launchdarkly.com/eap).**
-
 The trigger capability is used to generate a unique webhook URL that your service can request to generate a user-defined flag change in LaunchDarkly. By default, the trigger URL contains a globally unique path parameter to provide security in the form of an [unguessable URL](https://www.schneier.com/blog/archives/2015/07/googles_unguess.html).
 
 The required `documentation` field must be a link to documentation outlining how webhooks should be configured in your service.
