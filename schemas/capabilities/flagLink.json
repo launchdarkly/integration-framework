@@ -13,7 +13,7 @@
       "header": {
         "$id": "#/properties/capability/flag-link/header",
         "title": "Link group header",
-        "description": "Title to show for all links for this integration",
+        "description": "Sentence-cased title to show for all links for this integration",
         "type": "string"
       },
       "emptyState": {
@@ -83,7 +83,7 @@
               "sourceUrl": {
                 "$id": "#/properties/capability/flag-link/ui-blocks/image/source-url",
                 "title": "Source Url",
-                "description": "Url of the image",
+                "description": "Url of the image. Handlebars template notation can be used to reference metadata fields.",
                 "type": "string"
               },
               "isIcon": {

@@ -9,6 +9,7 @@ const schema = require('../manifest.schema.json');
 const flagContext = require('../sample-context/flag/update-all-environments');
 const projectContext = require('../sample-context/project/update');
 const environmentContext = require('../sample-context/environment/update');
+const memberContext = require('../sample-context/member/update');
 
 const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow']; // add oauth integrations here
 
@@ -90,6 +91,7 @@ const getFullContext = (manifest, context, isJSON) => {
     ? jsonEscape(Object.assign({}, context))
     : Object.assign({}, context);
   fullContext.formVariables = endpointContext;
+
   return fullContext;
 };
 
@@ -322,6 +324,11 @@ describe('All integrations', () => {
         'capabilities.auditLogEventsHook.templates.validation',
         null
       );
+      const memberTemplatePath = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.templates.member',
+        null
+      );
       if (flagTemplatePath) {
         const path = `./integrations/${key}/${flagTemplatePath}`;
         expect(existsSync(path)).toBe(true);
@@ -427,12 +434,30 @@ describe('All integrations', () => {
           rendered.trim(),
           `${key} validation template must not render an empty string`
         ).not.toEqual('');
+      }
+      if (memberTemplatePath) {
+        const path = `./integrations/${key}/${memberTemplatePath}`;
+        expect(existsSync(path)).toBe(true);
+        const template = getTemplate(path);
+        const isJSON = isJSONTemplate(memberTemplatePath);
+        const fullContext = getFullContext(manifest, memberContext, isJSON);
+        expect(
+          () => template(fullContext),
+          `${key}: member template must render successfully`
+        ).not.toThrow();
+
+        // member templates must not render an empty string
+        const rendered = template(fullContext);
+        expect(
+          rendered.trim(),
+          `${key} member template must not render an empty string`
+        ).not.toEqual('');
 
         // Validate json templates render to valid json
         if (isJSON) {
           expect(
             () => JSON.parse(rendered),
-            `${key} validation .json templates must render valid JSON\n${rendered}`
+            `${key} member .json templates must render valid JSON\n${rendered}`
           ).not.toThrow();
         }
       }

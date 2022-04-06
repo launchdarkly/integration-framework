@@ -77,6 +77,7 @@
         "type": "application/json"
       }
     },
-    "name": "New metric"
+    "name": "New metric",
+    "_id": "5e38c13206121d8aaf10000c"
   }
 }
