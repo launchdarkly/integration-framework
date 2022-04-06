@@ -404,7 +404,7 @@ export type ProviderFormVariables = FormVariable[];
 export type SuccessPointer = string;
 export type ErrorsPointer = string;
 /**
- * Title to show for all links for this integration
+ * Sentence-cased title to show for all links for this integration
  */
 export type LinkGroupHeader = string;
 /**
@@ -420,7 +420,7 @@ export type LeadText = string;
  */
 export type Type1 = "string" | "uri";
 /**
- * Url of the image
+ * Url of the image. Handlebars template notation can be used to reference metadata fields.
  */
 export type SourceUrl = string;
 /**

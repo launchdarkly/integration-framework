@@ -233,6 +233,97 @@ Here is an example `trigger` capability:
 
 If an integration only has the trigger capability, the word "trigger" will be added to its name in the LaunchDarkly UI. For this reason, do not include the word "trigger" in the manifest name. Review the [generic-trigger manifest](/integrations/generic-trigger/manifest.json) for an example.
 
+## Flag link (`flagLink`)
+
+The [flag link](https://docs.launchdarkly.com/home/flags/links) capability gives LaunchDarkly users the ability to associate feature flags with resources contained in external services, such as Slack messages and Jira issues. This capability is used to apply custom formatting and metadata to flag links that originate from your integration service.
+
+For complete examples, see the [Slack App manifest](/integrations/slack-app/manifest.json) and the [Jira integration manifest](/integrations/jira/manifest.json).
+
+![The flag "links" tab showcasing Jira and Slack links.](./assets/flag%20links.png)
+_The flag "links" tab showcasing Jira and Slack links._
+
+The flag link capability has the following properties:
+
+### `header` (string)
+
+This property specifies the sentence-cased title to show for all flag links for the integration, e.g. "Jira issue", "Slack conversation".
+
+### `metadata` (object)
+
+The `metadata` object specifies the shape of the data the [flag link POST body and API response](<https://apidocs.launchdarkly.com/tag/Flag-links-(beta)#operation/createFlagLink>). Additionally, the metadata can be referenced in the visual representation of the flag link and may be indexed for search purposes. In the integration manifest, the `metadata` object is a mapping of a metadata key to a metadata value object that specifies the format of the metadata item.
+
+For example, the [Jira integration](/integrations/jira/manifest.json) has the following `metadata` object:
+
+```json
+"metadata": {
+  "creator": {
+    "type": "string"
+  },
+  "iconUrl": {
+    "type": "uri"
+  },
+  "issueKey": {
+    "type": "string"
+  },
+  "issueTitle": {
+    "type": "string"
+  }
+},
+
+```
+
+### `uiBlocks` (object)
+
+The `uiBlocks` object specifies the look and feel of the integration's flag links in the LaunchDarkly UI. Any combination of the following properties can be specified:
+
+- `image` - an object specifying the icon or avatar used to represent the link. Handlebars templating can be utilized in the `sourceUrl` field to reference metadata submitted by the integration when the link is created.
+
+- `title` - an object specifying the flag link title. UI block `elements` are used to provide design flexibility.
+
+- `context` - an object specifying additional information about the flag link. UI block `elements` are used to shape the message.
+
+### UI block elements
+
+The `title` and `context` UI blocks take advantage of UI block elements to provide flexible formatting. A UI block element is an object comprised of a required `text` field and may contain one or more of the following properties:
+
+- `isBold` (boolean) - Whether or not the text should be rendered in bold face.
+- `isTimestamp` (boolean) - Whether or not the text should be converted from unix milliseconds to a human-readable format
+- `url` (string) - If provided, the block element will link to the rendered URL.
+
+Both the `text` and `url` properties can include handlebars template variables to reference metadata submitted by the integration when the link is created.
+
+For example, the [Slack App integration](/integrations/slack-app/manifest.json)'s `context` UI block is specified as follows:
+
+```json
+"context": {
+  "elements": [
+    { "text": "Posted in" },
+    { "text": "#{{{metadata.channelName}}}", "isBold": true },
+    { "text": "View message", "url": "{{{deepLink}}}" }
+  ]
+}
+```
+
+This results in flag links context messages in the following format:
+
+> Posted in **#example-channel** [View message](https://example.com)
+
+### `emptyState` (object)
+
+This `emptyState` object species the message used to assist users when there have not been any flag links created for the integration. The `emptyState` object contains two properties:
+
+- `title` - The title heading of the empty state message.
+- `leadText` - Text or markup content detailing how users can create flag links for this integration.
+
+For example, the [Jira integration](/integrations/jira/manifest.json)'s `emptyState` object is as follows:
+
+```json
+"emptyState": {
+  "title": "There are no Jira issues that link to this flag.",
+  "leadText": "Jira issues connected to this feature flag will automatically appear here. To learn how to enable the Jira integration or to connect an issue to a feature flag, [read our documentation](https://docs.launchdarkly.com/home/flags/links#creating-jira-flag-links)"
+},
+```
+
 ## Reserved custom properties (`reservedCustomProperties`)
 
 Custom properties allow you to store data in LaunchDarkly alongside a feature flag. For example, you can use custom properties to indicate flag-level associations with data on your service. If you don't have any flag-level associations or configurations, you don't need to use this capability.
