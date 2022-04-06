@@ -23,7 +23,14 @@
         "description": "Templates to use for body of the webhook request",
         "type": "object",
         "propertyNames": {
-          "enum": ["flag", "project", "environment", "default", "validation"]
+          "enum": [
+            "flag",
+            "project",
+            "environment",
+            "default",
+            "validation",
+            "member"
+          ]
         },
         "properties": {
           "flag": {
@@ -54,6 +61,12 @@
             "$id": "#/properties/capability/audit-log-events-hook/templates/validation",
             "title": "validation template",
             "description": "Template to use when sending test events with the 'validate connection' button",
+            "type": "string"
+          },
+          "member": {
+            "$id": "#/properties/capability/audit-log-events-hook/templates/member",
+            "title": "Member template",
+            "description": "Template to use for member events",
             "type": "string"
           }
         }
