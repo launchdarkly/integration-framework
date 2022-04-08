@@ -661,7 +661,8 @@
                   "project",
                   "environment",
                   "default",
-                  "validation"
+                  "validation",
+                  "member"
                 ]
               },
               "properties": {
@@ -693,6 +694,12 @@
                   "$id": "#/properties/capability/audit-log-events-hook/templates/validation",
                   "title": "validation template",
                   "description": "Template to use when sending test events with the 'validate connection' button",
+                  "type": "string"
+                },
+                "member": {
+                  "$id": "#/properties/capability/audit-log-events-hook/templates/member",
+                  "title": "Member template",
+                  "description": "Template to use for member events",
                   "type": "string"
                 }
               }
@@ -2938,7 +2945,7 @@
             "header": {
               "$id": "#/properties/capability/flag-link/header",
               "title": "Link group header",
-              "description": "Title to show for all links for this integration",
+              "description": "Sentence-cased title to show for all links for this integration",
               "type": "string"
             },
             "emptyState": {
@@ -3030,7 +3037,7 @@
                     "sourceUrl": {
                       "$id": "#/properties/capability/flag-link/ui-blocks/image/source-url",
                       "title": "Source Url",
-                      "description": "Url of the image",
+                      "description": "Url of the image. Handlebars template notation can be used to reference metadata fields.",
                       "type": "string"
                     },
                     "isIcon": {

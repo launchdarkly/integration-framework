@@ -75,6 +75,7 @@
         "default": "templates/default.json.hbs",
         "project": "templates/project.json.hbs",
         "environment": "templates/environment.json.hbs",
+        "member": "templates/member.json.hbs",
         "validation": "templates/default.json.hbs"
       },
       "defaultPolicy": [
