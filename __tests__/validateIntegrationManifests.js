@@ -1,9 +1,9 @@
-const { readdirSync, existsSync, readFileSync } = require('fs');
+const { existsSync, readFileSync } = require('fs');
 const Handlebars = require('handlebars');
 const Ajv = require('ajv');
 const _ = require('lodash');
+const { getManifests } = require('./__utils__');
 
-const { registerHelpers } = require('../helpers');
 const jsonEscape = require('../utils/json-escape');
 const schema = require('../manifest.schema.json');
 const flagContext = require('../sample-context/flag/update-all-environments');
@@ -14,13 +14,6 @@ const memberContext = require('../sample-context/member/update');
 const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow']; // add oauth integrations here
 
 var parse = require('url-parse');
-
-registerHelpers();
-
-const getDirectories = source =>
-  readdirSync(source, { withFileTypes: true })
-    .filter(dir => dir.isDirectory())
-    .map(dir => dir.name);
 
 const getFormVariableContext = formVariables => {
   const endpointContext = {};
@@ -64,15 +57,10 @@ const isJSONTemplate = templateFilename => {
   return lowercase.endsWith('.json') || lowercase.endsWith('.json.hbs');
 };
 
-let manifests = [];
+const manifests = getManifests();
+
 const ajv = new Ajv();
 const validate = ajv.compile(schema);
-
-const integrationDirs = getDirectories('integrations');
-integrationDirs.forEach(dir => {
-  const manifest = require(`../integrations/${dir}/manifest.json`);
-  manifests.push([dir, manifest]);
-});
 
 const getTemplate = path => {
   const templateString = readFileSync(path, { encoding: 'utf-8' });

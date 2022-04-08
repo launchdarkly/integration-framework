@@ -12,11 +12,6 @@
     "preview": "node preview.js",
     "curl": "node preview.js --curl"
   },
-  "jest": {
-    "setupFilesAfterEnv": [
-      "jest-expect-message"
-    ]
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/launchdarkly/integration-framework.git"
