@@ -28,16 +28,23 @@
         },
         "creator": {
           "type": "string"
+        },
+        "avatar": {
+          "type": "string"
         }
       },
       "uiBlocks": {
+        "image": {
+          "sourceUrl": "{{{metadata.avatar}}}",
+          "isAvatar": true
+        },
         "title": {
           "linkToReference": true,
           "elements": [{ "text": "{{{metadata.cardTitle}}}" }]
         },
         "context": {
           "elements": [
-            { "text": "Created by" },
+            { "text": "Linked by" },
             { "text": "{{{metadata.creator}}}", "isBold": true }
           ]
         }
