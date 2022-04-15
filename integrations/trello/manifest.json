@@ -14,5 +14,41 @@
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
-  "otherCapabilities": ["external"]
+  "otherCapabilities": ["external"],
+  "capabilities": {
+    "flagLink": {
+      "header": "Trello card",
+      "emptyState": {
+        "title": "No Trello cards link to this flag.",
+        "leadText": "To enable the Trello integration, [read the documentation](https://docs.launchdarkly.com/home/flags/links#creating-trello-flag-links)"
+      },
+      "metadata": {
+        "cardTitle": {
+          "type": "string"
+        },
+        "creator": {
+          "type": "string"
+        },
+        "avatar": {
+          "type": "string"
+        }
+      },
+      "uiBlocks": {
+        "image": {
+          "sourceUrl": "{{{metadata.avatar}}}",
+          "isAvatar": true
+        },
+        "title": {
+          "linkToReference": true,
+          "elements": [{ "text": "{{{metadata.cardTitle}}}" }]
+        },
+        "context": {
+          "elements": [
+            { "text": "Linked by" },
+            { "text": "{{{metadata.creator}}}", "isBold": true }
+          ]
+        }
+      }
+    }
+  }
 }
