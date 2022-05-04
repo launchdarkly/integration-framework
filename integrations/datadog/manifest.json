@@ -20,7 +20,7 @@
       "key": "apiKey",
       "name": "Datadog API key",
       "type": "string",
-      "description": "Enter your Datadog [API key](https://app.datadoghq.com/account/settings#api).",
+      "description": "Enter your Datadog [API key](https://app.datadoghq.com/organization-settings/api-keys).",
       "isSecret": true
     },
     {
