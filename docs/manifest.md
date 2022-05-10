@@ -58,7 +58,7 @@ Many integrations in LaunchDarkly use API tokens. However, if your API requires 
 * [Client Credentials Flow](https://oauth.net/2/grant-types/client-credentials/)
   (also known as "2-legged OAuth")
 
-With both of these flows, LaunchDarkly acts as the OAuth consumer. In order for this to work, LaunchDarkly needs to store a consumer ID and secret. Contact us at [integrations@launchdarkly.com](mailto:integrations@launchdarkly.com) to register your OAuth consumer details. You'll also need to set the `requiresOAuth` root-level property in your manifest to `true`. At runtime, LaunchDarkly will look up your OAuth consumer ID and secret from our registry based on your integration key. **Setting the `requiresOAuth` property to `true` will not enable OAuth on your integration. You need to provide us with the OAuth consumer details first.**
+With both of these flows, LaunchDarkly acts as the OAuth consumer. In order for this to work, LaunchDarkly needs to store a consumer ID and secret. Contact us at [integrations@launchdarkly.com](mailto:integrations@launchdarkly.com) to register your OAuth consumer details. You'll also need to set the `requiresOAuth` root-level property in your manifest to `true`. At runtime, LaunchDarkly will look up your OAuth consumer ID and secret from our registry using the  `oauthIntegrationKey` value from your app's manifest. **Setting the `requiresOAuth` property to `true` will not enable OAuth on your integration. You need to provide us with the OAuth consumer details first.**
 
 ## Form variables and capabilities
 

@@ -11,7 +11,7 @@ const projectContext = require('../sample-context/project/update');
 const environmentContext = require('../sample-context/environment/update');
 const memberContext = require('../sample-context/member/update');
 
-const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow']; // add oauth integrations here
+const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow', 'servicenow-normal']; // add oauth integrations here
 
 var parse = require('url-parse');
 

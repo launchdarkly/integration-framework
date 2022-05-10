@@ -177,6 +177,10 @@ export type OtherCapabilities = [
  */
 export type RequiresOAuth = boolean;
 /**
+ * Whether the your app should be excluded from the list of integration cards displayed on our integrations page in the web app
+ */
+export type HideOnIntegrationsPage = boolean;
+/**
  * A key will be used as the token name when the variable is substituted
  */
 export type Key = string;
@@ -350,6 +354,10 @@ export type ValuePointer = string;
  */
 export type URLPointer = string;
 /**
+ * Name of the approval system
+ */
+export type ApprovalSystemName = string;
+/**
  * Template string used to render the JSON request body
  */
 export type JSONBody = string;
@@ -467,6 +475,10 @@ export type Description3 = string;
  * An array of elements to be combined to create a context block
  */
 export type Elements1 = UIBlockElement[];
+/**
+ * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
+ */
+export type OAuthIntegrationKey = string;
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -485,8 +497,10 @@ export interface LaunchDarklyIntegrationsManifest {
   legacy?: Legacy;
   otherCapabilities?: OtherCapabilities;
   requiresOAuth?: RequiresOAuth;
+  hideOnIntegrationsPage?: HideOnIntegrationsPage;
   formVariables?: FormVariables;
   capabilities?: Capabilities;
+  oauthIntegrationKey?: OAuthIntegrationKey;
   [k: string]: unknown;
 }
 /**
@@ -637,6 +651,7 @@ export interface TriggerParser {
  * This capability enables integration-driven flag change approvals
  */
 export interface Approval {
+  name?: ApprovalSystemName;
   memberListRequest: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
   flagFormVariables?: FlagFormVariables;
