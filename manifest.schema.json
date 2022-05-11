@@ -985,7 +985,7 @@
               "$id": "#/capabilities/approval/name",
               "title": "Approval System Name",
               "type": "string",
-              "description": "Name of the approval system",
+              "description": "Name of the approval system. Default's to the integration's name if not specified.",
               "minLength": 1,
               "maxLength": 100
             },

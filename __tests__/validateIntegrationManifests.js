@@ -150,18 +150,6 @@ describe('All integrations', () => {
     }
   );
 
-  test.each(manifests)(
-    'oauthIntegrationKey must be set when requiresOAuth is set to true for %s',
-    (key, manifest) => {
-      const requiresOAuth = _.get(manifest, 'requiresOAuth', null);
-      const oauthIntegrationKey = _.get(manifest, 'oauthIntegrationKey', null);
-
-      if (requiresOAuth && !oauthIntegrationKey) {
-        expect(oauthIntegrationKey).toBeTruthy();
-      }
-    }
-  );
-
   test('oauthIntegrationKey must be globally unique across manifests', async () => {
     const allOAuthKeys = manifests
       .map(

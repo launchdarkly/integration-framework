@@ -354,7 +354,7 @@ export type ValuePointer = string;
  */
 export type URLPointer = string;
 /**
- * Name of the approval system
+ * Name of the approval system. Default's to the integration's name if not specified.
  */
 export type ApprovalSystemName = string;
 /**
