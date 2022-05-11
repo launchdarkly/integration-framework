@@ -16,6 +16,7 @@
     "horizontal": "assets/images/appdynamics_horizontal.svg"
   },
   "requiresOAuth": true,
+  "oauthIntegrationKey": "appdynamics",
   "formVariables": [
     {
       "key": "account",

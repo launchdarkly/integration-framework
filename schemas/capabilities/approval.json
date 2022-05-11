@@ -7,6 +7,7 @@
     "type": "object",
     "propertyNames": {
       "enum": [
+        "name",
         "environmentFormVariables",
         "flagFormVariables",
         "creationRequest",
@@ -24,6 +25,14 @@
       "memberListRequest"
     ],
     "properties": {
+      "name": {
+        "$id": "#/capabilities/approval/name",
+        "title": "Approval System Name",
+        "type": "string",
+        "description": "Name of the approval system. Default's to the integration's name if not specified.",
+        "minLength": 1,
+        "maxLength": 100
+      },
       "memberListRequest": {
         "$id": "#/capabilities/approval/member-list-request",
         "title": "Member List Request",

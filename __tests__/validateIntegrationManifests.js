@@ -11,7 +11,8 @@ const projectContext = require('../sample-context/project/update');
 const environmentContext = require('../sample-context/environment/update');
 const memberContext = require('../sample-context/member/update');
 
-const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow']; // add oauth integrations here
+const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow', 'servicenow-normal']; // add oauth integrations here
+const INTEGRATIONS_WITH_DUP_OAUTH_KEYS = ['servicenow', 'servicenow-normal']; // these are integrations we expect to have duplicate oauth integration keys for various reasons
 
 var parse = require('url-parse');
 
@@ -148,6 +149,19 @@ describe('All integrations', () => {
       }
     }
   );
+
+  test('oauthIntegrationKey must be globally unique across manifests', async () => {
+    const allOAuthKeys = manifests
+      .map(
+        ([key, manifest]) =>
+          !INTEGRATIONS_WITH_DUP_OAUTH_KEYS.includes(key) &&
+          _.get(manifest, 'oauthIntegrationKey', null)
+      )
+      .filter(key => !!key);
+
+    const isArrayUnique = arr => new Set(arr).size === arr.length;
+    expect(isArrayUnique(allOAuthKeys)).toBeTruthy();
+  });
 
   test.each(manifests)(
     'includeErrorResponseBody is only true if endpoint domain is static for %s',

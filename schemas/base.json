@@ -20,7 +20,9 @@
       "capabilities",
       "legacy",
       "otherCapabilities",
-      "requiresOAuth"
+      "requiresOAuth",
+      "hideOnIntegrationsPage",
+      "oauthIntegrationKey"
     ]
   },
   "properties": {
@@ -226,6 +228,13 @@
       "description": "Whether the integration authenticates using OAuth",
       "default": false
     },
+    "hideOnIntegrationsPage": {
+      "$id": "#/properties/hide-on-integrations-page",
+      "title": "Hide On Integrations Page",
+      "type": "boolean",
+      "description": "Whether the your app should be excluded from the list of integration cards displayed on our integrations page in the web app",
+      "default": false
+    },
     "formVariables": {
       "$id": "#/properties/form-variables",
       "title": "Form variables",
@@ -271,6 +280,14 @@
           "$ref": "schemas/capabilities/flagLink.json#/flagLink"
         }
       }
+    },
+    "oauthIntegrationKey": {
+      "$id": "#/properties/oauth-integration-key",
+      "title": "OAuth Integration Key",
+      "description": "Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.",
+      "minLength": 3,
+      "maxLength": 100,
+      "type": "string"
     }
   },
   "required": [

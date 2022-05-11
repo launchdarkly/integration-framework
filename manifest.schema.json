@@ -20,7 +20,9 @@
       "capabilities",
       "legacy",
       "otherCapabilities",
-      "requiresOAuth"
+      "requiresOAuth",
+      "hideOnIntegrationsPage",
+      "oauthIntegrationKey"
     ]
   },
   "properties": {
@@ -253,6 +255,13 @@
       "title": "Requires OAuth",
       "type": "boolean",
       "description": "Whether the integration authenticates using OAuth",
+      "default": false
+    },
+    "hideOnIntegrationsPage": {
+      "$id": "#/properties/hide-on-integrations-page",
+      "title": "Hide On Integrations Page",
+      "type": "boolean",
+      "description": "Whether the your app should be excluded from the list of integration cards displayed on our integrations page in the web app",
       "default": false
     },
     "formVariables": {
@@ -954,6 +963,7 @@
           "type": "object",
           "propertyNames": {
             "enum": [
+              "name",
               "environmentFormVariables",
               "flagFormVariables",
               "creationRequest",
@@ -971,6 +981,14 @@
             "memberListRequest"
           ],
           "properties": {
+            "name": {
+              "$id": "#/capabilities/approval/name",
+              "title": "Approval System Name",
+              "type": "string",
+              "description": "Name of the approval system. Default's to the integration's name if not specified.",
+              "minLength": 1,
+              "maxLength": 100
+            },
             "memberListRequest": {
               "$id": "#/capabilities/approval/member-list-request",
               "title": "Member List Request",
@@ -3215,6 +3233,14 @@
           }
         }
       }
+    },
+    "oauthIntegrationKey": {
+      "$id": "#/properties/oauth-integration-key",
+      "title": "OAuth Integration Key",
+      "description": "Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.",
+      "minLength": 3,
+      "maxLength": 100,
+      "type": "string"
     }
   },
   "required": [

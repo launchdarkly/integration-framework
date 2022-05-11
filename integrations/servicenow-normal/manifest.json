@@ -1,5 +1,5 @@
 {
-  "name": "ServiceNow",
+  "name": "ServiceNow-normal",
   "version": "1.0.0",
   "overview": "Create feature flag change requests in ServiceNow.",
   "description": "Efficiently comply with company-wide change management policies by embedding LaunchDarkly approvals into existing ServiceNow workflows.",
@@ -17,36 +17,12 @@
   },
   "requiresOAuth": true,
   "oauthIntegrationKey": "servicenow",
+  "hideOnIntegrationsPage": true,
   "formVariables": [],
   "capabilities": {
     "approval": {
-      "name": "ServiceNow",
+      "name": "ServiceNow (Normal Change Request)",
       "environmentFormVariables": [
-        {
-          "key": "template",
-          "name": "Standard change template",
-          "description": "The standard change template to be utilized for all flag changes in this environment.",
-          "type": "dynamicEnum",
-          "dynamicOptions": {
-            "endpoint": {
-              "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/template",
-              "method": "GET",
-              "headers": [
-                {
-                  "name": "Authorization",
-                  "value": "Bearer {{oauth.accessToken}}"
-                }
-              ]
-            },
-            "parser": {
-              "optionsPath": "/result",
-              "optionsItems": {
-                "label": "/sys_name/display_value",
-                "value": "/sys_id/value"
-              }
-            }
-          }
-        },
         {
           "key": "detail_column",
           "name": "Detailed information column name",
@@ -59,7 +35,7 @@
       ],
       "creationRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{environment.template}}",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/normal",
           "method": "POST",
           "headers": [
             {
@@ -80,7 +56,7 @@
       },
       "statusRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/normal/{{context.approvalId}}",
           "method": "GET",
           "headers": [
             {
@@ -98,7 +74,7 @@
       },
       "postApplyRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}?state=Review",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/normal/{{context.approvalId}}?state=Review",
           "method": "PATCH",
           "headers": [
             {
@@ -116,7 +92,7 @@
       },
       "deletionRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/standard/{{context.approvalId}}?state=Canceled",
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/normal/{{context.approvalId}}?state=Canceled",
           "method": "PATCH",
           "headers": [
             {
