@@ -32,7 +32,7 @@ We use most of this information when we render your integration card and configu
     "site": "https://example.com",
     "privacyPolicy": "https://example.com/privacy"
   },
-  "categories": ["apm", "monitoring", "alerts"],
+  "categories": ["monitoring"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
