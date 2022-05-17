@@ -10,6 +10,16 @@ The easiest way to do this is to use [`curl`](https://curl.se/docs/manpage.html)
 
 If you are looking to integrate with a third-party service that you are not directly associated with, please open a [Feature Request](https://github.com/launchdarkly/integration-framework/issues/new/choose) describing your goal and expectations for the integration before submitting any pull requests.
 
+## Step 0: Requirements
+
+Every integration is required to provide two SVG logo files, one in horizontal and one in square dimensions.
+
+Square SVGs are rendered in a 40x40 container.
+
+Horizontal SVGs are render with a height of 55px while retaining the original aspect ratio of the file.
+
+The usage of these files is further described in Step 3.
+
 ## Step 1: Fork this repository
 
 Fork this repository to your own GitHub account.
