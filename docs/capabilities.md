@@ -2,10 +2,11 @@
 
 Your integration's `capabilities` describe how it interacts with LaunchDarkly.
 
-We support four capabilities:
+We support the following capabilities:
 
 - [Audit log events hook](#audit-log-events-hook-auditlogeventshook) (`auditLogEventsHook`)
 - [Trigger](#trigger-trigger) (`trigger`)
+- [Flag link](#flag-link-flaglink) (`flagLink`)
 - [Reserved custom properties](#reserved-custom-properties-reservedcustomproperties) (`reservedCustomProperties`)
 - [Feature store](#feature-store-featurestore) (`featureStore`)
 
