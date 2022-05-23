@@ -49,16 +49,20 @@ We use your organization's or integration's logo in the LaunchDarkly UI and in t
 
 The `icon.square` and `icon.horizontal` properties point to relative paths. These paths are relative to your integration's directory. You are free to create any directories and files that support your integration.
 
+### Categories
+
+The following values are supported for the `"categories"` attribute: `"analytics"`, `"approval"`, `"authentication"`, `"automation"`, `"code-references"`, `"customer-support"`, `"data"`, `"developer-tools"`, `"infrastructure"`, `"issue-tracking"`, `"log-management"`, `"messaging"`, `"monitoring"`, and `"notifications"`.
+
 ## OAuth
 
 Many integrations in LaunchDarkly use API tokens. However, if your API requires OAuth for authentication, we can support that as well. We support two types of OAuth:
 
-* [Authorization Code Flow](https://oauth.net/2/grant-types/authorization-code/)
+- [Authorization Code Flow](https://oauth.net/2/grant-types/authorization-code/)
   (also known as "3-legged OAuth")
-* [Client Credentials Flow](https://oauth.net/2/grant-types/client-credentials/)
+- [Client Credentials Flow](https://oauth.net/2/grant-types/client-credentials/)
   (also known as "2-legged OAuth")
 
-With both of these flows, LaunchDarkly acts as the OAuth consumer. In order for this to work, LaunchDarkly needs to store a consumer ID and secret. Contact us at [integrations@launchdarkly.com](mailto:integrations@launchdarkly.com) to register your OAuth consumer details. You'll also need to set the `requiresOAuth` root-level property in your manifest to `true`. At runtime, LaunchDarkly will look up your OAuth consumer ID and secret from our registry using the  `oauthIntegrationKey` value from your app's manifest. **Setting the `requiresOAuth` property to `true` will not enable OAuth on your integration. You need to provide us with the OAuth consumer details first.**
+With both of these flows, LaunchDarkly acts as the OAuth consumer. In order for this to work, LaunchDarkly needs to store a consumer ID and secret. Contact us at [integrations@launchdarkly.com](mailto:integrations@launchdarkly.com) to register your OAuth consumer details. You'll also need to set the `requiresOAuth` root-level property in your manifest to `true`. At runtime, LaunchDarkly will look up your OAuth consumer ID and secret from our registry using the `oauthIntegrationKey` value from your app's manifest. **Setting the `requiresOAuth` property to `true` will not enable OAuth on your integration. You need to provide us with the OAuth consumer details first.**
 
 ## Form variables and capabilities
 
