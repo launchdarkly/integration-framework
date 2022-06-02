@@ -2,7 +2,7 @@
   "name": "Sample Integration",
   "version": "1.0.0",
   "overview": "Short one-liner describing your integration.",
-  "description": "Send flag data to space. Markdown based description.",
+  "description": "Send flag data to space. This field supports Markdown.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -35,7 +35,7 @@
     {
       "key": "URL",
       "name": "URL",
-      "description": "This field will be validated as a URL",
+      "description": "This field is a valid URL",
       "type": "uri",
       "isSecret": false,
       "isOptional": true,
