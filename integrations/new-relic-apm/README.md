@@ -4,7 +4,7 @@
 
 User documentation for this integration is available on the LaunchDarkly documentation site: [New Relic One](https://docs.launchdarkly.com/integrations/new-relic).
 
-API documentation for this integration is available on the LaunchDarkly API documentation site: [New Relic One](https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/record-monitor-deployments)
+API documentation for this integration is available on the New Relic API documentation site: [New Relic One](https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/record-monitor-deployments).
 
 ## Getting started with the New Relic One integration
 
