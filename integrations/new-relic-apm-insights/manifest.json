@@ -1,0 +1,74 @@
+{
+  "name": "New Relic One Insights",
+  "version": "1.1.0",
+  "overview": "Monitor LaunchDarkly flag events in New Relic One as Insight events.",
+  "description": "This integration sends LaunchDarkly audit events to New Relic One as [insight events](https://docs.newrelic.com/docs/data-apis/ingest-apis/event-api/introduction-event-api).",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://newrelic.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/new-relic",
+    "privacyPolicy": "https://newrelic.com/termsandconditions/privacy"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/images/new-relic-square.svg",
+    "horizontal": "assets/images/new-relic-horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "licenseKey",
+      "name": "New Relic License API key",
+      "description": "Enter your [New Relic License API key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#overview-keys).",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "accountId",
+      "name": "New Relic account Id",
+      "description": "Enter your [New Relic account ID](https://docs.newrelic.com/docs/accounts/accounts-billing/account-structure/account-id/).",
+      "type": "string"
+    },
+    {
+      "key": "domain",
+      "name": "Data Center",
+      "description": "Your New Relic data center. The default(US) is \"insights-collector.newrelic.com\". Use \"insights-collector.eu01.nr-data.net\" if you are using the EU data center.",
+      "type": "enum",
+      "allowedValues": [
+        "insights-collector.newrelic.com",
+        "insights-collector.eu01.nr-data.net"
+      ],
+      "isOptional": true,
+      "defaultValue": "insights-collector.newrelic.com"
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "https://{{#if domain}}{{domain}}{{else}}insights-collector.newrelic.com{{/if}}/v1/accounts/{{accountId}}/events",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Api-Key",
+            "value": "{{licenseKey}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/flag.json.hbs",
+        "validation": "templates/flag.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}
