@@ -1,0 +1,59 @@
+{
+  "name": "Generic Feature Store",
+  "version": "1.0.0",
+  "overview": "Send feature store data to an endpoint - used for testing.",
+  "description": "Send feature store data to an endpoint - used for testing.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://docs.launchdarkly.com",
+    "privacyPolicy": "https://docs.launchdarkly.com"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "featureStore": {
+      "formVariables": [
+        {
+          "key": "validationReqUrl",
+          "name": "Validation request url",
+          "description": "A URL for validation",
+          "type": "uri",
+          "isSecret": false
+        },
+        {
+          "key": "featureStoreReqUrl",
+          "name": "Feature store request url",
+          "description": "A URL for feature store data",
+          "type": "uri",
+          "isSecret": false
+        }
+      ],
+      "validationRequest": {
+        "endpoint": {
+          "url": "{{validationReqUrl}}",
+          "method": "GET",
+          "headers": []
+        },
+        "parser": {
+          "success": "/success"
+        }
+      },
+      "featureStoreRequest": {
+        "endpoint": {
+          "url": "{{featureStoreReqUrl}}?_featureStoreKey={{_featureStoreKey}}",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "text/plain"
+            }
+          ]
+        }
+      }
+    }
+  }
+}

@@ -66,7 +66,7 @@
             }
           ]
         },
-        "jsonBody": "{\"short_description\": \"{{{title.plainText}}}\", \"{{#if environmentFormVariables.detail_column}}{{environmentFormVariables.detail_column}}{{else}}justification{{/if}}\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"requested_by\": \"{{{member.externalId}}}\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{timestamp.simple}}\"}",
+        "jsonBody": "{\"short_description\": \"{{{title.plainText}}}\", \"{{#if environmentFormVariables.detail_column}}{{environmentFormVariables.detail_column}}{{else}}justification{{/if}}\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"requested_by\": \"{{{member.externalId}}}\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{formatWithOffset timestamp.milliseconds 301 'simple'}}\"}",
         "parser": {
           "approvalId": "/result/sys_id/value",
           "statusValue": "/result/state/value",

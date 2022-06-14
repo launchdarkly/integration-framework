@@ -1,25 +1,19 @@
-const { readdirSync, existsSync, readFileSync } = require('fs');
+const { existsSync, readFileSync } = require('fs');
 const Handlebars = require('handlebars');
 const Ajv = require('ajv');
 const _ = require('lodash');
+const { getManifests } = require('./__utils__');
 
-const { registerHelpers } = require('../helpers');
 const jsonEscape = require('../utils/json-escape');
 const schema = require('../manifest.schema.json');
 const flagContext = require('../sample-context/flag/update-all-environments');
 const projectContext = require('../sample-context/project/update');
 const environmentContext = require('../sample-context/environment/update');
+const memberContext = require('../sample-context/member/update');
 
 const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow']; // add oauth integrations here
 
 var parse = require('url-parse');
-
-registerHelpers();
-
-const getDirectories = source =>
-  readdirSync(source, { withFileTypes: true })
-    .filter(dir => dir.isDirectory())
-    .map(dir => dir.name);
 
 const getFormVariableContext = formVariables => {
   const endpointContext = {};
@@ -63,15 +57,10 @@ const isJSONTemplate = templateFilename => {
   return lowercase.endsWith('.json') || lowercase.endsWith('.json.hbs');
 };
 
-let manifests = [];
+const manifests = getManifests();
+
 const ajv = new Ajv();
 const validate = ajv.compile(schema);
-
-const integrationDirs = getDirectories('integrations');
-integrationDirs.forEach(dir => {
-  const manifest = require(`../integrations/${dir}/manifest.json`);
-  manifests.push([dir, manifest]);
-});
 
 const getTemplate = path => {
   const templateString = readFileSync(path, { encoding: 'utf-8' });
@@ -90,6 +79,7 @@ const getFullContext = (manifest, context, isJSON) => {
     ? jsonEscape(Object.assign({}, context))
     : Object.assign({}, context);
   fullContext.formVariables = endpointContext;
+
   return fullContext;
 };
 
@@ -322,6 +312,11 @@ describe('All integrations', () => {
         'capabilities.auditLogEventsHook.templates.validation',
         null
       );
+      const memberTemplatePath = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.templates.member',
+        null
+      );
       if (flagTemplatePath) {
         const path = `./integrations/${key}/${flagTemplatePath}`;
         expect(existsSync(path)).toBe(true);
@@ -427,12 +422,30 @@ describe('All integrations', () => {
           rendered.trim(),
           `${key} validation template must not render an empty string`
         ).not.toEqual('');
+      }
+      if (memberTemplatePath) {
+        const path = `./integrations/${key}/${memberTemplatePath}`;
+        expect(existsSync(path)).toBe(true);
+        const template = getTemplate(path);
+        const isJSON = isJSONTemplate(memberTemplatePath);
+        const fullContext = getFullContext(manifest, memberContext, isJSON);
+        expect(
+          () => template(fullContext),
+          `${key}: member template must render successfully`
+        ).not.toThrow();
+
+        // member templates must not render an empty string
+        const rendered = template(fullContext);
+        expect(
+          rendered.trim(),
+          `${key} member template must not render an empty string`
+        ).not.toEqual('');
 
         // Validate json templates render to valid json
         if (isJSON) {
           expect(
             () => JSON.parse(rendered),
-            `${key} validation .json templates must render valid JSON\n${rendered}`
+            `${key} member .json templates must render valid JSON\n${rendered}`
           ).not.toThrow();
         }
       }

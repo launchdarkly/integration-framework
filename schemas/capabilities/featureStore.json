@@ -6,9 +6,9 @@
     "description": "This capability allows LaunchDarkly to write feature flag data to a given provider",
     "type": "object",
     "propertyNames": {
-      "enum": ["formVariables"]
+      "enum": ["formVariables", "validationRequest", "featureStoreRequest"]
     },
-    "required": ["formVariables"],
+    "required": ["formVariables", "featureStoreRequest"],
     "properties": {
       "formVariables": {
         "$id": "#/capabilities/feature-store/form-variables",
@@ -19,6 +19,39 @@
           "$ref": "../definitions.json#/formVariable"
         },
         "default": []
+      },
+      "validationRequest": {
+        "$id": "#/capabilities/feature-store/validation-request",
+        "title": "Validation request",
+        "description": "Details needed to make a request to test that the provided form variables are valid",
+        "type": "object",
+        "propertyNames": {
+          "enum": ["endpoint", "parser"]
+        },
+        "required": ["endpoint", "parser"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
+          },
+          "parser": {
+            "$ref": "./parser/parser.json#/featureStoreValidationParser"
+          }
+        }
+      },
+      "featureStoreRequest": {
+        "$id": "#/capabilities/feature-store/feature-store-request",
+        "title": "Feature store request",
+        "description": "Details needed to make a request to deliver the flag payload to the feature store",
+        "type": "object",
+        "propertyNames": {
+          "enum": ["endpoint"]
+        },
+        "required": ["endpoint"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
+          }
+        }
       }
     }
   }

@@ -1,0 +1,90 @@
+{
+  "_links": {
+    "canonical": {
+      "href": "http://localhost/api/v2/members/6241dc4740fba70b235672b5",
+      "type": "application/json"
+    },
+    "details": {
+      "href": "http://localhost/settings/history/62445f5140fba7f67892484a/details",
+      "type": "text/html"
+    },
+    "parent": {
+      "href": "http://localhost/api/v2/auditlog",
+      "type": "application/json"
+    },
+    "self": {
+      "href": "http://localhost/api/v2/auditlog/62445f5140fba7f67892484a",
+      "type": "application/json"
+    },
+    "site": {
+      "href": "http://localhost/settings/members/6241dc4740fba70b235672b5/permissions",
+      "type": "text/html"
+    }
+  },
+  "baseURL": "http://localhost",
+  "_id": "62445f5140fba7f67892484a",
+  "_accountId": "569f514156e003339cfd3917",
+  "timestamp": {
+    "milliseconds": 1648648017342,
+    "seconds": 1648648017,
+    "rfc3339": "2022-03-30T13:46:57Z",
+    "simple": "2022-03-30 13:46:57"
+  },
+  "kind": "member",
+  "name": "ffeldberg+testtest@launchdarkly.com",
+  "details": {
+    "plainText": "Changed the role from 'writer' to 'reader'",
+    "markdown": "* Changed the role from ~~`writer`~~ to `reader`\n",
+    "html": "\u003cul\u003e\u003cli\u003eChanged the role from \u003cstrike\u003e\u003ccode\u003ewriter\u003c/code\u003e\u003c/strike\u003e to \u003ccode\u003ereader\u003c/code\u003e\u003c/li\u003e\u003c/ul\u003e"
+  },
+  "project": {
+    "name": "",
+    "key": "",
+    "tags": null,
+    "environment": {
+      "name": "",
+      "key": "",
+      "tags": null
+    }
+  },
+  "tags": null,
+  "member": {
+    "_links": {
+      "parent": {
+        "href": "http://localhost/api/v2/members",
+        "type": "application/json"
+      },
+      "self": {
+        "href": "http://localhost/api/v2/members/569f514183f2164430000002",
+        "type": "application/json"
+      }
+    },
+    "_id": "569f514183f2164430000002",
+    "email": "testing@launchdarkly.com",
+    "emailLocalPart": "testing",
+    "firstName": "",
+    "lastName": "",
+    "displayName": "testing@launchdarkly.com"
+  },
+  "titleVerb": "updated the member",
+  "verbKind": "updateRole",
+  "title": {
+    "plainText": "testing@launchdarkly.com updated the member ffeldberg+testtest@launchdarkly.com",
+    "markdown": "[testing@launchdarkly.com](mailto:testing@launchdarkly.com) updated the member [ffeldberg+testtest@launchdarkly.com](http://localhost/settings/members/6241dc4740fba70b235672b5/permissions)",
+    "html": "\u003ca href=\"mailto:testing@launchdarkly.com\"\u003etesting@launchdarkly.com\u003c/a\u003e updated the member \u003ca href=\"http://localhost/settings/members/6241dc4740fba70b235672b5/permissions\"\u003effeldberg+testtest@launchdarkly.com\u003c/a\u003e"
+  },
+  "target": {
+    "_links": {
+      "canonical": {
+        "href": "http://localhost/api/v2/members/6241dc4740fba70b235672b5",
+        "type": "application/json"
+      },
+      "site": {
+        "href": "http://localhost/settings/members/6241dc4740fba70b235672b5/permissions",
+        "type": "text/html"
+      }
+    },
+    "name": "ffeldberg+testtest@launchdarkly.com",
+    "_id": "6241dc4740fba70b235672b5"
+  }
+}

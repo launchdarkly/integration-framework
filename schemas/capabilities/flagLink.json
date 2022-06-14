@@ -1,0 +1,170 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "flagLink": {
+    "$id": "#/properties/capability/flag-link",
+    "title": "flagLink",
+    "description": "This capability is used to manage inbound flag links",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["uiBlocks", "emptyState", "header", "metadata"]
+    },
+    "required": ["uiBlocks", "header", "emptyState"],
+    "properties": {
+      "header": {
+        "$id": "#/properties/capability/flag-link/header",
+        "title": "Link group header",
+        "description": "Sentence-cased title to show for all links for this integration",
+        "type": "string"
+      },
+      "emptyState": {
+        "$id": "#/properties/capability/flag-link/empty-state",
+        "title": "Empty state",
+        "description": "Content to display when there are no links to display for this integration",
+        "type": "object",
+        "propertyNames": {
+          "enum": ["title", "leadText"]
+        },
+        "properties": {
+          "title": {
+            "$id": "#/properties/capability/flag-link/empty-state/title",
+            "title": "Title",
+            "type": "string",
+            "description": "Title of the message"
+          },
+          "leadText": {
+            "$id": "#/properties/capability/flag-link/empty-state/lead-text",
+            "title": "Lead text",
+            "type": "string",
+            "description": "Text or markup content describing how links can be created for this integration"
+          }
+        }
+      },
+      "metadata": {
+        "$id": "#/properties/capability/flag-link/metadata",
+        "title": "FlagLink Metadata",
+        "description": "Key/value pairs describing attributes for the flag link's payload metadata property. The key is the name of the metadata field and the value is the configuration object for the field.",
+        "type": "object",
+        "additionalProperties": {
+          "type": "object",
+          "propertyNames": {
+            "enum": ["type"]
+          },
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "$id": "#/properties/capability/flag-link/metadata/type",
+              "title": "Type",
+              "type": "string",
+              "description": "Data type for the metadata attribute",
+              "enum": ["string", "uri"]
+            }
+          }
+        }
+      },
+      "uiBlocks": {
+        "$id": "#/properties/capability/flag-link/ui-blocks",
+        "title": "UI Blocks",
+        "description": "UI blocks are visual components that represents a section of the view layout for a flag link displayed in LaunchDarkly",
+        "type": "object",
+        "propertyNames": {
+          "enum": ["image", "name", "title", "context", "description"]
+        },
+        "properties": {
+          "image": {
+            "$id": "#/properties/capability/flag-link/ui-blocks/image",
+            "title": "Image",
+            "type": "object",
+            "description": "A visual block used to render an image in LaunchDarkly UI",
+            "propertyNames": {
+              "enum": ["sourceUrl", "isIcon", "isAvatar"]
+            },
+            "required": ["sourceUrl"],
+            "properties": {
+              "sourceUrl": {
+                "$id": "#/properties/capability/flag-link/ui-blocks/image/source-url",
+                "title": "Source Url",
+                "description": "Url of the image. Handlebars template notation can be used to reference metadata fields.",
+                "type": "string"
+              },
+              "isIcon": {
+                "$id": "#/properties/capability/flag-link/ui-blocks/image/is-icon",
+                "title": "Is icon",
+                "description": "Indicates whether the image should be rendered as an icon",
+                "type": "boolean"
+              },
+              "isAvatar": {
+                "$id": "#/properties/capability/flag-link/ui-blocks/image/is-avatar",
+                "title": "Is avatar",
+                "description": "Indicates whether the image should be rendered as an avatar",
+                "type": "boolean"
+              }
+            }
+          },
+          "name": {
+            "$id": "#/properties/capability/flag-link/ui-blocks/name",
+            "title": "Name",
+            "type": "string",
+            "description": "Template string used to render a visual block in LaunchDarkly UI to display a name"
+          },
+          "title": {
+            "$id": "#/properties/capability/flag-link/ui-blocks/title",
+            "title": "Title",
+            "type": "object",
+            "description": "Object with visual elements used to display a link title in LaunchDarkly UI",
+            "propertyNames": {
+              "enum": ["elements", "linkToReference"]
+            },
+            "required": ["elements"],
+            "properties": {
+              "elements": {
+                "$id": "#/properties/capability/flag-link/ui-blocks/title/elements",
+                "title": "Elements",
+                "description": "An array of elements to be combined to create a title block",
+                "type": "array",
+                "items": {
+                  "$ref": "../definitions.json#/uiBlockElement"
+                },
+                "minLength": 1
+              },
+              "linkToReference": {
+                "$id": "#/properties/capability/flag-link/ui-blocks/title/link-to-reference",
+                "title": "Link to reference",
+                "description": "Indicates whether the title should be displayed as a hyperlink in LaunchDarkly UI",
+                "type": "boolean",
+                "default": false
+              }
+            }
+          },
+          "description": {
+            "$id": "#/properties/capability/flag-link/ui-blocks/description",
+            "title": "Description",
+            "type": "string",
+            "description": "Markdown string used to render a visual block in LaunchDarkly UI to display a link description"
+          },
+          "context": {
+            "$id": "#/properties/capability/flag-link/ui-blocks/link-context",
+            "title": "Flag Link Context",
+            "type": "object",
+            "description": "Object with visual elements used to display context information for a link in LaunchDarkly UI",
+            "propertyNames": {
+              "enum": ["elements"]
+            },
+            "required": ["elements"],
+            "properties": {
+              "elements": {
+                "$id": "#/properties/capability/flag-link/ui-blocks/context/elements",
+                "description": "An array of elements to be combined to create a context block",
+                "title": "Elements",
+                "type": "array",
+                "items": {
+                  "$ref": "../definitions.json#/uiBlockElement"
+                },
+                "minLength": 1
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

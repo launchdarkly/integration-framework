@@ -1,6 +1,6 @@
 {
-    "title": "{{{title.plainText}}}",
-    "text": "%%% \n {{{title.markdown}}}{{#if details.markdown}}\n{{{details.markdown}}}{{/if}}{{#if comment}}\n**comment:** {{{comment}}}{{/if}} \n %%%",
+    "title": {{#if formVariables.hideMemberDetails}}"A member {{{titleVerb}}} {{{target.name}}}"{{else}}"{{{title.plainText}}}"{{/if}},
+    "text": "%%% \n {{#if formVariables.hideMemberDetails}}A member {{{titleVerb}}} [{{{target.name}}}]({{{target._links.site.href}}}){{else}}{{{title.markdown}}}{{/if}}{{#if details.markdown}}\n{{{details.markdown}}}{{/if}}{{#if comment}}\n**comment:** {{{comment}}}{{/if}} \n %%%",
     "date_happened": {{timestamp.seconds}},
     "tags": [
         {{#if customProperties}}
@@ -18,8 +18,9 @@
         "project_key:{{project.key}}",
         "project_name:{{project.name}}",
         "action:{{verbKind}}",
-        "kind:{{kind}}",
-        "member:{{member.email}}"
+        {{#unless formVariables.hideMemberDetails }}"member:{{member.email}}",{{/unless}}
+        "kind:{{kind}}"
+
     ],
     "source_type_name": "launchdarkly"
 }
