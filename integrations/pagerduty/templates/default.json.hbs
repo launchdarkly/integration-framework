@@ -4,7 +4,16 @@
     "summary" : "{{{title.plainText}}}",
     "timestamp": "{{{timestamp.simple}}}",
     "custom_details":{
-      "comments": "{{{details.plainText}}}"
+      "details": "{{{details.plainText}}}",
+      "comment": "{{{comment}}}"
     }
-  }
+  },
+  "links": [
+    {
+      "href": "{{{_links.details.href}}}", "text": "View audit log entry in LaunchDarkly"
+    },
+    {
+      "href": "{{{_links.site.href}}}", "text": "View resource in LaunchDarkly"
+    }
+  ]
 }
