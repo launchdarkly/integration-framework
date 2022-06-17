@@ -10,7 +10,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com",
     "privacyPolicy": "https://www.hashicorp.com/privacy"
   },
-  "categories": ["monitoring"],
+  "categories": ["automation", "infrastructure"],
   "icons": {
     "square": "assets/images/terraform_square.svg",
     "horizontal": "assets/images/terraform_horizontal.svg"
@@ -20,7 +20,7 @@
       "key": "hostName",
       "name": "Terraform Enterprise Host Name",
       "type": "string",
-      "description": "Enter your Terraform Enterprise host name in the format https://<hostName>.",
+      "description": "Enter your Terraform Enterprise host name in the format https://HOST_URL.",
       "isOptional": true,
       "defaultValue": "https://app.terraform.io"
     },
