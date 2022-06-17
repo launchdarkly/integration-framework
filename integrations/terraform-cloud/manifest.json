@@ -1,0 +1,72 @@
+{
+  "name": "Terraform Cloud (Enterprise)",
+  "version": "1.0.0",
+  "overview": "Trigger Terraform runs when resources changes in LaunchDarkly.",
+  "description": "Send resource change events directly to Terraform Cloud's Runs API to trigger runs in Terraform Cloud (Enterprise).",
+  "author": "LaunchDarkly Labs",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://cloud.hashicorp.com/products/terraform",
+    "launchdarklyDocs": "https://docs.launchdarkly.com",
+    "privacyPolicy": "https://www.hashicorp.com/privacy"
+  },
+  "categories": ["automation", "infrastructure"],
+  "icons": {
+    "square": "assets/images/terraform_square.svg",
+    "horizontal": "assets/images/terraform_horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "hostName",
+      "name": "Terraform Enterprise Host Name",
+      "type": "string",
+      "description": "Enter your Terraform Enterprise host name in the format https://HOST_URL.",
+      "isOptional": true,
+      "defaultValue": "https://app.terraform.io"
+    },
+    {
+      "key": "token",
+      "name": "Terraform User / Team Token",
+      "type": "string",
+      "description": "Enter your Terraform Enterprise [user token or team token](https://www.terraform.io/cloud-docs/users-teams-organizations/users#creating-a-token).",
+      "isSecret": true,
+      "isOptional": false
+    },
+    {
+      "key": "workspaceId",
+      "name": "Workspace ID",
+      "type": "string",
+      "description": "Enter the ID of the Terraform workspace you want runs to trigger for based on the policy below.",
+      "isSecret": false,
+      "isOptional": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{hostName}}/api/v2/runs",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/vnd.api+json"
+          },
+          {
+            "name": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/default.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "deny",
+          "resources": ["proj/*:env/*:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}
