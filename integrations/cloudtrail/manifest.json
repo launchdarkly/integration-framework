@@ -49,7 +49,7 @@
       ],
       "endpoint": {
         "method": "POST",
-        "url": "",
+        "url": "https://www.example.com",
         "headers": [
           {
             "name": "Content-Type",
@@ -58,7 +58,7 @@
         ]
       },
       "templates": {
-        "default": ""
+        "default": "templates/default.json.hbs"
       }
     }
   }
