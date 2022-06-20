@@ -1,0 +1,65 @@
+{
+  "name": "AWS CloudTrail",
+  "version": "1.0.0",
+  "overview": "Export LaunchDarkly audit events.",
+  "description": "Export LaunchDarkly audit events to AWS CloudTrail via Open Audit Events.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://aws.amazon.com/cloudtrail/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/more",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["monitoring", "analytics"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "formVariables": [
+    {
+      "key": "accountId",
+      "name": "AWS account ID",
+      "description": "Enter your [AWS account ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html#FindingYourAWSId). The associated account must be configured to use CloudTrail Lake.",
+      "type": "string",
+      "placeholder": "123456"
+    },
+    {
+      "key": "iamRoleArn",
+      "name": "Ingest IAM Role ARN",
+      "description": "Enter the ARN of the IAM Role for LaunchDarkly to assume to post to your AWS CloudTrail destination.",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "ingestionChannelArn",
+      "name": "CloudTrail Ingestion Channel ARN",
+      "description": "Enter the ARN of the CloudTrail Ingestion Channel for LaunchDarkly to use.",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["*"],
+          "actions": ["*"]
+        }
+      ],
+      "endpoint": {
+        "method": "POST",
+        "url": "",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "default": ""
+      }
+    }
+  }
+}
