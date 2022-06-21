@@ -285,7 +285,8 @@
             "isOptional",
             "defaultValue",
             "allowedValues",
-            "dynamicOptions"
+            "dynamicOptions",
+            "dependsOn"
           ]
         },
         "properties": {
@@ -519,6 +520,103 @@
                         "title": "Value",
                         "description": "Relative JSON path to values for each item in the options array to be used as dropdown values",
                         "type": "string"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "dependsOn": {
+            "$id": "#/definitions/form-variable/depends-on",
+            "title": "Depends on",
+            "type": "array",
+            "description": "Dependency configuration to control the state and visibility of the form field.",
+            "items": {
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "event",
+                  "fieldKey",
+                  "conditions",
+                  "action"
+                ]
+              },
+              "required": [
+                "event",
+                "fieldKey",
+                "conditions",
+                "action"
+              ],
+              "properties": {
+                "event": {
+                  "$id": "#/definitions/form-variable/depends-on/trigger",
+                  "title": "Event",
+                  "type": "string",
+                  "description": "Event that triggers when the dependencies for the form fields should be evaluated.",
+                  "enum": [
+                    "onFormInit",
+                    "onFormChanged"
+                  ]
+                },
+                "fieldKey": {
+                  "$id": "#/definitions/form-variable/depends-on/field-key",
+                  "title": "Field key",
+                  "type": "string",
+                  "description": "Key for the dependee form field",
+                  "maxLength": 20,
+                  "pattern": "^[^\\s]*$"
+                },
+                "action": {
+                  "$id": "#/definitions/form-variable/depends-on/action",
+                  "title": "Action",
+                  "type": "string",
+                  "enum": [
+                    "hideField"
+                  ],
+                  "description": "Action to be taken when your defined conditions evaluates to true"
+                },
+                "conditions": {
+                  "$id": "#/definitions/form-variable/depends-on/conditions",
+                  "title": "Conditions",
+                  "type": "array",
+                  "description": "Conditional configurations to be evaluated to decide whether an action should taken for the form field.",
+                  "items": {
+                    "type": "object",
+                    "propertyNames": {
+                      "enum": [
+                        "operator",
+                        "value"
+                      ]
+                    },
+                    "required": [
+                      "operator",
+                      "value"
+                    ],
+                    "properties": {
+                      "operator": {
+                        "$id": "#/definitions/form-variable/depends-on/conditions/operator",
+                        "title": "Operator",
+                        "type": "string",
+                        "description": "Name of the operator for evaluating a condition.",
+                        "enum": [
+                          "lessThan",
+                          "lessThanOrEqualTo",
+                          "greaterThan",
+                          "greaterThanOrEqualTo",
+                          "equalTo",
+                          "notEqual",
+                          "contains",
+                          "startsWith",
+                          "endsWith"
+                        ]
+                      },
+                      "value": {
+                        "$id": "#/definitions/form-variable/depends-on/conditions/value",
+                        "title": "Value",
+                        "type": "string",
+                        "maxLength": 250,
+                        "description": "Target value that conditions are evaluated against"
                       }
                     }
                   }
@@ -1179,7 +1277,8 @@
                     "isOptional",
                     "defaultValue",
                     "allowedValues",
-                    "dynamicOptions"
+                    "dynamicOptions",
+                    "dependsOn"
                   ]
                 },
                 "properties": {
@@ -1419,6 +1518,103 @@
                         }
                       }
                     }
+                  },
+                  "dependsOn": {
+                    "$id": "#/definitions/form-variable/depends-on",
+                    "title": "Depends on",
+                    "type": "array",
+                    "description": "Dependency configuration to control the state and visibility of the form field.",
+                    "items": {
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "event",
+                          "fieldKey",
+                          "conditions",
+                          "action"
+                        ]
+                      },
+                      "required": [
+                        "event",
+                        "fieldKey",
+                        "conditions",
+                        "action"
+                      ],
+                      "properties": {
+                        "event": {
+                          "$id": "#/definitions/form-variable/depends-on/trigger",
+                          "title": "Event",
+                          "type": "string",
+                          "description": "Event that triggers when the dependencies for the form fields should be evaluated.",
+                          "enum": [
+                            "onFormInit",
+                            "onFormChanged"
+                          ]
+                        },
+                        "fieldKey": {
+                          "$id": "#/definitions/form-variable/depends-on/field-key",
+                          "title": "Field key",
+                          "type": "string",
+                          "description": "Key for the dependee form field",
+                          "maxLength": 20,
+                          "pattern": "^[^\\s]*$"
+                        },
+                        "action": {
+                          "$id": "#/definitions/form-variable/depends-on/action",
+                          "title": "Action",
+                          "type": "string",
+                          "enum": [
+                            "hideField"
+                          ],
+                          "description": "Action to be taken when your defined conditions evaluates to true"
+                        },
+                        "conditions": {
+                          "$id": "#/definitions/form-variable/depends-on/conditions",
+                          "title": "Conditions",
+                          "type": "array",
+                          "description": "Conditional configurations to be evaluated to decide whether an action should taken for the form field.",
+                          "items": {
+                            "type": "object",
+                            "propertyNames": {
+                              "enum": [
+                                "operator",
+                                "value"
+                              ]
+                            },
+                            "required": [
+                              "operator",
+                              "value"
+                            ],
+                            "properties": {
+                              "operator": {
+                                "$id": "#/definitions/form-variable/depends-on/conditions/operator",
+                                "title": "Operator",
+                                "type": "string",
+                                "description": "Name of the operator for evaluating a condition.",
+                                "enum": [
+                                  "lessThan",
+                                  "lessThanOrEqualTo",
+                                  "greaterThan",
+                                  "greaterThanOrEqualTo",
+                                  "equalTo",
+                                  "notEqual",
+                                  "contains",
+                                  "startsWith",
+                                  "endsWith"
+                                ]
+                              },
+                              "value": {
+                                "$id": "#/definitions/form-variable/depends-on/conditions/value",
+                                "title": "Value",
+                                "type": "string",
+                                "maxLength": 250,
+                                "description": "Target value that conditions are evaluated against"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
                   }
                 },
                 "required": [
@@ -1451,7 +1647,8 @@
                     "isOptional",
                     "defaultValue",
                     "allowedValues",
-                    "dynamicOptions"
+                    "dynamicOptions",
+                    "dependsOn"
                   ]
                 },
                 "properties": {
@@ -1685,6 +1882,103 @@
                                 "title": "Value",
                                 "description": "Relative JSON path to values for each item in the options array to be used as dropdown values",
                                 "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "dependsOn": {
+                    "$id": "#/definitions/form-variable/depends-on",
+                    "title": "Depends on",
+                    "type": "array",
+                    "description": "Dependency configuration to control the state and visibility of the form field.",
+                    "items": {
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "event",
+                          "fieldKey",
+                          "conditions",
+                          "action"
+                        ]
+                      },
+                      "required": [
+                        "event",
+                        "fieldKey",
+                        "conditions",
+                        "action"
+                      ],
+                      "properties": {
+                        "event": {
+                          "$id": "#/definitions/form-variable/depends-on/trigger",
+                          "title": "Event",
+                          "type": "string",
+                          "description": "Event that triggers when the dependencies for the form fields should be evaluated.",
+                          "enum": [
+                            "onFormInit",
+                            "onFormChanged"
+                          ]
+                        },
+                        "fieldKey": {
+                          "$id": "#/definitions/form-variable/depends-on/field-key",
+                          "title": "Field key",
+                          "type": "string",
+                          "description": "Key for the dependee form field",
+                          "maxLength": 20,
+                          "pattern": "^[^\\s]*$"
+                        },
+                        "action": {
+                          "$id": "#/definitions/form-variable/depends-on/action",
+                          "title": "Action",
+                          "type": "string",
+                          "enum": [
+                            "hideField"
+                          ],
+                          "description": "Action to be taken when your defined conditions evaluates to true"
+                        },
+                        "conditions": {
+                          "$id": "#/definitions/form-variable/depends-on/conditions",
+                          "title": "Conditions",
+                          "type": "array",
+                          "description": "Conditional configurations to be evaluated to decide whether an action should taken for the form field.",
+                          "items": {
+                            "type": "object",
+                            "propertyNames": {
+                              "enum": [
+                                "operator",
+                                "value"
+                              ]
+                            },
+                            "required": [
+                              "operator",
+                              "value"
+                            ],
+                            "properties": {
+                              "operator": {
+                                "$id": "#/definitions/form-variable/depends-on/conditions/operator",
+                                "title": "Operator",
+                                "type": "string",
+                                "description": "Name of the operator for evaluating a condition.",
+                                "enum": [
+                                  "lessThan",
+                                  "lessThanOrEqualTo",
+                                  "greaterThan",
+                                  "greaterThanOrEqualTo",
+                                  "equalTo",
+                                  "notEqual",
+                                  "contains",
+                                  "startsWith",
+                                  "endsWith"
+                                ]
+                              },
+                              "value": {
+                                "$id": "#/definitions/form-variable/depends-on/conditions/value",
+                                "title": "Value",
+                                "type": "string",
+                                "maxLength": 250,
+                                "description": "Target value that conditions are evaluated against"
                               }
                             }
                           }
@@ -2441,7 +2735,8 @@
                     "isOptional",
                     "defaultValue",
                     "allowedValues",
-                    "dynamicOptions"
+                    "dynamicOptions",
+                    "dependsOn"
                   ]
                 },
                 "properties": {
@@ -2675,6 +2970,103 @@
                                 "title": "Value",
                                 "description": "Relative JSON path to values for each item in the options array to be used as dropdown values",
                                 "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "dependsOn": {
+                    "$id": "#/definitions/form-variable/depends-on",
+                    "title": "Depends on",
+                    "type": "array",
+                    "description": "Dependency configuration to control the state and visibility of the form field.",
+                    "items": {
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "event",
+                          "fieldKey",
+                          "conditions",
+                          "action"
+                        ]
+                      },
+                      "required": [
+                        "event",
+                        "fieldKey",
+                        "conditions",
+                        "action"
+                      ],
+                      "properties": {
+                        "event": {
+                          "$id": "#/definitions/form-variable/depends-on/trigger",
+                          "title": "Event",
+                          "type": "string",
+                          "description": "Event that triggers when the dependencies for the form fields should be evaluated.",
+                          "enum": [
+                            "onFormInit",
+                            "onFormChanged"
+                          ]
+                        },
+                        "fieldKey": {
+                          "$id": "#/definitions/form-variable/depends-on/field-key",
+                          "title": "Field key",
+                          "type": "string",
+                          "description": "Key for the dependee form field",
+                          "maxLength": 20,
+                          "pattern": "^[^\\s]*$"
+                        },
+                        "action": {
+                          "$id": "#/definitions/form-variable/depends-on/action",
+                          "title": "Action",
+                          "type": "string",
+                          "enum": [
+                            "hideField"
+                          ],
+                          "description": "Action to be taken when your defined conditions evaluates to true"
+                        },
+                        "conditions": {
+                          "$id": "#/definitions/form-variable/depends-on/conditions",
+                          "title": "Conditions",
+                          "type": "array",
+                          "description": "Conditional configurations to be evaluated to decide whether an action should taken for the form field.",
+                          "items": {
+                            "type": "object",
+                            "propertyNames": {
+                              "enum": [
+                                "operator",
+                                "value"
+                              ]
+                            },
+                            "required": [
+                              "operator",
+                              "value"
+                            ],
+                            "properties": {
+                              "operator": {
+                                "$id": "#/definitions/form-variable/depends-on/conditions/operator",
+                                "title": "Operator",
+                                "type": "string",
+                                "description": "Name of the operator for evaluating a condition.",
+                                "enum": [
+                                  "lessThan",
+                                  "lessThanOrEqualTo",
+                                  "greaterThan",
+                                  "greaterThanOrEqualTo",
+                                  "equalTo",
+                                  "notEqual",
+                                  "contains",
+                                  "startsWith",
+                                  "endsWith"
+                                ]
+                              },
+                              "value": {
+                                "$id": "#/definitions/form-variable/depends-on/conditions/value",
+                                "title": "Value",
+                                "type": "string",
+                                "maxLength": 250,
+                                "description": "Target value that conditions are evaluated against"
                               }
                             }
                           }

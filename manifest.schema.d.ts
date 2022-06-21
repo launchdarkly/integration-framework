@@ -249,6 +249,53 @@ export type Label = string;
  */
 export type Value1 = string;
 /**
+ * Event that triggers when the dependencies for the form fields should be evaluated.
+ */
+export type Event = "onFormInit" | "onFormChanged";
+/**
+ * Key for the dependee form field
+ */
+export type FieldKey = string;
+/**
+ * Action to be taken when your defined conditions evaluates to true
+ */
+export type Action = "hideField";
+/**
+ * Name of the operator for evaluating a condition.
+ */
+export type Operator =
+  | "lessThan"
+  | "lessThanOrEqualTo"
+  | "greaterThan"
+  | "greaterThanOrEqualTo"
+  | "equalTo"
+  | "notEqual"
+  | "contains"
+  | "startsWith"
+  | "endsWith";
+/**
+ * Target value that conditions are evaluated against
+ */
+export type Value2 = string;
+/**
+ * Conditional configurations to be evaluated to decide whether an action should taken for the form field.
+ */
+export type Conditions = {
+  operator: Operator;
+  value: Value2;
+  [k: string]: unknown;
+}[];
+/**
+ * Dependency configuration to control the state and visibility of the form field.
+ */
+export type DependsOn = {
+  event: Event;
+  fieldKey: FieldKey;
+  action: Action;
+  conditions: Conditions;
+  [k: string]: unknown;
+}[];
+/**
  * Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.
  */
 export type FormVariables = FormVariable[];
@@ -542,6 +589,7 @@ export interface FormVariable {
   defaultValue?: DefaultValue;
   allowedValues?: AllowedValues;
   dynamicOptions?: DynamicOptions;
+  dependsOn?: DependsOn;
   [k: string]: unknown;
 }
 /**
