@@ -209,6 +209,10 @@ export type IsThisVariableASecret = boolean;
  */
 export type IsThisVariableOptional = boolean;
 /**
+ * Variables marked as hidden won't be displayed on the UI
+ */
+export type IsThisVariableHidden = boolean;
+/**
  * Default value for variable. Can be overridden by the user in the UI
  */
 export type DefaultValue = boolean | string;
@@ -249,17 +253,17 @@ export type Label = string;
  */
 export type Value1 = string;
 /**
- * Event that triggers when the dependencies for the form fields should be evaluated.
+ * Key for the form variable that this form field depends on
  */
-export type Event = "onFormInit" | "onFormChanged";
+export type VariableKey = string;
 /**
- * Key for the dependee form field
+ * Which form variable type is the variable key defined or located in?
  */
-export type FieldKey = string;
+export type VariableLocation = "flagFormVariables" | "environmentFormVariables" | "formVariables";
 /**
  * Action to be taken when your defined conditions evaluates to true
  */
-export type Action = "hideField";
+export type Action = "hideField" | "showField";
 /**
  * Name of the operator for evaluating a condition.
  */
@@ -289,8 +293,8 @@ export type Conditions = {
  * Dependency configuration to control the state and visibility of the form field.
  */
 export type DependsOn = {
-  event: Event;
-  fieldKey: FieldKey;
+  variableKey: VariableKey;
+  variableLocation: VariableLocation;
   action: Action;
   conditions: Conditions;
   [k: string]: unknown;
@@ -586,6 +590,7 @@ export interface FormVariable {
   placeholder?: Description1;
   isSecret?: IsThisVariableASecret;
   isOptional?: IsThisVariableOptional;
+  isHidden?: IsThisVariableHidden;
   defaultValue?: DefaultValue;
   allowedValues?: AllowedValues;
   dynamicOptions?: DynamicOptions;

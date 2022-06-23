@@ -113,6 +113,7 @@
         "description",
         "placeholder",
         "isSecret",
+        "isHidden",
         "isOptional",
         "defaultValue",
         "allowedValues",
@@ -168,6 +169,13 @@
         "title": "Is this variable optional?",
         "type": "boolean",
         "description": "Variables marked as optional won't be required on the UI",
+        "default": false
+      },
+      "isHidden": {
+        "$id": "#/definitions/form-variable/is-hidden",
+        "title": "Is this variable hidden?",
+        "type": "boolean",
+        "description": "Variables marked as hidden won't be displayed on the UI",
         "default": false
       },
       "defaultValue": {
@@ -248,30 +256,39 @@
         "items": {
           "type": "object",
           "propertyNames": {
-            "enum": ["event", "fieldKey", "conditions", "action"]
+            "enum": ["variableKey", "variableLocation", "conditions", "action"]
           },
-          "required": ["event", "fieldKey", "conditions", "action"],
+          "required": [
+            "variableKey",
+            "variableLocation",
+            "conditions",
+            "action"
+          ],
           "properties": {
-            "event": {
-              "$id": "#/definitions/form-variable/depends-on/trigger",
-              "title": "Event",
+            "variableKey": {
+              "$id": "#/definitions/form-variable/depends-on/dependee-key",
+              "title": "Variable key",
               "type": "string",
-              "description": "Event that triggers when the dependencies for the form fields should be evaluated.",
-              "enum": ["onFormInit", "onFormChanged"]
-            },
-            "fieldKey": {
-              "$id": "#/definitions/form-variable/depends-on/field-key",
-              "title": "Field key",
-              "type": "string",
-              "description": "Key for the dependee form field",
+              "description": "Key for the form variable that this form field depends on",
               "maxLength": 20,
               "pattern": "^[^\\s]*$"
+            },
+            "variableLocation": {
+              "$id": "#/definitions/form-variable/depends-on/dependee-key-location",
+              "title": "Variable Location",
+              "type": "string",
+              "description": "Which form variable type is the variable key defined or located in?",
+              "enum": [
+                "flagFormVariables",
+                "environmentFormVariables",
+                "formVariables"
+              ]
             },
             "action": {
               "$id": "#/definitions/form-variable/depends-on/action",
               "title": "Action",
               "type": "string",
-              "enum": ["hideField"],
+              "enum": ["hideField", "showField"],
               "description": "Action to be taken when your defined conditions evaluates to true"
             },
             "conditions": {
