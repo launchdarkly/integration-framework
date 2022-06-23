@@ -211,7 +211,7 @@ export type IsThisVariableOptional = boolean;
 /**
  * Variables marked as hidden won't be displayed on the UI
  */
-export type IsThisVariableHidden = boolean;
+export type HideVariableInTheUI = boolean;
 /**
  * Default value for variable. Can be overridden by the user in the UI
  */
@@ -590,7 +590,7 @@ export interface FormVariable {
   placeholder?: Description1;
   isSecret?: IsThisVariableASecret;
   isOptional?: IsThisVariableOptional;
-  isHidden?: IsThisVariableHidden;
+  isHidden?: HideVariableInTheUI;
   defaultValue?: DefaultValue;
   allowedValues?: AllowedValues;
   dynamicOptions?: DynamicOptions;

@@ -173,7 +173,7 @@
       },
       "isHidden": {
         "$id": "#/definitions/form-variable/is-hidden",
-        "title": "Is this variable hidden?",
+        "title": "Hide variable in the UI",
         "type": "boolean",
         "description": "Variables marked as hidden won't be displayed on the UI",
         "default": false
