@@ -47,16 +47,7 @@
           "actions": ["*"]
         }
       ],
-      "endpoint": {
-        "method": "POST",
-        "url": "https://www.example.com",
-        "headers": [
-          {
-            "name": "Content-Type",
-            "value": "application/json"
-          }
-        ]
-      },
+      "deliveryMethod": "custom",
       "templates": {
         "default": "templates/default.json.hbs"
       }

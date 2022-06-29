@@ -305,6 +305,10 @@ export type Resources = string[];
  */
 export type IncludeErrorResponseBody = boolean;
 /**
+ * Describes how the audit log event will be delivered to the destination. Custom delivery method indicates a custom delivery implementation in LaunchDarkly will be used.
+ */
+export type DeliveryMethod = "custom";
+/**
  * The reserved custom property's display name.
  */
 export type Name2 = string;
@@ -598,10 +602,11 @@ export interface Capabilities {
  * This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.
  */
 export interface AuditLogEventsHook {
-  endpoint: Endpoint;
+  endpoint?: Endpoint;
   templates: WebhookBodyTemplate;
   defaultPolicy?: DefaultPolicy;
   includeErrorResponseBody?: IncludeErrorResponseBody;
+  deliveryMethod?: DeliveryMethod;
   [k: string]: unknown;
 }
 /**

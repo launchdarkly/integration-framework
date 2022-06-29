@@ -28,7 +28,10 @@
         {{#if tags}}
           "tags": {{tags}},
         {{/if}}
-        "plainText": "{{title.plainText}}"
+        {{#if auditLog}}
+          "auditLog": {{{auditLog}}},
+        {{/if}}
+        "plainText": "{{{title.plainText}}}"
     }
   }]
 }
