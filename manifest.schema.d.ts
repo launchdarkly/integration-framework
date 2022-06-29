@@ -209,6 +209,10 @@ export type IsThisVariableASecret = boolean;
  */
 export type IsThisVariableOptional = boolean;
 /**
+ * Variables marked as hidden won't be displayed on the UI
+ */
+export type HideVariableInTheUI = boolean;
+/**
  * Default value for variable. Can be overridden by the user in the UI
  */
 export type DefaultValue = boolean | string;
@@ -248,6 +252,53 @@ export type Label = string;
  * Relative JSON path to values for each item in the options array to be used as dropdown values
  */
 export type Value1 = string;
+/**
+ * Key for the form variable that this form field depends on
+ */
+export type VariableKey = string;
+/**
+ * Which form variable type is the variable key defined or located in?
+ */
+export type VariableLocation = "flagFormVariables" | "environmentFormVariables" | "formVariables";
+/**
+ * Action to be taken when your defined conditions evaluates to true
+ */
+export type Action = "hideField" | "showField";
+/**
+ * Name of the operator for evaluating a condition.
+ */
+export type Operator =
+  | "lessThan"
+  | "lessThanOrEqualTo"
+  | "greaterThan"
+  | "greaterThanOrEqualTo"
+  | "equalTo"
+  | "notEqual"
+  | "contains"
+  | "startsWith"
+  | "endsWith";
+/**
+ * Target value that conditions are evaluated against
+ */
+export type Value2 = string;
+/**
+ * Conditional configurations to be evaluated to decide whether an action should taken for the form field.
+ */
+export type Conditions = {
+  operator: Operator;
+  value: Value2;
+  [k: string]: unknown;
+}[];
+/**
+ * Dependency configuration to control the state and visibility of the form field.
+ */
+export type DependsOn = {
+  variableKey: VariableKey;
+  variableLocation: VariableLocation;
+  action: Action;
+  conditions: Conditions;
+  [k: string]: unknown;
+}[];
 /**
  * Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.
  */
@@ -543,9 +594,11 @@ export interface FormVariable {
   placeholder?: Description1;
   isSecret?: IsThisVariableASecret;
   isOptional?: IsThisVariableOptional;
+  isHidden?: HideVariableInTheUI;
   defaultValue?: DefaultValue;
   allowedValues?: AllowedValues;
   dynamicOptions?: DynamicOptions;
+  dependsOn?: DependsOn;
   [k: string]: unknown;
 }
 /**
