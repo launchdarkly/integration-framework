@@ -1,0 +1,11 @@
+{
+  "eventType": "flagEvent",
+  "flagKey": "{{key}}",
+  "projectKey": "{{project.key}}",
+  "environmentKey": "{{project.environment.key}}",
+  "revision": "{{project.key}}/{{project.environment.key}}/{{key}}-{{timestamp.milliseconds}}",
+  "changelog": "{{{title.plainText}}}",
+  "description": "{{{title.plainText}}}{{#if comment}}, Comment: {{comment}}{{/if}}",
+  "user": "{{member.displayName}}",
+  "timestamp": "{{timestamp.rfc3339}}"
+}

@@ -177,6 +177,10 @@ export type OtherCapabilities = [
  */
 export type RequiresOAuth = boolean;
 /**
+ * Whether the your app should be excluded from the list of integration cards displayed on our integrations page in the web app
+ */
+export type HideOnIntegrationsPage = boolean;
+/**
  * A key will be used as the token name when the variable is substituted
  */
 export type Key = string;
@@ -204,6 +208,10 @@ export type IsThisVariableASecret = boolean;
  * Variables marked as optional won't be required on the UI
  */
 export type IsThisVariableOptional = boolean;
+/**
+ * Variables marked as hidden won't be displayed on the UI
+ */
+export type HideVariableInTheUI = boolean;
 /**
  * Default value for variable. Can be overridden by the user in the UI
  */
@@ -244,6 +252,53 @@ export type Label = string;
  * Relative JSON path to values for each item in the options array to be used as dropdown values
  */
 export type Value1 = string;
+/**
+ * Key for the form variable that this form field depends on
+ */
+export type VariableKey = string;
+/**
+ * Which form variable type is the variable key defined or located in?
+ */
+export type VariableLocation = "flagFormVariables" | "environmentFormVariables" | "formVariables";
+/**
+ * Action to be taken when your defined conditions evaluates to true
+ */
+export type Action = "hideField" | "showField";
+/**
+ * Name of the operator for evaluating a condition.
+ */
+export type Operator =
+  | "lessThan"
+  | "lessThanOrEqualTo"
+  | "greaterThan"
+  | "greaterThanOrEqualTo"
+  | "equalTo"
+  | "notEqual"
+  | "contains"
+  | "startsWith"
+  | "endsWith";
+/**
+ * Target value that conditions are evaluated against
+ */
+export type Value2 = string;
+/**
+ * Conditional configurations to be evaluated to decide whether an action should taken for the form field.
+ */
+export type Conditions = {
+  operator: Operator;
+  value: Value2;
+  [k: string]: unknown;
+}[];
+/**
+ * Dependency configuration to control the state and visibility of the form field.
+ */
+export type DependsOn = {
+  variableKey: VariableKey;
+  variableLocation: VariableLocation;
+  action: Action;
+  conditions: Conditions;
+  [k: string]: unknown;
+}[];
 /**
  * Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.
  */
@@ -349,6 +404,10 @@ export type ValuePointer = string;
  * JSON pointer to the external alert URL
  */
 export type URLPointer = string;
+/**
+ * Name of the approval system. Default's to the integration's name if not specified.
+ */
+export type ApprovalSystemName = string;
 /**
  * Template string used to render the JSON request body
  */
@@ -467,6 +526,10 @@ export type Description3 = string;
  * An array of elements to be combined to create a context block
  */
 export type Elements1 = UIBlockElement[];
+/**
+ * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
+ */
+export type OAuthIntegrationKey = string;
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -485,8 +548,10 @@ export interface LaunchDarklyIntegrationsManifest {
   legacy?: Legacy;
   otherCapabilities?: OtherCapabilities;
   requiresOAuth?: RequiresOAuth;
+  hideOnIntegrationsPage?: HideOnIntegrationsPage;
   formVariables?: FormVariables;
   capabilities?: Capabilities;
+  oauthIntegrationKey?: OAuthIntegrationKey;
   [k: string]: unknown;
 }
 /**
@@ -525,9 +590,11 @@ export interface FormVariable {
   placeholder?: Description1;
   isSecret?: IsThisVariableASecret;
   isOptional?: IsThisVariableOptional;
+  isHidden?: HideVariableInTheUI;
   defaultValue?: DefaultValue;
   allowedValues?: AllowedValues;
   dynamicOptions?: DynamicOptions;
+  dependsOn?: DependsOn;
   [k: string]: unknown;
 }
 /**
@@ -637,6 +704,7 @@ export interface TriggerParser {
  * This capability enables integration-driven flag change approvals
  */
 export interface Approval {
+  name?: ApprovalSystemName;
   memberListRequest: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
   flagFormVariables?: FlagFormVariables;

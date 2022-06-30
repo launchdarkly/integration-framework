@@ -30,8 +30,8 @@ const compileStrictTemplate = templateString =>
 
 const manifests = getManifests();
 
-const flagLinkManifests = manifests.filter(
-  ([k, mfst]) => mfst.capabilities?.flagLink
+const flagLinkManifests = manifests.filter(([k, mfst]) =>
+  mfst.capabilities ? !!mfst.capabilities.flagLink : false
 );
 
 describe('Validate flagLink Capability', () => {

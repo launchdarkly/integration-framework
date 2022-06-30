@@ -2,7 +2,7 @@
 
 [![CircleCI](https://circleci.com/gh/launchdarkly/integration-framework.svg?style=svg&circle-token=9a44436c3b22e7fb6a22df1ad9a2455a0d6f2d34)](https://circleci.com/gh/launchdarkly/integration-framework)
 
-Feature flags give you control over your deployment and rollout. They can also provide context to third-party tools that show you how your application reacts to flag changes. You can integrate these tools with LaunchDarkly using the LaunchDarkly integration framework. For additional background, read [Building your own integrations](https://docs.launchdarkly.com/integrations/building-integrations) in our LaunchDarkly product documentation.
+Feature flags give you control over your deployment and rollout. They can also provide context to third-party tools that show you how your application reacts to flag changes. You can integrate these tools with LaunchDarkly using the LaunchDarkly integration framework. For additional background, read [Using the LaunchDarkly integration framework](https://docs.launchdarkly.com/integrations/building-integrations) in our LaunchDarkly product documentation.
 
 This repository contains LaunchDarkly integrations built by our community. Most of these integrations consume events from LaunchDarkly to provide the external tools with more context.
 
@@ -12,13 +12,13 @@ LaunchDarkly's integration framework lets you build one-way integrations from La
 
 We've provided step-by-step instructions to help you build integrations.
 
-To learn more, read [Getting started](docs/getting-started.md).
+To learn more, read [Getting started](https://docs.launchdarkly.com/integrations/partner-integrations/getting-started).
 
 ## The LaunchDarkly Technology Partner Program
 
 Using the LaunchDarkly integration framework is just one way to create a relationship with LaunchDarkly. You can unlock more benefits by joining our Technology Partner Program.
 
-To learn more, read [Technology Partner Program](https://docs.launchdarkly.com/integrations/building-integrations#technology-partner-program). To join the program, email us at [partnerships@launchdarkly.com](mailto:partnerships@launchdarkly.com).
+To learn more, read [Building partner integrations](https://docs.launchdarkly.com/integrations/partner-integrations). To join the program, visit our [Partners page](https://launchdarkly.com/partners/).
 
 ## Submitting bug reports and feature requests
 
