@@ -670,7 +670,8 @@
               "endpoint",
               "templates",
               "defaultPolicy",
-              "includeErrorResponseBody"
+              "includeErrorResponseBody",
+              "deliveryMethod"
             ]
           },
           "properties": {
@@ -927,10 +928,18 @@
               "type": "boolean",
               "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
               "default": false
+            },
+            "deliveryMethod": {
+              "$id": "#/properties/delivery-method",
+              "title": "Delivery Method",
+              "type": "string",
+              "enum": [
+                "custom"
+              ],
+              "description": "Describes how the audit log event will be delivered to the destination. Custom delivery method indicates a custom delivery implementation in LaunchDarkly will be used."
             }
           },
           "required": [
-            "endpoint",
             "templates"
           ]
         },
