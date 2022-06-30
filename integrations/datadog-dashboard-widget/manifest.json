@@ -1,0 +1,19 @@
+{
+  "name": "Datadog Dashboard Widget",
+  "version": "1.0.0",
+  "overview": "View and manage feature flags from within your Datadog Dashboard.",
+  "description": "Pin a subset of feature flag targeting toggles to your Datadog dashboards to monitor and perform a feature go-live from a single window.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.datadoghq.com",
+    "launchdarklyDocs": "https://docs.datadoghq.com/integrations/launchdarkly/#dashboard-widget-1/",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["developer-tools", "monitoring"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}

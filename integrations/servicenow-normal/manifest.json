@@ -1,0 +1,192 @@
+{
+  "name": "ServiceNow-normal",
+  "version": "1.0.0",
+  "overview": "Create feature flag change requests in ServiceNow.",
+  "description": "Efficiently comply with company-wide change management policies by embedding LaunchDarkly approvals into existing ServiceNow workflows.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.servicenow.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/servicenow",
+    "privacyPolicy": "https://www.servicenow.com/privacy-statement.html"
+  },
+  "categories": ["approval"],
+  "icons": {
+    "square": "assets/images/servicenow-icon.svg",
+    "horizontal": "assets/images/servicenow-horizontal.svg"
+  },
+  "requiresOAuth": true,
+  "oauthIntegrationKey": "servicenow",
+  "hideOnIntegrationsPage": true,
+  "formVariables": [],
+  "capabilities": {
+    "approval": {
+      "name": "ServiceNow (Normal Change Request)",
+      "flagFormVariables": [
+        {
+          "key": "configurationItem",
+          "name": "Configuration Item",
+          "description": "System id of the configuration item associated with the change request.",
+          "isHidden": true,
+          "isOptional": true,
+          "type": "string",
+          "dependsOn": [
+            {
+              "variableKey": "configItemFlag",
+              "variableLocation": "environmentFormVariables",
+              "action": "showField",
+              "conditions": [
+                {
+                  "operator": "equalTo",
+                  "value": "true"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "key": "implementationPlan",
+          "name": "Implementation Plan",
+          "description": "Sequential steps to execute to implement this change.",
+          "isHidden": true,
+          "isOptional": true,
+          "type": "string",
+          "dependsOn": [
+            {
+              "variableKey": "implPlanFlag",
+              "variableLocation": "environmentFormVariables",
+              "action": "showField",
+              "conditions": [
+                {
+                  "operator": "equalTo",
+                  "value": "true"
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "environmentFormVariables": [
+        {
+          "key": "detail_column",
+          "name": "Detailed information column name",
+          "description": "The name of the ServiceNow Change Request column used by LaunchDarkly to populate detailed approval request information.",
+          "type": "string",
+          "defaultValue": "justification",
+          "isOptional": true,
+          "placeholder": "justification"
+        },
+        {
+          "key": "configItemFlag",
+          "name": "Configuration Item",
+          "description": "Request configuration item in approval requests.",
+          "type": "boolean",
+          "defaultValue": "false",
+          "isOptional": true
+        },
+        {
+          "key": "implPlanFlag",
+          "name": "Implementation Plan",
+          "description": "Request implementation plan in approval requests.",
+          "type": "boolean",
+          "defaultValue": "false",
+          "isOptional": true
+        }
+      ],
+      "creationRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/normal",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "jsonBody": "{\"short_description\": \"{{{title.plainText}}}\", {{#if flagFormVariables.implementationPlan}}\"implementation_plan\": \"{{{flagFormVariables.implementationPlan}}}\",{{/if}} {{#if flagFormVariables.configurationItem}}\"cmdb_ci\": \"{{{flagFormVariables.configurationItem}}}\",{{/if}} \"{{#if environmentFormVariables.detail_column}}{{environmentFormVariables.detail_column}}{{else}}justification{{/if}}\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"requested_by\": \"{{{member.externalId}}}\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{formatWithOffset timestamp.milliseconds 301 'simple'}}\"}",
+        "parser": {
+          "approvalId": "/result/sys_id/value",
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4",
+          "urlTemplate": "{{oauth.baseURI}}/change_request.do?sys_id={{queryEncode context.approvalId}}"
+        }
+      },
+      "statusRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/normal/{{context.approvalId}}",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4"
+        }
+      },
+      "postApplyRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/normal/{{context.approvalId}}?state=Review",
+          "method": "PATCH",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4"
+        }
+      },
+      "deletionRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/sn_chg_rest/change/normal/{{context.approvalId}}?state=Canceled",
+          "method": "PATCH",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/result/state/value",
+          "statusDisplay": "/result/state/display_value",
+          "approvalMatcher": "^-1",
+          "rejectionMatcher": "^4"
+        }
+      },
+      "memberListRequest": {
+        "endpoint": {
+          "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,user_name",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "memberArrayPath": "/result",
+          "memberItems": {
+            "memberId": "/user_name",
+            "email": "/email"
+          }
+        }
+      }
+    }
+  }
+}

@@ -16,9 +16,11 @@
     "horizontal": "assets/images/servicenow-horizontal.svg"
   },
   "requiresOAuth": true,
+  "oauthIntegrationKey": "servicenow",
   "formVariables": [],
   "capabilities": {
     "approval": {
+      "name": "ServiceNow",
       "environmentFormVariables": [
         {
           "key": "template",

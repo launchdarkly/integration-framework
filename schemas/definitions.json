@@ -113,10 +113,12 @@
         "description",
         "placeholder",
         "isSecret",
+        "isHidden",
         "isOptional",
         "defaultValue",
         "allowedValues",
-        "dynamicOptions"
+        "dynamicOptions",
+        "dependsOn"
       ]
     },
     "properties": {
@@ -167,6 +169,13 @@
         "title": "Is this variable optional?",
         "type": "boolean",
         "description": "Variables marked as optional won't be required on the UI",
+        "default": false
+      },
+      "isHidden": {
+        "$id": "#/definitions/form-variable/is-hidden",
+        "title": "Hide variable in the UI",
+        "type": "boolean",
+        "description": "Variables marked as hidden won't be displayed on the UI",
         "default": false
       },
       "defaultValue": {
@@ -232,6 +241,91 @@
                     "title": "Value",
                     "description": "Relative JSON path to values for each item in the options array to be used as dropdown values",
                     "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "dependsOn": {
+        "$id": "#/definitions/form-variable/depends-on",
+        "title": "Depends on",
+        "type": "array",
+        "description": "Dependency configuration to control the state and visibility of the form field.",
+        "items": {
+          "type": "object",
+          "propertyNames": {
+            "enum": ["variableKey", "variableLocation", "conditions", "action"]
+          },
+          "required": [
+            "variableKey",
+            "variableLocation",
+            "conditions",
+            "action"
+          ],
+          "properties": {
+            "variableKey": {
+              "$id": "#/definitions/form-variable/depends-on/dependee-key",
+              "title": "Variable key",
+              "type": "string",
+              "description": "Key for the form variable that this form field depends on",
+              "maxLength": 20,
+              "pattern": "^[^\\s]*$"
+            },
+            "variableLocation": {
+              "$id": "#/definitions/form-variable/depends-on/dependee-key-location",
+              "title": "Variable Location",
+              "type": "string",
+              "description": "Which form variable type is the variable key defined or located in?",
+              "enum": [
+                "flagFormVariables",
+                "environmentFormVariables",
+                "formVariables"
+              ]
+            },
+            "action": {
+              "$id": "#/definitions/form-variable/depends-on/action",
+              "title": "Action",
+              "type": "string",
+              "enum": ["hideField", "showField"],
+              "description": "Action to be taken when your defined conditions evaluates to true"
+            },
+            "conditions": {
+              "$id": "#/definitions/form-variable/depends-on/conditions",
+              "title": "Conditions",
+              "type": "array",
+              "description": "Conditional configurations to be evaluated to decide whether an action should taken for the form field.",
+              "items": {
+                "type": "object",
+                "propertyNames": {
+                  "enum": ["operator", "value"]
+                },
+                "required": ["operator", "value"],
+                "properties": {
+                  "operator": {
+                    "$id": "#/definitions/form-variable/depends-on/conditions/operator",
+                    "title": "Operator",
+                    "type": "string",
+                    "description": "Name of the operator for evaluating a condition.",
+                    "enum": [
+                      "lessThan",
+                      "lessThanOrEqualTo",
+                      "greaterThan",
+                      "greaterThanOrEqualTo",
+                      "equalTo",
+                      "notEqual",
+                      "contains",
+                      "startsWith",
+                      "endsWith"
+                    ]
+                  },
+                  "value": {
+                    "$id": "#/definitions/form-variable/depends-on/conditions/value",
+                    "title": "Value",
+                    "type": "string",
+                    "maxLength": 250,
+                    "description": "Target value that conditions are evaluated against"
                   }
                 }
               }

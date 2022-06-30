@@ -18,7 +18,7 @@
     {
       "key": "streamName",
       "name": "AppOptics annotation stream name",
-      "description": "Enter the Annotation stream Name that will be used for the request to the [Annotation API](https://docs.appoptics.com/api/?shell#create-an-annotation).",
+      "description": "Enter the annotation stream name that will be used for the request to the [Annotation API](https://docs.appoptics.com/api/?shell#create-an-annotation).",
       "type": "string",
       "isSecret": false
     },
@@ -32,7 +32,7 @@
     {
       "key": "apiKey",
       "name": "AppOptics API key",
-      "description": "Enter your AppOptics API Key as shown on your [account page](https://my.appoptics.com/organization/tokens).",
+      "description": "Enter your AppOptics API key as shown on your [account page](https://my.appoptics.com/organization/tokens).",
       "type": "string",
       "isSecret": true
     }

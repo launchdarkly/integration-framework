@@ -1,0 +1,50 @@
+{
+  "name": "Zapier",
+  "version": "1.0.4",
+  "overview": "Zapier triggers and actions for LaunchDarkly.",
+  "description": "Trigger Zaps based on LaunchDarkly audit log events, and take actions in LaunchDarkly from your Zaps.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://zapier.com",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["automation"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "url",
+      "name": "Incoming webhook URL",
+      "type": "uri",
+      "description": "Enter your zap webhook URL",
+      "isSecret": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{url}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ],
+      "templates": {
+        "default": "templates/default.json.hbs"
+      }
+    }
+  }
+}
