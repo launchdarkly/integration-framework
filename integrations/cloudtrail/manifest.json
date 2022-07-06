@@ -5,7 +5,6 @@
   "description": "Export LaunchDarkly audit events to AWS CloudTrail via Open Audit Events.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
-  "hideOnIntegrationsPage": true,
   "links": {
     "site": "https://aws.amazon.com/cloudtrail/",
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/more",
