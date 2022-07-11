@@ -43,7 +43,7 @@
       "defaultPolicy": [
         {
           "effect": "allow",
-          "resources": ["*"],
+          "resources": ["proj/*:env/production:flag/*"],
           "actions": ["*"]
         }
       ],
