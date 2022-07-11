@@ -20,6 +20,9 @@
       {{#if project}}
         "projectKey": "{{project.key}}",
       {{/if}}
+      {{#if _links.details.href}}
+        "deepLink": "{{_links.details.href}}",
+      {{/if}}
       {{#if project.environment}}
         "environmentKey": "{{project.environment.key}}",
       {{/if}}
