@@ -171,13 +171,13 @@ describe('All integrations', () => {
         'capabilities.auditLogEventsHook.includeErrorResponseBody',
         null
       );
-      if (includeErrorResponseBody) {
-        // if there is no host domain replacement in the `endpoint` field then we are fine
-        const endpointUrlTemplate = _.get(
-          manifest,
-          'capabilities.auditLogEventsHook.endpoint.url',
-          null
-        );
+      // if there is no host domain replacement in the `endpoint` field then we are fine
+      const endpointUrlTemplate = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.endpoint.url',
+        null
+      );
+      if (endpointUrlTemplate && includeErrorResponseBody) {
         if (endpointUrlTemplate.startsWith('{{')) {
           const varName = endpointUrlTemplate.substring(
             2,
