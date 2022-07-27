@@ -51,6 +51,7 @@
       "deliveryMethod": "custom",
       "templates": {
         "default": "templates/default.json.hbs",
+        "member": "templates/member.json.hbs",
         "validation": "templates/default.json.hbs"
       }
     }
