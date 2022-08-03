@@ -1,0 +1,29 @@
+{
+  "eventVersion": "1.0",
+  "userIdentity": {
+      "type": "user",
+      "principalId": "{{member._id}}"
+  },
+  "eventTime": "{{timestamp.rfc3339}}",
+  "eventSource": "LaunchDarkly",
+  "eventName": "{{kind}}",
+  "recipientAccountId": "{{formVariables.accountId}}",
+  "UUID": "{{_id}}",
+  "additionalEventData": {
+      "type": "{{verbKind}}",
+      "targetId": "{{target._id}}",
+      {{#if project}}
+        "projectKey": "{{project.key}}",
+      {{/if}}
+      {{#if _links.details.href}}
+        "deepLink": "{{_links.details.href}}",
+      {{/if}}
+      {{#if project.environment}}
+        "environmentKey": "{{project.environment.key}}",
+      {{/if}}
+      {{#if tags}}
+        "tags": {{tags}},
+      {{/if}}
+      "plainText": "Member {{member._id}} {{{titleVerb}}} {{{target._id}}}"
+  }
+}

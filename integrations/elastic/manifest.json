@@ -19,7 +19,7 @@
     {
       "key": "url",
       "name": "Elasticsearch endpoint URL",
-      "description": "Enter the URL for your Elasticsearch endpoint including socket",
+      "description": "Enter the URL for your Elasticsearch endpoint, including the socket",
       "type": "uri",
       "isSecret": false,
       "placeholder": "https://cluster.region.aws.found.io:9243",
@@ -28,7 +28,7 @@
     {
       "key": "token",
       "name": "Authentication token",
-      "description": "Enter the [base64 _credentials_ based on your API Key](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-create-api-key.html)",
+      "description": "Enter the base64 _credentials_ based on your [API Key](https://www.elastic.co/guide/en/elasticsearch/reference/current/security-api-create-api-key.html)",
       "type": "string",
       "isSecret": true,
       "isOptional": false
