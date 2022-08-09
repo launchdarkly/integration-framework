@@ -2,7 +2,7 @@
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://launchdarkly.com/schemas/v1.0/manifest.schema.json#",
   "title": "LaunchDarkly Integrations Manifest",
-  "description": "Describes the capabilities and intent of a LaunchDarkly integration",
+  "description": "This schema describes the capabilities and intent of a LaunchDarkly integration",
   "type": "object",
   "propertyNames": {
     "enum": [

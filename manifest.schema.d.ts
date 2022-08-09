@@ -536,7 +536,7 @@ export type Elements1 = UIBlockElement[];
 export type OAuthIntegrationKey = string;
 
 /**
- * Describes the capabilities and intent of a LaunchDarkly integration
+ * This schema describes the capabilities and intent of a LaunchDarkly integration
  */
 export interface LaunchDarklyIntegrationsManifest {
   name: IntegrationName;
