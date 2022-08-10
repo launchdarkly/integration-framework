@@ -18,9 +18,9 @@
   "formVariables": [
     {
       "key": "apiToken",
-      "name": "Dynatrace API token",
+      "name": "Dynatrace Access token",
       "type": "string",
-      "description": "Enter your Dynatrace API token. [Learn more](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token) about generating tokens. The 'access problem and event feed, metrics, and topology' scope is required.",
+      "description": "Enter your Dynatrace Access token. [Learn more](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token) about generating tokens. The 'Access problem and event feed, metrics, and topology' scope is required.",
       "isSecret": true
     },
     {
