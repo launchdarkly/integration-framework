@@ -30,11 +30,12 @@
     "Environment key": "{{project.environment.key}}",
     "Comment": "{{#if comment}}{{comment}}{{/if}}",
     "User name": "{{member.displayName}}",
-    "User email": "{{ member.email }}"
+    "User email": "{{ member.email }}",
+    "Action": "{{verbKind}}"
   },
   "start": {{ timestamp.milliseconds }},
   "source": "LaunchDarkly",
-  "description": "{{{title.plainText}}}"
+  "description": "{{{title.plainText}}}{{#if details.plainText}}{{{details.plainText}}}{{/if}}"
 }
 {{/if}}
 {{/if}}
