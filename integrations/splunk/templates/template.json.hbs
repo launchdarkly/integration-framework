@@ -3,6 +3,7 @@
   "time": "{{timestamp.milliseconds}}",
   "event": {
     "kind": "{{kind}}",
+    "description": "{{{title.plainText}}}{{#if details.plainText}}{{{details.plainText}}}{{/if}}",
     {{#equal kind 'flag'}}
     "flag_name": "{{name}}",
     "flag_key": "{{key}}",
