@@ -21,7 +21,10 @@
       "name": "AWS account ID",
       "description": "Enter your [AWS account ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html#FindingYourAWSId). The associated account must be configured to use CloudTrail Lake.",
       "type": "string",
-      "placeholder": "123456"
+      "placeholder": "123456",
+      "isHidden": true,
+      "isOptional": true,
+      "defaultValue": ""
     },
     {
       "key": "iamRoleArn",
@@ -32,8 +35,8 @@
     },
     {
       "key": "ingestionChannelArn",
-      "name": "CloudTrail Ingestion Channel ARN",
-      "description": "Enter the ARN of the CloudTrail Ingestion Channel for LaunchDarkly to use.",
+      "name": "Channel ARN",
+      "description": "Enter the Channel ARN for LaunchDarkly to use.",
       "type": "string",
       "isSecret": true
     }
