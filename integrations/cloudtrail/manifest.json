@@ -1,8 +1,8 @@
 {
-  "name": "AWS CloudTrail",
+  "name": "AWS CloudTrail Lake",
   "version": "1.0.0",
   "overview": "Export LaunchDarkly audit events.",
-  "description": "Export LaunchDarkly audit events to AWS CloudTrail via Open Audit Events.",
+  "description": "Export LaunchDarkly audit events to AWS CloudTrail Lake via Open Audit Events.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
