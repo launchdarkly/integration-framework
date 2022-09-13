@@ -1,8 +1,8 @@
 {
   "name": "AWS CloudTrail Lake",
   "version": "1.0.0",
-  "overview": "Export LaunchDarkly audit events.",
-  "description": "Export LaunchDarkly audit events to AWS CloudTrail Lake via Open Audit Events.",
+  "overview": "Send LaunchDarkly audit events to AWS CloudTrail Lake.",
+  "description": "AWS CloudTrail Lake integration lets you configure CloudTrail Lake to receive any activity from LaunchDarkly and store data in a CloudTrail Lake.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
