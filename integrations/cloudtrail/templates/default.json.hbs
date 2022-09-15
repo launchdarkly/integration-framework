@@ -22,13 +22,16 @@
         "environmentKey": "{{project.environment.key}}",
       {{/if}}
       {{#if tags}}
-        "tags": {{tags}},
+        "tags": [{{#each tags}}{{#if @index}}, {{/if}}"{{this}}"{{/each}}],
       {{/if}}
       {{#if details}}
       {{#if details.plainText}}
-        "details": "{{details.plainText}}",
+        "details": "{{{details.plainText}}}",
       {{/if}}
       {{/if}}
-      "plainText": "A member {{titleVerb}} {{#if target.name}} {{{target.name}}} {{else}} {{{target._id}}}{{/if}}"
+      {{#if comment}}
+        "comment": "{{{comment}}}",
+      {{/if}}
+      "plainText": "A member {{{titleVerb}}} {{#if target.name}}{{{target.name}}}{{else}}{{{target._id}}}{{/if}}"
   }
 }
