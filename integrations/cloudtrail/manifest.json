@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://aws.amazon.com/cloudtrail/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/more",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/cloudtrail",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["monitoring", "analytics"],
