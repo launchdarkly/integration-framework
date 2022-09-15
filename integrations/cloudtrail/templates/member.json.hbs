@@ -24,6 +24,11 @@
       {{#if tags}}
         "tags": {{tags}},
       {{/if}}
+      {{#if details}}
+      {{#if details.plainText}}
+        "details": "{{details.plainText}}",
+      {{/if}}
+      {{/if}}
       "plainText": "Member {{member._id}} {{{titleVerb}}} {{{target._id}}}"
   }
 }
