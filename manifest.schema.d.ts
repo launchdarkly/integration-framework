@@ -531,6 +531,10 @@ export type Description3 = string;
  */
 export type Elements1 = UIBlockElement[];
 /**
+ * This capability will disable in-app editing for the integration
+ */
+export type HideConfiguration = boolean;
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -649,6 +653,7 @@ export interface Capabilities {
   approval?: Approval;
   featureStore?: FeatureStore;
   flagLink?: FlagLink;
+  hideConfiguration?: HideConfiguration;
   [k: string]: unknown;
 }
 /**
