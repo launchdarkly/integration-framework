@@ -45,6 +45,7 @@
       "templates": {
         "default": "templates/default.json.hbs"
       }
-    }
+    },
+    "hideConfiguration": true
   }
 }
