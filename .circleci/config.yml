@@ -33,7 +33,7 @@ jobs:
     steps:
       - checkout
       - aws-cli/setup:
-          role-arn: arn:aws:iam::554582317989:role/circleci-integration-framework
+          role-arn: arn:aws:iam::554582317989:role/circleci-integration-framework-private
       - run:
           name: Upload artifacts to s3
           command: |
