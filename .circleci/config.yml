@@ -2,7 +2,7 @@ version: 2.1
 
 orbs:
   node: circleci/node@4.7.0
-  aws-cli: circleci/aws-cli@1.3.0
+  aws-cli: circleci/aws-cli@3.1
   linter: thekevjames/linter@1.0.49
 
 jobs:
@@ -28,9 +28,12 @@ jobs:
           path: ./reports/junit
   upload-to-s3:
     executor: aws-cli/default
+    environment:
+      AWS_DEFAULT_REGION: us-east-1
     steps:
       - checkout
-      - aws-cli/install
+      - aws-cli/setup:
+          role-arn: arn:aws:iam::554582317989:role/circleci-integrations-framework
       - run:
           name: Upload artifacts to s3
           command: |
