@@ -21,6 +21,15 @@
       "type": "uri",
       "description": "Enter your Microsoft Teams webhook URL",
       "isSecret": false
+    },
+    {
+      "key": "secret",
+      "name": "Secret",
+      "description": "Enter the secret shared between Microsoft Teams and Slack-App",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": true,
+      "defaultValue": ""
     }
   ],
   "capabilities": {
