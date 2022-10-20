@@ -19,7 +19,7 @@
       "key": "url",
       "name": "Incoming webhook URL",
       "type": "uri",
-      "description": "Enter your MSTeams webhook URL",
+      "description": "Enter your Microsoft Teams webhook URL",
       "isSecret": false
     }
   ],
@@ -50,7 +50,7 @@
     "flagLink": {
       "header": "Microsoft Teams conversation",
       "emptyState": {
-        "title": "No MS Teams conversations link to this flag."
+        "title": "No Microsoft Teams conversations link to this flag."
       },
       "metadata": {
         "avatarUrl": {
