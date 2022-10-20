@@ -1,7 +1,7 @@
 {
   "name": "Microsoft Teams App",
   "version": "1.0.0",
-  "overview": "View, monitor, and control flags interactively from our official MSTeams app.",
+  "overview": "View, monitor, and control flags interactively from our official Microsoft Teams app.",
   "description": "With the LaunchDarkly Microsoft Teams app, you can view, monitor, and control feature flags directly from your Teams workspaces. Use the app to find feature flags, subscribe channels to notifications about flag changes, and toggle flags on or off.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
