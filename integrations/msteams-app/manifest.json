@@ -1,0 +1,86 @@
+{
+  "name": "Microsoft Teams App",
+  "version": "1.0.0",
+  "overview": "View, monitor, and control flags interactively from our official Microsoft Teams app.",
+  "description": "With the LaunchDarkly Microsoft Teams app, you can view, monitor, and control feature flags directly from your Teams workspaces. Use the app to find feature flags, subscribe channels to notifications about flag changes, and toggle flags on or off.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["messaging"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "url",
+      "name": "Incoming webhook URL",
+      "type": "uri",
+      "description": "Enter your Microsoft Teams webhook URL",
+      "isSecret": false
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{url}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ],
+      "templates": {
+        "default": "templates/default.json.hbs"
+      }
+    },
+    "hideConfiguration": true,
+    "flagLink": {
+      "header": "Microsoft Teams conversation",
+      "emptyState": {
+        "title": "No Microsoft Teams conversations link to this flag."
+      },
+      "metadata": {
+        "avatarUrl": {
+          "type": "uri"
+        },
+        "displayName": {
+          "type": "string"
+        },
+        "channelName": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      },
+      "uiBlocks": {
+        "image": {
+          "sourceUrl": "{{{metadata.avatarUrl}}}",
+          "isAvatar": true
+        },
+        "name": "{{{metadata.displayName}}}",
+        "description": "{{{metadata.message}}}",
+        "context": {
+          "elements": [
+            { "text": "Posted in" },
+            { "text": "#{{{metadata.channelName}}}", "isBold": true },
+            { "text": "View message", "url": "{{{deepLink}}}" }
+          ]
+        }
+      }
+    }
+  }
+}
