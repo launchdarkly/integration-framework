@@ -1,0 +1,19 @@
+{
+  "name": "Datadog Flag Trigger",
+  "version": "1.0.0",
+  "overview": "Allow a Datadog alert to initiate a flag change remotely when created.",
+  "description": "Flag triggers integrate with your existing tools to let you enable or disable flags when you hit specific operational health thresholds or receive certain alerts.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.datadoghq.com",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/datadog/triggers",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["developer-tools", "monitoring"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}
