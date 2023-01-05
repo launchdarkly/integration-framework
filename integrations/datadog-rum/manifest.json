@@ -1,0 +1,19 @@
+{
+  "name": "Datadog RUM",
+  "version": "1.0.0",
+  "overview": "Send feature flag evaluation data from the LaunchDarkly JavaScript SDK to Datadog RUM as event properties.",
+  "description": "Send feature flag evaluation data from the LaunchDarkly JavaScript SDK to Datadog RUM as event properties.",
+  "author": "Datadog",
+  "supportEmail": "support@datadoghq.com",
+  "links": {
+    "site": "https://www.datadoghq.com",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/datadog/rum",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["developer-tools", "monitoring"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}
