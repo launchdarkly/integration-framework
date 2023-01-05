@@ -1,7 +1,7 @@
 {
   "name": "Datadog RUM",
   "version": "1.0.0",
-  "overview": "Send feature flag evaluation data from the LaunchDarkly JavaScript SDK to Datadog RUM as event properties.",
+  "overview": "Send feature flag evaluation data from the LaunchDarkly JavaScript SDK to Datadog RUM.",
   "description": "Send feature flag evaluation data from the LaunchDarkly JavaScript SDK to Datadog RUM as event properties.",
   "author": "Datadog",
   "supportEmail": "support@datadoghq.com",
