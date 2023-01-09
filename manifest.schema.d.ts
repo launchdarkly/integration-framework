@@ -67,6 +67,7 @@ export type Categories =
       | "log-management"
       | "messaging"
       | "monitoring"
+      | "synced-segments"
       | "notifications"
     ]
   | [
@@ -84,6 +85,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       ),
       (
@@ -100,6 +102,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       )
     ]
@@ -118,6 +121,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       ),
       (
@@ -134,6 +138,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       ),
       (
@@ -150,6 +155,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       )
     ];

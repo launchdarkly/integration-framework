@@ -167,8 +167,8 @@
           "log-management",
           "messaging",
           "monitoring",
-          "notifications",
-          "synced-segments"
+          "synced-segments",
+          "notifications"
         ]
       }
     },
