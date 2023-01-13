@@ -68,6 +68,7 @@ workflows:
       - send-webhook:
           requires:
             - upload-to-s3
+          context: org-global
           filters:
             branches:
               only: main
