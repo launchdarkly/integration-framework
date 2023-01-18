@@ -17,28 +17,16 @@
   },
   "formVariables": [
     {
-      "key": "accountId",
-      "name": "AWS account ID",
-      "description": "Enter your [AWS account ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html#FindingYourAWSId). The associated account must be configured to use CloudTrail Lake.",
-      "type": "string",
-      "placeholder": "123456",
-      "isHidden": true,
-      "isOptional": true,
-      "defaultValue": ""
-    },
-    {
-      "key": "iamRoleArn",
-      "name": "Ingest IAM Role ARN",
-      "description": "Enter the ARN of the IAM Role for LaunchDarkly to assume to post to your AWS CloudTrail destination.",
-      "type": "string",
-      "isSecret": true
+      "key": "externalId",
+      "name": "External Id",
+      "description": "Provide this for your resource policy when setting up the integration in the AWS Console.",
+      "type": "generated"
     },
     {
       "key": "ingestionChannelArn",
       "name": "Channel ARN",
       "description": "Enter the Channel ARN for LaunchDarkly to use.",
-      "type": "string",
-      "isSecret": true
+      "type": "string"
     }
   ],
   "capabilities": {
