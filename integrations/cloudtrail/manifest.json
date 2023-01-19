@@ -17,6 +17,12 @@
   },
   "formVariables": [
     {
+      "key": "externalId",
+      "name": "External Id",
+      "description": "Use this [external id](https://docs.launchdarkly.com/integrations/cloudtrail) for your resource policy when setting up the integration in the AWS Console.",
+      "type": "generated"
+    },
+    {
       "key": "accountId",
       "name": "AWS account ID",
       "description": "Enter your [AWS account ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html#FindingYourAWSId). The associated account must be configured to use CloudTrail Lake.",
@@ -25,12 +31,6 @@
       "isHidden": true,
       "isOptional": true,
       "defaultValue": ""
-    },
-    {
-      "key": "externalId",
-      "name": "External Id",
-      "description": "Provide this for your resource policy when setting up the integration in the AWS Console.",
-      "type": "generated"
     },
     {
       "key": "ingestionChannelArn",
