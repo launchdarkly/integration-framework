@@ -197,7 +197,7 @@ export type Name = string;
 /**
  * The type of the variable
  */
-export type Type = "string" | "boolean" | "uri" | "enum" | "oauth" | "dynamicEnum";
+export type Type = "string" | "boolean" | "uri" | "enum" | "oauth" | "dynamicEnum" | "generated";
 /**
  * Describes the variable in the UI. Markdown links allowed.
  */

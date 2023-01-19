@@ -318,7 +318,8 @@
               "uri",
               "enum",
               "oauth",
-              "dynamicEnum"
+              "dynamicEnum",
+              "generated"
             ]
           },
           "description": {
@@ -1330,7 +1331,8 @@
                       "uri",
                       "enum",
                       "oauth",
-                      "dynamicEnum"
+                      "dynamicEnum",
+                      "generated"
                     ]
                   },
                   "description": {
@@ -1710,7 +1712,8 @@
                       "uri",
                       "enum",
                       "oauth",
-                      "dynamicEnum"
+                      "dynamicEnum",
+                      "generated"
                     ]
                   },
                   "description": {
@@ -2808,7 +2811,8 @@
                       "uri",
                       "enum",
                       "oauth",
-                      "dynamicEnum"
+                      "dynamicEnum",
+                      "generated"
                     ]
                   },
                   "description": {

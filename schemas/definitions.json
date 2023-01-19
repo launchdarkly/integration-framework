@@ -142,7 +142,15 @@
         "title": "Type",
         "type": "string",
         "description": "The type of the variable",
-        "enum": ["string", "boolean", "uri", "enum", "oauth", "dynamicEnum"]
+        "enum": [
+          "string",
+          "boolean",
+          "uri",
+          "enum",
+          "oauth",
+          "dynamicEnum",
+          "generated"
+        ]
       },
       "description": {
         "$id": "#/definitions/form-variable/description",
