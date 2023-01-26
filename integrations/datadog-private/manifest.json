@@ -1,0 +1,75 @@
+{
+  "name": "Datadog Events (private instance)",
+  "version": "1.0.0",
+  "overview": "Monitor LaunchDarkly changes in Datadog.",
+  "description": "Monitor LaunchDarkly flag and other change events in DataDog. Correlate feature rollouts to changes in your system’s operational health.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.datadoghq.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/datadog",
+    "privacyPolicy": "https://www.datadoghq.com/legal/privacy"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "apiKey",
+      "name": "Datadog API key",
+      "type": "string",
+      "description": "Enter your Datadog [API key](https://app.datadoghq.com/organization-settings/api-keys).",
+      "isSecret": true
+    },
+    {
+      "key": "hostURL",
+      "name": "Datadog host URL",
+      "description": "Your Datadog host URL. Read [How do I tell which Datadog site I am on?](https://docs.datadoghq.com/getting_started/site/#how-do-i-tell-which-datadog-site-i-am-on) if you are unsure which host URL to select.",
+      "type": "string",
+      "placeholder": "https://api.datadoghq.com"
+    },
+    {
+      "key": "hideMemberDetails",
+      "name": "Hide member details",
+      "description": "Don't send related member email and names.",
+      "type": "boolean",
+      "defaultValue": false,
+      "isOptional": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "includeErrorResponseBody": false,
+      "endpoint": {
+        "url": "{{hostURL}}/api/v1/events",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "DD-API-KEY",
+            "value": "{{apiKey}}"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/default.json.hbs",
+        "project": "templates/project.json.hbs",
+        "environment": "templates/environment.json.hbs",
+        "member": "templates/member.json.hbs",
+        "validation": "templates/default.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
+}
