@@ -1,5 +1,16 @@
 {
   "time":{{ timestamp.milliseconds }},
-  "tags":["launchdarkly","{{ kind }}","{{ name }}"],
-  "text":"{{ title.plainText }}"
+  "tags":[
+    "kind:{{ kind }}",
+    {{#each tags}}
+    "ld_tag:{{{this}}}",
+    {{/each}}
+    {{#if project.key}}"project_key:{{project.key}}",
+    {{#if project.environment.key}}"environment_key:{{project.environment.key}}",{{/if}}{{/if}}
+    "{{kind}}_key:{{key}}",
+    "action:{{verbKind}}",
+    "launchdarkly"
+    ],
+  {{!-- ••••'s are used because grafana strips out additional whitespace and newlines in annotation descriptions --}}
+  "text":"{{{ title.plainText }}} {{#if comment}}•••• Comment: {{comment}} {{/if}}•••• {{{_links.details.href}}}"
 }
