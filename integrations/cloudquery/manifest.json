@@ -20,7 +20,6 @@
     "horizontal": "assets/cq-logo-mark.svg"
   },
   "otherCapabilities": [
-    "dataExport",
     "external"
   ],
   "requiresOAuth": false
