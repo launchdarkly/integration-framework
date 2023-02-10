@@ -2,7 +2,7 @@
 
 **Important:** This integration requires a New Relic Pro account, including a paid Insights subscription.
 
-User documentation for this integration is available on the LaunchDarkly documentation site: [New Relic](https://example.com)
+User documentation for this integration is available on the LaunchDarkly documentation site: [New Relic One](https://docs.launchdarkly.com/integrations/new-relic)
 
 API documentation for this integration is available at the New Relic documentation site: [New Relic](https://docs.newrelic.com/docs/insights/insights-data-sources/custom-data/introduction-event-api)
 
