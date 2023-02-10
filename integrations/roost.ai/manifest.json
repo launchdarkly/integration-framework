@@ -1,0 +1,19 @@
+{
+  "name": "Roost.ai Integration",
+  "version": "1.0.0",
+  "overview": "Create LD env when an ephemeral environment is launched using Roost.ai.",
+  "description": "This allows you to use Roost to configure and control feature flags, environments, projects, and more to be used in ephemeral environment created by roost.",
+  "author": "Roost AI",
+  "supportEmail": "harish@roost.ai",
+  "links": {
+    "site": "https://roost.ai/",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/",
+    "supportWebsite": "https://zbio.atlassian.net/wiki/spaces/RFD/pages/1748500481/Roost+LaunchDarkly+Integration"
+  },
+  "categories": ["developer-tools","automation"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "requiresOAuth": false
+}
