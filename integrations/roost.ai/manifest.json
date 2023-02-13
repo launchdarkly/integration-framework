@@ -10,7 +10,7 @@
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/",
     "supportWebsite": "https://zbio.atlassian.net/wiki/spaces/RFD/pages/1748500481/Roost+LaunchDarkly+Integration"
   },
-  "categories": ["developer-tools","automation"],
+  "categories": ["developer-tools", "automation"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
