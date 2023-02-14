@@ -1,6 +1,6 @@
 # Grafana
 
-[User documentation](https://example.com)
+[User documentation](https://docs.launchdarkly.com/integrations/grafana)
 
 [API documentation](https://grafana.com/docs/grafana/latest/http_api/annotations/#create-annotation)
 
