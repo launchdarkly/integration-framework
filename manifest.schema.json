@@ -674,7 +674,8 @@
               "templates",
               "defaultPolicy",
               "includeErrorResponseBody",
-              "deliveryMethod"
+              "deliveryMethod",
+              "useStandardWebhookPayload"
             ]
           },
           "properties": {
@@ -940,6 +941,13 @@
                 "custom"
               ],
               "description": "Describes how the audit log event will be delivered to the destination. Custom delivery method indicates a custom delivery implementation in LaunchDarkly will be used."
+            },
+            "useStandardWebhookPayload": {
+              "$id": "#/properties/use-standard-webhook-payload",
+              "title": "Use standard webhook payload",
+              "type": "boolean",
+              "description": "Whether to send the standard audit log webhook payload or to use defined JSON templates",
+              "default": false
             }
           },
           "required": [

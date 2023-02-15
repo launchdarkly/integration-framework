@@ -304,6 +304,11 @@ describe('All integrations', () => {
   test.each(manifests)(
     'Templates can be successfully rendered for %s',
     (key, manifest) => {
+      const useStandardWebhookPayload = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.useStandardWebhookPayload',
+        false
+      );
       const flagTemplatePath = _.get(
         manifest,
         'capabilities.auditLogEventsHook.templates.flag',
@@ -334,6 +339,20 @@ describe('All integrations', () => {
         'capabilities.auditLogEventsHook.templates.member',
         null
       );
+      if (useStandardWebhookPayload) {
+        const templatePaths = [
+          flagTemplatePath,
+          projectTemplatePath,
+          environmentTemplatePath,
+          defaultTemplatePath,
+          validationTemplatePath,
+          memberTemplatePath,
+        ];
+        for (const path of templatePaths) {
+          expect(path).toBe(null);
+          expect(existsSync(`./integrations/${key}/templates`)).toBe(false);
+        }
+      }
       if (flagTemplatePath) {
         const path = `./integrations/${key}/${flagTemplatePath}`;
         expect(existsSync(path)).toBe(true);

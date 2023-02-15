@@ -366,6 +366,10 @@ export type IncludeErrorResponseBody = boolean;
  */
 export type DeliveryMethod = "custom";
 /**
+ * Whether to send the standard audit log webhook payload or to use defined JSON templates
+ */
+export type UseStandardWebhookPayload = boolean;
+/**
  * The reserved custom property's display name.
  */
 export type Name2 = string;
@@ -671,6 +675,7 @@ export interface AuditLogEventsHook {
   defaultPolicy?: DefaultPolicy;
   includeErrorResponseBody?: IncludeErrorResponseBody;
   deliveryMethod?: DeliveryMethod;
+  useStandardWebhookPayload?: UseStandardWebhookPayload;
   [k: string]: unknown;
 }
 /**
