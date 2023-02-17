@@ -7,7 +7,7 @@
   "supportEmail": "support@zb.io",
   "links": {
     "site": "https://roost.ai/",
-    "privacyPolicy": "https://launchdarkly.com/policies/privacy/",
+    "privacyPolicy": "https://roost.ai/privacy-policy",
     "supportWebsite": "https://zbio.atlassian.net/wiki/spaces/RFD/pages/1748500481/Roost+LaunchDarkly+Integration"
   },
   "categories": ["developer-tools", "automation"],
