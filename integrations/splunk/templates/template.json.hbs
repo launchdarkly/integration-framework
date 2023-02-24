@@ -19,10 +19,9 @@
     "environment_key": "{{project.environment.key}}",
     {{/if}}
     {{/if}}
-    {{#if comment}}
-    "comment": "{{{comment}}}",
-    {{/if}}
+    "comment": "{{#if comment}}{{{comment}}}{{/if}}",
     "user": "{{member.displayName}}",
-    "user_email": "{{member.email}}"
+    "user_email": "{{member.email}}",
+    "url": "{{_links.details.href}}"
   }
 }
