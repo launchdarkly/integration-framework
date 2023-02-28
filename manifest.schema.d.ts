@@ -247,6 +247,14 @@ export type Value = string;
  */
 export type HTTPHeaders = HeaderItems[];
 /**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey = string;
+/**
  * JSON path to the array containing options for parsing
  */
 export type OptionsArrayPath = string;
@@ -630,6 +638,7 @@ export interface Endpoint {
   url: URL;
   method: HTTPMethod;
   headers?: HTTPHeaders;
+  hmacSignature?: HMACSignature;
   [k: string]: unknown;
 }
 /**
@@ -638,6 +647,14 @@ export interface Endpoint {
 export interface HeaderItems {
   name: Name1;
   value: Value;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature {
+  headerName?: HMACSignatureHeaderName;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey;
   [k: string]: unknown;
 }
 /**

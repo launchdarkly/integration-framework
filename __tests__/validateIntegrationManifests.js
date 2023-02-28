@@ -137,6 +137,24 @@ describe('All integrations', () => {
             `${key}: request header (${header.name}) value template must render successfully`
           ).not.toThrow();
         });
+        const hmacSignatureConfig = _.get(
+          manifest,
+          'capabilities.auditLogEventsHook.endpoint.hmacSignature',
+          null
+        );
+        if (hmacSignatureConfig) {
+          let secretField;
+          for (const formVariable of formVariables) {
+            if (
+              formVariable.key === hmacSignatureConfig.hmacSecretFormVariableKey
+            ) {
+              secretField = formVariable;
+            }
+          }
+          expect(secretField).not.toBe(undefined);
+          expect(secretField.type).toBe('string');
+          expect(secretField.isSecret).toBe(true);
+        }
       }
     }
   );

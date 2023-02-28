@@ -399,7 +399,8 @@
                   "enum": [
                     "url",
                     "method",
-                    "headers"
+                    "headers",
+                    "hmacSignature"
                   ]
                 },
                 "properties": {
@@ -476,6 +477,32 @@
                       }
                     ],
                     "minProperties": 1
+                  },
+                  "hmacSignature": {
+                    "$id": "#/definitions/endpoint/hmac-signature",
+                    "title": "HMAC signature",
+                    "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                    "type": "object",
+                    "propertyNames": {
+                      "enum": [
+                        "headerName",
+                        "hmacSecretFormVariableKey"
+                      ]
+                    },
+                    "properties": {
+                      "headerName": {
+                        "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                        "title": "HMAC signature header name",
+                        "description": "The name of the HMAC signature header",
+                        "type": "string"
+                      },
+                      "hmacSecretFormVariableKey": {
+                        "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                        "title": "HMAC secret form variable key",
+                        "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                        "type": "string"
+                      }
+                    }
                   }
                 },
                 "required": [
@@ -688,7 +715,8 @@
                 "enum": [
                   "url",
                   "method",
-                  "headers"
+                  "headers",
+                  "hmacSignature"
                 ]
               },
               "properties": {
@@ -765,6 +793,32 @@
                     }
                   ],
                   "minProperties": 1
+                },
+                "hmacSignature": {
+                  "$id": "#/definitions/endpoint/hmac-signature",
+                  "title": "HMAC signature",
+                  "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "headerName",
+                      "hmacSecretFormVariableKey"
+                    ]
+                  },
+                  "properties": {
+                    "headerName": {
+                      "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                      "title": "HMAC signature header name",
+                      "description": "The name of the HMAC signature header",
+                      "type": "string"
+                    },
+                    "hmacSecretFormVariableKey": {
+                      "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                      "title": "HMAC secret form variable key",
+                      "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                      "type": "string"
+                    }
+                  }
                 }
               },
               "required": [
@@ -1142,7 +1196,8 @@
                     "enum": [
                       "url",
                       "method",
-                      "headers"
+                      "headers",
+                      "hmacSignature"
                     ]
                   },
                   "properties": {
@@ -1219,6 +1274,32 @@
                         }
                       ],
                       "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
                     }
                   },
                   "required": [
@@ -1420,7 +1501,8 @@
                           "enum": [
                             "url",
                             "method",
-                            "headers"
+                            "headers",
+                            "hmacSignature"
                           ]
                         },
                         "properties": {
@@ -1497,6 +1579,32 @@
                               }
                             ],
                             "minProperties": 1
+                          },
+                          "hmacSignature": {
+                            "$id": "#/definitions/endpoint/hmac-signature",
+                            "title": "HMAC signature",
+                            "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                            "type": "object",
+                            "propertyNames": {
+                              "enum": [
+                                "headerName",
+                                "hmacSecretFormVariableKey"
+                              ]
+                            },
+                            "properties": {
+                              "headerName": {
+                                "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                                "title": "HMAC signature header name",
+                                "description": "The name of the HMAC signature header",
+                                "type": "string"
+                              },
+                              "hmacSecretFormVariableKey": {
+                                "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                                "title": "HMAC secret form variable key",
+                                "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                                "type": "string"
+                              }
+                            }
                           }
                         },
                         "required": [
@@ -1801,7 +1909,8 @@
                           "enum": [
                             "url",
                             "method",
-                            "headers"
+                            "headers",
+                            "hmacSignature"
                           ]
                         },
                         "properties": {
@@ -1878,6 +1987,32 @@
                               }
                             ],
                             "minProperties": 1
+                          },
+                          "hmacSignature": {
+                            "$id": "#/definitions/endpoint/hmac-signature",
+                            "title": "HMAC signature",
+                            "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                            "type": "object",
+                            "propertyNames": {
+                              "enum": [
+                                "headerName",
+                                "hmacSecretFormVariableKey"
+                              ]
+                            },
+                            "properties": {
+                              "headerName": {
+                                "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                                "title": "HMAC signature header name",
+                                "description": "The name of the HMAC signature header",
+                                "type": "string"
+                              },
+                              "hmacSecretFormVariableKey": {
+                                "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                                "title": "HMAC secret form variable key",
+                                "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                                "type": "string"
+                              }
+                            }
                           }
                         },
                         "required": [
@@ -2072,7 +2207,8 @@
                     "enum": [
                       "url",
                       "method",
-                      "headers"
+                      "headers",
+                      "hmacSignature"
                     ]
                   },
                   "properties": {
@@ -2149,6 +2285,32 @@
                         }
                       ],
                       "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
                     }
                   },
                   "required": [
@@ -2247,7 +2409,8 @@
                     "enum": [
                       "url",
                       "method",
-                      "headers"
+                      "headers",
+                      "hmacSignature"
                     ]
                   },
                   "properties": {
@@ -2324,6 +2487,32 @@
                         }
                       ],
                       "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
                     }
                   },
                   "required": [
@@ -2422,7 +2611,8 @@
                     "enum": [
                       "url",
                       "method",
-                      "headers"
+                      "headers",
+                      "hmacSignature"
                     ]
                   },
                   "properties": {
@@ -2499,6 +2689,32 @@
                         }
                       ],
                       "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
                     }
                   },
                   "required": [
@@ -2597,7 +2813,8 @@
                     "enum": [
                       "url",
                       "method",
-                      "headers"
+                      "headers",
+                      "hmacSignature"
                     ]
                   },
                   "properties": {
@@ -2674,6 +2891,32 @@
                         }
                       ],
                       "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
                     }
                   },
                   "required": [
@@ -2900,7 +3143,8 @@
                           "enum": [
                             "url",
                             "method",
-                            "headers"
+                            "headers",
+                            "hmacSignature"
                           ]
                         },
                         "properties": {
@@ -2977,6 +3221,32 @@
                               }
                             ],
                             "minProperties": 1
+                          },
+                          "hmacSignature": {
+                            "$id": "#/definitions/endpoint/hmac-signature",
+                            "title": "HMAC signature",
+                            "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                            "type": "object",
+                            "propertyNames": {
+                              "enum": [
+                                "headerName",
+                                "hmacSecretFormVariableKey"
+                              ]
+                            },
+                            "properties": {
+                              "headerName": {
+                                "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                                "title": "HMAC signature header name",
+                                "description": "The name of the HMAC signature header",
+                                "type": "string"
+                              },
+                              "hmacSecretFormVariableKey": {
+                                "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                                "title": "HMAC secret form variable key",
+                                "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                                "type": "string"
+                              }
+                            }
                           }
                         },
                         "required": [
@@ -3172,7 +3442,8 @@
                     "enum": [
                       "url",
                       "method",
-                      "headers"
+                      "headers",
+                      "hmacSignature"
                     ]
                   },
                   "properties": {
@@ -3249,6 +3520,32 @@
                         }
                       ],
                       "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
                     }
                   },
                   "required": [
@@ -3308,7 +3605,8 @@
                     "enum": [
                       "url",
                       "method",
-                      "headers"
+                      "headers",
+                      "hmacSignature"
                     ]
                   },
                   "properties": {
@@ -3385,6 +3683,32 @@
                         }
                       ],
                       "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
                     }
                   },
                   "required": [
