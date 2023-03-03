@@ -12,8 +12,8 @@
   },
   "categories": ["developer-tools", "automation"],
   "icons": {
-    "square": "assets/images/square.svg",
-    "horizontal": "assets/images/horizontal.svg"
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
   },
   "requiresOAuth": false,
   "otherCapabilities": ["external"]
