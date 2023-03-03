@@ -12,7 +12,7 @@
   },
   "categories": ["developer-tools", "automation"],
   "icons": {
-    "square": "assets/images/square.svg",
+    "square": "assets/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
   "requiresOAuth": false
