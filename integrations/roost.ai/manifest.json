@@ -13,7 +13,7 @@
   "categories": ["developer-tools", "automation"],
   "icons": {
     "square": "assets/square.svg",
-    "horizontal": "assets/images/horizontal.svg"
+    "horizontal": "assets/horizontal.svg"
   },
   "requiresOAuth": false
 }
