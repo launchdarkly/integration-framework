@@ -1,6 +1,48 @@
-{{#if customProperties}}
-{{#if customProperties.dynatrace}}
-{{#if customProperties.dynatrace.values}}
+{{#if formVariables.tag}}
+{
+  "eventType": "CUSTOM_CONFIGURATION",
+  "attachRules": {
+    "tagRule": [
+      {
+        "meTypes": [{{#if formVariables.entity }}"{{formVariables.entity}}"{{else}}"APPLICATION"{{/if}}],
+        "tags": [
+          {{#if customProperties}}{{#if customProperties.dynatrace}}{{#if customProperties.dynatrace.values}}
+          {{#with customProperties}}
+          {{#each dynatrace.values}}
+          {
+            "context": "CONTEXTLESS",
+            "key": "{{{this}}}"
+          },
+          {{/each}}
+          {{/with}}
+          {{/if}}{{/if}}{{/if}}
+          {
+            "context": "CONTEXTLESS",
+            "key": "{{{formVariables.tag}}}"
+          }
+        ]
+      }
+    ]
+  },
+  "configuration": "Feature flag \"{{name}}\"",
+  "customProperties": {
+    "Flag name": "{{name}}",
+    "Flag key": "{{key}}",
+    "Project name": "{{project.name}}",
+    "Project key": "{{project.key}}",
+    "Environment name": "{{project.environment.name}}",
+    "Environment key": "{{project.environment.key}}",
+    "Comment": "{{#if comment}}{{comment}}{{/if}}",
+    "User name": "{{member.displayName}}",
+    "User email": "{{ member.email }}",
+    "Action": "{{verbKind}}"
+  },
+  "start": {{ timestamp.milliseconds }},
+  "source": "LaunchDarkly",
+  "description": "{{{title.plainText}}}{{#if details.plainText}}{{{details.plainText}}}{{/if}}"
+}
+{{else}}
+{{#if customProperties}}{{#if customProperties.dynatrace}}{{#if customProperties.dynatrace.values}}
 {
   "eventType": "CUSTOM_CONFIGURATION",
   "attachRules": {
@@ -37,6 +79,5 @@
   "source": "LaunchDarkly",
   "description": "{{{title.plainText}}}{{#if details.plainText}}{{{details.plainText}}}{{/if}}"
 }
-{{/if}}
-{{/if}}
+{{/if}}{{/if}}{{/if}}
 {{/if}}
