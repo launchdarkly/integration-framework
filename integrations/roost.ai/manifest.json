@@ -1,0 +1,20 @@
+{
+  "name": "Roost.ai",
+  "version": "1.0.0",
+  "overview": "Create a LaunchDarkly environment when an ephemeral environment is launched using Roost.ai.",
+  "description": "Create a LaunchDarkly environment to be used in an ephemeral environment created by Roost.",
+  "author": "Roost AI",
+  "supportEmail": "support@zb.io",
+  "links": {
+    "site": "https://roost.ai/",
+    "privacyPolicy": "https://roost.ai/privacy-policy",
+    "supportWebsite": "https://zbio.atlassian.net/wiki/spaces/RFD/pages/1748500481/Roost+LaunchDarkly+Integration"
+  },
+  "categories": ["developer-tools", "automation"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "requiresOAuth": false,
+  "otherCapabilities": ["external"]
+}
