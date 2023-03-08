@@ -1,0 +1,10 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "hideConfiguration": {
+    "$id": "#/properties/capability/hide-configuration",
+    "title": "Hide Configuration",
+    "description": "This capability will disable in-app editing for the integration",
+    "type": "boolean",
+    "default": false
+  }
+}

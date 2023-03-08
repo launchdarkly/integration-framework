@@ -2,7 +2,7 @@
   "name": "CloudQuery",
   "version": "1.0.1",
   "overview": "Export LaunchDarkly data to any supported CloudQuery destination.",
-  "description": "The CloudQuery LaunchDarkly plugin pulls data from LaunchDarkly and loads it into any supported CloudQuery destination (e.g. PostgreSQL)",
+  "description": "The CloudQuery LaunchDarkly plugin pulls data from LaunchDarkly and loads it into any supported CloudQuery destination (e.g. PostgreSQL).",
   "details": "CloudQuery is an open source high performance data integration platform built for developers.",
   "author": "CloudQuery",
   "supportEmail": "support@cloudquery.io",

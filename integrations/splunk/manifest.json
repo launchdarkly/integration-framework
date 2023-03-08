@@ -20,9 +20,9 @@
       "key": "base-url",
       "name": "HTTP event collector base URL",
       "type": "string",
-      "description": "Enter your [Splunk HTTP event collector base URL](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector).",
+      "description": "Enter your [Splunk HTTP event collector base URL](https://docs.splunk.com/Documentation/Splunk/latest/Data/UsetheHTTPEventCollector) (omitting the path).",
       "isSecret": false,
-      "placeholder": "https://mysplunkserver.example.com"
+      "placeholder": "https://http-inputs-<host>.splunkcloud.com"
     },
     {
       "key": "token",

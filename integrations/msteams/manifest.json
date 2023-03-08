@@ -1,5 +1,5 @@
 {
-  "name": "Microsoft Teams",
+  "name": "Microsoft Teams incoming webhooks",
   "version": "1.0.0",
   "overview": "Receive flag change notifications in your Teams workspaces.",
   "description": "Receive LaunchDarkly notifications in your Teams workspaces. Subscribe to changes in flags, projects, and other resources.",
@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.microsoft.com/microsoft-365/microsoft-teams/group-chat-software",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/microsoft-teams",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/microsoft-teams/webhooks",
     "privacyPolicy": "https://privacy.microsoft.com/en-us"
   },
   "categories": ["messaging"],

@@ -1,6 +1,25 @@
 {
-  "name": "{{name}}",
+  "name": "{{{name}}}",
   "key": "{{key}}",
-  "user": "{{member.email}}",
-  "message": "{{title.plainText}}"
+  "kind": "{{kind}}",
+  "member": {
+    "email": "{{{member.email}}}",
+    "name": "{{{member.displayName}}}"
+  },
+  "message": {
+    "plainText": "{{{title.plainText}}}",
+    "markdown": "{{{title.markdown}}}"
+  },
+  "details": {
+    "plainText": "{{{details.plainText}}}",
+    "markdown": "{{{details.markdown}}}"
+  },
+  "comment": "{{#if comment}}{{{comment}}}{{/if}}",
+  "links": {
+    "site": "{{{_links.site.href}}}",
+    "details": "{{{_links.details.href}}}"
+  },
+  "timestamp": {
+    "milliseconds": {{{timestamp.milliseconds}}}
+  }
 }

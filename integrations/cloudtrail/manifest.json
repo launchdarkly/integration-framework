@@ -1,0 +1,60 @@
+{
+  "name": "AWS CloudTrail Lake",
+  "version": "1.0.0",
+  "overview": "Send LaunchDarkly audit events to AWS CloudTrail Lake.",
+  "description": "AWS CloudTrail Lake integration lets you configure CloudTrail Lake to receive any activity from LaunchDarkly and store the data in CloudTrail Lake.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://aws.amazon.com/cloudtrail/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/cloudtrail",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["monitoring", "analytics"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "formVariables": [
+    {
+      "key": "externalId",
+      "name": "External Id",
+      "description": "Use this [external id](https://docs.launchdarkly.com/integrations/cloudtrail) for your resource policy when setting up the integration in the AWS Console.",
+      "type": "generated"
+    },
+    {
+      "key": "accountId",
+      "name": "AWS account ID",
+      "description": "Enter your [AWS account ID](https://docs.aws.amazon.com/IAM/latest/UserGuide/console_account-alias.html#FindingYourAWSId). The associated account must be configured to use CloudTrail Lake.",
+      "type": "string",
+      "placeholder": "123456",
+      "isHidden": true,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "ingestionChannelArn",
+      "name": "Channel ARN",
+      "description": "Enter the Channel ARN for LaunchDarkly to use.",
+      "type": "string"
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ],
+      "deliveryMethod": "custom",
+      "templates": {
+        "default": "templates/default.json.hbs",
+        "member": "templates/member.json.hbs",
+        "validation": "templates/default.json.hbs"
+      }
+    }
+  }
+}
