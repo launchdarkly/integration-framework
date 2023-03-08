@@ -67,6 +67,7 @@ export type Categories =
       | "log-management"
       | "messaging"
       | "monitoring"
+      | "synced-segments"
       | "notifications"
     ]
   | [
@@ -84,6 +85,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       ),
       (
@@ -100,6 +102,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       )
     ]
@@ -118,6 +121,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       ),
       (
@@ -134,6 +138,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       ),
       (
@@ -150,6 +155,7 @@ export type Categories =
         | "log-management"
         | "messaging"
         | "monitoring"
+        | "synced-segments"
         | "notifications"
       )
     ];
@@ -191,7 +197,7 @@ export type Name = string;
 /**
  * The type of the variable
  */
-export type Type = "string" | "boolean" | "uri" | "enum" | "oauth" | "dynamicEnum";
+export type Type = "string" | "boolean" | "uri" | "enum" | "oauth" | "dynamicEnum" | "generated";
 /**
  * Describes the variable in the UI. Markdown links allowed.
  */
@@ -240,6 +246,14 @@ export type Value = string;
  * Headers to send with the webhook request
  */
 export type HTTPHeaders = HeaderItems[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey = string;
 /**
  * JSON path to the array containing options for parsing
  */
@@ -355,6 +369,14 @@ export type Resources = string[];
  * Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI
  */
 export type IncludeErrorResponseBody = boolean;
+/**
+ * Describes how the audit log event will be delivered to the destination. Custom delivery method indicates a custom delivery implementation in LaunchDarkly will be used.
+ */
+export type DeliveryMethod = "custom";
+/**
+ * Whether to send the standard audit log webhook payload or to use defined JSON templates
+ */
+export type UseStandardWebhookPayload = boolean;
 /**
  * The reserved custom property's display name.
  */
@@ -527,6 +549,10 @@ export type Description3 = string;
  */
 export type Elements1 = UIBlockElement[];
 /**
+ * This capability will disable in-app editing for the integration
+ */
+export type HideConfiguration = boolean;
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -612,6 +638,7 @@ export interface Endpoint {
   url: URL;
   method: HTTPMethod;
   headers?: HTTPHeaders;
+  hmacSignature?: HMACSignature;
   [k: string]: unknown;
 }
 /**
@@ -620,6 +647,14 @@ export interface Endpoint {
 export interface HeaderItems {
   name: Name1;
   value: Value;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature {
+  headerName?: HMACSignatureHeaderName;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey;
   [k: string]: unknown;
 }
 /**
@@ -645,16 +680,19 @@ export interface Capabilities {
   approval?: Approval;
   featureStore?: FeatureStore;
   flagLink?: FlagLink;
+  hideConfiguration?: HideConfiguration;
   [k: string]: unknown;
 }
 /**
  * This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.
  */
 export interface AuditLogEventsHook {
-  endpoint: Endpoint;
+  endpoint?: Endpoint;
   templates: WebhookBodyTemplate;
   defaultPolicy?: DefaultPolicy;
   includeErrorResponseBody?: IncludeErrorResponseBody;
+  deliveryMethod?: DeliveryMethod;
+  useStandardWebhookPayload?: UseStandardWebhookPayload;
   [k: string]: unknown;
 }
 /**

@@ -19,7 +19,7 @@
     {
       "key": "datasetName",
       "name": "Honeycomb dataset name",
-      "description": "Enter the name of your Honeycomb dataset. This value will associate LaunchDarkly data with the corresponding Honeycomb dataset.",
+      "description": "Enter the name of your Honeycomb dataset. This associates LaunchDarkly data with the corresponding Honeycomb dataset.",
       "type": "string",
       "placeholder": "production",
       "isSecret": false

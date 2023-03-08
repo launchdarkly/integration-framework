@@ -7,6 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://grafana.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/grafana",
     "privacyPolicy": "https://grafana.com/terms/"
   },
   "categories": ["monitoring"],

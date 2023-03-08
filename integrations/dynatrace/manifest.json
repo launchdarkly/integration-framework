@@ -18,9 +18,9 @@
   "formVariables": [
     {
       "key": "apiToken",
-      "name": "Dynatrace API token",
+      "name": "Dynatrace Access token",
       "type": "string",
-      "description": "Enter your Dynatrace API token. [Learn more](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token) about generating tokens. The 'access problem and event feed, metrics, and topology' scope is required.",
+      "description": "Enter your Dynatrace Access token. [Learn more](https://www.dynatrace.com/support/help/shortlink/api-authentication#generate-a-token) about generating tokens. The 'Access problem and event feed, metrics, and topology' scope is required.",
       "isSecret": true
     },
     {
@@ -128,6 +128,14 @@
         "VIRTUALMACHINE",
         "VMWARE_DATACENTER"
       ]
+    },
+    {
+      "name": "Dynatrace tag",
+      "key": "tag",
+      "type": "string",
+      "isOptional": true,
+      "defaultValue": "",
+      "description": "If provided, all feature flag events matching the policy filter will be associated with Dynatrace entities with the same tag."
     }
   ],
   "capabilities": {

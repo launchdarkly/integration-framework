@@ -10,7 +10,9 @@
         "endpoint",
         "templates",
         "defaultPolicy",
-        "includeErrorResponseBody"
+        "includeErrorResponseBody",
+        "deliveryMethod",
+        "useStandardWebhookPayload"
       ]
     },
     "properties": {
@@ -158,8 +160,22 @@
         "type": "boolean",
         "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
         "default": false
+      },
+      "deliveryMethod": {
+        "$id": "#/properties/delivery-method",
+        "title": "Delivery Method",
+        "type": "string",
+        "enum": ["custom"],
+        "description": "Describes how the audit log event will be delivered to the destination. Custom delivery method indicates a custom delivery implementation in LaunchDarkly will be used."
+      },
+      "useStandardWebhookPayload": {
+        "$id": "#/properties/use-standard-webhook-payload",
+        "title": "Use standard webhook payload",
+        "type": "boolean",
+        "description": "Whether to send the standard audit log webhook payload or to use defined JSON templates",
+        "default": false
       }
     },
-    "required": ["endpoint", "templates"]
+    "required": ["templates"]
   }
 }

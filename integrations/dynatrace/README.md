@@ -1,6 +1,6 @@
 # Dynatrace
 
-[User documentation](https://example.com)
+[User documentation](https://docs.launchdarkly.com/integrations/dynatrace)
 
 [API documentation](https://www.dynatrace.com/support/help/extend-dynatrace/dynatrace-api/environment-api/events/post-event/)
 

@@ -1,21 +1,32 @@
 # Honeycomb
 
-[User documentation](https://docs.launchdarkly.com/integrations/honeycomb)
+Documentation for this integration is available on the LaunchDarkly documentation site: [Honeycomb](https://docs.launchdarkly.com/integrations/honeycomb)
 
-[API documentation](https://docs.honeycomb.io/api/markers/)
+API documentation for this integration is available on the Honeycomb documentation site: [Markers API](https://docs.honeycomb.io/api/markers/)
+
+## Getting started with the Honeycomb integration
 
 Run `npm run curl honeycomb` in the root repository directory to generate a `curl` command to send data to Honeycomb.
 
 
-### Triggers
+### Using flag triggers with Honeycomb.
 
-Please consult the [Honeycomb documentation](https://docs.honeycomb.io/working-with-your-data/triggers/) to configure webhooks/triggers from your Honeycomb account.
+You can configure triggers/webhooks for your Honeycomb account. To learn more, read the [Honeycomb documentation](https://docs.honeycomb.io/working-with-your-data/triggers/).
 
-To test, go to the Honeycomb Integration Center at https://ui.honeycomb.io/teams/<your_team_name>/integrations and create a new integration of type 'Webhook'. You need to enter a shared secret to create the webhook but it will not affect the request. There is the option to 'Test' at this point.
+To test a webhook integration:
 
-To make sure it works on the trigger itself, you'll have to go to the 'Triggers' tab and add the integration you just created as a recipient on any one of the triggers (all the way at the bottom). Once saved, there should also be the option to 'Test' at this point.
+1. Navigate to the Honeycomb Integration Center: `https://ui.honeycomb.io/teams/<your_team_name>/integrations`.
+2. Create a new 'Webhook' type integration. You need to enter a shared secret to create the webhook, but it does not affect the request.
+3. Choose the 'Test' option.
 
-A sample payload looks like this:
+Next, test the trigger:
+
+1. Navigate to the 'Triggers' tab.
+2. Add the integration you just created as a recipient on any one of the triggers.
+3. Save the integration and choose the 'Test' option.
+
+Here is an example payload:
+
 ```
 {
    "version":"v0.1.0",

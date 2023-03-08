@@ -1,0 +1,22 @@
+{
+  "name": "Snowflake",
+  "version": "1.0.0",
+  "overview": "Export experimentation metadata events.",
+  "description": "Export your experimentation metadata events to Snowflake.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.snowflake.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/data-export/snowflake",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "legacy": {
+    "kind": "dataExport"
+  },
+  "otherCapabilities": ["dataExport"]
+}

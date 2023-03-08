@@ -155,6 +155,7 @@
           "log-management",
           "messaging",
           "monitoring",
+          "synced-segments",
           "notifications"
         ]
       }
@@ -257,7 +258,8 @@
           "trigger",
           "approval",
           "featureStore",
-          "flagLink"
+          "flagLink",
+          "hideConfiguration"
         ]
       },
       "properties": {
@@ -278,6 +280,9 @@
         },
         "flagLink": {
           "$ref": "schemas/capabilities/flagLink.json#/flagLink"
+        },
+        "hideConfiguration": {
+          "$ref": "schemas/capabilities/hideConfiguration.json#/hideConfiguration"
         }
       }
     },

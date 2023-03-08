@@ -13,5 +13,5 @@ EOF
 )
 
 curl --header "Content-Type: application/json" \
-  --header "X-LaunchDarkly-Secret: ${WEBHOOK_SECRET}" \
+  --header "X-LaunchDarkly-Secret: ${THUMB_SEEKER_TOKEN}" \
   --data "$generate_post_data" "$WEBHOOK_URL"

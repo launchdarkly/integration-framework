@@ -1,0 +1,19 @@
+name: Notify downstream repo of changes
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  notify-downstream:
+    if: github.repository == 'launchdarkly/integration-framework-private'
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl \
+            -i \
+            -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: token ${{secrets.PR_CREATOR_GH_TOKEN}}" \
+            https://api.github.com/repos/launchdarkly/${{secrets.DOWNSTREAM_REPO}}/actions/workflows/31993112/dispatches \
+            -d '{"ref":"main"}'

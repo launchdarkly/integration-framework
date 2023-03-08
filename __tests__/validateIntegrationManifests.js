@@ -36,6 +36,9 @@ const getFormVariableContext = formVariables => {
         case 'dynamicEnum':
           endpointContext[formVariable.key] = formVariable.key;
           break;
+        case 'generated':
+          endpointContext[formVariable.key] = formVariable.key;
+          break;
       }
     });
   }
@@ -134,6 +137,24 @@ describe('All integrations', () => {
             `${key}: request header (${header.name}) value template must render successfully`
           ).not.toThrow();
         });
+        const hmacSignatureConfig = _.get(
+          manifest,
+          'capabilities.auditLogEventsHook.endpoint.hmacSignature',
+          null
+        );
+        if (hmacSignatureConfig) {
+          let secretField;
+          for (const formVariable of formVariables) {
+            if (
+              formVariable.key === hmacSignatureConfig.hmacSecretFormVariableKey
+            ) {
+              secretField = formVariable;
+            }
+          }
+          expect(secretField).not.toBe(undefined);
+          expect(secretField.type).toBe('string');
+          expect(secretField.isSecret).toBe(true);
+        }
       }
     }
   );
@@ -171,13 +192,13 @@ describe('All integrations', () => {
         'capabilities.auditLogEventsHook.includeErrorResponseBody',
         null
       );
-      if (includeErrorResponseBody) {
-        // if there is no host domain replacement in the `endpoint` field then we are fine
-        const endpointUrlTemplate = _.get(
-          manifest,
-          'capabilities.auditLogEventsHook.endpoint.url',
-          null
-        );
+      // if there is no host domain replacement in the `endpoint` field then we are fine
+      const endpointUrlTemplate = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.endpoint.url',
+        null
+      );
+      if (endpointUrlTemplate && includeErrorResponseBody) {
         if (endpointUrlTemplate.startsWith('{{')) {
           const varName = endpointUrlTemplate.substring(
             2,
@@ -301,6 +322,11 @@ describe('All integrations', () => {
   test.each(manifests)(
     'Templates can be successfully rendered for %s',
     (key, manifest) => {
+      const useStandardWebhookPayload = _.get(
+        manifest,
+        'capabilities.auditLogEventsHook.useStandardWebhookPayload',
+        false
+      );
       const flagTemplatePath = _.get(
         manifest,
         'capabilities.auditLogEventsHook.templates.flag',
@@ -331,6 +357,20 @@ describe('All integrations', () => {
         'capabilities.auditLogEventsHook.templates.member',
         null
       );
+      if (useStandardWebhookPayload) {
+        const templatePaths = [
+          flagTemplatePath,
+          projectTemplatePath,
+          environmentTemplatePath,
+          defaultTemplatePath,
+          validationTemplatePath,
+          memberTemplatePath,
+        ];
+        for (const path of templatePaths) {
+          expect(path).toBe(null);
+          expect(existsSync(`./integrations/${key}/templates`)).toBe(false);
+        }
+      }
       if (flagTemplatePath) {
         const path = `./integrations/${key}/${flagTemplatePath}`;
         expect(existsSync(path)).toBe(true);
