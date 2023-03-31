@@ -2,7 +2,7 @@
   "name": "Liquibase",
   "version": "1.0.0",
   "overview": "Liquibase helps developers bring progressive deliver and DevOps to the database",
-  "description": "Liquibase Launch Darkly Extension gives users the ability to use Launch Darkly to define and control when database changes are applied. The extensions allow for feature flags to be used as Preconditions in changelogs and changesets.",
+  "description": "Liquibase LaunchDarkly Extension gives users the ability to use LaunchDarkly to define and control when database changes are applied. The extensions allow for feature flags to be used as Preconditions in changelogs and changesets.",
   "author": "Liquibase",
   "supportEmail": "support@liquibase.com",
   "links": {
@@ -12,8 +12,8 @@
   },
   "categories": ["developer-tools", "automation"],
   "icons": {
-    "square": "assets/images/Liquibase_logo_vertical_RGB.svg",
-    "horizontal": "assets/images/Liquibase_logo_horizontal_RGB.svg"
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/vertical.svg"
   },
   "requiresOAuth": false
 }
