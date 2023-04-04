@@ -1,0 +1,20 @@
+{
+  "name": "ngrok",
+  "version": "1.0.0",
+  "overview": "Verify LaunchDarkly webhooks with ngrok.",
+  "description": "Get notified whenever a feature flag is updated or when an account member is invited to LaunchDarkly without changing code or poking your firewall.",
+  "author": "ngrok",
+  "supportEmail": "support@ngrok.com",
+  "links": {
+    "site": "https://ngrok.com",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/ngrok",
+    "supportWebsite": "https://ngrok.com/docs/integrations/launchdarkly",
+    "privacyPolicy": "https://ngrok.com/privacy"
+  },
+  "categories": ["notifications"],
+  "icons": {
+    "square": "assets/images/ngrok-square.svg",
+    "horizontal": "assets/images/ngrok-horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}
