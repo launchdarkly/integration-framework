@@ -485,6 +485,14 @@ export type ProviderFormVariables = FormVariable[];
 export type SuccessPointer = string;
 export type ErrorsPointer = string;
 /**
+ * Optional prefix to wrap payload data with (used for some integrations)
+ */
+export type Prefix = string;
+/**
+ * Optional suffix to wrap payload data with (used for some integrations)
+ */
+export type Suffix = string;
+/**
  * Sentence-cased title to show for all links for this integration
  */
 export type LinkGroupHeader = string;
@@ -852,6 +860,8 @@ export interface FeatureStoreValidationParser {
  */
 export interface FeatureStoreRequest {
   endpoint: Endpoint;
+  payloadPrefix?: Prefix;
+  payloadSuffix?: Suffix;
   [k: string]: unknown;
 }
 /**

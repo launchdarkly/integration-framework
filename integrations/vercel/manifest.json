@@ -1,0 +1,82 @@
+{
+  "name": "Vercel",
+  "version": "1.0.0",
+  "overview": "Evaluate feature flags and bootstrap the LaunchDarkly Javascript SDK from the Vercel Edge.",
+  "description": "Evaluate feature flags and bootstrap the LaunchDarkly Javascript SDK from Vercel Edge by storing flag data in Vercel's Edge Config offering.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.vercel.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/vercel",
+    "privacyPolicy": "https://vercel.com/legal/privacy-policy"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "featureStore": {
+      "formVariables": [
+        {
+          "key": "edgeConfigId",
+          "name": "Edge Config ID",
+          "description": "Enter your Edge Config ID.",
+          "type": "string",
+          "placeholder": "e.g. 01a7362d577a6c3019a474fd6f485823",
+          "isSecret": false
+        },
+        {
+          "key": "teamId",
+          "name": "Team ID",
+          "description": "You must have a Team ID available for flag updates. Enter the Team ID associated with your Vercel team.",
+          "type": "string",
+          "placeholder": "e.g. 0f2ac74b498b48028cb68387c421e279",
+          "isOptional": true,
+          "isSecret": false
+        },
+        {
+          "key": "apiToken",
+          "name": "API Token",
+          "description": "Enter the API token generated from Vercel.",
+          "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
+          "type": "string",
+          "isSecret": true
+        }
+      ],
+      "validationRequest": {
+        "endpoint": {
+          "url": "https://api.vercel.com/v1/edge-config/{edgeConfigId}/items?teamId={{teamId}}",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{apiToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "success": "/success"
+        }
+      },
+      "featureStoreRequest": {
+        "endpoint": {
+          "url": "https://api.vercel.com/v1/edge-config/{{edgeConfigId}}/items",
+          "method": "PATCH",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{apiToken}}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        },
+        "payloadPrefix": "\"items\": [{\"operation\": \"upsert\", \"key\": \"ld-flags-FILLINENVID\", \"value\": ",
+        "payloadSuffix": "}]"
+      }
+    }
+  }
+}
