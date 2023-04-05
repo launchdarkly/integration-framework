@@ -16,6 +16,50 @@
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
+  "formVariables": [
+    {
+      "key": "url",
+      "name": "Compass web trigger URL",
+      "type": "uri",
+      "description": "Enter your Compass web trigger URL",
+      "isSecret": false
+    },
+    {
+      "key": "secret",
+      "name": "Secret",
+      "description": "Enter the secret shared between Compass and LaunchDarkly",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
   "requiresOAuth": false,
+  "capabilities": {
+    "hideConfiguration": true,
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{url}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "hmacSignature": {
+          "headerName": "X-LD-Signature",
+          "hmacSecretFormVariableKey": "secret"
+        }
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/*:flag/*"],
+          "actions": ["*"]
+        }
+      ],
+      "templates": {},
+      "useStandardWebhookPayload": true
+    }
+  },
   "otherCapabilities": ["external"]
 }
