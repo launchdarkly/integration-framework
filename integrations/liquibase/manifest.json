@@ -1,0 +1,20 @@
+{
+  "name": "Liquibase",
+  "version": "1.0.0",
+  "overview": "Liquibase helps developers bring progressive delivery and DevOps to the database.",
+  "description": "This extension uses LaunchDarkly to define and control when database changes are applied. Utilize feature flags as preconditions in changelogs and changesets within Liquibase.",
+  "author": "Liquibase",
+  "supportEmail": "support@liquibase.com",
+  "links": {
+    "site": "https://liquibase.com",
+    "launchdarklyDocs": "https://docs.liquibase.com/feature-flags/readmes/launchdarkly%20feature%20flags.html",
+    "privacyPolicy": "https://www.liquibase.com/privacy-policy"
+  },
+  "categories": ["developer-tools", "automation"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/vertical.svg"
+  },
+  "otherCapabilities": ["external"],
+  "requiresOAuth": false
+}
