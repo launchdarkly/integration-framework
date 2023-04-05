@@ -42,12 +42,12 @@
           {
             "name": "Content-Type",
             "value": "application/json"
+          },
+          {
+            "name": "X-LD-Compass-Secret",
+            "value": "{{secret}}"
           }
-        ],
-        "hmacSignature": {
-          "headerName": "X-LD-Signature",
-          "hmacSecretFormVariableKey": "secret"
-        }
+        ]
       },
       "defaultPolicy": [
         {
