@@ -11,7 +11,12 @@ const projectContext = require('../sample-context/project/update');
 const environmentContext = require('../sample-context/environment/update');
 const memberContext = require('../sample-context/member/update');
 
-const OAUTH_INTEGRATIONS = ['appdynamics', 'servicenow', 'servicenow-normal']; // add oauth integrations here
+const OAUTH_INTEGRATIONS = [
+  'appdynamics',
+  'sentry',
+  'servicenow',
+  'servicenow-normal',
+]; // add oauth integrations here
 const INTEGRATIONS_WITH_DUP_OAUTH_KEYS = ['servicenow', 'servicenow-normal']; // these are integrations we expect to have duplicate oauth integration keys for various reasons
 
 var parse = require('url-parse');

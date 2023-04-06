@@ -1,0 +1,21 @@
+{
+  "name": "Sentry",
+  "version": "1.0.0",
+  "overview": "Send Sentry error events to LaunchDarkly experiments as metrics.",
+  "description": "Use Sentry error events as custom metric events in LaunchDarkly experiments, so you can measure results immediately, with minimal code instrumentation.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.sentry.io/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/sentry",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/sentry_square.svg",
+    "horizontal": "assets/images/sentry_horizontal.svg"
+  },
+  "requiresOAuth": true,
+  "oauthIntegrationKey": "sentry",
+  "otherCapabilities": ["external"]
+}
