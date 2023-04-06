@@ -7,7 +7,7 @@
   "supportEmail": "support@ngrok.com",
   "links": {
     "site": "https://ngrok.com",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/ngrok",
+    "launchdarklyDocs": "https://ngrok.com/docs/integrations/launchdarkly",
     "supportWebsite": "https://ngrok.com/docs/integrations/launchdarkly",
     "privacyPolicy": "https://ngrok.com/privacy"
   },
