@@ -8,7 +8,8 @@
   "links": {
     "site": "https://okteto.com/",
     "privacyPolicy": "https://okteto.com/legal",
-    "supportWebsite": "https://okteto.com/support"
+    "supportWebsite": "https://okteto.com/support",
+    "launchdarklyDocs": "https://github.com/okteto/launchdarkly"
   },
   "categories": ["developer-tools", "automation"],
   "icons": {
