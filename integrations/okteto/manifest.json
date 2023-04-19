@@ -1,0 +1,21 @@
+{
+  "name": "Okteto",
+  "version": "1.0.0",
+  "overview": "Automatically create a LaunchDarkly environment for every development or preview environment.",
+  "description": "Automatically create a LaunchDarkly environment every time your team creates a development or preview environment in Okteto. This integration ensures your new LaunchDarkly environment always has the most up-to-date flag targeting. Okteto will automatically manage the lifecycle of the LaunchDarkly environment for you.",
+  "author": "Okteto Inc.",
+  "supportEmail": "support@okteto.com",
+  "links": {
+    "site": "https://okteto.com/",
+    "privacyPolicy": "https://okteto.com/legal",
+    "supportWebsite": "https://okteto.com/support",
+    "launchdarklyDocs": "https://github.com/okteto/launchdarkly"
+  },
+  "categories": ["developer-tools", "automation"],
+  "icons": {
+    "square": "assets/okteto-logo-circular.svg",
+    "horizontal": "assets/okteto-logo-horizontal.svg"
+  },
+  "requiresOAuth": false,
+  "otherCapabilities": ["external"]
+}
