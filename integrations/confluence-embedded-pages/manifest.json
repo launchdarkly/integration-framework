@@ -1,8 +1,8 @@
 {
-  "name": "Confluence embedded pages",
+  "name": "Confluence",
   "version": "1.0.0",
   "overview": "Embed Confluence pages in feature flag descriptions.",
-  "description": "Use this integration to embed Confluence pages in feature flag descriptions. These embedded pages empower your LaunchDarkly team members to view, edit, and comment on Confluence pages without leaving LaunchDarkly. This is particularly useful if the feature flag is associated with a feature or service that is documented in Confluence.<br><br>To use the integration, simply include one or more Confluence URLs in a feature flag's description. No additional configuration is required.",
+  "description": "Use this integration to embed Confluence pages in feature flag descriptions. These embedded pages let your LaunchDarkly team members to view, edit, and comment on Confluence pages without leaving LaunchDarkly. This is particularly useful if the feature flag is associated with a feature or service that is documented in Confluence.<br><br>To use the integration, simply include one or more Confluence URLs in a feature flag's description. No additional configuration is required.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
