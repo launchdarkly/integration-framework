@@ -17,5 +17,33 @@
   },
   "requiresOAuth": true,
   "oauthIntegrationKey": "sentry",
-  "otherCapabilities": ["external"]
+  "otherCapabilities": ["external"],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "http://example.com/only/adding/this/to/see/on/integrations/page",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "SENTRY-API-KEY",
+            "value": "api-key-would-go-here"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/default.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "deny",
+          "resources": ["proj/*:env/*:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    }
+  }
 }
