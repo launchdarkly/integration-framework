@@ -29,7 +29,7 @@
         {
           "key": "teamId",
           "name": "Team ID",
-          "description": "You must have a Team ID available for flag updates. Enter the Team ID associated with your Vercel team.",
+          "description": "Enter the Team ID associated with your Vercel team.",
           "type": "string",
           "placeholder": "e.g. 0f2ac74b498b48028cb68387c421e279",
           "isOptional": true,
@@ -61,7 +61,7 @@
       },
       "featureStoreRequest": {
         "endpoint": {
-          "url": "https://api.vercel.com/v1/edge-config/{{edgeConfigId}}/items",
+          "url": "https://api.vercel.com/v1/edge-config/{{edgeConfigId}}/items?teamId={{teamId}}",
           "method": "PATCH",
           "headers": [
             {
@@ -74,7 +74,7 @@
             }
           ]
         },
-        "payloadPrefix": "\"items\": [{\"operation\": \"upsert\", \"key\": \"ld-flags-FILLINENVID\", \"value\": ",
+        "payloadPrefix": "\"items\": [{\"operation\": \"upsert\", \"key\": \"ld-flags-{{edgeConfigId}}\", \"value\": ",
         "payloadSuffix": "}]"
       }
     }
