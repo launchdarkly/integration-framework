@@ -44,21 +44,6 @@
           "isSecret": true
         }
       ],
-      "validationRequest": {
-        "endpoint": {
-          "url": "https://api.vercel.com/v1/edge-config/{edgeConfigId}/items?teamId={{teamId}}",
-          "method": "POST",
-          "headers": [
-            {
-              "name": "Authorization",
-              "value": "Bearer {{apiToken}}"
-            }
-          ]
-        },
-        "parser": {
-          "success": "/success"
-        }
-      },
       "featureStoreRequest": {
         "endpoint": {
           "url": "https://api.vercel.com/v1/edge-config/{{edgeConfigId}}/items?teamId={{teamId}}",
@@ -74,8 +59,8 @@
             }
           ]
         },
-        "payloadPrefix": "\"items\": [{\"operation\": \"upsert\", \"key\": \"ld-flags-{{edgeConfigId}}\", \"value\": ",
-        "payloadSuffix": "}]"
+        "payloadPrefix": "{\"items\": [{\"operation\": \"upsert\", \"key\": \"LD-Env-{{envId}}\", \"value\": ",
+        "payloadSuffix": "}]}"
       }
     }
   }
