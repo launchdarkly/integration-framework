@@ -561,6 +561,10 @@ export type Elements1 = UIBlockElement[];
  */
 export type HideConfiguration = boolean;
 /**
+ * This capability will redirect users to an external URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly.
+ */
+export type ExternalConfigurationURL = string;
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -689,6 +693,7 @@ export interface Capabilities {
   featureStore?: FeatureStore;
   flagLink?: FlagLink;
   hideConfiguration?: HideConfiguration;
+  externalConfigurationURL?: ExternalConfigurationURL;
   [k: string]: unknown;
 }
 /**

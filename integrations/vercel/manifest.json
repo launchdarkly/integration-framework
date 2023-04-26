@@ -62,6 +62,8 @@
         "payloadPrefix": "{\"items\": [{\"operation\": \"upsert\", \"key\": \"LD-Env-{{envId}}\", \"value\": ",
         "payloadSuffix": "}]}"
       }
-    }
+    },
+    "hideConfiguration": true,
+    "externalConfigurationURL": "https://vercel.com/integrations/launchdarkly"
   }
 }

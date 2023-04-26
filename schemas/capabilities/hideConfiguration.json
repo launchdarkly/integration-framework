@@ -6,5 +6,13 @@
     "description": "This capability will disable in-app editing for the integration",
     "type": "boolean",
     "default": false
+  },
+  "externalConfigurationURL": {
+    "$id": "#/properties/capability/external-configuration-url",
+    "title": "External Configuration URL",
+    "description": "This capability will redirect users to an external URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly.",
+    "type": "string",
+    "maxLength": 2048,
+    "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
   }
 }
