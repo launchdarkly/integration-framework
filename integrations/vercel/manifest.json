@@ -42,6 +42,13 @@
           "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
           "type": "string",
           "isSecret": true
+        },
+        {
+          "key": "configurationId",
+          "name": "Configuration Id",
+          "description": "Enter the configuration ID generated from Vercel.",
+          "placeholder": "e.g. icfg_oBB870y55RruY7KryPQqYdk3",
+          "type": "string"
         }
       ],
       "featureStoreRequest": {
