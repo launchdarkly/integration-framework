@@ -17,7 +17,7 @@
   },
   "capabilities": {
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/dynatrace/triggers#connecting-a-launchdarkly-trigger-to-dynatrace-cloud-automation",
+      "documentation": "https://docs.launchdarkly.com/integrations/dynatrace/triggers#connecting-a-launchdarkly-trigger-to-dynatrace",
       "defaultEventName": "An event",
       "parser": {
         "eventName": "/eventName",
