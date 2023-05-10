@@ -260,7 +260,8 @@
           "featureStore",
           "flagLink",
           "hideConfiguration",
-          "externalConfigurationURL"
+          "externalConfigurationURL",
+          "externalConfigurationPages"
         ]
       },
       "properties": {
@@ -286,7 +287,10 @@
           "$ref": "schemas/capabilities/hideConfiguration.json#/hideConfiguration"
         },
         "externalConfigurationURL": {
-          "$ref": "schemas/capabilities/hideConfiguration.json#/externalConfigurationURL"
+          "$ref": "schemas/capabilities/externalConfiguration.json#/externalConfigurationURL"
+        },
+        "externalConfigurationPages": {
+          "$ref": "schemas/capabilities/externalConfiguration.json#/externalConfigurationPages"
         }
       }
     },

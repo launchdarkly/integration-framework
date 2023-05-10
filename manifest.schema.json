@@ -687,7 +687,8 @@
           "featureStore",
           "flagLink",
           "hideConfiguration",
-          "externalConfigurationURL"
+          "externalConfigurationURL",
+          "externalConfigurationPages"
         ]
       },
       "properties": {
@@ -4040,6 +4041,40 @@
           "type": "string",
           "maxLength": 2048,
           "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        },
+        "externalConfigurationPages": {
+          "$id": "#/properties/capability/external-configuration-pages",
+          "title": "External Configuration Pages",
+          "description": "This capability will redirect users to an external URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly. It supports different URLs for create and edit.",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "createUrl",
+              "editUrl"
+            ]
+          },
+          "required": [
+            "createUrl",
+            "editUrl"
+          ],
+          "properties": {
+            "createUrl": {
+              "$id": "#/properties/capability/external-configuration-url/createUrl",
+              "title": "Create URL",
+              "description": "URL to redirect to for external creation flow",
+              "type": "string",
+              "maxLength": 2048,
+              "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+            },
+            "editUrl": {
+              "$id": "#/properties/capability/external-configuration-url/editUrl",
+              "title": "Edit URL",
+              "description": "URL to redirect to for external edit flow",
+              "type": "string",
+              "maxLength": 2048,
+              "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+            }
+          }
         }
       }
     },

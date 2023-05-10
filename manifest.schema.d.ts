@@ -565,6 +565,14 @@ export type HideConfiguration = boolean;
  */
 export type ExternalConfigurationURL = string;
 /**
+ * URL to redirect to for external creation flow
+ */
+export type CreateURL = string;
+/**
+ * URL to redirect to for external edit flow
+ */
+export type EditURL = string;
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -694,6 +702,7 @@ export interface Capabilities {
   flagLink?: FlagLink;
   hideConfiguration?: HideConfiguration;
   externalConfigurationURL?: ExternalConfigurationURL;
+  externalConfigurationPages?: ExternalConfigurationPages;
   [k: string]: unknown;
 }
 /**
@@ -939,5 +948,13 @@ export interface UIBlockElement {
  */
 export interface FlagLinkContext {
   elements: Elements1;
+  [k: string]: unknown;
+}
+/**
+ * This capability will redirect users to an external URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly. It supports different URLs for create and edit.
+ */
+export interface ExternalConfigurationPages {
+  createUrl: CreateURL;
+  editUrl: EditURL;
   [k: string]: unknown;
 }
