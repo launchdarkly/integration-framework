@@ -1,8 +1,8 @@
 {
   "name": "Vercel",
   "version": "1.0.0",
-  "overview": "Evaluate feature flags and bootstrap the LaunchDarkly Javascript SDK from the Vercel Edge.",
-  "description": "Evaluate feature flags and bootstrap the LaunchDarkly Javascript SDK from Vercel Edge by storing flag data in Vercel's Edge Config offering.",
+  "overview": "Evaluate feature flags and bootstrap the LaunchDarkly Vercel SDK from the Vercel Edge.",
+  "description": "Evaluate feature flags and bootstrap the LaunchDarkly Vercel SDK from Vercel Edge by storing flag data in Vercel's Edge Config offering.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -71,6 +71,9 @@
       }
     },
     "hideConfiguration": true,
-    "externalConfigurationURL": "https://vercel.com/integrations/launchdarkly"
+    "externalConfigurationPages": {
+      "createUrl": "https://vercel.com/integrations/launchdarkly/new",
+      "editUrl": "https://integrations.launchdarkly.com/vercel/configure/"
+    }
   }
 }
