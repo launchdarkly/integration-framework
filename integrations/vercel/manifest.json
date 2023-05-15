@@ -71,9 +71,6 @@
       }
     },
     "hideConfiguration": true,
-    "externalConfigurationPages": {
-      "createUrl": "https://vercel.com/integrations/launchdarkly/new",
-      "editUrl": "https://integrations.launchdarkly.com/vercel/configure/"
-    }
+    "externalConfigurationURL": "https://vercel.com/integrations/launchdarkly"
   }
 }
