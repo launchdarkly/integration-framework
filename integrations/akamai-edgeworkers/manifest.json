@@ -1,0 +1,111 @@
+{
+  "name": "Akamai EdgeWorkers",
+  "version": "1.0.0",
+  "overview": "Evaluate feature flags with our LaunchDarkly Akamai Edge SDK from your Akamai EdgeWorker functions.",
+  "description": "Evaluate feature flags with our LaunchDarkly Akamai Edge SDK from your Akamai EdgeWorker functions by storing flag data in Akamai's EdgeKV store.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.akamai.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/akamai",
+    "privacyPolicy": "https://www.akamai.com/legal/compliance/privacy-trust-center/"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "featureStore": {
+      "formVariables": [
+        {
+          "key": "hostname",
+          "name": "Host",
+          "description": "The unique host domain that will receive API requests. This can be found on your API client details page from your Akamai [Identity and Access Management](https://techdocs.akamai.com/developer/docs/create-a-client-with-custom-permissions) dashboard.",
+          "type": "string",
+          "placeholder": "e.g. abcd-xxxxxx-xxxx.luna-dev.akamaiapis.net",
+          "isSecret": false
+        },
+        {
+          "key": "network",
+          "name": "Network",
+          "description": "Network environment to execute the API request on.",
+          "type": "enum",
+          "defaultValue": "production",
+          "allowedValues": ["production", "staging"]
+        },
+        {
+          "key": "namespaceId",
+          "name": "EdgeKV Namespace",
+          "description": "EdgeKV Namespace identifier where data will be stored.",
+          "type": "string",
+          "placeholder": "e.g. default",
+          "isSecret": false
+        },
+        {
+          "key": "groupId",
+          "name": "EdgeKV Group",
+          "description": "Unique identifier for the group within your EdgeKV namespace.",
+          "type": "string",
+          "placeholder": "e.g. 12345",
+          "isSecret": false
+        },
+        {
+          "key": "clientSecret",
+          "name": "Client Secret",
+          "description": "Enter the API client secret generated from the Akamai Control Center. See instructions for generating [authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).",
+          "type": "string",
+          "placeholder": "e.g. xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx",
+          "isSecret": true
+        },
+        {
+          "key": "clientToken",
+          "name": "Client Token",
+          "description": "Enter the API client token generated from the Akamai Control Center. See instructions for generating [authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).",
+          "type": "string",
+          "placeholder": "e.g. akaa-xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx",
+          "isSecret": true
+        },
+        {
+          "key": "accessToken",
+          "name": "Access Token",
+          "description": "Enter the API client access token generated from the Akamai Control Center. See instructions for generating [authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).",
+          "type": "string",
+          "placeholder": "e.g. akaa-xxxxxxxxxxxxxxx-xxxxxxxxxxxxxxxx",
+          "isSecret": true
+        }
+      ],
+      "validationRequest": {
+        "endpoint": {
+          "url": "https://{{hostname}}/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}/groups/{{groupId}}/items/{{_featureStoreKey}}",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{edgeGridAuth hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "success": "/success"
+        }
+      },
+      "featureStoreRequest": {
+        "endpoint": {
+          "url": "https://{{hostname}}/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}/groups/{{groupId}}/items/{{_featureStoreKey}}",
+          "method": "PUT",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{edgeGridAuth hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "text/plain"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
