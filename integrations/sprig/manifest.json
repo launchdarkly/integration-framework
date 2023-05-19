@@ -1,7 +1,7 @@
 {
   "name": "Sprig",
   "version": "1.0.0",
-  "overview": "Target visitors to send Sprig surveys",
+  "overview": "Target visitors to send Sprig surveys.",
   "description": "Target visitors in LaunchDarkly experiments or feature flags to send Sprig surveys to gain user's insights.",
   "author": "LaunchDarkly",
   "supportEmail": "support@sprig.com",
