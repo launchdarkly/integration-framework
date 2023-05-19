@@ -1,20 +1,19 @@
 {
-    "name": "Sprig",
-    "version": "1.0.0",
-    "overview": "Target visitors to send Sprig surveys",
-    "description": "Target visitors in LaunchDarkly experiments or feature flags to send Sprig surveys to gain user's insights.",
-    "author": "LaunchDarkly",
-    "supportEmail": "support@sprig.com",
-    "links": {
-      "site": "https://www.sprig.com/",
-      "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/sprig",
-      "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
-    },
-    "categories": ["messaging", "developer-tools"],
-    "icons": {
-      "square": "assets/images/square.svg",
-      "horizontal": "assets/images/horizontal.svg"
-    },
-    "otherCapabilities": ["external"]
-  }
-  
+  "name": "Sprig",
+  "version": "1.0.0",
+  "overview": "Target visitors to send Sprig surveys",
+  "description": "Target visitors in LaunchDarkly experiments or feature flags to send Sprig surveys to gain user's insights.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@sprig.com",
+  "links": {
+    "site": "https://www.sprig.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/sprig",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["messaging", "developer-tools"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}
