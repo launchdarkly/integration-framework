@@ -77,12 +77,12 @@
       ],
       "validationRequest": {
         "endpoint": {
-          "url": "https://{{hostname}}/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}/groups/{{groupId}}/items/{{_featureStoreKey}}",
+          "url": "https://{{hostname}}/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}}/groups/{{groupId}}/items/{{_featureStoreKey}}",
           "method": "GET",
           "headers": [
             {
               "name": "Authorization",
-              "value": "Bearer {{edgeGridAuth hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
+              "value": "{{edgeGridAuth 'GET' hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
             }
           ]
         },
@@ -92,12 +92,12 @@
       },
       "featureStoreRequest": {
         "endpoint": {
-          "url": "https://{{hostname}}/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}/groups/{{groupId}}/items/{{_featureStoreKey}}",
+          "url": "https://{{hostname}}/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}}/groups/{{groupId}}/items/{{_featureStoreKey}}",
           "method": "PUT",
           "headers": [
             {
               "name": "Authorization",
-              "value": "Bearer {{edgeGridAuth hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
+              "value": "Bearer {{edgeGridAuth 'PUT' hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
             },
             {
               "name": "Content-Type",
