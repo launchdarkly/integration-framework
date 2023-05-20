@@ -77,12 +77,12 @@
       ],
       "validationRequest": {
         "endpoint": {
-          "url": "https://{{hostname}}/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}}/groups/{{groupId}}/items/{{_featureStoreKey}}",
+          "url": "https://{{hostname}}/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}}",
           "method": "GET",
           "headers": [
             {
               "name": "Authorization",
-              "value": "{{edgeGridAuth 'GET' hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
+              "value": "{{edgeGridAuth 'GET' '/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}}' hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
             }
           ]
         },
@@ -97,7 +97,7 @@
           "headers": [
             {
               "name": "Authorization",
-              "value": "Bearer {{edgeGridAuth 'PUT' hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
+              "value": "Bearer {{edgeGridAuth 'PUT' '/edgekv/v1/networks/{{network}}/namespaces/{{namespaceId}}/groups/{{groupId}}/items/{{_featureStoreKey}}' hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}"
             },
             {
               "name": "Content-Type",
