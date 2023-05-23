@@ -63,7 +63,7 @@ describe("Validate Akamai EdgeWorker's edgeGrid auth helper ", () => {
       akamaiEdgeWorkerManifest.capabilities.featureStore.featureStoreRequest
         .endpoint.headers[0].value;
     expect(authHeader).toEqual(
-      `Bearer {{edgeGridAuth '${httpMethod}' '${urlPath}' hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}`
+      `{{edgeGridAuth '${httpMethod}' '${urlPath}' hostname network namespaceId groupId _featureStoreKey clientSecret clientToken accessToken}}`
     );
   });
 });
