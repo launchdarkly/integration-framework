@@ -8,7 +8,7 @@
   "links": {
     "site": "https://www.sprig.com/",
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/sprig",
-    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+    "privacyPolicy": "https://sprig.com/privacy-policy"
   },
   "categories": ["messaging", "developer-tools"],
   "icons": {
