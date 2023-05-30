@@ -1,7 +1,7 @@
 {
   "name": "Resmo",
   "version": "1.0.0",
-  "overview": "Resmo integrates with LaunchDarkly to enhance the visibility, security, and compliance of your LaunchDarkly resources.",
+  "overview": "Resmo enhances your LaunchDarkly resources' visibility, compliance, and security posture.",
   "description": "Resmo is a powerful platform that seamlessly integrates with LaunchDarkly to enhance the visibility, security, and compliance of your LaunchDarkly resources. By consolidating your LaunchDarkly account onto a single platform, Resmo provides valuable insights into your organization’s feature flag management, projects, environments, and team information. Additionally, Resmo offers the ability to set up alerts for security violations and changes, ensuring timely notifications through popular communication channels such as Jira, Slack, email, and more.",
   "author": "Resmo",
   "supportEmail": "support@resmo.com",
