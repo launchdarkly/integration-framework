@@ -12,7 +12,8 @@
   },
   "categories": ["monitoring"],
   "icons": {
-    "square": "assets/images/square.svg"
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
   },
   "requiresOAuth": false,
   "otherCapabilities": ["external"]
