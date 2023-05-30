@@ -12,7 +12,7 @@
   },
   "categories": ["monitoring"],
   "icons": {
-    "square": "assets/images/resmo.svg"
+    "square": "assets/images/square.svg"
   },
   "requiresOAuth": false
 }
