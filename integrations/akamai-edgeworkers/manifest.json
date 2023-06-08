@@ -21,7 +21,7 @@
         {
           "key": "hostname",
           "name": "Host",
-          "description": "The unique host domain that will receive API requests. This can be found on your API client details page from your Akamai [Identity and Access Management](https://techdocs.akamai.com/developer/docs/create-a-client-with-custom-permissions) dashboard.",
+          "description": "The unique host domain that will receive API requests. You can find this on your API client details page from your Akamai [Identity and Access Management](https://techdocs.akamai.com/developer/docs/create-a-client-with-custom-permissions) dashboard.",
           "type": "string",
           "placeholder": "e.g. abcd-xxxxxx-xxxx.luna-dev.akamaiapis.net",
           "isSecret": false
@@ -29,22 +29,22 @@
         {
           "key": "network",
           "name": "Network",
-          "description": "Network environment to execute the API request on.",
+          "description": "Akamai network environment to execute the API request on.",
           "type": "enum",
           "defaultValue": "production",
           "allowedValues": ["production", "staging"]
         },
         {
           "key": "namespaceId",
-          "name": "EdgeKV Namespace",
-          "description": "EdgeKV Namespace identifier where data will be stored.",
+          "name": "EdgeKV namespace",
+          "description": "EdgeKV namespace identifier where data will be stored.",
           "type": "string",
           "placeholder": "e.g. default",
           "isSecret": false
         },
         {
           "key": "groupId",
-          "name": "EdgeKV Group",
+          "name": "EdgeKV group",
           "description": "Unique identifier for the group within your EdgeKV namespace.",
           "type": "string",
           "placeholder": "e.g. 12345",
@@ -52,24 +52,24 @@
         },
         {
           "key": "clientSecret",
-          "name": "Client Secret",
-          "description": "Enter the API client secret generated from the Akamai Control Center. See instructions for generating [authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).",
+          "name": "Client secret",
+          "description": "Enter the API client secret generated from the Akamai Control Center. To learn more, read the Akamai instructions for [authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).",
           "type": "string",
           "placeholder": "e.g. xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx",
           "isSecret": true
         },
         {
           "key": "clientToken",
-          "name": "Client Token",
-          "description": "Enter the API client token generated from the Akamai Control Center. See instructions for generating [authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).",
+          "name": "Client token",
+          "description": "Enter the API client token generated from the Akamai Control Center. To learn more, read the Akamai instructions for [authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).",
           "type": "string",
           "placeholder": "e.g. akaa-xxxxxxxxxxxxxxxx-xxxxxxxxxxxxxxx",
           "isSecret": true
         },
         {
           "key": "accessToken",
-          "name": "Access Token",
-          "description": "Enter the API client access token generated from the Akamai Control Center. See instructions for generating [authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).",
+          "name": "Access token",
+          "description": "Enter the API client access token generated from the Akamai Control Center. To learn more, read the Akamai instructions for [authentication credentials](https://techdocs.akamai.com/developer/docs/set-up-authentication-credentials).",
           "type": "string",
           "placeholder": "e.g. akaa-xxxxxxxxxxxxxxx-xxxxxxxxxxxxxxxx",
           "isSecret": true
