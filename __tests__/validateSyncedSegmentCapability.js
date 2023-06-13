@@ -18,7 +18,10 @@ manifestsWithCapability.push([
           cohortNamePath: '/batch[0]/cohortName',
           cohortUrlPath: '/batch[0]/cohortUrl',
           memberArrayPath: '/batch',
-          arrayInclusionMatcher: 'a',
+          arrayInclusion: {
+            path: '/action',
+            matcher: '^(members|add_members)$',
+          },
           memberArrayParser: {
             memberIdPath: '/userId',
             booleanMembershipPath: '/value',
@@ -52,17 +55,17 @@ describe('Validate Synced Segment Capability Dependencies', () => {
       }
     });
 
-    test(`${manifest.name} syncedSegement capability: memberArrayPath should be specified when arrayInclusionMatcher is specified`, () => {
+    test(`${manifest.name} syncedSegement capability: memberArrayPath should be specified when arrayInclusion is specified`, () => {
       const rp = manifest.capabilities.syncedSegment?.requestParser;
-      if (!!rp?.arrayInclusionMatcher) {
+      if (!!rp?.arrayInclusion) {
         expect(rp.memberArrayPath).toBeDefined();
       }
     });
 
-    test(`${manifest.name} syncedSegement capability: arrayInclusionMatcher should not be specified when addMemberArrayPath or removeMemberArrayPath are specified`, () => {
+    test(`${manifest.name} syncedSegement capability: arrayInclusion should not be specified when addMemberArrayPath or removeMemberArrayPath are specified`, () => {
       const rp = manifest.capabilities.syncedSegment?.requestParser;
       if (!!rp?.addMemberArrayPath || !!rp.removeMemberArrayPath) {
-        expect(rp.arrayInclusionMatcher).toBeUndefined();
+        expect(rp.arrayInclusion).toBeUndefined();
       }
     });
 
