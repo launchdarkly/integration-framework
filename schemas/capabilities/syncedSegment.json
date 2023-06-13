@@ -1,0 +1,137 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "syncedSegment": {
+    "$id": "#/properties/capability/synced-segment",
+    "title": "syncedSegment",
+    "description": "This capability is used to manage the creation and synchronization of synced segments",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["jsonBody", "requestParser"]
+    },
+    "required": ["requestParser"],
+    "properties": {
+      "jsonBody": {
+        "$id": "#/properties/capability/synced-segment/json-body",
+        "title": "Response body",
+        "description": "JSON string to be returned as a response",
+        "type": "string"
+      },
+      "requestParser": {
+        "$id": "#/properties/capability/synced-segment/request-parser",
+        "title": "Request parser",
+        "description": "Describes a mapping of property name to a location in the JSON request payload specified by a JSON pointer",
+        "type": "object",
+        "propertyNames": {
+          "enum": [
+            "environmentIdPath",
+            "cohortIdPath",
+            "cohortNamePath",
+            "cohortUrlPath",
+            "memberArrayPath",
+            "addMemberArrayPath",
+            "removeMemberArrayPath",
+            "arrayInclusionMatcher",
+            "memberArrayParser"
+          ]
+        },
+        "required": [
+          "environmentIdPath",
+          "cohortIdPath",
+          "cohortNamePath",
+          "memberArrayParser"
+        ],
+        "properties": {
+          "environmentIdPath": {
+            "$id": "#/properties/capability/synced-segment/request-parser/environment-id-path",
+            "title": "Environment id path",
+            "type": "string",
+            "description": "JSON pointer to the LaunchDarkly environment id"
+          },
+          "cohortIdPath": {
+            "$id": "#/properties/capability/synced-segment/request-parser/cohort-id-path",
+            "title": "Cohort id path",
+            "type": "string",
+            "description": "JSON pointer to the cohort id"
+          },
+          "cohortNamePath": {
+            "$id": "#/properties/capability/synced-segment/request-parser/cohort-name-path",
+            "title": "Cohort name path",
+            "type": "string",
+            "description": "JSON pointer to the cohort name"
+          },
+          "cohortUrlPath": {
+            "$id": "#/properties/capability/synced-segment/request-parser/cohort-url-path",
+            "title": "Cohort url path",
+            "type": "string",
+            "description": "JSON pointer to the cohort URL path"
+          },
+          "memberArrayPath": {
+            "$id": "#/properties/capability/synced-segment/request-parser/member-array-path",
+            "title": "Member array path",
+            "type": "string",
+            "description": "JSON pointer to the array containing members to be added or removed from the segment"
+          },
+          "addMemberArrayPath": {
+            "$id": "#/properties/capability/synced-segment/request-parser/add-member-array-path",
+            "title": "Add member array path",
+            "type": "string",
+            "description": "JSON pointer to the array containing members to be added to the segment. Required if removeMemberArrayPath is specified"
+          },
+          "removeMemberArrayPath": {
+            "$id": "#/properties/capability/synced-segment/request-parser/remove-member-array-path",
+            "title": "Remove member array path",
+            "type": "string",
+            "description": "JSON pointer to the array containing members to be removed to the segment. Required if addMemberArrayPath is specified"
+          },
+          "arrayInclusionMatcher": {
+            "$id": "#/properties/capability/synced-segment/request-parser/array-inclusion-matcher",
+            "title": "Array inclusion matcher",
+            "type": "string",
+            "description": "Regex indicating the action to be taken for the members in the segment. If it matches the value of the arrayInclusionFieldPath, the members of the incoming segment will be added otherwise they will be removed"
+          },
+          "memberArrayParser": {
+            "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser",
+            "title": "Member array parser",
+            "description": "Describes a mapping of property name to a location in the member array JSON payload specified by a JSON pointer. All paths are relative to the member array path",
+            "type": "object",
+            "propertyNames": {
+              "enum": [
+                "memberIdPath",
+                "booleanMembershipPath",
+                "cohortNamePath",
+                "cohortIdPath"
+              ]
+            },
+            "required": ["memberIdPath"],
+            "properties": {
+              "memberIdPath": {
+                "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser/member-id-path",
+                "title": "Member id path",
+                "type": "string",
+                "description": "JSON pointer to the member id"
+              },
+              "booleanMembershipPath": {
+                "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser/boolean-membership-path",
+                "title": "Boolean membership path",
+                "type": "string",
+                "description": "JSON pointer to the property in member array payload indicating whether the member should be added or removed"
+              },
+              "cohortNamePath": {
+                "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser/cohort-name-path",
+                "title": "Cohort name path",
+                "type": "string",
+                "description": "JSON pointer to the cohort name. Overrides the cohort name for a single member"
+              },
+              "cohortIdPath": {
+                "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser/cohort-id-path",
+                "title": "Cohort id path",
+                "type": "string",
+                "description": "JSON pointer to the cohort id. Overrides the cohort id for a single member"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -261,7 +261,8 @@
           "flagLink",
           "hideConfiguration",
           "externalConfigurationURL",
-          "externalConfigurationPages"
+          "externalConfigurationPages",
+          "syncedSegment"
         ]
       },
       "properties": {
@@ -291,6 +292,9 @@
         },
         "externalConfigurationPages": {
           "$ref": "schemas/capabilities/externalConfiguration.json#/externalConfigurationPages"
+        },
+        "syncedSegment": {
+          "$ref": "schemas/capabilities/syncedSegment.json#/syncedSegment"
         }
       }
     },
