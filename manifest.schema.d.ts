@@ -573,6 +573,58 @@ export type CreateURL = string;
  */
 export type EditURL = string;
 /**
+ * JSON string to be returned as a response
+ */
+export type ResponseBody = string;
+/**
+ * JSON pointer to the LaunchDarkly environment id
+ */
+export type EnvironmentIdPath = string;
+/**
+ * JSON pointer to the cohort id
+ */
+export type CohortIdPath = string;
+/**
+ * JSON pointer to the cohort name
+ */
+export type CohortNamePath = string;
+/**
+ * JSON pointer to the cohort URL path
+ */
+export type CohortUrlPath = string;
+/**
+ * JSON pointer to the array containing members to be added or removed from the segment
+ */
+export type MemberArrayPath1 = string;
+/**
+ * JSON pointer to the array containing members to be added to the segment. Required if removeMemberArrayPath is specified
+ */
+export type AddMemberArrayPath = string;
+/**
+ * JSON pointer to the array containing members to be removed to the segment. Required if addMemberArrayPath is specified
+ */
+export type RemoveMemberArrayPath = string;
+/**
+ * Regex indicating the action to be taken for the members in the segment. If it matches the value of the arrayInclusionFieldPath, the members of the incoming segment will be added otherwise they will be removed
+ */
+export type ArrayInclusionMatcher = string;
+/**
+ * JSON pointer to the member id
+ */
+export type MemberIdPath = string;
+/**
+ * JSON pointer to the property in member array payload indicating whether the member should be added or removed
+ */
+export type BooleanMembershipPath = string;
+/**
+ * JSON pointer to the cohort name. Overrides the cohort name for a single member
+ */
+export type CohortNamePath1 = string;
+/**
+ * JSON pointer to the cohort id. Overrides the cohort id for a single member
+ */
+export type CohortIdPath1 = string;
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -703,6 +755,7 @@ export interface Capabilities {
   hideConfiguration?: HideConfiguration;
   externalConfigurationURL?: ExternalConfigurationURL;
   externalConfigurationPages?: ExternalConfigurationPages;
+  syncedSegment?: SyncedSegment;
   [k: string]: unknown;
 }
 /**
@@ -956,5 +1009,38 @@ export interface FlagLinkContext {
 export interface ExternalConfigurationPages {
   createUrl: CreateURL;
   editUrl: EditURL;
+  [k: string]: unknown;
+}
+/**
+ * This capability is used to manage the creation and synchronization of synced segments
+ */
+export interface SyncedSegment {
+  jsonBody?: ResponseBody;
+  requestParser: RequestParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of property name to a location in the JSON request payload specified by a JSON pointer
+ */
+export interface RequestParser {
+  environmentIdPath: EnvironmentIdPath;
+  cohortIdPath: CohortIdPath;
+  cohortNamePath: CohortNamePath;
+  cohortUrlPath?: CohortUrlPath;
+  memberArrayPath?: MemberArrayPath1;
+  addMemberArrayPath?: AddMemberArrayPath;
+  removeMemberArrayPath?: RemoveMemberArrayPath;
+  arrayInclusionMatcher?: ArrayInclusionMatcher;
+  memberArrayParser: MemberArrayParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of property name to a location in the member array JSON payload specified by a JSON pointer. All paths are relative to the member array path
+ */
+export interface MemberArrayParser {
+  memberIdPath: MemberIdPath;
+  booleanMembershipPath?: BooleanMembershipPath;
+  cohortNamePath?: CohortNamePath1;
+  cohortIdPath?: CohortIdPath1;
   [k: string]: unknown;
 }
