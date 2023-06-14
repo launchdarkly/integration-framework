@@ -605,9 +605,13 @@ export type AddMemberArrayPath = string;
  */
 export type RemoveMemberArrayPath = string;
 /**
- * Regex indicating the action to be taken for the members in the segment. If it matches the value of the arrayInclusionFieldPath, the members of the incoming segment will be added otherwise they will be removed
+ * JSON pointer to the property that will be checked by the matcher property
  */
-export type ArrayInclusionMatcher = string;
+export type Path = string;
+/**
+ * Regex indicating the action to be taken for the members in the segment. If it matches the value of path property, the members of the incoming segment will be added otherwise they will be removed
+ */
+export type Matcher = string;
 /**
  * JSON pointer to the member id
  */
@@ -1015,7 +1019,7 @@ export interface ExternalConfigurationPages {
  * This capability is used to manage the creation and synchronization of synced segments
  */
 export interface SyncedSegment {
-  jsonBody?: ResponseBody;
+  jsonResponseBody?: ResponseBody;
   requestParser: RequestParser;
   [k: string]: unknown;
 }
@@ -1030,8 +1034,16 @@ export interface RequestParser {
   memberArrayPath?: MemberArrayPath1;
   addMemberArrayPath?: AddMemberArrayPath;
   removeMemberArrayPath?: RemoveMemberArrayPath;
-  arrayInclusionMatcher?: ArrayInclusionMatcher;
+  arrayInclusion?: ArrayInclusionMatcher;
   memberArrayParser: MemberArrayParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of property name to a location in the JSON request payload indicating the action to be taken for the members in the request payload
+ */
+export interface ArrayInclusionMatcher {
+  path: Path;
+  matcher: Matcher;
   [k: string]: unknown;
 }
 /**

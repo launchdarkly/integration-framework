@@ -4084,7 +4084,7 @@
           "type": "object",
           "propertyNames": {
             "enum": [
-              "jsonBody",
+              "jsonResponseBody",
               "requestParser"
             ]
           },
@@ -4092,7 +4092,7 @@
             "requestParser"
           ],
           "properties": {
-            "jsonBody": {
+            "jsonResponseBody": {
               "$id": "#/properties/capability/synced-segment/json-body",
               "title": "Response body",
               "description": "JSON string to be returned as a response",
@@ -4112,7 +4112,7 @@
                   "memberArrayPath",
                   "addMemberArrayPath",
                   "removeMemberArrayPath",
-                  "arrayInclusionMatcher",
+                  "arrayInclusion",
                   "memberArrayParser"
                 ]
               },
@@ -4165,11 +4165,35 @@
                   "type": "string",
                   "description": "JSON pointer to the array containing members to be removed to the segment. Required if addMemberArrayPath is specified"
                 },
-                "arrayInclusionMatcher": {
-                  "$id": "#/properties/capability/synced-segment/request-parser/array-inclusion-matcher",
+                "arrayInclusion": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/array-inclusion",
                   "title": "Array inclusion matcher",
-                  "type": "string",
-                  "description": "Regex indicating the action to be taken for the members in the segment. If it matches the value of the arrayInclusionFieldPath, the members of the incoming segment will be added otherwise they will be removed"
+                  "description": "Describes a mapping of property name to a location in the JSON request payload indicating the action to be taken for the members in the request payload",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "path",
+                      "matcher"
+                    ]
+                  },
+                  "required": [
+                    "path",
+                    "matcher"
+                  ],
+                  "properties": {
+                    "path": {
+                      "$id": "#/properties/capability/synced-segment/request-parser/array-inclusion/path",
+                      "title": "Path",
+                      "type": "string",
+                      "description": "JSON pointer to the property that will be checked by the matcher property"
+                    },
+                    "matcher": {
+                      "$id": "#/properties/capability/synced-segment/request-parser/array-inclusion/matcher",
+                      "title": "Matcher",
+                      "type": "string",
+                      "description": "Regex indicating the action to be taken for the members in the segment. If it matches the value of path property, the members of the incoming segment will be added otherwise they will be removed"
+                    }
+                  }
                 },
                 "memberArrayParser": {
                   "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser",
