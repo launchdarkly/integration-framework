@@ -1,0 +1,21 @@
+{
+  "name": "CtrlStack",
+  "version": "1.0.0",
+  "overview": "Add LaunchDarkly feature flag events to CtrlStack as change events on a timeline.",
+  "description": "To set this up, attach LaunchDarkly's API access token, and the project and environment IDs in CtrlStack integration settings.",
+  "details": "CtrlStack is a change intelligence platform for better observability. With its ability to observe system changes and data relationships across the stack, CtrlStack provides DevOps teams contextual understanding of system issues for faster incident investigation.<br><br>Add LaunchDarkly feature flag events to CtrlStack to know when an alert or change in data behavior is directly or indirectly caused by toggling of a feature flag.",
+  "author": "CtrlStack",
+  "supportEmail": "support@ctrlstack.com",
+  "links": {
+    "site": "https://ctrlstack.com",
+    "supportWebsite": "https://www.ctrlstack.com/contact/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/ctrlstack",
+    "privacyPolicy": "https://www.ctrlstack.com/terms-and-policy/"
+  },
+  "categories": ["monitoring", "developer-tools"],
+  "icons": {
+    "horizontal": "assets/orange-on-white-aligned.svg",
+    "square": "assets/cs-icon.svg"
+  },
+  "otherCapabilities": ["external"]
+}
