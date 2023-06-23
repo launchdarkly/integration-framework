@@ -30,7 +30,7 @@ npm install
 To start the server, run the following command:
 
 ```shell
-npm run start
+npm run start:server
 ```
 
 The server will start running and will be listening on port 3000 by default.
