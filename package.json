@@ -12,8 +12,8 @@
     "preview": "node preview.js",
     "curl": "node preview.js --curl",
     "dev:server": "npx nodemon",
-    "build:server": "rimraf ./build && tsc",
-    "start:server": "npm run build:server && node dist/index.js"
+    "build:server": "rimraf ./dist && tsc",
+    "start:server": "npm run build:server && node dist/server/src/index.js"
   },
   "repository": {
     "type": "git",

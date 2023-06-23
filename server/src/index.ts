@@ -32,15 +32,15 @@ app.post('/api/v2/segment-target/:integrationKey', async (req, res) => {
   }
 
   try {
-    const result = await handleSyncSegmentRequest(key, integration, body);
-    res.json(result);
+    await handleSyncSegmentRequest(res, key, integration, body);
   } catch (err) {
+    const isApiError = !!(err as AppError).status;
     return sendErrorResponse(
       res,
       new AppError(
         (err as AppError).status ?? HttpStatus.internalError,
         (err as AppError).message ?? `error occurred while processing request`,
-        err
+        isApiError ? undefined : err
       )
     );
   }

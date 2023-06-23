@@ -4,6 +4,8 @@ import {
 } from '../../../manifest.schema';
 import pointer from 'jsonpointer';
 import { AppError, HttpStatus } from '../utils';
+import { Response } from 'express';
+import HandleBars from 'handlebars';
 
 enum MembershipStatus {
   include = 'include',
@@ -25,8 +27,107 @@ export type SyncedSegment = {
   batch: SyncedSegmentBatch[];
 };
 
+export type SyncedSegmentResponseContext = {
+  requestBody: string;
+  statusCode: number;
+  errorMessage: string;
+  projectKey: string;
+  environmentKey: string;
+  segmentKey: string;
+  segmentUrl: string;
+};
+
+/**
+ * Handles parsing a synced segment request for the specified integration key
+ *
+ * @param res Express.Response
+ * @param integrationKey string
+ * @param manifest LaunchDarklyIntegrationsManifest
+ * @param body Object
+ */
 export const handleSyncSegmentRequest = async (
+  res: Response,
   integrationKey: string,
+  manifest: LaunchDarklyIntegrationsManifest,
+  body: any
+) => {
+  try {
+    const parsedSegment = await parseSyncSegmentRequest(manifest, body);
+
+    const parsedSegKey = `${integrationKey}-${parsedSegment.batch[0]?.cohortId}`;
+    const respContext = createResponseContext(
+      body,
+      200,
+      parsedSegment.environmentId,
+      parsedSegKey
+    );
+
+    const jsonRes = parseJsonResponseBody(respContext, manifest);
+    res.status(respContext.statusCode).json(jsonRes);
+  } catch (err) {
+    const respContext = createResponseContext(
+      body,
+      (err as AppError).status || 500,
+      '',
+      ''
+    );
+    const jsonRes = parseJsonResponseBody(respContext, manifest);
+    res.status(respContext.statusCode).json(jsonRes);
+  }
+};
+
+/**
+ * Create response context to be used by handlebar to generate the response body defined in the integration manifest
+ * @param body
+ * @param statusCode
+ * @param envKey
+ * @param segKey
+ * @param error
+ * @returns
+ */
+const createResponseContext = (
+  body: any,
+  statusCode: number,
+  envKey: string,
+  segKey: string,
+  error?: string
+) => ({
+  requestBody: body,
+  statusCode,
+  errorMessage: error || '',
+  projectKey: 'default',
+  environmentKey: envKey,
+  segmentKey: segKey,
+  segmentUrl: `https://app.launchdarkly.com/default/production/segments/${segKey}/targeting`,
+});
+
+/**
+ * Parse the response body defined in the manifest
+ * @param ctx
+ * @param manifest
+ * @returns
+ */
+const parseJsonResponseBody = (
+  ctx: SyncedSegmentResponseContext,
+  manifest: LaunchDarklyIntegrationsManifest
+) => {
+  const responseTemplate =
+    manifest.capabilities?.syncedSegment?.jsonResponseBody;
+  if (!responseTemplate) {
+    return undefined;
+  }
+
+  const template = HandleBars.compile(responseTemplate);
+  return template(ctx);
+};
+
+/**
+ * Parse the request path definitions from the manifest
+ * @param manifest
+ * @param body
+ * @returns
+ */
+const parseSyncSegmentRequest = async (
   manifest: LaunchDarklyIntegrationsManifest,
   body: any
 ): Promise<SyncedSegment> => {
@@ -248,6 +349,13 @@ const getArrayMembershipStatus = (
   );
 };
 
+/**
+ * Returns the value of the json pointer from the payload
+ * @param payload
+ * @param jsonPtr
+ * @param required
+ * @returns
+ */
 const getFieldValue = <T = string>(
   payload: any,
   jsonPtr: string | undefined,
