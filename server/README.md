@@ -40,12 +40,6 @@ The server will start running and will be listening on port 3000 by default.
 Once the server is running, you can make HTTP requests to the server endpoints to test your integration. The server provides several routes that simulate LaunchDarkly's API behavior. No authentication token is required to make requests to the endpoints.
 
 ### Endpoints
-
-The following endpoints are available:
-
-- POST /api/v2/segment-target/:integrationKey: Simulates processing a segment data from a Customer Data Provider (CDP).
-
-### Endpoints
 The LaunchDarkly Integration Validation Server exposes the following endpoints:
 
 | Endpoint           | Method | Description                                   |
