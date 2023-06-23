@@ -57,7 +57,7 @@ curl --location 'http://localhost:3000/api/v2/segment-target/example-integration
   "environmentId": "abcd123",
   "batch": [
     {
-      "userId": "user-1234",
+      "userId": "example-cdp-user-1234",
 		  "cohortName": "Example Segment 1234",
     	"cohortId": "segment-12345",
     	"cohortUrl":  "https://example-cdp.com",
