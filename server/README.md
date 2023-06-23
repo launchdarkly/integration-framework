@@ -1,6 +1,6 @@
 # LaunchDarkly Integration Validation Server (beta)
 
-The LaunchDarkly Integration Validation Server is a tool that allows users to test their integration capabilities with LaunchDarkly using an Express server. This server provides an environment where developers can validate their integrations with LaunchDarkly's feature flag management platform.
+The LaunchDarkly Integration Validation Server is a tool that allows developers to test their integrations with LaunchDarkly using an Express server. This server provides an environment where developers can validate their integrations with LaunchDarkly's feature flag management platform.
 
 ## Getting Started
 
