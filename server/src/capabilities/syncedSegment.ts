@@ -62,6 +62,11 @@ export const handleSyncSegmentRequest = async (
       parsedSegKey
     );
 
+    console.log(`\nNew Segment Key: ${parsedSegKey}`);
+    console.log(
+      `Request Parser Result: ${JSON.stringify(parsedSegment, null, 2)}`
+    );
+
     const jsonRes = parseJsonResponseBody(respContext, manifest);
     res.status(respContext.statusCode).json(jsonRes);
   } catch (err) {
