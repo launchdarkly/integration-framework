@@ -2,7 +2,7 @@
   "name": "Snowplow",
   "version": "1.0.0",
   "overview": "Forward Snowplow events as metrics to LaunchDarkly experiments.",
-  "description": "Use Snowplow with LaunchDarkly's Experimentation feature to forward the behavioral data you wish to use as metrics in your experiments.",
+  "description": "Use Snowplow to forward the behavioral data as metrics in your LaunchDarkly experiments.",
   "author": "Snowplow",
   "supportEmail": "support@launchdarkly.com",
   "links": {
