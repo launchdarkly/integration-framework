@@ -1,0 +1,37 @@
+{
+  "name": "Example Synced Segment Mixpanel",
+  "version": "1.0.0",
+  "overview": "Example synced segment for Mixpanel.",
+  "description": "Example synced segment for Mixpanel customer data platform",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.example.com",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/contexts/synced-segments",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy"
+  },
+  "categories": ["synced-segments"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "otherCapabilities": ["external"],
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/parameters/mixpanel_project_id",
+        "cohortIdPath": "/parameters/mixpanel_cohort_id",
+        "cohortNamePath": "/parameters/mixpanel_cohort_name",
+        "arrayInclusion": {
+          "path": "/action",
+          "matcher": "^(members|add_members)$"
+        },
+        "memberArrayPath": "/parameters/members",
+        "memberArrayParser": {
+          "memberIdPath": "/mixpanel_distinct_id"
+        }
+      },
+      "jsonResponseBody": "{ \"action\": \"{{requestBody.action}}\", {{#if errorMessage}}\"status\":\"failure\", \"error\": {\"message\": \"{{errorMessage}}\", \"code\": {{statusCode}} }{{else}}\"status\": \"success\"{{/if}} }"
+    }
+  }
+}

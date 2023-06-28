@@ -1,0 +1,33 @@
+{
+  "name": "Example Synced Segment Heap",
+  "version": "1.0.0",
+  "overview": "Example synced segment for Heap.",
+  "description": "Example synced segment for Heap Analytics' customer data platform",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.example.com",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/contexts/synced-segments",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy"
+  },
+  "categories": ["synced-segments"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "otherCapabilities": ["external"],
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/customer_config/fields/0/value/id",
+        "cohortIdPath": "/data/segment/id",
+        "cohortNamePath": "/data/segment/name",
+        "addMemberArrayPath": "/data/add",
+        "removeMemberArrayPath": "/data/remove",
+        "memberArrayParser": {
+          "memberIdPath": "/id"
+        }
+      }
+    }
+  }
+}
