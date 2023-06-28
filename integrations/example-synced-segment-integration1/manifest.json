@@ -1,8 +1,8 @@
 {
-  "name": "Example Synced Segment Heap",
+  "name": "Example Synced Segment Integration 1",
   "version": "1.0.0",
-  "overview": "Example synced segment for Heap.",
-  "description": "Example synced segment for Heap Analytics' customer data platform",
+  "overview": "Example synced segment for Integration 1.",
+  "description": "Example synced segment for Integration 1 customer data platform",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
