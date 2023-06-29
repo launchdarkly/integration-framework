@@ -1,0 +1,20 @@
+{
+  "name": "Snowplow",
+  "version": "1.0.0",
+  "overview": "Forward Snowplow events as metrics to LaunchDarkly experiments.",
+  "description": "Use Snowplow to forward the behavioral data as metrics in your LaunchDarkly experiments.",
+  "author": "Snowplow",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://snowplow.io/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/snowplow",
+    "supportWebsite": "https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/launchdarkly-tag-for-gtm-ss/",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}
