@@ -3,9 +3,11 @@ import {
   RequestParser,
 } from '../../../manifest.schema';
 import pointer from 'jsonpointer';
-import { AppError, HttpStatus } from '../utils';
+import { AppError, HttpStatus, createLogger } from '../utils';
 import { Response } from 'express';
 import HandleBars from 'handlebars';
+
+const logger = createLogger('synced-segment');
 
 enum MembershipStatus {
   include = 'include',
@@ -62,19 +64,24 @@ export const handleSyncSegmentRequest = async (
       parsedSegKey
     );
 
-    console.log(`\nNew Segment Key: ${parsedSegKey}`);
-    console.log(
+    logger.log(`\nNew Segment Key: ${parsedSegKey}`);
+    logger.log(
       `Request Parser Result: ${JSON.stringify(parsedSegment, null, 2)}`
     );
 
     const jsonRes = parseJsonResponseBody(respContext, manifest);
     res.status(respContext.statusCode).json(jsonRes);
   } catch (err) {
+    if (!(err instanceof AppError)) {
+      logger.log(err);
+    }
+
     const respContext = createResponseContext(
       body,
       (err as AppError).status || 500,
       '',
-      ''
+      '',
+      (err as AppError).message
     );
     const jsonRes = parseJsonResponseBody(respContext, manifest);
     res.status(respContext.statusCode).json(jsonRes);
@@ -123,7 +130,7 @@ const parseJsonResponseBody = (
   }
 
   const template = HandleBars.compile(responseTemplate);
-  return template(ctx);
+  return JSON.parse(template(ctx));
 };
 
 /**
@@ -338,13 +345,7 @@ const getArrayMembershipStatus = (
       rp.arrayInclusion?.path,
       true
     );
-    const inclusionPattern = getFieldValue(
-      payload,
-      rp.arrayInclusion?.matcher,
-      true
-    );
-
-    const regex = new RegExp(inclusionPattern);
+    const regex = new RegExp(rp.arrayInclusion?.matcher || '');
     return regex.test(inclusionValue);
   }
 
@@ -369,6 +370,8 @@ const getFieldValue = <T = string>(
   if (!jsonPtr) {
     return undefined as T;
   }
+
+  logger.log('processing ptr: ', jsonPtr);
 
   const value = pointer.get(payload, jsonPtr);
   if (!value && required) {
