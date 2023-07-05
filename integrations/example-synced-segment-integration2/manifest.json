@@ -31,7 +31,7 @@
           "memberIdPath": "/mixpanel_distinct_id"
         }
       },
-      "jsonResponseBody": "{ \"action\": \"{{requestBody.action}}\", {{#if errorMessage}}\"status\":\"failure\", \"error\": {\"message\": \"{{errorMessage}}\", \"code\": {{statusCode}} }{{else}}\"status\": \"success\"{{/if}} }"
+      "jsonResponseBody": "{ \"environmentId\": \"{{requestBody.environmentId}}\", \"projectKey\": \"{{projectKey}}\", \"envKey\": \"{{environmentKey}}\", \"segmentKey\": \"{{segmentKey}}\", \"segmentUrl\": \"{{segmentUrl}}\", {{#if errorMessage}}\"status\":\"failure\", \"error\": {\"message\": \"{{{errorMessage}}}\", \"code\": {{statusCode}} }{{else}}\"status\": \"success\"{{/if}} }"
     }
   }
 }

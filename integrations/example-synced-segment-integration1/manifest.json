@@ -25,7 +25,8 @@
         "addMemberArrayPath": "/data/add",
         "removeMemberArrayPath": "/data/remove",
         "memberArrayParser": {
-          "memberIdPath": "/id"
+          "memberIdPath": "/id",
+          "cohortNamePath": ""
         }
       }
     }
