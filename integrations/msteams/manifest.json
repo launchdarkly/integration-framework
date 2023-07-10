@@ -20,7 +20,7 @@
       "key": "url",
       "name": "Incoming webhook URL",
       "type": "uri",
-      "description": "Enter your Microsoft Teams [incoming webhook URL](https://docs.launchdarkly.com/integrations/microsoft-teams#setting-up-a-connector-in-microsoft-teams).",
+      "description": "Enter your Microsoft Teams [incoming webhook URL](https://docs.launchdarkly.com/integrations/microsoft-teams/webhooks#setting-up-a-connector-in-microsoft-teams).",
       "isSecret": false
     }
   ],

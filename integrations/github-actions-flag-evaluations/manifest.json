@@ -1,0 +1,20 @@
+{
+  "name": "GitHub Actions Flag Evaluations",
+  "version": "1.0.0",
+  "overview": "Use LaunchDarkly feature flags to conditionally control workflows in GitHub Actions.",
+  "description": "Use LaunchDarkly feature flags to conditionally control workflows in GitHub Actions.",
+  "details": "Gain runtime control over your GitHub Actions. Feature flags can be used to conditionally control steps and pass values into a step.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://github.com/features/actions",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/github-actions-flag-evaluations",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["automation"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}

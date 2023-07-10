@@ -8,7 +8,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Set Shortcut Link in PR
-        uses: launchdarkly-labs/ld-gh-actions-shortcut/set-link@master
+        uses: launchdarkly-labs/ld-gh-actions-shortcut/set-link@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           AUTOLINK_PREFIX: 'SC-'

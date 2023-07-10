@@ -19,15 +19,15 @@
     {
       "key": "endpointUrl",
       "name": "Grafana URL",
-      "description": "Enter your Grafana instance's URL. This instance must be accessible to LaunchDarkly's servers.",
+      "description": "Enter your Grafana instance's URL. This instance must be accessible to LaunchDarkly's servers. Do not include a trailing \"/\".",
       "placeholder": "https://grafana.example.org",
       "type": "uri",
       "isSecret": false
     },
     {
       "key": "apiKey",
-      "name": "API key",
-      "description": "Enter an API key to your Grafana instance. This API key must have editor privileges.",
+      "name": "Service account token",
+      "description": "Enter Grafana [service account](https://grafana.com/docs/grafana/latest/administration/service-accounts/) token. The service account must have the \"Annotation writer\" role.",
       "placeholder": "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijk=",
       "type": "string",
       "isSecret": true
