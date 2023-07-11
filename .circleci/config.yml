@@ -55,7 +55,8 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - build
+      - build:
+          context: org-global
       - upload-to-s3:
           requires:
             - build
