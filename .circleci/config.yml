@@ -56,7 +56,7 @@ workflows:
   build-and-deploy:
     jobs:
       - build:
-          context: org-global
+          context: apex-sdk-ci
       - upload-to-s3:
           requires:
             - build
