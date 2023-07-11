@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.dynatrace.com/platform/cloud-automation/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/dynatrace-cloud-automation",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/dynatrace#cloud-automation",
     "privacyPolicy": "https://www.dynatrace.com/company/trust-center/privacy/"
   },
   "categories": ["automation", "developer-tools"],
@@ -17,7 +17,7 @@
   },
   "capabilities": {
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/dynatrace/triggers#connecting-a-launchdarkly-trigger-to-dynatrace-cloud-automation",
+      "documentation": "https://docs.launchdarkly.com/integrations/dynatrace/triggers#connecting-a-launchdarkly-trigger-to-dynatrace",
       "defaultEventName": "An event",
       "parser": {
         "eventName": "/eventName",

@@ -407,5 +407,17 @@
         "type": "string"
       }
     }
+  },
+  "payloadPrefix": {
+    "$id": "#/definitions/payloadPrefix",
+    "title": "Prefix",
+    "type": "string",
+    "description": "Optional prefix to wrap payload data with (used for some integrations)"
+  },
+  "payloadSuffix": {
+    "$id": "#/definitions/payloadSuffix",
+    "title": "Suffix",
+    "type": "string",
+    "description": "Optional suffix to wrap payload data with (used for some integrations)"
   }
 }

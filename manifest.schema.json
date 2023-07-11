@@ -686,7 +686,10 @@
           "approval",
           "featureStore",
           "flagLink",
-          "hideConfiguration"
+          "hideConfiguration",
+          "externalConfigurationURL",
+          "externalConfigurationPages",
+          "syncedSegment"
         ]
       },
       "properties": {
@@ -3589,7 +3592,9 @@
               "type": "object",
               "propertyNames": {
                 "enum": [
-                  "endpoint"
+                  "endpoint",
+                  "payloadPrefix",
+                  "payloadSuffix"
                 ]
               },
               "required": [
@@ -3715,6 +3720,523 @@
                     "url",
                     "method"
                   ]
+                },
+                "payloadPrefix": {
+                  "$id": "#/definitions/payloadPrefix",
+                  "title": "Prefix",
+                  "type": "string",
+                  "description": "Optional prefix to wrap payload data with (used for some integrations)"
+                },
+                "payloadSuffix": {
+                  "$id": "#/definitions/payloadSuffix",
+                  "title": "Suffix",
+                  "type": "string",
+                  "description": "Optional suffix to wrap payload data with (used for some integrations)"
+                }
+              }
+            }
+          }
+        },
+        "flagLink": {
+          "$id": "#/properties/capability/flag-link",
+          "title": "flagLink",
+          "description": "This capability is used to manage inbound flag links",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "uiBlocks",
+              "emptyState",
+              "header",
+              "metadata"
+            ]
+          },
+          "required": [
+            "uiBlocks",
+            "header",
+            "emptyState"
+          ],
+          "properties": {
+            "header": {
+              "$id": "#/properties/capability/flag-link/header",
+              "title": "Link group header",
+              "description": "Sentence-cased title to show for all links for this integration",
+              "type": "string"
+            },
+            "emptyState": {
+              "$id": "#/properties/capability/flag-link/empty-state",
+              "title": "Empty state",
+              "description": "Content to display when there are no links to display for this integration",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "title",
+                  "leadText"
+                ]
+              },
+              "properties": {
+                "title": {
+                  "$id": "#/properties/capability/flag-link/empty-state/title",
+                  "title": "Title",
+                  "type": "string",
+                  "description": "Title of the message"
+                },
+                "leadText": {
+                  "$id": "#/properties/capability/flag-link/empty-state/lead-text",
+                  "title": "Lead text",
+                  "type": "string",
+                  "description": "Text or markup content describing how links can be created for this integration"
+                }
+              }
+            },
+            "metadata": {
+              "$id": "#/properties/capability/flag-link/metadata",
+              "title": "FlagLink Metadata",
+              "description": "Key/value pairs describing attributes for the flag link's payload metadata property. The key is the name of the metadata field and the value is the configuration object for the field.",
+              "type": "object",
+              "additionalProperties": {
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "type"
+                  ]
+                },
+                "required": [
+                  "type"
+                ],
+                "properties": {
+                  "type": {
+                    "$id": "#/properties/capability/flag-link/metadata/type",
+                    "title": "Type",
+                    "type": "string",
+                    "description": "Data type for the metadata attribute",
+                    "enum": [
+                      "string",
+                      "uri"
+                    ]
+                  }
+                }
+              }
+            },
+            "uiBlocks": {
+              "$id": "#/properties/capability/flag-link/ui-blocks",
+              "title": "UI Blocks",
+              "description": "UI blocks are visual components that represents a section of the view layout for a flag link displayed in LaunchDarkly",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "image",
+                  "name",
+                  "title",
+                  "context",
+                  "description"
+                ]
+              },
+              "properties": {
+                "image": {
+                  "$id": "#/properties/capability/flag-link/ui-blocks/image",
+                  "title": "Image",
+                  "type": "object",
+                  "description": "A visual block used to render an image in LaunchDarkly UI",
+                  "propertyNames": {
+                    "enum": [
+                      "sourceUrl",
+                      "isIcon",
+                      "isAvatar"
+                    ]
+                  },
+                  "required": [
+                    "sourceUrl"
+                  ],
+                  "properties": {
+                    "sourceUrl": {
+                      "$id": "#/properties/capability/flag-link/ui-blocks/image/source-url",
+                      "title": "Source Url",
+                      "description": "Url of the image. Handlebars template notation can be used to reference metadata fields.",
+                      "type": "string"
+                    },
+                    "isIcon": {
+                      "$id": "#/properties/capability/flag-link/ui-blocks/image/is-icon",
+                      "title": "Is icon",
+                      "description": "Indicates whether the image should be rendered as an icon",
+                      "type": "boolean"
+                    },
+                    "isAvatar": {
+                      "$id": "#/properties/capability/flag-link/ui-blocks/image/is-avatar",
+                      "title": "Is avatar",
+                      "description": "Indicates whether the image should be rendered as an avatar",
+                      "type": "boolean"
+                    }
+                  }
+                },
+                "name": {
+                  "$id": "#/properties/capability/flag-link/ui-blocks/name",
+                  "title": "Name",
+                  "type": "string",
+                  "description": "Template string used to render a visual block in LaunchDarkly UI to display a name"
+                },
+                "title": {
+                  "$id": "#/properties/capability/flag-link/ui-blocks/title",
+                  "title": "Title",
+                  "type": "object",
+                  "description": "Object with visual elements used to display a link title in LaunchDarkly UI",
+                  "propertyNames": {
+                    "enum": [
+                      "elements",
+                      "linkToReference"
+                    ]
+                  },
+                  "required": [
+                    "elements"
+                  ],
+                  "properties": {
+                    "elements": {
+                      "$id": "#/properties/capability/flag-link/ui-blocks/title/elements",
+                      "title": "Elements",
+                      "description": "An array of elements to be combined to create a title block",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/definitions/ui-block-element",
+                        "title": "UI Block Element",
+                        "description": "A sub component of a UI block that can be combined with other elements to form a UI block",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "text",
+                            "isBold",
+                            "url",
+                            "isTimestamp"
+                          ]
+                        },
+                        "required": [
+                          "text"
+                        ],
+                        "properties": {
+                          "text": {
+                            "$id": "#/definitions/ui-block-element/text",
+                            "title": "Text",
+                            "description": "Text to be displayed for the element. The text can contain template variables",
+                            "type": "string"
+                          },
+                          "isBold": {
+                            "$id": "#/definitions/ui-block-element/text",
+                            "title": "Is bold",
+                            "description": "Indicates whether the element should be bolded",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "isTimestamp": {
+                            "$id": "#/definitions/ui-block-element/is-timestamp",
+                            "title": "Is timestamp",
+                            "description": "Indicates whether the element should be rendered as a timestamp",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "url": {
+                            "$id": "#/definitions/ui-block-element/url",
+                            "title": "Url",
+                            "description": "URL to be set for the element which also indicates the element should be rendered as a hyperlink",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "minLength": 1
+                    },
+                    "linkToReference": {
+                      "$id": "#/properties/capability/flag-link/ui-blocks/title/link-to-reference",
+                      "title": "Link to reference",
+                      "description": "Indicates whether the title should be displayed as a hyperlink in LaunchDarkly UI",
+                      "type": "boolean",
+                      "default": false
+                    }
+                  }
+                },
+                "description": {
+                  "$id": "#/properties/capability/flag-link/ui-blocks/description",
+                  "title": "Description",
+                  "type": "string",
+                  "description": "Markdown string used to render a visual block in LaunchDarkly UI to display a link description"
+                },
+                "context": {
+                  "$id": "#/properties/capability/flag-link/ui-blocks/link-context",
+                  "title": "Flag Link Context",
+                  "type": "object",
+                  "description": "Object with visual elements used to display context information for a link in LaunchDarkly UI",
+                  "propertyNames": {
+                    "enum": [
+                      "elements"
+                    ]
+                  },
+                  "required": [
+                    "elements"
+                  ],
+                  "properties": {
+                    "elements": {
+                      "$id": "#/properties/capability/flag-link/ui-blocks/context/elements",
+                      "description": "An array of elements to be combined to create a context block",
+                      "title": "Elements",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/definitions/ui-block-element",
+                        "title": "UI Block Element",
+                        "description": "A sub component of a UI block that can be combined with other elements to form a UI block",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "text",
+                            "isBold",
+                            "url",
+                            "isTimestamp"
+                          ]
+                        },
+                        "required": [
+                          "text"
+                        ],
+                        "properties": {
+                          "text": {
+                            "$id": "#/definitions/ui-block-element/text",
+                            "title": "Text",
+                            "description": "Text to be displayed for the element. The text can contain template variables",
+                            "type": "string"
+                          },
+                          "isBold": {
+                            "$id": "#/definitions/ui-block-element/text",
+                            "title": "Is bold",
+                            "description": "Indicates whether the element should be bolded",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "isTimestamp": {
+                            "$id": "#/definitions/ui-block-element/is-timestamp",
+                            "title": "Is timestamp",
+                            "description": "Indicates whether the element should be rendered as a timestamp",
+                            "type": "boolean",
+                            "default": false
+                          },
+                          "url": {
+                            "$id": "#/definitions/ui-block-element/url",
+                            "title": "Url",
+                            "description": "URL to be set for the element which also indicates the element should be rendered as a hyperlink",
+                            "type": "string"
+                          }
+                        }
+                      },
+                      "minLength": 1
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "hideConfiguration": {
+          "$id": "#/properties/capability/hide-configuration",
+          "title": "Hide Configuration",
+          "description": "This capability will disable in-app editing for the integration",
+          "type": "boolean",
+          "default": false
+        },
+        "externalConfigurationURL": {
+          "$id": "#/properties/capability/external-configuration-url",
+          "title": "External Configuration URL",
+          "description": "This capability will redirect users to an external URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly.",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+        },
+        "externalConfigurationPages": {
+          "$id": "#/properties/capability/external-configuration-pages",
+          "title": "External Configuration Pages",
+          "description": "This capability will redirect users to an external URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly. It supports different URLs for create and edit.",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "createUrl",
+              "editUrl"
+            ]
+          },
+          "required": [
+            "createUrl",
+            "editUrl"
+          ],
+          "properties": {
+            "createUrl": {
+              "$id": "#/properties/capability/external-configuration-url/createUrl",
+              "title": "Create URL",
+              "description": "URL to redirect to for external creation flow",
+              "type": "string",
+              "maxLength": 2048,
+              "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+            },
+            "editUrl": {
+              "$id": "#/properties/capability/external-configuration-url/editUrl",
+              "title": "Edit URL",
+              "description": "URL to redirect to for external edit flow",
+              "type": "string",
+              "maxLength": 2048,
+              "pattern": "^[Hh][Tt][Tt][Pp][Ss]?://"
+            }
+          }
+        },
+        "syncedSegment": {
+          "$id": "#/properties/capability/synced-segment",
+          "title": "syncedSegment",
+          "description": "This capability is used to manage the creation and synchronization of synced segments",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "jsonResponseBody",
+              "requestParser"
+            ]
+          },
+          "required": [
+            "requestParser"
+          ],
+          "properties": {
+            "jsonResponseBody": {
+              "$id": "#/properties/capability/synced-segment/json-body",
+              "title": "Response body",
+              "description": "JSON string to be returned as a response",
+              "type": "string"
+            },
+            "requestParser": {
+              "$id": "#/properties/capability/synced-segment/request-parser",
+              "title": "Request parser",
+              "description": "Describes a mapping of property name to a location in the JSON request payload specified by a JSON pointer",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "environmentIdPath",
+                  "cohortIdPath",
+                  "cohortNamePath",
+                  "cohortUrlPath",
+                  "memberArrayPath",
+                  "addMemberArrayPath",
+                  "removeMemberArrayPath",
+                  "arrayInclusion",
+                  "memberArrayParser"
+                ]
+              },
+              "required": [
+                "environmentIdPath",
+                "cohortIdPath",
+                "cohortNamePath",
+                "memberArrayParser"
+              ],
+              "properties": {
+                "environmentIdPath": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/environment-id-path",
+                  "title": "Environment id path",
+                  "type": "string",
+                  "description": "JSON pointer to the LaunchDarkly environment id"
+                },
+                "cohortIdPath": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/cohort-id-path",
+                  "title": "Cohort id path",
+                  "type": "string",
+                  "description": "JSON pointer to the cohort id"
+                },
+                "cohortNamePath": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/cohort-name-path",
+                  "title": "Cohort name path",
+                  "type": "string",
+                  "description": "JSON pointer to the cohort name"
+                },
+                "cohortUrlPath": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/cohort-url-path",
+                  "title": "Cohort url path",
+                  "type": "string",
+                  "description": "JSON pointer to the cohort URL path"
+                },
+                "memberArrayPath": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/member-array-path",
+                  "title": "Member array path",
+                  "type": "string",
+                  "description": "JSON pointer to the array containing members to be added or removed from the segment"
+                },
+                "addMemberArrayPath": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/add-member-array-path",
+                  "title": "Add member array path",
+                  "type": "string",
+                  "description": "JSON pointer to the array containing members to be added to the segment. Required if removeMemberArrayPath is specified"
+                },
+                "removeMemberArrayPath": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/remove-member-array-path",
+                  "title": "Remove member array path",
+                  "type": "string",
+                  "description": "JSON pointer to the array containing members to be removed to the segment. Required if addMemberArrayPath is specified"
+                },
+                "arrayInclusion": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/array-inclusion",
+                  "title": "Array inclusion matcher",
+                  "description": "Describes a mapping of property name to a location in the JSON request payload indicating the action to be taken for the members in the request payload",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "path",
+                      "matcher"
+                    ]
+                  },
+                  "required": [
+                    "path",
+                    "matcher"
+                  ],
+                  "properties": {
+                    "path": {
+                      "$id": "#/properties/capability/synced-segment/request-parser/array-inclusion/path",
+                      "title": "Path",
+                      "type": "string",
+                      "description": "JSON pointer to the property that will be checked by the matcher property"
+                    },
+                    "matcher": {
+                      "$id": "#/properties/capability/synced-segment/request-parser/array-inclusion/matcher",
+                      "title": "Matcher",
+                      "type": "string",
+                      "description": "Regex indicating the action to be taken for the members in the segment. If it matches the value of path property, the members of the incoming segment will be added otherwise they will be removed"
+                    }
+                  }
+                },
+                "memberArrayParser": {
+                  "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser",
+                  "title": "Member array parser",
+                  "description": "Describes a mapping of property name to a location in the member array JSON payload specified by a JSON pointer. All paths are relative to the member array path",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "memberIdPath",
+                      "booleanMembershipPath",
+                      "cohortNamePath",
+                      "cohortIdPath"
+                    ]
+                  },
+                  "required": [
+                    "memberIdPath"
+                  ],
+                  "properties": {
+                    "memberIdPath": {
+                      "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser/member-id-path",
+                      "title": "Member id path",
+                      "type": "string",
+                      "description": "JSON pointer to the member id"
+                    },
+                    "booleanMembershipPath": {
+                      "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser/boolean-membership-path",
+                      "title": "Boolean membership path",
+                      "type": "string",
+                      "description": "JSON pointer to the property in member array payload indicating whether the member should be added or removed"
+                    },
+                    "cohortNamePath": {
+                      "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser/cohort-name-path",
+                      "title": "Cohort name path",
+                      "type": "string",
+                      "description": "JSON pointer to the cohort name. Overrides the cohort name for a single member"
+                    },
+                    "cohortIdPath": {
+                      "$id": "#/properties/capability/synced-segment/request-parser/member-array-parser/cohort-id-path",
+                      "title": "Cohort id path",
+                      "type": "string",
+                      "description": "JSON pointer to the cohort id. Overrides the cohort id for a single member"
+                    }
+                  }
                 }
               }
             }

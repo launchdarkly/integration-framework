@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "overview": "Use our open-source utility to track references to flags in your code, using GitHub Actions.",
   "description": "Use our open-source utility to track references to flags in your code, using GitHub Actions.",
-  "details": "GitHub is a development platform inspired by the way you work. From open-source to business, you can host and review code, manage projects, and build software alongside 40 million developers. Use our open-source utility to track references to flags in your code, using GitHub Actions.",
+  "details": "GitHub is a service for software development and version control using Git. Use our open-source utility to track references to flags in your code to power in-app functionality. Search for feature flags that have no existing code references. Add additional safety checks when you're ready to archive a flag that it does not exist in any codebase running the utility.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {

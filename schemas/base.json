@@ -259,7 +259,10 @@
           "approval",
           "featureStore",
           "flagLink",
-          "hideConfiguration"
+          "hideConfiguration",
+          "externalConfigurationURL",
+          "externalConfigurationPages",
+          "syncedSegment"
         ]
       },
       "properties": {
@@ -283,6 +286,15 @@
         },
         "hideConfiguration": {
           "$ref": "schemas/capabilities/hideConfiguration.json#/hideConfiguration"
+        },
+        "externalConfigurationURL": {
+          "$ref": "schemas/capabilities/externalConfiguration.json#/externalConfigurationURL"
+        },
+        "externalConfigurationPages": {
+          "$ref": "schemas/capabilities/externalConfiguration.json#/externalConfigurationPages"
+        },
+        "syncedSegment": {
+          "$ref": "schemas/capabilities/syncedSegment.json#/syncedSegment"
         }
       }
     },

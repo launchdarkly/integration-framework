@@ -44,12 +44,18 @@
         "description": "Details needed to make a request to deliver the flag payload to the feature store",
         "type": "object",
         "propertyNames": {
-          "enum": ["endpoint"]
+          "enum": ["endpoint", "payloadPrefix", "payloadSuffix"]
         },
         "required": ["endpoint"],
         "properties": {
           "endpoint": {
             "$ref": "../definitions.json#/endpoint"
+          },
+          "payloadPrefix": {
+            "$ref": "../definitions.json#/payloadPrefix"
+          },
+          "payloadSuffix": {
+            "$ref": "../definitions.json#/payloadSuffix"
           }
         }
       }

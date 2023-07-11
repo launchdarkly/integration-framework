@@ -31,3 +31,7 @@ If you want to reach out in private, email [integrations@launchdarkly.com](mailt
 We encourage pull requests and other contributions from the community. The LaunchDarkly integrations team responds to all new pull requests within two business days.
 
 Before you submit pull requests, make sure that all temporary or unintended code is removed. Don't worry about adding reviewers to the pull request. The LaunchDarkly integrations team will add themselves.
+
+## Validating your integration (beta)
+
+Validate your integrations using our built-in express server to verify your integration configurations. Visit the validation server's [docs](./server/README.md) to learn more.
