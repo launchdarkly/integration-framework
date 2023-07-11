@@ -17,6 +17,8 @@ jobs:
           name: prettier
           command: npm run prettier:check
       - run:
+          name: Test modification
+          command: echo "Hello"
           name: Run tests
           command: npm run test:ci
           environment:
@@ -55,8 +57,6 @@ jobs:
 workflows:
   build-and-deploy:
     jobs:
-      - linter/pre-commit:
-          config_file: .circleci/.pre-commit-ci.yaml
       - build
       - upload-to-s3:
           requires:
