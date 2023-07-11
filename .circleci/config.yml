@@ -56,7 +56,7 @@ workflows:
   build-and-deploy:
     jobs:
       - build:
-          context: hello-world-demos
+          context: org-global
       - upload-to-s3:
           requires:
             - build
