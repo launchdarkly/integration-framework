@@ -22,7 +22,6 @@
         "environmentIdPath": "/environmentId",
         "cohortIdPath": "/batch/0/cohortId",
         "cohortNamePath": "/batch/0/cohortName",
-        "cohortUrlPath": "/batch/0/cohortUrl",
         "memberArrayPath": "/batch",
         "memberArrayParser": {
           "memberIdPath": "/userId",
