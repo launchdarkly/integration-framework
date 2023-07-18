@@ -168,12 +168,13 @@ const parseSyncSegmentRequest = async (
   result.environmentId = getFieldValue<string>(
     body,
     parser.environmentIdPath,
-    true
+    true,
+    "environmentIdPath"
   );
 
-  const cohortId = getFieldValue(body, parser.cohortIdPath, true);
-  const cohortName = getFieldValue(body, parser.cohortNamePath, true);
-  const cohortUrl = getFieldValue(body, parser.cohortUrlPath, false);
+  const cohortId = getFieldValue(body, parser.cohortIdPath, true, "cohordIdPath");
+  const cohortName = getFieldValue(body, parser.cohortNamePath, true, "cohortNamePath");
+  const cohortUrl = getFieldValue(body, parser.cohortUrlPath, false, "cohortUrlPath");
 
   const batchedRecords: SyncedSegmentBatch[] = [];
 
@@ -181,7 +182,8 @@ const parseSyncSegmentRequest = async (
     const memberArray = getFieldValue<any[]>(
       body,
       parser.memberArrayPath,
-      true
+      true,
+      "memberArrayPath"
     );
     const memberArrayBatch = parseBatchArray({
       memberArray,
@@ -198,7 +200,8 @@ const parseSyncSegmentRequest = async (
     const memberArray = getFieldValue<any[]>(
       body,
       parser.memberArrayPath,
-      true
+      true,
+      "memberArrayPath"
     );
     const shouldInclude = getArrayMembershipStatus(
       parser,
@@ -223,7 +226,8 @@ const parseSyncSegmentRequest = async (
     const memberArray = getFieldValue<any[]>(
       body,
       parser.addMemberArrayPath,
-      !!parser.removeMemberArrayPath
+      !!parser.removeMemberArrayPath,
+      "addMemberArrayPath"
     );
     const memberArrayBatch = parseBatchArray({
       memberArray,
@@ -241,7 +245,8 @@ const parseSyncSegmentRequest = async (
     const memberArray = getFieldValue<any[]>(
       body,
       parser.removeMemberArrayPath,
-      !!parser.addMemberArrayPath
+      !!parser.addMemberArrayPath,
+      "removeMemberArrayPath"
     );
     const memberArrayBatch = parseBatchArray({
       memberArray,
@@ -292,16 +297,18 @@ const parseBatchArray = (params: ParseArryParams): SyncedSegmentBatch[] => {
       params.status
     );
 
-    const memberId = getFieldValue(member, memberParser.memberIdPath, true);
+    const memberId = getFieldValue(member, memberParser.memberIdPath, true, "memberIdPath");
     const cohortIdOverride = getFieldValue(
       member,
       memberParser.cohortIdPath,
-      false
+      false,
+      "cohortIdPath"
     );
     const cohortNameOverride = getFieldValue(
       member,
       memberParser.cohortNamePath,
-      false
+      false,
+      "cohortNamePath"
     );
 
     const record: SyncedSegmentBatch = {
@@ -335,7 +342,8 @@ const getArrayMembershipStatus = (
     return getFieldValue<boolean>(
       payload,
       rp.memberArrayParser.booleanMembershipPath,
-      true
+      true,
+      "booleanMembershipPath"
     );
   }
 
@@ -343,7 +351,8 @@ const getArrayMembershipStatus = (
     const inclusionValue = getFieldValue(
       payload,
       rp.arrayInclusion?.path,
-      true
+      true,
+      "arrayInclusionPath.path"
     );
     const regex = new RegExp(rp.arrayInclusion?.matcher || '');
     return regex.test(inclusionValue);
@@ -360,18 +369,20 @@ const getArrayMembershipStatus = (
  * @param payload
  * @param jsonPtr
  * @param required
+ * @param fieldName
  * @returns
  */
 const getFieldValue = <T = string>(
   payload: any,
   jsonPtr: string | undefined,
-  required?: boolean
+  required?: boolean,
+  fieldName?: string
 ): T => {
   if (!jsonPtr) {
     return undefined as T;
   }
 
-  logger.log('processing ptr: ', jsonPtr);
+  logger.log(`Processing ptr: '${jsonPtr}' ${fieldName ? `for manifest field: '${fieldName}'` : ''}`);
 
   const value = pointer.get(payload, jsonPtr);
   if (!value && required) {
