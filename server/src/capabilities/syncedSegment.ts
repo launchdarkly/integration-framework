@@ -9,6 +9,10 @@ import HandleBars from 'handlebars';
 
 const logger = createLogger('synced-segment');
 
+enum ContextKind {
+  User = 'user',
+}
+
 enum MembershipStatus {
   include = 'include',
   exclude = 'exclude',
@@ -26,6 +30,7 @@ export type SyncedSegmentBatch = {
 
 export type SyncedSegment = {
   environmentId: string;
+  contextKind: string;
   batch: SyncedSegmentBatch[];
 };
 
@@ -160,6 +165,7 @@ const parseSyncSegmentRequest = async (
 
   const result: SyncedSegment = {
     environmentId: '',
+    contextKind: ContextKind.User,
     batch: [],
   };
 
@@ -169,12 +175,37 @@ const parseSyncSegmentRequest = async (
     body,
     parser.environmentIdPath,
     true,
-    "environmentIdPath"
+    'environmentIdPath'
   );
 
-  const cohortId = getFieldValue(body, parser.cohortIdPath, true, "cohordIdPath");
-  const cohortName = getFieldValue(body, parser.cohortNamePath, true, "cohortNamePath");
-  const cohortUrl = getFieldValue(body, parser.cohortUrlPath, false, "cohortUrlPath");
+  const contextKind = getFieldValue<string>(
+    body,
+    parser.contextKindPath,
+    false,
+    'contextKindPath'
+  );
+  if (contextKind) {
+    result.contextKind = contextKind;
+  }
+
+  const cohortId = getFieldValue(
+    body,
+    parser.cohortIdPath,
+    true,
+    'cohordIdPath'
+  );
+  const cohortName = getFieldValue(
+    body,
+    parser.cohortNamePath,
+    true,
+    'cohortNamePath'
+  );
+  const cohortUrl = getFieldValue(
+    body,
+    parser.cohortUrlPath,
+    false,
+    'cohortUrlPath'
+  );
 
   const batchedRecords: SyncedSegmentBatch[] = [];
 
@@ -183,7 +214,7 @@ const parseSyncSegmentRequest = async (
       body,
       parser.memberArrayPath,
       true,
-      "memberArrayPath"
+      'memberArrayPath'
     );
     const memberArrayBatch = parseBatchArray({
       memberArray,
@@ -201,7 +232,7 @@ const parseSyncSegmentRequest = async (
       body,
       parser.memberArrayPath,
       true,
-      "memberArrayPath"
+      'memberArrayPath'
     );
     const shouldInclude = getArrayMembershipStatus(
       parser,
@@ -227,7 +258,7 @@ const parseSyncSegmentRequest = async (
       body,
       parser.addMemberArrayPath,
       !!parser.removeMemberArrayPath,
-      "addMemberArrayPath"
+      'addMemberArrayPath'
     );
     const memberArrayBatch = parseBatchArray({
       memberArray,
@@ -246,7 +277,7 @@ const parseSyncSegmentRequest = async (
       body,
       parser.removeMemberArrayPath,
       !!parser.addMemberArrayPath,
-      "removeMemberArrayPath"
+      'removeMemberArrayPath'
     );
     const memberArrayBatch = parseBatchArray({
       memberArray,

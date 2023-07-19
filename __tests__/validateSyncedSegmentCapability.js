@@ -14,6 +14,7 @@ manifestsWithCapability.push([
       syncedSegment: {
         requestParser: {
           environmentIdPath: '/environmentId',
+          contextKindPath: '/contextKind',
           cohortIdPath: '/batch[0]/cohortId',
           cohortNamePath: '/batch[0]/cohortName',
           cohortUrlPath: '/batch[0]/cohortUrl',
