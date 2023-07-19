@@ -20,6 +20,7 @@
     "syncedSegment": {
       "requestParser": {
         "environmentIdPath": "/parameters/mixpanel_project_id",
+        "contextKindPath": "/contextKind",
         "cohortIdPath": "/parameters/mixpanel_cohort_id",
         "cohortNamePath": "/parameters/mixpanel_cohort_name",
         "arrayInclusion": {
@@ -31,7 +32,7 @@
           "memberIdPath": "/mixpanel_distinct_id"
         }
       },
-      "jsonResponseBody": "{ \"environmentId\": \"{{requestBody.environmentId}}\", \"projectKey\": \"{{projectKey}}\", \"envKey\": \"{{environmentKey}}\", \"segmentKey\": \"{{segmentKey}}\", \"segmentUrl\": \"{{segmentUrl}}\", {{#if errorMessage}}\"status\":\"failure\", \"error\": {\"message\": \"{{{errorMessage}}}\", \"code\": {{statusCode}} }{{else}}\"status\": \"success\"{{/if}} }"
+      "jsonResponseBody": "{ \"environmentId\": \"{{requestBody.environmentId}}\", \"contextKind\": \"{{requestBody.contextKind}}\", \"projectKey\": \"{{projectKey}}\", \"envKey\": \"{{environmentKey}}\", \"segmentKey\": \"{{segmentKey}}\", \"segmentUrl\": \"{{segmentUrl}}\", {{#if errorMessage}}\"status\":\"failure\", \"error\": {\"message\": \"{{{errorMessage}}}\", \"code\": {{statusCode}} }{{else}}\"status\": \"success\"{{/if}} }"
     }
   }
 }
