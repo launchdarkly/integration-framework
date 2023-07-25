@@ -12,8 +12,8 @@
   },
   "categories": ["monitoring"],
   "icons": {
-    "square": "assets/images/square.svg",
-    "horizontal": "assets/images/horizontal.svg"
+    "square": "assets/images/splunk-icon.svg",
+    "horizontal": "assets/images/splunk-logo.svg"
   },
   "formVariables": [
     {
