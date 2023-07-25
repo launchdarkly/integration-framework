@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.splunk.com/en_us/products/observability.html",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/splunk/observability",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/splunk-observability",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["monitoring"],
@@ -60,7 +60,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/splunk/triggers#connecting-a-flag-trigger-to-splunk",
+      "documentation": "https://docs.launchdarkly.com/integrations/splunk-observability/triggers#connecting-a-flag-trigger-to-splunk",
       "parser": {
         "eventName": "/eventType",
         "url": "/detectorUrl"
