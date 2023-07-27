@@ -60,7 +60,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/splunk-observability/triggers#connecting-a-flag-trigger-to-splunk",
+      "documentation": "https://docs.launchdarkly.com/integrations/splunk-observability/triggers#connecting-a-flag-trigger-to-splunk-observability-cloud",
       "parser": {
         "eventName": "/eventType",
         "url": "/detectorUrl"
