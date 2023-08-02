@@ -7,11 +7,11 @@
   "supportEmail": "support@tealium.com",
   "links": {
     "supportWebsite": "https://tealium.com/docs-overview/",
-		"site":"https://tealium.com/",
-		"privacyPolicy": "https://tealium.com/privacy",
+    "site": "https://tealium.com/",
+    "privacyPolicy": "https://tealium.com/privacy",
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/tealium"
   },
-  "categories": ["analytics","data"],
+  "categories": ["analytics", "data"],
   "icons": {
     "square": "assets/images/2021_Tealium_icon_rgb_full-color.svg",
     "horizontal": "assets/images/2021_Tealium_logo_rgb_full-color.svg"
