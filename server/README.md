@@ -1,6 +1,6 @@
 # LaunchDarkly Integration Validation Server (beta)
 
-The LaunchDarkly Integration Validation Server is a tool that allows developers to test their integrations with LaunchDarkly using an Express server. This server provides an environment where developers can validate their integrations with LaunchDarkly's feature flag management platform.
+The LaunchDarkly Integration Validation Server is a tool that developers can use to test their integrations with LaunchDarkly. This server provides an environment where developers can validate their integrations with LaunchDarkly's feature flag management platform.
 
 ## Getting started
 
@@ -44,7 +44,7 @@ The LaunchDarkly Integration Validation Server exposes the following endpoints:
 
 | Endpoint           | Method | Description                                   |
 |--------------------|--------|-----------------------------------------------|
-| `/api/v2/segment-target/:integrationKey`                | POST    | Simulates processing a synced segment data from a Customer Data Provider (CDP). |
+| `/api/v2/segment-target/:integrationKey`                | POST    | Simulates processing a synced segment data from a Customer Data Provider (CDP). Replace `:integrationKey` with the name of the directory that you are adding to the `integration-framework` repository under `integrations/`. |
 
 ### Example usage
 
@@ -54,7 +54,7 @@ To validate that a segment from a Customer Data Platform (CDP) will be successfu
 curl --location 'http://localhost:3000/api/v2/segment-target/example-integration-key' \
 --header 'Content-Type: application/json' \
 --data '{
-  "environmentId": "abcd123",
+  "environmentId": "example-client-side-ID",
   "batch": [
     {
       "userId": "example-cdp-user-1234",

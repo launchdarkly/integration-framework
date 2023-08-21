@@ -581,6 +581,10 @@ export type ResponseBody = string;
  */
 export type EnvironmentIdPath = string;
 /**
+ * JSON pointer to the LaunchDarkly context kind
+ */
+export type ContextKindPath = string;
+/**
  * JSON pointer to the cohort id
  */
 export type CohortIdPath = string;
@@ -1028,6 +1032,7 @@ export interface SyncedSegment {
  */
 export interface RequestParser {
   environmentIdPath: EnvironmentIdPath;
+  contextKindPath?: ContextKindPath;
   cohortIdPath: CohortIdPath;
   cohortNamePath: CohortNamePath;
   cohortUrlPath?: CohortUrlPath;
