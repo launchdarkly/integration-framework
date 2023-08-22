@@ -1,0 +1,20 @@
+{
+  "name": "FullStory",
+  "version": "1.0.0",
+  "overview": "Send feature flag evaluation data from the LaunchDarkly JavaScript SDK to FullStory as page properties.",
+  "description": "FullStory combines analytics with high-fidelity session replay and intelligent diagnostics so you can fix issues impacting your customers' experience, even if the issues are not reported by customers.<br><br>Send feature flag evaluation data from the LaunchDarkly JavaScript SDK to FullStory as page properties.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "supportWebsite": "https://help.fullstory.com/",
+    "site": "https://www.fullstory.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/fullstory",
+    "privacyPolicy": "https://www.fullstory.com/legal/privacy-policy/"
+  },
+  "categories": ["analytics"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}
