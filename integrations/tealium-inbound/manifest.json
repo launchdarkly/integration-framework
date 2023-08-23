@@ -1,0 +1,20 @@
+{
+  "name": "Tealium Inbound Events",
+  "version": "1.0.0",
+  "overview": "Send Tealium Metric Events to LaunchDarkly from Tealium's EventStream API Hub.",
+  "description": "Power your LaunchDarkly experiments with data from your Tealium Customer Data Hub with this turnkey integration.",
+  "author": "Tealium",
+  "supportEmail": "support@tealium.com",
+  "links": {
+    "supportWebsite": "https://tealium.com/docs-overview/",
+    "site": "https://tealium.com/",
+    "privacyPolicy": "https://tealium.com/privacy",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/tealium"
+  },
+  "categories": ["analytics", "data"],
+  "icons": {
+    "square": "assets/images/2021_Tealium_icon_rgb_full-color.svg",
+    "horizontal": "assets/images/2021_Tealium_logo_rgb_full-color.svg"
+  },
+  "otherCapabilities": ["external"]
+}
