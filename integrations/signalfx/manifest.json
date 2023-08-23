@@ -1,32 +1,32 @@
 {
-  "name": "SignalFx",
+  "name": "Splunk Observability Cloud",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag changes in SignalFx.",
-  "description": "Monitor LaunchDarkly flag and other change events with clear data markers in SignalFx to correlate feature flag rollouts with changes in operational health.",
+  "overview": "Monitor LaunchDarkly flag changes in Splunk Observability Cloud.",
+  "description": "Monitor LaunchDarkly flag and other change events with clear data markers in Splunk Observability Cloud to correlate feature flag rollouts with changes in operational health.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://www.signalfx.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/signalfx",
+    "site": "https://www.splunk.com/en_us/products/observability.html",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/splunk-observability",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["monitoring"],
   "icons": {
-    "square": "assets/images/square.svg",
-    "horizontal": "assets/images/horizontal.svg"
+    "square": "assets/images/splunk-icon.svg",
+    "horizontal": "assets/images/splunk-logo.svg"
   },
   "formVariables": [
     {
       "key": "accessToken",
-      "name": "SignalFx access token",
-      "description": "Enter your [SignalFx access token](https://docs.signalfx.com/en/latest/admin-guide/tokens.html#working-with-access-tokens).",
+      "name": "Splunk Observability Cloud access token",
+      "description": "Enter your [Splunk Observability Cloud access token](https://docs.splunk.com/Observability/admin/authentication-tokens/tokens.html#working-with-access-tokens).",
       "type": "string",
       "isSecret": true
     },
     {
       "key": "realm",
-      "name": "SignalFx realm",
-      "description": "Enter your [SignalFx realm](https://developers.signalfx.com/#realms-in-endpoints).",
+      "name": "Splunk Observability Cloud realm",
+      "description": "Enter your [Splunk Observability Cloud realm](https://dev.splunk.com/observability/docs/realms_in_endpoints/).",
       "type": "string",
       "isSecret": false
     }
@@ -60,7 +60,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/signalfx/triggers#connecting-a-flag-trigger-to-signalfx",
+      "documentation": "https://docs.launchdarkly.com/integrations/splunk-observability/triggers#connecting-a-flag-trigger-to-splunk-observability-cloud",
       "parser": {
         "eventName": "/eventType",
         "url": "/detectorUrl"
