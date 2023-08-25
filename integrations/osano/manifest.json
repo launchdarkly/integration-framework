@@ -1,0 +1,21 @@
+{
+  "name": "Osano",
+  "version": "1.0.0",
+  "overview": "Search for customer personal information (PI) in LaunchDarkly.",
+  "description": "This integration facilitates data mapping and compliance with subject rights requests by automatically finding requester PI stored with LaunchDarkly via daily syncs and on demand.",
+  "details": "Osano is a data privacy management platform that supports, streamlines, and automates compliance with data privacy laws around the world.",
+  "author": "Osano",
+  "supportEmail": "help@osano.com",
+  "links": {
+    "supportWebsite": "https://docs.osano.com/",
+    "site": "https://osano.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/osano",
+    "privacyPolicy": "https://www.osano.com/legal/privacy"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}
