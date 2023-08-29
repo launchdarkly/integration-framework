@@ -11,9 +11,7 @@
     "supportWebsite": "https://www.rudderstack.com/docs/destinations/streaming-destinations/launchdarkly-audience/",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy"
   },
-  "categories": [
-    "synced-segments"
-  ],
+  "categories": ["synced-segments"],
   "icons": {
     "square": "assets/square.svg",
     "horizontal": "assets/horizontal.svg"
