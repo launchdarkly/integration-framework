@@ -2,7 +2,7 @@
   "name": "RudderStack",
   "version": "1.0.0",
   "overview": "Sync RudderStack Audiences to LaunchDarkly Big Segments.",
-  "description": "Segment syncing lets you import audiences from RudderStack to LaunchDarkly to more efficiently target and deliver feature flags.",
+  "description": "Sync RudderStack audiences  to LaunchDarkly Big Segments to more efficiently target and deliver feature flags.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
