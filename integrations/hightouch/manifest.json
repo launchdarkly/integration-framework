@@ -1,0 +1,34 @@
+{
+  "name": "Hightouch",
+  "version": "1.0.0",
+  "overview": "Sync data from any source to LaunchDarkly segments.",
+  "description": "Sync Hightouch models to LaunchDarkly segments to seamlessly maintain your LaunchDarkly feature flags.",
+  "author": "Hightouch",
+  "supportEmail": "developers@hightouch.com",
+  "links": {
+    "site": "https://hightouch.com/",
+    "privacyPolicy": "https://hightouch.com/privacy-policy"
+  },
+  "categories": ["synced-segments"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/environmentId",
+        "cohortIdPath": "/cohortId",
+        "cohortNamePath": "/cohortName",
+        "arrayInclusion": {
+          "path": "/action",
+          "matcher": "^add$"
+        },
+        "memberArrayPath": "/members",
+        "memberArrayParser": {
+          "memberIdPath": "/integration_distinct_id"
+        }
+      }
+    }
+  }
+}
