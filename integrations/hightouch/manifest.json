@@ -20,6 +20,7 @@
         "environmentIdPath": "/environmentId",
         "cohortIdPath": "/cohortId",
         "cohortNamePath": "/cohortName",
+        "contextKindPath": "/contextKind",
         "arrayInclusion": {
           "path": "/action",
           "matcher": "^add$"
