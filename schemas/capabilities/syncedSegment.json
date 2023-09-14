@@ -24,6 +24,7 @@
         "propertyNames": {
           "enum": [
             "environmentIdPath",
+            "contextKindPath",
             "cohortIdPath",
             "cohortNamePath",
             "cohortUrlPath",
@@ -46,6 +47,12 @@
             "title": "Environment id path",
             "type": "string",
             "description": "JSON pointer to the LaunchDarkly environment id"
+          },
+          "contextKindPath": {
+            "$id": "#/properties/capability/synced-segment/request-parser/context-kind-path",
+            "title": "Context kind path",
+            "type": "string",
+            "description": "JSON pointer to the LaunchDarkly context kind"
           },
           "cohortIdPath": {
             "$id": "#/properties/capability/synced-segment/request-parser/cohort-id-path",

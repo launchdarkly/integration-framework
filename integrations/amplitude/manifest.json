@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.amplitude.com",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/contexts/synced-segments",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/amplitude",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy"
   },
   "categories": ["synced-segments"],

@@ -1,0 +1,34 @@
+{
+  "name": "Segment Audiences",
+  "version": "1.0.0",
+  "overview": "Sync Segment Audiences to LaunchDarkly Big Segments.",
+  "description": "Segment syncing lets you import audiences from Segment to LaunchDarkly to more efficiently target and deliver feature flags.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://segment.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/segment",
+    "supportWebsite": "https://segment.com/docs/connections/sources/catalog/cloud-apps/launchdarkly-audiences/",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/environmentId",
+        "contextKindPath": "/contextKind",
+        "cohortIdPath": "/batch/0/cohortId",
+        "cohortNamePath": "/batch/0/cohortName",
+        "memberArrayPath": "/batch",
+        "memberArrayParser": {
+          "memberIdPath": "/userId",
+          "booleanMembershipPath": "/value"
+        }
+      }
+    }
+  }
+}
