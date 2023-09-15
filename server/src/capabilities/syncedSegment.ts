@@ -253,7 +253,6 @@ const parseSyncSegmentRequest = async (
   }
 
   if (parser.addMemberArrayPath) {
-    // this is only required if removeMemberArrayPath is specified
     const memberArray =
       getFieldValue<any[]>(
         body,
@@ -273,7 +272,6 @@ const parseSyncSegmentRequest = async (
   }
 
   if (parser.removeMemberArrayPath) {
-    // this is only required if addMemberArrayPath is specified
     const memberArray =
       getFieldValue<any[]>(
         body,
