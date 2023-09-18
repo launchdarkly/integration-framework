@@ -253,13 +253,13 @@ const parseSyncSegmentRequest = async (
   }
 
   if (parser.addMemberArrayPath) {
-    // this is only required if removeMemberArrayPath is specified
-    const memberArray = getFieldValue<any[]>(
-      body,
-      parser.addMemberArrayPath,
-      !!parser.removeMemberArrayPath,
-      'addMemberArrayPath'
-    );
+    const memberArray =
+      getFieldValue<any[]>(
+        body,
+        parser.addMemberArrayPath,
+        false,
+        'addMemberArrayPath'
+      ) ?? [];
     const memberArrayBatch = parseBatchArray({
       memberArray,
       parser,
@@ -272,13 +272,13 @@ const parseSyncSegmentRequest = async (
   }
 
   if (parser.removeMemberArrayPath) {
-    // this is only required if addMemberArrayPath is specified
-    const memberArray = getFieldValue<any[]>(
-      body,
-      parser.removeMemberArrayPath,
-      !!parser.addMemberArrayPath,
-      'removeMemberArrayPath'
-    );
+    const memberArray =
+      getFieldValue<any[]>(
+        body,
+        parser.removeMemberArrayPath,
+        false,
+        'removeMemberArrayPath'
+      ) ?? [];
     const memberArrayBatch = parseBatchArray({
       memberArray,
       parser,
