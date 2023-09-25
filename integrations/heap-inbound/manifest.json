@@ -1,8 +1,8 @@
 {
-  "name": "Heap",
+  "name": "Heap Segments",
   "version": "1.0.0",
   "overview": "Sync Heap user segments to LaunchDarkly.",
-  "description": "Segment syncing lets you import Users from Heap to LaunchDarkly to more efficiently target and deliver feature flags.",
+  "description": "Segment syncing lets you import Users from Heap to LaunchDarkly to more efficiently target and deliver features.",
   "author": "Heap",
   "supportEmail": "support@heap.io",
   "links": {
