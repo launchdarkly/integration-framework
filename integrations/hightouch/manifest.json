@@ -7,7 +7,8 @@
   "supportEmail": "developers@hightouch.com",
   "links": {
     "site": "https://hightouch.com/",
-    "privacyPolicy": "https://hightouch.com/privacy-policy"
+    "privacyPolicy": "https://hightouch.com/privacy-policy",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/hightouch"
   },
   "categories": ["synced-segments"],
   "icons": {
