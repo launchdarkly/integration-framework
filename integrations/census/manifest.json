@@ -1,7 +1,7 @@
 {
   "name": "Census",
   "version": "1.0.0",
-  "overview": "Use Census to sync Metrics, Metric Events and Big Segments from your data warehouse into LaunchDarkly.",
+  "overview": "Use Census to sync Metrics, Metric Events and Big Segments from a data warehouse into LaunchDarkly.",
   "description": "Your data warehouse is the source of truth for how users interact with your product. Now you can use it to supercharge your LaunchDarkly experiments by syncing metrics and metric events.",
   "author": "Census",
   "supportEmail": "support@getcensus.com",
