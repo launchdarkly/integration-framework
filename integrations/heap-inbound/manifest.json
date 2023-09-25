@@ -1,0 +1,34 @@
+{
+  "name": "Heap Segments",
+  "version": "1.0.0",
+  "overview": "Sync Heap user segments to LaunchDarkly.",
+  "description": "Segment syncing lets you import Users from Heap to LaunchDarkly to more efficiently target and deliver features.",
+  "author": "Heap",
+  "supportEmail": "support@heap.io",
+  "links": {
+    "site": "https://www.heap.io/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/heap-inbound",
+    "privacyPolicy": "https://www.heap.io/privacy"
+  },
+  "categories": ["synced-segments"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "otherCapabilities": ["external"],
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/parameters/environment_id",
+        "cohortIdPath": "/heap/data/segment/id",
+        "cohortNamePath": "/heap/data/segment/name",
+        "addMemberArrayPath": "/heap/data/add",
+        "removeMemberArrayPath": "/heap/data/remove",
+        "memberArrayParser": {
+          "memberIdPath": "/id"
+        }
+      },
+      "jsonResponseBody": "{ \"projectId\": \"{{projectKey}}\", \"environmentId\": \"{{environmentKey}}\", \"segmentId\": \"{{segmentKey}}\", \"segmentUrl\": \"{{segmentUrl}}\", {{#if errorMessage}}\"status\":\"failure\", \"error\": {\"message\": \"{{{errorMessage}}}\", \"code\": {{statusCode}} }{{else}}\"status\": \"success\"{{/if}} }"
+    }
+  }
+}
