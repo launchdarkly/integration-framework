@@ -262,7 +262,8 @@
           "hideConfiguration",
           "externalConfigurationURL",
           "externalConfigurationPages",
-          "syncedSegment"
+          "syncedSegment",
+          "bigSegmentStore"
         ]
       },
       "properties": {
@@ -295,6 +296,9 @@
         },
         "syncedSegment": {
           "$ref": "schemas/capabilities/syncedSegment.json#/syncedSegment"
+        },
+        "bigSegmentStore": {
+          "$ref": "schemas/capabilities/bigSegmentStore.json#/bigSegmentStore"
         }
       }
     },
