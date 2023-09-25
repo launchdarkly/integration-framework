@@ -6,14 +6,14 @@
   "author": "Census",
   "supportEmail": "support@getcensus.com",
   "links": {
-      "site": "https://www.getcensus.com",
-      "launchdarklyDocs": "https://docs.getcensus.com/destinations/launchdarkly",
-      "privacyPolicy": "https://www.getcensus.com/legal/privacy-policy"
+    "site": "https://www.getcensus.com",
+    "launchdarklyDocs": "https://docs.getcensus.com/destinations/launchdarkly",
+    "privacyPolicy": "https://www.getcensus.com/legal/privacy-policy"
   },
   "categories": ["data", "infrastructure", "automation"],
   "icons": {
-      "square": "assets/images/square.svg",
-      "horizontal": "assets/images/horizontal.svg"
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
   },
   "requiresOAuth": false,
   "otherCapabilities": ["external"],
