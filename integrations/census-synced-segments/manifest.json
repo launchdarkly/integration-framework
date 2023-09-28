@@ -1,0 +1,37 @@
+{
+  "name": "Census Segments",
+  "version": "1.0.0",
+  "overview": "Use Census to sync Segments from your data warehouse into LaunchDarkly.",
+  "description": "Your data warehouse is the source of truth for how users interact with your product. Now you can use it to supercharge your LaunchDarkly experiments by syncing segments.",
+  "author": "Census",
+  "supportEmail": "support@getcensus.com",
+  "links": {
+    "site": "https://www.getcensus.com",
+    "launchdarklyDocs": "https://docs.getcensus.com/destinations/launchdarkly",
+    "privacyPolicy": "https://www.getcensus.com/legal/privacy-policy"
+  },
+  "categories": ["data", "infrastructure", "automation"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "requiresOAuth": false,
+  "otherCapabilities": ["external"],
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/environment_id",
+        "contextKindPath": "/context_kind",
+        "cohortIdPath": "/batch/0/cohort_id",
+        "cohortNamePath": "/batch/0/cohort_name",
+        "memberArrayPath": "/batch",
+        "memberArrayParser": {
+          "memberIdPath": "/user_id",
+          "booleanMembershipPath": "/value",
+          "cohortIdPath": "/cohort_id",
+          "cohortNamePath": "/cohort_name"
+        }
+      }
+    }
+  }
+}
