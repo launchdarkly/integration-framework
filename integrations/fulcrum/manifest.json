@@ -26,7 +26,9 @@
         "cohortUrlPath": "/cohortUrl",
         "addMemberArrayPath": "/included/add",
         "removeMemberArrayPath": "/included/remove",
-        "memberArrayParser": "/"
+        "memberArrayParser": {
+          "memberIdPath": "/id"
+        }
       }
     }
   }
