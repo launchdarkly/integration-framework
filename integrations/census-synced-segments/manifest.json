@@ -7,7 +7,7 @@
   "supportEmail": "support@getcensus.com",
   "links": {
     "site": "https://www.getcensus.com",
-    "launchdarklyDocs": "https://docs.getcensus.com/destinations/launchdarkly",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/census",
     "privacyPolicy": "https://www.getcensus.com/legal/privacy-policy"
   },
   "categories": ["data", "infrastructure", "automation"],
