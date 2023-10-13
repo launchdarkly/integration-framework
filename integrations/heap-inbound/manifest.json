@@ -7,7 +7,7 @@
   "supportEmail": "support@heap.io",
   "links": {
     "site": "https://www.heap.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/heap-inbound",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/heap",
     "privacyPolicy": "https://www.heap.io/privacy"
   },
   "categories": ["synced-segments"],
