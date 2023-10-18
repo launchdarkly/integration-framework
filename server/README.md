@@ -44,14 +44,14 @@ The LaunchDarkly Integration Validation Server exposes the following endpoints:
 
 | Endpoint           | Method | Description                                   |
 |--------------------|--------|-----------------------------------------------|
-| `/api/v2/segment-target/:integrationKey`                | POST    | Simulates processing a synced segment data from a Customer Data Provider (CDP). Replace `:integrationKey` with the name of the directory that you are adding to the `integration-framework` repository under `integrations/`. |
+| `/api/v2/segment-targets/:integrationKey`               | POST    | Simulates processing a synced segment data from a Customer Data Provider (CDP). Replace `:integrationKey` with the name of the directory that you are adding to the `integration-framework` repository under `integrations/`. |
 
 ### Example usage
 
 To validate that a segment from a Customer Data Platform (CDP) will be successfully parsed and processed, you can make the following curl request:
 
 ```shell
-curl --location 'http://localhost:3000/api/v2/segment-target/example-integration-key' \
+curl --location 'http://localhost:3000/api/v2/segment-targets/example-integration-key' \
 --header 'Content-Type: application/json' \
 --data '{
   "environmentId": "example-client-side-ID",
