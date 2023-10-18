@@ -1,0 +1,44 @@
+{
+  "name": "DynamoDB Big Segment store",
+  "version": "1.0.0",
+  "overview": "Sync LaunchDarkly Big Segments with DynamoDB.",
+  "description": "The DynamoDB Big Segment store integration syncs your LaunchDarkly Big Segments with your DynamoDB.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://aws.amazon.com/pm/dynamodb/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/dynamodb",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "formVariables": [
+    {
+      "key": "tableName",
+      "name": "DynamoDB table name",
+      "description": "Your DynamoDB table name. This table must already exist",
+      "type": "string"
+    },
+    {
+      "key": "region",
+      "name": "AWS Region",
+      "description": "The AWS region where your",
+      "type": "enum",
+      "allowedValues": ["us-east-1", "us-east-2", "us-west-1", "us-west-2"]
+    },
+    {
+      "key": "roleArn",
+      "name": "AWS Role ARN",
+      "description": "The Role ARN that will be assumed by LaunchDarkly to manage your DynamoDB table.",
+      "type": "string"
+    }
+  ],
+  "capabilities": {
+    "bigSegmentStore": {
+      "dbStyle": "dynamoDB"
+    }
+  }
+}

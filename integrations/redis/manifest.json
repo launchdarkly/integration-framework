@@ -1,0 +1,46 @@
+{
+  "name": "Redis Big Segment store",
+  "version": "1.0.0",
+  "overview": "Sync LaunchDarkly Big Segments with Redis.",
+  "description": "The Redis Big Segment store integration syncs your LaunchDarkly Big Segments with your Redis DB.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://redis.io/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/redis",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "host",
+      "name": "Redis Host",
+      "description": "Your Redis host",
+      "type": "string"
+    },
+    {
+      "key": "port",
+      "name": "Redis Port",
+      "description": "Your Redis host",
+      "type": "string"
+    },
+    {
+      "key": "password",
+      "name": "Redis Password",
+      "description": "Your Redis password",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": true,
+      "defaultValue": ""
+    }
+  ],
+  "capabilities": {
+    "bigSegmentStore": {
+      "dbStyle": "redis"
+    }
+  }
+}
