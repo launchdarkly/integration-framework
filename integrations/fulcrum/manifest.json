@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.getfulcrum.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/fulcrum",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/fulcrum",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/",
     "supportWebsite": "https://docs.getfulcrum.io/guides/fulcrum-launchdarkly-sync"
   },
