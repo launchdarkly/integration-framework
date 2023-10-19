@@ -1,0 +1,35 @@
+{
+  "name": "Fulcrum",
+  "version": "1.0.0",
+  "overview": "Sync Fulcrum's AI-driven Adaptable Segmentation with LaunchDarkly to create targeted experiences.",
+  "description": "Fulcrum's brings customer 360 data together, automatically creates key customer segments for activation, adoption & monetization. and syncs with LaunchDarkly to help create targeted native product experiences.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.getfulcrum.io/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/fulcrum",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/",
+    "supportWebsite": "https://docs.getfulcrum.io/guides/fulcrum-launchdarkly-sync"
+  },
+  "categories": ["synced-segments"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/environmentId",
+        "contextKindPath": "/contextKind",
+        "cohortIdPath": "/cohortId",
+        "cohortNamePath": "/cohortName",
+        "cohortUrlPath": "/cohortUrl",
+        "addMemberArrayPath": "/included/add",
+        "removeMemberArrayPath": "/included/remove",
+        "memberArrayParser": {
+          "memberIdPath": "/id"
+        }
+      }
+    }
+  }
+}
