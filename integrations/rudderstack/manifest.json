@@ -2,13 +2,13 @@
   "name": "RudderStack",
   "version": "1.0.0",
   "overview": "Sync RudderStack Audiences to LaunchDarkly Big Segments.",
-  "description": "Sync RudderStack audiences  to LaunchDarkly Big Segments to more efficiently target and deliver feature flags.",
+  "description": "Sync RudderStack audiences to LaunchDarkly Big Segments to more efficiently target and deliver feature flags.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.rudderstack.com/",
     "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/rudderstack",
-    "supportWebsite": "https://www.rudderstack.com/docs/destinations/streaming-destinations/launchdarkly-audience/",
+    "supportWebsite": "https://www.rudderstack.com/docs/destinations/streaming-destinations/launchdarkly-segments/",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy"
   },
   "categories": ["synced-segments"],
