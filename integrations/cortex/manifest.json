@@ -1,0 +1,20 @@
+{
+  "name": "Cortex",
+  "version": "1.0.0",
+  "overview": "View and enforce usage of LaunchDarkly feature flags directly in the catalog and Scorecards in Cortex.",
+  "description": "With the integration, you can view and monitor feature flags in the catalog. You can also write Scorecard rules to enforce feature flag usage and drive operational maturity.",
+  "author": "Cortex",
+  "supportEmail": "help@cortex.io",
+  "links": {
+    "site": "https://www.cortex.io/home",
+    "launchdarklyDocs": "https://docs.cortex.io/docs/reference/integrations/launchdarkly",
+    "supportWebsite": "https://support.getcortexapp.com/",
+    "privacyPolicy": "https://www.cortex.io/legal/privacy-policy"
+  },
+  "categories": ["internal-developer-portal","developer-tools"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "requiresOAuth": false,
+}
