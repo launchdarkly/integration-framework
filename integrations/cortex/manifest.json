@@ -11,7 +11,7 @@
     "supportWebsite": "https://support.getcortexapp.com/",
     "privacyPolicy": "https://www.cortex.io/legal/privacy-policy"
   },
-  "categories": ["internal-developer-portal", "developer-tools"],
+  "categories": ["developer-tools"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
