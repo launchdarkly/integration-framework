@@ -16,5 +16,6 @@
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
-  "requiresOAuth": false
+  "requiresOAuth": false,
+  "otherCapabilities": ["external"]
 }
