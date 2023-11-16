@@ -25,8 +25,11 @@
     {
       "key": "port",
       "name": "Redis Port",
-      "description": "Your Redis host",
-      "type": "string"
+      "description": "Your Redis port. The default port of 6379 wil be used if not specified.",
+      "type": "string",
+      "placeholder": "6379",
+      "defaultValue": "6379",
+      "isOptional": true
     },
     {
       "key": "password",
