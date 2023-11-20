@@ -1,7 +1,7 @@
 {
   "name": "DynamoDB Big Segment store",
   "version": "1.0.0",
-  "overview": "Sync LaunchDarkly Big Segments with DynamoDB.",
+  "overview": "Sync LaunchDarkly Big Segments with DynamoDB. Scoped to all segments within an environment.",
   "description": "The DynamoDB Big Segment store integration syncs your LaunchDarkly Big Segments with your DynamoDB.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -10,7 +10,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/dynamodb",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["infrastructure"],
+  "categories": ["big-segment-store", "data", "synced-segments"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/square.svg"
