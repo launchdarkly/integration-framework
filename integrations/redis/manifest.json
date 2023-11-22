@@ -1,7 +1,7 @@
 {
   "name": "Redis Big Segment store",
   "version": "1.0.0",
-  "overview": "Sync LaunchDarkly Big Segments with Redis. Scoped to all segments within an environment.",
+  "overview": "Integrate with a persistent store for segments with over 15k targets or synced from external tools.",
   "description": "The Redis Big Segment store integration syncs your LaunchDarkly Big Segments with your Redis DB.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
