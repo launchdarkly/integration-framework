@@ -30,6 +30,12 @@
       "allowedValues": ["us-east-1", "us-east-2", "us-west-1", "us-west-2"]
     },
     {
+      "key": "externalId",
+      "name": "External Id",
+      "description": "Use this external ID when creating the IAM Role that LaunchDarkly will assume to manage your DynamoDB table.",
+      "type": "generated"
+    },
+    {
       "key": "roleArn",
       "name": "AWS Role ARN",
       "description": "The Role ARN that will be assumed by LaunchDarkly to manage your DynamoDB table.",
