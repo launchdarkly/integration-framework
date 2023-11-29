@@ -34,10 +34,10 @@
     {
       "key": "username",
       "name": "Username",
-      "description": "Your Redis username. The default username \"default\" will be used if not specified.",
+      "description": "Your Redis username. Leave this field empty if your Redis DB does not have a username configured.",
       "type": "string",
       "placeholder": "default",
-      "defaultValue": "default",
+      "defaultValue": "",
       "isOptional": true
     },
     {
