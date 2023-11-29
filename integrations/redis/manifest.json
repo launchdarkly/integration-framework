@@ -18,27 +18,44 @@
   "formVariables": [
     {
       "key": "host",
-      "name": "Redis Host",
-      "description": "Your Redis host",
+      "name": "Host",
+      "description": "Your Redis host.",
       "type": "string"
     },
     {
       "key": "port",
-      "name": "Redis Port",
-      "description": "Your Redis port. The default port of 6379 wil be used if not specified.",
+      "name": "Port",
+      "description": "Your Redis port. The default port of 6379 will be used if not specified.",
       "type": "string",
       "placeholder": "6379",
       "defaultValue": "6379",
       "isOptional": true
     },
     {
+      "key": "username",
+      "name": "Username",
+      "description": "Your Redis username. The default username \"default\" will be used if not specified.",
+      "type": "string",
+      "placeholder": "default",
+      "defaultValue": "default",
+      "isOptional": true
+    },
+    {
       "key": "password",
-      "name": "Redis Password",
-      "description": "Your Redis password",
+      "name": "Password",
+      "description": "Your Redis password.",
       "type": "string",
       "isSecret": true,
       "isOptional": true,
       "defaultValue": ""
+    },
+    {
+      "key": "tlsEnabled",
+      "name": "Connect with TLS",
+      "description": "Check this box if your Redis DB has TLS (SSL) enabled.",
+      "type": "boolean",
+      "isOptional": true,
+      "defaultValue": false
     }
   ],
   "capabilities": {
