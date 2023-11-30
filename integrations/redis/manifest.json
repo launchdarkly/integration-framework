@@ -2,7 +2,7 @@
   "name": "Redis Big Segment store",
   "version": "1.0.0",
   "overview": "Integrate with a persistent store for segments with over 15k targets or synced from external tools.",
-  "description": "The Redis Big Segment store integration syncs your LaunchDarkly Big Segments with your Redis DB.",
+  "description": "Integrate with a persistent store for segments with over 15k targets or synced from external tools. The Redis Big Segment store syncs these LaunchDarkly segments with your Redis DB.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -25,7 +25,7 @@
     {
       "key": "port",
       "name": "Port",
-      "description": "Your Redis port. The default port of 6379 will be used if not specified.",
+      "description": "Your Redis port. Uses the default port of 6379 if not specified.",
       "type": "string",
       "placeholder": "6379",
       "defaultValue": "6379",
