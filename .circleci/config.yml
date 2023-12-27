@@ -15,7 +15,7 @@ jobs:
       - node/install-packages
       - run:
           name: prettier
-          command: npm run prettier:check
+          command: npm run prettier:check 
       - run:
           name: Run tests
           command: npm run test:ci
