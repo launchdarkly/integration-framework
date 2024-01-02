@@ -53,7 +53,28 @@
         {
           "effect": "allow",
           "resources": ["proj/*:env/production:flag/*"],
-          "actions": ["*"]
+          "actions": [
+            "updateFallThrough",
+            "updateFlagVariations",
+            "updateFeatureWorkflows",
+            "updateGlobalArchived",
+            "updateOffVariation",
+            "updateOn",
+            "updatePrerequisites",
+            "updateRules",
+            "updateScheduledChanges",
+            "updateTargets",
+            "createFlag",
+            "deleteFlag",
+            "updateClientSideFlagAvailability",
+            "updateFlagDefaultVariations",
+            "updateName",
+            "updateTemporary",
+            "createTriggers",
+            "deleteTriggers",
+            "updateTriggers",
+            "updateFlagSalt"
+          ]
         }
       ]
     }
