@@ -1,12 +1,11 @@
 {
   "name": "Bitrise Release Management",
   "version": "1.0.0",
-  "overview": "Overview of your LaunchDarkly feature flags in your mobile app releases within Bitrise Release Management.",
-  "description": "Access your feature flag details in your mobile app releases. Quickly understand the status and configuration of your mobile app feature flags — without delving into detailed settings. With this integration, you’ll be able to have an overview of your feature flags, alongside your app release in Bitrise Release Management. This helps you easily monitor the status of your app and feature releases. To learn more [read the documentation](https://devcenter.bitrise.io/en/release-management/integrating-launchdarkly-feature-flags.html)",
+  "overview": "View LaunchDarkly feature flags in your mobile app releases with Bitrise Release Management.",
+  "description": "Access your feature flag details in your mobile app releases. Quickly understand the status and configuration of your mobile app feature flags — without delving into detailed settings. With this integration, you’ll be able to have an overview of your feature flags, alongside your app release in Bitrise Release Management. This helps you easily monitor the status of your app and feature releases.",
   "author": "Bitrise.io",
   "supportEmail": "support@bitrise.io",
   "links": {
-    "site": "https://bitrise.io/",
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/bitrise",
     "privacyPolicy": "https://go.bitrise.io/privacy-policy"
   },
