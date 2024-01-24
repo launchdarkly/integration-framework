@@ -7,6 +7,7 @@
   "supportEmail": "support@bitrise.io",
   "links": {
     "site": "https://bitrise.io/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/bitrise",
     "privacyPolicy": "https://go.bitrise.io/privacy-policy"
   },
   "categories": ["automation"],
@@ -14,6 +15,5 @@
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
-  "otherCapabilities": ["external"],
-  "requiresOAuth": true
+  "otherCapabilities": ["external"]
 }
