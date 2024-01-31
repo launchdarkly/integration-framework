@@ -1,0 +1,21 @@
+{
+  "name": "Ditto Integration",
+  "version": "1.0.0",
+  "overview": "Choose which of your Ditto variants to display using your LaunchDarkly flags.",
+  "description": "Ditto is your single source of truth for product copy, from design to development. Ditto's LaunchDarkly integration allows you to sync variants in your Ditto workspace with feature flags in LaunchDarkly, enabling your team to keep Ditto as the single source of truth for your copy and tighten the A/B testing feedback loop while iterating on product text.",
+  "author": "Ditto",
+  "supportEmail": "support@dittowords.com",
+  "links": {
+    "site": "https://www.dittowords.com",
+    "privacyPolicy": "https://www.dittowords.com/legal/privacy-policy"
+  },
+  "categories": [
+    "developer-tools",
+    "infrastructure",
+    "approval"
+  ],
+  "icons": {
+    "square": "assets/images/ditto-logo-square.svg",
+    "horizontal": "assets/images/ditto-logo-horizontal.svg"
+  }
+}
