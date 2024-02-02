@@ -1,37 +1,35 @@
 {
-    "name": "Sumatra",
-    "version": "1.0.0",
-    "overview": "Sync Sumatra Audiences with LaunchDarkly to create targeted experiences and experiments.",
-    "description": "The Sumatra AI engine generates behavioral signals from raw event data to predict customer intent and segment users by cohorts. Sumatra’s LaunchDarkly integration allows you to sync Sumatra cohorts with LaunchDarkly audiences to create targeted experiences and experiments.",
-    "author": "Sumatra",
-    "supportEmail": "support@sumatra.ai",
-    "links": {
-        "site": "https://sumatra.ai/",
-        "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/sumatra",
-        "privacyPolicy": "https://launchdarkly.com/policies/privacy/",
-        "supportWebsite": "https://optimize-docs.sumatra.ai/experiences/launchdarkly"
-    },
-    "categories": [
-        "synced-segments"
-    ],
-    "icons": {
-        "square": "assets/square.svg",
-        "horizontal": "assets/horizontal.svg"
-    },
-    "capabilities": {
-        "syncedSegment": {
-            "requestParser": {
-                "environmentIdPath": "/environmentId",
-                "contextKindPath": "/contextKind",
-                "cohortIdPath": "/cohortId",
-                "cohortNamePath": "/cohortName",
-                "cohortUrlPath": "/cohortUrl",
-                "addMemberArrayPath": "/included/add",
-                "removeMemberArrayPath": "/included/remove",
-                "memberArrayParser": {
-                    "memberIdPath": "/id"
-                }
-            }
+  "name": "Sumatra",
+  "version": "1.0.0",
+  "overview": "Sync Sumatra Audiences with LaunchDarkly to create targeted experiences and experiments.",
+  "description": "The Sumatra AI engine generates behavioral signals from raw event data to predict customer intent and segment users by cohorts. Sumatra’s LaunchDarkly integration allows you to sync Sumatra cohorts with LaunchDarkly audiences to create targeted experiences and experiments.",
+  "author": "Sumatra",
+  "supportEmail": "support@sumatra.ai",
+  "links": {
+    "site": "https://sumatra.ai/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/sumatra",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/",
+    "supportWebsite": "https://optimize-docs.sumatra.ai/experiences/launchdarkly"
+  },
+  "categories": ["synced-segments"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/environmentId",
+        "contextKindPath": "/contextKind",
+        "cohortIdPath": "/cohortId",
+        "cohortNamePath": "/cohortName",
+        "cohortUrlPath": "/cohortUrl",
+        "addMemberArrayPath": "/included/add",
+        "removeMemberArrayPath": "/included/remove",
+        "memberArrayParser": {
+          "memberIdPath": "/id"
         }
+      }
     }
+  }
 }
