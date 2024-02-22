@@ -7,9 +7,10 @@
   "supportEmail": "support@dittowords.com",
   "links": {
     "site": "https://www.dittowords.com",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/ditto",
     "privacyPolicy": "https://www.dittowords.com/legal/privacy-policy"
   },
-  "categories": ["developer-tools", "infrastructure", "approval"],
+  "categories": ["developer-tools"],
   "icons": {
     "square": "assets/ditto-logo-square.svg",
     "horizontal": "assets/ditto-logo-horizontal.svg"
