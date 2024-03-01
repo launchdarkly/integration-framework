@@ -1,6 +1,6 @@
 {
   "name": "GitHub code references",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "overview": "Use our open-source utility to track references to flags in your code, using GitHub Actions.",
   "description": "Use our open-source utility to track references to flags in your code, using GitHub Actions.",
   "details": "GitHub is a service for software development and version control using Git. Use our open-source utility to track references to flags in your code to power in-app functionality. Search for feature flags that have no existing code references. Add additional safety checks when you're ready to archive a flag that it does not exist in any codebase running the utility.",
@@ -19,5 +19,80 @@
   "legacy": {
     "kind": "codeRefs"
   },
-  "otherCapabilities": ["codeRefs"]
+  "otherCapabilities": ["codeRefs"],
+  "capabilities": {
+    "flagLink": {
+      "header": "GitHub pull request",
+      "emptyState": {
+        "title": "No GitHub pull requests link to this flag.",
+        "leadText": "To enable the GitHub integration, [read the documentation](https://docs.launchdarkly.com/integrations/github-actions/find-code-references)"
+      },
+      "metadata": {
+        "avatarUrl": {
+          "type": "uri"
+        },
+        "authorDisplayName": {
+          "type": "string"
+        },
+        "authorLogin": {
+          "type": "string"
+        },
+        "authorName": {
+          "type": "string"
+        },
+        "prNumber": {
+          "type": "string"
+        },
+        "prTitle": {
+          "type": "string"
+        },
+        "prBody": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "repoName": {
+          "type": "string"
+        },
+        "repoUrl": {
+          "type": "uri"
+        },
+        "state": {
+          "type": "string"
+        }
+      },
+      "uiBlocks": {
+        "image": {
+          "sourceUrl": "{{{metadata.avatarUrl}}}",
+          "isAvatar": true
+        },
+        "title": {
+          "linkToReference": true,
+          "elements": [
+            { "text": "{{{metadata.prTitle}}} #{{{metadata.prNumber}}}" }
+          ]
+        },
+        "description": "{{{metadata.prBody}}}",
+        "context": {
+          "elements": [
+            {
+              "text": "Opened by"
+            },
+            {
+              "text": "{{{metadata.authorDisplayName}}}",
+              "isBold": true
+            },
+            {
+              "text": "in repo"
+            },
+            {
+              "text": "{{{metadata.repoName}}}",
+              "url": "{{{metadata.repoUrl}}}"
+            }
+          ]
+        }
+      }
+    }
+  }
 }
