@@ -1,0 +1,37 @@
+{
+  "name": "Zeotap",
+  "version": "1.0.0",
+  "overview": "Sync Zeotap audiences to LaunchDarkly Big Segments.",
+  "description": "Segment syncing lets you import audiences from Zeotap to LaunchDarkly to more efficiently target and deliver feature flags.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://zeotap.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/zeotap",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy "
+  },
+  "categories": ["synced-segments"],
+  "icons": {
+    "horizontal": "assets/images/horizontal_zeotap.svg",
+    "square": "assets/images/square_zeotap.svg"
+  },
+  "requiresOAuth": false,
+  "otherCapabilities": ["external"],
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/parameters/integration_project_id",
+        "cohortIdPath": "/parameters/integration_cohort_id",
+        "cohortNamePath": "/parameters/integration_cohort_name",
+        "arrayInclusion": {
+          "path": "/action",
+          "matcher": "^(members|add_members)$"
+        },
+        "memberArrayPath": "/parameters/members",
+        "memberArrayParser": {
+          "memberIdPath": "/integration_distinct_id"
+        }
+      }
+    }
+  }
+}
