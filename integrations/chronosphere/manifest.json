@@ -54,7 +54,7 @@
           "effect": "allow",
           "resources": ["proj/*:env/production:flag/*"],
           "actions": [
-            "updateFallThrough",
+            "updateFallthrough",
             "updateFlagVariations",
             "updateFeatureWorkflows",
             "updateGlobalArchived",
