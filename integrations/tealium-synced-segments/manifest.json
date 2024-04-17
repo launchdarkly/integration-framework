@@ -1,0 +1,34 @@
+{
+  "name": "Tealium Audience Cohorting",
+  "version": "1.0.0",
+  "overview": "Send Audience membership to your LaunchDarkly Segment through Tealium's AudienceStream CDP",
+  "description": "Through Tealium's AudienceStream CDP, you can send real-time segment membership to your LaunchDarkly instance through their Cohorting connector. Enhance your segments with your real-time data from Tealium's Customer Data Hub with our turnkey integration.",
+  "author": "Tealium",
+  "supportEmail": "support@tealium.com",
+  "links": {
+    "site": "https://tealium.com/",
+    "privacyPolicy": "https://tealium.com/privacy"
+  },
+  "categories": ["analytics", "data"],
+  "icons": {
+    "square": "assets/images/2021_Tealium_icon_rgb_full-color.svg",
+    "horizontal": "assets/images/2021_Tealium_logo_rgb_full-color.svg"
+  },
+  "capabilities": {
+    "syncedSegment": {
+      "requestParser": {
+        "environmentIdPath": "/parameters/tealium_project_id",
+        "cohortIdPath": "/parameters/tealium_cohort_id",
+        "cohortNamePath": "/parameters/tealium_cohort_name",
+        "arrayInclusion": {
+          "path": "/action",
+          "matcher": "^(add_member | remove_member)$"
+        },
+        "memberArrayPath": "/parameters/members",
+        "memberArrayParser": {
+          "memberIdPath": "/member_id"
+        }
+      }
+    }
+  }
+}
