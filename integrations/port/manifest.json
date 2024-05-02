@@ -2,7 +2,7 @@
   "name": "Port",
   "version": "0.1.3",
   "overview": "Import projects, flags and environments from you LaunchDarkly account into Port.",
-  "description": "Port's LaunchDarkly integration allows you to import projects, flags and environments from you LaunchDarkly account into Port, according to your mapping and definition.",
+  "description": "Port's LaunchDarkly integration allows you to import projects, flags and environments from your LaunchDarkly account into Port, according to your mapping and definition.",
   "author": "Port",
   "supportEmail": "support@getport.io",
   "links": {
