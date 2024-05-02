@@ -1,0 +1,20 @@
+{
+  "name": "Port",
+  "version": "0.1.3",
+  "overview": "Import projects, flags and environments from you LaunchDarkly account into Port.",
+  "description": "Port's LaunchDarkly integration allows you to import projects, flags and environments from you LaunchDarkly account into Port, according to your mapping and definition.",
+  "author": "Port",
+  "supportEmail": "support@getport.io",
+  "links": {
+    "site": "https://getport.io",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/port",
+    "privacyPolicy": "https://www.getport.io/legal/privacy-policy"
+  },
+  "categories": ["developer-tools", "infrastructure"],
+  "icons": {
+    "square": "assets/port-logo-square.svg",
+    "horizontal": "assets/port-logo-horizontal.svg"
+  },
+  "requiresOAuth": false,
+  "otherCapabilities": ["external"]
+}
