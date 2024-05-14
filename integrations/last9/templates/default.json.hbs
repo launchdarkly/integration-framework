@@ -1,16 +1,15 @@
 {
   "version": "1.0",
   "userIdentity": {
-      "type": "user",
       "userId": "{{member._id}}",
-      "userName": "{{member.email}}"
+      "userEmail": "{{member.email}}"
   },
   "eventTime": "{{timestamp.seconds}}",
   "eventSource": "launchdarkly",
   "eventName": "{{kind}}",
   "additionalEventData": {
-      "type": "{{verbKind}}",
-      "targetId": "{{target._id}}",
+      "action": "{{verbKind}}",
+      "targetName": "{{target.name}}",
       {{#if project}}
       "projectKey": "{{project.key}}",
       {{/if}}
@@ -38,6 +37,6 @@
       {{#if comment}}
       "comment": "{{{comment}}}",
       {{/if}}
-      "plainText": "A member {{{titleVerb}}} {{#if target.name}}{{{target.name}}}{{else}}{{{target._id}}}{{/if}}"
+      "summary": "{{{titleVerb}}} {{#if target.name}}{{{target.name}}}{{else}}{{{target._id}}}{{/if}}"
   }
 }
