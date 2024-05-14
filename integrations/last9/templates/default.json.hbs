@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "userIdentity": {
+      "type": "user",
+      "userId": "{{member._id}}",
+      "userName": "{{member.email}}"
+  },
+  "eventTime": "{{timestamp.seconds}}",
+  "eventSource": "launchdarkly",
+  "eventName": "{{kind}}",
+  "additionalEventData": {
+      "type": "{{verbKind}}",
+      "targetId": "{{target._id}}",
+      {{#if project}}
+      "projectKey": "{{project.key}}",
+      {{/if}}
+      {{#if _links.details.href}}
+      "deepLink": "{{_links.details.href}}",
+      {{/if}}
+      {{#if project.environment}}
+      "environmentKey": "{{project.environment.key}}",
+      {{/if}}
+      {{#if customProperties}}
+      "customProperties": {
+         {{#each customProperties}}
+	 "{{@key}}": ["{{this.values}}"]{{#unless @last}},{{/unless}}
+	 {{/each}}
+      },
+      {{/if}}
+      {{#if tags}}
+      "tags": [{{#each tags}}{{#if @index}}, {{/if}}"{{this}}"{{/each}}],
+      {{/if}}
+      {{#if details}}
+      {{#if details.plainText}}
+      "details": "{{{details.plainText}}}",
+      {{/if}}
+      {{/if}}
+      {{#if comment}}
+      "comment": "{{{comment}}}",
+      {{/if}}
+      "plainText": "A member {{{titleVerb}}} {{#if target.name}}{{{target.name}}}{{else}}{{{target._id}}}{{/if}}"
+  }
+}
