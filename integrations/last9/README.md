@@ -6,6 +6,5 @@ Send Launchdarkly events (changes in configuration) to Last9. Integration will u
 - Visualise these events on service dashboards to have an overall view of system activities and health.
 
 
-# Getting started with the Splunk integration $
+# Getting started with the Last9 integration $
 Run `npm run curl last9` in the root repository directory to generate a curl command to send data to Last9.
-
