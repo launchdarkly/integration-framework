@@ -8,18 +8,18 @@
   "links": {
     "site": "https://last9.io/",
     "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/last9",
-    "privacyPolicy": "https://grafana.com/terms/"
+    "privacyPolicy": "https://last9.io/privacy/"
   },
   "categories": ["monitoring"],
   "icons": {
-    "square": "assets/images/last9.svg",
-    "horizontal": "assets/images/last9.svg"
+    "square": "assets/images/last9-square-logo.svg",
+    "horizontal": "assets/images/last9-horizontal-logo.svg"
   },
   "formVariables": [
     {
       "key": "endpointUrl",
       "name": "Last9 API Base URL",
-      "description": "Enter your Last9 api base url. This instance must be accessible to LaunchDarkly's servers. Do not include a trailing \"/\".",
+      "description": "Enter your Last9 api base url. Do not include a trailing \"/\".",
       "placeholder": "https://{host}/api/v4/organizations/{org}",
       "type": "uri",
       "isSecret": false
@@ -34,7 +34,7 @@
     },
     {
       "name": "Last9 tag",
-      "key": "last9Tags",
+      "key": "last9",
       "type": "string",
       "isOptional": true,
       "defaultValue": "",
@@ -45,7 +45,7 @@
     "reservedCustomProperties": [
       {
         "name": "Last9 tags",
-        "key": "last9Tags"
+        "key": "last9"
       }
     ],
     "auditLogEventsHook": {
