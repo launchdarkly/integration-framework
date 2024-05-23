@@ -1,0 +1,20 @@
+{
+  "name": "Port",
+  "version": "0.1.3",
+  "overview": "Access Feature Flags, Projects and Environments from your LaunchDarkly account in Port.",
+  "description": "Port's LaunchDarkly integration allows you to access Feature Flags, Projects and Environments from your LaunchDarkly account in Port, according to your mapping and definition.",
+  "author": "Port",
+  "supportEmail": "support@getport.io",
+  "links": {
+    "site": "https://getport.io",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/port",
+    "privacyPolicy": "https://www.getport.io/legal/privacy-policy"
+  },
+  "categories": ["developer-tools", "infrastructure"],
+  "icons": {
+    "square": "assets/port-logo-square.svg",
+    "horizontal": "assets/port-logo-horizontal.svg"
+  },
+  "requiresOAuth": false,
+  "otherCapabilities": ["external"]
+}
