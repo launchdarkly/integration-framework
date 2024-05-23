@@ -1,0 +1,101 @@
+{
+  "name": "Last9",
+  "version": "0.0.1",
+  "overview": "Correlate your dashboards and alerts with LaunchDarkly events.",
+  "description": "Send what's changing from configuration point to view as events to Last9 for correlation with your dashboards and alerts.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://last9.io/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/last9",
+    "privacyPolicy": "https://last9.io/privacy/"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/images/last9-square-logo.svg",
+    "horizontal": "assets/images/last9-horizontal-logo.svg"
+  },
+  "formVariables": [
+    {
+      "key": "endpointUrl",
+      "name": "Last9 API Base URL",
+      "description": "Enter your Last9 api base url. Do not include a trailing \"/\".",
+      "placeholder": "https://{host}/api/v4/organizations/{org}",
+      "type": "uri",
+      "isSecret": false
+    },
+    {
+      "key": "apiToken",
+      "name": "Enter api write token",
+      "description": "Enter Last9 API token. This token must have the `write` access to the Last9 API.",
+      "placeholder": "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789abcdefghijk=",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "name": "Last9 tag",
+      "key": "last9",
+      "type": "string",
+      "isOptional": true,
+      "defaultValue": "",
+      "description": "If provided, all feature flag events matching the policy filter will be associated with Last9 entities with the same tag."
+    }
+  ],
+  "capabilities": {
+    "reservedCustomProperties": [
+      {
+        "name": "Last9 tags",
+        "key": "last9"
+      }
+    ],
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{ endpointUrl }}/events/receiver/launchdarkly",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "value": "Bearer {{ apiToken }}"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/default.json.hbs",
+        "validation": "templates/default.json.hbs"
+      },
+      "includeErrorResponseBody": true,
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": [
+            "updateFallthrough",
+            "updateFlagVariations",
+            "updateFeatureWorkflows",
+            "updateGlobalArchived",
+            "updateOffVariation",
+            "updateOn",
+            "updatePrerequisites",
+            "updateRules",
+            "updateScheduledChanges",
+            "updateTargets",
+            "createFlag",
+            "deleteFlag",
+            "updateClientSideFlagAvailability",
+            "updateFlagDefaultVariations",
+            "updateName",
+            "updateTemporary",
+            "createTriggers",
+            "deleteTriggers",
+            "updateTriggers",
+            "updateFlagSalt"
+          ]
+        }
+      ]
+    }
+  }
+}
