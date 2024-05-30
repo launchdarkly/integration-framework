@@ -58,7 +58,7 @@
             "value": "application/json"
           },
           {
-            "name": "Authorization",
+            "name": "X-LAST9-API-TOKEN",
             "value": "Bearer {{ apiToken }}"
           }
         ]
