@@ -151,6 +151,7 @@
           "customer-support",
           "data",
           "developer-tools",
+          "import",
           "infrastructure",
           "issue-tracking",
           "log-management",
@@ -264,7 +265,8 @@
           "externalConfigurationURL",
           "externalConfigurationPages",
           "syncedSegment",
-          "bigSegmentStore"
+          "bigSegmentStore",
+          "flagImport"
         ]
       },
       "properties": {
@@ -300,6 +302,9 @@
         },
         "bigSegmentStore": {
           "$ref": "schemas/capabilities/bigSegmentStore.json#/bigSegmentStore"
+        },
+        "flagImport": {
+          "$ref": "schemas/capabilities/flagImport.json#/flagImport"
         }
       }
     },

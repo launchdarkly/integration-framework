@@ -1,0 +1,60 @@
+{
+  "name": "Split",
+  "version": "1.0.0",
+  "overview": "Import feature flags from Split to LaunchDarkly.",
+  "description": "Import feature flags from Split to LaunchDarkly. Customize a tag to be assigned to each flag imported.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://split.com",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["automation", "import"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "workspaceApiKey",
+      "name": "Split API Key",
+      "type": "string",
+      "isSecret": true,
+      "description": "An API key with read permissions on your Split workspace",
+      "isOptional": false
+    },
+    {
+      "key": "workspaceId",
+      "name": "Split Workspace ID",
+      "type": "string",
+      "isSecret": true,
+      "description": "The ID of the Split Workspace to import from",
+      "isOptional": false
+    },
+    {
+      "key": "environmentId",
+      "name": "Split Environment ID",
+      "type": "string",
+      "isSecret": true,
+      "description": "The ID of the Split environment to import from",
+      "isOptional": false
+    },
+    {
+      "key": "tag",
+      "name": "Tag",
+      "type": "string",
+      "description": "A tag to apply to all flags imported from Split. Defaults to 'imported'",
+      "isOptional": false,
+      "placeholder": "imported-from-split"
+    }
+  ],
+  "capabilities": {
+    "flagImport": {
+      "templates": {
+        "splitOverview": "templates/flagList.json.hbs",
+        "splitDetails": "templates/flagListEnv.json.hbs"
+      },
+      "includeErrorResponseBody": true
+    }
+  }
+}
