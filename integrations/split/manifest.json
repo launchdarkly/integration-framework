@@ -40,10 +40,18 @@
       "isOptional": false
     },
     {
-      "key": "tag",
-      "name": "Tag",
+      "key": "splitTag",
+      "name": "Split Tag",
       "type": "string",
-      "description": "A tag to apply to all flags imported from Split. Defaults to 'imported'",
+      "description": "Provide a tag to only import a subset of your flags from split based on the tag. Leave blank to import all flags.",
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "launchdarklyTag",
+      "name": "LaunchDarkly Tag",
+      "type": "string",
+      "description": "A tag to apply to all flags imported from Split. Defaults to 'imported-from-split'",
       "isOptional": false,
       "placeholder": "imported-from-split"
     }
