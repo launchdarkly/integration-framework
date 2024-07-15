@@ -1,0 +1,59 @@
+{
+  "name": "Kosli",
+  "version": "1.0.0",
+  "overview": "Track changes to your feature flags in a Kosli Trail.",
+  "description": "Integrate LaunchDarkly with Kosli to see your feature flag changes for each environments in a separate Kosli Trail.",
+  "details": "Kosli records all of the changes in your software to give you the easy buttons for audit, compliance, security, and incident response. Integrate LaunchDarkly with Kosli to see your feature flag changes for each environments in a separate Kosli Trail.",
+  "author": "kosli",
+  "supportEmail": "support@kosli.com",
+  "links": {
+    "site": "https://www.kosli.com",
+    "privacyPolicy": "https://www.kosli.com/privacy-policy/"
+  },
+  "categories": ["developer-tools", "monitoring"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"],
+  "formVariables": [
+    {
+      "key": "webhookUrl",
+      "name": "Kosli Webhook URL",
+      "type": "string",
+      "description": "Enter your Kosli webhook URL"
+    },
+    {
+      "key": "secret",
+      "name": "Kosli secret",
+      "type": "string",
+      "description": "Enter your Kosli secret",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{webhookUrl}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "x-ld-signature",
+            "value": "{{secret}}"
+          }
+        ]
+      },
+      "templates": {
+        "default": "templates/default.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "actions": ["*"],
+          "resources": ["proj/*:env/*:flag/*"]
+        }
+      ],
+      "useStandardWebhookPayload": true
+    }
+  }
+}
