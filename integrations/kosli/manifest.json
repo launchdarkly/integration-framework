@@ -2,13 +2,14 @@
   "name": "Kosli",
   "version": "1.0.0",
   "overview": "Track changes to your feature flags in a Kosli Trail.",
-  "description": "Integrate LaunchDarkly with Kosli to see your feature flag changes for each environments in a separate Kosli Trail.",
-  "details": "Kosli records all of the changes in your software to give you the easy buttons for audit, compliance, security, and incident response. Integrate LaunchDarkly with Kosli to see your feature flag changes for each environments in a separate Kosli Trail.",
-  "author": "kosli",
+  "description": "Kosli records all of the changes in your software to give you the easy buttons for audit, compliance, security, and incident response. Integrate LaunchDarkly with Kosli to see your feature flag changes for each environments in a separate Kosli Trail.",
+  "details": "Turn on the LaunchDarkly integration within the Kosli app (https://app.kosli.com/) to get a webhook and secret to begin reporting changes to your flags in a Kosli trail.",
+  "author": "Kosli",
   "supportEmail": "support@kosli.com",
   "links": {
     "site": "https://www.kosli.com",
-    "privacyPolicy": "https://www.kosli.com/privacy-policy/"
+    "privacyPolicy": "https://www.kosli.com/privacy-policy/",
+    "supportWebsite": "https://www.kosli.com/community/"
   },
   "categories": ["developer-tools", "monitoring"],
   "icons": {
