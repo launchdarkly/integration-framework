@@ -649,22 +649,6 @@ export type CohortIdPath1 = string;
  */
 export type DatabaseStyle = "redis" | "dynamoDB";
 /**
- * Template to use for imports from Split
- */
-export type SplitTemplate = string;
-/**
- * Template to use for imports from Split
- */
-export type SplitDetailsTemplate = string;
-/**
- * Template to use for imports from StatSig
- */
-export type StatSigTemplate = string;
-/**
- * Whether errors received while importing should be displayed in the error log in LaunchDarkly UI
- */
-export type IncludeErrorResponseBody1 = boolean;
-/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -797,7 +781,6 @@ export interface Capabilities {
   externalConfigurationPages?: ExternalConfigurationPages;
   syncedSegment?: SyncedSegment;
   bigSegmentStore?: BigSegmentStore;
-  flagImport?: FlagImport;
   [k: string]: unknown;
 }
 /**
@@ -1100,22 +1083,5 @@ export interface MemberArrayParser {
  */
 export interface BigSegmentStore {
   dbStyle: DatabaseStyle;
-  [k: string]: unknown;
-}
-/**
- * This capability enables importing feature flags to LaunchDarkly
- */
-export interface FlagImport {
-  templates: FlagImportBodyTemplate;
-  includeErrorResponseBody?: IncludeErrorResponseBody1;
-  [k: string]: unknown;
-}
-/**
- * Templates to use for parsing of the flag import body
- */
-export interface FlagImportBodyTemplate {
-  splitOverview?: SplitTemplate;
-  splitDetails?: SplitDetailsTemplate;
-  statsig?: StatSigTemplate;
   [k: string]: unknown;
 }

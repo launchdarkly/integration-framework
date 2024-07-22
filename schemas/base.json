@@ -265,8 +265,7 @@
           "externalConfigurationURL",
           "externalConfigurationPages",
           "syncedSegment",
-          "bigSegmentStore",
-          "flagImport"
+          "bigSegmentStore"
         ]
       },
       "properties": {
@@ -302,9 +301,6 @@
         },
         "bigSegmentStore": {
           "$ref": "schemas/capabilities/bigSegmentStore.json#/bigSegmentStore"
-        },
-        "flagImport": {
-          "$ref": "schemas/capabilities/flagImport.json#/flagImport"
         }
       }
     },
