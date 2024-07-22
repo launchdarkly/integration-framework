@@ -2,7 +2,7 @@
   "name": "Fulcrum",
   "version": "1.0.0",
   "overview": "Sync Fulcrum's AI-driven Adaptable Segmentation with LaunchDarkly to create targeted experiences.",
-  "description": "Fulcrum's brings customer 360 data together, automatically creates key customer segments for activation, adoption & monetization. and syncs with Launch Darkly to help create targeted native product experiences.",
+  "description": "Fulcrum's brings customer 360 data together, automatically creates key customer segments for activation, adoption & monetization. and syncs with LaunchDarkly to help create targeted native product experiences.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {

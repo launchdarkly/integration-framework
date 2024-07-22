@@ -58,10 +58,12 @@ export type Categories =
       | "approval"
       | "authentication"
       | "automation"
+      | "big-segment-store"
       | "code-references"
       | "customer-support"
       | "data"
       | "developer-tools"
+      | "import"
       | "infrastructure"
       | "issue-tracking"
       | "log-management"
@@ -76,10 +78,12 @@ export type Categories =
         | "approval"
         | "authentication"
         | "automation"
+        | "big-segment-store"
         | "code-references"
         | "customer-support"
         | "data"
         | "developer-tools"
+        | "import"
         | "infrastructure"
         | "issue-tracking"
         | "log-management"
@@ -93,10 +97,12 @@ export type Categories =
         | "approval"
         | "authentication"
         | "automation"
+        | "big-segment-store"
         | "code-references"
         | "customer-support"
         | "data"
         | "developer-tools"
+        | "import"
         | "infrastructure"
         | "issue-tracking"
         | "log-management"
@@ -112,10 +118,12 @@ export type Categories =
         | "approval"
         | "authentication"
         | "automation"
+        | "big-segment-store"
         | "code-references"
         | "customer-support"
         | "data"
         | "developer-tools"
+        | "import"
         | "infrastructure"
         | "issue-tracking"
         | "log-management"
@@ -129,10 +137,12 @@ export type Categories =
         | "approval"
         | "authentication"
         | "automation"
+        | "big-segment-store"
         | "code-references"
         | "customer-support"
         | "data"
         | "developer-tools"
+        | "import"
         | "infrastructure"
         | "issue-tracking"
         | "log-management"
@@ -146,10 +156,12 @@ export type Categories =
         | "approval"
         | "authentication"
         | "automation"
+        | "big-segment-store"
         | "code-references"
         | "customer-support"
         | "data"
         | "developer-tools"
+        | "import"
         | "infrastructure"
         | "issue-tracking"
         | "log-management"
@@ -633,6 +645,10 @@ export type CohortNamePath1 = string;
  */
 export type CohortIdPath1 = string;
 /**
+ * Describes what type of database LaunchDarkly will sync big segments to
+ */
+export type DatabaseStyle = "redis" | "dynamoDB";
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -764,6 +780,7 @@ export interface Capabilities {
   externalConfigurationURL?: ExternalConfigurationURL;
   externalConfigurationPages?: ExternalConfigurationPages;
   syncedSegment?: SyncedSegment;
+  bigSegmentStore?: BigSegmentStore;
   [k: string]: unknown;
 }
 /**
@@ -1059,5 +1076,12 @@ export interface MemberArrayParser {
   booleanMembershipPath?: BooleanMembershipPath;
   cohortNamePath?: CohortNamePath1;
   cohortIdPath?: CohortIdPath1;
+  [k: string]: unknown;
+}
+/**
+ * This capability allows LaunchDarkly to sync big segment data directly to a user-managed database
+ */
+export interface BigSegmentStore {
+  dbStyle: DatabaseStyle;
   [k: string]: unknown;
 }
