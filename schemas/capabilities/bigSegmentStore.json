@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "bigSegmentStore": {
+    "$id": "#/properties/capability/big-segment-store",
+    "title": "Big segment store",
+    "description": "This capability allows LaunchDarkly to sync big segment data directly to a user-managed database",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["dbStyle"]
+    },
+    "required": ["dbStyle"],
+    "properties": {
+      "dbStyle": {
+        "$id": "#/properties/database-style",
+        "title": "Database style",
+        "type": "string",
+        "enum": ["redis", "dynamoDB"],
+        "description": "Describes what type of database LaunchDarkly will sync big segments to"
+      }
+    }
+  }
+}

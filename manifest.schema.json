@@ -158,10 +158,12 @@
           "approval",
           "authentication",
           "automation",
+          "big-segment-store",
           "code-references",
           "customer-support",
           "data",
           "developer-tools",
+          "import",
           "infrastructure",
           "issue-tracking",
           "log-management",
@@ -689,7 +691,8 @@
           "hideConfiguration",
           "externalConfigurationURL",
           "externalConfigurationPages",
-          "syncedSegment"
+          "syncedSegment",
+          "bigSegmentStore"
         ]
       },
       "properties": {
@@ -4246,6 +4249,32 @@
                   }
                 }
               }
+            }
+          }
+        },
+        "bigSegmentStore": {
+          "$id": "#/properties/capability/big-segment-store",
+          "title": "Big segment store",
+          "description": "This capability allows LaunchDarkly to sync big segment data directly to a user-managed database",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "dbStyle"
+            ]
+          },
+          "required": [
+            "dbStyle"
+          ],
+          "properties": {
+            "dbStyle": {
+              "$id": "#/properties/database-style",
+              "title": "Database style",
+              "type": "string",
+              "enum": [
+                "redis",
+                "dynamoDB"
+              ],
+              "description": "Describes what type of database LaunchDarkly will sync big segments to"
             }
           }
         }

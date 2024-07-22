@@ -12,7 +12,7 @@ const port = 3000;
 
 app.use(express.json());
 
-app.post('/api/v2/segment-targets/:integrationKey', async (req, res) => {
+app.post('/api/v2/segment-target/:integrationKey', async (req, res) => {
   const key = req.params.integrationKey;
 
   const body = req.body;

@@ -1,0 +1,68 @@
+{
+  "name": "DynamoDB big segment store",
+  "version": "1.0.0",
+  "overview": "Integrate with a persistent store for segments with over 15k targets or synced from external tools.",
+  "description": "Integrate with a persistent store for segments with over 15k targets or synced from external tools. The DynamoDB big segment store syncs these LaunchDarkly segments with your DynamoDB.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://aws.amazon.com/pm/dynamodb/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/dynamodb",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["big-segment-store", "data", "synced-segments"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "formVariables": [
+    {
+      "key": "tableName",
+      "name": "DynamoDB table name",
+      "description": "Your DynamoDB table name. This table must already exist.",
+      "type": "string"
+    },
+    {
+      "key": "region",
+      "name": "AWS Region",
+      "description": "The AWS region where your DynamoDB is located.",
+      "type": "enum",
+      "allowedValues": [
+        "us-east-1",
+        "us-east-2",
+        "us-west-1",
+        "us-west-2",
+        "ap-south-1",
+        "ap-northeast-1",
+        "ap-northeast-2",
+        "ap-northeast-3",
+        "ap-southeast-1",
+        "ap-southeast-2",
+        "ca-central-1",
+        "eu-central-1",
+        "eu-west-1",
+        "eu-west-2",
+        "eu-west-3",
+        "eu-north-1",
+        "sa-east-1"
+      ]
+    },
+    {
+      "key": "externalId",
+      "name": "External Id",
+      "description": "Use this external ID when you create the IAM Role that LaunchDarkly will assume to manage your DynamoDB table.",
+      "type": "generated"
+    },
+    {
+      "key": "roleArn",
+      "name": "AWS Role ARN",
+      "description": "The AWS role Amazon Resource Name (ARN) that LaunchDarkly will assume to manage your DynamoDB table.",
+      "type": "string"
+    }
+  ],
+  "capabilities": {
+    "bigSegmentStore": {
+      "dbStyle": "dynamoDB"
+    }
+  }
+}
