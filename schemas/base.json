@@ -146,10 +146,12 @@
           "approval",
           "authentication",
           "automation",
+          "big-segment-store",
           "code-references",
           "customer-support",
           "data",
           "developer-tools",
+          "import",
           "infrastructure",
           "issue-tracking",
           "log-management",
@@ -262,7 +264,9 @@
           "hideConfiguration",
           "externalConfigurationURL",
           "externalConfigurationPages",
-          "syncedSegment"
+          "syncedSegment",
+          "bigSegmentStore",
+          "flagImport"
         ]
       },
       "properties": {
@@ -295,6 +299,12 @@
         },
         "syncedSegment": {
           "$ref": "schemas/capabilities/syncedSegment.json#/syncedSegment"
+        },
+        "bigSegmentStore": {
+          "$ref": "schemas/capabilities/bigSegmentStore.json#/bigSegmentStore"
+        },
+        "flagImport": {
+          "$ref": "schemas/capabilities/flagImport.json#/flagImport"
         }
       }
     },

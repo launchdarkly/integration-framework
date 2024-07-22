@@ -1,0 +1,66 @@
+{
+  "name": "Redis big segment store",
+  "version": "1.0.0",
+  "overview": "Integrate with a persistent store for segments with over 15k targets or synced from external tools.",
+  "description": "Integrate with a persistent store for segments with over 15k targets or synced from external tools. The Redis big segment store syncs these LaunchDarkly segments with your Redis DB.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://redis.io/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/redis",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["big-segment-store", "data", "synced-segments"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "host",
+      "name": "Host",
+      "description": "Your Redis host.",
+      "type": "string"
+    },
+    {
+      "key": "port",
+      "name": "Port",
+      "description": "Your Redis port. Uses the default port of 6379 if not specified.",
+      "type": "string",
+      "placeholder": "6379",
+      "defaultValue": "6379",
+      "isOptional": true
+    },
+    {
+      "key": "username",
+      "name": "Username",
+      "description": "Your Redis username. Leave this field empty if your Redis DB does not have a username configured.",
+      "type": "string",
+      "placeholder": "default",
+      "defaultValue": "",
+      "isOptional": true
+    },
+    {
+      "key": "password",
+      "name": "Password",
+      "description": "Your Redis password.",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "tlsEnabled",
+      "name": "Connect with TLS",
+      "description": "Check this box if your Redis DB has TLS (SSL) enabled.",
+      "type": "boolean",
+      "isOptional": true,
+      "defaultValue": false
+    }
+  ],
+  "capabilities": {
+    "bigSegmentStore": {
+      "dbStyle": "redis"
+    }
+  }
+}
