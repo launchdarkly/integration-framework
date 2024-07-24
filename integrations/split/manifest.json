@@ -27,7 +27,6 @@
       "key": "workspaceId",
       "name": "Split Workspace ID",
       "type": "string",
-      "isSecret": true,
       "description": "The ID of the Split Workspace to import from",
       "isOptional": false
     },
@@ -35,7 +34,6 @@
       "key": "environmentId",
       "name": "Split Environment ID",
       "type": "string",
-      "isSecret": true,
       "description": "The ID of the Split environment to import from",
       "isOptional": false
     },
@@ -48,12 +46,29 @@
       "defaultValue": ""
     },
     {
-      "key": "launchdarklyTag",
+      "key": "ldApiKey",
+      "name": "Launchdarkly API Key",
+      "type": "string",
+      "isSecret": true,
+      "description": "An API key with create flag permissions on your LaunchDarkly account",
+      "isOptional": false
+    },
+    {
+      "key": "ldTag",
       "name": "LaunchDarkly Tag",
       "type": "string",
       "description": "A tag to apply to all flags imported from Split. Defaults to 'imported-from-split'",
       "isOptional": false,
       "placeholder": "imported-from-split"
+    },
+    {
+      "key": "ldMaintainer",
+      "name": "LaunchDarkly Maintainer",
+      "type": "string",
+      "description": "The member id of the LaunchDarkly user who will be the maintainer of the imported flags - defaults to the user who created the integration",
+      "isOptional": true,
+      "defaultValue": "",
+      "isHidden": true
     }
   ],
   "capabilities": {
