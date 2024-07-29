@@ -57,18 +57,18 @@
       "key": "ldTag",
       "name": "LaunchDarkly Tag",
       "type": "string",
-      "description": "A tag to apply to all flags imported from Split. Defaults to 'imported-from-split'",
-      "isOptional": false,
-      "placeholder": "imported-from-split"
+      "description": "A tag to apply to all flags imported from Split to LaunchDarkly.",
+      "isOptional": true,
+      "defaultValue": "imported-from-split"
     },
     {
       "key": "ldMaintainer",
       "name": "LaunchDarkly Maintainer",
       "type": "string",
-      "description": "The member id of the LaunchDarkly user who will be the maintainer of the imported flags - defaults to the user who created the integration",
+      "description": "The member id of the LaunchDarkly user who will be the maintainer of the imported flags.",
       "isOptional": true,
-      "defaultValue": "",
-      "isHidden": true
+      "isHidden": true,
+      "defaultValue": ""
     }
   ],
   "capabilities": {
