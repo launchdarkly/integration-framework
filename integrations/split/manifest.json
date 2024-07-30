@@ -47,7 +47,7 @@
     },
     {
       "key": "ldApiKey",
-      "name": "Launchdarkly API Key",
+      "name": "LaunchDarkly API Key",
       "type": "string",
       "isSecret": true,
       "description": "An API key with create flag permissions on your LaunchDarkly account",
