@@ -43,13 +43,11 @@
           }
         ]
       },
-      "templates": {
-        "default": "templates/default.json.hbs"
-      },
+      "templates": {},
       "defaultPolicy": [
         {
           "effect": "allow",
-          "actions": ["*"],
+          "actions": ["createFlag", "updateOn"],
           "resources": ["proj/*:env/*:flag/*"]
         }
       ],
