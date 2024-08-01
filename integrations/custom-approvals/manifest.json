@@ -1,5 +1,5 @@
 {
-  "name": "Custom Approvals",
+  "name": "Custom Approvals (alpha)",
   "version": "1.0.0",
   "overview": "Integrate LaunchDarkly approvals with an application of your own design.",
   "description": "Integrate LaunchDarkly approvals with an application of your own design.",
@@ -19,7 +19,7 @@
   "formVariables": [],
   "capabilities": {
     "approval": {
-      "name": "Custom Approval Integration",
+      "name": "Custom Approvals (alpha)",
       "flagFormVariables": [],
       "environmentFormVariables": [
         {
@@ -75,7 +75,7 @@
           ]
         },
         "parser": {
-          "statusValue": "/result/value",
+          "statusValue": "/result/status",
           "statusDisplay": "/result/displayStatus",
           "approvalMatcher": "approved",
           "rejectionMatcher": "declined"
@@ -97,7 +97,7 @@
           ]
         },
         "parser": {
-          "statusValue": "/result/value",
+          "statusValue": "/result/status",
           "statusDisplay": "/result/displayStatus",
           "approvalMatcher": "approved",
           "rejectionMatcher": "declined"
@@ -119,7 +119,7 @@
           ]
         },
         "parser": {
-          "statusValue": "/result/value",
+          "statusValue": "/result/status",
           "statusDisplay": "/result/displayStatus",
           "approvalMatcher": "approved",
           "rejectionMatcher": "declined"
