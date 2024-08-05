@@ -11,8 +11,8 @@
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "icons": {
-    "square": "assets/images/servicenow-icon.svg",
-    "horizontal": "assets/images/servicenow-horizontal.svg"
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
   },
   "categories": ["approval"],
   "requiresOAuth": false,
