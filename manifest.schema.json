@@ -168,6 +168,7 @@
           "issue-tracking",
           "log-management",
           "messaging",
+          "migration",
           "monitoring",
           "synced-segments",
           "notifications"

@@ -6,10 +6,11 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://split.com",
+    "site": "https://app.split.io",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/flags/import",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": ["automation", "import"],
+  "categories": ["automation", "import", "migration"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
