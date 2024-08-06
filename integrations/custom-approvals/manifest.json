@@ -19,8 +19,25 @@
   "formVariables": [],
   "capabilities": {
     "approval": {
-      "name": "Custom Approvals (alpha)",
-      "flagFormVariables": [],
+      "name": "Custom Approvals",
+      "flagFormVariables": [
+        {
+          "key": "additionalInfo",
+          "name": "Additional information",
+          "description": "Add some additional context and it will be passed to the creation request.",
+          "type": "string",
+          "isOptional": true
+        },
+        {
+          "key": "impact",
+          "name": "Impact",
+          "description": "What is the impact of this change?",
+          "type": "enum",
+          "allowedValues": ["Low", "Medium", "High"],
+          "defaultValue": "Low",
+          "isOptional": true
+        }
+      ],
       "environmentFormVariables": [
         {
           "key": "apiKey",
@@ -53,7 +70,7 @@
             }
           ]
         },
-        "jsonBody": "{\"links\": {\"href\": \"{{_links.approval.href}}\"}, \"approvalId\": \"{{approvalId}}\", {{#if details.plainText}}\"details\": \"{{details.plainText}}\",{{/if}} \"project\": {\"name\":\"{{project.name}}\", \"key\": \"{{project.key}}\", \"tags\":[{{#each project.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"environment\": {\"name\":\"{{project.environment.name}}\", \"key\": \"{{project.environment.key}}\", \"tags\":[{{#each project.environment.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"flag\": {\"name\":\"{{flag.name}}\", \"key\": \"{{flag.key}}\", \"tags\":[{{#each flag.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]},{{#if title.member}}\"requestedBy\": {\"id\": \"{{member._id}}\", \"email\": \"{{member.email}}\"},{{/if}}\"shortDescription\": \"{{{title.plainText}}}\", \"timestamp\": \"{{timestamp.simple}}\"{{#if comment}}, \"comment\": \"{{comment}}\"{{/if}} }",
+        "jsonBody": "{\"links\": {\"href\": \"{{_links.approval.href}}\"}, \"approvalId\": \"{{approvalId}}\", {{#if details.plainText}}\"details\": \"{{details.plainText}}\",{{/if}} \"project\": {\"name\":\"{{project.name}}\", \"key\": \"{{project.key}}\", \"tags\":[{{#each project.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"environment\": {\"name\":\"{{project.environment.name}}\", \"key\": \"{{project.environment.key}}\", \"tags\":[{{#each project.environment.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"flag\": {\"name\":\"{{flag.name}}\", \"key\": \"{{flag.key}}\", \"tags\":[{{#each flag.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]},{{#if title.member}}\"requestedBy\": {\"id\": \"{{member._id}}\", \"email\": \"{{member.email}}\"},{{/if}}\"shortDescription\": \"{{{title.plainText}}}\", \"timestamp\": \"{{timestamp.simple}}\", \"approvalFormVariables\": { {{#each flagFormVariables}} \"{{@key}}\": \"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}} },\"comment\": \"{{comment}}\"  }",
         "parser": {
           "approvalId": "/id",
           "statusValue": "/result/status",
