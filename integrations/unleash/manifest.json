@@ -1,0 +1,80 @@
+{
+  "name": "Unleash",
+  "version": "1.0.0",
+  "overview": "Import feature flags from Unleash to LaunchDarkly.",
+  "description": "Import feature flags from Unleash to LaunchDarkly. Customize a tag to be assigned to each flag imported.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.getunleash.io",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/flags/import",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["automation", "import", "migration"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "sourceApiKey",
+      "name": "Unleash API Key",
+      "type": "string",
+      "isSecret": true,
+      "description": "An API key with read permissions on your Unleash project",
+      "isOptional": false
+    },
+    {
+      "key": "sourceProjectId",
+      "name": "Unleash Project ID",
+      "type": "string",
+      "description": "The ID of the Unleash project to import from",
+      "isOptional": false
+    },
+    {
+      "key": "sourceEnvironmentId",
+      "name": "Unleash Environment ID",
+      "type": "string",
+      "description": "The ID of the Unleash environment to import variants from",
+      "isOptional": false
+    },
+    {
+      "key": "sourceTag",
+      "name": "Unleash Tag",
+      "type": "string",
+      "description": "Provide a tag to only import a subset of your flags from Unleash based on the tag. Leave blank to import all flags.",
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "ldApiKey",
+      "name": "LaunchDarkly API Key",
+      "type": "string",
+      "isSecret": true,
+      "description": "An API key with create flag permissions on your LaunchDarkly account",
+      "isOptional": false
+    },
+    {
+      "key": "ldTag",
+      "name": "LaunchDarkly Tag",
+      "type": "string",
+      "description": "A tag to apply to all flags imported from Unleash to LaunchDarkly.",
+      "isOptional": true,
+      "defaultValue": "imported-from-unleash"
+    },
+    {
+      "key": "ldMaintainer",
+      "name": "LaunchDarkly Maintainer",
+      "type": "string",
+      "description": "The member id of the LaunchDarkly user who will be the maintainer of the imported flags.",
+      "isOptional": true,
+      "isHidden": true,
+      "defaultValue": ""
+    }
+  ],
+  "capabilities": {
+    "flagImport": {
+      "includeErrorResponseBody": true
+    }
+  }
+}
