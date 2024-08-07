@@ -1112,7 +1112,7 @@ export interface BigSegmentStore {
  * This capability enables importing feature flags to LaunchDarkly
  */
 export interface FlagImport {
-  templates: FlagImportBodyTemplate;
+  templates?: FlagImportBodyTemplate;
   includeErrorResponseBody?: IncludeErrorResponseBody1;
   [k: string]: unknown;
 }
