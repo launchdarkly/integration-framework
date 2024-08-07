@@ -866,7 +866,7 @@ export interface TriggerParser {
  */
 export interface Approval {
   name?: ApprovalSystemName;
-  memberListRequest: MemberListRequest;
+  memberListRequest?: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
   flagFormVariables?: FlagFormVariables;
   creationRequest: CreationRequest;

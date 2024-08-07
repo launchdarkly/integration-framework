@@ -1167,8 +1167,7 @@
             "creationRequest",
             "statusRequest",
             "postApplyRequest",
-            "deletionRequest",
-            "memberListRequest"
+            "deletionRequest"
           ],
           "properties": {
             "name": {
