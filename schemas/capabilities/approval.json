@@ -10,6 +10,7 @@
         "name",
         "environmentFormVariables",
         "flagFormVariables",
+        "approvalFormVariables",
         "creationRequest",
         "statusRequest",
         "postApplyRequest",
@@ -66,6 +67,16 @@
         "$id": "#/capabilities/approval/flag-form-variables",
         "title": "Flag form variables",
         "description": "Flag-specific form variables that render on the approval request creation modal",
+        "type": "array",
+        "items": {
+          "$ref": "../definitions.json#/formVariable"
+        },
+        "default": []
+      },
+      "approvalFormVariables": {
+        "$id": "#/capabilities/approval/approval-form-variables",
+        "title": "Approval form variables",
+        "description": "Approval-specific form variables that render on the approval request creation modal",
         "type": "array",
         "items": {
           "$ref": "../definitions.json#/formVariable"
