@@ -17,6 +17,15 @@
   },
   "formVariables": [
     {
+      "key": "sourceBaseUrl",
+      "name": "Unleash Base URL",
+      "type": "string",
+      "isSecret": false,
+      "description": "The base URL used to connect to your Unleash instance",
+      "isOptional": false,
+      "placeholder": "https://unleash.mysite.com"
+    },
+    {
       "key": "sourceApiKey",
       "name": "Unleash API Key",
       "type": "string",
@@ -74,7 +83,7 @@
   ],
   "capabilities": {
     "flagImport": {
-      "includeErrorResponseBody": true
+      "includeErrorResponseBody": false
     }
   }
 }
