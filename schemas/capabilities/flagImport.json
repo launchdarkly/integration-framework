@@ -8,7 +8,7 @@
     "propertyNames": {
       "enum": ["includeErrorResponseBody", "templates"]
     },
-    "required": [],
+    "required": ["includeErrorResponseBody"],
     "properties": {
       "templates": {
         "$id": "#/capability/flagImport/templates",

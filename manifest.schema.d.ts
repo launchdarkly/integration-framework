@@ -1113,7 +1113,7 @@ export interface BigSegmentStore {
  */
 export interface FlagImport {
   templates?: FlagImportBodyTemplate;
-  includeErrorResponseBody?: IncludeErrorResponseBody1;
+  includeErrorResponseBody: IncludeErrorResponseBody1;
   [k: string]: unknown;
 }
 /**
