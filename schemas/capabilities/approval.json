@@ -9,7 +9,6 @@
       "enum": [
         "name",
         "environmentFormVariables",
-        "flagFormVariables",
         "approvalFormVariables",
         "creationRequest",
         "statusRequest",
@@ -57,16 +56,6 @@
         "$id": "#/capabilities/approval/environment-form-variables",
         "title": "Environment form variables",
         "description": "Environment-specific form variables that render on the environment approval settings modal",
-        "type": "array",
-        "items": {
-          "$ref": "../definitions.json#/formVariable"
-        },
-        "default": []
-      },
-      "flagFormVariables": {
-        "$id": "#/capabilities/approval/flag-form-variables",
-        "title": "Flag form variables",
-        "description": "Flag-specific form variables that render on the approval request creation modal",
         "type": "array",
         "items": {
           "$ref": "../definitions.json#/formVariable"

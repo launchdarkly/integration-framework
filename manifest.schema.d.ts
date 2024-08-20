@@ -291,11 +291,7 @@ export type VariableKey = string;
 /**
  * Which form variable type is the variable key defined or located in?
  */
-export type VariableLocation =
-  | "flagFormVariables"
-  | "approvalFormVariables"
-  | "environmentFormVariables"
-  | "formVariables";
+export type VariableLocation = "approvalFormVariables" | "environmentFormVariables" | "formVariables";
 /**
  * Action to be taken when your defined conditions evaluates to true
  */
@@ -472,10 +468,6 @@ export type MemberID = string;
  * Environment-specific form variables that render on the environment approval settings modal
  */
 export type EnvironmentFormVariables = FormVariable[];
-/**
- * Flag-specific form variables that render on the approval request creation modal
- */
-export type FlagFormVariables = FormVariable[];
 /**
  * Approval-specific form variables that render on the approval request creation modal
  */
@@ -876,7 +868,6 @@ export interface Approval {
   name?: ApprovalSystemName;
   memberListRequest?: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
-  flagFormVariables?: FlagFormVariables;
   approvalFormVariables?: ApprovalFormVariables;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
