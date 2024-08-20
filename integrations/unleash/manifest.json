@@ -27,10 +27,10 @@
     },
     {
       "key": "sourceApiKey",
-      "name": "Unleash API Key",
+      "name": "Unleash SDK Key",
       "type": "string",
       "isSecret": true,
-      "description": "An API key with read permissions on your Unleash project",
+      "description": "An SDK key for your selected environment.",
       "isOptional": false
     },
     {
