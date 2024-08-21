@@ -12,16 +12,19 @@
             {
               "type": "TextBlock",
               "text": "{{{title.markdown}}}",
-              "weight": "bolder"
+              "weight": "bolder",
+              "wrap": true
             },
             {
               "type": "TextBlock",
               "text": "{{project.name}} / {{name}}",
-              "isSubtle": true
+              "isSubtle": true,
+              "wrap": true
             },
             {
               "type": "TextBlock",
-              "text": "{{#if details}}{{{details.markdown}}}{{/if}}{{#if comment}}\n**Comment:** {{{comment}}}\n{{/if}}"
+              "text": "{{#if details}}{{{details.markdown}}}{{/if}}{{#if comment}}\n**Comment:** {{{comment}}}\n{{/if}}",
+              "wrap": true
             }
         ]
       }

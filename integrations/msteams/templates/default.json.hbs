@@ -12,16 +12,19 @@
             {
               "type": "TextBlock",
               "text": "{{{title.markdown}}}{{#equal project.environment.key '~'}} in all environments{{/equal}}",
-              "weight": "bolder"
+              "weight": "bolder",
+              "wrap": true
             },
             {
               "type": "TextBlock",
               "text": "{{#if project.name}}{{project.name}}{{#if project.environment.name}} / {{project.environment.name}}{{/if}} / {{name}}{{/if}}",
-              "isSubtle": true
+              "isSubtle": true,
+              "wrap": true
             },
             {
               "type": "TextBlock",
-              "text": "{{#if details}}{{{details.markdown}}}{{/if}}{{#if comment}}\n**Comment:** {{{comment}}}\n{{/if}}"
+              "text": "{{#if details}}{{{details.markdown}}}{{/if}}{{#if comment}}\n**Comment:** {{{comment}}}\n{{/if}}",
+              "wrap": true
             }
         ]
       }
