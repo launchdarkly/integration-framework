@@ -10,6 +10,7 @@
         "name",
         "environmentFormVariables",
         "approvalFormVariables",
+        "allowAdditionalApprovalFormVariables",
         "creationRequest",
         "statusRequest",
         "postApplyRequest",
@@ -32,26 +33,6 @@
         "minLength": 1,
         "maxLength": 100
       },
-      "memberListRequest": {
-        "$id": "#/capabilities/approval/member-list-request",
-        "title": "Member List Request",
-        "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
-        "propertyNames": {
-          "enum": ["endpoint", "jsonBody", "parser"]
-        },
-        "required": ["endpoint", "parser"],
-        "properties": {
-          "endpoint": {
-            "$ref": "../definitions.json#/endpoint"
-          },
-          "jsonBody": {
-            "$ref": "../definitions.json#/jsonBody"
-          },
-          "parser": {
-            "$ref": "parser/parser.json#/memberListParser"
-          }
-        }
-      },
       "environmentFormVariables": {
         "$id": "#/capabilities/approval/environment-form-variables",
         "title": "Environment form variables",
@@ -71,6 +52,13 @@
           "$ref": "../definitions.json#/formVariable"
         },
         "default": []
+      },
+      "allowAdditionalApprovalFormVariables": {
+        "$id": "#/capabilities/approval/allow-additional-approval-form-variables",
+        "title": "Allow additional approval form variables for creation request modal",
+        "description": "If true, the user can define additional approval form variable fields with which to populate the approval creation request",
+        "type": "boolean",
+        "default": false
       },
       "creationRequest": {
         "$id": "#/capabilities/approval/creation-request",
@@ -149,6 +137,26 @@
           },
           "parser": {
             "$ref": "parser/parser.json#/approvalParser"
+          }
+        }
+      },
+      "memberListRequest": {
+        "$id": "#/capabilities/approval/member-list-request",
+        "title": "Member List Request",
+        "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
+        "propertyNames": {
+          "enum": ["endpoint", "jsonBody", "parser"]
+        },
+        "required": ["endpoint", "parser"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
+          },
+          "parser": {
+            "$ref": "parser/parser.json#/memberListParser"
           }
         }
       }

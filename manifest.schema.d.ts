@@ -449,22 +449,6 @@ export type URLPointer = string;
  */
 export type ApprovalSystemName = string;
 /**
- * Template string used to render the JSON request body
- */
-export type JSONBody = string;
-/**
- * JSON path to the array containing integration member details
- */
-export type MemberArrayPath = string;
-/**
- * Relative JSON path to the email field in each member item in the array
- */
-export type Email = string;
-/**
- * Relative JSON path to the integration member ID field in each member item in the array
- */
-export type MemberID = string;
-/**
  * Environment-specific form variables that render on the environment approval settings modal
  */
 export type EnvironmentFormVariables = FormVariable[];
@@ -472,6 +456,14 @@ export type EnvironmentFormVariables = FormVariable[];
  * Approval-specific form variables that render on the approval request creation modal
  */
 export type ApprovalFormVariables = FormVariable[];
+/**
+ * If true, the user can define additional approval form variable fields with which to populate the approval creation request
+ */
+export type AllowAdditionalApprovalFormVariablesForCreationRequestModal = boolean;
+/**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody = string;
 /**
  * Externally-created approval entity ID
  */
@@ -496,6 +488,18 @@ export type RejectionMatcher = string;
  * expected format for the external creation request URL. Values can be substituted in using {{value}}
  */
 export type URLTemplate = string;
+/**
+ * JSON path to the array containing integration member details
+ */
+export type MemberArrayPath = string;
+/**
+ * Relative JSON path to the email field in each member item in the array
+ */
+export type Email = string;
+/**
+ * Relative JSON path to the integration member ID field in each member item in the array
+ */
+export type MemberID = string;
 /**
  * Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store
  */
@@ -866,35 +870,14 @@ export interface TriggerParser {
  */
 export interface Approval {
   name?: ApprovalSystemName;
-  memberListRequest?: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
   approvalFormVariables?: ApprovalFormVariables;
+  allowAdditionalApprovalFormVariables?: AllowAdditionalApprovalFormVariablesForCreationRequestModal;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
   postApplyRequest: PostApplyRequest;
   deletionRequest: DeletionRequest;
-  [k: string]: unknown;
-}
-/**
- * Describes the HTTP request to get integration users for mapping to Launchdarkly users
- */
-export interface MemberListRequest {
-  endpoint: Endpoint;
-  jsonBody?: JSONBody;
-  parser: MemberListParser;
-  [k: string]: unknown;
-}
-/**
- * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
- */
-export interface MemberListParser {
-  memberArrayPath: MemberArrayPath;
-  memberItems: MemberItemsArray;
-  [k: string]: unknown;
-}
-export interface MemberItemsArray {
-  email: Email;
-  memberId: MemberID;
+  memberListRequest?: MemberListRequest;
   [k: string]: unknown;
 }
 /**
@@ -943,6 +926,28 @@ export interface DeletionRequest {
   endpoint: Endpoint;
   jsonBody?: JSONBody;
   parser: ApprovalParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes the HTTP request to get integration users for mapping to Launchdarkly users
+ */
+export interface MemberListRequest {
+  endpoint: Endpoint;
+  jsonBody?: JSONBody;
+  parser: MemberListParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
+ */
+export interface MemberListParser {
+  memberArrayPath: MemberArrayPath;
+  memberItems: MemberItemsArray;
+  [k: string]: unknown;
+}
+export interface MemberItemsArray {
+  email: Email;
+  memberId: MemberID;
   [k: string]: unknown;
 }
 /**

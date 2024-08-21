@@ -38,6 +38,7 @@
           "isOptional": true
         }
       ],
+      "allowAdditionalApprovalFormVariables": true,
       "environmentFormVariables": [
         {
           "key": "apiKey",
