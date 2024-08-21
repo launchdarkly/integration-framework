@@ -1,14 +1,30 @@
 {
-  "@type": "MessageCard",
-  "@context": "http://schema.org/extensions",
-  "themeColor": "0076D7",
-  "summary": "{{{title.plainText}}}",
-  "sections": [
+  "type":"message",
+  "attachments":[
     {
-      "activityTitle": "{{{title.html}}}",
-      "activitySubtitle": "{{project.name}} / {{name}}",
-      "text": "{{#if details}}{{{details.html}}}{{/if}}{{#if comment}}\n<strong>Comment:</strong> {{{comment}}}\n{{/if}}",
-      "xml": true
+      "contentType":"application/vnd.microsoft.card.adaptive",
+      "contentUrl":null,
+        "content":{
+        "$schema":"http://adaptivecards.io/schemas/adaptive-card.json",
+        "type":"AdaptiveCard",
+        "version":"1.2",
+        "body":[
+            {
+              "type": "TextBlock",
+              "text": "{{{title.markdown}}}",
+              "weight": "bolder"
+            },
+            {
+              "type": "TextBlock",
+              "text": "{{project.name}} / {{name}}",
+              "isSubtle": true
+            },
+            {
+              "type": "TextBlock",
+              "text": "{{#if details}}{{{details.markdown}}}{{/if}}{{#if comment}}\n**Comment:** {{{comment}}}\n{{/if}}"
+            }
+        ]
+      }
     }
   ]
 }
