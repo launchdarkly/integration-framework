@@ -1157,6 +1157,7 @@
               "environmentFormVariables",
               "approvalFormVariables",
               "allowAdditionalApprovalFormVariables",
+              "allowApprovalIntegrationConfigurations",
               "creationRequest",
               "statusRequest",
               "postApplyRequest",
@@ -1999,6 +2000,13 @@
               "$id": "#/capabilities/approval/allow-additional-approval-form-variables",
               "title": "Allow additional approval form variables for creation request modal",
               "description": "If true, the user can define additional approval form variable fields with which to populate the approval creation request",
+              "type": "boolean",
+              "default": false
+            },
+            "allowApprovalIntegrationConfigurations": {
+              "$id": "#/capabilities/approval/allow-approval-integration-configurations",
+              "title": "Allow users to configure integration configurations for approvals",
+              "description": "If true, the user can create integration configurations associated with this integration's approval capability. Requires formVariables to be defined",
               "type": "boolean",
               "default": false
             },

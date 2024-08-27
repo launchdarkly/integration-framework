@@ -16,7 +16,23 @@
   },
   "categories": ["approval"],
   "requiresOAuth": false,
-  "formVariables": [],
+  "formVariables": [
+    {
+      "key": "apiKey",
+      "name": "API Token",
+      "description": "Enter the API your custom service will use to authenticate.",
+      "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "baseURL",
+      "name": "Custom approval service base URL",
+      "description": "The base URL of your custom approval service. This is where all of the API handlers should be set up.",
+      "type": "string",
+      "placeholder": "e.g. https://mycustomapprovalservice.com"
+    }
+  ],
   "capabilities": {
     "approval": {
       "name": "Custom Approvals",
@@ -38,25 +54,7 @@
           "isOptional": true
         }
       ],
-      "allowAdditionalApprovalFormVariables": true,
       "allowApprovalIntegrationConfigurations": true,
-      "environmentFormVariables": [
-        {
-          "key": "apiKey",
-          "name": "API Token",
-          "description": "Enter the API your custom service will use to authenticate.",
-          "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
-          "type": "string",
-          "isSecret": true
-        },
-        {
-          "key": "baseURL",
-          "name": "Custom approval service base URL",
-          "description": "The base URL of your custom approval service. This is where all of the API handlers should be set up.",
-          "type": "string",
-          "placeholder": "e.g. https://mycustomapprovalservice.com"
-        }
-      ],
       "creationRequest": {
         "endpoint": {
           "url": "{{ environment.baseURL }}/api/approvals",

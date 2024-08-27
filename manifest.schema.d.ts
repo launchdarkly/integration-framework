@@ -461,6 +461,10 @@ export type ApprovalFormVariables = FormVariable[];
  */
 export type AllowAdditionalApprovalFormVariablesForCreationRequestModal = boolean;
 /**
+ * If true, the user can create integration configurations associated with this integration's approval capability. Requires formVariables to be defined
+ */
+export type AllowUsersToConfigureIntegrationConfigurationsForApprovals = boolean;
+/**
  * Template string used to render the JSON request body
  */
 export type JSONBody = string;
@@ -873,6 +877,7 @@ export interface Approval {
   environmentFormVariables?: EnvironmentFormVariables;
   approvalFormVariables?: ApprovalFormVariables;
   allowAdditionalApprovalFormVariables?: AllowAdditionalApprovalFormVariablesForCreationRequestModal;
+  allowApprovalIntegrationConfigurations?: AllowUsersToConfigureIntegrationConfigurationsForApprovals;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
   postApplyRequest: PostApplyRequest;
