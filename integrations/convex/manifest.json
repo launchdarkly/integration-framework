@@ -1,0 +1,52 @@
+{
+  "name": "Convex",
+  "version": "0.0.1",
+  "overview": "Sync your LaunchDarkly feature flags to your Convex deployment.",
+  "description": "Convex is the open-source backend for application builders. An all-in-one platform with thoughtful, product-centric APIs.",
+  "author": "Convex",
+  "supportEmail": "support@convex.dev",
+  "links": {
+    "site": "https://convex.dev",
+    "privacyPolicy": "https://convex.dev/privacy"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "capabilities": {
+    "featureStore": {
+      "formVariables": [
+        {
+          "key": "deploymentPayloadUrl",
+          "name": "Webhook URL",
+          "description": "The url to the webhook URL exposed by your Convex application.",
+          "type": "string",
+          "placeholder": "e.g. https://wonderful-capybara-515.convex.site/api/launchdarkly-webhook",
+          "isSecret": false
+        },
+        {
+          "key": "signingKey",
+          "name": "Signing Key",
+          "description": "The secret key used to sign webhooks, provided by the Convex LaunchDarkly component."
+        }
+      ],
+      "validationRequest": {
+        "endpoint": {
+          "url": "{{deploymentPayloadUrl}}",
+          "method": "GET"
+        },
+        "parser": {
+          "success": "/success",
+          "errors": "/errors"
+        }
+      },
+      "featureStoreRequest": {
+        "endpoint": {
+          "url": "{{deploymentPayloadUrl}}",
+          "method": "PUT"
+        }
+      }
+    }
+  }
+}
