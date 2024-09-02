@@ -57,7 +57,7 @@
       "allowApprovalIntegrationConfigurations": true,
       "creationRequest": {
         "endpoint": {
-          "url": "{{ environment.baseURL }}/api/approvals",
+          "url": "{{ formVariables.baseURL }}/api/approvals",
           "method": "POST",
           "headers": [
             {
@@ -66,7 +66,7 @@
             },
             {
               "name": "Authorization",
-              "value": "Bearer {{ environment.apiKey }}"
+              "value": "Bearer {{ formVariables.apiKey }}"
             }
           ]
         },
@@ -77,12 +77,12 @@
           "statusDisplay": "/result/displayStatus",
           "approvalMatcher": "approved",
           "rejectionMatcher": "declined",
-          "urlTemplate": "{{ environment.baseURL }}/approvals?approvalID={{ context.approvalId }}"
+          "urlTemplate": "{{ formVariables.baseURL }}/approvals?approvalID={{ context.approvalId }}"
         }
       },
       "statusRequest": {
         "endpoint": {
-          "url": "{{ environment.baseURL }}/api/approvals/{{ context.approvalId }}/status",
+          "url": "{{ formVariables.baseURL }}/api/approvals/{{ context.approvalId }}/status",
           "method": "GET",
           "headers": [
             {
@@ -100,7 +100,7 @@
       },
       "postApplyRequest": {
         "endpoint": {
-          "url": "{{ environment.baseURL }}/api/approvals/{{ context.approvalId }}/applied",
+          "url": "{{ formVariables.baseURL }}/api/approvals/{{ context.approvalId }}/applied",
           "method": "PATCH",
           "headers": [
             {
@@ -122,7 +122,7 @@
       },
       "deletionRequest": {
         "endpoint": {
-          "url": "{{ environment.baseURL }}/api/approvals/{{ context.approvalId }}/cancel",
+          "url": "{{ formVariables.baseURL }}/api/approvals/{{ context.approvalId }}/cancel",
           "method": "PATCH",
           "headers": [
             {
