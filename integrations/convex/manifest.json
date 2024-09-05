@@ -11,9 +11,9 @@
   },
   "categories": ["infrastructure"],
   "icons": {
-      "square": "assets/images/square.svg",
-      "horizontal": "assets/images/horizontal.svg"
-    },
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
   "capabilities": {
     "featureStore": {
       "formVariables": [
