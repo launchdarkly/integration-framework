@@ -1,0 +1,57 @@
+{
+  "name": "Kosli",
+  "version": "1.0.0",
+  "overview": "Use Kosli to keep a record of all the changes made to your feature flags.",
+  "description": "Kosli records all of the changes in your software delivery process to give you the easy buttons for audit, compliance, security and incident response. Integrate Kosli with LaunchDarkly to record all the changes made to feature flags. Get a versioned history of how they changed, when they changed, and who changed them.",
+  "author": "Kosli",
+  "supportEmail": "support@kosli.com",
+  "links": {
+    "site": "https://www.kosli.com",
+    "privacyPolicy": "https://www.kosli.com/privacy-policy/",
+    "supportWebsite": "https://www.kosli.com/community/"
+  },
+  "categories": ["developer-tools", "monitoring"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"],
+  "formVariables": [
+    {
+      "key": "webhookUrl",
+      "name": "Kosli Webhook URL",
+      "type": "string",
+      "description": "Enter your Kosli webhook URL"
+    },
+    {
+      "key": "secret",
+      "name": "Kosli secret",
+      "type": "string",
+      "description": "Enter your Kosli secret",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{webhookUrl}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "x-ld-signature",
+            "value": "{{secret}}"
+          }
+        ]
+      },
+      "templates": {},
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "actions": ["createFlag", "updateOn"],
+          "resources": ["proj/*:env/*:flag/*"]
+        }
+      ],
+      "useStandardWebhookPayload": true
+    }
+  }
+}
