@@ -10,6 +10,10 @@
     "privacyPolicy": "https://convex.dev/privacy"
   },
   "categories": ["infrastructure"],
+  "icons": {
+      "square": "assets/images/square.svg",
+      "horizontal": "assets/images/horizontal.svg"
+    },
   "capabilities": {
     "featureStore": {
       "formVariables": [
@@ -17,7 +21,7 @@
           "key": "deploymentPayloadUrl",
           "name": "Webhook URL",
           "description": "The url to the webhook URL exposed by the LaunchDarkly component for Convex.",
-          "type": "string",
+          "type": "uri",
           "placeholder": "e.g. https://wonderful-capybara-515.convex.site/api/launchdarkly-webhook",
           "isSecret": false
         },
