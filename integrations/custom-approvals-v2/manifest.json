@@ -1,5 +1,5 @@
 {
-  "name": "Custom Approvals (alpha)",
+  "name": "Custom Approvals v2",
   "version": "1.0.0",
   "overview": "Integrate LaunchDarkly approvals with an application of your own design.",
   "description": "Integrate LaunchDarkly approvals with an application of your own design.",
@@ -55,6 +55,7 @@
         }
       ],
       "allowApprovalIntegrationConfigurations": true,
+      "allowAdditionalApprovalFormVariables": true,
       "creationRequest": {
         "endpoint": {
           "url": "{{ baseURL }}/api/approvals",
