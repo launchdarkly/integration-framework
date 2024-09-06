@@ -54,7 +54,6 @@
         }
       },
       "featureStoreRequest": {
-        "payloadPrefix": "",
         "endpoint": {
           "url": "{{deploymentPayloadUrl}}",
           "method": "PUT",
