@@ -39,14 +39,14 @@
           "method": "GET",
           "headers": [
             {
+              "name": "Authorization",
+              "value": "Bearer {{componentApiToken}}"
+            },
+            {
               "name": "Content-Type",
               "value": "application/json"
             }
-          ],
-          "hmacSignature": {
-            "headerName": "X-LD-Signature",
-            "hmacSecretFormVariableKey": "componentApiToken"
-          }
+          ]
         },
         "parser": {
           "success": "/success",
@@ -59,14 +59,14 @@
           "method": "PUT",
           "headers": [
             {
+              "name": "Authorization",
+              "value": "Bearer {{componentApiToken}}"
+            },
+            {
               "name": "Content-Type",
               "value": "application/json"
             }
-          ],
-          "hmacSignature": {
-            "headerName": "X-LD-Signature",
-            "hmacSecretFormVariableKey": "componentApiToken"
-          }
+          ]
         }
       }
     }
