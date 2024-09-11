@@ -1,5 +1,5 @@
 {
-  "name": "Custom Approvals (alpha)",
+  "name": "Custom Approvals",
   "version": "1.0.0",
   "overview": "Integrate LaunchDarkly approvals with an application of your own design.",
   "description": "Integrate LaunchDarkly approvals with an application of your own design.",
@@ -16,50 +16,32 @@
   },
   "categories": ["approval"],
   "requiresOAuth": false,
-  "formVariables": [],
+  "formVariables": [
+    {
+      "key": "apiKey",
+      "name": "API Token",
+      "description": "Enter the API your custom service will use to authenticate.",
+      "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "baseURL",
+      "name": "Custom approval service base URL",
+      "description": "The base URL of your custom approval service. This is where all of the API handlers should be set up.",
+      "type": "string",
+      "placeholder": "e.g. https://mycustomapprovalservice.com"
+    }
+  ],
   "capabilities": {
     "approval": {
       "name": "Custom Approvals",
-      "approvalFormVariables": [
-        {
-          "key": "additionalInfo",
-          "name": "Additional information",
-          "description": "Add some additional context and it will be passed to the creation request.",
-          "type": "string",
-          "isOptional": true
-        },
-        {
-          "key": "impact",
-          "name": "Impact",
-          "description": "What is the impact of this change?",
-          "type": "enum",
-          "allowedValues": ["Low", "Medium", "High"],
-          "defaultValue": "Low",
-          "isOptional": true
-        }
-      ],
-      "allowAdditionalApprovalFormVariables": true,
+      "approvalFormVariables": [],
       "allowApprovalIntegrationConfigurations": true,
-      "environmentFormVariables": [
-        {
-          "key": "apiKey",
-          "name": "API Token",
-          "description": "Enter the API your custom service will use to authenticate.",
-          "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
-          "type": "string",
-          "isSecret": true
-        },
-        {
-          "key": "baseURL",
-          "name": "Custom approval service base URL",
-          "description": "The base URL of your custom approval service. This is where all of the API handlers should be set up.",
-          "type": "string",
-          "placeholder": "e.g. https://mycustomapprovalservice.com"
-        }
-      ],
+      "allowAdditionalApprovalFormVariables": true,
       "creationRequest": {
         "endpoint": {
-          "url": "{{ environment.baseURL }}/api/approvals",
+          "url": "{{ baseURL }}/api/approvals",
           "method": "POST",
           "headers": [
             {
@@ -68,7 +50,7 @@
             },
             {
               "name": "Authorization",
-              "value": "Bearer {{ environment.apiKey }}"
+              "value": "Bearer {{ apiKey }}"
             }
           ]
         },
@@ -79,17 +61,17 @@
           "statusDisplay": "/result/displayStatus",
           "approvalMatcher": "approved",
           "rejectionMatcher": "declined",
-          "urlTemplate": "{{ environment.baseURL }}/approvals?approvalID={{ context.approvalId }}"
+          "urlTemplate": "{{ baseURL }}/approvals?approvalID={{ context.approvalId }}"
         }
       },
       "statusRequest": {
         "endpoint": {
-          "url": "{{ environment.baseURL }}/api/approvals/{{ context.approvalId }}/status",
+          "url": "{{ baseURL }}/api/approvals/{{ context.approvalId }}/status",
           "method": "GET",
           "headers": [
             {
               "name": "Authorization",
-              "value": "Bearer {{ environment.apiKey }}"
+              "value": "Bearer {{ apiKey }}"
             }
           ]
         },
@@ -102,7 +84,7 @@
       },
       "postApplyRequest": {
         "endpoint": {
-          "url": "{{ environment.baseURL }}/api/approvals/{{ context.approvalId }}/applied",
+          "url": "{{ baseURL }}/api/approvals/{{ context.approvalId }}/applied",
           "method": "PATCH",
           "headers": [
             {
@@ -111,7 +93,7 @@
             },
             {
               "name": "Authorization",
-              "value": "Bearer {{ environment.apiKey }}"
+              "value": "Bearer {{ apiKey }}"
             }
           ]
         },
@@ -124,7 +106,7 @@
       },
       "deletionRequest": {
         "endpoint": {
-          "url": "{{ environment.baseURL }}/api/approvals/{{ context.approvalId }}/cancel",
+          "url": "{{ baseURL }}/api/approvals/{{ context.approvalId }}/cancel",
           "method": "PATCH",
           "headers": [
             {
@@ -133,7 +115,7 @@
             },
             {
               "name": "Authorization",
-              "value": "Bearer {{ environment.apiKey }}"
+              "value": "Bearer {{ apiKey }}"
             }
           ]
         },
