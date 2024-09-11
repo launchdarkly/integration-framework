@@ -22,7 +22,7 @@
           "name": "Webhook URL",
           "description": "Enter the URL to the webhook exposed by the LaunchDarkly component for Convex.",
           "type": "uri",
-          "placeholder": "e.g. https://wonderful-capybara-515.convex.site/ld/webhook",
+          "placeholder": "https://techno-kitten-138.convex.site/ld/webhook",
           "isSecret": false
         },
         {
