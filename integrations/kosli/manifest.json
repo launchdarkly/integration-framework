@@ -38,10 +38,14 @@
         "method": "POST",
         "headers": [
           {
-            "name": "x-ld-signature",
-            "value": "{{secret}}"
+            "name": "Content-Type",
+            "value": "application/json"
           }
-        ]
+        ],
+        "hmacSignature": {
+          "headerName": "X-LD-Signature",
+          "hmacSecretFormVariableKey": "secret"
+        }
       },
       "templates": {},
       "defaultPolicy": [
