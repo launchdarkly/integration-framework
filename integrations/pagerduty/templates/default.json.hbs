@@ -1,5 +1,8 @@
 {
-  "routing_key": "{{{formVariables.routingKey}}}",
+  "routing_key": {{#if customProperties}}  {{#if customProperties.changeKey}}{{#if customProperties.changeKey.values}}{{#with customProperties}}{{#each changeKey.values}}{{#if @first}}"{{{this}}}",{{/if}}
+  {{/each}}
+  {{/with}}
+{{/if}}{{else}}"{{{formVariables.routingKey}}}",{{/if}}{{/if}}
   "payload": {
     "summary" : "{{{title.plainText}}}",
     "timestamp": "{{{timestamp.simple}}}",
@@ -13,7 +16,7 @@
       "href": "{{{_links.details.href}}}", "text": "View audit log entry in LaunchDarkly"
     },
     {
-      "href": "{{{_links.site.href}}}", "text": "View resource in LaunchDarkly"
+      "href": "{{{_links.site.href}}}", "text": "View changed resource in LaunchDarkly"
     }
   ]
 }
