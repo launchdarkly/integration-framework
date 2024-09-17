@@ -25,6 +25,13 @@
     }
   ],
   "capabilities": {
+    "reservedCustomProperties": [
+      {
+        "name": "PagerDuy",
+        "description": "PagerDuty Change integration Key (only first one will be used)",
+        "key": "changeKey"
+      }
+    ],
     "auditLogEventsHook": {
       "endpoint": {
         "url": "https://events.pagerduty.com/v2/change/enqueue",
