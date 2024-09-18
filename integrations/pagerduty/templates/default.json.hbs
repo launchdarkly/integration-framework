@@ -1,14 +1,11 @@
 {
-  "routing_key": {{#if customProperties}}  {{#if customProperties.changeKey}}{{#if customProperties.changeKey.values}}{{#with customProperties}}{{#each changeKey.values}}{{#if @first}}"{{{this}}}",{{/if}}
-  {{/each}}
-  {{/with}}
-{{/if}}{{else}}"{{{formVariables.routingKey}}}",{{/if}}{{/if}}
+  "routing_key": {{#if customProperties}}{{#if customProperties.pagerDutyChangeKey}}{{#if customProperties.pagerDutyChangeKey.values}}{{#each customProperties.pagerDutyChangeKey.values}}{{#if @first}}"{{{this}}}",{{/if}}{{/each}}{{/if}}{{else}}"{{{formVariables.routingKey}}}",{{/if}}{{else}}"{{{formVariables.routingKey}}}",{{/if}}
   "payload": {
     "summary" : "{{{title.plainText}}}",
     "timestamp": "{{{timestamp.simple}}}",
     "custom_details":{
       "details": "{{{details.plainText}}}",
-      "comment": "{{{comment}}}"
+      "comment": "{{#if comment}}{{{comment}}}{{/if}}"
     }
   },
   "links": [

@@ -62,6 +62,10 @@
     "jira": {
       "name": "Jira",
       "values": ["thing1", "thing2"]
+    },
+    "pagerDutyChangeKey": {
+      "name": "PagerDuty",
+      "values": ["pd1"]
     }
   },
   "member": {

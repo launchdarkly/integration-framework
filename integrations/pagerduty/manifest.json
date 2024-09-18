@@ -27,9 +27,9 @@
   "capabilities": {
     "reservedCustomProperties": [
       {
-        "name": "PagerDuy",
+        "name": "PagerDuy Change Key",
         "description": "PagerDuty Change integration key (only first one will be used)",
-        "key": "changeKey"
+        "key": "pagerDutyChangeKey"
       }
     ],
     "auditLogEventsHook": {
@@ -45,7 +45,8 @@
         ]
       },
       "templates": {
-        "default": "templates/default.json.hbs"
+        "default": "templates/default.json.hbs",
+        "validation": "templates/default.json.hbs"
       },
       "defaultPolicy": [
         {
