@@ -33,6 +33,7 @@
       }
     ],
     "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
       "endpoint": {
         "url": "https://events.pagerduty.com/v2/change/enqueue",
         "method": "POST",
