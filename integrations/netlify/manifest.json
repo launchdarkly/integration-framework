@@ -1,0 +1,71 @@
+{
+  "name": "Netlify",
+  "version": "1.0.0",
+  "overview": "Evaluate feature flags and bootstrap the LaunchDarkly Netlify SDK.",
+  "description": "Evaluate feature flags and bootstrap the LaunchDarkly Netlify SDK.",
+  "author": "Netlify",
+  "supportEmail": "support@netlify.com",
+  "links": {
+    "site": "https://www.netlify.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/netlify",
+    "privacyPolicy": "https://www.netlify.com/privacy/"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "capabilities": {
+    "featureStore": {
+      "formVariables": [
+        {
+          "key": "siteId",
+          "name": "Site ID",
+          "description": "Enter your Netlify site ID. This can be found in the Netlify UI, at Site configuration > Build & deploy > LaunchDarkly.",
+          "type": "string",
+          "placeholder": "e.g. e0d5cce2-679b-425a-bf5a-a4b298327a15",
+          "isSecret": false
+        },
+        {
+          "key": "syncToken",
+          "name": "Syncing Token",
+          "description": "Enter your Netlify site's LaunchDarkly syncing token. This can be found in the Netlify UI, at Site configuration > Build & deploy > LaunchDarkly.",
+          "placeholder": "e.g. 0ZWs3i3aHX66CVrrfaV7aQ",
+          "type": "string",
+          "isSecret": true
+        }
+      ],
+      "validationRequest": {
+        "endpoint": {
+          "url": "https://{{siteId}.netlify.app/.official-launchdarkly/edge-config-test",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{syncToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "success": "/success"
+        }
+      },
+      "featureStoreRequest": {
+        "endpoint": {
+          "url": "https://{{siteId}.netlify.app/.official-launchdarkly/edge-config",
+          "method": "PUT",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{syncToken}}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
