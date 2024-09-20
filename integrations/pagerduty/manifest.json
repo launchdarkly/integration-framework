@@ -1,8 +1,8 @@
 {
   "name": "PagerDuty",
   "version": "1.0.0",
-  "overview": "Send flag change events to Teams service pages.",
-  "description": "Send flag change events directly to PagerDuty’s Events API v2, ensuring flag change events appear on PagerDuty Service pages.",
+  "overview": "Send LaunchDarkly change events to PagerDuty services.",
+  "description": "Send LaunchDarkly change events to PagerDuty to correlate changes with operational health.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -17,19 +17,19 @@
   },
   "formVariables": [
     {
-      "key": "routingKey",
-      "name": "PagerDuty Routing Key",
+      "key": "integrationKey",
+      "name": "PagerDuty integration key",
       "type": "string",
-      "description": "Enter your [PagerDuty Routing Key](https://support.pagerduty.com/docs/services-and-integrations).",
+      "description": "Enter your [PagerDuty integration key](https://support.pagerduty.com/main/docs/services-and-integrations#add-integrations-to-an-existing-service).",
       "isSecret": false
     }
   ],
   "capabilities": {
     "reservedCustomProperties": [
       {
-        "name": "PagerDuy Change Key",
-        "description": "PagerDuty Change integration key (only first one will be used)",
-        "key": "pagerDutyChangeKey"
+        "name": "PagerDuy integration key override",
+        "description": "The PagerDuty integration key to use for all changes associated with this flag. Only the first key will be used.",
+        "key": "pagerDutyIntegrationKey"
       }
     ],
     "auditLogEventsHook": {
@@ -52,7 +52,43 @@
         {
           "effect": "allow",
           "resources": ["proj/*:env/production:flag/*"],
-          "actions": ["*"]
+          "actions": [
+            "deleteFlag",
+            "updateOn",
+            "updateIncludeInSnippet",
+            "updateClientSideFlagAvailability",
+            "updatePrerequisites",
+            "updateTargets",
+            "updateRules",
+            "updateFallthrough",
+            "updateFlagVariations",
+            "updateOffVariation",
+            "updateAttachedGoals",
+            "updateExperimentActive",
+            "copyFlagConfigFrom",
+            "copyFlagConfigTo",
+            "updateFlagSalt",
+            "updateTrackEvents",
+            "updateExpiringTargets",
+            "bypassRequiredApproval",
+            "updateGlobalArchived",
+            "applyApprovalRequest",
+            "stopMeasuredRolloutOnFlagRule",
+            "updateRulesWithMeasuredRollout",
+            "updateMeasuredRolloutConfiguration",
+            "updateScheduledChanges"
+          ]
+        },
+        {
+          "resources": ["proj/*:env/production:segment/*"],
+          "effect": "allow",
+          "actions": [
+            "updateIncluded",
+            "updateExcluded",
+            "updateRules",
+            "updateExpiringTargets",
+            "updateScheduledChanges"
+          ]
         }
       ]
     }

@@ -89,7 +89,7 @@
           "name": "Implementation Plan",
           "description": "Request implementation plan in approval requests.",
           "type": "boolean",
-          "defaultValue": "false",
+          "defaultValue": false,
           "isOptional": true
         }
       ],

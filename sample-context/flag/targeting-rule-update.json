@@ -63,7 +63,7 @@
       "name": "Jira",
       "values": ["thing1", "thing2"]
     },
-    "pagerDutyChangeKey": {
+    "pagerDutyIntegrationKey": {
       "name": "PagerDuty",
       "values": ["pd1"]
     }
