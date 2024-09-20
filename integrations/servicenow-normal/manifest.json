@@ -81,7 +81,7 @@
           "name": "Configuration Item",
           "description": "Request configuration item in approval requests.",
           "type": "boolean",
-          "defaultValue": "false",
+          "defaultValue": false,
           "isOptional": true
         },
         {
