@@ -37,7 +37,7 @@
       ],
       "validationRequest": {
         "endpoint": {
-          "url": "https://{{siteId}.netlify.app/.official-launchdarkly/edge-config-test",
+          "url": "https://{{siteId}}.netlify.app/.official-launchdarkly/edge-config-test",
           "method": "GET",
           "headers": [
             {
@@ -52,7 +52,7 @@
       },
       "featureStoreRequest": {
         "endpoint": {
-          "url": "https://{{siteId}.netlify.app/.official-launchdarkly/edge-config",
+          "url": "https://{{siteId}}.netlify.app/.official-launchdarkly/edge-config",
           "method": "PUT",
           "headers": [
             {
