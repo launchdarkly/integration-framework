@@ -170,7 +170,7 @@
       },
       "memberListRequest": {
         "endpoint": {
-          "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,user_name",
+          "url": "{{oauth.baseURI}}/api/now/table/sys_user?active=true&sysparm_fields=email,user_name&sysparm_limit=100000",
           "method": "GET",
           "headers": [
             {
