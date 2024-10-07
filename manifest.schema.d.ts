@@ -682,6 +682,10 @@ export type IncludeErrorResponseBody1 = boolean;
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
+/**
+ * Whether the integration allows integration configurations. Will apply to all capabilities on the manifest.
+ */
+export type AllowIntegrationConfigurations = boolean;
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -704,6 +708,7 @@ export interface LaunchDarklyIntegrationsManifest {
   formVariables?: FormVariables;
   capabilities?: Capabilities;
   oauthIntegrationKey?: OAuthIntegrationKey;
+  allowIntegrationConfigurations?: AllowIntegrationConfigurations;
   [k: string]: unknown;
 }
 /**
