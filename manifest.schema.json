@@ -22,7 +22,8 @@
       "otherCapabilities",
       "requiresOAuth",
       "hideOnIntegrationsPage",
-      "oauthIntegrationKey"
+      "oauthIntegrationKey",
+      "allowIntegrationConfigurations"
     ]
   },
   "properties": {
@@ -4362,6 +4363,13 @@
       "maxLength": 100,
       "type": "string"
     }
+  },
+  "allowIntegrationConfigurations": {
+    "$id": "#/properties/allow-integration-configurations",
+    "title": "Allow Integration Configurations",
+    "description": "Whether the integration allows integration configurations. Will apply to all capabilities on the manifest.",
+    "type": "boolean",
+    "default": false
   },
   "required": [
     "name",
