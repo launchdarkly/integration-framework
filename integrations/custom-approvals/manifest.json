@@ -33,6 +33,7 @@
       "placeholder": "e.g. https://mycustomapprovalservice.com"
     }
   ],
+  "allowIntegrationConfigurations": true,
   "capabilities": {
     "approval": {
       "name": "Custom Approvals",
@@ -54,11 +55,11 @@
             }
           ]
         },
-        "jsonBody": "{\"links\": {\"href\": \"{{_links.approval.href}}\"}, \"approvalId\": \"{{approvalId}}\", {{#if details.plainText}}\"details\": \"{{details.plainText}}\",{{/if}} \"project\": {\"name\":\"{{project.name}}\", \"key\": \"{{project.key}}\", \"tags\":[{{#each project.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"environment\": {\"name\":\"{{project.environment.name}}\", \"key\": \"{{project.environment.key}}\", \"tags\":[{{#each project.environment.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"flag\": {\"name\":\"{{flag.name}}\", \"key\": \"{{flag.key}}\", \"tags\":[{{#each flag.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]},{{#if title.member}}\"requestedBy\": {\"id\": \"{{member._id}}\", \"email\": \"{{member.email}}\"},{{/if}}\"shortDescription\": \"{{{title.plainText}}}\", \"timestamp\": \"{{timestamp.simple}}\", \"approvalFormVariables\": { {{#each approvalFormVariables}} \"{{@key}}\": \"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}} },\"comment\": \"{{approvalDescription}}\" }",
+        "jsonBody": "{\"_site\": {\"href\": \"{{_links.approval.href}}\"}, \"_id\": \"{{approvalId}}\", {{#if details.plainText}}\"details\": \"{{details.plainText}}\",{{/if}} \"project\": {\"name\":\"{{project.name}}\", \"key\": \"{{project.key}}\", \"tags\":[{{#each project.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"environment\": {\"name\":\"{{project.environment.name}}\", \"key\": \"{{project.environment.key}}\", \"tags\":[{{#each project.environment.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"flag\": {\"name\":\"{{flag.name}}\", \"key\": \"{{flag.key}}\", \"tags\":[{{#each flag.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]},{{#if title.member}}\"requestedBy\": {\"id\": \"{{member._id}}\", \"email\": \"{{member.email}}\"},{{/if}}\"shortDescription\": \"{{{title.plainText}}}\", \"timestamp\": \"{{timestamp.milliseconds}}\", \"approvalFormVariables\": { {{#each approvalFormVariables}} \"{{@key}}\": \"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}} },\"comment\": \"{{approvalDescription}}\" }",
         "parser": {
-          "approvalId": "/id",
-          "statusValue": "/result/status",
-          "statusDisplay": "/result/displayStatus",
+          "approvalId": "/_id",
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
           "approvalMatcher": "approved",
           "rejectionMatcher": "declined",
           "urlTemplate": "{{ baseURL }}/approvals?approvalID={{ context.approvalId }}"
@@ -76,16 +77,16 @@
           ]
         },
         "parser": {
-          "statusValue": "/result/status",
-          "statusDisplay": "/result/displayStatus",
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
           "approvalMatcher": "approved",
           "rejectionMatcher": "declined"
         }
       },
       "postApplyRequest": {
         "endpoint": {
-          "url": "{{ baseURL }}/api/approvals/{{ context.approvalId }}/applied",
-          "method": "PATCH",
+          "url": "{{ baseURL }}/api/approvals/{{ context.approvalId }}/apply",
+          "method": "POST",
           "headers": [
             {
               "name": "Content-Type",
@@ -98,8 +99,8 @@
           ]
         },
         "parser": {
-          "statusValue": "/result/status",
-          "statusDisplay": "/result/displayStatus",
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
           "approvalMatcher": "approved",
           "rejectionMatcher": "declined"
         }
@@ -107,7 +108,7 @@
       "deletionRequest": {
         "endpoint": {
           "url": "{{ baseURL }}/api/approvals/{{ context.approvalId }}/cancel",
-          "method": "PATCH",
+          "method": "POST",
           "headers": [
             {
               "name": "Content-Type",
@@ -120,8 +121,8 @@
           ]
         },
         "parser": {
-          "statusValue": "/result/status",
-          "statusDisplay": "/result/displayStatus",
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
           "approvalMatcher": "approved",
           "rejectionMatcher": "declined"
         }
@@ -138,7 +139,7 @@
           ]
         },
         "parser": {
-          "memberArrayPath": "/result",
+          "memberArrayPath": "/members",
           "memberItems": {
             "memberId": "/name",
             "email": "/email"
