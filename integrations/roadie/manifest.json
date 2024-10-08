@@ -1,0 +1,21 @@
+{
+  "name": "Backstage, via Roadie",
+  "version": "1.0.0",
+  "overview": "Visualize feature flag changes for software components in Backstage, via Roadie.",
+  "description": "Add a LaunchDarkly feature flag changes to related software components in Backstage, via Roadie.",
+  "author": "Roadie",
+  "supportEmail": "support@roadie.io",
+  "links": {
+    "site": "https://roadie.io",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/roadie",
+    "supportWebsite": "https://roadie.io/docs/integrations/launchdarkly/",
+    "privacyPolicy": "https://roadie.io/legal-notices/privacy-notice/v1/"
+  },
+  "categories": ["developer-tools", "infrastructure"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "requiresOAuth": false,
+  "otherCapabilities": ["external"]
+}
