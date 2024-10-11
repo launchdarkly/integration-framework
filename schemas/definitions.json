@@ -313,7 +313,7 @@
               "type": "string",
               "description": "Which form variable type is the variable key defined or located in?",
               "enum": [
-                "flagFormVariables",
+                "approvalFormVariables",
                 "environmentFormVariables",
                 "formVariables"
               ]

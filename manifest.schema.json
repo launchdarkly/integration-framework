@@ -22,7 +22,8 @@
       "otherCapabilities",
       "requiresOAuth",
       "hideOnIntegrationsPage",
-      "oauthIntegrationKey"
+      "oauthIntegrationKey",
+      "allowIntegrationConfigurations"
     ]
   },
   "properties": {
@@ -168,6 +169,7 @@
           "issue-tracking",
           "log-management",
           "messaging",
+          "migration",
           "monitoring",
           "synced-segments",
           "notifications"
@@ -602,7 +604,7 @@
                   "type": "string",
                   "description": "Which form variable type is the variable key defined or located in?",
                   "enum": [
-                    "flagFormVariables",
+                    "approvalFormVariables",
                     "environmentFormVariables",
                     "formVariables"
                   ]
@@ -692,7 +694,8 @@
           "externalConfigurationURL",
           "externalConfigurationPages",
           "syncedSegment",
-          "bigSegmentStore"
+          "bigSegmentStore",
+          "flagImport"
         ]
       },
       "properties": {
@@ -1153,7 +1156,9 @@
             "enum": [
               "name",
               "environmentFormVariables",
-              "flagFormVariables",
+              "approvalFormVariables",
+              "allowAdditionalApprovalFormVariables",
+              "allowApprovalIntegrationConfigurations",
               "creationRequest",
               "statusRequest",
               "postApplyRequest",
@@ -1165,8 +1170,7 @@
             "creationRequest",
             "statusRequest",
             "postApplyRequest",
-            "deletionRequest",
-            "memberListRequest"
+            "deletionRequest"
           ],
           "properties": {
             "name": {
@@ -1176,202 +1180,6 @@
               "description": "Name of the approval system. Default's to the integration's name if not specified.",
               "minLength": 1,
               "maxLength": 100
-            },
-            "memberListRequest": {
-              "$id": "#/capabilities/approval/member-list-request",
-              "title": "Member List Request",
-              "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
-              "propertyNames": {
-                "enum": [
-                  "endpoint",
-                  "jsonBody",
-                  "parser"
-                ]
-              },
-              "required": [
-                "endpoint",
-                "parser"
-              ],
-              "properties": {
-                "endpoint": {
-                  "$id": "#/definitions/endpoint",
-                  "title": "Endpoint",
-                  "description": "Properties that describe an HTTP request to an external endpoint",
-                  "type": "object",
-                  "propertyNames": {
-                    "enum": [
-                      "url",
-                      "method",
-                      "headers",
-                      "hmacSignature"
-                    ]
-                  },
-                  "properties": {
-                    "url": {
-                      "$id": "#/definitions/endpoint/url",
-                      "title": "URL",
-                      "type": "string",
-                      "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
-                    },
-                    "method": {
-                      "$id": "#/definitions/endpoint/method",
-                      "title": "HTTP method",
-                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                      "enum": [
-                        "POST",
-                        "PUT",
-                        "PATCH",
-                        "GET",
-                        "DELETE"
-                      ],
-                      "type": "string"
-                    },
-                    "headers": {
-                      "$id": "#/definitions/endpoint/headers",
-                      "title": "HTTP headers",
-                      "description": "Headers to send with the webhook request",
-                      "type": "array",
-                      "items": {
-                        "$id": "#/definitions/endpoint/header/items",
-                        "title": "Header items",
-                        "description": "A name and value pair to send as headers with the hook request",
-                        "type": "object",
-                        "propertyNames": {
-                          "enum": [
-                            "name",
-                            "value"
-                          ]
-                        },
-                        "properties": {
-                          "name": {
-                            "$id": "#/definitions/endpoint/header/items/name",
-                            "title": "Name",
-                            "type": "string",
-                            "description": "Name of the header",
-                            "maxLength": 50,
-                            "pattern": "^[^\\s]*$"
-                          },
-                          "value": {
-                            "$id": "#/definitions/endpoint/header/items/value",
-                            "title": "Value",
-                            "type": "string",
-                            "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
-                          }
-                        },
-                        "required": [
-                          "name",
-                          "value"
-                        ]
-                      },
-                      "default": [
-                        {
-                          "name": "Content-Type",
-                          "value": "application/json"
-                        }
-                      ],
-                      "examples": [
-                        {
-                          "name": "Content-Type",
-                          "value": "application/json"
-                        },
-                        {
-                          "name": "Authorization",
-                          "value": "Bearer {{apiToken}}"
-                        }
-                      ],
-                      "minProperties": 1
-                    },
-                    "hmacSignature": {
-                      "$id": "#/definitions/endpoint/hmac-signature",
-                      "title": "HMAC signature",
-                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
-                      "type": "object",
-                      "propertyNames": {
-                        "enum": [
-                          "headerName",
-                          "hmacSecretFormVariableKey"
-                        ]
-                      },
-                      "properties": {
-                        "headerName": {
-                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
-                          "title": "HMAC signature header name",
-                          "description": "The name of the HMAC signature header",
-                          "type": "string"
-                        },
-                        "hmacSecretFormVariableKey": {
-                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
-                          "title": "HMAC secret form variable key",
-                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  },
-                  "required": [
-                    "url",
-                    "method"
-                  ]
-                },
-                "jsonBody": {
-                  "$id": "#/definitions/json-body",
-                  "title": "JSON Body",
-                  "description": "Template string used to render the JSON request body",
-                  "type": "string"
-                },
-                "parser": {
-                  "$id": "#/member-list-parser",
-                  "title": "Member list parser",
-                  "description": "Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer",
-                  "type": "object",
-                  "required": [
-                    "memberArrayPath",
-                    "memberItems"
-                  ],
-                  "propertyNames": {
-                    "enum": [
-                      "memberArrayPath",
-                      "memberItems"
-                    ]
-                  },
-                  "properties": {
-                    "memberArrayPath": {
-                      "$id": "#/member-list-parser/member-array-path",
-                      "title": "Member array path",
-                      "description": "JSON path to the array containing integration member details",
-                      "type": "string"
-                    },
-                    "memberItems": {
-                      "$id": "#/member-list-parser/member-items",
-                      "title": "Member items array",
-                      "propertyNames": {
-                        "enum": [
-                          "email",
-                          "memberId"
-                        ]
-                      },
-                      "required": [
-                        "email",
-                        "memberId"
-                      ],
-                      "properties": {
-                        "email": {
-                          "$id": "#/member-list-parser/member-items/email",
-                          "title": "Email",
-                          "description": "Relative JSON path to the email field in each member item in the array",
-                          "type": "string"
-                        },
-                        "memberId": {
-                          "$id": "#/member-list-parser/member-items/member-id",
-                          "title": "Member ID",
-                          "description": "Relative JSON path to the integration member ID field in each member item in the array",
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
             },
             "environmentFormVariables": {
               "$id": "#/capabilities/approval/environment-form-variables",
@@ -1708,7 +1516,7 @@
                           "type": "string",
                           "description": "Which form variable type is the variable key defined or located in?",
                           "enum": [
-                            "flagFormVariables",
+                            "approvalFormVariables",
                             "environmentFormVariables",
                             "formVariables"
                           ]
@@ -1781,10 +1589,10 @@
               },
               "default": []
             },
-            "flagFormVariables": {
-              "$id": "#/capabilities/approval/flag-form-variables",
-              "title": "Flag form variables",
-              "description": "Flag-specific form variables that render on the approval request creation modal",
+            "approvalFormVariables": {
+              "$id": "#/capabilities/approval/approval-form-variables",
+              "title": "Approval form variables",
+              "description": "Approval-specific form variables that render on the approval request creation modal",
               "type": "array",
               "items": {
                 "$id": "#/definitions/form-variable",
@@ -2116,7 +1924,7 @@
                           "type": "string",
                           "description": "Which form variable type is the variable key defined or located in?",
                           "enum": [
-                            "flagFormVariables",
+                            "approvalFormVariables",
                             "environmentFormVariables",
                             "formVariables"
                           ]
@@ -2189,6 +1997,20 @@
               },
               "default": []
             },
+            "allowAdditionalApprovalFormVariables": {
+              "$id": "#/capabilities/approval/allow-additional-approval-form-variables",
+              "title": "Allow additional approval form variables for creation request modal",
+              "description": "If true, the user can define additional approval form variable fields with which to populate the approval creation request",
+              "type": "boolean",
+              "default": false
+            },
+            "allowApprovalIntegrationConfigurations": {
+              "$id": "#/capabilities/approval/allow-approval-integration-configurations",
+              "title": "Allow users to configure integration configurations for approvals",
+              "description": "If true, the user can create integration configurations associated with this integration's approval capability. Requires formVariables to be defined",
+              "type": "boolean",
+              "default": false
+            },
             "creationRequest": {
               "$id": "#/capabilities/approval/creation-request",
               "title": "Creation request",
@@ -2201,7 +2023,8 @@
                 ]
               },
               "required": [
-                "endpoint"
+                "endpoint",
+                "parser"
               ],
               "properties": {
                 "endpoint": {
@@ -2394,6 +2217,410 @@
               "$id": "#/capabilities/approval/status-request",
               "title": "Status Request",
               "description": "Describes the approval status check HTTP request and the parser used to determine if the approval should be consider approved or rejected",
+              "propertyNames": {
+                "enum": [
+                  "endpoint",
+                  "jsonBody",
+                  "parser"
+                ]
+              },
+              "required": [
+                "endpoint",
+                "parser"
+              ],
+              "properties": {
+                "endpoint": {
+                  "$id": "#/definitions/endpoint",
+                  "title": "Endpoint",
+                  "description": "Properties that describe an HTTP request to an external endpoint",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "url",
+                      "method",
+                      "headers",
+                      "hmacSignature"
+                    ]
+                  },
+                  "properties": {
+                    "url": {
+                      "$id": "#/definitions/endpoint/url",
+                      "title": "URL",
+                      "type": "string",
+                      "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+                    },
+                    "method": {
+                      "$id": "#/definitions/endpoint/method",
+                      "title": "HTTP method",
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                      "enum": [
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "GET",
+                        "DELETE"
+                      ],
+                      "type": "string"
+                    },
+                    "headers": {
+                      "$id": "#/definitions/endpoint/headers",
+                      "title": "HTTP headers",
+                      "description": "Headers to send with the webhook request",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/definitions/endpoint/header/items",
+                        "title": "Header items",
+                        "description": "A name and value pair to send as headers with the hook request",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "name",
+                            "value"
+                          ]
+                        },
+                        "properties": {
+                          "name": {
+                            "$id": "#/definitions/endpoint/header/items/name",
+                            "title": "Name",
+                            "type": "string",
+                            "description": "Name of the header",
+                            "maxLength": 50,
+                            "pattern": "^[^\\s]*$"
+                          },
+                          "value": {
+                            "$id": "#/definitions/endpoint/header/items/value",
+                            "title": "Value",
+                            "type": "string",
+                            "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ]
+                      },
+                      "default": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "examples": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer {{apiToken}}"
+                        }
+                      ],
+                      "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "method"
+                  ]
+                },
+                "jsonBody": {
+                  "$id": "#/definitions/json-body",
+                  "title": "JSON Body",
+                  "description": "Template string used to render the JSON request body",
+                  "type": "string"
+                },
+                "parser": {
+                  "$id": "#/approval-parser",
+                  "title": "Approval parser",
+                  "description": "Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "approvalId",
+                      "statusValue",
+                      "statusDisplay",
+                      "approvalMatcher",
+                      "rejectionMatcher",
+                      "urlTemplate"
+                    ]
+                  },
+                  "required": [
+                    "statusValue",
+                    "approvalMatcher"
+                  ],
+                  "properties": {
+                    "approvalId": {
+                      "$id": "#/approval-parser/approval-id",
+                      "title": "Approval ID pointer",
+                      "description": "Externally-created approval entity ID",
+                      "type": "string"
+                    },
+                    "statusValue": {
+                      "$id": "#/approval-parser/status-value",
+                      "title": "Status Value pointer",
+                      "description": "JSON pointer to a status value",
+                      "type": "string"
+                    },
+                    "statusDisplay": {
+                      "$id": "#/approval-parser/status-display",
+                      "title": "Status Value display pointer",
+                      "description": "JSON pointer to a human-readable status",
+                      "type": "string"
+                    },
+                    "approvalMatcher": {
+                      "$id": "#/approval-parser/approval-matcher",
+                      "title": "Approval matcher",
+                      "description": "regex pattern used to determine if the approval should be considered 'approved'",
+                      "type": "string"
+                    },
+                    "rejectionMatcher": {
+                      "$id": "#/approval-parser/rejection-matcher",
+                      "title": "Rejection matcher",
+                      "description": "regex pattern used to determine if the approval should be considered 'rejected'",
+                      "type": "string"
+                    },
+                    "urlTemplate": {
+                      "$id": "#/approval-parser/url-template",
+                      "title": "URL template",
+                      "description": "expected format for the external creation request URL. Values can be substituted in using {{value}}",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "postApplyRequest": {
+              "$id": "#/capabilities/approval/post-apply-request",
+              "title": "Post Apply Request",
+              "description": "Describes the HTTP request to make after the changes have been applied in LaunchDarkly",
+              "propertyNames": {
+                "enum": [
+                  "endpoint",
+                  "jsonBody",
+                  "parser"
+                ]
+              },
+              "required": [
+                "endpoint",
+                "parser"
+              ],
+              "properties": {
+                "endpoint": {
+                  "$id": "#/definitions/endpoint",
+                  "title": "Endpoint",
+                  "description": "Properties that describe an HTTP request to an external endpoint",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "url",
+                      "method",
+                      "headers",
+                      "hmacSignature"
+                    ]
+                  },
+                  "properties": {
+                    "url": {
+                      "$id": "#/definitions/endpoint/url",
+                      "title": "URL",
+                      "type": "string",
+                      "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+                    },
+                    "method": {
+                      "$id": "#/definitions/endpoint/method",
+                      "title": "HTTP method",
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                      "enum": [
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "GET",
+                        "DELETE"
+                      ],
+                      "type": "string"
+                    },
+                    "headers": {
+                      "$id": "#/definitions/endpoint/headers",
+                      "title": "HTTP headers",
+                      "description": "Headers to send with the webhook request",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/definitions/endpoint/header/items",
+                        "title": "Header items",
+                        "description": "A name and value pair to send as headers with the hook request",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "name",
+                            "value"
+                          ]
+                        },
+                        "properties": {
+                          "name": {
+                            "$id": "#/definitions/endpoint/header/items/name",
+                            "title": "Name",
+                            "type": "string",
+                            "description": "Name of the header",
+                            "maxLength": 50,
+                            "pattern": "^[^\\s]*$"
+                          },
+                          "value": {
+                            "$id": "#/definitions/endpoint/header/items/value",
+                            "title": "Value",
+                            "type": "string",
+                            "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ]
+                      },
+                      "default": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "examples": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer {{apiToken}}"
+                        }
+                      ],
+                      "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "method"
+                  ]
+                },
+                "jsonBody": {
+                  "$id": "#/definitions/json-body",
+                  "title": "JSON Body",
+                  "description": "Template string used to render the JSON request body",
+                  "type": "string"
+                },
+                "parser": {
+                  "$id": "#/approval-parser",
+                  "title": "Approval parser",
+                  "description": "Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "approvalId",
+                      "statusValue",
+                      "statusDisplay",
+                      "approvalMatcher",
+                      "rejectionMatcher",
+                      "urlTemplate"
+                    ]
+                  },
+                  "required": [
+                    "statusValue",
+                    "approvalMatcher"
+                  ],
+                  "properties": {
+                    "approvalId": {
+                      "$id": "#/approval-parser/approval-id",
+                      "title": "Approval ID pointer",
+                      "description": "Externally-created approval entity ID",
+                      "type": "string"
+                    },
+                    "statusValue": {
+                      "$id": "#/approval-parser/status-value",
+                      "title": "Status Value pointer",
+                      "description": "JSON pointer to a status value",
+                      "type": "string"
+                    },
+                    "statusDisplay": {
+                      "$id": "#/approval-parser/status-display",
+                      "title": "Status Value display pointer",
+                      "description": "JSON pointer to a human-readable status",
+                      "type": "string"
+                    },
+                    "approvalMatcher": {
+                      "$id": "#/approval-parser/approval-matcher",
+                      "title": "Approval matcher",
+                      "description": "regex pattern used to determine if the approval should be considered 'approved'",
+                      "type": "string"
+                    },
+                    "rejectionMatcher": {
+                      "$id": "#/approval-parser/rejection-matcher",
+                      "title": "Rejection matcher",
+                      "description": "regex pattern used to determine if the approval should be considered 'rejected'",
+                      "type": "string"
+                    },
+                    "urlTemplate": {
+                      "$id": "#/approval-parser/url-template",
+                      "title": "URL template",
+                      "description": "expected format for the external creation request URL. Values can be substituted in using {{value}}",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            },
+            "deletionRequest": {
+              "$id": "#/capabilities/approval/deletion-request",
+              "title": "Deletion Request",
+              "description": "Describes the HTTP request for the deletion of the external approval entity",
               "propertyNames": {
                 "enum": [
                   "endpoint",
@@ -3431,6 +3658,605 @@
               "propertyNames": {
                 "enum": [
                   "endpoint",
+                  "jsonBody",
+                  "parser"
+                ]
+              },
+              "required": [
+                "endpoint",
+                "parser"
+              ],
+              "properties": {
+                "endpoint": {
+                  "$id": "#/definitions/endpoint",
+                  "title": "Endpoint",
+                  "description": "Properties that describe an HTTP request to an external endpoint",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "url",
+                      "method",
+                      "headers",
+                      "hmacSignature"
+                    ]
+                  },
+                  "properties": {
+                    "url": {
+                      "$id": "#/definitions/endpoint/url",
+                      "title": "URL",
+                      "type": "string",
+                      "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+                    },
+                    "method": {
+                      "$id": "#/definitions/endpoint/method",
+                      "title": "HTTP method",
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                      "enum": [
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "GET",
+                        "DELETE"
+                      ],
+                      "type": "string"
+                    },
+                    "headers": {
+                      "$id": "#/definitions/endpoint/headers",
+                      "title": "HTTP headers",
+                      "description": "Headers to send with the webhook request",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/definitions/endpoint/header/items",
+                        "title": "Header items",
+                        "description": "A name and value pair to send as headers with the hook request",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "name",
+                            "value"
+                          ]
+                        },
+                        "properties": {
+                          "name": {
+                            "$id": "#/definitions/endpoint/header/items/name",
+                            "title": "Name",
+                            "type": "string",
+                            "description": "Name of the header",
+                            "maxLength": 50,
+                            "pattern": "^[^\\s]*$"
+                          },
+                          "value": {
+                            "$id": "#/definitions/endpoint/header/items/value",
+                            "title": "Value",
+                            "type": "string",
+                            "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ]
+                      },
+                      "default": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "examples": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer {{apiToken}}"
+                        }
+                      ],
+                      "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "method"
+                  ]
+                },
+                "jsonBody": {
+                  "$id": "#/definitions/json-body",
+                  "title": "JSON Body",
+                  "description": "Template string used to render the JSON request body",
+                  "type": "string"
+                },
+                "parser": {
+                  "$id": "#/feature-store-validation-parser",
+                  "title": "Feature store validation parser",
+                  "description": "Mapping to success/errors value(s) in a JSON response body",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "success",
+                      "errors"
+                    ]
+                  },
+                  "required": [
+                    "success"
+                  ],
+                  "properties": {
+                    "success": {
+                      "$id": "#/capabilities/feature-store/feature-store-validation/parser/success",
+                      "title": "Success pointer",
+                      "type": "string"
+                    },
+                    "errors": {
+                      "$id": "#/capabilities/feature-store/feature-store-validation/parser/errors",
+                      "title": "Errors pointer",
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "featureStore": {
+          "$id": "#/properties/capability/feature-store",
+          "title": "Feature store",
+          "description": "This capability allows LaunchDarkly to write feature flag data to a given provider",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "formVariables",
+              "validationRequest",
+              "featureStoreRequest"
+            ]
+          },
+          "required": [
+            "formVariables",
+            "featureStoreRequest"
+          ],
+          "properties": {
+            "formVariables": {
+              "$id": "#/capabilities/feature-store/form-variables",
+              "title": "Provider form variables",
+              "description": "Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store",
+              "type": "array",
+              "items": {
+                "$id": "#/definitions/form-variable",
+                "title": "Form variable",
+                "description": "A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an integration.",
+                "type": "object",
+                "propertyNames": {
+                  "enum": [
+                    "key",
+                    "name",
+                    "type",
+                    "description",
+                    "placeholder",
+                    "isSecret",
+                    "isHidden",
+                    "isOptional",
+                    "defaultValue",
+                    "allowedValues",
+                    "dynamicOptions",
+                    "dependsOn"
+                  ]
+                },
+                "properties": {
+                  "key": {
+                    "$id": "#/definitions/form-variable/key",
+                    "title": "Key",
+                    "type": "string",
+                    "description": "A key will be used as the token name when the variable is substituted",
+                    "maxLength": 20,
+                    "pattern": "^[^\\s]*$"
+                  },
+                  "name": {
+                    "$id": "#/definitions/form-variable/name",
+                    "title": "Name",
+                    "type": "string",
+                    "description": "A descriptive name that will be used as the form label on the UI",
+                    "maxLength": 50
+                  },
+                  "type": {
+                    "$id": "#/definitions/form-variable/type",
+                    "title": "Type",
+                    "type": "string",
+                    "description": "The type of the variable",
+                    "enum": [
+                      "string",
+                      "boolean",
+                      "uri",
+                      "enum",
+                      "oauth",
+                      "dynamicEnum",
+                      "generated"
+                    ]
+                  },
+                  "description": {
+                    "$id": "#/definitions/form-variable/description",
+                    "title": "Description",
+                    "type": "string",
+                    "description": "Describes the variable in the UI. Markdown links allowed.",
+                    "maxLength": 250
+                  },
+                  "placeholder": {
+                    "$id": "#/definitions/form-variable/placeholder",
+                    "title": "Description",
+                    "type": "string",
+                    "description": "Placeholder value to use in the form element if applicable"
+                  },
+                  "isSecret": {
+                    "$id": "#/definitions/form-variable/is-secret",
+                    "title": "Is this variable a secret?",
+                    "type": "boolean",
+                    "description": "Secret variables will be masked in the UI",
+                    "default": false
+                  },
+                  "isOptional": {
+                    "$id": "#/definitions/form-variable/is-optional",
+                    "title": "Is this variable optional?",
+                    "type": "boolean",
+                    "description": "Variables marked as optional won't be required on the UI",
+                    "default": false
+                  },
+                  "isHidden": {
+                    "$id": "#/definitions/form-variable/is-hidden",
+                    "title": "Hide variable in the UI",
+                    "type": "boolean",
+                    "description": "Variables marked as hidden won't be displayed on the UI",
+                    "default": false
+                  },
+                  "defaultValue": {
+                    "$id": "#/definitions/form-variable/default-value",
+                    "title": "Default value",
+                    "type": [
+                      "boolean",
+                      "string"
+                    ],
+                    "description": "Default value for variable. Can be overridden by the user in the UI"
+                  },
+                  "allowedValues": {
+                    "$id": "#/definitions/form-variable/allowed-values",
+                    "title": "Allowed values",
+                    "type": "array",
+                    "description": "Allowed string values for enum-type formVariables",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "dynamicOptions": {
+                    "$id": "#/definitions/form-variable/dynamic-options",
+                    "title": "Dynamic options",
+                    "type": "object",
+                    "description": "Parser and endpoint for handling dynamicEnum",
+                    "propertyNames": {
+                      "enum": [
+                        "endpoint",
+                        "parser"
+                      ]
+                    },
+                    "required": [
+                      "endpoint",
+                      "parser"
+                    ],
+                    "properties": {
+                      "endpoint": {
+                        "$id": "#/definitions/endpoint",
+                        "title": "Endpoint",
+                        "description": "Properties that describe an HTTP request to an external endpoint",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "url",
+                            "method",
+                            "headers",
+                            "hmacSignature"
+                          ]
+                        },
+                        "properties": {
+                          "url": {
+                            "$id": "#/definitions/endpoint/url",
+                            "title": "URL",
+                            "type": "string",
+                            "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+                          },
+                          "method": {
+                            "$id": "#/definitions/endpoint/method",
+                            "title": "HTTP method",
+                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                            "enum": [
+                              "POST",
+                              "PUT",
+                              "PATCH",
+                              "GET",
+                              "DELETE"
+                            ],
+                            "type": "string"
+                          },
+                          "headers": {
+                            "$id": "#/definitions/endpoint/headers",
+                            "title": "HTTP headers",
+                            "description": "Headers to send with the webhook request",
+                            "type": "array",
+                            "items": {
+                              "$id": "#/definitions/endpoint/header/items",
+                              "title": "Header items",
+                              "description": "A name and value pair to send as headers with the hook request",
+                              "type": "object",
+                              "propertyNames": {
+                                "enum": [
+                                  "name",
+                                  "value"
+                                ]
+                              },
+                              "properties": {
+                                "name": {
+                                  "$id": "#/definitions/endpoint/header/items/name",
+                                  "title": "Name",
+                                  "type": "string",
+                                  "description": "Name of the header",
+                                  "maxLength": 50,
+                                  "pattern": "^[^\\s]*$"
+                                },
+                                "value": {
+                                  "$id": "#/definitions/endpoint/header/items/value",
+                                  "title": "Value",
+                                  "type": "string",
+                                  "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "value"
+                              ]
+                            },
+                            "default": [
+                              {
+                                "name": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "examples": [
+                              {
+                                "name": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "name": "Authorization",
+                                "value": "Bearer {{apiToken}}"
+                              }
+                            ],
+                            "minProperties": 1
+                          },
+                          "hmacSignature": {
+                            "$id": "#/definitions/endpoint/hmac-signature",
+                            "title": "HMAC signature",
+                            "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                            "type": "object",
+                            "propertyNames": {
+                              "enum": [
+                                "headerName",
+                                "hmacSecretFormVariableKey"
+                              ]
+                            },
+                            "properties": {
+                              "headerName": {
+                                "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                                "title": "HMAC signature header name",
+                                "description": "The name of the HMAC signature header",
+                                "type": "string"
+                              },
+                              "hmacSecretFormVariableKey": {
+                                "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                                "title": "HMAC secret form variable key",
+                                "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        },
+                        "required": [
+                          "url",
+                          "method"
+                        ]
+                      },
+                      "parser": {
+                        "$id": "#/definitions/form-variable/dynamic-options/parser",
+                        "title": "Dynamic options parser",
+                        "description": "Mapping of property names to location in JSON response",
+                        "type": "object",
+                        "required": [
+                          "optionsPath",
+                          "optionsItems"
+                        ],
+                        "propertyNames": {
+                          "enum": [
+                            "optionsPath",
+                            "optionsItems"
+                          ]
+                        },
+                        "properties": {
+                          "optionsPath": {
+                            "$id": "#/definitions/form-variable/dynamic-options/parser/options-path",
+                            "title": "Options array path",
+                            "description": "JSON path to the array containing options for parsing",
+                            "type": "string"
+                          },
+                          "optionsItems": {
+                            "$id": "#/definitions/form-variable/dynamic-options/parser/options-items",
+                            "title": "Options array",
+                            "propertyNames": {
+                              "enum": [
+                                "label",
+                                "value"
+                              ]
+                            },
+                            "required": [
+                              "label",
+                              "value"
+                            ],
+                            "properties": {
+                              "label": {
+                                "$id": "#/definitions/form-variable/dynamic-options/parser/options-items/label",
+                                "title": "Label",
+                                "description": "Relative JSON path to values for each item in the options array to be used as UI dropdown labels",
+                                "type": "string"
+                              },
+                              "value": {
+                                "$id": "#/definitions/form-variable/dynamic-options/parser/options-items/value",
+                                "title": "Value",
+                                "description": "Relative JSON path to values for each item in the options array to be used as dropdown values",
+                                "type": "string"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  },
+                  "dependsOn": {
+                    "$id": "#/definitions/form-variable/depends-on",
+                    "title": "Depends on",
+                    "type": "array",
+                    "description": "Dependency configuration to control the state and visibility of the form field.",
+                    "items": {
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "variableKey",
+                          "variableLocation",
+                          "conditions",
+                          "action"
+                        ]
+                      },
+                      "required": [
+                        "variableKey",
+                        "variableLocation",
+                        "conditions",
+                        "action"
+                      ],
+                      "properties": {
+                        "variableKey": {
+                          "$id": "#/definitions/form-variable/depends-on/dependee-key",
+                          "title": "Variable key",
+                          "type": "string",
+                          "description": "Key for the form variable that this form field depends on",
+                          "maxLength": 20,
+                          "pattern": "^[^\\s]*$"
+                        },
+                        "variableLocation": {
+                          "$id": "#/definitions/form-variable/depends-on/dependee-key-location",
+                          "title": "Variable Location",
+                          "type": "string",
+                          "description": "Which form variable type is the variable key defined or located in?",
+                          "enum": [
+                            "approvalFormVariables",
+                            "environmentFormVariables",
+                            "formVariables"
+                          ]
+                        },
+                        "action": {
+                          "$id": "#/definitions/form-variable/depends-on/action",
+                          "title": "Action",
+                          "type": "string",
+                          "enum": [
+                            "hideField",
+                            "showField"
+                          ],
+                          "description": "Action to be taken when your defined conditions evaluates to true"
+                        },
+                        "conditions": {
+                          "$id": "#/definitions/form-variable/depends-on/conditions",
+                          "title": "Conditions",
+                          "type": "array",
+                          "description": "Conditional configurations to be evaluated to decide whether an action should taken for the form field.",
+                          "items": {
+                            "type": "object",
+                            "propertyNames": {
+                              "enum": [
+                                "operator",
+                                "value"
+                              ]
+                            },
+                            "required": [
+                              "operator",
+                              "value"
+                            ],
+                            "properties": {
+                              "operator": {
+                                "$id": "#/definitions/form-variable/depends-on/conditions/operator",
+                                "title": "Operator",
+                                "type": "string",
+                                "description": "Name of the operator for evaluating a condition.",
+                                "enum": [
+                                  "lessThan",
+                                  "lessThanOrEqualTo",
+                                  "greaterThan",
+                                  "greaterThanOrEqualTo",
+                                  "equalTo",
+                                  "notEqual",
+                                  "contains",
+                                  "startsWith",
+                                  "endsWith"
+                                ]
+                              },
+                              "value": {
+                                "$id": "#/definitions/form-variable/depends-on/conditions/value",
+                                "title": "Value",
+                                "type": "string",
+                                "maxLength": 250,
+                                "description": "Target value that conditions are evaluated against"
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "required": [
+                  "key",
+                  "name",
+                  "type",
+                  "description"
+                ]
+              },
+              "default": []
+            },
+            "validationRequest": {
+              "$id": "#/capabilities/feature-store/validation-request",
+              "title": "Validation request",
+              "description": "Details needed to make a request to test that the provided form variables are valid",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "endpoint",
                   "parser"
                 ]
               },
@@ -4277,6 +5103,63 @@
               "description": "Describes what type of database LaunchDarkly will sync big segments to"
             }
           }
+        },
+        "flagImport": {
+          "$id": "#/capability/flagImport",
+          "title": "Flag Import",
+          "description": "This capability enables importing feature flags to LaunchDarkly",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "includeErrorResponseBody",
+              "templates"
+            ]
+          },
+          "required": [
+            "includeErrorResponseBody"
+          ],
+          "properties": {
+            "templates": {
+              "$id": "#/capability/flagImport/templates",
+              "title": "Flag import body template",
+              "description": "Templates to use for parsing of the flag import body",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "splitDetails",
+                  "splitOverview",
+                  "statsig"
+                ]
+              },
+              "properties": {
+                "splitOverview": {
+                  "$id": "#/capability/flagImport/templates/splitOverview",
+                  "title": "Split template",
+                  "description": "Template to use for imports from Split",
+                  "type": "string"
+                },
+                "splitDetails": {
+                  "$id": "#/capability/flagImport/templates/splitDetails",
+                  "title": "Split Details template",
+                  "description": "Template to use for imports from Split",
+                  "type": "string"
+                },
+                "statsig": {
+                  "$id": "#/capability/flagImport/templates/statsig",
+                  "title": "StatSig template",
+                  "description": "Template to use for imports from StatSig",
+                  "type": "string"
+                }
+              }
+            },
+            "includeErrorResponseBody": {
+              "$id": "#/properties/include-error-response-body",
+              "title": "Include error response body",
+              "type": "boolean",
+              "description": "Whether errors received while importing should be displayed in the error log in LaunchDarkly UI",
+              "default": true
+            }
+          }
         }
       }
     },
@@ -4287,6 +5170,13 @@
       "minLength": 3,
       "maxLength": 100,
       "type": "string"
+    },
+    "allowIntegrationConfigurations": {
+      "$id": "#/properties/allow-integration-configurations",
+      "title": "Allow Integration Configurations",
+      "description": "Whether the integration allows integration configurations. Will apply to all capabilities on the manifest.",
+      "type": "boolean",
+      "default": false
     }
   },
   "required": [
