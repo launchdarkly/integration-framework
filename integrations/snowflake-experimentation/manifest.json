@@ -1,0 +1,115 @@
+{
+  "name": "Snowflake",
+  "version": "1.0.0",
+  "overview": "Analyze your Snowflake experimentation data with LaunchDarkly",
+  "description": "Enable LaunchDarkly's experimentation platform to read and analyze data from your Snowflake data warehouse",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.snowflake.com/",
+    "launchdarklyDocs": "TODO",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": [
+    "data"
+  ],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "legacy": {
+    "kind": "dataExport"
+  },
+  "otherCapabilities": [
+    "dataExport"
+  ],
+  "formVariables": [
+    {
+      "key": "user",
+      "name": "User",
+      "description": "The user used to connect to Snowflake for accessing experimentation data",
+      "placeholder": "SNOW_USER",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "role",
+      "name": "Role",
+      "description": "The role used by the connecting user",
+      "placeholder": "SNOW_ROLE",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "organization",
+      "name": "Organization",
+      "description": "The name of the Snowflake organization being connected",
+      "placeholder": "ABC00001",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "account",
+      "name": "Account",
+      "description": "The Snowflake account being connected",
+      "placeholder": "ABC00001",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "warehouse",
+      "name": "Warehouse",
+      "description": "The Snowflake warehouse containing experimentation data",
+      "placeholder": "LD_EXP_WH",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "database",
+      "name": "Database",
+      "description": "The Snowflake database containing experimentation data",
+      "placeholder": "LD_EXP_DB",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "schema",
+      "name": "Schema",
+      "description": "The Snowflake schema containing experimentation data",
+      "placeholder": "EXP_SCHEMA",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "region",
+      "name": "Region",
+      "description": "The Snowflake region the warehouse resides in",
+      "placeholder": "us-east-1",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "region",
+      "name": "Region",
+      "description": "The Snowflake region the warehouse resides in",
+      "placeholder": "us-east-1",
+      "type": "string",
+      "isSecret": false
+    },
+    {
+      "key": "privateKey",
+      "name": "Private Key",
+      "description": "Private key on a single line, ",
+      "placeholder": "e.g. odKAmV6AbsoWsyL3thUoYVDEJAsQl8RrH+JuQ9HWUnDLunDdLEM6oNl15XP1xLOHz3bEq1rvATiQmAByKNOiVujd1gsq7JxfQYDdHRzDhZZrUstnetvGTDBtMHmhzbBXOih+1q3eA2RMQ5izXOEkyMKrWWlcKMWVJzMSYjFeFJB8D8wJNmq1ArNCO3uXfwkZuMnMhYhx/OYvCs4sMWKe5/etyR2gz0Fvp6VDUa0jNRvoad+8/pHK7KDxB8nW5KgmpSjfkl1Ut3zChtwEuAFnSDuypbrODBdphZHD40WmX0f69VKKs44vsKCHr8nzJ8R5dw+2Ggyq5W5hl3PDTMTqn8Pc+cwmPdVe4bkNqxbCHe2omZXpNIgC31wrMBvkyUYvpY8rMoBXqgm9hC5JsXzn6Z6X1kpGFhDjkNSdzx4jYzw=",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "environmentId",
+      "name": "Clientside ID",
+      "type": "string",
+      "description": "The clientside ID of the LaunchDarkly environment to connect experimentation data to",
+      "isOptional": false
+    },
+  ]
+}
