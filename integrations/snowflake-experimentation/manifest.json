@@ -5,6 +5,7 @@
   "description": "Enable LaunchDarkly's experimentation platform to read and analyze data from your Snowflake data warehouse",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
+  "allowIntegrationConfigurations": true,
   "links": {
     "site": "https://www.snowflake.com/",
     "launchdarklyDocs": "TODO",
