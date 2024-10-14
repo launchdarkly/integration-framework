@@ -8,7 +8,7 @@
   "allowIntegrationConfigurations": true,
   "links": {
     "site": "https://www.snowflake.com/",
-    "launchdarklyDocs": "TODO",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/TODO",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],
