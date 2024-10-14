@@ -1,0 +1,9 @@
+{
+  "routing_key": {{#if customProperties}}{{#if customProperties.pagerDutyIntegrationKey}}{{#if customProperties.pagerDutyIntegrationKey.values}}{{#each customProperties.pagerDutyIntegrationKey.values}}{{#if @first}}"{{{this}}}",{{/if}}{{/each}}{{/if}}{{else}}"{{{formVariables.integrationKey}}}",{{/if}}{{else}}"{{{formVariables.integrationKey}}}",{{/if}}
+  "payload": {
+    "summary" : "Measured rollout regression detected",
+    "timestamp": "{{{timestamp.simple}}}",
+    "severity": "{{{formVariables.severity}}}",
+    "source": "TODO"
+  },
+}
