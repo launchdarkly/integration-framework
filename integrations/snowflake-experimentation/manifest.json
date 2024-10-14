@@ -1,7 +1,7 @@
 {
   "name": "Snowflake",
   "version": "1.0.0",
-  "overview": "Analyze your Snowflake experimentation data with LaunchDarkly",
+  "overview": "Analyze your Snowflake experimentation data with LaunchDarkly.",
   "description": "Enable LaunchDarkly's experimentation platform to read and analyze data from your Snowflake data warehouse",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
