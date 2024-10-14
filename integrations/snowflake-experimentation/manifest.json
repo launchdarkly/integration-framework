@@ -111,6 +111,6 @@
       "type": "string",
       "description": "The clientside ID of the LaunchDarkly environment to connect experimentation data to",
       "isOptional": false
-    },
+    }
   ]
 }
