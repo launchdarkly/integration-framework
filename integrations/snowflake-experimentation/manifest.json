@@ -86,14 +86,6 @@
       "isSecret": false
     },
     {
-      "key": "region",
-      "name": "Region",
-      "description": "The Snowflake region the warehouse resides in",
-      "placeholder": "us-east-1",
-      "type": "string",
-      "isSecret": false
-    },
-    {
       "key": "privateKey",
       "name": "Private Key",
       "description": "Private key on a single line, ",
