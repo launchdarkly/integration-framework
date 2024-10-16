@@ -14,64 +14,14 @@
       },
       "templates": {
         "$id": "#/properties/capability/events-hook/templates",
-        "title": "Webhook body template",
+        "title": "EDA events webhook body template",
         "description": "A map of event types to templates to use to render the webhook",
         "type": "object"
       },
       "includeErrorResponseBody": {
-        "$id": "#/properties/include-error-response-body",
-        "title": "Include error response body",
-        "type": "boolean",
-        "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
-        "default": false
-      },
-      "triggers": {
-        "$id": "#/properties/triggers",
-        "title": "Triggers",
-        "type": "object",
-        "propertyNames": {
-          "enum": ["validEvents", "eventFilters"]
-        },
-        "properties": {
-          "validEvents": {
-            "$id": "#/properties/triggers/validEvents",
-            "title": "Valid events",
-            "type": "array",
-            "items": {
-              "type": "string"
-            }
-          },
-          "eventFilters": {
-            "$id": "#/properties/triggers/eventFilters",
-            "title": "Event filters",
-            "type": "array",
-            "items": {
-              "type": "object",
-              "propertyNames": {
-                "enum": ["key", "optional", "value"]
-              },
-              "properties": {
-                "key": {
-                  "$id": "#/properties/triggers/eventFilters/key",
-                  "title": "Key",
-                  "type": "string"
-                },
-                "optional": {
-                  "$id": "#/properties/triggers/eventFilters/optional",
-                  "title": "Optional",
-                  "type": "boolean"
-                },
-                "value": {
-                  "$id": "#/properties/triggers/eventFilters/value",
-                  "title": "Value",
-                  "type": "string"
-                }
-              }
-            }
-          }
-        }
+        "$ref": "../definitions.json#/includeErrorResponseBody"
       }
     },
-    "required": ["templates", "endpoint", "triggers"]
+    "required": ["templates", "endpoint"]
   }
 }

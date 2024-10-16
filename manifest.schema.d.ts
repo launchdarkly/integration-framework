@@ -854,6 +854,7 @@ export interface Capabilities {
   syncedSegment?: SyncedSegment;
   bigSegmentStore?: BigSegmentStore;
   flagImport?: FlagImport;
+  eventsHook?: EventsHook;
   [k: string]: unknown;
 }
 /**
@@ -1175,5 +1176,20 @@ export interface FlagImportBodyTemplate {
   splitOverview?: SplitTemplate;
   splitDetails?: SplitDetailsTemplate;
   statsig?: StatSigTemplate;
+  [k: string]: unknown;
+}
+/**
+ * This capability will enable LaunchDarkly to send webhooks to your endpoint when particular events are observed.
+ */
+export interface EventsHook {
+  endpoint: Endpoint;
+  templates: EDAEventsWebhookBodyTemplate;
+  includeErrorResponseBody?: IncludeErrorResponseBody;
+  [k: string]: unknown;
+}
+/**
+ * A map of event types to templates to use to render the webhook
+ */
+export interface EDAEventsWebhookBodyTemplate {
   [k: string]: unknown;
 }

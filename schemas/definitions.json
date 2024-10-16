@@ -120,6 +120,13 @@
     },
     "required": ["url", "method"]
   },
+  "includeErrorResponseBody": {
+    "$id": "#/definitions/include-error-response-body",
+    "title": "Include error response body",
+    "type": "boolean",
+    "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
+    "default": false
+  },
   "jsonBody": {
     "$id": "#/definitions/json-body",
     "title": "JSON Body",
