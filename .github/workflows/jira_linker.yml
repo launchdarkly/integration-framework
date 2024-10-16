@@ -1,0 +1,17 @@
+name: Jira Issue Linker
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize]
+
+jobs:
+  jira-issue-link:
+    runs-on: ubuntu-latest
+    if: github.repository == 'launchdarkly/integration-framework-private'
+    steps:
+      - uses: launchdarkly-labs/ld-gh-actions-jira@7d61c90e8fc29c3ce8e3f0fb55d963afd084a359
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          jira-base-url: https://launchdarkly.atlassian.net
+          jira-username: ${{ secrets.JIRA_USERNAME }}
+          jira-api-token: ${{ secrets.JIRA_API_TOKEN }}

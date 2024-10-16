@@ -27,7 +27,7 @@
   "capabilities": {
     "auditLogEventsHook": {
       "endpoint": {
-        "url": "{{url}}",
+        "url": "{{{url}}}",
         "method": "POST",
         "headers": [
           {

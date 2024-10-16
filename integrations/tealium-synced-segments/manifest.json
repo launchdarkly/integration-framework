@@ -22,7 +22,7 @@
         "cohortNamePath": "/parameters/tealium_cohort_name",
         "arrayInclusion": {
           "path": "/action",
-          "matcher": "^(add_member | remove_member)$"
+          "matcher": "^(add_member|remove_member)$"
         },
         "memberArrayPath": "/parameters/members",
         "memberArrayParser": {

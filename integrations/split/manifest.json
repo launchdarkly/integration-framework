@@ -1,0 +1,84 @@
+{
+  "name": "Split",
+  "version": "1.0.0",
+  "overview": "Import feature flags from Split to LaunchDarkly.",
+  "description": "Import feature flags from Split to LaunchDarkly. Customize a tag to be assigned to each flag imported.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://app.split.io",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/home/flags/import",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["automation", "import", "migration"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "workspaceApiKey",
+      "name": "Split API Key",
+      "type": "string",
+      "isSecret": true,
+      "description": "An API key with read permissions on your Split workspace",
+      "isOptional": false
+    },
+    {
+      "key": "workspaceId",
+      "name": "Split Workspace ID",
+      "type": "string",
+      "description": "The ID of the Split Workspace to import from",
+      "isOptional": false
+    },
+    {
+      "key": "environmentId",
+      "name": "Split Environment ID",
+      "type": "string",
+      "description": "The ID of the Split environment to import from",
+      "isOptional": false
+    },
+    {
+      "key": "splitTag",
+      "name": "Split Tag",
+      "type": "string",
+      "description": "Provide a tag to only import a subset of your flags from split based on the tag. Leave blank to import all flags.",
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "ldApiKey",
+      "name": "LaunchDarkly API Key",
+      "type": "string",
+      "isSecret": true,
+      "description": "An API key with create flag permissions on your LaunchDarkly account",
+      "isOptional": false
+    },
+    {
+      "key": "ldTag",
+      "name": "LaunchDarkly Tag",
+      "type": "string",
+      "description": "A tag to apply to all flags imported from Split to LaunchDarkly.",
+      "isOptional": true,
+      "defaultValue": "imported-from-split"
+    },
+    {
+      "key": "ldMaintainer",
+      "name": "LaunchDarkly Maintainer",
+      "type": "string",
+      "description": "The member id of the LaunchDarkly user who will be the maintainer of the imported flags.",
+      "isOptional": true,
+      "isHidden": true,
+      "defaultValue": ""
+    }
+  ],
+  "capabilities": {
+    "flagImport": {
+      "templates": {
+        "splitOverview": "templates/flagList.json.hbs",
+        "splitDetails": "templates/flagListEnv.json.hbs"
+      },
+      "includeErrorResponseBody": true
+    }
+  }
+}

@@ -1,0 +1,151 @@
+{
+  "name": "Custom Approvals",
+  "version": "1.0.0",
+  "overview": "Integrate LaunchDarkly approvals with an application of your own design.",
+  "description": "Integrate LaunchDarkly approvals with an application of your own design.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://launchdarkly.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/custom-approvals",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "categories": ["approval"],
+  "requiresOAuth": false,
+  "formVariables": [
+    {
+      "key": "apiKey",
+      "name": "API Token",
+      "description": "Enter the API your custom service will use to authenticate.",
+      "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
+      "type": "string",
+      "isSecret": true
+    },
+    {
+      "key": "baseURL",
+      "name": "Custom approval service base URL",
+      "description": "The base URL of your custom approval service. This is where all of the API handlers should be set up.",
+      "type": "string",
+      "placeholder": "e.g. https://mycustomapprovalservice.com"
+    }
+  ],
+  "allowIntegrationConfigurations": true,
+  "capabilities": {
+    "approval": {
+      "name": "Custom Approvals",
+      "approvalFormVariables": [],
+      "allowApprovalIntegrationConfigurations": true,
+      "allowAdditionalApprovalFormVariables": true,
+      "creationRequest": {
+        "endpoint": {
+          "url": "{{ baseURL }}/api/approvals",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ apiKey }}"
+            }
+          ]
+        },
+        "jsonBody": "{\"_site\": {\"href\": \"{{_links.approval.href}}\"}, \"_id\": \"{{approvalId}}\", {{#if details.plainText}}\"details\": \"{{details.plainText}}\",{{/if}} \"project\": {\"name\":\"{{project.name}}\", \"key\": \"{{project.key}}\", \"tags\":[{{#each project.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"environment\": {\"name\":\"{{project.environment.name}}\", \"key\": \"{{project.environment.key}}\", \"tags\":[{{#each project.environment.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"flag\": {\"name\":\"{{flag.name}}\", \"key\": \"{{flag.key}}\", \"tags\":[{{#each flag.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]},{{#if title.member}}\"requestedBy\": {\"id\": \"{{member._id}}\", \"email\": \"{{member.email}}\"},{{/if}}\"shortDescription\": \"{{{title.plainText}}}\", \"timestamp\": \"{{timestamp.milliseconds}}\", \"approvalFormVariables\": { {{#each approvalFormVariables}} \"{{@key}}\": \"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}} },\"comment\": \"{{approvalDescription}}\" }",
+        "parser": {
+          "approvalId": "/_id",
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
+          "approvalMatcher": "approved",
+          "rejectionMatcher": "declined",
+          "urlTemplate": "{{ baseURL }}/approvals?approvalID={{ context.approvalId }}"
+        }
+      },
+      "statusRequest": {
+        "endpoint": {
+          "url": "{{ baseURL }}/api/approvals/{{ context.approvalId }}/status",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ apiKey }}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
+          "approvalMatcher": "approved",
+          "rejectionMatcher": "declined"
+        }
+      },
+      "postApplyRequest": {
+        "endpoint": {
+          "url": "{{ baseURL }}/api/approvals/{{ context.approvalId }}/apply",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ apiKey }}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
+          "approvalMatcher": "approved",
+          "rejectionMatcher": "declined"
+        }
+      },
+      "deletionRequest": {
+        "endpoint": {
+          "url": "{{ baseURL }}/api/approvals/{{ context.approvalId }}/cancel",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ apiKey }}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
+          "approvalMatcher": "approved",
+          "rejectionMatcher": "declined"
+        }
+      },
+      "memberListRequest": {
+        "endpoint": {
+          "url": "{{baseURI}}/api/members",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{apiToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "memberArrayPath": "/members",
+          "memberItems": {
+            "memberId": "/name",
+            "email": "/email"
+          }
+        }
+      }
+    }
+  }
+}

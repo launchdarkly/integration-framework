@@ -68,6 +68,7 @@ export type Categories =
       | "issue-tracking"
       | "log-management"
       | "messaging"
+      | "migration"
       | "monitoring"
       | "synced-segments"
       | "notifications"
@@ -88,6 +89,7 @@ export type Categories =
         | "issue-tracking"
         | "log-management"
         | "messaging"
+        | "migration"
         | "monitoring"
         | "synced-segments"
         | "notifications"
@@ -107,6 +109,7 @@ export type Categories =
         | "issue-tracking"
         | "log-management"
         | "messaging"
+        | "migration"
         | "monitoring"
         | "synced-segments"
         | "notifications"
@@ -128,6 +131,7 @@ export type Categories =
         | "issue-tracking"
         | "log-management"
         | "messaging"
+        | "migration"
         | "monitoring"
         | "synced-segments"
         | "notifications"
@@ -147,6 +151,7 @@ export type Categories =
         | "issue-tracking"
         | "log-management"
         | "messaging"
+        | "migration"
         | "monitoring"
         | "synced-segments"
         | "notifications"
@@ -166,6 +171,7 @@ export type Categories =
         | "issue-tracking"
         | "log-management"
         | "messaging"
+        | "migration"
         | "monitoring"
         | "synced-segments"
         | "notifications"
@@ -285,7 +291,7 @@ export type VariableKey = string;
 /**
  * Which form variable type is the variable key defined or located in?
  */
-export type VariableLocation = "flagFormVariables" | "environmentFormVariables" | "formVariables";
+export type VariableLocation = "approvalFormVariables" | "environmentFormVariables" | "formVariables";
 /**
  * Action to be taken when your defined conditions evaluates to true
  */
@@ -443,29 +449,25 @@ export type URLPointer = string;
  */
 export type ApprovalSystemName = string;
 /**
- * Template string used to render the JSON request body
- */
-export type JSONBody = string;
-/**
- * JSON path to the array containing integration member details
- */
-export type MemberArrayPath = string;
-/**
- * Relative JSON path to the email field in each member item in the array
- */
-export type Email = string;
-/**
- * Relative JSON path to the integration member ID field in each member item in the array
- */
-export type MemberID = string;
-/**
  * Environment-specific form variables that render on the environment approval settings modal
  */
 export type EnvironmentFormVariables = FormVariable[];
 /**
- * Flag-specific form variables that render on the approval request creation modal
+ * Approval-specific form variables that render on the approval request creation modal
  */
-export type FlagFormVariables = FormVariable[];
+export type ApprovalFormVariables = FormVariable[];
+/**
+ * If true, the user can define additional approval form variable fields with which to populate the approval creation request
+ */
+export type AllowAdditionalApprovalFormVariablesForCreationRequestModal = boolean;
+/**
+ * If true, the user can create integration configurations associated with this integration's approval capability. Requires formVariables to be defined
+ */
+export type AllowUsersToConfigureIntegrationConfigurationsForApprovals = boolean;
+/**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody = string;
 /**
  * Externally-created approval entity ID
  */
@@ -490,6 +492,20 @@ export type RejectionMatcher = string;
  * expected format for the external creation request URL. Values can be substituted in using {{value}}
  */
 export type URLTemplate = string;
+/**
+ * Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store
+ */
+export type ProviderFormVariables = FormVariable[];
+export type SuccessPointer = string;
+export type ErrorsPointer = string;
+/**
+ * Optional prefix to wrap payload data with (used for some integrations)
+ */
+export type Prefix = string;
+/**
+ * Optional suffix to wrap payload data with (used for some integrations)
+ */
+export type MemberID = string;
 /**
  * Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store
  */
@@ -649,9 +665,29 @@ export type CohortIdPath1 = string;
  */
 export type DatabaseStyle = "redis" | "dynamoDB";
 /**
+ * Template to use for imports from Split
+ */
+export type SplitTemplate = string;
+/**
+ * Template to use for imports from Split
+ */
+export type SplitDetailsTemplate = string;
+/**
+ * Template to use for imports from StatSig
+ */
+export type StatSigTemplate = string;
+/**
+ * Whether errors received while importing should be displayed in the error log in LaunchDarkly UI
+ */
+export type IncludeErrorResponseBody1 = boolean;
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
+/**
+ * Whether the integration allows integration configurations. Will apply to all capabilities on the manifest.
+ */
+export type AllowIntegrationConfigurations = boolean;
 
 /**
  * Describes the capabilities and intent of a LaunchDarkly integration
@@ -674,6 +710,7 @@ export interface LaunchDarklyIntegrationsManifest {
   formVariables?: FormVariables;
   capabilities?: Capabilities;
   oauthIntegrationKey?: OAuthIntegrationKey;
+  allowIntegrationConfigurations?: AllowIntegrationConfigurations;
   [k: string]: unknown;
 }
 /**
@@ -781,6 +818,7 @@ export interface Capabilities {
   externalConfigurationPages?: ExternalConfigurationPages;
   syncedSegment?: SyncedSegment;
   bigSegmentStore?: BigSegmentStore;
+  flagImport?: FlagImport;
   [k: string]: unknown;
 }
 /**
@@ -843,35 +881,15 @@ export interface TriggerParser {
  */
 export interface Approval {
   name?: ApprovalSystemName;
-  memberListRequest: MemberListRequest;
   environmentFormVariables?: EnvironmentFormVariables;
-  flagFormVariables?: FlagFormVariables;
+  approvalFormVariables?: ApprovalFormVariables;
+  allowAdditionalApprovalFormVariables?: AllowAdditionalApprovalFormVariablesForCreationRequestModal;
+  allowApprovalIntegrationConfigurations?: AllowUsersToConfigureIntegrationConfigurationsForApprovals;
   creationRequest: CreationRequest;
   statusRequest: StatusRequest;
   postApplyRequest: PostApplyRequest;
   deletionRequest: DeletionRequest;
-  [k: string]: unknown;
-}
-/**
- * Describes the HTTP request to get integration users for mapping to Launchdarkly users
- */
-export interface MemberListRequest {
-  endpoint: Endpoint;
-  jsonBody?: JSONBody;
-  parser: MemberListParser;
-  [k: string]: unknown;
-}
-/**
- * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
- */
-export interface MemberListParser {
-  memberArrayPath: MemberArrayPath;
-  memberItems: MemberItemsArray;
-  [k: string]: unknown;
-}
-export interface MemberItemsArray {
-  email: Email;
-  memberId: MemberID;
+  memberListRequest?: MemberListRequest;
   [k: string]: unknown;
 }
 /**
@@ -920,6 +938,28 @@ export interface DeletionRequest {
   endpoint: Endpoint;
   jsonBody?: JSONBody;
   parser: ApprovalParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes the HTTP request to make after the changes have been applied in LaunchDarkly
+ */
+export interface PostApplyRequest {
+  endpoint: Endpoint;
+  jsonBody?: JSONBody;
+  parser: MemberListParser;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of integration member information to a location in the JSON response payload specified by a JSON pointer
+ */
+export interface MemberListParser {
+  memberArrayPath: MemberArrayPath;
+  memberItems: MemberItemsArray;
+  [k: string]: unknown;
+}
+export interface MemberItemsArray {
+  email: Email;
+  memberId: MemberID;
   [k: string]: unknown;
 }
 /**
@@ -1083,5 +1123,22 @@ export interface MemberArrayParser {
  */
 export interface BigSegmentStore {
   dbStyle: DatabaseStyle;
+  [k: string]: unknown;
+}
+/**
+ * This capability enables importing feature flags to LaunchDarkly
+ */
+export interface FlagImport {
+  templates?: FlagImportBodyTemplate;
+  includeErrorResponseBody: IncludeErrorResponseBody1;
+  [k: string]: unknown;
+}
+/**
+ * Templates to use for parsing of the flag import body
+ */
+export interface FlagImportBodyTemplate {
+  splitOverview?: SplitTemplate;
+  splitDetails?: SplitDetailsTemplate;
+  statsig?: StatSigTemplate;
   [k: string]: unknown;
 }
