@@ -15,6 +15,7 @@
     "square": "assets/pagerduty-square.svg",
     "horizontal": "assets/pagerduty-rectangle.svg"
   },
+  "allowIntegrationConfigurations": true,
   "formVariables": [
     {
       "key": "integrationKey",
