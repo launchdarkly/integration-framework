@@ -40,7 +40,6 @@
       "type": "multiselect",
       "description": "Filter incoming events by event type",
       "isOptional": true,
-      "defaultValue": true,
       "multiselectDefaultOptions": [
         "MeasuredRolloutRegressionDetected",
         "MeasuredRolloutReverted",
