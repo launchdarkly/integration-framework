@@ -1,0 +1,91 @@
+{
+  "name": "PagerDuty - Release Guardian",
+  "version": "1.0.0",
+  "overview": "Send Release Guardian events to PagerDuty services.",
+  "description": "Send Release Guardian events to PagerDuty to create or resolve incidents.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.pagerduty.com",
+    "launchdarklyDocs": "https://docs.launchdarkly.com",
+    "privacyPolicy": "https://www.pagerduty.com/privacy-policy/"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/pagerduty-square.svg",
+    "horizontal": "assets/pagerduty-rectangle.svg"
+  },
+  "formVariables": [
+    {
+      "key": "integrationKey",
+      "name": "PagerDuty integration key",
+      "type": "string",
+      "description": "Enter your [PagerDuty integration key](https://support.pagerduty.com/main/docs/services-and-integrations#add-integrations-to-an-existing-service).",
+      "isSecret": true,
+      "isOptional": false
+    },
+    {
+      "key": "projectAndEnv",
+      "name": "Project and environment filters",
+      "type": "environmentSelector",
+      "description": "Filter incoming events by project and environment",
+      "placeholder": "default",
+      "isOptional": true,
+      "defaultValue": false
+    },
+    {
+      "key": "eventFilter",
+      "name": "Events filter",
+      "type": "multiselect",
+      "description": "Filter incoming events by event type",
+      "isOptional": true,
+      "defaultValue": true,
+      "multiselectDefaultOptions": [
+        "MeasuredRolloutRegressionDetected",
+        "MeasuredRolloutReverted",
+        "ErrorMonitoringNewIssueFound"
+      ],
+      "multiselectOptions": [
+        {
+          "label": "Measured Rollout Regression Detected",
+          "value": "MeasuredRolloutRegressionDetected"
+        },
+        {
+          "label": "Measured Rollout Reverted",
+          "value": "MeasuredRolloutReverted"
+        },
+        {
+          "label": "New Issue Found",
+          "value": "ErrorMonitoringNewIssueFound"
+        }
+      ]
+    },
+    {
+      "key": "severity",
+      "name": "Severity",
+      "type": "enum",
+      "description": "The severity that triggered events should have",
+      "allowedValues": ["critical", "warning", "error", "info"]
+    }
+  ],
+  "capabilities": {
+    "eventsHook": {
+      "includeErrorResponseBody": true,
+      "endpoint": {
+        "url": "https://events.pagerduty.com/v2/change/enqueue",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "MeasuredRolloutRegressionDetected": "templates/measured-rollout-regression-detected.json.hbs",
+        "MeasuredRolloutReverted": "templates/measured-rollout-reverted.json.hbs",
+        "ErrorMonitoringNewIssueFound": "templates/error-monitoring-new-issue-found.json.hbs"
+      }
+    }
+  }
+}

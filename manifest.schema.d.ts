@@ -215,7 +215,16 @@ export type Name = string;
 /**
  * The type of the variable
  */
-export type Type = "string" | "boolean" | "uri" | "enum" | "oauth" | "dynamicEnum" | "generated";
+export type Type =
+  | "string"
+  | "boolean"
+  | "uri"
+  | "enum"
+  | "oauth"
+  | "dynamicEnum"
+  | "generated"
+  | "environmentSelector"
+  | "multiselect";
 /**
  * Describes the variable in the UI. Markdown links allowed.
  */
@@ -228,6 +237,10 @@ export type Description1 = string;
  * Secret variables will be masked in the UI
  */
 export type IsThisVariableASecret = boolean;
+/**
+ * Variables marked as disabled after saving won't be editable after they are saved
+ */
+export type DisableAfterSaving = boolean;
 /**
  * Variables marked as optional won't be required on the UI
  */
@@ -331,6 +344,19 @@ export type DependsOn = {
   conditions: Conditions;
   [k: string]: unknown;
 }[];
+/**
+ * Label of the multi select option
+ */
+export type Label1 = string;
+/**
+ * Value of the multi select option
+ */
+export type Value3 = string;
+export type OptionsArray1 = MultiSelectOptionItem[];
+/**
+ * Default options to be selected when the multi select is first rendered
+ */
+export type MultiSelectDefaultOptions = string[];
 /**
  * Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.
  */
@@ -746,12 +772,15 @@ export interface FormVariable {
   description: Description;
   placeholder?: Description1;
   isSecret?: IsThisVariableASecret;
+  disableAfterSaving?: DisableAfterSaving;
   isOptional?: IsThisVariableOptional;
   isHidden?: HideVariableInTheUI;
   defaultValue?: DefaultValue;
   allowedValues?: AllowedValues;
   dynamicOptions?: DynamicOptions;
   dependsOn?: DependsOn;
+  multiselectOptions?: OptionsArray1;
+  multiselectDefaultOptions?: MultiSelectDefaultOptions;
   [k: string]: unknown;
 }
 /**
@@ -802,6 +831,14 @@ export interface OptionsArray {
   [k: string]: unknown;
 }
 /**
+ * A multi select option item
+ */
+export interface MultiSelectOptionItem {
+  label: Label1;
+  value: Value3;
+  [k: string]: unknown;
+}
+/**
  * Specify which capabilities you'd like your integration to have
  */
 export interface Capabilities {
@@ -817,6 +854,7 @@ export interface Capabilities {
   syncedSegment?: SyncedSegment;
   bigSegmentStore?: BigSegmentStore;
   flagImport?: FlagImport;
+  eventsHook?: EventsHook;
   [k: string]: unknown;
 }
 /**
@@ -1138,5 +1176,20 @@ export interface FlagImportBodyTemplate {
   splitOverview?: SplitTemplate;
   splitDetails?: SplitDetailsTemplate;
   statsig?: StatSigTemplate;
+  [k: string]: unknown;
+}
+/**
+ * This capability will enable LaunchDarkly to send webhooks to your endpoint when particular events are observed.
+ */
+export interface EventsHook {
+  endpoint: Endpoint;
+  templates: EDAEventsWebhookBodyTemplate;
+  includeErrorResponseBody?: IncludeErrorResponseBody;
+  [k: string]: unknown;
+}
+/**
+ * A map of event types to templates to use to render the webhook
+ */
+export interface EDAEventsWebhookBodyTemplate {
   [k: string]: unknown;
 }
