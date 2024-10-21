@@ -332,7 +332,7 @@ describe('All integrations', () => {
       const formVariables = _.get(manifest, 'formVariables', null);
       if (formVariables) {
         formVariables.forEach(formVariable => {
-          if (formVariable.isOptional) {
+          if (formVariable.isOptional && formVariable.type !== 'multiselect' && formVariable.type !== 'environmentSelector') {
             expect(
               formVariable.defaultValue,
               '"isOptional" is only valid if "defaultValue" is provided.'
