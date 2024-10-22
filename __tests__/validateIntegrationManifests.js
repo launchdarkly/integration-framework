@@ -348,6 +348,56 @@ describe('All integrations', () => {
   );
 
   test.each(manifests)(
+    'unrelated properties are not set on multiselect formVariables for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type === 'multiselect') {
+            expect(formVariable.defaultValue).not.toBeDefined();
+            expect(formVariable.dynamicOptions).not.toBeDefined();
+            expect(formVariable.allowedValues).not.toBeDefined();
+            expect(formVariable.isSecret).not.toBeDefined();
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'multiselectOptions is always provided when type is multiselect for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type === 'multiselect') {
+            expect(formVariable.multiselectOptions).toBeDefined();
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'unrelated properties are not set on environmentSelector formVariables for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type === 'environmentSelector') {
+            expect(formVariable.multiselectOptions).not.toBeDefined();
+            expect(formVariable.multiselectDefaultOptions).not.toBeDefined();
+            expect(formVariable.defaultValue).not.toBeDefined();
+            expect(formVariable.dynamicOptions).not.toBeDefined();
+            expect(formVariable.allowedValues).not.toBeDefined();
+            expect(formVariable.isSecret).not.toBeDefined();
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
     'no non-string formVariables have been set to isSecret for %s',
     (key, manifest) => {
       const formVariables = _.get(manifest, 'formVariables', null);

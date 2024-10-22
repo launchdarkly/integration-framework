@@ -31,8 +31,7 @@
       "type": "environmentSelector",
       "description": "Filter incoming events by project and environment",
       "placeholder": "default",
-      "isOptional": true,
-      "defaultValue": false
+      "isOptional": true
     },
     {
       "key": "eventFilter",
