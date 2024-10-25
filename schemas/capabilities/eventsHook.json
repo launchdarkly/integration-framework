@@ -16,7 +16,34 @@
         "$id": "#/properties/capability/events-hook/templates",
         "title": "EDA events webhook body template",
         "description": "A map of event types to templates to use to render the webhook",
-        "type": "object"
+        "type": "object",
+        "propertyNames": {
+          "enum": [
+            "measuredRolloutRegressionDetected",
+            "measuredRolloutReverted",
+            "errorMonitoringNewIssueFound"
+          ]
+        },
+        "properties": {
+          "measuredRolloutRegressionDetected": {
+            "$id": "#/properties/capability/events-hook/templates/measuredRolloutRegressionDetected",
+            "title": "measuredRolloutRegressionDetected template",
+            "description": "Template to use for measuredRolloutRegressionDetected events",
+            "type": "string"
+          },
+          "measuredRolloutReverted": {
+            "$id": "#/properties/capability/events-hook/templates/measuredRolloutReverted",
+            "title": "measuredRolloutReverted template",
+            "description": "Template to use for measuredRolloutReverted events",
+            "type": "string"
+          },
+          "errorMonitoringNewIssueFound": {
+            "$id": "#/properties/capability/events-hook/templates/errorMonitoringNewIssueFound",
+            "title": "errorMonitoringNewIssueFound template",
+            "description": "Template to use for errorMonitoringNewIssueFound events",
+            "type": "string"
+          }
+        }
       },
       "includeErrorResponseBody": {
         "$ref": "../definitions.json#/includeErrorResponseBody"

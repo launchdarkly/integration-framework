@@ -81,9 +81,9 @@
         ]
       },
       "templates": {
-        "MeasuredRolloutRegressionDetected": "templates/measured-rollout-regression-detected.json.hbs",
-        "MeasuredRolloutReverted": "templates/measured-rollout-reverted.json.hbs",
-        "ErrorMonitoringNewIssueFound": "templates/error-monitoring-new-issue-found.json.hbs"
+        "measuredRolloutRegressionDetected": "templates/measured-rollout-regression-detected.json.hbs",
+        "measuredRolloutReverted": "templates/measured-rollout-reverted.json.hbs",
+        "errorMonitoringNewIssueFound": "templates/error-monitoring-new-issue-found.json.hbs"
       }
     }
   }

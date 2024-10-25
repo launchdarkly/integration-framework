@@ -705,6 +705,18 @@ export type StatSigTemplate = string;
  */
 export type IncludeErrorResponseBody1 = boolean;
 /**
+ * Template to use for measuredRolloutRegressionDetected events
+ */
+export type MeasuredRolloutRegressionDetectedTemplate = string;
+/**
+ * Template to use for measuredRolloutReverted events
+ */
+export type MeasuredRolloutRevertedTemplate = string;
+/**
+ * Template to use for errorMonitoringNewIssueFound events
+ */
+export type ErrorMonitoringNewIssueFoundTemplate = string;
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -1191,5 +1203,8 @@ export interface EventsHook {
  * A map of event types to templates to use to render the webhook
  */
 export interface EDAEventsWebhookBodyTemplate {
+  measuredRolloutRegressionDetected?: MeasuredRolloutRegressionDetectedTemplate;
+  measuredRolloutReverted?: MeasuredRolloutRevertedTemplate;
+  errorMonitoringNewIssueFound?: ErrorMonitoringNewIssueFoundTemplate;
   [k: string]: unknown;
 }
