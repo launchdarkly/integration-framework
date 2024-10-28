@@ -11,9 +11,7 @@
     "launchdarklyDocs": "https://docs.launchdarkly.com/home/TODO",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
-  "categories": [
-    "data"
-  ],
+  "categories": ["data"],
   "icons": {
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
@@ -21,9 +19,7 @@
   "legacy": {
     "kind": "dataExport"
   },
-  "otherCapabilities": [
-    "dataExport"
-  ],
+  "otherCapabilities": ["dataExport"],
   "formVariables": [
     {
       "key": "user",
