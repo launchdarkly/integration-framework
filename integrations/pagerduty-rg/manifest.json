@@ -71,7 +71,7 @@
     "eventsHook": {
       "includeErrorResponseBody": true,
       "endpoint": {
-        "url": "https://events.pagerduty.com/v2/change/enqueue",
+        "url": "https://events.pagerduty.com/v2/enqueue",
         "method": "POST",
         "headers": [
           {
