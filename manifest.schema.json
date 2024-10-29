@@ -292,7 +292,10 @@
             "defaultValue",
             "allowedValues",
             "dynamicOptions",
-            "dependsOn"
+            "dependsOn",
+            "multiselectOptions",
+            "multiselectDefaultOptions",
+            "disableAfterSaving"
           ]
         },
         "properties": {
@@ -323,7 +326,9 @@
               "enum",
               "oauth",
               "dynamicEnum",
-              "generated"
+              "generated",
+              "environmentSelector",
+              "multiselect"
             ]
           },
           "description": {
@@ -344,6 +349,13 @@
             "title": "Is this variable a secret?",
             "type": "boolean",
             "description": "Secret variables will be masked in the UI",
+            "default": false
+          },
+          "disableAfterSaving": {
+            "$id": "#/definitions/form-variable/disable-after-saving",
+            "title": "Disable after saving",
+            "type": "boolean",
+            "description": "Variables marked as disabled after saving won't be editable after they are saved",
             "default": false
           },
           "isOptional": {
@@ -666,6 +678,50 @@
                 }
               }
             }
+          },
+          "multiselectOptions": {
+            "$id": "#/definitions/form-variable/multi-select-options",
+            "title": "Options array",
+            "type": "array",
+            "items": {
+              "$id": "#/definitions/multiselect-option-item",
+              "title": "Multi select option item",
+              "description": "A multi select option item",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "label",
+                  "value"
+                ]
+              },
+              "required": [
+                "label",
+                "value"
+              ],
+              "properties": {
+                "label": {
+                  "$id": "#/definitions/multiselect-option-item/label",
+                  "title": "Label",
+                  "description": "Label of the multi select option",
+                  "type": "string"
+                },
+                "value": {
+                  "$id": "#/definitions/multiselect-option-item/value",
+                  "title": "Value",
+                  "description": "Value of the multi select option",
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "multiselectDefaultOptions": {
+            "$id": "#/definitions/form-variable/multiselect-default-options",
+            "title": "Multi select default options",
+            "type": "array",
+            "description": "Default options to be selected when the multi select is first rendered",
+            "items": {
+              "type": "string"
+            }
           }
         },
         "required": [
@@ -695,7 +751,8 @@
           "externalConfigurationPages",
           "syncedSegment",
           "bigSegmentStore",
-          "flagImport"
+          "flagImport",
+          "eventsHook"
         ]
       },
       "properties": {
@@ -990,7 +1047,7 @@
               }
             },
             "includeErrorResponseBody": {
-              "$id": "#/properties/include-error-response-body",
+              "$id": "#/definitions/include-error-response-body",
               "title": "Include error response body",
               "type": "boolean",
               "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
@@ -1204,7 +1261,10 @@
                     "defaultValue",
                     "allowedValues",
                     "dynamicOptions",
-                    "dependsOn"
+                    "dependsOn",
+                    "multiselectOptions",
+                    "multiselectDefaultOptions",
+                    "disableAfterSaving"
                   ]
                 },
                 "properties": {
@@ -1235,7 +1295,9 @@
                       "enum",
                       "oauth",
                       "dynamicEnum",
-                      "generated"
+                      "generated",
+                      "environmentSelector",
+                      "multiselect"
                     ]
                   },
                   "description": {
@@ -1256,6 +1318,13 @@
                     "title": "Is this variable a secret?",
                     "type": "boolean",
                     "description": "Secret variables will be masked in the UI",
+                    "default": false
+                  },
+                  "disableAfterSaving": {
+                    "$id": "#/definitions/form-variable/disable-after-saving",
+                    "title": "Disable after saving",
+                    "type": "boolean",
+                    "description": "Variables marked as disabled after saving won't be editable after they are saved",
                     "default": false
                   },
                   "isOptional": {
@@ -1577,6 +1646,50 @@
                           }
                         }
                       }
+                    }
+                  },
+                  "multiselectOptions": {
+                    "$id": "#/definitions/form-variable/multi-select-options",
+                    "title": "Options array",
+                    "type": "array",
+                    "items": {
+                      "$id": "#/definitions/multiselect-option-item",
+                      "title": "Multi select option item",
+                      "description": "A multi select option item",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "label",
+                          "value"
+                        ]
+                      },
+                      "required": [
+                        "label",
+                        "value"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$id": "#/definitions/multiselect-option-item/label",
+                          "title": "Label",
+                          "description": "Label of the multi select option",
+                          "type": "string"
+                        },
+                        "value": {
+                          "$id": "#/definitions/multiselect-option-item/value",
+                          "title": "Value",
+                          "description": "Value of the multi select option",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "multiselectDefaultOptions": {
+                    "$id": "#/definitions/form-variable/multiselect-default-options",
+                    "title": "Multi select default options",
+                    "type": "array",
+                    "description": "Default options to be selected when the multi select is first rendered",
+                    "items": {
+                      "type": "string"
                     }
                   }
                 },
@@ -1612,7 +1725,10 @@
                     "defaultValue",
                     "allowedValues",
                     "dynamicOptions",
-                    "dependsOn"
+                    "dependsOn",
+                    "multiselectOptions",
+                    "multiselectDefaultOptions",
+                    "disableAfterSaving"
                   ]
                 },
                 "properties": {
@@ -1643,7 +1759,9 @@
                       "enum",
                       "oauth",
                       "dynamicEnum",
-                      "generated"
+                      "generated",
+                      "environmentSelector",
+                      "multiselect"
                     ]
                   },
                   "description": {
@@ -1664,6 +1782,13 @@
                     "title": "Is this variable a secret?",
                     "type": "boolean",
                     "description": "Secret variables will be masked in the UI",
+                    "default": false
+                  },
+                  "disableAfterSaving": {
+                    "$id": "#/definitions/form-variable/disable-after-saving",
+                    "title": "Disable after saving",
+                    "type": "boolean",
+                    "description": "Variables marked as disabled after saving won't be editable after they are saved",
                     "default": false
                   },
                   "isOptional": {
@@ -1985,6 +2110,50 @@
                           }
                         }
                       }
+                    }
+                  },
+                  "multiselectOptions": {
+                    "$id": "#/definitions/form-variable/multi-select-options",
+                    "title": "Options array",
+                    "type": "array",
+                    "items": {
+                      "$id": "#/definitions/multiselect-option-item",
+                      "title": "Multi select option item",
+                      "description": "A multi select option item",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "label",
+                          "value"
+                        ]
+                      },
+                      "required": [
+                        "label",
+                        "value"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$id": "#/definitions/multiselect-option-item/label",
+                          "title": "Label",
+                          "description": "Label of the multi select option",
+                          "type": "string"
+                        },
+                        "value": {
+                          "$id": "#/definitions/multiselect-option-item/value",
+                          "title": "Value",
+                          "description": "Value of the multi select option",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "multiselectDefaultOptions": {
+                    "$id": "#/definitions/form-variable/multiselect-default-options",
+                    "title": "Multi select default options",
+                    "type": "array",
+                    "description": "Default options to be selected when the multi select is first rendered",
+                    "items": {
+                      "type": "string"
                     }
                   }
                 },
@@ -3056,7 +3225,10 @@
                     "defaultValue",
                     "allowedValues",
                     "dynamicOptions",
-                    "dependsOn"
+                    "dependsOn",
+                    "multiselectOptions",
+                    "multiselectDefaultOptions",
+                    "disableAfterSaving"
                   ]
                 },
                 "properties": {
@@ -3087,7 +3259,9 @@
                       "enum",
                       "oauth",
                       "dynamicEnum",
-                      "generated"
+                      "generated",
+                      "environmentSelector",
+                      "multiselect"
                     ]
                   },
                   "description": {
@@ -3108,6 +3282,13 @@
                     "title": "Is this variable a secret?",
                     "type": "boolean",
                     "description": "Secret variables will be masked in the UI",
+                    "default": false
+                  },
+                  "disableAfterSaving": {
+                    "$id": "#/definitions/form-variable/disable-after-saving",
+                    "title": "Disable after saving",
+                    "type": "boolean",
+                    "description": "Variables marked as disabled after saving won't be editable after they are saved",
                     "default": false
                   },
                   "isOptional": {
@@ -3429,6 +3610,50 @@
                           }
                         }
                       }
+                    }
+                  },
+                  "multiselectOptions": {
+                    "$id": "#/definitions/form-variable/multi-select-options",
+                    "title": "Options array",
+                    "type": "array",
+                    "items": {
+                      "$id": "#/definitions/multiselect-option-item",
+                      "title": "Multi select option item",
+                      "description": "A multi select option item",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "label",
+                          "value"
+                        ]
+                      },
+                      "required": [
+                        "label",
+                        "value"
+                      ],
+                      "properties": {
+                        "label": {
+                          "$id": "#/definitions/multiselect-option-item/label",
+                          "title": "Label",
+                          "description": "Label of the multi select option",
+                          "type": "string"
+                        },
+                        "value": {
+                          "$id": "#/definitions/multiselect-option-item/value",
+                          "title": "Value",
+                          "description": "Value of the multi select option",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "multiselectDefaultOptions": {
+                    "$id": "#/definitions/form-variable/multiselect-default-options",
+                    "title": "Multi select default options",
+                    "type": "array",
+                    "description": "Default options to be selected when the multi select is first rendered",
+                    "items": {
+                      "type": "string"
                     }
                   }
                 },
@@ -4352,6 +4577,186 @@
               "default": true
             }
           }
+        },
+        "eventsHook": {
+          "$id": "#/properties/capability/events-hook",
+          "title": "Events hook",
+          "description": "This capability will enable LaunchDarkly to send webhooks to your endpoint when particular events are observed.",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "endpoint",
+              "templates",
+              "includeErrorResponseBody",
+              "triggers"
+            ]
+          },
+          "properties": {
+            "endpoint": {
+              "$id": "#/definitions/endpoint",
+              "title": "Endpoint",
+              "description": "Properties that describe an HTTP request to an external endpoint",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "url",
+                  "method",
+                  "headers",
+                  "hmacSignature"
+                ]
+              },
+              "properties": {
+                "url": {
+                  "$id": "#/definitions/endpoint/url",
+                  "title": "URL",
+                  "type": "string",
+                  "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+                },
+                "method": {
+                  "$id": "#/definitions/endpoint/method",
+                  "title": "HTTP method",
+                  "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                  "enum": [
+                    "POST",
+                    "PUT",
+                    "PATCH",
+                    "GET",
+                    "DELETE"
+                  ],
+                  "type": "string"
+                },
+                "headers": {
+                  "$id": "#/definitions/endpoint/headers",
+                  "title": "HTTP headers",
+                  "description": "Headers to send with the webhook request",
+                  "type": "array",
+                  "items": {
+                    "$id": "#/definitions/endpoint/header/items",
+                    "title": "Header items",
+                    "description": "A name and value pair to send as headers with the hook request",
+                    "type": "object",
+                    "propertyNames": {
+                      "enum": [
+                        "name",
+                        "value"
+                      ]
+                    },
+                    "properties": {
+                      "name": {
+                        "$id": "#/definitions/endpoint/header/items/name",
+                        "title": "Name",
+                        "type": "string",
+                        "description": "Name of the header",
+                        "maxLength": 50,
+                        "pattern": "^[^\\s]*$"
+                      },
+                      "value": {
+                        "$id": "#/definitions/endpoint/header/items/value",
+                        "title": "Value",
+                        "type": "string",
+                        "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                      }
+                    },
+                    "required": [
+                      "name",
+                      "value"
+                    ]
+                  },
+                  "default": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    }
+                  ],
+                  "examples": [
+                    {
+                      "name": "Content-Type",
+                      "value": "application/json"
+                    },
+                    {
+                      "name": "Authorization",
+                      "value": "Bearer {{apiToken}}"
+                    }
+                  ],
+                  "minProperties": 1
+                },
+                "hmacSignature": {
+                  "$id": "#/definitions/endpoint/hmac-signature",
+                  "title": "HMAC signature",
+                  "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "headerName",
+                      "hmacSecretFormVariableKey"
+                    ]
+                  },
+                  "properties": {
+                    "headerName": {
+                      "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                      "title": "HMAC signature header name",
+                      "description": "The name of the HMAC signature header",
+                      "type": "string"
+                    },
+                    "hmacSecretFormVariableKey": {
+                      "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                      "title": "HMAC secret form variable key",
+                      "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "required": [
+                "url",
+                "method"
+              ]
+            },
+            "templates": {
+              "$id": "#/properties/capability/events-hook/templates",
+              "title": "EDA events webhook body template",
+              "description": "A map of event types to templates to use to render the webhook",
+              "type": "object",
+              "propertyNames": {
+                "enum": [
+                  "measuredRolloutRegressionDetected",
+                  "measuredRolloutReverted",
+                  "errorMonitoringNewIssueFound"
+                ]
+              },
+              "properties": {
+                "measuredRolloutRegressionDetected": {
+                  "$id": "#/properties/capability/events-hook/templates/measuredRolloutRegressionDetected",
+                  "title": "measuredRolloutRegressionDetected template",
+                  "description": "Template to use for measuredRolloutRegressionDetected events",
+                  "type": "string"
+                },
+                "measuredRolloutReverted": {
+                  "$id": "#/properties/capability/events-hook/templates/measuredRolloutReverted",
+                  "title": "measuredRolloutReverted template",
+                  "description": "Template to use for measuredRolloutReverted events",
+                  "type": "string"
+                },
+                "errorMonitoringNewIssueFound": {
+                  "$id": "#/properties/capability/events-hook/templates/errorMonitoringNewIssueFound",
+                  "title": "errorMonitoringNewIssueFound template",
+                  "description": "Template to use for errorMonitoringNewIssueFound events",
+                  "type": "string"
+                }
+              }
+            },
+            "includeErrorResponseBody": {
+              "$id": "#/definitions/include-error-response-body",
+              "title": "Include error response body",
+              "type": "boolean",
+              "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
+              "default": false
+            }
+          },
+          "required": [
+            "templates",
+            "endpoint"
+          ]
         }
       }
     },
