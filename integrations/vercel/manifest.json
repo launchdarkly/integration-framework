@@ -63,6 +63,10 @@
             {
               "name": "Content-Type",
               "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "launchdarkly"
             }
           ]
         },
