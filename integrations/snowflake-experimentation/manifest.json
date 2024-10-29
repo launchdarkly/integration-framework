@@ -101,9 +101,10 @@
       "type": "string"
     },
     {
-      "key": "environmentId",
-      "name": "Clientside ID",
-      "type": "string",
+      "key": "selectedEnv",
+      "type": "environmentSelector",
+      "description": "Select an environment from the list",
+      "name": "Environment selector",
       "description": "The clientside ID of the LaunchDarkly environment to connect experimentation data to",
       "isOptional": false
     }
