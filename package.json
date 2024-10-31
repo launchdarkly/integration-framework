@@ -46,7 +46,7 @@
   },
   "dependencies": {
     "dateformat": "^4.5.1",
-    "express": "^4.18.2",
+    "express": "^4.21.1",
     "url-parse": "^1.5.9"
   }
 }
