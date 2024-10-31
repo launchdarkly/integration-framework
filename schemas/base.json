@@ -268,7 +268,8 @@
           "externalConfigurationPages",
           "syncedSegment",
           "bigSegmentStore",
-          "flagImport"
+          "flagImport",
+          "eventsHook"
         ]
       },
       "properties": {
@@ -307,6 +308,9 @@
         },
         "flagImport": {
           "$ref": "schemas/capabilities/flagImport.json#/flagImport"
+        },
+        "eventsHook": {
+          "$ref": "schemas/capabilities/eventsHook.json#/eventsHook"
         }
       }
     },

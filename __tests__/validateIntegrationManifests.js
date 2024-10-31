@@ -332,11 +332,65 @@ describe('All integrations', () => {
       const formVariables = _.get(manifest, 'formVariables', null);
       if (formVariables) {
         formVariables.forEach(formVariable => {
-          if (formVariable.isOptional) {
+          if (
+            formVariable.isOptional &&
+            formVariable.type !== 'multiselect' &&
+            formVariable.type !== 'environmentSelector'
+          ) {
             expect(
               formVariable.defaultValue,
               '"isOptional" is only valid if "defaultValue" is provided.'
             ).toBeDefined();
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'unrelated properties are not set on multiselect formVariables for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type === 'multiselect') {
+            expect(formVariable.defaultValue).not.toBeDefined();
+            expect(formVariable.dynamicOptions).not.toBeDefined();
+            expect(formVariable.allowedValues).not.toBeDefined();
+            expect(formVariable.isSecret).not.toBeDefined();
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'multiselectOptions is always provided when type is multiselect for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type === 'multiselect') {
+            expect(formVariable.multiselectOptions).toBeDefined();
+          }
+        });
+      }
+    }
+  );
+
+  test.each(manifests)(
+    'unrelated properties are not set on environmentSelector formVariables for %s',
+    (key, manifest) => {
+      const formVariables = _.get(manifest, 'formVariables', null);
+      if (formVariables) {
+        formVariables.forEach(formVariable => {
+          if (formVariable.type === 'environmentSelector') {
+            expect(formVariable.multiselectOptions).not.toBeDefined();
+            expect(formVariable.multiselectDefaultOptions).not.toBeDefined();
+            expect(formVariable.defaultValue).not.toBeDefined();
+            expect(formVariable.dynamicOptions).not.toBeDefined();
+            expect(formVariable.allowedValues).not.toBeDefined();
+            expect(formVariable.isSecret).not.toBeDefined();
           }
         });
       }

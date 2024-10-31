@@ -148,10 +148,10 @@
           }
         }
       },
-      "postApplyRequest": {
-        "$id": "#/capabilities/approval/post-apply-request",
-        "title": "Post Apply Request",
-        "description": "Describes the HTTP request to make after the changes have been applied in LaunchDarkly",
+      "memberListRequest": {
+        "$id": "#/capabilities/approval/member-list-request",
+        "title": "Member List Request",
+        "description": "Describes the HTTP request to get integration users for mapping to Launchdarkly users",
         "propertyNames": {
           "enum": ["endpoint", "jsonBody", "parser"]
         },
@@ -164,7 +164,7 @@
             "$ref": "../definitions.json#/jsonBody"
           },
           "parser": {
-            "$ref": "parser/parser.json#/approvalParser"
+            "$ref": "parser/parser.json#/memberListParser"
           }
         }
       }
