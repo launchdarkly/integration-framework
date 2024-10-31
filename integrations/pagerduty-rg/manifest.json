@@ -22,7 +22,6 @@
       "name": "PagerDuty integration key",
       "type": "string",
       "description": "Enter your [PagerDuty integration key](https://support.pagerduty.com/main/docs/services-and-integrations#add-integrations-to-an-existing-service).",
-      "isSecret": true,
       "isOptional": false
     },
     {
