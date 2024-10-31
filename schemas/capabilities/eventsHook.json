@@ -1,0 +1,54 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "eventsHook": {
+    "$id": "#/properties/capability/events-hook",
+    "title": "Events hook",
+    "description": "This capability will enable LaunchDarkly to send webhooks to your endpoint when particular events are observed.",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["endpoint", "templates", "includeErrorResponseBody", "triggers"]
+    },
+    "properties": {
+      "endpoint": {
+        "$ref": "../definitions.json#/endpoint"
+      },
+      "templates": {
+        "$id": "#/properties/capability/events-hook/templates",
+        "title": "EDA events webhook body template",
+        "description": "A map of event types to templates to use to render the webhook",
+        "type": "object",
+        "propertyNames": {
+          "enum": [
+            "measuredRolloutRegressionDetected",
+            "measuredRolloutReverted",
+            "errorMonitoringNewIssueFound"
+          ]
+        },
+        "properties": {
+          "measuredRolloutRegressionDetected": {
+            "$id": "#/properties/capability/events-hook/templates/measuredRolloutRegressionDetected",
+            "title": "measuredRolloutRegressionDetected template",
+            "description": "Template to use for measuredRolloutRegressionDetected events",
+            "type": "string"
+          },
+          "measuredRolloutReverted": {
+            "$id": "#/properties/capability/events-hook/templates/measuredRolloutReverted",
+            "title": "measuredRolloutReverted template",
+            "description": "Template to use for measuredRolloutReverted events",
+            "type": "string"
+          },
+          "errorMonitoringNewIssueFound": {
+            "$id": "#/properties/capability/events-hook/templates/errorMonitoringNewIssueFound",
+            "title": "errorMonitoringNewIssueFound template",
+            "description": "Template to use for errorMonitoringNewIssueFound events",
+            "type": "string"
+          }
+        }
+      },
+      "includeErrorResponseBody": {
+        "$ref": "../definitions.json#/includeErrorResponseBody"
+      }
+    },
+    "required": ["templates", "endpoint"]
+  }
+}

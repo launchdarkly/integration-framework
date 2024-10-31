@@ -120,6 +120,13 @@
     },
     "required": ["url", "method"]
   },
+  "includeErrorResponseBody": {
+    "$id": "#/definitions/include-error-response-body",
+    "title": "Include error response body",
+    "type": "boolean",
+    "description": "Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI",
+    "default": false
+  },
   "jsonBody": {
     "$id": "#/definitions/json-body",
     "title": "JSON Body",
@@ -144,7 +151,10 @@
         "defaultValue",
         "allowedValues",
         "dynamicOptions",
-        "dependsOn"
+        "dependsOn",
+        "multiselectOptions",
+        "multiselectDefaultOptions",
+        "disableAfterSaving"
       ]
     },
     "properties": {
@@ -175,7 +185,9 @@
           "enum",
           "oauth",
           "dynamicEnum",
-          "generated"
+          "generated",
+          "environmentSelector",
+          "multiselect"
         ]
       },
       "description": {
@@ -196,6 +208,13 @@
         "title": "Is this variable a secret?",
         "type": "boolean",
         "description": "Secret variables will be masked in the UI",
+        "default": false
+      },
+      "disableAfterSaving": {
+        "$id": "#/definitions/form-variable/disable-after-saving",
+        "title": "Disable after saving",
+        "type": "boolean",
+        "description": "Variables marked as disabled after saving won't be editable after they are saved",
         "default": false
       },
       "isOptional": {
@@ -366,9 +385,50 @@
             }
           }
         }
+      },
+      "multiselectOptions": {
+        "$id": "#/definitions/form-variable/multi-select-options",
+        "title": "Options array",
+        "type": "array",
+        "items": {
+          "$ref": "#/multiselectOptionItem"
+        }
+      },
+      "multiselectDefaultOptions": {
+        "$id": "#/definitions/form-variable/multiselect-default-options",
+        "title": "Multi select default options",
+        "type": "array",
+        "description": "Default options to be selected when the multi select is first rendered",
+        "items": {
+          "type": "string"
+        }
       }
     },
     "required": ["key", "name", "type", "description"]
+  },
+  "multiselectOptionItem": {
+    "$id": "#/definitions/multiselect-option-item",
+    "title": "Multi select option item",
+    "description": "A multi select option item",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["label", "value"]
+    },
+    "required": ["label", "value"],
+    "properties": {
+      "label": {
+        "$id": "#/definitions/multiselect-option-item/label",
+        "title": "Label",
+        "description": "Label of the multi select option",
+        "type": "string"
+      },
+      "value": {
+        "$id": "#/definitions/multiselect-option-item/value",
+        "title": "Value",
+        "description": "Value of the multi select option",
+        "type": "string"
+      }
+    }
   },
   "uiBlockElement": {
     "$id": "#/definitions/ui-block-element",
