@@ -38,7 +38,7 @@
       "isSecret": false
     },
     {
-      "key": "account_url",
+      "key": "accountURL",
       "name": "Account URL",
       "description": "The URL of the Snowflake account being connected",
       "placeholder": "https://abcdefg.us-east-1.snowflakecomputing.com",
