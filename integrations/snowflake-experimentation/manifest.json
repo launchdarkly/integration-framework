@@ -38,19 +38,11 @@
       "isSecret": false
     },
     {
-      "key": "organization",
-      "name": "Organization",
-      "description": "The name of the Snowflake organization being connected",
-      "placeholder": "ABC00001",
-      "type": "string",
-      "isSecret": false
-    },
-    {
-      "key": "account",
-      "name": "Account",
-      "description": "The Snowflake account being connected",
-      "placeholder": "ABC00001",
-      "type": "string",
+      "key": "accountURL",
+      "name": "Account URL",
+      "description": "The URL of the Snowflake account being connected",
+      "placeholder": "https://abcdefg.us-east-1.snowflakecomputing.com",
+      "type": "uri",
       "isSecret": false
     },
     {
@@ -74,14 +66,6 @@
       "name": "Schema",
       "description": "The Snowflake schema containing experimentation data",
       "placeholder": "EXP_SCHEMA",
-      "type": "string",
-      "isSecret": false
-    },
-    {
-      "key": "region",
-      "name": "Region",
-      "description": "The Snowflake region the warehouse resides in",
-      "placeholder": "us-east-1",
       "type": "string",
       "isSecret": false
     },
