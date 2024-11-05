@@ -16,8 +16,13 @@ const OAUTH_INTEGRATIONS = [
   'sentry',
   'servicenow',
   'servicenow-normal',
+  'servicenow-app',
 ]; // add oauth integrations here
-const INTEGRATIONS_WITH_DUP_OAUTH_KEYS = ['servicenow', 'servicenow-normal']; // these are integrations we expect to have duplicate oauth integration keys for various reasons
+const INTEGRATIONS_WITH_DUP_OAUTH_KEYS = [
+  'servicenow',
+  'servicenow-normal',
+  'servicenow-app',
+]; // these are integrations we expect to have duplicate oauth integration keys for various reasons
 
 var parse = require('url-parse');
 
