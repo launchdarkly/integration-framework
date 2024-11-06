@@ -46,15 +46,15 @@
       "multiselectOptions": [
         {
           "label": "Measured Rollout Regression Detected",
-          "value": "MeasuredRolloutRegressionDetected"
+          "value": "measured-rollout-regression"
         },
         {
           "label": "Measured Rollout Reverted",
-          "value": "MeasuredRolloutReverted"
+          "value": "measured-rollout-reverted"
         },
         {
           "label": "New Issue Found",
-          "value": "ErrorMonitoringNewIssueFound"
+          "value": "error-monitoring-new-issue-found"
         }
       ]
     },

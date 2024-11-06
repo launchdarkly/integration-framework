@@ -1,9 +1,17 @@
 {
   "routing_key": "{{{formVariables.integrationKey}}}",
   "event_action": "trigger",
-  "dedup_key": "{{{measuredRolloutId}}}",
+  "dedup_key": "{{{templateVariables.measuredRolloutFlagKey}}}",
   "payload": {
-    "summary" : "Measured rollout with ID {{{measuredRolloutId}}} has a new issue",
+    {{#if link}}
+      "links": [
+      {
+        "href": "{{{link}}}",
+        "text": "Go to LaunchDarkly"
+      }
+    ],
+    {{/if}}
+    "summary" : "Measured rollout on flag {{{templateVariables.measuredRolloutFlagName}}} has a new issue",
     "timestamp": "{{{timestamp}}}",
     "severity": "{{{formVariables.severity}}}",
     "source": "app.launchdarkly.com"
