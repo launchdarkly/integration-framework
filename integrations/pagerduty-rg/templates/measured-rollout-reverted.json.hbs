@@ -1,7 +1,7 @@
 {
   "routing_key": "{{{formVariables.integrationKey}}}",
   "event_action": "resolve",
-  "dedup_key": "{{{templateVariables.measuredRolloutFlagKey}}}",
+  "dedup_key": "{{{templateVariables.measuredRolloutDedupKey}}}",
   "payload": {
     {{#if link}}
       "links": [
@@ -14,6 +14,23 @@
     "summary" : "Measured rollout reverted for flag {{{templateVariables.measuredRolloutFlagName}}}",
     "timestamp": "{{{timestamp}}}",
     "severity": "{{{formVariables.severity}}}",
-    "source": "app.launchdarkly.com"
+    "source": "app.launchdarkly.com",
+    "custom_details": {
+      {{#if templateVariables.projKey}}
+      "projKey": "{{{templateVariables.projKey}}}",
+      {{/if}}
+      {{#if templateVariables.envKey}}
+      "envKey": "{{{templateVariables.envKey}}}",
+      {{/if}}
+      {{#if templateVariables.flagKey}}
+      "flagKey": "{{{templateVariables.flagKey}}}",
+      {{/if}}
+      "tags": [
+        {{#each templateVariables.tags}}
+        {{#if @index}}, {{/if}}
+        "{{{this}}}"
+        {{/each}}
+      ]
+    }
   }
 }

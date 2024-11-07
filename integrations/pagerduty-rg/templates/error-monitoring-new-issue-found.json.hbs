@@ -1,7 +1,7 @@
 {
   "routing_key": "{{{formVariables.integrationKey}}}",
   "event_action": "trigger",
-  "dedup_key": "{{{templateVariables.measuredRolloutFlagKey}}}",
+  "dedup_key": "{{{templateVariables.errorMonitoringDedupKey}}}",
   "payload": {
     {{#if link}}
       "links": [
@@ -11,7 +11,7 @@
       }
     ],
     {{/if}}
-    "summary" : "Measured rollout on flag {{{templateVariables.measuredRolloutFlagName}}} has a new issue",
+    "summary" : "New issue found: {{{templateVariables.errorMessage}}}",
     "timestamp": "{{{timestamp}}}",
     "severity": "{{{formVariables.severity}}}",
     "source": "app.launchdarkly.com"
