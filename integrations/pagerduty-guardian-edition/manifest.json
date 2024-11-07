@@ -1,8 +1,8 @@
 {
-  "name": "PagerDuty - Release Guardian",
+  "name": "PagerDuty - Guardian Edition",
   "version": "1.0.0",
-  "overview": "Send Release Guardian events to PagerDuty services.",
-  "description": "Send Release Guardian events to PagerDuty to create or resolve incidents.",
+  "overview": "Send Guardian Edition events to PagerDuty services.",
+  "description": "Send Guardian Edition events to PagerDuty to create or resolve incidents.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
