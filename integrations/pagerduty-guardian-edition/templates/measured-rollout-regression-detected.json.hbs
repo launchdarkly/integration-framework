@@ -2,15 +2,15 @@
   "routing_key": "{{{formVariables.integrationKey}}}",
   "event_action": "trigger",
   "dedup_key": "{{{templateVariables.measuredRolloutDedupKey}}}",
+  {{#if link}}
+    "links": [
+    {
+      "href": "{{{link}}}",
+      "text": "Go to LaunchDarkly"
+    }
+  ],
+  {{/if}}
   "payload": {
-    {{#if link}}
-      "links": [
-      {
-        "href": "{{{link}}}",
-        "text": "Go to LaunchDarkly"
-      }
-    ],
-    {{/if}}
     "summary": "Regression detected for measured rollout on flag {{{templateVariables.measuredRolloutFlagName}}}",
     "timestamp": "{{{timestamp}}}",
     "severity": "{{{formVariables.severity}}}",
