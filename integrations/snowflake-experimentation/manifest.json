@@ -48,7 +48,7 @@
     {
       "key": "warehouse",
       "name": "Warehouse",
-      "description": "The Snowflake warehouse containing experimentation data",
+      "description": "The Snowflake warehouse used to compute experiment results",
       "placeholder": "LD_EXP_WH",
       "type": "string",
       "isSecret": false
