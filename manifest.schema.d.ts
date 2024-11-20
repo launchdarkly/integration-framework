@@ -358,6 +358,10 @@ export type OptionsArray1 = MultiSelectOptionItem[];
  */
 export type MultiSelectDefaultOptions = string[];
 /**
+ * Variables marked as hideEmpty won't be shown in the UI if they are empty
+ */
+export type HideValueInUIWhenEmpty = boolean;
+/**
  * Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.
  */
 export type FormVariables = FormVariable[];
@@ -793,6 +797,7 @@ export interface FormVariable {
   dependsOn?: DependsOn;
   multiselectOptions?: OptionsArray1;
   multiselectDefaultOptions?: MultiSelectDefaultOptions;
+  hideEmpty?: HideValueInUIWhenEmpty;
   [k: string]: unknown;
 }
 /**
