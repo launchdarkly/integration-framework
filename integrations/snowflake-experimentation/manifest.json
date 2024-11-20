@@ -16,73 +16,14 @@
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
-  "legacy": {
-    "kind": "dataExport"
-  },
-  "otherCapabilities": ["dataExport"],
   "formVariables": [
     {
-      "key": "user",
-      "name": "User",
-      "description": "The user used to connect to Snowflake for accessing experimentation data",
-      "placeholder": "SNOW_USER",
+      "key": "snowflakeHostAddress",
+      "name": "Snowflake Host Address",
+      "description": "Description string",
+      "placeholder": "--your-value--.--region--.snowflakecomputing.com",
       "type": "string",
       "isSecret": false
-    },
-    {
-      "key": "role",
-      "name": "Role",
-      "description": "The role used by the connecting user",
-      "placeholder": "SNOW_ROLE",
-      "type": "string",
-      "isSecret": false
-    },
-    {
-      "key": "accountURL",
-      "name": "Account URL",
-      "description": "The URL of the Snowflake account being connected",
-      "placeholder": "https://abcdefg.us-east-1.snowflakecomputing.com",
-      "type": "uri",
-      "isSecret": false
-    },
-    {
-      "key": "warehouse",
-      "name": "Warehouse",
-      "description": "The Snowflake warehouse used to compute experiment results",
-      "placeholder": "LD_EXP_WH",
-      "type": "string",
-      "isSecret": false
-    },
-    {
-      "key": "database",
-      "name": "Database",
-      "description": "The Snowflake database containing experimentation data",
-      "placeholder": "LD_EXP_DB",
-      "type": "string",
-      "isSecret": false
-    },
-    {
-      "key": "schema",
-      "name": "Schema",
-      "description": "The Snowflake schema containing experimentation data",
-      "placeholder": "EXP_SCHEMA",
-      "type": "string",
-      "isSecret": false
-    },
-    {
-      "key": "privateKey",
-      "name": "Private Key",
-      "description": "Private key for the user connecting to Snowlake",
-      "placeholder": "-----BEGIN PRIVATE KEY-----...",
-      "type": "string",
-      "isSecret": true
-    },
-    {
-      "key": "publicKey",
-      "name": "Public Key",
-      "description": "Public key for the user connecting to Snowflake",
-      "placeholder": "-----BEGIN PUBLIC KEY-----...",
-      "type": "string"
     },
     {
       "key": "selectedEnv",
@@ -90,6 +31,13 @@
       "name": "Environment selector",
       "description": "The LaunchDarkly environment to connect experimentation data to",
       "isOptional": false
+    },
+    {
+      "key": "publicKey",
+      "name": "Public key",
+      "description": "This is your public key description",
+      "type": "generated",
+      "hideEmpty": true
     }
   ]
 }
