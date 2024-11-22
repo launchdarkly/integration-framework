@@ -2,7 +2,7 @@
   "name": "Snowflake Export",
   "version": "1.0.0",
   "overview": "Export data to snowflake.",
-  "description": "Export Launchdarkly data to your snowflake warehouse.",
+  "description": "Export Launchdarkly data to your Snowflake warehouse.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "allowIntegrationConfigurations": true,
