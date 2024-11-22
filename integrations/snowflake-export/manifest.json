@@ -5,7 +5,7 @@
   "description": "Export Launchdarkly data to your Snowflake warehouse.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
-  "allowIntegrationConfigurations": true,
+  "allowIntegrationConfigurations": false,
   "links": {
     "site": "https://www.snowflake.com/",
     "launchdarklyDocs": "https://docs.launchdarkly.com/home/data-export/snowflake",
