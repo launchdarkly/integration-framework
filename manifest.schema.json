@@ -251,7 +251,8 @@
           "external",
           "ide",
           "sso",
-          "webhooks"
+          "webhooks",
+          "nativeExperimentation"
         ]
       }
     },

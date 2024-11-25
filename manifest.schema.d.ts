@@ -54,127 +54,127 @@ export type SupportWebsite = string;
  */
 export type Categories =
   | [
-      | "analytics"
-      | "approval"
-      | "authentication"
-      | "automation"
-      | "big-segment-store"
-      | "code-references"
-      | "customer-support"
-      | "data"
-      | "developer-tools"
-      | "import"
-      | "infrastructure"
-      | "issue-tracking"
-      | "log-management"
-      | "messaging"
-      | "migration"
-      | "monitoring"
-      | "synced-segments"
-      | "notifications"
+      | 'analytics'
+      | 'approval'
+      | 'authentication'
+      | 'automation'
+      | 'big-segment-store'
+      | 'code-references'
+      | 'customer-support'
+      | 'data'
+      | 'developer-tools'
+      | 'import'
+      | 'infrastructure'
+      | 'issue-tracking'
+      | 'log-management'
+      | 'messaging'
+      | 'migration'
+      | 'monitoring'
+      | 'synced-segments'
+      | 'notifications'
     ]
   | [
       (
-        | "analytics"
-        | "approval"
-        | "authentication"
-        | "automation"
-        | "big-segment-store"
-        | "code-references"
-        | "customer-support"
-        | "data"
-        | "developer-tools"
-        | "import"
-        | "infrastructure"
-        | "issue-tracking"
-        | "log-management"
-        | "messaging"
-        | "migration"
-        | "monitoring"
-        | "synced-segments"
-        | "notifications"
+        | 'analytics'
+        | 'approval'
+        | 'authentication'
+        | 'automation'
+        | 'big-segment-store'
+        | 'code-references'
+        | 'customer-support'
+        | 'data'
+        | 'developer-tools'
+        | 'import'
+        | 'infrastructure'
+        | 'issue-tracking'
+        | 'log-management'
+        | 'messaging'
+        | 'migration'
+        | 'monitoring'
+        | 'synced-segments'
+        | 'notifications'
       ),
       (
-        | "analytics"
-        | "approval"
-        | "authentication"
-        | "automation"
-        | "big-segment-store"
-        | "code-references"
-        | "customer-support"
-        | "data"
-        | "developer-tools"
-        | "import"
-        | "infrastructure"
-        | "issue-tracking"
-        | "log-management"
-        | "messaging"
-        | "migration"
-        | "monitoring"
-        | "synced-segments"
-        | "notifications"
+        | 'analytics'
+        | 'approval'
+        | 'authentication'
+        | 'automation'
+        | 'big-segment-store'
+        | 'code-references'
+        | 'customer-support'
+        | 'data'
+        | 'developer-tools'
+        | 'import'
+        | 'infrastructure'
+        | 'issue-tracking'
+        | 'log-management'
+        | 'messaging'
+        | 'migration'
+        | 'monitoring'
+        | 'synced-segments'
+        | 'notifications'
       )
     ]
   | [
       (
-        | "analytics"
-        | "approval"
-        | "authentication"
-        | "automation"
-        | "big-segment-store"
-        | "code-references"
-        | "customer-support"
-        | "data"
-        | "developer-tools"
-        | "import"
-        | "infrastructure"
-        | "issue-tracking"
-        | "log-management"
-        | "messaging"
-        | "migration"
-        | "monitoring"
-        | "synced-segments"
-        | "notifications"
+        | 'analytics'
+        | 'approval'
+        | 'authentication'
+        | 'automation'
+        | 'big-segment-store'
+        | 'code-references'
+        | 'customer-support'
+        | 'data'
+        | 'developer-tools'
+        | 'import'
+        | 'infrastructure'
+        | 'issue-tracking'
+        | 'log-management'
+        | 'messaging'
+        | 'migration'
+        | 'monitoring'
+        | 'synced-segments'
+        | 'notifications'
       ),
       (
-        | "analytics"
-        | "approval"
-        | "authentication"
-        | "automation"
-        | "big-segment-store"
-        | "code-references"
-        | "customer-support"
-        | "data"
-        | "developer-tools"
-        | "import"
-        | "infrastructure"
-        | "issue-tracking"
-        | "log-management"
-        | "messaging"
-        | "migration"
-        | "monitoring"
-        | "synced-segments"
-        | "notifications"
+        | 'analytics'
+        | 'approval'
+        | 'authentication'
+        | 'automation'
+        | 'big-segment-store'
+        | 'code-references'
+        | 'customer-support'
+        | 'data'
+        | 'developer-tools'
+        | 'import'
+        | 'infrastructure'
+        | 'issue-tracking'
+        | 'log-management'
+        | 'messaging'
+        | 'migration'
+        | 'monitoring'
+        | 'synced-segments'
+        | 'notifications'
       ),
       (
-        | "analytics"
-        | "approval"
-        | "authentication"
-        | "automation"
-        | "big-segment-store"
-        | "code-references"
-        | "customer-support"
-        | "data"
-        | "developer-tools"
-        | "import"
-        | "infrastructure"
-        | "issue-tracking"
-        | "log-management"
-        | "messaging"
-        | "migration"
-        | "monitoring"
-        | "synced-segments"
-        | "notifications"
+        | 'analytics'
+        | 'approval'
+        | 'authentication'
+        | 'automation'
+        | 'big-segment-store'
+        | 'code-references'
+        | 'customer-support'
+        | 'data'
+        | 'developer-tools'
+        | 'import'
+        | 'infrastructure'
+        | 'issue-tracking'
+        | 'log-management'
+        | 'messaging'
+        | 'migration'
+        | 'monitoring'
+        | 'synced-segments'
+        | 'notifications'
       )
     ];
 /**
@@ -188,13 +188,34 @@ export type HorizontalLogo = string;
 /**
  * Kind of legacy integration
  */
-export type Kind = "codeRefs" | "datadog" | "dataExport" | "slackWebhooks" | "webhooks";
+export type Kind =
+  | 'codeRefs'
+  | 'datadog'
+  | 'dataExport'
+  | 'slackWebhooks'
+  | 'webhooks';
 /**
  * Capabilities not configured by manifests
  */
 export type OtherCapabilities = [
-  "codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks",
-  ...("codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks")[]
+  (
+    | 'codeRefs'
+    | 'dataExport'
+    | 'external'
+    | 'ide'
+    | 'sso'
+    | 'webhooks'
+    | 'nativeExperimentation'
+  ),
+  ...(
+    | 'codeRefs'
+    | 'dataExport'
+    | 'external'
+    | 'ide'
+    | 'sso'
+    | 'webhooks'
+    | 'nativeExperimentation'
+  )[]
 ];
 /**
  * Whether the integration authenticates using OAuth
@@ -216,15 +237,15 @@ export type Name = string;
  * The type of the variable
  */
 export type Type =
-  | "string"
-  | "boolean"
-  | "uri"
-  | "enum"
-  | "oauth"
-  | "dynamicEnum"
-  | "generated"
-  | "environmentSelector"
-  | "multiselect";
+  | 'string'
+  | 'boolean'
+  | 'uri'
+  | 'enum'
+  | 'oauth'
+  | 'dynamicEnum'
+  | 'generated'
+  | 'environmentSelector'
+  | 'multiselect';
 /**
  * Describes the variable in the UI. Markdown links allowed.
  */
@@ -264,7 +285,7 @@ export type URL = string;
 /**
  * HTTP method to use when LaunchDarkly makes the request to your endpoint
  */
-export type HTTPMethod = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+export type HTTPMethod = 'POST' | 'PUT' | 'PATCH' | 'GET' | 'DELETE';
 /**
  * Name of the header
  */
@@ -304,24 +325,27 @@ export type VariableKey = string;
 /**
  * Which form variable type is the variable key defined or located in?
  */
-export type VariableLocation = "approvalFormVariables" | "environmentFormVariables" | "formVariables";
+export type VariableLocation =
+  | 'approvalFormVariables'
+  | 'environmentFormVariables'
+  | 'formVariables';
 /**
  * Action to be taken when your defined conditions evaluates to true
  */
-export type Action = "hideField" | "showField";
+export type Action = 'hideField' | 'showField';
 /**
  * Name of the operator for evaluating a condition.
  */
 export type Operator =
-  | "lessThan"
-  | "lessThanOrEqualTo"
-  | "greaterThan"
-  | "greaterThanOrEqualTo"
-  | "equalTo"
-  | "notEqual"
-  | "contains"
-  | "startsWith"
-  | "endsWith";
+  | 'lessThan'
+  | 'lessThanOrEqualTo'
+  | 'greaterThan'
+  | 'greaterThanOrEqualTo'
+  | 'equalTo'
+  | 'notEqual'
+  | 'contains'
+  | 'startsWith'
+  | 'endsWith';
 /**
  * Target value that conditions are evaluated against
  */
@@ -400,7 +424,7 @@ export type Actions = string[];
 /**
  * This attribute defines whether the statement allows or denies access to the named resources and actions.
  */
-export type Effect = "allow" | "deny";
+export type Effect = 'allow' | 'deny';
 /**
  * A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-actions for more information.
  */
@@ -420,7 +444,7 @@ export type IncludeErrorResponseBody = boolean;
 /**
  * Describes how the audit log event will be delivered to the destination. Custom delivery method indicates a custom delivery implementation in LaunchDarkly will be used.
  */
-export type DeliveryMethod = "custom";
+export type DeliveryMethod = 'custom';
 /**
  * Whether to send the standard audit log webhook payload or to use defined JSON templates
  */
@@ -453,7 +477,7 @@ export type DocumentationLink = string;
 /**
  * Authentication type - currently the only option is sharedSecret.
  */
-export type Authentication = "sharedSecret";
+export type Authentication = 'sharedSecret';
 /**
  * The default event name string used in the audit log if an eventName cannot be parsed in the trigger request body.
  */
@@ -489,11 +513,13 @@ export type ApprovalFormVariables = FormVariable[];
 /**
  * If true, the user can define additional approval form variable fields with which to populate the approval creation request
  */
-export type AllowAdditionalApprovalFormVariablesForCreationRequestModal = boolean;
+export type AllowAdditionalApprovalFormVariablesForCreationRequestModal =
+  boolean;
 /**
  * If true, the user can create integration configurations associated with this integration's approval capability. Requires formVariables to be defined
  */
-export type AllowUsersToConfigureIntegrationConfigurationsForApprovals = boolean;
+export type AllowUsersToConfigureIntegrationConfigurationsForApprovals =
+  boolean;
 /**
  * Template string used to render the JSON request body
  */
@@ -563,7 +589,7 @@ export type LeadText = string;
 /**
  * Data type for the metadata attribute
  */
-export type Type1 = "string" | "uri";
+export type Type1 = 'string' | 'uri';
 /**
  * Url of the image. Handlebars template notation can be used to reference metadata fields.
  */
@@ -691,7 +717,7 @@ export type CohortIdPath1 = string;
 /**
  * Describes what type of database LaunchDarkly will sync big segments to
  */
-export type DatabaseStyle = "redis" | "dynamoDB";
+export type DatabaseStyle = 'redis' | 'dynamoDB';
 /**
  * Template to use for imports from Split
  */

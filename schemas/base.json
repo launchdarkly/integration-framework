@@ -223,7 +223,15 @@
       "minItems": 1,
       "items": {
         "type": "string",
-        "enum": ["codeRefs", "dataExport", "external", "ide", "sso", "webhooks"]
+        "enum": [
+          "codeRefs",
+          "dataExport",
+          "external",
+          "ide",
+          "sso",
+          "webhooks",
+          "nativeExperimentation"
+        ]
       }
     },
     "requiresOAuth": {
