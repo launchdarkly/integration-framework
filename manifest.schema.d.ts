@@ -54,127 +54,127 @@ export type SupportWebsite = string;
  */
 export type Categories =
   | [
-      | 'analytics'
-      | 'approval'
-      | 'authentication'
-      | 'automation'
-      | 'big-segment-store'
-      | 'code-references'
-      | 'customer-support'
-      | 'data'
-      | 'developer-tools'
-      | 'import'
-      | 'infrastructure'
-      | 'issue-tracking'
-      | 'log-management'
-      | 'messaging'
-      | 'migration'
-      | 'monitoring'
-      | 'synced-segments'
-      | 'notifications'
+      | "analytics"
+      | "approval"
+      | "authentication"
+      | "automation"
+      | "big-segment-store"
+      | "code-references"
+      | "customer-support"
+      | "data"
+      | "developer-tools"
+      | "import"
+      | "infrastructure"
+      | "issue-tracking"
+      | "log-management"
+      | "messaging"
+      | "migration"
+      | "monitoring"
+      | "synced-segments"
+      | "notifications"
     ]
   | [
       (
-        | 'analytics'
-        | 'approval'
-        | 'authentication'
-        | 'automation'
-        | 'big-segment-store'
-        | 'code-references'
-        | 'customer-support'
-        | 'data'
-        | 'developer-tools'
-        | 'import'
-        | 'infrastructure'
-        | 'issue-tracking'
-        | 'log-management'
-        | 'messaging'
-        | 'migration'
-        | 'monitoring'
-        | 'synced-segments'
-        | 'notifications'
+        | "analytics"
+        | "approval"
+        | "authentication"
+        | "automation"
+        | "big-segment-store"
+        | "code-references"
+        | "customer-support"
+        | "data"
+        | "developer-tools"
+        | "import"
+        | "infrastructure"
+        | "issue-tracking"
+        | "log-management"
+        | "messaging"
+        | "migration"
+        | "monitoring"
+        | "synced-segments"
+        | "notifications"
       ),
       (
-        | 'analytics'
-        | 'approval'
-        | 'authentication'
-        | 'automation'
-        | 'big-segment-store'
-        | 'code-references'
-        | 'customer-support'
-        | 'data'
-        | 'developer-tools'
-        | 'import'
-        | 'infrastructure'
-        | 'issue-tracking'
-        | 'log-management'
-        | 'messaging'
-        | 'migration'
-        | 'monitoring'
-        | 'synced-segments'
-        | 'notifications'
+        | "analytics"
+        | "approval"
+        | "authentication"
+        | "automation"
+        | "big-segment-store"
+        | "code-references"
+        | "customer-support"
+        | "data"
+        | "developer-tools"
+        | "import"
+        | "infrastructure"
+        | "issue-tracking"
+        | "log-management"
+        | "messaging"
+        | "migration"
+        | "monitoring"
+        | "synced-segments"
+        | "notifications"
       )
     ]
   | [
       (
-        | 'analytics'
-        | 'approval'
-        | 'authentication'
-        | 'automation'
-        | 'big-segment-store'
-        | 'code-references'
-        | 'customer-support'
-        | 'data'
-        | 'developer-tools'
-        | 'import'
-        | 'infrastructure'
-        | 'issue-tracking'
-        | 'log-management'
-        | 'messaging'
-        | 'migration'
-        | 'monitoring'
-        | 'synced-segments'
-        | 'notifications'
+        | "analytics"
+        | "approval"
+        | "authentication"
+        | "automation"
+        | "big-segment-store"
+        | "code-references"
+        | "customer-support"
+        | "data"
+        | "developer-tools"
+        | "import"
+        | "infrastructure"
+        | "issue-tracking"
+        | "log-management"
+        | "messaging"
+        | "migration"
+        | "monitoring"
+        | "synced-segments"
+        | "notifications"
       ),
       (
-        | 'analytics'
-        | 'approval'
-        | 'authentication'
-        | 'automation'
-        | 'big-segment-store'
-        | 'code-references'
-        | 'customer-support'
-        | 'data'
-        | 'developer-tools'
-        | 'import'
-        | 'infrastructure'
-        | 'issue-tracking'
-        | 'log-management'
-        | 'messaging'
-        | 'migration'
-        | 'monitoring'
-        | 'synced-segments'
-        | 'notifications'
+        | "analytics"
+        | "approval"
+        | "authentication"
+        | "automation"
+        | "big-segment-store"
+        | "code-references"
+        | "customer-support"
+        | "data"
+        | "developer-tools"
+        | "import"
+        | "infrastructure"
+        | "issue-tracking"
+        | "log-management"
+        | "messaging"
+        | "migration"
+        | "monitoring"
+        | "synced-segments"
+        | "notifications"
       ),
       (
-        | 'analytics'
-        | 'approval'
-        | 'authentication'
-        | 'automation'
-        | 'big-segment-store'
-        | 'code-references'
-        | 'customer-support'
-        | 'data'
-        | 'developer-tools'
-        | 'import'
-        | 'infrastructure'
-        | 'issue-tracking'
-        | 'log-management'
-        | 'messaging'
-        | 'migration'
-        | 'monitoring'
-        | 'synced-segments'
-        | 'notifications'
+        | "analytics"
+        | "approval"
+        | "authentication"
+        | "automation"
+        | "big-segment-store"
+        | "code-references"
+        | "customer-support"
+        | "data"
+        | "developer-tools"
+        | "import"
+        | "infrastructure"
+        | "issue-tracking"
+        | "log-management"
+        | "messaging"
+        | "migration"
+        | "monitoring"
+        | "synced-segments"
+        | "notifications"
       )
     ];
 /**
@@ -188,34 +188,13 @@ export type HorizontalLogo = string;
 /**
  * Kind of legacy integration
  */
-export type Kind =
-  | 'codeRefs'
-  | 'datadog'
-  | 'dataExport'
-  | 'slackWebhooks'
-  | 'webhooks';
+export type Kind = "codeRefs" | "datadog" | "dataExport" | "slackWebhooks" | "webhooks";
 /**
  * Capabilities not configured by manifests
  */
 export type OtherCapabilities = [
-  (
-    | 'codeRefs'
-    | 'dataExport'
-    | 'external'
-    | 'ide'
-    | 'sso'
-    | 'webhooks'
-    | 'nativeExperimentation'
-  ),
-  ...(
-    | 'codeRefs'
-    | 'dataExport'
-    | 'external'
-    | 'ide'
-    | 'sso'
-    | 'webhooks'
-    | 'nativeExperimentation'
-  )[]
+  "codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks" | "nativeExperimentation",
+  ...("codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks" | "nativeExperimentation")[]
 ];
 /**
  * Whether the integration authenticates using OAuth
@@ -237,15 +216,15 @@ export type Name = string;
  * The type of the variable
  */
 export type Type =
-  | 'string'
-  | 'boolean'
-  | 'uri'
-  | 'enum'
-  | 'oauth'
-  | 'dynamicEnum'
-  | 'generated'
-  | 'environmentSelector'
-  | 'multiselect';
+  | "string"
+  | "boolean"
+  | "uri"
+  | "enum"
+  | "oauth"
+  | "dynamicEnum"
+  | "generated"
+  | "environmentSelector"
+  | "multiselect";
 /**
  * Describes the variable in the UI. Markdown links allowed.
  */
@@ -285,7 +264,7 @@ export type URL = string;
 /**
  * HTTP method to use when LaunchDarkly makes the request to your endpoint
  */
-export type HTTPMethod = 'POST' | 'PUT' | 'PATCH' | 'GET' | 'DELETE';
+export type HTTPMethod = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
 /**
  * Name of the header
  */
@@ -325,27 +304,24 @@ export type VariableKey = string;
 /**
  * Which form variable type is the variable key defined or located in?
  */
-export type VariableLocation =
-  | 'approvalFormVariables'
-  | 'environmentFormVariables'
-  | 'formVariables';
+export type VariableLocation = "approvalFormVariables" | "environmentFormVariables" | "formVariables";
 /**
  * Action to be taken when your defined conditions evaluates to true
  */
-export type Action = 'hideField' | 'showField';
+export type Action = "hideField" | "showField";
 /**
  * Name of the operator for evaluating a condition.
  */
 export type Operator =
-  | 'lessThan'
-  | 'lessThanOrEqualTo'
-  | 'greaterThan'
-  | 'greaterThanOrEqualTo'
-  | 'equalTo'
-  | 'notEqual'
-  | 'contains'
-  | 'startsWith'
-  | 'endsWith';
+  | "lessThan"
+  | "lessThanOrEqualTo"
+  | "greaterThan"
+  | "greaterThanOrEqualTo"
+  | "equalTo"
+  | "notEqual"
+  | "contains"
+  | "startsWith"
+  | "endsWith";
 /**
  * Target value that conditions are evaluated against
  */
@@ -390,6 +366,34 @@ export type HideValueInUIWhenEmpty = boolean;
  */
 export type FormVariables = FormVariable[];
 /**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL1 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod1 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name2 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value4 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders1 = HeaderItems1[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName1 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey1 = string;
+/**
  * Template to use for flag events
  */
 export type FlagTemplate = string;
@@ -424,7 +428,7 @@ export type Actions = string[];
 /**
  * This attribute defines whether the statement allows or denies access to the named resources and actions.
  */
-export type Effect = 'allow' | 'deny';
+export type Effect = "allow" | "deny";
 /**
  * A list of action specifiers defining the actions to which the statement does not apply. See https://docs.launchdarkly.com/home/members/role-actions for more information.
  */
@@ -444,7 +448,7 @@ export type IncludeErrorResponseBody = boolean;
 /**
  * Describes how the audit log event will be delivered to the destination. Custom delivery method indicates a custom delivery implementation in LaunchDarkly will be used.
  */
-export type DeliveryMethod = 'custom';
+export type DeliveryMethod = "custom";
 /**
  * Whether to send the standard audit log webhook payload or to use defined JSON templates
  */
@@ -452,7 +456,7 @@ export type UseStandardWebhookPayload = boolean;
 /**
  * The reserved custom property's display name.
  */
-export type Name2 = string;
+export type Name3 = string;
 /**
  * The custom property's API response key.
  */
@@ -465,7 +469,7 @@ export type Description2 = string;
  * This capability will reserve integration-specific custom property options in the global flag setting configuration. These custom properties will only be presented to users after they have have configured an integration subscription. Read https://docs.launchdarkly.com/home/connecting/custom-properties for more information on custom properties
  */
 export type ReservedCustomProperties = {
-  name: Name2;
+  name: Name3;
   key: Key1;
   description?: Description2;
   [k: string]: unknown;
@@ -477,7 +481,7 @@ export type DocumentationLink = string;
 /**
  * Authentication type - currently the only option is sharedSecret.
  */
-export type Authentication = 'sharedSecret';
+export type Authentication = "sharedSecret";
 /**
  * The default event name string used in the audit log if an eventName cannot be parsed in the trigger request body.
  */
@@ -503,23 +507,363 @@ export type URLPointer = string;
  */
 export type ApprovalSystemName = string;
 /**
+ * A key will be used as the token name when the variable is substituted
+ */
+export type Key2 = string;
+/**
+ * A descriptive name that will be used as the form label on the UI
+ */
+export type Name4 = string;
+/**
+ * The type of the variable
+ */
+export type Type1 =
+  | "string"
+  | "boolean"
+  | "uri"
+  | "enum"
+  | "oauth"
+  | "dynamicEnum"
+  | "generated"
+  | "environmentSelector"
+  | "multiselect";
+/**
+ * Describes the variable in the UI. Markdown links allowed.
+ */
+export type Description3 = string;
+/**
+ * Placeholder value to use in the form element if applicable
+ */
+export type Description4 = string;
+/**
+ * Secret variables will be masked in the UI
+ */
+export type IsThisVariableASecret1 = boolean;
+/**
+ * Variables marked as disabled after saving won't be editable after they are saved
+ */
+export type DisableAfterSaving1 = boolean;
+/**
+ * Variables marked as optional won't be required on the UI
+ */
+export type IsThisVariableOptional1 = boolean;
+/**
+ * Variables marked as hidden won't be displayed on the UI
+ */
+export type HideVariableInTheUI1 = boolean;
+/**
+ * Default value for variable. Can be overridden by the user in the UI
+ */
+export type DefaultValue1 = boolean | string;
+/**
+ * Allowed string values for enum-type formVariables
+ */
+export type AllowedValues1 = string[];
+/**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL2 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod2 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name5 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value5 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders2 = HeaderItems2[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName2 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey2 = string;
+/**
+ * JSON path to the array containing options for parsing
+ */
+export type OptionsArrayPath1 = string;
+/**
+ * Relative JSON path to values for each item in the options array to be used as UI dropdown labels
+ */
+export type Label2 = string;
+/**
+ * Relative JSON path to values for each item in the options array to be used as dropdown values
+ */
+export type Value6 = string;
+/**
+ * Key for the form variable that this form field depends on
+ */
+export type VariableKey1 = string;
+/**
+ * Which form variable type is the variable key defined or located in?
+ */
+export type VariableLocation1 = "approvalFormVariables" | "environmentFormVariables" | "formVariables";
+/**
+ * Action to be taken when your defined conditions evaluates to true
+ */
+export type Action1 = "hideField" | "showField";
+/**
+ * Name of the operator for evaluating a condition.
+ */
+export type Operator1 =
+  | "lessThan"
+  | "lessThanOrEqualTo"
+  | "greaterThan"
+  | "greaterThanOrEqualTo"
+  | "equalTo"
+  | "notEqual"
+  | "contains"
+  | "startsWith"
+  | "endsWith";
+/**
+ * Target value that conditions are evaluated against
+ */
+export type Value7 = string;
+/**
+ * Conditional configurations to be evaluated to decide whether an action should taken for the form field.
+ */
+export type Conditions1 = {
+  operator: Operator1;
+  value: Value7;
+  [k: string]: unknown;
+}[];
+/**
+ * Dependency configuration to control the state and visibility of the form field.
+ */
+export type DependsOn1 = {
+  variableKey: VariableKey1;
+  variableLocation: VariableLocation1;
+  action: Action1;
+  conditions: Conditions1;
+  [k: string]: unknown;
+}[];
+/**
+ * Label of the multi select option
+ */
+export type Label3 = string;
+/**
+ * Value of the multi select option
+ */
+export type Value8 = string;
+export type OptionsArray3 = MultiSelectOptionItem1[];
+/**
+ * Default options to be selected when the multi select is first rendered
+ */
+export type MultiSelectDefaultOptions1 = string[];
+/**
+ * Variables marked as hideEmpty won't be shown in the UI if they are empty
+ */
+export type HideValueInUIWhenEmpty1 = boolean;
+/**
  * Environment-specific form variables that render on the environment approval settings modal
  */
-export type EnvironmentFormVariables = FormVariable[];
+export type EnvironmentFormVariables = FormVariable1[];
+/**
+ * A key will be used as the token name when the variable is substituted
+ */
+export type Key3 = string;
+/**
+ * A descriptive name that will be used as the form label on the UI
+ */
+export type Name6 = string;
+/**
+ * The type of the variable
+ */
+export type Type2 =
+  | "string"
+  | "boolean"
+  | "uri"
+  | "enum"
+  | "oauth"
+  | "dynamicEnum"
+  | "generated"
+  | "environmentSelector"
+  | "multiselect";
+/**
+ * Describes the variable in the UI. Markdown links allowed.
+ */
+export type Description5 = string;
+/**
+ * Placeholder value to use in the form element if applicable
+ */
+export type Description6 = string;
+/**
+ * Secret variables will be masked in the UI
+ */
+export type IsThisVariableASecret2 = boolean;
+/**
+ * Variables marked as disabled after saving won't be editable after they are saved
+ */
+export type DisableAfterSaving2 = boolean;
+/**
+ * Variables marked as optional won't be required on the UI
+ */
+export type IsThisVariableOptional2 = boolean;
+/**
+ * Variables marked as hidden won't be displayed on the UI
+ */
+export type HideVariableInTheUI2 = boolean;
+/**
+ * Default value for variable. Can be overridden by the user in the UI
+ */
+export type DefaultValue2 = boolean | string;
+/**
+ * Allowed string values for enum-type formVariables
+ */
+export type AllowedValues2 = string[];
+/**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL3 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod3 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name7 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value9 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders3 = HeaderItems3[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName3 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey3 = string;
+/**
+ * JSON path to the array containing options for parsing
+ */
+export type OptionsArrayPath2 = string;
+/**
+ * Relative JSON path to values for each item in the options array to be used as UI dropdown labels
+ */
+export type Label4 = string;
+/**
+ * Relative JSON path to values for each item in the options array to be used as dropdown values
+ */
+export type Value10 = string;
+/**
+ * Key for the form variable that this form field depends on
+ */
+export type VariableKey2 = string;
+/**
+ * Which form variable type is the variable key defined or located in?
+ */
+export type VariableLocation2 = "approvalFormVariables" | "environmentFormVariables" | "formVariables";
+/**
+ * Action to be taken when your defined conditions evaluates to true
+ */
+export type Action2 = "hideField" | "showField";
+/**
+ * Name of the operator for evaluating a condition.
+ */
+export type Operator2 =
+  | "lessThan"
+  | "lessThanOrEqualTo"
+  | "greaterThan"
+  | "greaterThanOrEqualTo"
+  | "equalTo"
+  | "notEqual"
+  | "contains"
+  | "startsWith"
+  | "endsWith";
+/**
+ * Target value that conditions are evaluated against
+ */
+export type Value11 = string;
+/**
+ * Conditional configurations to be evaluated to decide whether an action should taken for the form field.
+ */
+export type Conditions2 = {
+  operator: Operator2;
+  value: Value11;
+  [k: string]: unknown;
+}[];
+/**
+ * Dependency configuration to control the state and visibility of the form field.
+ */
+export type DependsOn2 = {
+  variableKey: VariableKey2;
+  variableLocation: VariableLocation2;
+  action: Action2;
+  conditions: Conditions2;
+  [k: string]: unknown;
+}[];
+/**
+ * Label of the multi select option
+ */
+export type Label5 = string;
+/**
+ * Value of the multi select option
+ */
+export type Value12 = string;
+export type OptionsArray5 = MultiSelectOptionItem2[];
+/**
+ * Default options to be selected when the multi select is first rendered
+ */
+export type MultiSelectDefaultOptions2 = string[];
+/**
+ * Variables marked as hideEmpty won't be shown in the UI if they are empty
+ */
+export type HideValueInUIWhenEmpty2 = boolean;
 /**
  * Approval-specific form variables that render on the approval request creation modal
  */
-export type ApprovalFormVariables = FormVariable[];
+export type ApprovalFormVariables = FormVariable2[];
 /**
  * If true, the user can define additional approval form variable fields with which to populate the approval creation request
  */
-export type AllowAdditionalApprovalFormVariablesForCreationRequestModal =
-  boolean;
+export type AllowAdditionalApprovalFormVariablesForCreationRequestModal = boolean;
 /**
  * If true, the user can create integration configurations associated with this integration's approval capability. Requires formVariables to be defined
  */
-export type AllowUsersToConfigureIntegrationConfigurationsForApprovals =
-  boolean;
+export type AllowUsersToConfigureIntegrationConfigurationsForApprovals = boolean;
+/**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL4 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod4 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name8 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value13 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders4 = HeaderItems4[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName4 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey4 = string;
 /**
  * Template string used to render the JSON request body
  */
@@ -549,6 +893,206 @@ export type RejectionMatcher = string;
  */
 export type URLTemplate = string;
 /**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL5 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod5 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name9 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value14 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders5 = HeaderItems5[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName5 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey5 = string;
+/**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody1 = string;
+/**
+ * Externally-created approval entity ID
+ */
+export type ApprovalIDPointer1 = string;
+/**
+ * JSON pointer to a status value
+ */
+export type StatusValuePointer1 = string;
+/**
+ * JSON pointer to a human-readable status
+ */
+export type StatusValueDisplayPointer1 = string;
+/**
+ * regex pattern used to determine if the approval should be considered 'approved'
+ */
+export type ApprovalMatcher1 = string;
+/**
+ * regex pattern used to determine if the approval should be considered 'rejected'
+ */
+export type RejectionMatcher1 = string;
+/**
+ * expected format for the external creation request URL. Values can be substituted in using {{value}}
+ */
+export type URLTemplate1 = string;
+/**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL6 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod6 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name10 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value15 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders6 = HeaderItems6[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName6 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey6 = string;
+/**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody2 = string;
+/**
+ * Externally-created approval entity ID
+ */
+export type ApprovalIDPointer2 = string;
+/**
+ * JSON pointer to a status value
+ */
+export type StatusValuePointer2 = string;
+/**
+ * JSON pointer to a human-readable status
+ */
+export type StatusValueDisplayPointer2 = string;
+/**
+ * regex pattern used to determine if the approval should be considered 'approved'
+ */
+export type ApprovalMatcher2 = string;
+/**
+ * regex pattern used to determine if the approval should be considered 'rejected'
+ */
+export type RejectionMatcher2 = string;
+/**
+ * expected format for the external creation request URL. Values can be substituted in using {{value}}
+ */
+export type URLTemplate2 = string;
+/**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL7 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod7 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name11 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value16 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders7 = HeaderItems7[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName7 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey7 = string;
+/**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody3 = string;
+/**
+ * Externally-created approval entity ID
+ */
+export type ApprovalIDPointer3 = string;
+/**
+ * JSON pointer to a status value
+ */
+export type StatusValuePointer3 = string;
+/**
+ * JSON pointer to a human-readable status
+ */
+export type StatusValueDisplayPointer3 = string;
+/**
+ * regex pattern used to determine if the approval should be considered 'approved'
+ */
+export type ApprovalMatcher3 = string;
+/**
+ * regex pattern used to determine if the approval should be considered 'rejected'
+ */
+export type RejectionMatcher3 = string;
+/**
+ * expected format for the external creation request URL. Values can be substituted in using {{value}}
+ */
+export type URLTemplate3 = string;
+/**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL8 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod8 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name12 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value17 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders8 = HeaderItems8[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName8 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey8 = string;
+/**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody4 = string;
+/**
  * JSON path to the array containing integration member details
  */
 export type MemberArrayPath = string;
@@ -561,11 +1105,224 @@ export type Email = string;
  */
 export type MemberID = string;
 /**
+ * A key will be used as the token name when the variable is substituted
+ */
+export type Key4 = string;
+/**
+ * A descriptive name that will be used as the form label on the UI
+ */
+export type Name13 = string;
+/**
+ * The type of the variable
+ */
+export type Type3 =
+  | "string"
+  | "boolean"
+  | "uri"
+  | "enum"
+  | "oauth"
+  | "dynamicEnum"
+  | "generated"
+  | "environmentSelector"
+  | "multiselect";
+/**
+ * Describes the variable in the UI. Markdown links allowed.
+ */
+export type Description7 = string;
+/**
+ * Placeholder value to use in the form element if applicable
+ */
+export type Description8 = string;
+/**
+ * Secret variables will be masked in the UI
+ */
+export type IsThisVariableASecret3 = boolean;
+/**
+ * Variables marked as disabled after saving won't be editable after they are saved
+ */
+export type DisableAfterSaving3 = boolean;
+/**
+ * Variables marked as optional won't be required on the UI
+ */
+export type IsThisVariableOptional3 = boolean;
+/**
+ * Variables marked as hidden won't be displayed on the UI
+ */
+export type HideVariableInTheUI3 = boolean;
+/**
+ * Default value for variable. Can be overridden by the user in the UI
+ */
+export type DefaultValue3 = boolean | string;
+/**
+ * Allowed string values for enum-type formVariables
+ */
+export type AllowedValues3 = string[];
+/**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL9 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod9 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name14 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value18 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders9 = HeaderItems9[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName9 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey9 = string;
+/**
+ * JSON path to the array containing options for parsing
+ */
+export type OptionsArrayPath3 = string;
+/**
+ * Relative JSON path to values for each item in the options array to be used as UI dropdown labels
+ */
+export type Label6 = string;
+/**
+ * Relative JSON path to values for each item in the options array to be used as dropdown values
+ */
+export type Value19 = string;
+/**
+ * Key for the form variable that this form field depends on
+ */
+export type VariableKey3 = string;
+/**
+ * Which form variable type is the variable key defined or located in?
+ */
+export type VariableLocation3 = "approvalFormVariables" | "environmentFormVariables" | "formVariables";
+/**
+ * Action to be taken when your defined conditions evaluates to true
+ */
+export type Action3 = "hideField" | "showField";
+/**
+ * Name of the operator for evaluating a condition.
+ */
+export type Operator3 =
+  | "lessThan"
+  | "lessThanOrEqualTo"
+  | "greaterThan"
+  | "greaterThanOrEqualTo"
+  | "equalTo"
+  | "notEqual"
+  | "contains"
+  | "startsWith"
+  | "endsWith";
+/**
+ * Target value that conditions are evaluated against
+ */
+export type Value20 = string;
+/**
+ * Conditional configurations to be evaluated to decide whether an action should taken for the form field.
+ */
+export type Conditions3 = {
+  operator: Operator3;
+  value: Value20;
+  [k: string]: unknown;
+}[];
+/**
+ * Dependency configuration to control the state and visibility of the form field.
+ */
+export type DependsOn3 = {
+  variableKey: VariableKey3;
+  variableLocation: VariableLocation3;
+  action: Action3;
+  conditions: Conditions3;
+  [k: string]: unknown;
+}[];
+/**
+ * Label of the multi select option
+ */
+export type Label7 = string;
+/**
+ * Value of the multi select option
+ */
+export type Value21 = string;
+export type OptionsArray7 = MultiSelectOptionItem3[];
+/**
+ * Default options to be selected when the multi select is first rendered
+ */
+export type MultiSelectDefaultOptions3 = string[];
+/**
+ * Variables marked as hideEmpty won't be shown in the UI if they are empty
+ */
+export type HideValueInUIWhenEmpty3 = boolean;
+/**
  * Provider specific configuration that LaunchDarkly needs in order to write feature flag data to the provider's data store
  */
-export type ProviderFormVariables = FormVariable[];
+export type ProviderFormVariables = FormVariable3[];
+/**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL10 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod10 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name15 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value22 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders10 = HeaderItems10[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName10 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey10 = string;
 export type SuccessPointer = string;
 export type ErrorsPointer = string;
+/**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL11 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod11 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name16 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value23 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders11 = HeaderItems11[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName11 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey11 = string;
 /**
  * Optional prefix to wrap payload data with (used for some integrations)
  */
@@ -589,7 +1346,7 @@ export type LeadText = string;
 /**
  * Data type for the metadata attribute
  */
-export type Type1 = 'string' | 'uri';
+export type Type4 = "string" | "uri";
 /**
  * Url of the image. Handlebars template notation can be used to reference metadata fields.
  */
@@ -605,7 +1362,7 @@ export type IsAvatar = boolean;
 /**
  * Template string used to render a visual block in LaunchDarkly UI to display a name
  */
-export type Name3 = string;
+export type Name17 = string;
 /**
  * Text to be displayed for the element. The text can contain template variables
  */
@@ -633,11 +1390,27 @@ export type LinkToReference = boolean;
 /**
  * Markdown string used to render a visual block in LaunchDarkly UI to display a link description
  */
-export type Description3 = string;
+export type Description9 = string;
+/**
+ * Text to be displayed for the element. The text can contain template variables
+ */
+export type Text1 = string;
+/**
+ * Indicates whether the element should be bolded
+ */
+export type IsBold1 = boolean;
+/**
+ * Indicates whether the element should be rendered as a timestamp
+ */
+export type IsTimestamp1 = boolean;
+/**
+ * URL to be set for the element which also indicates the element should be rendered as a hyperlink
+ */
+export type Url1 = string;
 /**
  * An array of elements to be combined to create a context block
  */
-export type Elements1 = UIBlockElement[];
+export type Elements1 = UIBlockElement1[];
 /**
  * This capability will disable in-app editing for the integration
  */
@@ -717,7 +1490,7 @@ export type CohortIdPath1 = string;
 /**
  * Describes what type of database LaunchDarkly will sync big segments to
  */
-export type DatabaseStyle = 'redis' | 'dynamoDB';
+export type DatabaseStyle = "redis" | "dynamoDB";
 /**
  * Template to use for imports from Split
  */
@@ -735,6 +1508,34 @@ export type StatSigTemplate = string;
  */
 export type IncludeErrorResponseBody1 = boolean;
 /**
+ * URL to send the request to. You can use {{template markup}} to inject a formVariable into the url.
+ */
+export type URL12 = string;
+/**
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ */
+export type HTTPMethod12 = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+/**
+ * Name of the header
+ */
+export type Name18 = string;
+/**
+ * Value of the header. Form variables can be substituted in using {{variableName}}
+ */
+export type Value24 = string;
+/**
+ * Headers to send with the webhook request
+ */
+export type HTTPHeaders12 = HeaderItems12[];
+/**
+ * The name of the HMAC signature header
+ */
+export type HMACSignatureHeaderName12 = string;
+/**
+ * The name of the form variable field that corresponds to the HMAC encryption secret
+ */
+export type HMACSecretFormVariableKey12 = string;
+/**
  * Template to use for measuredRolloutRegressionDetected events
  */
 export type MeasuredRolloutRegressionDetectedTemplate = string;
@@ -746,6 +1547,10 @@ export type MeasuredRolloutRevertedTemplate = string;
  * Template to use for errorMonitoringNewIssueFound events
  */
 export type ErrorMonitoringNewIssueFoundTemplate = string;
+/**
+ * Whether errors received from your endpoint should be displayed in the error log in LaunchDarkly UI
+ */
+export type IncludeErrorResponseBody2 = boolean;
 /**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
@@ -904,12 +1709,38 @@ export interface Capabilities {
  * This capability will enable LaunchDarkly to send audit log event webhooks to your endpoint.
  */
 export interface AuditLogEventsHook {
-  endpoint?: Endpoint;
+  endpoint?: Endpoint1;
   templates: WebhookBodyTemplate;
   defaultPolicy?: DefaultPolicy;
   includeErrorResponseBody?: IncludeErrorResponseBody;
   deliveryMethod?: DeliveryMethod;
   useStandardWebhookPayload?: UseStandardWebhookPayload;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint1 {
+  url: URL1;
+  method: HTTPMethod1;
+  headers?: HTTPHeaders1;
+  hmacSignature?: HMACSignature1;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems1 {
+  name: Name2;
+  value: Value4;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature1 {
+  headerName?: HMACSignatureHeaderName1;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey1;
   [k: string]: unknown;
 }
 /**
@@ -972,12 +1803,192 @@ export interface Approval {
   [k: string]: unknown;
 }
 /**
+ * A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an integration.
+ */
+export interface FormVariable1 {
+  key: Key2;
+  name: Name4;
+  type: Type1;
+  description: Description3;
+  placeholder?: Description4;
+  isSecret?: IsThisVariableASecret1;
+  disableAfterSaving?: DisableAfterSaving1;
+  isOptional?: IsThisVariableOptional1;
+  isHidden?: HideVariableInTheUI1;
+  defaultValue?: DefaultValue1;
+  allowedValues?: AllowedValues1;
+  dynamicOptions?: DynamicOptions1;
+  dependsOn?: DependsOn1;
+  multiselectOptions?: OptionsArray3;
+  multiselectDefaultOptions?: MultiSelectDefaultOptions1;
+  hideEmpty?: HideValueInUIWhenEmpty1;
+  [k: string]: unknown;
+}
+/**
+ * Parser and endpoint for handling dynamicEnum
+ */
+export interface DynamicOptions1 {
+  endpoint: Endpoint2;
+  parser: DynamicOptionsParser1;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint2 {
+  url: URL2;
+  method: HTTPMethod2;
+  headers?: HTTPHeaders2;
+  hmacSignature?: HMACSignature2;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems2 {
+  name: Name5;
+  value: Value5;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature2 {
+  headerName?: HMACSignatureHeaderName2;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey2;
+  [k: string]: unknown;
+}
+/**
+ * Mapping of property names to location in JSON response
+ */
+export interface DynamicOptionsParser1 {
+  optionsPath: OptionsArrayPath1;
+  optionsItems: OptionsArray2;
+  [k: string]: unknown;
+}
+export interface OptionsArray2 {
+  label: Label2;
+  value: Value6;
+  [k: string]: unknown;
+}
+/**
+ * A multi select option item
+ */
+export interface MultiSelectOptionItem1 {
+  label: Label3;
+  value: Value8;
+  [k: string]: unknown;
+}
+/**
+ * A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an integration.
+ */
+export interface FormVariable2 {
+  key: Key3;
+  name: Name6;
+  type: Type2;
+  description: Description5;
+  placeholder?: Description6;
+  isSecret?: IsThisVariableASecret2;
+  disableAfterSaving?: DisableAfterSaving2;
+  isOptional?: IsThisVariableOptional2;
+  isHidden?: HideVariableInTheUI2;
+  defaultValue?: DefaultValue2;
+  allowedValues?: AllowedValues2;
+  dynamicOptions?: DynamicOptions2;
+  dependsOn?: DependsOn2;
+  multiselectOptions?: OptionsArray5;
+  multiselectDefaultOptions?: MultiSelectDefaultOptions2;
+  hideEmpty?: HideValueInUIWhenEmpty2;
+  [k: string]: unknown;
+}
+/**
+ * Parser and endpoint for handling dynamicEnum
+ */
+export interface DynamicOptions2 {
+  endpoint: Endpoint3;
+  parser: DynamicOptionsParser2;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint3 {
+  url: URL3;
+  method: HTTPMethod3;
+  headers?: HTTPHeaders3;
+  hmacSignature?: HMACSignature3;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems3 {
+  name: Name7;
+  value: Value9;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature3 {
+  headerName?: HMACSignatureHeaderName3;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey3;
+  [k: string]: unknown;
+}
+/**
+ * Mapping of property names to location in JSON response
+ */
+export interface DynamicOptionsParser2 {
+  optionsPath: OptionsArrayPath2;
+  optionsItems: OptionsArray4;
+  [k: string]: unknown;
+}
+export interface OptionsArray4 {
+  label: Label4;
+  value: Value10;
+  [k: string]: unknown;
+}
+/**
+ * A multi select option item
+ */
+export interface MultiSelectOptionItem2 {
+  label: Label5;
+  value: Value12;
+  [k: string]: unknown;
+}
+/**
  * Describes the approval creation HTTP request and the parser used to process the JSON response
  */
 export interface CreationRequest {
-  endpoint: Endpoint;
+  endpoint: Endpoint4;
   jsonBody?: JSONBody;
   parser?: ApprovalParser;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint4 {
+  url: URL4;
+  method: HTTPMethod4;
+  headers?: HTTPHeaders4;
+  hmacSignature?: HMACSignature4;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems4 {
+  name: Name8;
+  value: Value13;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature4 {
+  headerName?: HMACSignatureHeaderName4;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey4;
   [k: string]: unknown;
 }
 /**
@@ -996,36 +2007,176 @@ export interface ApprovalParser {
  * Describes the approval status check HTTP request and the parser used to determine if the approval should be consider approved or rejected
  */
 export interface StatusRequest {
-  endpoint: Endpoint;
-  jsonBody?: JSONBody;
-  parser: ApprovalParser;
+  endpoint: Endpoint5;
+  jsonBody?: JSONBody1;
+  parser: ApprovalParser1;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint5 {
+  url: URL5;
+  method: HTTPMethod5;
+  headers?: HTTPHeaders5;
+  hmacSignature?: HMACSignature5;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems5 {
+  name: Name9;
+  value: Value14;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature5 {
+  headerName?: HMACSignatureHeaderName5;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey5;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer
+ */
+export interface ApprovalParser1 {
+  approvalId?: ApprovalIDPointer1;
+  statusValue: StatusValuePointer1;
+  statusDisplay?: StatusValueDisplayPointer1;
+  approvalMatcher: ApprovalMatcher1;
+  rejectionMatcher?: RejectionMatcher1;
+  urlTemplate?: URLTemplate1;
   [k: string]: unknown;
 }
 /**
  * Describes the HTTP request to make after the changes have been applied in LaunchDarkly
  */
 export interface PostApplyRequest {
-  endpoint: Endpoint;
-  jsonBody?: JSONBody;
-  parser: ApprovalParser;
+  endpoint: Endpoint6;
+  jsonBody?: JSONBody2;
+  parser: ApprovalParser2;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint6 {
+  url: URL6;
+  method: HTTPMethod6;
+  headers?: HTTPHeaders6;
+  hmacSignature?: HMACSignature6;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems6 {
+  name: Name10;
+  value: Value15;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature6 {
+  headerName?: HMACSignatureHeaderName6;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey6;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer
+ */
+export interface ApprovalParser2 {
+  approvalId?: ApprovalIDPointer2;
+  statusValue: StatusValuePointer2;
+  statusDisplay?: StatusValueDisplayPointer2;
+  approvalMatcher: ApprovalMatcher2;
+  rejectionMatcher?: RejectionMatcher2;
+  urlTemplate?: URLTemplate2;
   [k: string]: unknown;
 }
 /**
  * Describes the HTTP request for the deletion of the external approval entity
  */
 export interface DeletionRequest {
-  endpoint: Endpoint;
-  jsonBody?: JSONBody;
-  parser: ApprovalParser;
+  endpoint: Endpoint7;
+  jsonBody?: JSONBody3;
+  parser: ApprovalParser3;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint7 {
+  url: URL7;
+  method: HTTPMethod7;
+  headers?: HTTPHeaders7;
+  hmacSignature?: HMACSignature7;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems7 {
+  name: Name11;
+  value: Value16;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature7 {
+  headerName?: HMACSignatureHeaderName7;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey7;
+  [k: string]: unknown;
+}
+/**
+ * Describes a mapping of property names to a location in the JSON response payload specified by a JSON pointer
+ */
+export interface ApprovalParser3 {
+  approvalId?: ApprovalIDPointer3;
+  statusValue: StatusValuePointer3;
+  statusDisplay?: StatusValueDisplayPointer3;
+  approvalMatcher: ApprovalMatcher3;
+  rejectionMatcher?: RejectionMatcher3;
+  urlTemplate?: URLTemplate3;
   [k: string]: unknown;
 }
 /**
  * Describes the HTTP request to get integration users for mapping to Launchdarkly users
  */
 export interface MemberListRequest {
-  endpoint: Endpoint;
-  jsonBody?: JSONBody;
+  endpoint: Endpoint8;
+  jsonBody?: JSONBody4;
   parser: MemberListParser;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint8 {
+  url: URL8;
+  method: HTTPMethod8;
+  headers?: HTTPHeaders8;
+  hmacSignature?: HMACSignature8;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems8 {
+  name: Name12;
+  value: Value17;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature8 {
+  headerName?: HMACSignatureHeaderName8;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey8;
   [k: string]: unknown;
 }
 /**
@@ -1051,11 +2202,114 @@ export interface FeatureStore {
   [k: string]: unknown;
 }
 /**
+ * A form variable describes an object property that the LaunchDarkly admin will be prompted for when they configure an integration.
+ */
+export interface FormVariable3 {
+  key: Key4;
+  name: Name13;
+  type: Type3;
+  description: Description7;
+  placeholder?: Description8;
+  isSecret?: IsThisVariableASecret3;
+  disableAfterSaving?: DisableAfterSaving3;
+  isOptional?: IsThisVariableOptional3;
+  isHidden?: HideVariableInTheUI3;
+  defaultValue?: DefaultValue3;
+  allowedValues?: AllowedValues3;
+  dynamicOptions?: DynamicOptions3;
+  dependsOn?: DependsOn3;
+  multiselectOptions?: OptionsArray7;
+  multiselectDefaultOptions?: MultiSelectDefaultOptions3;
+  hideEmpty?: HideValueInUIWhenEmpty3;
+  [k: string]: unknown;
+}
+/**
+ * Parser and endpoint for handling dynamicEnum
+ */
+export interface DynamicOptions3 {
+  endpoint: Endpoint9;
+  parser: DynamicOptionsParser3;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint9 {
+  url: URL9;
+  method: HTTPMethod9;
+  headers?: HTTPHeaders9;
+  hmacSignature?: HMACSignature9;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems9 {
+  name: Name14;
+  value: Value18;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature9 {
+  headerName?: HMACSignatureHeaderName9;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey9;
+  [k: string]: unknown;
+}
+/**
+ * Mapping of property names to location in JSON response
+ */
+export interface DynamicOptionsParser3 {
+  optionsPath: OptionsArrayPath3;
+  optionsItems: OptionsArray6;
+  [k: string]: unknown;
+}
+export interface OptionsArray6 {
+  label: Label6;
+  value: Value19;
+  [k: string]: unknown;
+}
+/**
+ * A multi select option item
+ */
+export interface MultiSelectOptionItem3 {
+  label: Label7;
+  value: Value21;
+  [k: string]: unknown;
+}
+/**
  * Details needed to make a request to test that the provided form variables are valid
  */
 export interface ValidationRequest {
-  endpoint: Endpoint;
+  endpoint: Endpoint10;
   parser: FeatureStoreValidationParser;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint10 {
+  url: URL10;
+  method: HTTPMethod10;
+  headers?: HTTPHeaders10;
+  hmacSignature?: HMACSignature10;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems10 {
+  name: Name15;
+  value: Value22;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature10 {
+  headerName?: HMACSignatureHeaderName10;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey10;
   [k: string]: unknown;
 }
 /**
@@ -1070,9 +2324,35 @@ export interface FeatureStoreValidationParser {
  * Details needed to make a request to deliver the flag payload to the feature store
  */
 export interface FeatureStoreRequest {
-  endpoint: Endpoint;
+  endpoint: Endpoint11;
   payloadPrefix?: Prefix;
   payloadSuffix?: Suffix;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint11 {
+  url: URL11;
+  method: HTTPMethod11;
+  headers?: HTTPHeaders11;
+  hmacSignature?: HMACSignature11;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems11 {
+  name: Name16;
+  value: Value23;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature11 {
+  headerName?: HMACSignatureHeaderName11;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey11;
   [k: string]: unknown;
 }
 /**
@@ -1098,7 +2378,7 @@ export interface EmptyState {
  */
 export interface FlagLinkMetadata {
   [k: string]: {
-    type: Type1;
+    type: Type4;
     [k: string]: unknown;
   };
 }
@@ -1107,9 +2387,9 @@ export interface FlagLinkMetadata {
  */
 export interface UIBlocks {
   image?: Image;
-  name?: Name3;
+  name?: Name17;
   title?: Title1;
-  description?: Description3;
+  description?: Description9;
   context?: FlagLinkContext;
   [k: string]: unknown;
 }
@@ -1145,6 +2425,16 @@ export interface UIBlockElement {
  */
 export interface FlagLinkContext {
   elements: Elements1;
+  [k: string]: unknown;
+}
+/**
+ * A sub component of a UI block that can be combined with other elements to form a UI block
+ */
+export interface UIBlockElement1 {
+  text: Text1;
+  isBold?: IsBold1;
+  isTimestamp?: IsTimestamp1;
+  url?: Url1;
   [k: string]: unknown;
 }
 /**
@@ -1225,9 +2515,35 @@ export interface FlagImportBodyTemplate {
  * This capability will enable LaunchDarkly to send webhooks to your endpoint when particular events are observed.
  */
 export interface EventsHook {
-  endpoint: Endpoint;
+  endpoint: Endpoint12;
   templates: EDAEventsWebhookBodyTemplate;
-  includeErrorResponseBody?: IncludeErrorResponseBody;
+  includeErrorResponseBody?: IncludeErrorResponseBody2;
+  [k: string]: unknown;
+}
+/**
+ * Properties that describe an HTTP request to an external endpoint
+ */
+export interface Endpoint12 {
+  url: URL12;
+  method: HTTPMethod12;
+  headers?: HTTPHeaders12;
+  hmacSignature?: HMACSignature12;
+  [k: string]: unknown;
+}
+/**
+ * A name and value pair to send as headers with the hook request
+ */
+export interface HeaderItems12 {
+  name: Name18;
+  value: Value24;
+  [k: string]: unknown;
+}
+/**
+ * Whether or not and how to configure HMAC validation on outgoing webhooks
+ */
+export interface HMACSignature12 {
+  headerName?: HMACSignatureHeaderName12;
+  hmacSecretFormVariableKey?: HMACSecretFormVariableKey12;
   [k: string]: unknown;
 }
 /**
