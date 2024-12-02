@@ -16,7 +16,7 @@
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
-  "otherCapabilities": ["nativeExperimentation"],
+  "otherCapabilities": ["warehouseExperimentation"],
   "formVariables": [
     {
       "key": "snowflakeHostAddress",

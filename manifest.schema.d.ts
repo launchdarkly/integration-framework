@@ -193,8 +193,8 @@ export type Kind = "codeRefs" | "datadog" | "dataExport" | "slackWebhooks" | "we
  * Capabilities not configured by manifests
  */
 export type OtherCapabilities = [
-  "codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks" | "nativeExperimentation",
-  ...("codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks" | "nativeExperimentation")[]
+  "codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks" | "warehouseExperimentation",
+  ...("codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks" | "warehouseExperimentation")[]
 ];
 /**
  * Whether the integration authenticates using OAuth
