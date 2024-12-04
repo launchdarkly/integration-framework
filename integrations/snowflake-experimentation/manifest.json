@@ -38,7 +38,9 @@
       "name": "Public key",
       "description": "This is your public key description",
       "type": "generated",
-      "hideEmpty": true
+      "hideEmpty": true,
+      "defaultValue": "",
+      "isOptional": true
     },
     {
       "key": "privateKey",
@@ -46,7 +48,9 @@
       "description": "This is your private key description",
       "type": "string",
       "isHidden": true,
-      "isSecret": true
+      "isSecret": true,
+      "defaultValue": "",
+      "isOptional": true
     }
   ]
 }
