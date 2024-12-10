@@ -230,7 +230,8 @@
           "ide",
           "sso",
           "webhooks",
-          "warehouseExperimentation"
+          "warehouseExperimentation",
+          "warehouseExport"
         ]
       }
     },

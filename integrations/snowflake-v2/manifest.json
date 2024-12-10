@@ -19,5 +19,5 @@
   "legacy": {
     "kind": "dataExport"
   },
-  "otherCapabilities": ["dataExport"]
+  "otherCapabilities": ["dataExport", "warehouseExport"]
 }
