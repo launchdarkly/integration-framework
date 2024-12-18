@@ -51,6 +51,15 @@
       "isSecret": true,
       "defaultValue": "",
       "isOptional": true
+    },
+    {
+      "key": "syncTaskId",
+      "name": "Sync Task Id",
+      "description": "The task id of the sync task",
+      "type": "string",
+      "isHidden": true,
+      "isOptional": true,
+      "defaultValue": ""
     }
   ]
 }
