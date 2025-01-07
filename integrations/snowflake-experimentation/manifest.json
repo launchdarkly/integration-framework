@@ -20,23 +20,25 @@
   "formVariables": [
     {
       "key": "snowflakeHostAddress",
-      "name": "Snowflake Host Address",
-      "description": "Description string",
-      "placeholder": "--your-value--.--region--.snowflakecomputing.com",
+      "name": "Snowflake host address",
+      "description": "Find the host address in the Snowflake UI under the Snowflake > Account menu.",
+      "placeholder": "https://<ACCOUNT-LOCATOR>.<REGION>.snowflakecomputing.com",
       "type": "string",
+      "disableAfterSaving": true,
       "isSecret": false
     },
     {
       "key": "selectedEnv",
       "type": "environmentSelector",
-      "name": "Environment selector",
-      "description": "The LaunchDarkly environment to connect experimentation data to",
+      "name": "Project and environment",
+      "description": "Select your LaunchDarkly project and environment. You cannot edit this after you save the configuration.",
+      "disableAfterSaving": true,
       "isOptional": false
     },
     {
       "key": "publicKey",
       "name": "Public key",
-      "description": "This is your public key description",
+      "description": "Copy this key into the Snowflake native app, in Step 3.",
       "type": "generated",
       "hideEmpty": true,
       "defaultValue": "",
@@ -45,7 +47,7 @@
     {
       "key": "privateKey",
       "name": "Private key",
-      "description": "This is your private key description",
+      "description": "The private key of the user created by the Snowflake connected app. Used internally for connecting to Snowflake.",
       "type": "string",
       "isHidden": true,
       "isSecret": true,
