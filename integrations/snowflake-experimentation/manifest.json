@@ -62,6 +62,15 @@
       "isHidden": true,
       "isOptional": true,
       "defaultValue": ""
+    },
+    {
+      "key": "eventTaskId",
+      "name": "Event Last Seen Task Id",
+      "description": "The task id of the event last seen task",
+      "type": "string",
+      "isHidden": true,
+      "isOptional": true,
+      "defaultValue": ""
     }
   ]
 }
