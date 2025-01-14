@@ -1,7 +1,7 @@
 {
-  "name": "Snowflake",
+  "name": "Snowflake Native Experimentation",
   "version": "1.0.0",
-  "overview": "Analyze your Snowflake experimentation data with LaunchDarkly.",
+  "overview": "Run experiments in LaunchDarkly using Snowflake warehouse data to power your results.",
   "description": "Enable LaunchDarkly's experimentation platform to read and analyze data from your Snowflake data warehouse",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
@@ -20,8 +20,8 @@
   "formVariables": [
     {
       "key": "snowflakeHostAddress",
-      "name": "Snowflake host address",
-      "description": "Find the host address in the Snowflake UI under the Snowflake > Account menu.",
+      "name": "Snowflake account URL",
+      "description": "Find the account URL in the Snowflake UI under the Snowflake > Account menu.",
       "placeholder": "https://<ACCOUNT-LOCATOR>.<REGION>.snowflakecomputing.com",
       "type": "string",
       "disableAfterSaving": true,
@@ -38,7 +38,7 @@
     {
       "key": "publicKey",
       "name": "Public key",
-      "description": "Copy this key into the Snowflake native app, in Step 3.",
+      "description": "Copy this key into the Snowflake LaunchDarkly Experimentation app in step 4",
       "type": "generated",
       "hideEmpty": true,
       "defaultValue": "",
