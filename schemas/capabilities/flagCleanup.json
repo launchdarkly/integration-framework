@@ -1,0 +1,24 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "flagCleanup": {
+    "$id": "#/properties/capability/flag-cleanup",
+    "title": "Flag Cleanup",
+    "description": "This capability allows LaunchDarkly to cleanup feature flags",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["formVariables"]
+    },
+    "properties": {
+      "formVariables": {
+        "$id": "#/capabilities/flag-cleanup/form-variables",
+        "title": "Flag Cleanup Form Variables",
+        "description": "Form variables to use for flag cleanup",
+        "type": "array",
+        "items": {
+          "$ref": "../definitions.json#/formVariable"
+        },
+        "default": []
+      }
+    }
+  }
+}

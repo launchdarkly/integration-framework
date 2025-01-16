@@ -278,7 +278,8 @@
           "syncedSegment",
           "bigSegmentStore",
           "flagImport",
-          "eventsHook"
+          "eventsHook",
+          "flagCleanup"
         ]
       },
       "properties": {
@@ -320,6 +321,9 @@
         },
         "eventsHook": {
           "$ref": "schemas/capabilities/eventsHook.json#/eventsHook"
+        },
+        "flagCleanup": {
+          "$ref": "schemas/capabilities/flagCleanup.json#/flagCleanup"
         }
       }
     },

@@ -730,6 +730,10 @@ export type MeasuredRolloutRevertedTemplate = string;
  */
 export type ErrorMonitoringNewIssueFoundTemplate = string;
 /**
+ * Form variables to use for flag cleanup
+ */
+export type FlagCleanupFormVariables = FormVariable[];
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -881,6 +885,7 @@ export interface Capabilities {
   bigSegmentStore?: BigSegmentStore;
   flagImport?: FlagImport;
   eventsHook?: EventsHook;
+  flagCleanup?: FlagCleanup;
   [k: string]: unknown;
 }
 /**
@@ -1220,5 +1225,12 @@ export interface EDAEventsWebhookBodyTemplate {
   measuredRolloutRegressionDetected?: MeasuredRolloutRegressionDetectedTemplate;
   measuredRolloutReverted?: MeasuredRolloutRevertedTemplate;
   errorMonitoringNewIssueFound?: ErrorMonitoringNewIssueFoundTemplate;
+  [k: string]: unknown;
+}
+/**
+ * This capability allows LaunchDarkly to cleanup feature flags
+ */
+export interface FlagCleanup {
+  formVariables?: FlagCleanupFormVariables;
   [k: string]: unknown;
 }
