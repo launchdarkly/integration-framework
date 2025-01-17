@@ -17,18 +17,25 @@
     "horizontal": "assets/images/square.svg"
   },
   "capabilities": {
-    "flagCleanup": {
-      "formVariables": [
-        {
-          "name": "Gitar API Key",
-          "key": "gitarToken",
-          "type": "string",
-          "isSecret": true,
-          "description": "The API key for your Gitar account",
-          "isOptional": false
-        }
-      ]
-    }
+    "flagCleanup": {}
   },
+  "formVariables": [
+    {
+      "name": "Gitar API Key",
+      "key": "gitarToken",
+      "type": "string",
+      "isSecret": true,
+      "description": "The API key for your Gitar account",
+      "isOptional": false
+    },
+    {
+      "name": "Github Organisation Name",
+      "key": "githubOrgName",
+      "type": "string",
+      "isSecret": false,
+      "description": "The name of the Github organisation you want to clean up",
+      "isOptional": false
+    }
+  ],
   "allowIntegrationConfigurations": true
 }
