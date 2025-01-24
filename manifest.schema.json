@@ -331,7 +331,8 @@
               "dynamicEnum",
               "generated",
               "environmentSelector",
-              "multiselect"
+              "multiselect",
+              "publicKey"
             ]
           },
           "description": {
@@ -1309,7 +1310,8 @@
                       "dynamicEnum",
                       "generated",
                       "environmentSelector",
-                      "multiselect"
+                      "multiselect",
+                      "publicKey"
                     ]
                   },
                   "description": {
@@ -1781,7 +1783,8 @@
                       "dynamicEnum",
                       "generated",
                       "environmentSelector",
-                      "multiselect"
+                      "multiselect",
+                      "publicKey"
                     ]
                   },
                   "description": {
@@ -3289,7 +3292,8 @@
                       "dynamicEnum",
                       "generated",
                       "environmentSelector",
-                      "multiselect"
+                      "multiselect",
+                      "publicKey"
                     ]
                   },
                   "description": {
@@ -4864,7 +4868,8 @@
                       "dynamicEnum",
                       "generated",
                       "environmentSelector",
-                      "multiselect"
+                      "multiselect",
+                      "publicKey"
                     ]
                   },
                   "description": {

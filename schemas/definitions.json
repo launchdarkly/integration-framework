@@ -188,7 +188,8 @@
           "dynamicEnum",
           "generated",
           "environmentSelector",
-          "multiselect"
+          "multiselect",
+          "publicKey"
         ]
       },
       "description": {

@@ -233,7 +233,8 @@ export type Type =
   | "dynamicEnum"
   | "generated"
   | "environmentSelector"
-  | "multiselect";
+  | "multiselect"
+  | "publicKey";
 /**
  * Describes the variable in the UI. Markdown links allowed.
  */
