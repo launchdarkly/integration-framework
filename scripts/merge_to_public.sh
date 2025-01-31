@@ -26,9 +26,20 @@ cd temp/repo
 git remote add private git@github.com:launchdarkly/integration-framework-private.git
 git checkout main
 git fetch private
-git merge private/main --squash --strategy-option=theirs
-git commit -a -m "${COMMIT_MSG}" # Merge conflicts will need to be resolved manually
-git checkout -b "${BRANCH_NAME}"
+
+# Create a new branch from public main
+git checkout -b "${BRANCH_NAME}" main
+
+# Remove all existing files to ensure a clean slate
+git rm -rf .
+git clean -fdx
+
+# Checkout files from private/main
+git checkout private/main -- .
+git add -A      # Stage all changes, including deletions
+git commit -m "${COMMIT_MSG}"
+
+# Push the changes to the new branch
 git push --set-upstream origin ${BRANCH_NAME}
 
 cd ../..

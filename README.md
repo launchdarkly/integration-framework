@@ -1,7 +1,5 @@
 # LaunchDarkly Integration Framework
 
-[![CircleCI](https://circleci.com/gh/launchdarkly/integration-framework.svg?style=svg&circle-token=9a44436c3b22e7fb6a22df1ad9a2455a0d6f2d34)](https://circleci.com/gh/launchdarkly/integration-framework)
-
 Feature flags give you control over your deployment and rollout. They can also provide context to third-party tools that show you how your application reacts to flag changes. You can integrate these tools with LaunchDarkly using the LaunchDarkly integration framework. For additional background, read [Using the LaunchDarkly integration framework](https://docs.launchdarkly.com/integrations/building-integrations) in our LaunchDarkly product documentation.
 
 This repository contains LaunchDarkly integrations built by our community. Most of these integrations consume events from LaunchDarkly to provide the external tools with more context.
