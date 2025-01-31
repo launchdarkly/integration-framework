@@ -39,12 +39,12 @@
           {
             "name": "Content-Type",
             "value": "application/json"
-          },
-          {
-            "name": "X-LD-Signature",
-            "value": "{{secretToken}}"
           }
-        ]
+        ],
+        "hmacSignature": {
+          "headerName": "X-LD-Signature",
+          "hmacSecretFormVariableKey": "secretToken"
+        }
       },
       "templates": {
         "default": "templates/default.json.hbs"
