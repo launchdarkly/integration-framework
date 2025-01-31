@@ -1,8 +1,8 @@
 {
-  "name": "PagerDuty - Release Guardian",
+  "name": "PagerDuty - Guardian Edition",
   "version": "1.0.0",
-  "overview": "Send Release Guardian events to PagerDuty services.",
-  "description": "Send Release Guardian events to PagerDuty to create or resolve incidents.",
+  "overview": "Send Guardian Edition events to PagerDuty services.",
+  "description": "Send Guardian Edition events to PagerDuty to create or resolve incidents.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -22,7 +22,6 @@
       "name": "PagerDuty integration key",
       "type": "string",
       "description": "Enter your [PagerDuty integration key](https://support.pagerduty.com/main/docs/services-and-integrations#add-integrations-to-an-existing-service).",
-      "isSecret": true,
       "isOptional": false
     },
     {
@@ -40,22 +39,17 @@
       "description": "Filter incoming events by event type",
       "isOptional": true,
       "multiselectDefaultOptions": [
-        "MeasuredRolloutRegressionDetected",
-        "MeasuredRolloutReverted",
-        "ErrorMonitoringNewIssueFound"
+        "measured-rollout-regression",
+        "measured-rollout-reverted"
       ],
       "multiselectOptions": [
         {
           "label": "Measured Rollout Regression Detected",
-          "value": "MeasuredRolloutRegressionDetected"
+          "value": "measured-rollout-regression"
         },
         {
           "label": "Measured Rollout Reverted",
-          "value": "MeasuredRolloutReverted"
-        },
-        {
-          "label": "New Issue Found",
-          "value": "ErrorMonitoringNewIssueFound"
+          "value": "measured-rollout-reverted"
         }
       ]
     },

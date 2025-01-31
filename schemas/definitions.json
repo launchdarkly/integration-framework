@@ -154,7 +154,8 @@
         "dependsOn",
         "multiselectOptions",
         "multiselectDefaultOptions",
-        "disableAfterSaving"
+        "disableAfterSaving",
+        "hideEmpty"
       ]
     },
     "properties": {
@@ -187,7 +188,8 @@
           "dynamicEnum",
           "generated",
           "environmentSelector",
-          "multiselect"
+          "multiselect",
+          "publicKey"
         ]
       },
       "description": {
@@ -402,6 +404,13 @@
         "items": {
           "type": "string"
         }
+      },
+      "hideEmpty": {
+        "$id": "#/definitions/form-variable/hide-empty",
+        "title": "Hide value in UI when empty",
+        "type": "boolean",
+        "description": "Variables marked as hideEmpty won't be shown in the UI if they are empty",
+        "default": false
       }
     },
     "required": ["key", "name", "type", "description"]

@@ -193,8 +193,17 @@ export type Kind = "codeRefs" | "datadog" | "dataExport" | "slackWebhooks" | "we
  * Capabilities not configured by manifests
  */
 export type OtherCapabilities = [
-  "codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks",
-  ...("codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks")[]
+  "codeRefs" | "dataExport" | "external" | "ide" | "sso" | "webhooks" | "warehouseExperimentation" | "warehouseExport",
+  ...(
+    | "codeRefs"
+    | "dataExport"
+    | "external"
+    | "ide"
+    | "sso"
+    | "webhooks"
+    | "warehouseExperimentation"
+    | "warehouseExport"
+  )[]
 ];
 /**
  * Whether the integration authenticates using OAuth
@@ -224,7 +233,8 @@ export type Type =
   | "dynamicEnum"
   | "generated"
   | "environmentSelector"
-  | "multiselect";
+  | "multiselect"
+  | "publicKey";
 /**
  * Describes the variable in the UI. Markdown links allowed.
  */
@@ -357,6 +367,10 @@ export type OptionsArray1 = MultiSelectOptionItem[];
  * Default options to be selected when the multi select is first rendered
  */
 export type MultiSelectDefaultOptions = string[];
+/**
+ * Variables marked as hideEmpty won't be shown in the UI if they are empty
+ */
+export type HideValueInUIWhenEmpty = boolean;
 /**
  * Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.
  */
@@ -717,6 +731,10 @@ export type MeasuredRolloutRevertedTemplate = string;
  */
 export type ErrorMonitoringNewIssueFoundTemplate = string;
 /**
+ * Form variables to use for flag cleanup
+ */
+export type FlagCleanupFormVariables = FormVariable[];
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -793,6 +811,7 @@ export interface FormVariable {
   dependsOn?: DependsOn;
   multiselectOptions?: OptionsArray1;
   multiselectDefaultOptions?: MultiSelectDefaultOptions;
+  hideEmpty?: HideValueInUIWhenEmpty;
   [k: string]: unknown;
 }
 /**
@@ -867,6 +886,7 @@ export interface Capabilities {
   bigSegmentStore?: BigSegmentStore;
   flagImport?: FlagImport;
   eventsHook?: EventsHook;
+  flagCleanup?: FlagCleanup;
   [k: string]: unknown;
 }
 /**
@@ -1206,5 +1226,12 @@ export interface EDAEventsWebhookBodyTemplate {
   measuredRolloutRegressionDetected?: MeasuredRolloutRegressionDetectedTemplate;
   measuredRolloutReverted?: MeasuredRolloutRevertedTemplate;
   errorMonitoringNewIssueFound?: ErrorMonitoringNewIssueFoundTemplate;
+  [k: string]: unknown;
+}
+/**
+ * This capability allows LaunchDarkly to cleanup feature flags
+ */
+export interface FlagCleanup {
+  formVariables?: FlagCleanupFormVariables;
   [k: string]: unknown;
 }
