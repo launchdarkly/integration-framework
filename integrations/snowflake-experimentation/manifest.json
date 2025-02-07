@@ -39,7 +39,7 @@
       "key": "publicKey",
       "name": "Public key",
       "description": "Copy this key into the Snowflake LaunchDarkly Experimentation app in step 4",
-      "type": "generated",
+      "type": "publicKey",
       "hideEmpty": true,
       "defaultValue": "",
       "isOptional": true
