@@ -91,6 +91,14 @@
           "type": "boolean",
           "defaultValue": false,
           "isOptional": true
+        },
+        {
+          "key": "doNotSetDates",
+          "name": "Do not populate change window",
+          "description": "If unchecked, LaunchDarkly will automatically populate the change window on the ServiceNow Change Request.",
+          "type": "boolean",
+          "defaultValue": false,
+          "isOptional": true
         }
       ],
       "creationRequest": {
@@ -104,7 +112,7 @@
             }
           ]
         },
-        "jsonBody": "{\"short_description\": \"{{{title.plainText}}}\", {{#if approvalFormVariables.implementationPlan}}\"implementation_plan\": \"{{{approvalFormVariables.implementationPlan}}}\",{{/if}} {{#if approvalFormVariables.configurationItem}}\"cmdb_ci\": \"{{{approvalFormVariables.configurationItem}}}\",{{/if}} \"{{#if environmentFormVariables.detail_column}}{{environmentFormVariables.detail_column}}{{else}}justification{{/if}}\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"requested_by\": \"{{{member.externalId}}}\", \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{formatWithOffset timestamp.milliseconds 301 'simple'}}\"}",
+        "jsonBody": "{\"short_description\": \"{{{title.plainText}}}\", {{#if approvalFormVariables.implementationPlan}}\"implementation_plan\": \"{{{approvalFormVariables.implementationPlan}}}\",{{/if}} {{#if approvalFormVariables.configurationItem}}\"cmdb_ci\": \"{{{approvalFormVariables.configurationItem}}}\",{{/if}} \"{{#if environmentFormVariables.detail_column}}{{environmentFormVariables.detail_column}}{{else}}justification{{/if}}\": \"{{_links.approval.href}}\\n\\n{{{details.plainText}}}\", \"requested_by\": \"{{{member.externalId}}}\"  {{#unless environmentFormVariables.doNotSetDates}}, \"start_date\": \"{{timestamp.simple}}\", \"end_date\": \"{{formatWithOffset timestamp.milliseconds 301 'simple'}}\"{{/unless}} }",
         "parser": {
           "approvalId": "/result/sys_id/value",
           "statusValue": "/result/state/value",
