@@ -1,14 +1,14 @@
 {
   "name": "Gitar",
   "version": "1.0.0",
-  "overview": "Use the Gitar Github App in order to automatically clean up LaunchDarkly flags in your code.",
-  "description": "Use the Gitar Github App in order to automatically clean up LaunchDarkly flags in your code",
-  "details": "Use the Gitar Github App in order to automatically clean up LaunchDarkly flags in your code",
+  "overview": "Use the Gitar GitHub App in order to automatically clean up LaunchDarkly flags in your code.",
+  "description": "Use the Gitar GitHub App in order to automatically clean up LaunchDarkly flags in your code",
+  "details": "Use the Gitar GitHub App in order to automatically clean up LaunchDarkly flags in your code",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://gitar.ai",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/observability/code-cleanup",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["automation", "code-references", "developer-tools"],
@@ -21,7 +21,7 @@
   },
   "formVariables": [
     {
-      "name": "Gitar API Key",
+      "name": "Gitar API key",
       "key": "gitarToken",
       "type": "string",
       "isSecret": true,
@@ -29,11 +29,11 @@
       "isOptional": false
     },
     {
-      "name": "Github Organisation Name",
+      "name": "GitHub organization name",
       "key": "githubOrgName",
       "type": "string",
       "isSecret": false,
-      "description": "The name of the Github organisation you want to clean up",
+      "description": "The name of the GitHub organization you want to clean up",
       "isOptional": false
     }
   ],
