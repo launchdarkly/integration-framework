@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.dynatrace.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/dynatrace",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/dynatrace",
     "privacyPolicy": "https://www.dynatrace.com/company/trust-center/privacy/"
   },
   "categories": ["monitoring"],
@@ -172,7 +172,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/dynatrace/triggers#connecting-a-launchdarkly-trigger-to-dynatrace",
+      "documentation": "https://launchdarkly.com/docs/integrations/dynatrace/triggers#connect-a-launchdarkly-trigger-to-dynatrace",
       "testEventNameRegexp": "^Dynatrace problem notification test run$",
       "parser": {
         "eventName": "/title",

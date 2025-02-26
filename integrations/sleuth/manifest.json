@@ -7,7 +7,7 @@
   "supportEmail": "support@sleuth.io",
   "links": {
     "site": "https://www.sleuth.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/sleuth",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/sleuth",
     "supportWebsite": "https://help.sleuth.io/integrations/launchdarkly",
     "privacyPolicy": "https://www.sleuth.io/privacy"
   },

@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://newrelic.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/new-relic",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/new-relic",
     "privacyPolicy": "https://newrelic.com/termsandconditions/privacy"
   },
   "categories": ["monitoring"],
@@ -69,7 +69,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/new-relic/triggers#connecting-a-flag-trigger-to-new-relic-one",
+      "documentation": "https://launchdarkly.com/docs/integrations/new-relic/triggers#connect-a-flag-trigger-to-new-relic-one",
       "testEventNameRegexp": "^New Relic Alert - Test Condition$",
       "parser": {
         "eventName": "/condition_name",

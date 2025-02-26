@@ -1,6 +1,6 @@
 # Splunk Observability Cloud (formerly SignalFx)
 
-User documentation for this integration is available on the LaunchDarkly documentation site: [Splunk Observability Cloud](https://docs.launchdarkly.com/integrations/splunk-observability)
+User documentation for this integration is available on the LaunchDarkly documentation site: [Splunk Observability Cloud](https://launchdarkly.com/docs/integrations/splunk-observability)
 
 API documentation for this integration is available on the Splunk Observability Cloud documentation site: [Splunk Observability Cloud](https://dev.splunk.com/observability/reference/api/ingest_data/latest)
 

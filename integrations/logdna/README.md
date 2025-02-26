@@ -1,6 +1,6 @@
 # LogDNA
 
-User documentation for this integration is available on the LaunchDarkly documentation site: [LogDNA](https://docs.launchdarkly.com/integrations/logdna)
+User documentation for this integration is available on the LaunchDarkly documentation site: [LogDNA](https://launchdarkly.com/docs/integrations/mezmo)
 
 API documentation for this integration is available on the LogDNA API documentation site: [LogDNA](https://docs.logdna.com/reference#api)
 

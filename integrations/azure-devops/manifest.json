@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://azure.microsoft.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/azure-devops",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/azure-devops",
     "privacyPolicy": "https://privacy.microsoft.com/en-US/privacystatement"
   },
   "categories": ["automation"],

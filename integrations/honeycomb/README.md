@@ -1,6 +1,6 @@
 # Honeycomb
 
-Documentation for this integration is available on the LaunchDarkly documentation site: [Honeycomb](https://docs.launchdarkly.com/integrations/honeycomb)
+Documentation for this integration is available on the LaunchDarkly documentation site: [Honeycomb](https://launchdarkly.com/docs/integrations/honeycomb)
 
 API documentation for this integration is available on the Honeycomb documentation site: [Markers API](https://docs.honeycomb.io/api/markers/)
 

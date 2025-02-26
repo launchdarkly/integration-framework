@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://aws.amazon.com/pm/dynamodb/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/dynamodb",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/dynamodb",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["big-segment-store", "data", "synced-segments"],

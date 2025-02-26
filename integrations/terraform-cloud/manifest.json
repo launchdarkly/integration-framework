@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://cloud.hashicorp.com/products/terraform",
-    "launchdarklyDocs": "https://docs.launchdarkly.com",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/",
     "privacyPolicy": "https://www.hashicorp.com/privacy"
   },
   "categories": ["automation", "infrastructure"],

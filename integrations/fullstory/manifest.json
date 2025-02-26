@@ -8,7 +8,7 @@
   "links": {
     "supportWebsite": "https://help.fullstory.com/",
     "site": "https://www.fullstory.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/fullstory",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/fullstory",
     "privacyPolicy": "https://www.fullstory.com/legal/privacy-policy/"
   },
   "categories": ["analytics"],

@@ -1,5 +1,5 @@
 # Chronosphere
 
-[User documentation](https://docs.launchdarkly.com/integrations/chronosphere)
+[User documentation](https://launchdarkly.com/docs/integrations/chronosphere)
 
 [API documentation](https://docs.chronosphere.io/documentation/explore/change-events/third-party#launchdarkly)
