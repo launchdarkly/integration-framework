@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     if: github.repository == 'launchdarkly/integration-framework-private'
     steps:
-      - uses: launchdarkly-labs/ld-gh-actions-jira@f32de8780a3f149939408afb1563663b9a80e902
+      - uses: launchdarkly-labs/ld-gh-actions-jira@676139161c434b291910fe7f8925d6c6f1026344
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           jira-base-url: https://launchdarkly.atlassian.net
