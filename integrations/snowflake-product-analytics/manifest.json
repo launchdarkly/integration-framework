@@ -2,12 +2,12 @@
   "name": "Snowflake Product Analytics",
   "version": "1.0.0",
   "overview": "Run product analytics in LaunchDarkly using Snowflake warehouse data to power your insights.",
-  "description": "Carry out warehouse-native product analytics in LaunchDarkly by completing this Snowflake integration. Use your Snowflake warehouse data to track feature performance, measure user impact, and more—all without moving data.",
+  "description": "LaunchDarkly Product Analytics helps you understand how users interact with your features, enabling data-driven decisions to improve adoption and engagement. With LaunchDarkly PA, you can leverage warehouse-native product analytics by connecting your Snowflake data and gain insights without moving the data. ",
   "author": "Snowflake",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.snowflake.com",
-    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/product-analytics/snowflake",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/product-analytics/setup",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy"
   },
   "categories": ["data"],
