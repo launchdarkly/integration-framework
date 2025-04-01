@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://api.slack.com/messaging/webhooks",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/slack/webhooks",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/slack/webhooks",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["notifications"],

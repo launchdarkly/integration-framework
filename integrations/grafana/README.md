@@ -1,6 +1,6 @@
 # Grafana
 
-Documentation for this integration is available on the LaunchDarkly documentation site: [User documentation](https://docs.launchdarkly.com/integrations/grafana)
+Documentation for this integration is available on the LaunchDarkly documentation site: [User documentation](https://launchdarkly.com/docs/integrations/grafana)
 
 API documentation for this integration is available on the Grafana documentation site: [API documentation](https://grafana.com/docs/grafana/latest/http_api/annotations/#create-annotation)
 

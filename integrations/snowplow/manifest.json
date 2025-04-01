@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://snowplow.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/snowplow",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/snowplow",
     "supportWebsite": "https://docs.snowplow.io/docs/destinations/forwarding-events/google-tag-manager-server-side/launchdarkly-tag-for-gtm-ss/",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },

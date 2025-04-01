@@ -6,8 +6,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/home/connecting/webhooks",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/connecting/webhooks",
+    "site": "https://launchdarkly.com/docs/home/infrastructure/webhooks",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/infrastructure/webhooks",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["notifications"],

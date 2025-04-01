@@ -9,7 +9,7 @@
   "links": {
     "supportWebsite": "https://docs.osano.com/",
     "site": "https://osano.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/osano",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/osano",
     "privacyPolicy": "https://www.osano.com/legal/privacy"
   },
   "categories": ["data"],

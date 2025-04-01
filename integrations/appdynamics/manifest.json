@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.appdynamics.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/appdynamics",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/appdynamics",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["monitoring"],

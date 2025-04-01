@@ -7,7 +7,7 @@
   "supportEmail": "support@netlify.com",
   "links": {
     "site": "https://www.netlify.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/netlify",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/netlify",
     "privacyPolicy": "https://www.netlify.com/privacy/"
   },
   "categories": ["infrastructure"],

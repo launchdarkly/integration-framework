@@ -7,7 +7,7 @@
   "supportEmail": "support@datadoghq.com",
   "links": {
     "site": "https://www.datadoghq.com",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/datadog/rum",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/datadog/rum",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["developer-tools", "monitoring"],

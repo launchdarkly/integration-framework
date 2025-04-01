@@ -1,6 +1,6 @@
 # Datadog
 
-[User documentation](https://docs.launchdarkly.com/integrations/datadog)
+[User documentation](https://launchdarkly.com/docs/integrations/datadog)
 
 [API documentation](https://docs.datadoghq.com/api/?lang=bash#events)
 

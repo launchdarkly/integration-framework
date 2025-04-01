@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.pagerduty.com",
-    "launchdarklyDocs": "https://docs.launchdarkly.com",
+    "launchdarklyDocs": "https://launchdarkly.com/docs",
     "privacyPolicy": "https://www.pagerduty.com/privacy-policy/"
   },
   "categories": ["monitoring"],

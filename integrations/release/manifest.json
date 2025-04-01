@@ -7,7 +7,7 @@
   "supportEmail": "support@releaseapp.io",
   "links": {
     "site": "https://releaseapp.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/release",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/release",
     "supportWebsite": "https://docs.releaseapp.io/integrations/integrations-overview/launchdarkly-integration",
     "privacyPolicy": "https://releaseapp.io/privacy-policy"
   },

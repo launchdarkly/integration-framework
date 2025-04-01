@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://segment.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/segment",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/flags/twilio",
     "supportWebsite": "https://segment.com/docs/connections/sources/catalog/cloud-apps/launchdarkly-audiences/",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },

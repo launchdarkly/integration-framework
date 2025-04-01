@@ -1,6 +1,6 @@
 # Microsoft Teams
 
-User documentation for this integration is available on the LaunchDarkly documentation site: [Microsoft Teams](https://docs.launchdarkly.com/integrations/microsoft-teams)
+User documentation for this integration is available on the LaunchDarkly documentation site: [Microsoft Teams](https://launchdarkly.com/docs/integrations/microsoft-teams)
 
 API documentation for this integration is available on Microsoft's documentation site: [Microsoft Teams](https://docs.microsoft.com/en-us/microsoftteams/platform/webhooks-and-connectors/how-to/connectors-using?tabs=cURL)
 

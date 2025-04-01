@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://zeotap.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/zeotap",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/flags/zeotap",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy "
   },
   "categories": ["synced-segments"],
