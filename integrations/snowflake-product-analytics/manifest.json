@@ -16,7 +16,7 @@
     "horizontal": "assets/images/horizontal.svg"
   },
   "capabilities": {
-    "externalConfigurationURL": "https://houseware.io/connect-snowflake-warehouse"
+    "externalConfigurationURL": "https://launchdarkly.com/docs/home/product-analytics"
   },
   "requiresOAuth": false
 }
