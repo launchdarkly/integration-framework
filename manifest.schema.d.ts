@@ -735,6 +735,10 @@ export type ErrorMonitoringNewIssueFoundTemplate = string;
  */
 export type FlagCleanupFormVariables = FormVariable[];
 /**
+ * This capability will redirect users to an internal URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly.
+ */
+export type InternalConfigurationURL = string;
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -887,6 +891,7 @@ export interface Capabilities {
   flagImport?: FlagImport;
   eventsHook?: EventsHook;
   flagCleanup?: FlagCleanup;
+  internalConfigurationURL?: InternalConfigurationURL;
   [k: string]: unknown;
 }
 /**

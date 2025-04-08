@@ -764,7 +764,8 @@
           "bigSegmentStore",
           "flagImport",
           "eventsHook",
-          "flagCleanup"
+          "flagCleanup",
+          "internalConfigurationURL"
         ]
       },
       "properties": {
@@ -5282,6 +5283,14 @@
               "default": []
             }
           }
+        },
+        "internalConfigurationURL": {
+          "$id": "#/properties/capability/internal-configuration-url",
+          "title": "Internal Configuration URL",
+          "description": "This capability will redirect users to an internal URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly.",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^(/[^/]+)+(?:\\?[^\\s]*)?$|^[^/]+(/[^/]+)*(?:\\?[^\\s]*)?$"
         }
       }
     },

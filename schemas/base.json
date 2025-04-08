@@ -279,7 +279,8 @@
           "bigSegmentStore",
           "flagImport",
           "eventsHook",
-          "flagCleanup"
+          "flagCleanup",
+          "internalConfigurationURL"
         ]
       },
       "properties": {
@@ -324,6 +325,9 @@
         },
         "flagCleanup": {
           "$ref": "schemas/capabilities/flagCleanup.json#/flagCleanup"
+        },
+        "internalConfigurationURL": {
+          "$ref": "schemas/capabilities/internalConfigurationUrl.json#/internalConfigurationURL"
         }
       }
     },
