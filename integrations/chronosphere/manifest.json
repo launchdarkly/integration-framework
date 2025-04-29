@@ -46,9 +46,8 @@
           "hmacSecretFormVariableKey": "secretToken"
         }
       },
-      "templates": {
-        "default": "templates/default.json.hbs"
-      },
+      "templates": {},
+      "useStandardWebhookPayload": true,
       "defaultPolicy": [
         {
           "effect": "allow",
