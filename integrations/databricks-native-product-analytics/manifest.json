@@ -1,8 +1,8 @@
 {
   "name": "Databricks Native Product Analytics",
   "version": "1.0.0",
-  "overview": "Run product analytics in LaunchDarkly using databricks warehouse data to power your insights.",
-  "description": "LaunchDarkly Product Analytics helps you understand how users interact with your features, enabling data-driven decisions to improve adoption and engagement. With LaunchDarkly PA, you can leverage warehouse-native product analytics by connecting your databricks data and gain insights without moving the data. ",
+  "overview": "Run product analytics in LaunchDarkly using Databricks warehouse data to power your insights.",
+  "description": "LaunchDarkly Product Analytics helps you understand how users interact with your features—so you can make data-driven decisions that boost adoption and engagement. By connecting your Databricks data, you get powerful, warehouse-native analytics without moving data out of your stack. ",
   "author": "Databricks",
   "supportEmail": "support@launchdarkly.com",
   "links": {
