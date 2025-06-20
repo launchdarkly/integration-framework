@@ -17,6 +17,7 @@ const OAUTH_INTEGRATIONS = [
   'servicenow',
   'servicenow-normal',
   'servicenow-app',
+  'custom-approvals-oauth',
 ]; // add oauth integrations here
 const INTEGRATIONS_WITH_DUP_OAUTH_KEYS = [
   'servicenow',
