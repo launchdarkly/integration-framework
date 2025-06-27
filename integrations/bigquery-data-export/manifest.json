@@ -1,0 +1,22 @@
+{
+  "name": "BigQuery Data Export",
+  "version": "1.0.0",
+  "overview": "Run analysis in your warehouse enriched by experiment traffic data or detailed flag eval events.",
+  "description": "Export Launchdarkly data to your BigQuery warehouse.",
+  "author": "Google BigQuery",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://cloud.google.com/bigquery",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/data-export",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "legacy": {
+    "kind": "dataExport"
+  },
+  "otherCapabilities": ["dataExport", "warehouseExport"]
+}
