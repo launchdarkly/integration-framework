@@ -27,7 +27,7 @@
   "capabilities": {
     "reservedCustomProperties": [
       {
-        "name": "PagerDuy integration key override",
+        "name": "PagerDuty integration key override",
         "description": "The PagerDuty integration key to use for all changes associated with this flag. Only the first key will be used.",
         "key": "pagerDutyIntegrationKey"
       }
