@@ -1,0 +1,39 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "buttonAction": {
+    "$id": "#/properties/capability/button-action",
+    "title": "Button action",
+    "description": "This capability will enable LaunchDarkly to send generic requests to an external API upon the click of a button.",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["resourceContext", "actionRequest"]
+    },
+    "properties": {
+      "resourceContext": {
+        "$id": "#/properties/capability/button-action/resource-context",
+        "title": "Resource Context",
+        "description": "The resource context the action requires",
+        "type": "string",
+        "enum": ["flag"]
+      },
+      "actionRequest": {
+        "$id": "#/properties/capability/button-action/action-request",
+        "title": "Action Request",
+        "description": "Describes the HTTP request for the action",
+        "propertyNames": {
+          "enum": ["endpoint", "jsonBody"]
+        },
+        "required": ["endpoint", "jsonBody"],
+        "properties": {
+          "endpoint": {
+            "$ref": "../definitions.json#/endpoint"
+          },
+          "jsonBody": {
+            "$ref": "../definitions.json#/jsonBody"
+          }
+        }
+      }
+    },
+    "required": ["resourceContext", "actionRequest"]
+  }
+}

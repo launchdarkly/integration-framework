@@ -1,0 +1,49 @@
+{
+  "name": "Devin Flag Cleanup Action (Beta)",
+  "version": "1.0.0",
+  "overview": "Get Devin to clean up your flags with one easy click.",
+  "description": "Get Devin to clean up your flags with one easy click. This action is currently in beta and is not yet available to all users.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://devin.ai/",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations",
+    "privacyPolicy": "https://docs.devin.ai/security"
+  },
+  "categories": ["ai", "automation"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "apiKey",
+      "name": "Devin API key",
+      "type": "string",
+      "description": "Enter your Devin API key. [Learn more](https://docs.devin.ai/api-reference/overview#get-an-api-key) about generating API keys.",
+      "isSecret": true
+    }
+  ],
+  "capabilities": {
+    "buttonAction": {
+      "resourceContext": "flag",
+      "actionRequest": {
+        "endpoint": {
+          "url": "https://api.devin.ai/v1/sessions",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{apiKey}}"
+            }
+          ]
+        },
+        "jsonBody": "{\"prompt\":\"You are an experienced software engineer. We just archived LaunchDarkly flag '{{flag.key}}'.\\nTask:\\n1. Search the codebase for any references to the flag key (including SDK evals, config files, comments).\\n2. Remove dead code so that the ON variation is baked in.\\n3. Run all tests and lints and fix any compilation errors.\\n4. Push a new branch and open a pull request titled 'Cleanup: remove {{flag.key}} flag'.\"}"
+      }
+    }
+  }
+}

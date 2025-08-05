@@ -155,6 +155,7 @@
       "items": {
         "type": "string",
         "enum": [
+          "ai",
           "analytics",
           "approval",
           "authentication",
@@ -752,6 +753,7 @@
       "propertyNames": {
         "enum": [
           "auditLogEventsHook",
+          "buttonAction",
           "reservedCustomProperties",
           "trigger",
           "approval",

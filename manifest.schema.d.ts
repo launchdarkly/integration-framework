@@ -54,6 +54,7 @@ export type SupportWebsite = string;
  */
 export type Categories =
   | [
+      | "ai"
       | "analytics"
       | "approval"
       | "authentication"
@@ -75,6 +76,7 @@ export type Categories =
     ]
   | [
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
@@ -95,6 +97,7 @@ export type Categories =
         | "notifications"
       ),
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
@@ -117,6 +120,7 @@ export type Categories =
     ]
   | [
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
@@ -137,6 +141,7 @@ export type Categories =
         | "notifications"
       ),
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
@@ -157,6 +162,7 @@ export type Categories =
         | "notifications"
       ),
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
