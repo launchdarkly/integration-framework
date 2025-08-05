@@ -442,6 +442,14 @@ export type DeliveryMethod = "custom";
  */
 export type UseStandardWebhookPayload = boolean;
 /**
+ * The resource context the action requires
+ */
+export type ResourceContext = "flag";
+/**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody = string;
+/**
  * The reserved custom property's display name.
  */
 export type Name2 = string;
@@ -510,10 +518,6 @@ export type AllowAdditionalApprovalFormVariablesForCreationRequestModal = boolea
  * If true, the user can create integration configurations associated with this integration's approval capability. Requires formVariables to be defined
  */
 export type AllowUsersToConfigureIntegrationConfigurationsForApprovals = boolean;
-/**
- * Template string used to render the JSON request body
- */
-export type JSONBody = string;
 /**
  * Externally-created approval entity ID
  */
@@ -884,6 +888,7 @@ export interface MultiSelectOptionItem {
  */
 export interface Capabilities {
   auditLogEventsHook?: AuditLogEventsHook;
+  buttonAction?: ButtonAction;
   reservedCustomProperties?: ReservedCustomProperties;
   trigger?: Trigger;
   approval?: Approval;
@@ -933,6 +938,22 @@ export interface Policy {
   notActions?: NotActions;
   notResources?: NotResources;
   resources?: Resources;
+  [k: string]: unknown;
+}
+/**
+ * This capability will enable LaunchDarkly to send generic requests to an external API upon the click of a button.
+ */
+export interface ButtonAction {
+  resourceContext: ResourceContext;
+  actionRequest: ActionRequest;
+  [k: string]: unknown;
+}
+/**
+ * Describes the HTTP request for the action
+ */
+export interface ActionRequest {
+  endpoint: Endpoint;
+  jsonBody: JSONBody;
   [k: string]: unknown;
 }
 /**
