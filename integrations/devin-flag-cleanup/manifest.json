@@ -43,7 +43,7 @@
             }
           ]
         },
-        "jsonBody": "{\"prompt\":\"You are an experienced software engineer. We just archived LaunchDarkly flag '{{flag.key}}'.\\nTask:\\n1. Search the codebase for any references to the flag key (including SDK evals, config files, comments).\\n2. Remove dead code so that the ON variation is baked in.\\n3. Run all tests and lints and fix any compilation errors.\\n4. Push a new branch and open a pull request titled 'Cleanup: remove {{flag.key}} flag'.\"}"
+        "jsonBody": "{\"prompt\":\"You are an experienced software engineer. We just archived LaunchDarkly flag '{{flagKey}}'.\\nTask:\\n1. Search the codebase for any references to the flag key (including SDK evals, config files, comments).\\n2. Remove dead code so that the ON variation is baked in.\\n3. Run all tests and lints and fix any compilation errors.\\n4. Push a new branch and open a pull request titled 'Cleanup: remove {{flagKey}} flag'.\"}"
       }
     }
   }
