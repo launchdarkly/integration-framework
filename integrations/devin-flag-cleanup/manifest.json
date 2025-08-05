@@ -24,6 +24,7 @@
       "isSecret": true
     }
   ],
+  "allowIntegrationConfigurations": true,
   "capabilities": {
     "buttonAction": {
       "resourceContext": "flag",
