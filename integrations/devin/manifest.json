@@ -27,7 +27,6 @@
   "allowIntegrationConfigurations": true,
   "capabilities": {
     "buttonAction": {
-      "resourceContext": "flag",
       "actionRequest": {
         "endpoint": {
           "url": "https://api.devin.ai/v1/sessions",
@@ -42,9 +41,20 @@
               "value": "Bearer {{apiKey}}"
             }
           ]
+        }
+      },
+      "requestBodyTemplates": [
+        {
+          "key": "flagCleanup",
+          "jsonBody": "{\"prompt\":\"You are an experienced software engineer. We just archived LaunchDarkly flag '{{flagKey}}'.\\nTask:\\n1. Search the codebase for any references to the flag key (including SDK evals, config files, comments).\\n2. Remove dead code so that the ON variation is baked in.\\n3. Run all tests and lints and fix any compilation errors.\\n4. Push a new branch and open a pull request titled 'Cleanup: remove {{flagKey}} flag'.\"}",
+          "requiredContext": ["flagKey"]
         },
-        "jsonBody": "{\"prompt\":\"You are an experienced software engineer. We just archived LaunchDarkly flag '{{flagKey}}'.\\nTask:\\n1. Search the codebase for any references to the flag key (including SDK evals, config files, comments).\\n2. Remove dead code so that the ON variation is baked in.\\n3. Run all tests and lints and fix any compilation errors.\\n4. Push a new branch and open a pull request titled 'Cleanup: remove {{flagKey}} flag'.\"}"
-      }
+        {
+          "key": "sdkSetup",
+          "jsonBody": "{\"prompt\":\"You are an experienced software engineer. I need help setting up the LaunchDarkly AI Configs SDK for {{content.selectedSdk}}.\nHere are the import and initialize instructions for {{content.selectedSdk}}:\nImport instructions:\n{{{content.instructions.import}}}\nInitialize instructions:\n{{{content.instructions.initialize}}}\n\nPlease help me:\n1. Set up the LaunchDarkly AI Configs SDK for {{content.environmentKey}}\n2. Use the provided import and initialize code\n3. Make sure the SDK is properly configured with the API key\n4. Make these changes in the {{content.repository}} repository and push a new branch and open a pull request\"}",
+          "requiredContext": ["content", "environmentKey"]
+        }
+      ]
     }
   }
 }

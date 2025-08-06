@@ -442,13 +442,24 @@ export type DeliveryMethod = "custom";
  */
 export type UseStandardWebhookPayload = boolean;
 /**
- * The resource context the action requires
- */
-export type ResourceContext = "flag";
-/**
  * Template string used to render the JSON request body
  */
 export type JSONBody = string;
+/**
+ * An array of json objects that can be sent as request bodies
+ */
+export type RequestBodyTemplates = {
+  /**
+   * A unique identifier for the specific request body
+   */
+  key: string;
+  jsonBody: JSONBody;
+  /**
+   * An array of context strings that are required to correctly resolve the request body
+   */
+  requiredContext: string[];
+  [k: string]: unknown;
+}[];
 /**
  * The reserved custom property's display name.
  */
@@ -944,8 +955,8 @@ export interface Policy {
  * This capability will enable LaunchDarkly to send generic requests to an external API upon the click of a button.
  */
 export interface ButtonAction {
-  resourceContext: ResourceContext;
   actionRequest: ActionRequest;
+  requestBodyTemplates: RequestBodyTemplates;
   [k: string]: unknown;
 }
 /**
@@ -953,7 +964,6 @@ export interface ButtonAction {
  */
 export interface ActionRequest {
   endpoint: Endpoint;
-  jsonBody: JSONBody;
   [k: string]: unknown;
 }
 /**
