@@ -1,8 +1,8 @@
 {
-  "name": "Devin Flag Cleanup Action (Beta)",
+  "name": "Devin (Beta)",
   "version": "1.0.0",
-  "overview": "Get Devin to clean up your flags with one easy click.",
-  "description": "Get Devin to clean up your flags with one easy click. This action is currently in beta and is not yet available to all users.",
+  "overview": "AI-driven code automation for LaunchDarkly via Devin integration.",
+  "description": "Delegates end-to-end flag lifecycle, SDK setup, experiment instrumentation tasks to Devin, delivering pull-ready code changes from a single click. This action is currently in beta and is not yet available to all users.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
