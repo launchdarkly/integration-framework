@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.snowflake.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/data-export/snowflake",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/data-export/snowflake",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],

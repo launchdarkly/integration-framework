@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://galaxy.ansible.com/launchdarkly_labs/collection",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/ansible",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/ansible",
     "supportWebsite": "https://github.com/launchdarkly-labs/ansible-launchdarkly-collection/issues",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },

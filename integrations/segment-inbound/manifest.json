@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://segment.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/creating-experiments/segment/",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/metric-segment",
     "supportWebsite": "https://segment.com/docs/connections/destinations/catalog/actions-launchdarkly/",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },

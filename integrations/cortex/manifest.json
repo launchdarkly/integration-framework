@@ -7,7 +7,7 @@
   "supportEmail": "support@cortex.io",
   "links": {
     "site": "https://www.cortex.io/home",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/cortex",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/cortex",
     "supportWebsite": "https://support.getcortexapp.com/",
     "privacyPolicy": "https://www.cortex.io/legal/privacy-policy"
   },

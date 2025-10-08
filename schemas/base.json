@@ -143,6 +143,7 @@
       "items": {
         "type": "string",
         "enum": [
+          "ai",
           "analytics",
           "approval",
           "authentication",
@@ -267,6 +268,7 @@
       "propertyNames": {
         "enum": [
           "auditLogEventsHook",
+          "buttonAction",
           "reservedCustomProperties",
           "trigger",
           "approval",
@@ -279,12 +281,16 @@
           "bigSegmentStore",
           "flagImport",
           "eventsHook",
-          "flagCleanup"
+          "flagCleanup",
+          "internalConfigurationURL"
         ]
       },
       "properties": {
         "auditLogEventsHook": {
           "$ref": "schemas/capabilities/auditLogEventsHook.json#/auditLogEventsHook"
+        },
+        "buttonAction": {
+          "$ref": "schemas/capabilities/buttonAction.json#/buttonAction"
         },
         "reservedCustomProperties": {
           "$ref": "schemas/capabilities/reservedCustomProperties.json#/reservedCustomProperties"
@@ -324,6 +330,9 @@
         },
         "flagCleanup": {
           "$ref": "schemas/capabilities/flagCleanup.json#/flagCleanup"
+        },
+        "internalConfigurationURL": {
+          "$ref": "schemas/capabilities/internalConfigurationUrl.json#/internalConfigurationURL"
         }
       }
     },

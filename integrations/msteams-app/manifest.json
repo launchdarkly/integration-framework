@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.microsoft.com/en-us/microsoft-teams/group-chat-software",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/microsoft-teams",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/microsoft-teams",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["messaging"],

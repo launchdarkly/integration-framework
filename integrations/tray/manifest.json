@@ -8,7 +8,7 @@
   "supportEmail": "support@tray.io",
   "links": {
     "site": "https://tray.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/tray",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/tray",
     "privacyPolicy": "https://tray.io/privacy"
   },
   "categories": ["automation"],

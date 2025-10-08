@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://newrelic.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/new-relic",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/new-relic",
     "privacyPolicy": "https://newrelic.com/termsandconditions/privacy"
   },
   "categories": ["monitoring"],

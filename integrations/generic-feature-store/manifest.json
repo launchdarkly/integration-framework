@@ -6,8 +6,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com",
-    "privacyPolicy": "https://docs.launchdarkly.com"
+    "site": "https://launchdarkly.com/docs",
+    "privacyPolicy": "https://launchdarkly.com/docs"
   },
   "categories": ["infrastructure"],
   "icons": {

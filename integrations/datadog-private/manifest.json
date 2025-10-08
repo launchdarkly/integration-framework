@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.datadoghq.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/datadog",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/datadog/events",
     "privacyPolicy": "https://www.datadoghq.com/legal/privacy"
   },
   "categories": ["monitoring"],
