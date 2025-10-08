@@ -1,0 +1,15 @@
+on: pull_request
+name: Pull request
+jobs:
+  setShortcutLinkInPR:
+    if: github.repository == 'launchdarkly/integration-framework-private'
+    name: Set Shortcut Link in PR
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Shortcut Link in PR
+        uses: launchdarkly-labs/ld-gh-actions-shortcut/set-link@main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          AUTOLINK_PREFIX: 'SC-'
+          CREATE_STORY_URL: https://app.shortcut.com/launchdarkly/stories/new?template_id=5f3fbdce-dfa0-446b-91c5-0cf6e01f5045
