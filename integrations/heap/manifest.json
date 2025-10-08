@@ -9,7 +9,7 @@
   "links": {
     "supportWebsite": "https://help.heap.io/",
     "site": "https://heap.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/heap",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/flags/heap",
     "privacyPolicy": "https://heap.io/privacy"
   },
   "categories": ["analytics"],

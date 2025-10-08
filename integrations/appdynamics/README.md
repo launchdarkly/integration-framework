@@ -1,6 +1,6 @@
 # AppDynamics
 
-[LaunchDarkly documentation](https://docs.launchdarkly.com/integrations/appdynamics)
+[LaunchDarkly documentation](https://launchdarkly.com/docs/integrations/appdynamics)
 
 ## Setup
 

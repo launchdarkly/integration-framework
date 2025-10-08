@@ -9,7 +9,7 @@
   "links": {
     "supportWebsite": "https://support.pendo.io/hc/en-us/articles/360032592312-LaunchDarkly-Recipe-Automate-the-feature-release-process",
     "site": "https://www.pendo.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/pendo",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/pendo",
     "privacyPolicy": "https://www.pendo.io/legal/privacy-policy/"
   },
   "categories": ["analytics"],

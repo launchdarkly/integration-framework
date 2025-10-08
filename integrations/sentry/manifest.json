@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.sentry.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/sentry",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/sentry",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],

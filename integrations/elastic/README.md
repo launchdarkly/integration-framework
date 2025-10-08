@@ -1,6 +1,6 @@
 # The Elastic (ELK) Stack integration
 
-Documentation for this integration is available on the LaunchDarkly documentation site: [ELK Stack](https://docs.launchdarkly.com/integrations/elastic-stack)
+Documentation for this integration is available on the LaunchDarkly documentation site: [ELK Stack](https://launchdarkly.com/docs/integrations/elastic-stack)
 
 API documentation for this integration is available on the Elastic documentation site: [Elastic Search](https://www.elastic.co/guide/en/elasticsearch/reference/current/rest-apis.html)
 

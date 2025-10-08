@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.servicenow.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/servicenow",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/servicenow",
     "privacyPolicy": "https://www.servicenow.com/privacy-statement.html"
   },
   "categories": ["approval"],
@@ -32,7 +32,7 @@
         {
           "key": "assignmentGroup",
           "name": "ServiceNow assignment group override (Disabled)",
-          "description": "This request will fail if you have not specified the \"ServiceNow assignment group\" custom property. Read [Custom Properties](https://docs.launchdarkly.com/home/infrastructure/custom-properties) for more information.",
+          "description": "This request will fail if you have not specified the \"ServiceNow assignment group\" custom property. Read [Custom Properties](https://launchdarkly.com/docs/home/infrastructure/custom-properties) for more information.",
           "type": "enum",
           "allowedValues": ["Override disabled"],
           "isOptional": true

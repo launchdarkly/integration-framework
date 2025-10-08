@@ -9,7 +9,7 @@
     "supportWebsite": "https://tealium.com/docs-overview/",
     "site": "https://tealium.com/",
     "privacyPolicy": "https://tealium.com/privacy",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/tealium"
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/flags/tealium"
   },
   "categories": ["analytics", "data"],
   "icons": {

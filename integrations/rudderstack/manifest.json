@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.rudderstack.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/segments/synced-segments/rudderstack",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/flags/rudderstack",
     "supportWebsite": "https://www.rudderstack.com/docs/destinations/streaming-destinations/launchdarkly-segments/",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy"
   },

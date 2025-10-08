@@ -1,0 +1,21 @@
+{
+  "name": "Crossplane",
+  "version": "1.0.0",
+  "overview": "Manage your LaunchDarkly resources with Crossplane.",
+  "description": "Use Crossplane to manage your LaunchDarkly resources.",
+  "details": "Crossplane is a tool for building, changing, and versioning infrastructure safely and efficiently. Crossplane can manage existing and popular service providers as well as custom in-house solutions. With the LaunchDarkly Crossplane provider, you can automate the creation and management of LaunchDarkly resources, such as projects, environments, and feature flags, streamlining your development and release workflows.​",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/crossplane",
+    "supportWebsite": "https://marketplace.upbound.io/providers/launchdarkly/provider-launchdarkly",
+    "site": "https://marketplace.upbound.io/providers/launchdarkly/provider-launchdarkly",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "icons/square.svg",
+    "horizontal": "icons/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}

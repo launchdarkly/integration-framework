@@ -1,0 +1,137 @@
+{
+  "name": "Custom Approvals with OAuth",
+  "version": "1.0.0",
+  "overview": "Integrate LaunchDarkly approvals with an application of your own design.",
+  "description": "Integrate LaunchDarkly approvals with an application of your own design.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://launchdarkly.com/",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/custom-approvals-oauth",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "categories": ["approval"],
+  "requiresOAuth": true,
+  "oauthIntegrationKey": "custom-approvals-oauth",
+  "formVariables": [],
+  "allowIntegrationConfigurations": true,
+  "capabilities": {
+    "approval": {
+      "name": "Custom Approvals with OAuth",
+      "approvalFormVariables": [],
+      "allowApprovalIntegrationConfigurations": true,
+      "allowAdditionalApprovalFormVariables": true,
+      "environmentFormVariables": [],
+      "creationRequest": {
+        "endpoint": {
+          "url": "{{ oauth.baseURI }}/api/approvals",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ oauth.accessToken }}"
+            }
+          ]
+        },
+        "jsonBody": "{\"_site\": {\"href\": \"{{_links.approval.href}}\"}, \"_id\": \"{{approvalId}}\", {{#if details.plainText}}\"details\": \"{{details.plainText}}\",{{/if}} \"project\": {\"name\":\"{{project.name}}\", \"key\": \"{{project.key}}\", \"tags\":[{{#each project.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"environment\": {\"name\":\"{{project.environment.name}}\", \"key\": \"{{project.environment.key}}\", \"tags\":[{{#each project.environment.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]}, \"flag\": {\"name\":\"{{flag.name}}\", \"key\": \"{{flag.key}}\", \"tags\":[{{#each flag.tags}}\"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}}]},{{#if title.member}}\"requestedBy\": {\"id\": \"{{member._id}}\", \"email\": \"{{member.email}}\"},{{/if}}\"shortDescription\": \"{{{title.plainText}}}\", \"timestamp\": \"{{timestamp.milliseconds}}\", \"approvalFormVariables\": { {{#each approvalFormVariables}} \"{{@key}}\": \"{{this}}\"{{#if @last}}{{else}},{{/if}}{{/each}} },\"comment\": \"{{approvalDescription}}\" }",
+        "parser": {
+          "approvalId": "/_id",
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
+          "approvalMatcher": "approved",
+          "rejectionMatcher": "declined",
+          "urlTemplate": "{{ oauth.baseURI }}/approvals?approvalID={{ context.approvalId }}"
+        }
+      },
+      "statusRequest": {
+        "endpoint": {
+          "url": "{{ oauth.baseURI }}/api/approvals/{{ context.approvalId }}/status",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ oauth.accessToken }}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
+          "approvalMatcher": "approved",
+          "rejectionMatcher": "declined"
+        }
+      },
+      "postApplyRequest": {
+        "endpoint": {
+          "url": "{{ oauth.baseURI }}/api/approvals/{{ context.approvalId }}/apply",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ oauth.accessToken }}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
+          "approvalMatcher": "approved",
+          "rejectionMatcher": "declined"
+        }
+      },
+      "deletionRequest": {
+        "endpoint": {
+          "url": "{{ oauth.baseURI }}/api/approvals/{{ context.approvalId }}/cancel",
+          "method": "POST",
+          "headers": [
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "Authorization",
+              "value": "Bearer {{ oauth.accessToken }}"
+            }
+          ]
+        },
+        "parser": {
+          "statusValue": "/status/value",
+          "statusDisplay": "/status/display",
+          "approvalMatcher": "approved",
+          "rejectionMatcher": "declined"
+        }
+      },
+      "memberListRequest": {
+        "endpoint": {
+          "url": "{{ oauth.baseURI }}/api/members",
+          "method": "GET",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{oauth.accessToken}}"
+            }
+          ]
+        },
+        "parser": {
+          "memberArrayPath": "/members",
+          "memberItems": {
+            "memberId": "/name",
+            "email": "/email"
+          }
+        }
+      }
+    }
+  }
+}

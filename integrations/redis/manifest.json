@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://redis.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/redis",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/redis",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["big-segment-store", "data", "synced-segments"],

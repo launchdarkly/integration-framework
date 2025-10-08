@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.pagerduty.com",
-    "launchdarklyDocs": "https://docs.launchdarkly.com",
+    "launchdarklyDocs": "https://launchdarkly.com/docs",
     "privacyPolicy": "https://www.pagerduty.com/privacy-policy/"
   },
   "categories": ["monitoring"],
@@ -27,7 +27,7 @@
   "capabilities": {
     "reservedCustomProperties": [
       {
-        "name": "PagerDuy integration key override",
+        "name": "PagerDuty integration key override",
         "description": "The PagerDuty integration key to use for all changes associated with this flag. Only the first key will be used.",
         "key": "pagerDutyIntegrationKey"
       }

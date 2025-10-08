@@ -155,6 +155,7 @@
       "items": {
         "type": "string",
         "enum": [
+          "ai",
           "analytics",
           "approval",
           "authentication",
@@ -752,6 +753,7 @@
       "propertyNames": {
         "enum": [
           "auditLogEventsHook",
+          "buttonAction",
           "reservedCustomProperties",
           "trigger",
           "approval",
@@ -764,7 +766,8 @@
           "bigSegmentStore",
           "flagImport",
           "eventsHook",
-          "flagCleanup"
+          "flagCleanup",
+          "internalConfigurationURL"
         ]
       },
       "properties": {
@@ -1085,6 +1088,192 @@
           "required": [
             "templates"
           ]
+        },
+        "buttonAction": {
+          "$id": "#/properties/capability/button-action",
+          "title": "Button action",
+          "description": "This capability will enable LaunchDarkly to send generic requests to an external API upon the click of a button.",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "actionRequest",
+              "requestBodyTemplates"
+            ]
+          },
+          "required": [
+            "actionRequest",
+            "requestBodyTemplates"
+          ],
+          "properties": {
+            "actionRequest": {
+              "$id": "#/properties/capability/button-action/action-request",
+              "title": "Action Request",
+              "description": "Describes the HTTP request for the action",
+              "propertyNames": {
+                "enum": [
+                  "endpoint"
+                ]
+              },
+              "required": [
+                "endpoint"
+              ],
+              "properties": {
+                "endpoint": {
+                  "$id": "#/definitions/endpoint",
+                  "title": "Endpoint",
+                  "description": "Properties that describe an HTTP request to an external endpoint",
+                  "type": "object",
+                  "propertyNames": {
+                    "enum": [
+                      "url",
+                      "method",
+                      "headers",
+                      "hmacSignature"
+                    ]
+                  },
+                  "properties": {
+                    "url": {
+                      "$id": "#/definitions/endpoint/url",
+                      "title": "URL",
+                      "type": "string",
+                      "description": "URL to send the request to. You can use {{template markup}} to inject a formVariable into the url."
+                    },
+                    "method": {
+                      "$id": "#/definitions/endpoint/method",
+                      "title": "HTTP method",
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
+                      "enum": [
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "GET",
+                        "DELETE"
+                      ],
+                      "type": "string"
+                    },
+                    "headers": {
+                      "$id": "#/definitions/endpoint/headers",
+                      "title": "HTTP headers",
+                      "description": "Headers to send with the webhook request",
+                      "type": "array",
+                      "items": {
+                        "$id": "#/definitions/endpoint/header/items",
+                        "title": "Header items",
+                        "description": "A name and value pair to send as headers with the hook request",
+                        "type": "object",
+                        "propertyNames": {
+                          "enum": [
+                            "name",
+                            "value"
+                          ]
+                        },
+                        "properties": {
+                          "name": {
+                            "$id": "#/definitions/endpoint/header/items/name",
+                            "title": "Name",
+                            "type": "string",
+                            "description": "Name of the header",
+                            "maxLength": 50,
+                            "pattern": "^[^\\s]*$"
+                          },
+                          "value": {
+                            "$id": "#/definitions/endpoint/header/items/value",
+                            "title": "Value",
+                            "type": "string",
+                            "description": "Value of the header. Form variables can be substituted in using {{variableName}}"
+                          }
+                        },
+                        "required": [
+                          "name",
+                          "value"
+                        ]
+                      },
+                      "default": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "examples": [
+                        {
+                          "name": "Content-Type",
+                          "value": "application/json"
+                        },
+                        {
+                          "name": "Authorization",
+                          "value": "Bearer {{apiToken}}"
+                        }
+                      ],
+                      "minProperties": 1
+                    },
+                    "hmacSignature": {
+                      "$id": "#/definitions/endpoint/hmac-signature",
+                      "title": "HMAC signature",
+                      "description": "Whether or not and how to configure HMAC validation on outgoing webhooks",
+                      "type": "object",
+                      "propertyNames": {
+                        "enum": [
+                          "headerName",
+                          "hmacSecretFormVariableKey"
+                        ]
+                      },
+                      "properties": {
+                        "headerName": {
+                          "$id": "#/definitions/endpoint/hmac-signature/header-name",
+                          "title": "HMAC signature header name",
+                          "description": "The name of the HMAC signature header",
+                          "type": "string"
+                        },
+                        "hmacSecretFormVariableKey": {
+                          "$id": "#/definitions/endpoint/hmac-signature/secret-form-variable-field",
+                          "title": "HMAC secret form variable key",
+                          "description": "The name of the form variable field that corresponds to the HMAC encryption secret",
+                          "type": "string"
+                        }
+                      }
+                    }
+                  },
+                  "required": [
+                    "url",
+                    "method"
+                  ]
+                }
+              }
+            },
+            "requestBodyTemplates": {
+              "$id": "#/properties/capability/button-action/request-body-templates",
+              "title": "Request Body Templates",
+              "description": "An array of json objects that can be sent as request bodies",
+              "type": "array",
+              "items": {
+                "type": "object",
+                "required": [
+                  "key",
+                  "jsonBody",
+                  "requiredContext"
+                ],
+                "properties": {
+                  "key": {
+                    "type": "string",
+                    "description": "A unique identifier for the specific request body"
+                  },
+                  "jsonBody": {
+                    "$id": "#/definitions/json-body",
+                    "title": "JSON Body",
+                    "description": "Template string used to render the JSON request body",
+                    "type": "string"
+                  },
+                  "requiredContext": {
+                    "type": "array",
+                    "description": "An array of context strings that are required to correctly resolve the request body",
+                    "items": {
+                      "type": "string"
+                    }
+                  }
+                }
+              }
+            }
+          }
         },
         "reservedCustomProperties": {
           "$id": "#/properties/capability/reserved-custom-properties",
@@ -5282,6 +5471,14 @@
               "default": []
             }
           }
+        },
+        "internalConfigurationURL": {
+          "$id": "#/properties/capability/internal-configuration-url",
+          "title": "Internal Configuration URL",
+          "description": "This capability will redirect users to an internal URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly.",
+          "type": "string",
+          "maxLength": 2048,
+          "pattern": "^(/[^/]+)+(?:\\?[^\\s]*)?$|^[^/]+(/[^/]+)*(?:\\?[^\\s]*)?$"
         }
       }
     },

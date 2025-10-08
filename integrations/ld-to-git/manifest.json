@@ -6,7 +6,7 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://docs.launchdarkly.com/integrations",
+    "site": "https://launchdarkly.com/docs/integrations",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["data"],
@@ -26,7 +26,7 @@
     {
       "key": "ldApiToken",
       "name": "LaunchDarkly API token",
-      "description": "Enter the API token generated from LaunchDarkly. Instructions for generating a LaunchDarkly API token can be found [here](https://docs.launchdarkly.com/home/account-security/api-access-tokens)",
+      "description": "Enter the API token generated from LaunchDarkly. Instructions for generating a LaunchDarkly API token can be found [here](https://launchdarkly.com/docs/home/account/api)",
       "type": "string",
       "isSecret": true,
       "isOptional": false

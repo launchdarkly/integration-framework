@@ -6,8 +6,8 @@
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
-    "site": "https://logdna.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/logdna",
+    "site": "https://www.mezmo.com/",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/mezmo",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["log-management"],

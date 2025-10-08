@@ -54,6 +54,7 @@ export type SupportWebsite = string;
  */
 export type Categories =
   | [
+      | "ai"
       | "analytics"
       | "approval"
       | "authentication"
@@ -75,6 +76,7 @@ export type Categories =
     ]
   | [
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
@@ -95,6 +97,7 @@ export type Categories =
         | "notifications"
       ),
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
@@ -117,6 +120,7 @@ export type Categories =
     ]
   | [
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
@@ -137,6 +141,7 @@ export type Categories =
         | "notifications"
       ),
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
@@ -157,6 +162,7 @@ export type Categories =
         | "notifications"
       ),
       (
+        | "ai"
         | "analytics"
         | "approval"
         | "authentication"
@@ -436,6 +442,25 @@ export type DeliveryMethod = "custom";
  */
 export type UseStandardWebhookPayload = boolean;
 /**
+ * Template string used to render the JSON request body
+ */
+export type JSONBody = string;
+/**
+ * An array of json objects that can be sent as request bodies
+ */
+export type RequestBodyTemplates = {
+  /**
+   * A unique identifier for the specific request body
+   */
+  key: string;
+  jsonBody: JSONBody;
+  /**
+   * An array of context strings that are required to correctly resolve the request body
+   */
+  requiredContext: string[];
+  [k: string]: unknown;
+}[];
+/**
  * The reserved custom property's display name.
  */
 export type Name2 = string;
@@ -504,10 +529,6 @@ export type AllowAdditionalApprovalFormVariablesForCreationRequestModal = boolea
  * If true, the user can create integration configurations associated with this integration's approval capability. Requires formVariables to be defined
  */
 export type AllowUsersToConfigureIntegrationConfigurationsForApprovals = boolean;
-/**
- * Template string used to render the JSON request body
- */
-export type JSONBody = string;
 /**
  * Externally-created approval entity ID
  */
@@ -735,6 +756,10 @@ export type ErrorMonitoringNewIssueFoundTemplate = string;
  */
 export type FlagCleanupFormVariables = FormVariable[];
 /**
+ * This capability will redirect users to an internal URL when they attempt to create or edit the integration from the integrations page in LaunchDarkly.
+ */
+export type InternalConfigurationURL = string;
+/**
  * Unique key to be used to save and retrieve OAuth credentials used by your app. This is required if your app uses an OAuth flow.
  */
 export type OAuthIntegrationKey = string;
@@ -874,6 +899,7 @@ export interface MultiSelectOptionItem {
  */
 export interface Capabilities {
   auditLogEventsHook?: AuditLogEventsHook;
+  buttonAction?: ButtonAction;
   reservedCustomProperties?: ReservedCustomProperties;
   trigger?: Trigger;
   approval?: Approval;
@@ -887,6 +913,7 @@ export interface Capabilities {
   flagImport?: FlagImport;
   eventsHook?: EventsHook;
   flagCleanup?: FlagCleanup;
+  internalConfigurationURL?: InternalConfigurationURL;
   [k: string]: unknown;
 }
 /**
@@ -922,6 +949,21 @@ export interface Policy {
   notActions?: NotActions;
   notResources?: NotResources;
   resources?: Resources;
+  [k: string]: unknown;
+}
+/**
+ * This capability will enable LaunchDarkly to send generic requests to an external API upon the click of a button.
+ */
+export interface ButtonAction {
+  actionRequest: ActionRequest;
+  requestBodyTemplates: RequestBodyTemplates;
+  [k: string]: unknown;
+}
+/**
+ * Describes the HTTP request for the action
+ */
+export interface ActionRequest {
+  endpoint: Endpoint;
   [k: string]: unknown;
 }
 /**

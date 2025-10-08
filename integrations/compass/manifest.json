@@ -7,7 +7,7 @@
   "supportEmail": "compassfb@customerfeedback.atlassian.net",
   "links": {
     "site": "https://www.atlassian.com/software/compass",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/compass",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/compass",
     "supportWebsite": "https://community.atlassian.com/t5/Compass-Alpha/gh-p/compass-alpha",
     "privacyPolicy": "https://www.atlassian.com/legal/privacy-policy"
   },

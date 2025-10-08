@@ -1,0 +1,38 @@
+{
+  "name": "AI Config Test Run",
+  "version": "1.0.0",
+  "overview": "Configure your LLM provider and API key to use in your AI Config test runs.",
+  "description": "This integration helps you configure your LLM provider and API key to use in your AI Config test runs.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://launchdarkly.com/",
+    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/ai-config-test-runs",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "categories": ["ai"],
+  "requiresOAuth": false,
+  "allowIntegrationConfigurations": true,
+  "formVariables": [
+    {
+      "key": "provider",
+      "name": "Model Provider",
+      "description": "Select your model provider",
+      "placeholder": "Select your model provider",
+      "type": "enum",
+      "allowedValues": ["Anthropic", "Bedrock", "OpenAI"]
+    },
+    {
+      "key": "apiKey",
+      "name": "API Key",
+      "description": "Enter the API key for your selected model provider",
+      "placeholder": "Enter your API key",
+      "type": "string",
+      "isSecret": true
+    }
+  ]
+}

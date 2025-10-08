@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.onelogin.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/account-security/onelogin",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/account/onelogin",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["authentication"],

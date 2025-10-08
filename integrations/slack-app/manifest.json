@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://slack.com/apps/AKEEF9DTM-launchdarkly",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/slack",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/slack",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["messaging"],
@@ -24,7 +24,7 @@
       "header": "Slack conversation",
       "emptyState": {
         "title": "No Slack conversations link to this flag.",
-        "leadText": "To enable the Slack integration, [read the documentation](https://docs.launchdarkly.com/home/flags/links#creating-slack-flag-links)"
+        "leadText": "To enable the Slack integration, [read the documentation](https://launchdarkly.com/docs/home/flags/links#create-slack-flag-links)"
       },
       "metadata": {
         "avatarUrl": {

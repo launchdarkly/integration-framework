@@ -1,0 +1,41 @@
+{
+  "name": "Gitar",
+  "version": "1.0.0",
+  "overview": "Use the Gitar GitHub App in order to automatically clean up LaunchDarkly flags in your code.",
+  "description": "Use the Gitar GitHub App in order to automatically clean up LaunchDarkly flags in your code",
+  "details": "Use the Gitar GitHub App in order to automatically clean up LaunchDarkly flags in your code",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://gitar.ai",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/observability/code-cleanup",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["automation", "code-references", "developer-tools"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/square.svg"
+  },
+  "capabilities": {
+    "flagCleanup": {}
+  },
+  "formVariables": [
+    {
+      "name": "Gitar API key",
+      "key": "gitarToken",
+      "type": "string",
+      "isSecret": true,
+      "description": "The API key for your Gitar account",
+      "isOptional": false
+    },
+    {
+      "name": "GitHub organization name",
+      "key": "githubOrgName",
+      "type": "string",
+      "isSecret": false,
+      "description": "The name of the GitHub organization you want to clean up",
+      "isOptional": false
+    }
+  ],
+  "allowIntegrationConfigurations": true
+}

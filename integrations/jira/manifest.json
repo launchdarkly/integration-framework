@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.atlassian.com/software/jira",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/jira",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/jira",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["issue-tracking"],
@@ -22,7 +22,7 @@
       "header": "Jira issue",
       "emptyState": {
         "title": "No Jira issues link to this flag.",
-        "leadText": "To enable the Jira integration, [read the documentation](https://docs.launchdarkly.com/home/flags/links#creating-jira-flag-links)"
+        "leadText": "To enable the Jira integration, [read the documentation](https://launchdarkly.com/docs/home/flags/links#create-jira-flag-links)"
       },
       "metadata": {
         "creator": {
