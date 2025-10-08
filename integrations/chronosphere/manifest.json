@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://chronosphere.io/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/chronosphere",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/chronosphere",
     "privacyPolicy": "https://chronosphere.io/privacy/"
   },
   "categories": ["monitoring"],

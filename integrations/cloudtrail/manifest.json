@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://aws.amazon.com/cloudtrail/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/cloudtrail",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/cloudtrail",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["monitoring", "analytics"],
@@ -19,7 +19,7 @@
     {
       "key": "externalId",
       "name": "External Id",
-      "description": "Use this [external id](https://docs.launchdarkly.com/integrations/cloudtrail) for your resource policy when setting up the integration in the AWS Console.",
+      "description": "Use this [external id](https://launchdarkly.com/docs/integrations/cloudtrail) for your resource policy when setting up the integration in the AWS Console.",
       "type": "generated"
     },
     {

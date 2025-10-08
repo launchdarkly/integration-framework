@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.akamai.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/akamai",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/akamai",
     "privacyPolicy": "https://www.akamai.com/legal/compliance/privacy-trust-center/"
   },
   "categories": ["infrastructure"],

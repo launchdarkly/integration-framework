@@ -1,0 +1,3 @@
+# Ignore false positives - GitHub commit hashes in gist URLs in documentation
+docs/manifest\.md
+docs/form-variables\.md

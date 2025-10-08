@@ -7,7 +7,7 @@
   "supportEmail": "support@getport.io",
   "links": {
     "site": "https://getport.io",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/port",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/port",
     "privacyPolicy": "https://www.getport.io/legal/privacy-policy"
   },
   "categories": ["developer-tools", "infrastructure"],

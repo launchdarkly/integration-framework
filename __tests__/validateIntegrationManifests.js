@@ -16,8 +16,14 @@ const OAUTH_INTEGRATIONS = [
   'sentry',
   'servicenow',
   'servicenow-normal',
+  'servicenow-app',
+  'custom-approvals-oauth',
 ]; // add oauth integrations here
-const INTEGRATIONS_WITH_DUP_OAUTH_KEYS = ['servicenow', 'servicenow-normal']; // these are integrations we expect to have duplicate oauth integration keys for various reasons
+const INTEGRATIONS_WITH_DUP_OAUTH_KEYS = [
+  'servicenow',
+  'servicenow-normal',
+  'servicenow-app',
+]; // these are integrations we expect to have duplicate oauth integration keys for various reasons
 
 var parse = require('url-parse');
 
@@ -431,8 +437,10 @@ describe('All integrations', () => {
   test.each(manifests)(
     'at least one externalCapability has been defined if no manifest capabilities for %s',
     (key, manifest) => {
+      const integrationsWithNoCapabilities = ['aiconfig-test-run'];
       const capabilities = _.get(manifest, 'capabilities', null);
-      if (!capabilities) {
+
+      if (!capabilities && !integrationsWithNoCapabilities.includes(key)) {
         const otherCapabilities = _.get(manifest, 'otherCapabilities', null);
         expect(otherCapabilities).not.toBeNull();
         expect(otherCapabilities.length).toBeGreaterThan(0);

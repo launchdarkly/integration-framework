@@ -20,7 +20,7 @@
       "header": "Trello card",
       "emptyState": {
         "title": "No Trello cards link to this flag.",
-        "leadText": "To enable the Trello integration, [read the documentation](https://docs.launchdarkly.com/home/flags/links#creating-trello-flag-links)"
+        "leadText": "To enable the Trello integration, [read the documentation](https://launchdarkly.com/docs/home/flags/links#create-trello-flag-links)"
       },
       "metadata": {
         "cardTitle": {

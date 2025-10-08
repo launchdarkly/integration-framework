@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://github.com/features/actions",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/code/github-actions",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/github-actions",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["code-references"],
@@ -25,7 +25,7 @@
       "header": "GitHub pull request",
       "emptyState": {
         "title": "No GitHub pull requests link to this flag.",
-        "leadText": "To enable the GitHub integration, [read the documentation](https://docs.launchdarkly.com/integrations/github-actions/find-code-references)"
+        "leadText": "To enable the GitHub integration, [read the documentation](https://launchdarkly.com/docs/integrations/github-actions/find-code-references)"
       },
       "metadata": {
         "avatarUrl": {

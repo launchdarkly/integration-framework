@@ -1,6 +1,6 @@
 # New Relic
 
-[User documentation](https://docs.launchdarkly.com/integrations/new-relic)
+[User documentation](https://launchdarkly.com/docs/integrations/new-relic)
 
 [API documentation](https://docs.newrelic.com/docs/data-apis/ingest-apis/event-api/introduction-event-api/)
 

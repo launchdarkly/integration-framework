@@ -1,0 +1,28 @@
+{
+  "eventType": "CUSTOM_CONFIGURATION",
+  "entitySelector": "type({{#if formVariables.entity}}{{formVariables.entity}}{{else}}APPLICATION{{/if}}),tag(
+    {{~#if customProperties}}{{#if customProperties.dynatrace-v2}}{{#if customProperties.dynatrace-v2.values~}}
+      {{~#with customProperties~}}
+      {{~#each dynatrace-v2.values~}}
+        \"{{this}}\"{{~#if formVariables.tag}},{{else}}{{#unless @last}},{{/unless}}{{/if}}
+      {{~/each~}}
+      {{~/with~}}
+    {{~/if}}{{/if}}{{/if~}}
+    {{~#if formVariables.tag~}}
+      \"{{formVariables.tag}}\"
+    {{~/if~}})",
+  "properties": {
+    "Flag name": "{{name}}",
+    "Flag key": "{{key}}",
+    "Project name": "{{project.name}}",
+    "Project key": "{{project.key}}",
+    "Environment name": "{{project.environment.name}}",
+    "Environment key": "{{project.environment.key}}",
+    "Comment": "{{#if comment}}{{comment}}{{/if}}",
+    "User name": "{{member.displayName}}",
+    "User email": "{{ member.email }}",
+    "Action": "{{verbKind}}"
+  },
+  "startTime": {{ timestamp.milliseconds }},
+  "title": "{{{title.plainText}}}"
+}

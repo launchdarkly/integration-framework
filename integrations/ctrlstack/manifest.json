@@ -9,7 +9,7 @@
   "links": {
     "site": "https://ctrlstack.com",
     "supportWebsite": "https://www.ctrlstack.com/contact/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/ctrlstack",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/ctrlstack",
     "privacyPolicy": "https://www.ctrlstack.com/terms-and-policy/"
   },
   "categories": ["monitoring", "developer-tools"],

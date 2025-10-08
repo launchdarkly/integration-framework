@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://www.example.com",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/contexts/synced-segments",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/flags/synced-segments",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy"
   },
   "categories": ["synced-segments"],

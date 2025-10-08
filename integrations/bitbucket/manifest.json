@@ -8,7 +8,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://bitbucket.org/product/features/pipelines",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/home/code/bitbucket",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/observability/bitbucket",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["code-references"],

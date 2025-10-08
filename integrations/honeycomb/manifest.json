@@ -7,7 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://honeycomb.io",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/honeycomb",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/honeycomb",
     "privacyPolicy": "https://honeycomb.io/privacy"
   },
   "categories": ["monitoring"],
@@ -62,7 +62,7 @@
       ]
     },
     "trigger": {
-      "documentation": "https://docs.launchdarkly.com/integrations/honeycomb/triggers#connecting-a-flag-trigger-to-honeycomb",
+      "documentation": "https://launchdarkly.com/docs/integrations/honeycomb/triggers#connect-a-flag-trigger-to-honeycomb",
       "parser": {
         "eventName": "/name",
         "url": "/result_url"
