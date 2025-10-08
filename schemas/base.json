@@ -268,7 +268,6 @@
       "propertyNames": {
         "enum": [
           "auditLogEventsHook",
-          "buttonAction",
           "reservedCustomProperties",
           "trigger",
           "approval",
@@ -288,9 +287,6 @@
       "properties": {
         "auditLogEventsHook": {
           "$ref": "schemas/capabilities/auditLogEventsHook.json#/auditLogEventsHook"
-        },
-        "buttonAction": {
-          "$ref": "schemas/capabilities/buttonAction.json#/buttonAction"
         },
         "reservedCustomProperties": {
           "$ref": "schemas/capabilities/reservedCustomProperties.json#/reservedCustomProperties"
