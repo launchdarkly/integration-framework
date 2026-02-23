@@ -1,0 +1,32 @@
+{
+  "name": "LaunchDarkly Developer Toolbar",
+  "version": "1.0.0",
+  "overview": "Configure allowed domains for LaunchDarkly Developer Toolbar.",
+  "description": "Allows users to whitelist domains where the LaunchDarkly Developer Toolbar can be used. This is needed to allow the Developer Toolbar to be used in hosted environments.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://launchdarkly.com",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["developer-tools"],
+  "icons": {
+    "square": "assets/images/osmo.svg",
+    "horizontal": "assets/images/osmo.svg"
+  },
+  "capabilities": {
+    "hideConfiguration": false
+  },
+  "allowIntegrationConfigurations": true,
+  "formVariables": [
+    {
+      "key": "allowedDomains",
+      "name": "Allowed Domains",
+      "description": "Comma-separated list of domains where the Developer Toolbar can be used.",
+      "type": "string",
+      "placeholder": "e.g. localhost:3000, dev.myapp.com, staging.myapp.com",
+      "isSecret": false,
+      "isOptional": false
+    }
+  ]
+}
