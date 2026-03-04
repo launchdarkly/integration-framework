@@ -18,7 +18,7 @@
     "Project key": "{{project.key}}",
     "Environment name": "{{project.environment.name}}",
     "Environment key": "{{project.environment.key}}",
-    "Comment": "{{#if comment}}{{comment}}{{/if}}",
+    {{#if comment}}"Comment": "{{comment}}",{{/if}}
     "User name": "{{member.displayName}}",
     "User email": "{{ member.email }}",
     "Action": "{{verbKind}}"

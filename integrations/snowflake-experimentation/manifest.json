@@ -71,6 +71,15 @@
       "isHidden": true,
       "isOptional": true,
       "defaultValue": ""
+    },
+    {
+      "key": "recurringTasksId",
+      "name": "Recurring Task Id",
+      "description": "The task id of the scheduled work task for this integration",
+      "type": "string",
+      "isHidden": true,
+      "isOptional": true,
+      "defaultValue": ""
     }
   ]
 }

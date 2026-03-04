@@ -118,7 +118,7 @@
             }
           ]
         },
-        "jsonBody": "{ \"number\": \"{{{creationResponseBody.result.[0].display_value}}}\", \"requested_by\": \"{{{member.emailLocalPart}}}\",  \"state\": \"Closed Complete\", \"u_close_task_state\": \"Closed Complete,Closed Complete,Closed Complete,Closed Skipped\", \"u_closure_code\": \"Successful\", \"u_close_tasks\": \"{{{creationResponseBody.result.[0].AllTasks}}}\", \"u_closure_comments\": \"Closed by LaunchDarkly: {{{comment}}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\" }",
+        "jsonBody": "{ \"number\": \"{{{creationResponseBody.result.[0].display_value}}}\", \"requested_by\": \"{{{member.emailLocalPart}}}\",  \"state\": \"Closed Complete\", \"u_close_task_state\": \"Closed Complete,Closed Complete,Closed Complete,Closed Complete\", \"u_closure_code\": \"Successful\", \"u_close_tasks\": \"{{{creationResponseBody.result.[0].AllTasks}}}\", \"u_closure_comments\": \"Closed by LaunchDarkly: {{{comment}}}\", \"u_uuid\": \"ld-{{timestamp.milliseconds}}\" }",
         "parser": {
           "statusValue": "/result/0/status",
           "statusDisplay": "/result/0/status",

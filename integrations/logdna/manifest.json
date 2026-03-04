@@ -1,8 +1,8 @@
 {
-  "name": "LogDNA",
+  "name": "Mezmo",
   "version": "1.0.0",
-  "overview": "Monitor LaunchDarkly flag events in LogDNA.",
-  "description": "This integration sends LaunchDarkly audit log events, including flag, project, and environment changes, to LogDNA.",
+  "overview": "Monitor LaunchDarkly flag events in Mezmo.",
+  "description": "This integration sends LaunchDarkly audit log events, including flag, project, and environment changes, to Mezmo.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -18,8 +18,8 @@
   "formVariables": [
     {
       "key": "ingestionKey",
-      "name": "LogDNA ingestion key",
-      "description": "Enter your [LogDNA ingestion key](https://app.logdna.com/manage/api-keys).",
+      "name": "Mezmo ingestion key",
+      "description": "Enter your [Mezmo ingestion key](https://docs.mezmo.com/docs/ingestion-key).",
       "type": "string",
       "placeholder": "1234567890abcdef1234567890abcdef",
       "isSecret": true

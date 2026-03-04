@@ -7,6 +7,7 @@
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://zapier.com",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/zapier",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "categories": ["automation"],

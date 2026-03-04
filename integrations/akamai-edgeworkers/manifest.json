@@ -24,7 +24,8 @@
           "description": "The unique host domain that will receive API requests. You can find this on your API client details page from your Akamai [Identity and Access Management](https://techdocs.akamai.com/developer/docs/create-a-client-with-custom-permissions) dashboard.",
           "type": "string",
           "placeholder": "e.g. abcd-xxxxxx-xxxx.luna-dev.akamaiapis.net",
-          "isSecret": false
+          "isSecret": false,
+          "clearSecretsOnChange": true
         },
         {
           "key": "network",
