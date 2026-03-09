@@ -1,13 +1,13 @@
 {
-  "name": "AI Config Test Run",
+  "name": "Playground",
   "version": "1.0.0",
   "overview": "Configure your LLM provider and API key to use in your AI Config test runs.",
-  "description": "This integration helps you configure your LLM provider and API key to use in your AI Config test runs.",
+  "description": "This integration helps you configure your LLM provider API keys to use in LaunchDarkly's playground.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://launchdarkly.com/",
-    "launchdarklyDocs": "https://docs.launchdarkly.com/integrations/ai-config-test-runs",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/ai-configs/playground#manage-api-keys",
     "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
   },
   "icons": {

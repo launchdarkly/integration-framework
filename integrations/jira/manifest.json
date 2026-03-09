@@ -16,8 +16,25 @@
     "square": "assets/images/square.svg",
     "horizontal": "assets/images/horizontal.svg"
   },
+  "formVariables": [
+    {
+      "key": "url",
+      "name": "Jira web trigger URL",
+      "type": "uri",
+      "description": "Enter your Jira web trigger URL",
+      "isSecret": false
+    },
+    {
+      "key": "secret",
+      "name": "Secret",
+      "description": "Enter the secret shared between Jira and LaunchDarkly",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
   "otherCapabilities": ["external"],
   "capabilities": {
+    "hideConfiguration": true,
     "flagLink": {
       "header": "Jira issue",
       "emptyState": {
@@ -56,6 +73,31 @@
           ]
         }
       }
+    },
+    "auditLogEventsHook": {
+      "endpoint": {
+        "url": "{{url}}",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "hmacSignature": {
+          "headerName": "X-LD-Signature",
+          "hmacSecretFormVariableKey": "secret"
+        }
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/*:flag/*"],
+          "actions": ["*"]
+        }
+      ],
+      "templates": {},
+      "useStandardWebhookPayload": true
     }
   }
 }

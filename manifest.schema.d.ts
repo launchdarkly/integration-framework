@@ -240,7 +240,9 @@ export type Type =
   | "generated"
   | "environmentSelector"
   | "multiselect"
-  | "publicKey";
+  | "publicKey"
+  | "sectionHeading"
+  | "codeEditor";
 /**
  * Describes the variable in the UI. Markdown links allowed.
  */
@@ -257,6 +259,10 @@ export type IsThisVariableASecret = boolean;
  * Variables marked as disabled after saving won't be editable after they are saved
  */
 export type DisableAfterSaving = boolean;
+/**
+ * When true, changing this variable will require all secret variables in the same capability to be re-entered with new values
+ */
+export type ClearSecretsOnChange = boolean;
 /**
  * Variables marked as optional won't be required on the UI
  */
@@ -377,6 +383,22 @@ export type MultiSelectDefaultOptions = string[];
  * Variables marked as hideEmpty won't be shown in the UI if they are empty
  */
 export type HideValueInUIWhenEmpty = boolean;
+/**
+ * Hint for syntax highlighting in codeEditor variables.
+ */
+export type CodeLanguage = string;
+/**
+ * Optional heading to display above the instructions list.
+ */
+export type InstructionsHeading = string;
+/**
+ * Optional list of setup instructions displayed with codeEditor variables.
+ */
+export type Instructions = string[];
+/**
+ * Whether to show a divider after a sectionHeading variable.
+ */
+export type Divider = boolean;
 /**
  * Form variables will be rendered on the integration configuration page. These are variables you need an admin to supply when they enable the integration. Examples of a form variable include `apiToken` or `url`.
  */
@@ -828,6 +850,7 @@ export interface FormVariable {
   placeholder?: Description1;
   isSecret?: IsThisVariableASecret;
   disableAfterSaving?: DisableAfterSaving;
+  clearSecretsOnChange?: ClearSecretsOnChange;
   isOptional?: IsThisVariableOptional;
   isHidden?: HideVariableInTheUI;
   defaultValue?: DefaultValue;
@@ -837,6 +860,10 @@ export interface FormVariable {
   multiselectOptions?: OptionsArray1;
   multiselectDefaultOptions?: MultiSelectDefaultOptions;
   hideEmpty?: HideValueInUIWhenEmpty;
+  codeLanguage?: CodeLanguage;
+  instructionsHeading?: InstructionsHeading;
+  instructions?: Instructions;
+  divider?: Divider;
   [k: string]: unknown;
 }
 /**

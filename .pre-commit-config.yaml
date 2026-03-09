@@ -8,6 +8,7 @@ repos:
       - id: check-symlinks
       - id: trailing-whitespace
       - id: end-of-file-fixer
+        exclude: '\.svg$'
       - id: check-added-large-files
 
   - repo: local

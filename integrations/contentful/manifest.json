@@ -1,0 +1,19 @@
+{
+  "name": "Contentful",
+  "version": "1.0.0",
+  "author": "LaunchDarkly",
+  "overview": "Control which content is displayed to Contentfulaudiences in real time.",
+  "description": "Connect LaunchDarkly feature flagging with Contentful's content management platform so that content editors and developers can manage experiments and flag-driven content directly in Contentful.",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.contentful.com/",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/contentful",
+    "privacyPolicy": "https://www.contentful.com/legal/privacy-at-contentful/privacy-notice/"
+  },
+  "categories": ["automation"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["external"]
+}

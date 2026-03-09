@@ -1,0 +1,32 @@
+{
+  "name": "Vercel Native",
+  "version": "1.0.0",
+  "overview": "Evaluate feature flags and bootstrap the LaunchDarkly Vercel SDK.",
+  "description": "Evaluate feature flags and bootstrap the LaunchDarkly Vercel SDK.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.vercel.com/",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/vercel",
+    "privacyPolicy": "https://vercel.com/legal/privacy-policy"
+  },
+  "categories": ["infrastructure"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "accessToken",
+      "name": "Access Token",
+      "description": "Enter the access token generated from Vercel.",
+      "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
+      "type": "string",
+      "isSecret": true
+    }
+  ],
+  "otherCapabilities": ["external"],
+  "capabilities": {
+    "hideConfiguration": true
+  }
+}

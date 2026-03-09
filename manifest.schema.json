@@ -299,7 +299,12 @@
             "multiselectOptions",
             "multiselectDefaultOptions",
             "disableAfterSaving",
-            "hideEmpty"
+            "clearSecretsOnChange",
+            "hideEmpty",
+            "codeLanguage",
+            "instructionsHeading",
+            "instructions",
+            "divider"
           ]
         },
         "properties": {
@@ -333,7 +338,9 @@
               "generated",
               "environmentSelector",
               "multiselect",
-              "publicKey"
+              "publicKey",
+              "sectionHeading",
+              "codeEditor"
             ]
           },
           "description": {
@@ -361,6 +368,13 @@
             "title": "Disable after saving",
             "type": "boolean",
             "description": "Variables marked as disabled after saving won't be editable after they are saved",
+            "default": false
+          },
+          "clearSecretsOnChange": {
+            "$id": "#/definitions/form-variable/clear-secrets-on-change",
+            "title": "Clear secrets on change",
+            "type": "boolean",
+            "description": "When true, changing this variable will require all secret variables in the same capability to be re-entered with new values",
             "default": false
           },
           "isOptional": {
@@ -733,6 +747,34 @@
             "title": "Hide value in UI when empty",
             "type": "boolean",
             "description": "Variables marked as hideEmpty won't be shown in the UI if they are empty",
+            "default": false
+          },
+          "codeLanguage": {
+            "$id": "#/definitions/form-variable/code-language",
+            "title": "Code language",
+            "type": "string",
+            "description": "Hint for syntax highlighting in codeEditor variables."
+          },
+          "instructionsHeading": {
+            "$id": "#/definitions/form-variable/instructions-heading",
+            "title": "Instructions heading",
+            "type": "string",
+            "description": "Optional heading to display above the instructions list."
+          },
+          "instructions": {
+            "$id": "#/definitions/form-variable/instructions",
+            "title": "Instructions",
+            "type": "array",
+            "description": "Optional list of setup instructions displayed with codeEditor variables.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "divider": {
+            "$id": "#/definitions/form-variable/divider",
+            "title": "Divider",
+            "type": "boolean",
+            "description": "Whether to show a divider after a sectionHeading variable.",
             "default": false
           }
         },
@@ -1466,7 +1508,12 @@
                     "multiselectOptions",
                     "multiselectDefaultOptions",
                     "disableAfterSaving",
-                    "hideEmpty"
+                    "clearSecretsOnChange",
+                    "hideEmpty",
+                    "codeLanguage",
+                    "instructionsHeading",
+                    "instructions",
+                    "divider"
                   ]
                 },
                 "properties": {
@@ -1500,7 +1547,9 @@
                       "generated",
                       "environmentSelector",
                       "multiselect",
-                      "publicKey"
+                      "publicKey",
+                      "sectionHeading",
+                      "codeEditor"
                     ]
                   },
                   "description": {
@@ -1528,6 +1577,13 @@
                     "title": "Disable after saving",
                     "type": "boolean",
                     "description": "Variables marked as disabled after saving won't be editable after they are saved",
+                    "default": false
+                  },
+                  "clearSecretsOnChange": {
+                    "$id": "#/definitions/form-variable/clear-secrets-on-change",
+                    "title": "Clear secrets on change",
+                    "type": "boolean",
+                    "description": "When true, changing this variable will require all secret variables in the same capability to be re-entered with new values",
                     "default": false
                   },
                   "isOptional": {
@@ -1900,6 +1956,34 @@
                     "title": "Hide value in UI when empty",
                     "type": "boolean",
                     "description": "Variables marked as hideEmpty won't be shown in the UI if they are empty",
+                    "default": false
+                  },
+                  "codeLanguage": {
+                    "$id": "#/definitions/form-variable/code-language",
+                    "title": "Code language",
+                    "type": "string",
+                    "description": "Hint for syntax highlighting in codeEditor variables."
+                  },
+                  "instructionsHeading": {
+                    "$id": "#/definitions/form-variable/instructions-heading",
+                    "title": "Instructions heading",
+                    "type": "string",
+                    "description": "Optional heading to display above the instructions list."
+                  },
+                  "instructions": {
+                    "$id": "#/definitions/form-variable/instructions",
+                    "title": "Instructions",
+                    "type": "array",
+                    "description": "Optional list of setup instructions displayed with codeEditor variables.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "divider": {
+                    "$id": "#/definitions/form-variable/divider",
+                    "title": "Divider",
+                    "type": "boolean",
+                    "description": "Whether to show a divider after a sectionHeading variable.",
                     "default": false
                   }
                 },
@@ -1939,7 +2023,12 @@
                     "multiselectOptions",
                     "multiselectDefaultOptions",
                     "disableAfterSaving",
-                    "hideEmpty"
+                    "clearSecretsOnChange",
+                    "hideEmpty",
+                    "codeLanguage",
+                    "instructionsHeading",
+                    "instructions",
+                    "divider"
                   ]
                 },
                 "properties": {
@@ -1973,7 +2062,9 @@
                       "generated",
                       "environmentSelector",
                       "multiselect",
-                      "publicKey"
+                      "publicKey",
+                      "sectionHeading",
+                      "codeEditor"
                     ]
                   },
                   "description": {
@@ -2001,6 +2092,13 @@
                     "title": "Disable after saving",
                     "type": "boolean",
                     "description": "Variables marked as disabled after saving won't be editable after they are saved",
+                    "default": false
+                  },
+                  "clearSecretsOnChange": {
+                    "$id": "#/definitions/form-variable/clear-secrets-on-change",
+                    "title": "Clear secrets on change",
+                    "type": "boolean",
+                    "description": "When true, changing this variable will require all secret variables in the same capability to be re-entered with new values",
                     "default": false
                   },
                   "isOptional": {
@@ -2373,6 +2471,34 @@
                     "title": "Hide value in UI when empty",
                     "type": "boolean",
                     "description": "Variables marked as hideEmpty won't be shown in the UI if they are empty",
+                    "default": false
+                  },
+                  "codeLanguage": {
+                    "$id": "#/definitions/form-variable/code-language",
+                    "title": "Code language",
+                    "type": "string",
+                    "description": "Hint for syntax highlighting in codeEditor variables."
+                  },
+                  "instructionsHeading": {
+                    "$id": "#/definitions/form-variable/instructions-heading",
+                    "title": "Instructions heading",
+                    "type": "string",
+                    "description": "Optional heading to display above the instructions list."
+                  },
+                  "instructions": {
+                    "$id": "#/definitions/form-variable/instructions",
+                    "title": "Instructions",
+                    "type": "array",
+                    "description": "Optional list of setup instructions displayed with codeEditor variables.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "divider": {
+                    "$id": "#/definitions/form-variable/divider",
+                    "title": "Divider",
+                    "type": "boolean",
+                    "description": "Whether to show a divider after a sectionHeading variable.",
                     "default": false
                   }
                 },
@@ -3448,7 +3574,12 @@
                     "multiselectOptions",
                     "multiselectDefaultOptions",
                     "disableAfterSaving",
-                    "hideEmpty"
+                    "clearSecretsOnChange",
+                    "hideEmpty",
+                    "codeLanguage",
+                    "instructionsHeading",
+                    "instructions",
+                    "divider"
                   ]
                 },
                 "properties": {
@@ -3482,7 +3613,9 @@
                       "generated",
                       "environmentSelector",
                       "multiselect",
-                      "publicKey"
+                      "publicKey",
+                      "sectionHeading",
+                      "codeEditor"
                     ]
                   },
                   "description": {
@@ -3510,6 +3643,13 @@
                     "title": "Disable after saving",
                     "type": "boolean",
                     "description": "Variables marked as disabled after saving won't be editable after they are saved",
+                    "default": false
+                  },
+                  "clearSecretsOnChange": {
+                    "$id": "#/definitions/form-variable/clear-secrets-on-change",
+                    "title": "Clear secrets on change",
+                    "type": "boolean",
+                    "description": "When true, changing this variable will require all secret variables in the same capability to be re-entered with new values",
                     "default": false
                   },
                   "isOptional": {
@@ -3882,6 +4022,34 @@
                     "title": "Hide value in UI when empty",
                     "type": "boolean",
                     "description": "Variables marked as hideEmpty won't be shown in the UI if they are empty",
+                    "default": false
+                  },
+                  "codeLanguage": {
+                    "$id": "#/definitions/form-variable/code-language",
+                    "title": "Code language",
+                    "type": "string",
+                    "description": "Hint for syntax highlighting in codeEditor variables."
+                  },
+                  "instructionsHeading": {
+                    "$id": "#/definitions/form-variable/instructions-heading",
+                    "title": "Instructions heading",
+                    "type": "string",
+                    "description": "Optional heading to display above the instructions list."
+                  },
+                  "instructions": {
+                    "$id": "#/definitions/form-variable/instructions",
+                    "title": "Instructions",
+                    "type": "array",
+                    "description": "Optional list of setup instructions displayed with codeEditor variables.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "divider": {
+                    "$id": "#/definitions/form-variable/divider",
+                    "title": "Divider",
+                    "type": "boolean",
+                    "description": "Whether to show a divider after a sectionHeading variable.",
                     "default": false
                   }
                 },
@@ -5024,7 +5192,12 @@
                     "multiselectOptions",
                     "multiselectDefaultOptions",
                     "disableAfterSaving",
-                    "hideEmpty"
+                    "clearSecretsOnChange",
+                    "hideEmpty",
+                    "codeLanguage",
+                    "instructionsHeading",
+                    "instructions",
+                    "divider"
                   ]
                 },
                 "properties": {
@@ -5058,7 +5231,9 @@
                       "generated",
                       "environmentSelector",
                       "multiselect",
-                      "publicKey"
+                      "publicKey",
+                      "sectionHeading",
+                      "codeEditor"
                     ]
                   },
                   "description": {
@@ -5086,6 +5261,13 @@
                     "title": "Disable after saving",
                     "type": "boolean",
                     "description": "Variables marked as disabled after saving won't be editable after they are saved",
+                    "default": false
+                  },
+                  "clearSecretsOnChange": {
+                    "$id": "#/definitions/form-variable/clear-secrets-on-change",
+                    "title": "Clear secrets on change",
+                    "type": "boolean",
+                    "description": "When true, changing this variable will require all secret variables in the same capability to be re-entered with new values",
                     "default": false
                   },
                   "isOptional": {
@@ -5458,6 +5640,34 @@
                     "title": "Hide value in UI when empty",
                     "type": "boolean",
                     "description": "Variables marked as hideEmpty won't be shown in the UI if they are empty",
+                    "default": false
+                  },
+                  "codeLanguage": {
+                    "$id": "#/definitions/form-variable/code-language",
+                    "title": "Code language",
+                    "type": "string",
+                    "description": "Hint for syntax highlighting in codeEditor variables."
+                  },
+                  "instructionsHeading": {
+                    "$id": "#/definitions/form-variable/instructions-heading",
+                    "title": "Instructions heading",
+                    "type": "string",
+                    "description": "Optional heading to display above the instructions list."
+                  },
+                  "instructions": {
+                    "$id": "#/definitions/form-variable/instructions",
+                    "title": "Instructions",
+                    "type": "array",
+                    "description": "Optional list of setup instructions displayed with codeEditor variables.",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "divider": {
+                    "$id": "#/definitions/form-variable/divider",
+                    "title": "Divider",
+                    "type": "boolean",
+                    "description": "Whether to show a divider after a sectionHeading variable.",
                     "default": false
                   }
                 },
