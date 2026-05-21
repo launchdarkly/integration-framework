@@ -1,0 +1,229 @@
+{
+  "name": "Redshift Native Experimentation",
+  "version": "1.0.0",
+  "overview": "Run experiments in LaunchDarkly using Redshift warehouse data to power your results.",
+  "description": "Enable LaunchDarkly's experimentation platform to read and analyze data from your Amazon Redshift data warehouse",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "allowIntegrationConfigurations": true,
+  "links": {
+    "site": "https://aws.amazon.com/redshift/",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/warehouse-native/redshift",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["warehouseExperimentation"],
+  "formVariables": [
+    {
+      "key": "selectedEnv",
+      "type": "environmentSelector",
+      "name": "Project and environment",
+      "description": "Select your LaunchDarkly project and environment. You cannot edit this after you save the configuration.",
+      "disableAfterSaving": true,
+      "isOptional": false
+    },
+    {
+      "key": "step1Heading",
+      "type": "sectionHeading",
+      "name": "Step 1: Add Endpoint and Cluster Identifier",
+      "description": "Enter the connection details for your Amazon Redshift cluster.",
+      "isOptional": true,
+      "defaultValue": "",
+      "divider": true
+    },
+    {
+      "key": "clusterEndpoint",
+      "name": "Redshift endpoint",
+      "description": "The endpoint URL for your Redshift cluster (e.g., my-cluster.abc123.us-east-1.redshift.amazonaws.com).",
+      "placeholder": "my-cluster.abc123.us-east-1.redshift.amazonaws.com",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false
+    },
+    {
+      "key": "clusterIdentifier",
+      "name": "Redshift cluster identifier",
+      "description": "The unique identifier of your Amazon Redshift cluster.",
+      "placeholder": "my-redshift-cluster",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false
+    },
+    {
+      "key": "clusterRegion",
+      "name": "Redshift cluster region",
+      "description": "The region of your Amazon Redshift cluster.",
+      "placeholder": "us-east-1",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false
+    },
+    {
+      "key": "clusterAwsAccountId",
+      "name": "Redshift cluster AWS account ID",
+      "description": "The AWS account ID of your Amazon Redshift cluster.",
+      "placeholder": "123456789012",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false
+    },
+    {
+      "key": "step2Heading",
+      "type": "sectionHeading",
+      "name": "Step 2: Create IAM policy and IAM role",
+      "description": "Create the required AWS IAM resources to allow LaunchDarkly to connect to your Redshift cluster.",
+      "isOptional": true,
+      "defaultValue": "",
+      "divider": true
+    },
+    {
+      "key": "iamPolicyJson",
+      "name": "IAM policy",
+      "description": "This policy gives LaunchDarkly permission to read experimentation data from your Redshift cluster. Follow Amazon's documentation to create the required IAM policy.",
+      "type": "codeEditor",
+      "codeLanguage": "json",
+      "instructionsHeading": "Continue setup in AWS IAM Console for Policies",
+      "instructions": [
+        "Log into AWS and access the IAM section",
+        "Select Policies from the left sidebar",
+        "Click create policy",
+        "Select the create policy JSON option",
+        "Paste the above permissions policy into the policy document field and save the policy"
+      ],
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "iamTrustPolicyJson",
+      "name": "IAM role",
+      "description": "Follow Amazon's documentation to create an IAM role that LaunchDarkly will assume to perform the actions defined in your IAM policy from the previous step.",
+      "type": "codeEditor",
+      "codeLanguage": "json",
+      "instructionsHeading": "Continue setup in AWS IAM Console for Roles",
+      "instructions": [
+        "Log into AWS and access the IAM section",
+        "Select Roles from the left sidebar",
+        "Click create role",
+        "Select custom trust policy, paste the provided trust policy and click next",
+        "Add the permissions policy created above, and save this role",
+        "Copy the ARN of the role and paste it in the IAM Role ARN field below"
+      ],
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "iamRoleArn",
+      "name": "AWS IAM role ARN",
+      "description": "The ARN of the IAM role that LaunchDarkly will assume to connect to your Redshift cluster.",
+      "placeholder": "arn:aws:iam::123456789012:role/LaunchDarklyRedshiftRole",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false
+    },
+    {
+      "key": "step3Heading",
+      "type": "sectionHeading",
+      "name": "Step 3: Add metric details",
+      "description": "Create the required AWS IAM resources to allow LaunchDarkly to connect to your Redshift cluster.",
+      "isOptional": true,
+      "defaultValue": "",
+      "divider": true
+    },
+    {
+      "key": "metricsDatabaseName",
+      "name": "Metrics database name",
+      "description": "The name of your Redshift database where metrics events are stored.",
+      "placeholder": "analytics",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false
+    },
+    {
+      "key": "metricsSchemaName",
+      "name": "Metrics schema name",
+      "description": "The name of the schema within your metrics database.",
+      "placeholder": "metric_events",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isOptional": true,
+      "isSecret": false,
+      "defaultValue": ""
+    },
+    {
+      "key": "step4Heading",
+      "type": "sectionHeading",
+      "name": "Step 4: Execute SQL script",
+      "description": "Continue setup in Redshift by running the script to prepare your Redshift account for native experimentation, then return to this page. This will create your DB, schema, user and grant permissions for experimentation.",
+      "isOptional": true,
+      "defaultValue": "",
+      "divider": true
+    },
+    {
+      "key": "sqlSetupScriptPart1",
+      "name": "Part 1: Create DB, user and groups",
+      "description": "",
+      "type": "string",
+      "isOptional": true,
+      "defaultValue": "",
+      "instructionsHeading": "Connect to any database and run this script to create database, user and groups for experimentation"
+    },
+    {
+      "key": "sqlSetupScriptPart2",
+      "name": "Part 2: Grant ld_experimentation permssions",
+      "description": "",
+      "type": "string",
+      "isOptional": true,
+      "defaultValue": "",
+      "instructionsHeading": "Connect to ld_experimentation database and run this script to grant permissions for experimentation"
+    },
+    {
+      "key": "sqlSetupScriptPart3",
+      "name": "Part 3: Grant permissions to ld_export database",
+      "description": "",
+      "type": "string",
+      "isOptional": true,
+      "defaultValue": "",
+      "instructionsHeading": "Connect to ld_export database and run this script to grant permissions for experimentation"
+    },
+    {
+      "key": "sqlSetupScriptPart4",
+      "name": "Part 4: Grant permissions to metrics database",
+      "description": "",
+      "type": "string",
+      "isOptional": true,
+      "defaultValue": "",
+      "instructionsHeading": "Connect to your metrics database and run this script to grant permissions for experimentation"
+    },
+    {
+      "key": "syncTaskId",
+      "name": "Sync Task Id",
+      "description": "The task id of the sync task",
+      "type": "string",
+      "isHidden": true,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "eventTaskId",
+      "name": "Event Last Seen Task Id",
+      "description": "The task id of the event last seen task",
+      "type": "string",
+      "isHidden": true,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "recurringTasksId",
+      "name": "Recurring Task Id",
+      "description": "The task id of the scheduled work task for this integration",
+      "type": "string",
+      "isHidden": true,
+      "isOptional": true,
+      "defaultValue": ""
+    }
+  ]
+}

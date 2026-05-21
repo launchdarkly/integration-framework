@@ -22,7 +22,8 @@
       "name": "Compass web trigger URL",
       "type": "uri",
       "description": "Enter your Compass web trigger URL",
-      "isSecret": false
+      "isSecret": false,
+      "clearSecretsOnChange": true
     },
     {
       "key": "secret",

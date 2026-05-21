@@ -28,7 +28,8 @@
       "name": "Datadog host URL",
       "description": "Your Datadog host URL. Read [How do I tell which Datadog site I am on?](https://docs.datadoghq.com/getting_started/site/#how-do-i-tell-which-datadog-site-i-am-on) if you are unsure which host URL to select.",
       "type": "string",
-      "placeholder": "https://api.datadoghq.com"
+      "placeholder": "https://api.datadoghq.com",
+      "clearSecretsOnChange": true
     },
     {
       "key": "hideMemberDetails",

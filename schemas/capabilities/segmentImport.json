@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "segmentImport": {
+    "$id": "#/capability/segmentImport",
+    "title": "Segment Import",
+    "description": "This capability enables importing segments to LaunchDarkly",
+    "type": "object",
+    "propertyNames": {
+      "enum": ["includeErrorResponseBody"]
+    },
+    "required": ["includeErrorResponseBody"],
+    "properties": {
+      "includeErrorResponseBody": {
+        "$id": "#/properties/include-error-response-body",
+        "title": "Include error response body",
+        "type": "boolean",
+        "description": "Whether errors received while importing should be displayed in the error log in the LaunchDarkly UI",
+        "default": true
+      }
+    }
+  }
+}

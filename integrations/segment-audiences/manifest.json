@@ -1,8 +1,8 @@
 {
-  "name": "Segment Audiences",
+  "name": "Twilio Segment Audiences",
   "version": "1.0.0",
-  "overview": "Sync Segment Audiences to LaunchDarkly Big Segments.",
-  "description": "Segment syncing lets you import audiences from Segment to LaunchDarkly to more efficiently target and deliver feature flags.",
+  "overview": "Sync Twilio Segment audiences to LaunchDarkly Big Segments.",
+  "description": "Twilio Segment audience syncing lets you import audiences from Twilio Segment to LaunchDarkly to more efficiently target and deliver feature flags.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {

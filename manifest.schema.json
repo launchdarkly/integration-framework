@@ -448,15 +448,22 @@
                   "method": {
                     "$id": "#/definitions/endpoint/method",
                     "title": "HTTP method",
-                    "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                    "enum": [
-                      "POST",
-                      "PUT",
-                      "PATCH",
-                      "GET",
-                      "DELETE"
-                    ],
-                    "type": "string"
+                    "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                    "type": "string",
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "POST",
+                          "PUT",
+                          "PATCH",
+                          "GET",
+                          "DELETE"
+                        ]
+                      },
+                      {
+                        "pattern": "\\{\\{"
+                      }
+                    ]
                   },
                   "headers": {
                     "$id": "#/definitions/endpoint/headers",
@@ -807,6 +814,7 @@
           "syncedSegment",
           "bigSegmentStore",
           "flagImport",
+          "segmentImport",
           "eventsHook",
           "flagCleanup",
           "internalConfigurationURL"
@@ -852,15 +860,22 @@
                 "method": {
                   "$id": "#/definitions/endpoint/method",
                   "title": "HTTP method",
-                  "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                  "enum": [
-                    "POST",
-                    "PUT",
-                    "PATCH",
-                    "GET",
-                    "DELETE"
-                  ],
-                  "type": "string"
+                  "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                  "type": "string",
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "GET",
+                        "DELETE"
+                      ]
+                    },
+                    {
+                      "pattern": "\\{\\{"
+                    }
+                  ]
                 },
                 "headers": {
                   "$id": "#/definitions/endpoint/headers",
@@ -1183,15 +1198,22 @@
                     "method": {
                       "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
-                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                      "enum": [
-                        "POST",
-                        "PUT",
-                        "PATCH",
-                        "GET",
-                        "DELETE"
-                      ],
-                      "type": "string"
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "GET",
+                            "DELETE"
+                          ]
+                        },
+                        {
+                          "pattern": "\\{\\{"
+                        }
+                      ]
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",
@@ -1657,15 +1679,22 @@
                           "method": {
                             "$id": "#/definitions/endpoint/method",
                             "title": "HTTP method",
-                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                            "enum": [
-                              "POST",
-                              "PUT",
-                              "PATCH",
-                              "GET",
-                              "DELETE"
-                            ],
-                            "type": "string"
+                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "POST",
+                                  "PUT",
+                                  "PATCH",
+                                  "GET",
+                                  "DELETE"
+                                ]
+                              },
+                              {
+                                "pattern": "\\{\\{"
+                              }
+                            ]
                           },
                           "headers": {
                             "$id": "#/definitions/endpoint/headers",
@@ -2172,15 +2201,22 @@
                           "method": {
                             "$id": "#/definitions/endpoint/method",
                             "title": "HTTP method",
-                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                            "enum": [
-                              "POST",
-                              "PUT",
-                              "PATCH",
-                              "GET",
-                              "DELETE"
-                            ],
-                            "type": "string"
+                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "POST",
+                                  "PUT",
+                                  "PATCH",
+                                  "GET",
+                                  "DELETE"
+                                ]
+                              },
+                              {
+                                "pattern": "\\{\\{"
+                              }
+                            ]
                           },
                           "headers": {
                             "$id": "#/definitions/endpoint/headers",
@@ -2563,15 +2599,22 @@
                     "method": {
                       "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
-                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                      "enum": [
-                        "POST",
-                        "PUT",
-                        "PATCH",
-                        "GET",
-                        "DELETE"
-                      ],
-                      "type": "string"
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "GET",
+                            "DELETE"
+                          ]
+                        },
+                        {
+                          "pattern": "\\{\\{"
+                        }
+                      ]
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",
@@ -2765,15 +2808,22 @@
                     "method": {
                       "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
-                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                      "enum": [
-                        "POST",
-                        "PUT",
-                        "PATCH",
-                        "GET",
-                        "DELETE"
-                      ],
-                      "type": "string"
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "GET",
+                            "DELETE"
+                          ]
+                        },
+                        {
+                          "pattern": "\\{\\{"
+                        }
+                      ]
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",
@@ -2967,15 +3017,22 @@
                     "method": {
                       "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
-                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                      "enum": [
-                        "POST",
-                        "PUT",
-                        "PATCH",
-                        "GET",
-                        "DELETE"
-                      ],
-                      "type": "string"
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "GET",
+                            "DELETE"
+                          ]
+                        },
+                        {
+                          "pattern": "\\{\\{"
+                        }
+                      ]
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",
@@ -3169,15 +3226,22 @@
                     "method": {
                       "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
-                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                      "enum": [
-                        "POST",
-                        "PUT",
-                        "PATCH",
-                        "GET",
-                        "DELETE"
-                      ],
-                      "type": "string"
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "GET",
+                            "DELETE"
+                          ]
+                        },
+                        {
+                          "pattern": "\\{\\{"
+                        }
+                      ]
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",
@@ -3371,15 +3435,22 @@
                     "method": {
                       "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
-                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                      "enum": [
-                        "POST",
-                        "PUT",
-                        "PATCH",
-                        "GET",
-                        "DELETE"
-                      ],
-                      "type": "string"
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "GET",
+                            "DELETE"
+                          ]
+                        },
+                        {
+                          "pattern": "\\{\\{"
+                        }
+                      ]
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",
@@ -3723,15 +3794,22 @@
                           "method": {
                             "$id": "#/definitions/endpoint/method",
                             "title": "HTTP method",
-                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                            "enum": [
-                              "POST",
-                              "PUT",
-                              "PATCH",
-                              "GET",
-                              "DELETE"
-                            ],
-                            "type": "string"
+                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "POST",
+                                  "PUT",
+                                  "PATCH",
+                                  "GET",
+                                  "DELETE"
+                                ]
+                              },
+                              {
+                                "pattern": "\\{\\{"
+                              }
+                            ]
                           },
                           "headers": {
                             "$id": "#/definitions/endpoint/headers",
@@ -4101,15 +4179,22 @@
                     "method": {
                       "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
-                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                      "enum": [
-                        "POST",
-                        "PUT",
-                        "PATCH",
-                        "GET",
-                        "DELETE"
-                      ],
-                      "type": "string"
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "GET",
+                            "DELETE"
+                          ]
+                        },
+                        {
+                          "pattern": "\\{\\{"
+                        }
+                      ]
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",
@@ -4266,15 +4351,22 @@
                     "method": {
                       "$id": "#/definitions/endpoint/method",
                       "title": "HTTP method",
-                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                      "enum": [
-                        "POST",
-                        "PUT",
-                        "PATCH",
-                        "GET",
-                        "DELETE"
-                      ],
-                      "type": "string"
+                      "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                      "type": "string",
+                      "anyOf": [
+                        {
+                          "enum": [
+                            "POST",
+                            "PUT",
+                            "PATCH",
+                            "GET",
+                            "DELETE"
+                          ]
+                        },
+                        {
+                          "pattern": "\\{\\{"
+                        }
+                      ]
                     },
                     "headers": {
                       "$id": "#/definitions/endpoint/headers",
@@ -4974,6 +5066,29 @@
             }
           }
         },
+        "segmentImport": {
+          "$id": "#/capability/segmentImport",
+          "title": "Segment Import",
+          "description": "This capability enables importing segments to LaunchDarkly",
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "includeErrorResponseBody"
+            ]
+          },
+          "required": [
+            "includeErrorResponseBody"
+          ],
+          "properties": {
+            "includeErrorResponseBody": {
+              "$id": "#/properties/include-error-response-body",
+              "title": "Include error response body",
+              "type": "boolean",
+              "description": "Whether errors received while importing should be displayed in the error log in the LaunchDarkly UI",
+              "default": true
+            }
+          }
+        },
         "eventsHook": {
           "$id": "#/properties/capability/events-hook",
           "title": "Events hook",
@@ -5011,15 +5126,22 @@
                 "method": {
                   "$id": "#/definitions/endpoint/method",
                   "title": "HTTP method",
-                  "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                  "enum": [
-                    "POST",
-                    "PUT",
-                    "PATCH",
-                    "GET",
-                    "DELETE"
-                  ],
-                  "type": "string"
+                  "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                  "type": "string",
+                  "anyOf": [
+                    {
+                      "enum": [
+                        "POST",
+                        "PUT",
+                        "PATCH",
+                        "GET",
+                        "DELETE"
+                      ]
+                    },
+                    {
+                      "pattern": "\\{\\{"
+                    }
+                  ]
                 },
                 "headers": {
                   "$id": "#/definitions/endpoint/headers",
@@ -5341,15 +5463,22 @@
                           "method": {
                             "$id": "#/definitions/endpoint/method",
                             "title": "HTTP method",
-                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint",
-                            "enum": [
-                              "POST",
-                              "PUT",
-                              "PATCH",
-                              "GET",
-                              "DELETE"
-                            ],
-                            "type": "string"
+                            "description": "HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.",
+                            "type": "string",
+                            "anyOf": [
+                              {
+                                "enum": [
+                                  "POST",
+                                  "PUT",
+                                  "PATCH",
+                                  "GET",
+                                  "DELETE"
+                                ]
+                              },
+                              {
+                                "pattern": "\\{\\{"
+                              }
+                            ]
                           },
                           "headers": {
                             "$id": "#/definitions/endpoint/headers",

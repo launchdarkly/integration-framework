@@ -1,0 +1,115 @@
+{
+  "name": "BigQuery Native Experimentation",
+  "version": "1.0.0",
+  "overview": "Run experiments in LaunchDarkly using data in your BigQuery warehouse to power your results.",
+  "description": "Enable LaunchDarkly's experimentation platform to read and analyze data from your Google BigQuery data warehouse",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "allowIntegrationConfigurations": true,
+  "links": {
+    "site": "https://cloud.google.com/bigquery",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/warehouse-native/bigquery",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["warehouseExperimentation"],
+  "formVariables": [
+    {
+      "key": "selectedEnv",
+      "type": "environmentSelector",
+      "name": "Project and environment",
+      "description": "Select your LaunchDarkly project and environment. You cannot edit this after you save the configuration.",
+      "disableAfterSaving": true,
+      "isOptional": false
+    },
+    {
+      "key": "gcpProjectId",
+      "name": "GCP project ID",
+      "description": "The Google Cloud project that holds your BigQuery resources.",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "datasetLocation",
+      "name": "Dataset location",
+      "description": "BigQuery region for your datasets (for example US or EU). All datasets must be in the same location.",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "resultsDatasetId",
+      "name": "Results dataset ID",
+      "description": "Dataset where LaunchDarkly writes experimentation results.",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "exportDatasetId",
+      "name": "Data Export dataset ID",
+      "description": "The dataset where your BigQuery Data Export destination writes event data.",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "exportProjectId",
+      "name": "Export project ID",
+      "description": "Optional backend-only export project override.",
+      "type": "string",
+      "isHidden": true,
+      "disableAfterSaving": true,
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "metricsDatasetId",
+      "name": "Metrics dataset ID (optional)",
+      "description": "Optional metrics dataset for dataset-level access instead of project-level read access.",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "metricsProjectId",
+      "name": "Metrics project ID",
+      "description": "Optional backend-only metrics project override.",
+      "type": "string",
+      "isHidden": true,
+      "disableAfterSaving": true,
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "serviceAccountKey",
+      "name": "Service account key (JSON)",
+      "description": "Paste the JSON key for the service account created by the setup script.",
+      "type": "string",
+      "isSecret": true,
+      "isOptional": false
+    },
+    {
+      "key": "recurringTasksId",
+      "name": "Recurring Task ID",
+      "description": "The task id of the scheduled work task for this integration.",
+      "type": "string",
+      "isHidden": true,
+      "isOptional": true,
+      "defaultValue": ""
+    }
+  ]
+}

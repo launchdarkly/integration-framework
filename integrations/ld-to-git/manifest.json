@@ -21,6 +21,7 @@
       "description": "Updater Lambda endpoint where audit log would be forwarded",
       "type": "uri",
       "isSecret": false,
+      "clearSecretsOnChange": true,
       "isOptional": false
     },
     {
@@ -37,6 +38,7 @@
       "description": "Enter the URL for your target repository.",
       "type": "uri",
       "isSecret": false,
+      "clearSecretsOnChange": true,
       "placeholder": "https://github.com/launchdarkly",
       "isOptional": false
     },

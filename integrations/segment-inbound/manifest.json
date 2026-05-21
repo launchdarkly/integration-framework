@@ -1,8 +1,8 @@
 {
-  "name": "Segment Inbound Events",
+  "name": "Twilio Segment Inbound Events",
   "version": "1.0.0",
-  "overview": "Send Segment events to LaunchDarkly experiments as metrics.",
-  "description": "Use Segment events as custom metric events in LaunchDarkly experiments, so you can measure results immediately, without any instrumentation, code, or delays.",
+  "overview": "Send Twilio Segment events to LaunchDarkly experiments as metrics.",
+  "description": "Use Twilio Segment events as custom metric events in LaunchDarkly experiments, so you can measure results immediately, without any instrumentation, code, or delays.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
