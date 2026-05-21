@@ -1,0 +1,8 @@
+<svg width="200" height="54" viewBox="0 0 200 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect width="5.9998" height="53.9982" rx="1.45943" fill="#161517"/>
+<rect x="12" width="5.9998" height="53.9982" rx="1.45943" fill="#161517"/>
+<rect x="24.001" width="5.9998" height="53.9982" rx="1.45943" fill="#161517"/>
+<rect x="35.998" width="5.9998" height="53.9982" rx="1.45943" fill="#161517"/>
+<rect x="48.001" y="21.0005" width="5.9998" height="11.9996" rx="1.45943" fill="#161517"/>
+<text x="62" y="34" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="18" font-weight="700" fill="#161517">ClickHouse</text>
+</svg>

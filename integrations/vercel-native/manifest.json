@@ -15,6 +15,7 @@
     "square": "assets/square.svg",
     "horizontal": "assets/horizontal.svg"
   },
+  "hideOnIntegrationsPage": true,
   "formVariables": [
     {
       "key": "accessToken",
@@ -23,10 +24,115 @@
       "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
       "type": "string",
       "isSecret": true
+    },
+    {
+      "key": "installationId",
+      "name": "Installation ID",
+      "description": "Enter the installation ID generated from Vercel.",
+      "type": "string",
+      "isSecret": false
     }
   ],
+  "allowIntegrationConfigurations": true,
   "otherCapabilities": ["external"],
   "capabilities": {
-    "hideConfiguration": true
+    "hideConfiguration": true,
+    "featureStore": {
+      "formVariables": [
+        {
+          "key": "accessToken",
+          "name": "Access Token",
+          "type": "string",
+          "description": "Vercel access token.",
+          "isSecret": true,
+          "isHidden": true
+        },
+        {
+          "key": "installationId",
+          "name": "Installation ID",
+          "type": "string",
+          "description": "The Vercel installation ID.",
+          "isSecret": false,
+          "isHidden": true
+        },
+        {
+          "key": "resourceId",
+          "name": "Vercel Resource ID",
+          "type": "string",
+          "description": "The Vercel resource ID for this project.",
+          "isSecret": false,
+          "isHidden": true
+        }
+      ],
+      "featureStoreRequest": {
+        "endpoint": {
+          "url": "https://api.vercel.com/v1/installations/{{installationId}}/resources/{{resourceId}}/experimentation/edge-config",
+          "method": "PUT",
+          "headers": [
+            {
+              "name": "Authorization",
+              "value": "Bearer {{accessToken}}"
+            },
+            {
+              "name": "Content-Type",
+              "value": "application/json"
+            },
+            {
+              "name": "User-Agent",
+              "value": "launchdarkly"
+            }
+          ]
+        },
+        "payloadPrefix": "{\"data\": {\"LD-Env-{{envId}}\": ",
+        "payloadSuffix": "}}"
+      }
+    },
+    "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
+      "endpoint": {
+        "url": "https://api.vercel.com/v1/installations/{{installationId}}/resources/{{#equal context.kind \"flag\"}}{{context.project.key}}/experimentation/items{{#equal context.verbKind \"updateName\"}}/{{pathEncode context.project.key}}_{{pathEncode context.key}}{{/equal}}{{#equal context.verbKind \"updateDescription\"}}/{{pathEncode context.project.key}}_{{pathEncode context.key}}{{/equal}}{{#equal context.verbKind \"updateGlobalArchived\"}}/{{pathEncode context.project.key}}_{{pathEncode context.key}}{{/equal}}{{#equal context.verbKind \"deleteFlag\"}}/{{pathEncode context.project.key}}_{{pathEncode context.key}}{{/equal}}{{/equal}}{{#equal context.kind \"project\"}}{{context.key}}{{/equal}}{{#equal context.kind \"environment\"}}{{context.project.key}}{{/equal}}",
+        "method": "{{#equal context.verbKind \"createFlag\"}}POST{{/equal}}{{#equal context.verbKind \"cloneFlag\"}}POST{{/equal}}{{#equal context.verbKind \"updateName\"}}PATCH{{/equal}}{{#equal context.verbKind \"updateDescription\"}}PATCH{{/equal}}{{#equal context.verbKind \"updateGlobalArchived\"}}PATCH{{/equal}}{{#equal context.verbKind \"deleteFlag\"}}DELETE{{/equal}}{{#equal context.verbKind \"createProject\"}}PUT{{/equal}}{{#equal context.verbKind \"updateProjectName\"}}PATCH{{/equal}}{{#equal context.verbKind \"deleteProject\"}}DELETE{{/equal}}{{#equal context.verbKind \"updateApiKey\"}}PATCH{{/equal}}",
+        "headers": [
+          {
+            "name": "Authorization",
+            "value": "Bearer {{accessToken}}"
+          },
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/flag.json.hbs",
+        "project": "templates/project.json.hbs",
+        "environment": "templates/environment.json.hbs",
+        "default": "templates/default.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/*:flag/*"],
+          "actions": [
+            "createFlag",
+            "cloneFlag",
+            "updateName",
+            "updateDescription",
+            "updateGlobalArchived",
+            "deleteFlag"
+          ]
+        },
+        {
+          "effect": "allow",
+          "resources": ["proj/*"],
+          "actions": ["createProject", "updateProjectName", "deleteProject"]
+        },
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/*"],
+          "actions": ["updateApiKey"]
+        }
+      ]
+    }
   }
 }

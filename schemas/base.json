@@ -280,6 +280,7 @@
           "syncedSegment",
           "bigSegmentStore",
           "flagImport",
+          "segmentImport",
           "eventsHook",
           "flagCleanup",
           "internalConfigurationURL"
@@ -324,6 +325,9 @@
         },
         "flagImport": {
           "$ref": "schemas/capabilities/flagImport.json#/flagImport"
+        },
+        "segmentImport": {
+          "$ref": "schemas/capabilities/segmentImport.json#/segmentImport"
         },
         "eventsHook": {
           "$ref": "schemas/capabilities/eventsHook.json#/eventsHook"

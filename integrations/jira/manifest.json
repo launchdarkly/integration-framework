@@ -22,7 +22,8 @@
       "name": "Jira web trigger URL",
       "type": "uri",
       "description": "Enter your Jira web trigger URL",
-      "isSecret": false
+      "isSecret": false,
+      "clearSecretsOnChange": true
     },
     {
       "key": "secret",

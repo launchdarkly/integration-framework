@@ -19,25 +19,34 @@
   "otherCapabilities": ["warehouseExperimentation"],
   "formVariables": [
     {
-      "key": "stepConnect",
+      "key": "selectedEnv",
+      "type": "environmentSelector",
+      "name": "Project and environment",
+      "description": "This cannot be edited after this destination is saved.",
+      "disableAfterSaving": true,
+      "isOptional": false
+    },
+    {
+      "key": "configureConnection",
       "type": "sectionHeading",
-      "name": "Step 1: Connect to Databricks",
-      "description": "Enter your Databricks workspace and SQL warehouse connection details.",
+      "name": "Configure connection",
+      "description": "",
       "divider": true
     },
     {
       "key": "databricksHost",
-      "name": "Databricks workspace URL",
-      "description": "The URL of your Databricks workspace (e.g., https://your-workspace.cloud.databricks.com)",
+      "name": "Databricks workspace host",
+      "description": "Enter the URL of your Databricks workspace. Raw host name is sufficient",
       "placeholder": "https://your-workspace.cloud.databricks.com",
       "type": "string",
       "disableAfterSaving": true,
-      "isSecret": false
+      "isSecret": false,
+      "clearSecretsOnChange": true
     },
     {
       "key": "httpPath",
-      "name": "SQL warehouse HTTP path",
-      "description": "The HTTP path to your SQL warehouse (e.g., /sql/1.0/warehouses/abc123)",
+      "name": "Warehouse HTTP path",
+      "description": "Enter the HTTP path of your Databricks SQL warehouse. Eg /sql/1.0/warehouses/abc123",
       "placeholder": "/sql/1.0/warehouses/abc123",
       "type": "string",
       "disableAfterSaving": true,
@@ -45,37 +54,15 @@
     },
     {
       "key": "accessToken",
-      "name": "Service principal access token",
-      "description": "The access token for your Databricks service principal",
+      "name": "Personal Access token",
+      "description": "Personal Access Token (PAT), which should match the desired Data Export integration.",
       "type": "string",
       "isSecret": true
     },
     {
-      "key": "stepEnv",
-      "type": "sectionHeading",
-      "name": "Step 2: Choose LaunchDarkly environment",
-      "description": "Select the LaunchDarkly project and environment that will use this Databricks connection.",
-      "divider": true
-    },
-    {
-      "key": "selectedEnv",
-      "type": "environmentSelector",
-      "name": "Project and environment",
-      "description": "Select your LaunchDarkly project and environment. You cannot edit this after you save the configuration.",
-      "disableAfterSaving": true,
-      "isOptional": false
-    },
-    {
-      "key": "stepStorage",
-      "type": "sectionHeading",
-      "name": "Step 3: Data storage",
-      "description": "Specify where your event data is stored and where LaunchDarkly should write experiment results.",
-      "divider": true
-    },
-    {
       "key": "catalog",
-      "name": "Unity Catalog catalog name",
-      "description": "The name of the Unity Catalog catalog containing your data",
+      "name": "Catalog name",
+      "description": "Provide the Unity catalog name where LaunchDarkly data will be stored",
       "placeholder": "main",
       "type": "string",
       "disableAfterSaving": true,
@@ -83,58 +70,30 @@
     },
     {
       "key": "schema",
-      "name": "Schema name for results",
-      "description": "The schema name where experiment results will be stored",
+      "name": "Schema name",
+      "description": "Schema name where computed tables will be created",
       "placeholder": "experimentation",
       "type": "string",
       "disableAfterSaving": true,
       "isSecret": false
     },
     {
-      "key": "stepMetrics",
-      "type": "sectionHeading",
-      "name": "Step 4: Metrics settings",
-      "description": "Configure where metric events are stored in Databricks.",
-      "divider": true
-    },
-    {
       "key": "metricsCatalog",
-      "name": "Metrics catalog name",
-      "description": "The Databricks catalog where metric events are stored",
+      "name": "Metrics database name",
+      "description": "Database where metric events are stored in Databricks",
       "placeholder": "metrics",
-      "type": "string",
-      "isSecret": false
-    },
-    {
-      "key": "metricsSchema",
-      "name": "Metrics schema name",
-      "description": "The schema within the metrics catalog (leave blank for all schemas)",
-      "placeholder": "events",
       "type": "string",
       "isSecret": false,
       "isOptional": true,
       "defaultValue": ""
     },
     {
-      "key": "stepSql",
-      "type": "sectionHeading",
-      "name": "Step 5: Run SQL setup",
-      "description": "Run the SQL script below to set up required objects in Databricks.",
-      "divider": true
-    },
-    {
-      "key": "sqlSetupScript",
-      "type": "codeEditor",
-      "name": "SQL setup script",
-      "description": "Copy and run this script in Databricks to create the required objects for the integration.",
-      "codeLanguage": "sql",
-      "instructionsHeading": "How to run this script",
-      "instructions": [
-        "In Databricks, open a SQL editor attached to the warehouse you entered above.",
-        "Copy the script below and run it.",
-        "If you update catalog/schema values, re-run the script."
-      ],
-      "hideEmpty": true,
+      "key": "metricsSchema",
+      "name": "Metrics schema name",
+      "description": "If not provided, access is granted to all schemas of the catalog entered above",
+      "placeholder": "events",
+      "type": "string",
+      "isSecret": false,
       "isOptional": true,
       "defaultValue": ""
     },

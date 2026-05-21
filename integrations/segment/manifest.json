@@ -1,8 +1,8 @@
 {
-  "name": "Segment",
+  "name": "Twilio Segment",
   "version": "1.0.0",
-  "overview": "Export real-time flag analytics data.",
-  "description": "Export your real-time flag analytics data to Segment.",
+  "overview": "Export real-time flag analytics data to Twilio Segment.",
+  "description": "Export your real-time flag analytics data to Twilio Segment.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {

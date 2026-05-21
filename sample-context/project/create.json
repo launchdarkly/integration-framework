@@ -45,7 +45,25 @@
       "name": "",
       "key": "",
       "tags": null
-    }
+    },
+    "environments": [
+      {
+        "key": "production",
+        "name": "Production",
+        "tags": [],
+        "apiKey": "sdk-prd-aaaaaaaa",
+        "mobileKey": "mob-prd-bbbbbbbb",
+        "clientId": "cccccccccccccccc"
+      },
+      {
+        "key": "test",
+        "name": "Test",
+        "tags": [],
+        "apiKey": "sdk-tst-dddddddd",
+        "mobileKey": "mob-tst-eeeeeeee",
+        "clientId": "ffffffffffffffff"
+      }
+    ]
   },
   "key": "a-new-project",
   "tags": [],

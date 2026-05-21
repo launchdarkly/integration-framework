@@ -27,7 +27,8 @@
       "key": "receiverURL",
       "name": "Chronosphere receiver URL",
       "description": "Your Chronosphere receiver URL. Should look like https://{MY_COMPANY}.chronosphere.io/api/v1/data/events/receiver/launchdarkly",
-      "type": "string"
+      "type": "string",
+      "clearSecretsOnChange": true
     }
   ],
   "capabilities": {

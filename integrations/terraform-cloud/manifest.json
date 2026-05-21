@@ -22,7 +22,8 @@
       "type": "string",
       "description": "Enter your Terraform Enterprise host name in the format https://HOST_URL.",
       "isOptional": true,
-      "defaultValue": "https://app.terraform.io"
+      "defaultValue": "https://app.terraform.io",
+      "clearSecretsOnChange": true
     },
     {
       "key": "token",

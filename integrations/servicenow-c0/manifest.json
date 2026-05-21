@@ -56,7 +56,8 @@
           "key": "host",
           "name": "ServiceNow host",
           "description": "Your ServiceNow host",
-          "type": "string"
+          "type": "string",
+          "clearSecretsOnChange": true
         },
         {
           "key": "template",
