@@ -23,7 +23,8 @@
       "requiresOAuth",
       "hideOnIntegrationsPage",
       "oauthIntegrationKey",
-      "allowIntegrationConfigurations"
+      "allowIntegrationConfigurations",
+      "jiraIssueCreate"
     ]
   },
   "properties": {
@@ -283,7 +284,8 @@
           "segmentImport",
           "eventsHook",
           "flagCleanup",
-          "internalConfigurationURL"
+          "internalConfigurationURL",
+          "jiraIssueCreate"
         ]
       },
       "properties": {
@@ -337,6 +339,9 @@
         },
         "internalConfigurationURL": {
           "$ref": "schemas/capabilities/internalConfigurationUrl.json#/internalConfigurationURL"
+        },
+        "jiraIssueCreate": {
+          "$ref": "schemas/capabilities/jiraIssueCreate.json#/jiraIssueCreate"
         }
       }
     },

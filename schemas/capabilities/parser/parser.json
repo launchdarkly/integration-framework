@@ -145,5 +145,25 @@
         "type": "string"
       }
     }
+  },
+  "jiraIssueCreateParser": {
+    "title": "Jira Issue Create Parser",
+    "type": "object",
+    "required": ["issueKey", "issueUrl"],
+    "propertyNames": { "enum": ["issueKey", "issueUrl", "self"] },
+    "properties": {
+      "issueKey": {
+        "type": "string",
+        "description": "JSON pointer to the created issue's key"
+      },
+      "issueUrl": {
+        "type": "string",
+        "description": "JSON pointer to the created issue's URL"
+      },
+      "self": {
+        "type": "string",
+        "description": "JSON pointer to the Jira REST `self` link"
+      }
+    }
   }
 }

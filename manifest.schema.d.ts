@@ -952,6 +952,7 @@ export interface Capabilities {
   eventsHook?: EventsHook;
   flagCleanup?: FlagCleanup;
   internalConfigurationURL?: InternalConfigurationURL;
+  jiraIssueCreate?: JiraIssueCreate;
   [k: string]: unknown;
 }
 /**
@@ -1320,5 +1321,34 @@ export interface EDAEventsWebhookBodyTemplate {
  */
 export interface FlagCleanup {
   formVariables?: FlagCleanupFormVariables;
+  [k: string]: unknown;
+}
+/**
+ * Allows LaunchDarkly products to create an issue in Jira issue tracker and receive the resulting identifiers.
+ */
+export interface JiraIssueCreate {
+  name?: string;
+  issueCreateFormVariables?: FormVariable[];
+  creationRequest: {
+    endpoint: Endpoint;
+    jsonBody?: JSONBody;
+    parser: JiraIssueCreateParser;
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+}
+export interface JiraIssueCreateParser {
+  /**
+   * JSON pointer to the created issue's key
+   */
+  issueKey: string;
+  /**
+   * JSON pointer to the created issue's URL
+   */
+  issueUrl: string;
+  /**
+   * JSON pointer to the Jira REST `self` link
+   */
+  self?: string;
   [k: string]: unknown;
 }
