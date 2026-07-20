@@ -35,6 +35,15 @@
       "defaultValue": ""
     },
     {
+      "key": "jiraMetaUrl",
+      "name": "Jira meta trigger URL",
+      "type": "uri",
+      "description": "Enter your Jira meta web trigger URL",
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
       "key": "secret",
       "name": "Secret",
       "description": "Enter the secret shared between Jira and LaunchDarkly",
