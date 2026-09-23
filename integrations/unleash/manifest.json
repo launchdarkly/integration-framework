@@ -21,6 +21,7 @@
       "name": "Unleash Base URL",
       "type": "string",
       "isSecret": false,
+      "clearSecretsOnChange": true,
       "description": "The base URL used to connect to your Unleash instance",
       "isOptional": false,
       "placeholder": "https://unleash.mysite.com"

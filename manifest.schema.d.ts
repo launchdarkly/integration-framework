@@ -284,9 +284,15 @@ export type AllowedValues = string[];
  */
 export type URL = string;
 /**
- * HTTP method to use when LaunchDarkly makes the request to your endpoint
+ * HTTP method to use when LaunchDarkly makes the request to your endpoint. You can use {{template markup}} to inject a formVariable for dynamic method resolution. Resolved value must be one of POST, PUT, PATCH, GET, or DELETE.
  */
-export type HTTPMethod = "POST" | "PUT" | "PATCH" | "GET" | "DELETE";
+export type HTTPMethod = (
+  | ("POST" | "PUT" | "PATCH" | "GET" | "DELETE")
+  | {
+      [k: string]: unknown;
+    }
+) &
+  string;
 /**
  * Name of the header
  */
@@ -762,6 +768,10 @@ export type StatSigTemplate = string;
  */
 export type IncludeErrorResponseBody1 = boolean;
 /**
+ * Whether errors received while importing should be displayed in the error log in the LaunchDarkly UI
+ */
+export type IncludeErrorResponseBody2 = boolean;
+/**
  * Template to use for measuredRolloutRegressionDetected events
  */
 export type MeasuredRolloutRegressionDetectedTemplate = string;
@@ -938,9 +948,11 @@ export interface Capabilities {
   syncedSegment?: SyncedSegment;
   bigSegmentStore?: BigSegmentStore;
   flagImport?: FlagImport;
+  segmentImport?: SegmentImport;
   eventsHook?: EventsHook;
   flagCleanup?: FlagCleanup;
   internalConfigurationURL?: InternalConfigurationURL;
+  jiraIssueCreate?: JiraIssueCreate;
   [k: string]: unknown;
 }
 /**
@@ -1280,6 +1292,13 @@ export interface FlagImportBodyTemplate {
   [k: string]: unknown;
 }
 /**
+ * This capability enables importing segments to LaunchDarkly
+ */
+export interface SegmentImport {
+  includeErrorResponseBody: IncludeErrorResponseBody2;
+  [k: string]: unknown;
+}
+/**
  * This capability will enable LaunchDarkly to send webhooks to your endpoint when particular events are observed.
  */
 export interface EventsHook {
@@ -1302,5 +1321,34 @@ export interface EDAEventsWebhookBodyTemplate {
  */
 export interface FlagCleanup {
   formVariables?: FlagCleanupFormVariables;
+  [k: string]: unknown;
+}
+/**
+ * Allows LaunchDarkly products to create an issue in Jira issue tracker and receive the resulting identifiers.
+ */
+export interface JiraIssueCreate {
+  name?: string;
+  issueCreateFormVariables?: FormVariable[];
+  creationRequest: {
+    endpoint: Endpoint;
+    jsonBody?: JSONBody;
+    parser: JiraIssueCreateParser;
+    [k: string]: unknown;
+  };
+  [k: string]: unknown;
+}
+export interface JiraIssueCreateParser {
+  /**
+   * JSON pointer to the created issue's key
+   */
+  issueKey: string;
+  /**
+   * JSON pointer to the created issue's URL
+   */
+  issueUrl: string;
+  /**
+   * JSON pointer to the Jira REST `self` link
+   */
+  self?: string;
   [k: string]: unknown;
 }

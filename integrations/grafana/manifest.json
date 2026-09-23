@@ -22,7 +22,8 @@
       "description": "Enter your Grafana instance's URL. This instance must be accessible to LaunchDarkly's servers. Do not include a trailing \"/\".",
       "placeholder": "https://grafana.example.org",
       "type": "uri",
-      "isSecret": false
+      "isSecret": false,
+      "clearSecretsOnChange": true
     },
     {
       "key": "apiKey",

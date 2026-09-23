@@ -23,7 +23,8 @@
           "description": "Enter the URL to the webhook exposed by the LaunchDarkly component for Convex.",
           "type": "uri",
           "placeholder": "https://techno-kitten-138.convex.site/ld/webhook",
-          "isSecret": false
+          "isSecret": false,
+          "clearSecretsOnChange": true
         },
         {
           "key": "componentApiToken",

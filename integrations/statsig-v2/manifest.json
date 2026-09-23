@@ -1,0 +1,67 @@
+{
+  "name": "StatSig Import",
+  "version": "1.0.0",
+  "overview": "Import resources from StatSig to LaunchDarkly.",
+  "description": "Import StatSig resources into LaunchDarkly. Currently supports segments (rule-based and id_list, up to 10,000 members per segment), created in every environment in your LaunchDarkly project. Additional resource types coming. For legacy flag imports, use the StatSig integration.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.statsig.com",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/home/import",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["automation", "import", "migration"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "allowIntegrationConfigurations": true,
+  "formVariables": [
+    {
+      "key": "ldProject",
+      "name": "Project",
+      "type": "environmentSelector",
+      "description": "The LaunchDarkly project to import resources into. Imported segments are created in every environment in this project; the environment you pick here is only used to scope the picker — fan-out happens automatically.",
+      "isOptional": false
+    },
+    {
+      "key": "statsigConsoleApiKey",
+      "name": "StatSig Console API Key",
+      "type": "string",
+      "isSecret": true,
+      "clearSecretsOnChange": true,
+      "description": "Console API key with read permissions on your StatSig project.",
+      "isOptional": false
+    },
+    {
+      "key": "statsigTag",
+      "name": "StatSig Tag",
+      "type": "string",
+      "description": "Provide a tag to only import a subset of your StatSig resources based on the tag. Leave blank to import all.",
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "ldApiKey",
+      "name": "LaunchDarkly API Key",
+      "type": "string",
+      "isSecret": true,
+      "clearSecretsOnChange": true,
+      "description": "An API key with create permissions on the resources this integration imports (segments, etc.).",
+      "isOptional": false
+    },
+    {
+      "key": "ldTag",
+      "name": "LaunchDarkly Tag",
+      "type": "string",
+      "description": "A tag to apply to all resources imported from StatSig to LaunchDarkly.",
+      "isOptional": true,
+      "defaultValue": "imported-from-statsig"
+    }
+  ],
+  "capabilities": {
+    "segmentImport": {
+      "includeErrorResponseBody": false
+    }
+  }
+}

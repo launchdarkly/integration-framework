@@ -21,7 +21,8 @@
       "key": "webhookUrl",
       "name": "Kosli Webhook URL",
       "type": "string",
-      "description": "Enter your Kosli webhook URL"
+      "description": "Enter your Kosli webhook URL",
+      "clearSecretsOnChange": true
     },
     {
       "key": "secret",

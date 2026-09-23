@@ -30,7 +30,8 @@
       "name": "Custom approval service base URL",
       "description": "The base URL of your custom approval service. This is where all of the API handlers should be set up.",
       "type": "string",
-      "placeholder": "e.g. https://mycustomapprovalservice.com"
+      "placeholder": "e.g. https://mycustomapprovalservice.com",
+      "clearSecretsOnChange": true
     }
   ],
   "allowIntegrationConfigurations": true,

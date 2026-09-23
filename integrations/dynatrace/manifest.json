@@ -29,7 +29,8 @@
       "type": "uri",
       "description": "Enter the URL used to access your Dynatrace (managed or hosted) service. Follow the pattern shown in the placeholder text.",
       "placeholder": "https://{your-environment-id}.live.dynatrace.com",
-      "isSecret": false
+      "isSecret": false,
+      "clearSecretsOnChange": true
     },
     {
       "key": "entity",

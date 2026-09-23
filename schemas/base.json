@@ -23,7 +23,8 @@
       "requiresOAuth",
       "hideOnIntegrationsPage",
       "oauthIntegrationKey",
-      "allowIntegrationConfigurations"
+      "allowIntegrationConfigurations",
+      "jiraIssueCreate"
     ]
   },
   "properties": {
@@ -280,9 +281,11 @@
           "syncedSegment",
           "bigSegmentStore",
           "flagImport",
+          "segmentImport",
           "eventsHook",
           "flagCleanup",
-          "internalConfigurationURL"
+          "internalConfigurationURL",
+          "jiraIssueCreate"
         ]
       },
       "properties": {
@@ -325,6 +328,9 @@
         "flagImport": {
           "$ref": "schemas/capabilities/flagImport.json#/flagImport"
         },
+        "segmentImport": {
+          "$ref": "schemas/capabilities/segmentImport.json#/segmentImport"
+        },
         "eventsHook": {
           "$ref": "schemas/capabilities/eventsHook.json#/eventsHook"
         },
@@ -333,6 +339,9 @@
         },
         "internalConfigurationURL": {
           "$ref": "schemas/capabilities/internalConfigurationUrl.json#/internalConfigurationURL"
+        },
+        "jiraIssueCreate": {
+          "$ref": "schemas/capabilities/jiraIssueCreate.json#/jiraIssueCreate"
         }
       }
     },

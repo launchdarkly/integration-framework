@@ -25,7 +25,9 @@
       "placeholder": "https://<ACCOUNT-LOCATOR>.<REGION>.snowflakecomputing.com",
       "type": "string",
       "disableAfterSaving": true,
-      "isSecret": false
+      "isSecret": false,
+      "isOptional": false,
+      "clearSecretsOnChange": true
     },
     {
       "key": "selectedEnv",
@@ -34,6 +36,30 @@
       "description": "Select your LaunchDarkly project and environment. You cannot edit this after you save the configuration.",
       "disableAfterSaving": true,
       "isOptional": false
+    },
+    {
+      "key": "metricsDatabaseName",
+      "name": "Metrics database name",
+      "description": "The Snowflake database containing your metric events. Used to generate the setup script that grants LaunchDarkly access to your metrics data.",
+      "placeholder": "MY_METRICS_DATABASE",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isHidden": true,
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "metricsSchemaName",
+      "name": "Metrics schema name (optional)",
+      "description": "The schema within the metrics database. If omitted, LaunchDarkly will be granted access to all schemas in the database.",
+      "placeholder": "PUBLIC",
+      "type": "string",
+      "disableAfterSaving": true,
+      "isHidden": true,
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": ""
     },
     {
       "key": "publicKey",

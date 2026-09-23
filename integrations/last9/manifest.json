@@ -22,7 +22,8 @@
       "description": "Enter your Last9 api base url. Do not include a trailing \"/\".",
       "placeholder": "https://{host}/api/v4/organizations/{org}",
       "type": "uri",
-      "isSecret": false
+      "isSecret": false,
+      "clearSecretsOnChange": true
     },
     {
       "key": "apiToken",

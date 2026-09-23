@@ -20,7 +20,8 @@
       "key": "host",
       "name": "Host",
       "description": "Your Redis host.",
-      "type": "string"
+      "type": "string",
+      "clearSecretsOnChange": true
     },
     {
       "key": "port",

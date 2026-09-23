@@ -22,7 +22,26 @@
       "name": "Jira web trigger URL",
       "type": "uri",
       "description": "Enter your Jira web trigger URL",
-      "isSecret": false
+      "isSecret": false,
+      "clearSecretsOnChange": true
+    },
+    {
+      "key": "issueCreateUrl",
+      "name": "Jira issue-create trigger URL",
+      "type": "uri",
+      "description": "Enter your Jira issue-create web trigger URL",
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": ""
+    },
+    {
+      "key": "jiraMetaUrl",
+      "name": "Jira meta trigger URL",
+      "type": "uri",
+      "description": "Enter your Jira meta web trigger URL",
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": ""
     },
     {
       "key": "secret",
@@ -98,6 +117,26 @@
       ],
       "templates": {},
       "useStandardWebhookPayload": true
+    },
+    "jiraIssueCreate": {
+      "name": "Jira issue",
+      "creationRequest": {
+        "endpoint": {
+          "url": "{{issueCreateUrl}}",
+          "method": "POST",
+          "headers": [{ "name": "Content-Type", "value": "application/json" }],
+          "hmacSignature": {
+            "headerName": "X-LD-Signature",
+            "hmacSecretFormVariableKey": "secret"
+          }
+        },
+        "jsonBody": "{\"title\":\"{{{title}}}\",\"description\":\"{{{description}}}\",\"projectKey\":\"{{{projectKey}}}\",\"issueType\":\"{{{issueType}}}\",\"labels\":{{{labelsJson}}},\"sourceLink\":\"{{{sourceLink}}}\",\"sourceKind\":\"{{{sourceKind}}}\"}",
+        "parser": {
+          "issueKey": "/issueKey",
+          "issueUrl": "/issueUrl",
+          "self": "/self"
+        }
+      }
     }
   }
 }

@@ -22,6 +22,7 @@
       "description": "Enter the URL for your Elasticsearch endpoint, including the socket",
       "type": "uri",
       "isSecret": false,
+      "clearSecretsOnChange": true,
       "placeholder": "https://cluster.region.aws.found.io:9243",
       "isOptional": false
     },

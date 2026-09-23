@@ -21,7 +21,8 @@
       "name": "Incoming webhook URL",
       "type": "uri",
       "description": "Enter your Microsoft Teams webhook URL",
-      "isSecret": false
+      "isSecret": false,
+      "clearSecretsOnChange": true
     },
     {
       "key": "secret",
