@@ -1,8 +1,8 @@
 {
   "name": "New Relic One",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "overview": "Monitor LaunchDarkly flag events in New Relic One.",
-  "description": "This integration sends LaunchDarkly audit events to New Relic One as [deployment events](https://docs.newrelic.com/docs/apm/new-relic-apm/maintenance/record-monitor-deployments).",
+  "description": "This integration sends LaunchDarkly flag changes to New Relic One as feature flag [change tracking events](https://docs.newrelic.com/docs/change-tracking/change-tracking-introduction/) using the NerdGraph API.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
@@ -18,22 +18,22 @@
   "formVariables": [
     {
       "key": "apiKey",
-      "name": "New Relic REST API key",
-      "description": "Enter your [New Relic REST API key](https://docs.newrelic.com/docs/apis/get-started/intro-apis/types-new-relic-api-keys#rest-api-key).",
+      "name": "New Relic user API key",
+      "description": "Enter your [New Relic user API key](https://docs.newrelic.com/docs/apis/intro-apis/new-relic-api-keys/#user-key). User API keys start with `NRAK-`. REST API keys are not supported.",
       "type": "string",
       "isSecret": true
     },
     {
       "key": "applicationId",
       "name": "New Relic application ID",
-      "description": "Enter your [New Relic application ID](https://docs.newrelic.com/docs/accounts/install-new-relic/account-setup/app-id-other-product-ids#ui).",
+      "description": "Enter your [New Relic APM application ID](https://docs.newrelic.com/docs/apis/rest-api-v2/get-started/get-app-other-ids-new-relic-one/). Change tracking events are recorded on this APM entity.",
       "type": "string",
       "placeholder": "123456"
     },
     {
       "key": "domain",
       "name": "Data Center",
-      "description": "Your New Relic data center. The default(US) is \"api.newrelic.com\". Use \"api.eu.newrelic.com\" if you are using the EU data center.",
+      "description": "Your New Relic data center. This sets the NerdGraph API host. The default (US) is \"api.newrelic.com\". Use \"api.eu.newrelic.com\" if you are using the EU data center.",
       "type": "enum",
       "allowedValues": ["api.newrelic.com", "api.eu.newrelic.com"],
       "isOptional": true,
@@ -42,12 +42,13 @@
   ],
   "capabilities": {
     "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
       "endpoint": {
-        "url": "https://{{#if domain}}{{domain}}{{else}}api.newrelic.com{{/if}}/v2/applications/{{applicationId}}/deployments.json",
+        "url": "https://{{#if domain}}{{domain}}{{else}}api.newrelic.com{{/if}}/graphql",
         "method": "POST",
         "headers": [
           {
-            "name": "X-Api-Key",
+            "name": "API-Key",
             "value": "{{apiKey}}"
           },
           {

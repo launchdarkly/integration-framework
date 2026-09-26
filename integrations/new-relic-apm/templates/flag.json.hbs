@@ -1,9 +1,32 @@
 {
-  "deployment": {
-    "revision": "{{project.key}}/{{project.environment.key}}/{{key}}-{{timestamp.milliseconds}}",
-    "changelog": "{{{title.plainText}}}",
-    "description": "{{{title.plainText}}}{{#if comment}}, Comment: {{comment}}{{/if}}",
-    "user": "{{member.displayName}}",
-    "timestamp": "{{timestamp.rfc3339}}"
+  "query": "mutation LaunchDarklyFlagChange($event: ChangeTrackingCreateEventInput!) { changeTrackingCreateEvent(changeTrackingEvent: $event) { changeTrackingEvent { changeTrackingId } messages } }",
+  "variables": {
+    "event": {
+      "categoryAndTypeData": {
+        "kind": {
+          "category": "FEATURE_FLAG",
+          "type": "BASIC"
+        },
+        "categoryFields": {
+          "featureFlag": {
+            "featureFlagId": "{{key}}"
+          }
+        }
+      },
+      "entitySearch": {
+        "query": "domainId = '{{formVariables.applicationId}}' AND domain = 'APM'"
+      },
+      "user": "{{{member.displayName}}}",
+      "shortDescription": "{{{title.plainText}}}",
+      "description": "{{{title.plainText}}}{{#if comment}}, Comment: {{{comment}}}{{/if}}",
+      "groupId": "{{project.key}}/{{project.environment.key}}",
+      "customAttributes": {
+        "launchdarklyProjectKey": "{{project.key}}",
+        "launchdarklyEnvironmentKey": "{{project.environment.key}}",
+        "launchdarklyFlagUrl": "{{{_links.site.href}}}",
+        "launchdarklyAuditLogUrl": "{{{_links.details.href}}}"
+      },
+      "timestamp": {{timestamp.milliseconds}}
+    }
   }
 }
