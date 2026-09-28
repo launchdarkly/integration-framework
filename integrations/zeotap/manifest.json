@@ -25,7 +25,7 @@
         "cohortNamePath": "/parameters/integration_cohort_name",
         "arrayInclusion": {
           "path": "/action",
-          "matcher": "^(members|add_members)$"
+          "matcher": "^(members|add_members|remove_members)$"
         },
         "memberArrayPath": "/parameters/members",
         "memberArrayParser": {
