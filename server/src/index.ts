@@ -46,7 +46,7 @@ app.post('/api/v2/segment-target/:integrationKey', async (req, res) => {
   }
 });
 
-app.all('*', (_, res) => {
+app.use((_, res) => {
   return sendErrorResponse(res, new AppError(HttpStatus.notFound, `not found`));
 });
 
