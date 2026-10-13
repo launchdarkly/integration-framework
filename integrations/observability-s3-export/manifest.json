@@ -1,0 +1,113 @@
+{
+  "name": "Observability Data Export to Amazon S3",
+  "version": "1.0.0",
+  "overview": "Export LaunchDarkly Observability data to an Amazon S3 bucket that you own.",
+  "description": "Send sessions, session events, error groups, logs, and traces from LaunchDarkly Observability to your own Amazon S3 bucket. LaunchDarkly writes new data about every 15 minutes as Parquet, CSV, or newline-delimited JSON files, in folders by data type and date.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "allowIntegrationConfigurations": true,
+  "links": {
+    "site": "https://aws.amazon.com/s3/",
+    "privacyPolicy": "https://launchdarkly.com/policies/privacy/"
+  },
+  "categories": ["data"],
+  "icons": {
+    "square": "assets/images/square.svg",
+    "horizontal": "assets/images/horizontal.svg"
+  },
+  "otherCapabilities": ["dataExport"],
+  "formVariables": [
+    {
+      "key": "selectedEnv",
+      "type": "environmentSelector",
+      "name": "Project and environment",
+      "description": "Select the LaunchDarkly project and environment whose Observability data you want to export. You cannot edit this after you save the configuration.",
+      "disableAfterSaving": true,
+      "isOptional": false
+    },
+    {
+      "key": "dataTypes",
+      "type": "multiselect",
+      "name": "Data to export",
+      "description": "Select the Observability data to export. LaunchDarkly writes each data type to its own folder.",
+      "isOptional": false,
+      "multiselectOptions": [
+        { "label": "Sessions", "value": "sessions" },
+        { "label": "Session events", "value": "session_events" },
+        { "label": "Error groups", "value": "error_groups" },
+        { "label": "Logs", "value": "logs" },
+        { "label": "Traces", "value": "traces" }
+      ]
+    },
+    {
+      "key": "bucketName",
+      "type": "string",
+      "name": "Bucket name",
+      "description": "The name of the S3 bucket that LaunchDarkly writes to.",
+      "placeholder": "my-company-launchdarkly-export",
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "bucketRegion",
+      "type": "string",
+      "name": "Bucket region",
+      "description": "The AWS region of the bucket.",
+      "placeholder": "us-east-1",
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "folder",
+      "type": "string",
+      "name": "Folder",
+      "description": "The prefix of the files in the bucket. LaunchDarkly writes files to `<folder>/<data type>/date=<YYYY-MM-DD>/`.",
+      "placeholder": "ld_export",
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": "ld_export"
+    },
+    {
+      "key": "iamRoleArn",
+      "type": "string",
+      "name": "IAM role ARN",
+      "description": "The IAM role that LaunchDarkly assumes to write to the bucket. The role must allow `s3:PutObject` on the bucket and trust LaunchDarkly with the external ID below.",
+      "placeholder": "arn:aws:iam::123456789012:role/launchdarkly-export",
+      "isSecret": false,
+      "isOptional": false
+    },
+    {
+      "key": "externalId",
+      "type": "generated",
+      "name": "External ID",
+      "description": "Add this external ID as the `sts:ExternalId` condition in the trust policy of your IAM role."
+    },
+    {
+      "key": "fileFormat",
+      "type": "enum",
+      "name": "File format",
+      "description": "The format of the exported files. Parquet files are compressed with zstd. CSV and JSON files are compressed with gzip.",
+      "allowedValues": ["parquet", "csv", "jsonl"],
+      "isOptional": true,
+      "defaultValue": "parquet"
+    },
+    {
+      "key": "csvDelimiter",
+      "type": "string",
+      "name": "CSV delimiter",
+      "description": "One character that separates fields in CSV files. Leave empty to use a comma.",
+      "placeholder": ",",
+      "isSecret": false,
+      "isOptional": true,
+      "defaultValue": "",
+      "dependsOn": [
+        {
+          "variableKey": "fileFormat",
+          "variableLocation": "formVariables",
+          "action": "showField",
+          "conditions": [{ "operator": "equalTo", "value": "csv" }]
+        }
+      ]
+    }
+  ]
+}

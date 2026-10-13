@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64" role="img" aria-label="Amazon S3 data export">
+  <rect width="64" height="64" rx="8" fill="#3F8624"/>
+  <path d="M16 18c0-3.3 7.2-6 16-6s16 2.7 16 6v28c0 3.3-7.2 6-16 6s-16-2.7-16-6V18z" fill="#7AA116"/>
+  <ellipse cx="32" cy="18" rx="16" ry="6" fill="#B7CA9D"/>
+  <path d="M16 30c0 3.3 7.2 6 16 6s16-2.7 16-6" fill="none" stroke="#FFFFFF" stroke-width="2"/>
+</svg>
