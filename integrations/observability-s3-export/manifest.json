@@ -71,16 +71,10 @@
       "key": "iamRoleArn",
       "type": "string",
       "name": "IAM role ARN",
-      "description": "The IAM role that LaunchDarkly assumes to write to the bucket. The role must allow `s3:PutObject` on the bucket and trust LaunchDarkly with the external ID below.",
+      "description": "The IAM role that LaunchDarkly assumes to write to the bucket. The role must allow `s3:PutObject` on the bucket, and its trust policy must require the external ID `ld-<your LaunchDarkly account ID>`.",
       "placeholder": "arn:aws:iam::123456789012:role/launchdarkly-export",
       "isSecret": false,
       "isOptional": false
-    },
-    {
-      "key": "externalId",
-      "type": "generated",
-      "name": "External ID",
-      "description": "Add this external ID as the `sts:ExternalId` condition in the trust policy of your IAM role."
     },
     {
       "key": "fileFormat",
