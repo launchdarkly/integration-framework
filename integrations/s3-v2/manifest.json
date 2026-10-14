@@ -1,8 +1,8 @@
 {
-  "name": "Observability Data Export to Amazon S3",
+  "name": "Amazon S3 Data Export",
   "version": "1.0.0",
-  "overview": "Export LaunchDarkly Observability data to an Amazon S3 bucket that you own.",
-  "description": "Send sessions, session events, error groups, logs, and traces from LaunchDarkly Observability to your own Amazon S3 bucket. LaunchDarkly writes new data about every 15 minutes as Parquet, CSV, or newline-delimited JSON files, in folders by data type and date.",
+  "overview": "Export LaunchDarkly data to an Amazon S3 bucket that you own.",
+  "description": "Send LaunchDarkly data to your own Amazon S3 bucket. Select the data to export, such as Observability sessions, session events, error groups, logs, and traces. LaunchDarkly writes new data about every 15 minutes as Parquet, CSV, or newline-delimited JSON files, in folders by data type and date.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "allowIntegrationConfigurations": true,
@@ -21,7 +21,7 @@
       "key": "selectedEnv",
       "type": "environmentSelector",
       "name": "Project and environment",
-      "description": "Select the LaunchDarkly project and environment whose Observability data you want to export. You cannot edit this after you save the configuration.",
+      "description": "Select the LaunchDarkly project and environment whose data you want to export. You cannot edit this after you save the configuration.",
       "disableAfterSaving": true,
       "isOptional": false
     },
@@ -29,7 +29,7 @@
       "key": "dataTypes",
       "type": "multiselect",
       "name": "Data to export",
-      "description": "Select the Observability data to export. LaunchDarkly writes each data type to its own folder.",
+      "description": "Select the data to export. LaunchDarkly writes each data type to its own folder.",
       "isOptional": false,
       "multiselectOptions": [
         { "label": "Sessions", "value": "sessions" },
