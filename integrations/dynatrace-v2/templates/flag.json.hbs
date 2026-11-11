@@ -1,16 +1,15 @@
+{{#if formVariables.tag}}
 {
   "eventType": "CUSTOM_CONFIGURATION",
   "entitySelector": "type({{#if formVariables.entity}}{{formVariables.entity}}{{else}}APPLICATION{{/if}}),tag(
     {{~#if customProperties}}{{#if customProperties.dynatrace-v2}}{{#if customProperties.dynatrace-v2.values~}}
       {{~#with customProperties~}}
       {{~#each dynatrace-v2.values~}}
-        \"{{this}}\"{{~#if @root.formVariables.tag}},{{else}}{{#unless @last}},{{/unless}}{{/if}}
+        \"{{this}}\",
       {{~/each~}}
       {{~/with~}}
     {{~/if}}{{/if}}{{/if~}}
-    {{~#if formVariables.tag~}}
-      \"{{formVariables.tag}}\"
-    {{~/if~}})",
+    \"{{formVariables.tag}}\")",
   "properties": {
     "Flag name": "{{name}}",
     "Flag key": "{{key}}",
@@ -26,3 +25,30 @@
   "startTime": {{ timestamp.milliseconds }},
   "title": "{{{title.plainText}}}"
 }
+{{else}}
+{{#if customProperties}}{{#if customProperties.dynatrace-v2}}{{#if customProperties.dynatrace-v2.values}}
+{
+  "eventType": "CUSTOM_CONFIGURATION",
+  "entitySelector": "type({{#if formVariables.entity}}{{formVariables.entity}}{{else}}APPLICATION{{/if}}),tag(
+    {{~#with customProperties~}}
+    {{~#each dynatrace-v2.values~}}
+      \"{{this}}\"{{#unless @last}},{{/unless}}
+    {{~/each~}}
+    {{~/with~}})",
+  "properties": {
+    "Flag name": "{{name}}",
+    "Flag key": "{{key}}",
+    "Project name": "{{project.name}}",
+    "Project key": "{{project.key}}",
+    "Environment name": "{{project.environment.name}}",
+    "Environment key": "{{project.environment.key}}",
+    {{#if comment}}"Comment": "{{comment}}",{{/if}}
+    "User name": "{{member.displayName}}",
+    "User email": "{{ member.email }}",
+    "Action": "{{verbKind}}"
+  },
+  "startTime": {{ timestamp.milliseconds }},
+  "title": "{{{title.plainText}}}"
+}
+{{/if}}{{/if}}{{/if}}
+{{/if}}
