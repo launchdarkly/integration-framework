@@ -4,7 +4,7 @@
     {{~#if customProperties}}{{#if customProperties.dynatrace-v2}}{{#if customProperties.dynatrace-v2.values~}}
       {{~#with customProperties~}}
       {{~#each dynatrace-v2.values~}}
-        \"{{this}}\"{{~#if formVariables.tag}},{{else}}{{#unless @last}},{{/unless}}{{/if}}
+        \"{{this}}\"{{~#if @root.formVariables.tag}},{{else}}{{#unless @last}},{{/unless}}{{/if}}
       {{~/each~}}
       {{~/with~}}
     {{~/if}}{{/if}}{{/if~}}
