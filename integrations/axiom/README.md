@@ -1,83 +1,58 @@
 # Axiom
 
-The Axiom integration connects LaunchDarkly flag changes and Axiom monitor alerts.
-End-user documentation: [LaunchDarkly and Axiom](https://axiom.co/docs/apps/launchdarkly).
+show LaunchDarkly flag changes as annotations on Axiom charts and use Axiom monitor alerts to apply a flag action.
+setup: [LaunchDarkly and Axiom](https://axiom.co/docs/apps/launchdarkly).
 
-## Capabilities
+## configuration
 
-<!-- capabilities and trigger parser fields from integrations/axiom/manifest.json -->
+<!-- configuration fields and auditLogEventsHook from integrations/axiom/manifest.json -->
 
-`auditLogEventsHook` sends flag changes to the Axiom annotations API.
-`trigger` registers Axiom as a trigger type in LaunchDarkly.
-The trigger reads the alert name from `/eventName` and the monitor link from `/url`.
-If the name is missing, LaunchDarkly uses `An Axiom monitor alert`.
+create an Axiom API token with permission to create annotations.
+enter the token and one dataset name in the LaunchDarkly integration configuration.
+create another configuration for each additional dataset.
+the default policy covers flags in the `production` environment; adjust it to use another environment.
 
-For annotation setup, use an Axiom token with permission to create annotations.
-Create one LaunchDarkly integration configuration for each Axiom dataset.
-The default policy covers flags in the `production` environment.
-The optional `hideMemberDetails` field omits the member name from generated annotation metadata.
-Comments and flag names retain their original text.
+the optional Hide member details setting omits the member name from generated annotation metadata.
+comments and flag names retain their original text.
 Axiom stores annotations in the US, including annotations for EU edge organizations.
-Publish the end-user documentation and deploy API text truncation before releasing the annotations capability.
+the integration uses `https://api.axiom.co/v2/annotations` for every organization.
 
-## Turn flags off from monitors
+Axiom truncates titles longer than 256 Unicode characters and descriptions longer than 512.
+the truncated value ends with an ellipsis.
+before release, confirm that API behavior is deployed and the setup docs cover these limits and the US metadata location.
 
-A LaunchDarkly trigger applies one action to one flag in one environment.
-The native LaunchDarkly notifier in Axiom sends alerts to that trigger.
+## flag actions from monitors
 
-1. In LaunchDarkly, open the intended flag and environment.
-2. Create a flag trigger and select Axiom as its trigger type.
-3. Select the action that turns flag targeting on or off.
-4. Copy the trigger URL when LaunchDarkly displays it.
-5. In Axiom, create a notifier and select LaunchDarkly.
-6. Paste the trigger URL into the Trigger URL field.
-7. Attach the notifier to the intended monitor or severity level.
+<!-- trigger setup and test notification matching from integrations/axiom/manifest.json -->
 
-The trigger URL grants access to the action. Keep it secret.
-Axiom encrypts the saved URL and masks the field in the console.
+create a flag trigger in LaunchDarkly, select Axiom as its trigger type, and choose the flag, environment, and action.
+copy its URL into a LaunchDarkly notifier in Axiom, then attach that notifier to a monitor or severity level.
+the URL grants access to the action; keep it secret.
+
 Axiom calls the trigger when an alert opens or escalates.
-It skips resolves, notices, and de-escalations.
-Recovery does not restore the flag.
+resolves, notices, and de-escalations do not call it, and recovery never restores the flag.
+an escalation can apply the action again after a manual override.
+pause the notifier or disable the trigger before an override that must survive later escalations.
+monitor pauses, snoozes, quotas, and notification or provider rate limits can suppress delivery.
 
-## Test the named trigger
+the trigger reads the alert name from `/eventName` and the monitor link from `/url`.
+if the name is missing, LaunchDarkly uses `An Axiom monitor alert`.
+Axiom reserves `[Axiom test] ` for test names; the manifest matches only this leading prefix with `^\[Axiom test\] `.
+ordinary names such as `Latest errors` and `Test checkout latency` still apply the action.
 
-<!-- test notification name matching from integrations/axiom/manifest.json -->
-
-Axiom prefixes test event names with `[Axiom test] `.
-The manifest matches that prefix with `^\[Axiom test\] `.
-LaunchDarkly uses the matching name to recognize test requests without applying the flag action.
-Ordinary alert names, such as `Latest errors` and `Test checkout latency`, do not match this pattern.
-Reserve the prefix for Axiom test notifications.
-
-Use a disposable flag and environment for live validation.
-The test handling in LaunchDarkly requires live validation before release.
-Local parser and pattern tests do not prove production behavior.
-The Axiom console asks for confirmation before sending a test.
-
-1. Create an Axiom trigger in LaunchDarkly for the disposable flag.
-2. Send a test from the Axiom notifier form.
-3. Make sure that LaunchDarkly receives the test and leaves the flag unchanged.
-4. Open and escalate a real Axiom monitor alert.
-5. Make sure that the trigger applies the intended flag action.
-6. Repeat with real alert names that contain `Latest` and `Test`.
-7. Resolve and de-escalate the alert.
-8. Make sure that those events do not call the trigger.
-
-## Local validation and release
+## validation
 
 <!-- validation commands for integrations/axiom using package.json scripts and Jest -->
 
-Run `npm test -- --runInBand` from the repository root.
-Run `npm run preview -- axiom` to preview the annotation body.
-The trigger contract tests live in `integrations/axiom/__tests__/trigger.js`.
-They cover payload field extraction and test-name recognition.
-The production LaunchDarkly trigger service is outside this repository.
+run `npm test -- --runInBand` from the repository root.
+run `npm run preview -- axiom` to preview the annotation body.
+before release, also validate the deployed integration; local rendering does not prove LaunchDarkly production behavior.
 
-This branch adds the trigger capability after the annotations integration.
-Submit it as a separate change after the annotations change merges.
-Release the Axiom console channel after the backend supports it and LaunchDarkly lists Axiom as a trigger type.
-Make sure that the type is available on each supported LaunchDarkly instance.
-Do not document a Generic trigger as a fallback.
-Paused, snoozed, and quota-paused monitors do not deliver normal alerts.
-Axiom notification limits and LaunchDarkly rate limits can prevent an action.
-Provider failures use the normal Axiom notifier error path.
+use a disposable flag and environment to validate the named trigger before release.
+the Axiom console asks for confirmation before sending a test.
+
+1. send a notifier test and confirm that LaunchDarkly receives it without changing the flag.
+2. open and escalate a real alert, including names that contain `Latest` and `Test`, and confirm that the selected flag action runs.
+3. resolve and de-escalate the alert and confirm that those events do not call the trigger.
+
+local parser tests do not prove LaunchDarkly production test handling.
