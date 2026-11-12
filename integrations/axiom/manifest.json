@@ -1,0 +1,82 @@
+{
+  "name": "Axiom",
+  "version": "1.1.0",
+  "overview": "Connect LaunchDarkly flag changes and Axiom monitor alerts.",
+  "description": "Show LaunchDarkly flag changes as Axiom annotations, and use Axiom monitor alerts to turn flag targeting on or off.",
+  "author": "Axiom",
+  "supportEmail": "support@axiom.co",
+  "links": {
+    "site": "https://axiom.co",
+    "supportWebsite": "https://axiom.co/docs/apps/launchdarkly",
+    "privacyPolicy": "https://axiom.co/privacy"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "formVariables": [
+    {
+      "key": "apiToken",
+      "name": "Axiom API token",
+      "type": "string",
+      "isSecret": true,
+      "description": "Enter an Axiom [API token](https://app.axiom.co/settings/api-tokens) that can create annotations."
+    },
+    {
+      "key": "datasetName",
+      "name": "Axiom dataset",
+      "type": "string",
+      "isSecret": false,
+      "placeholder": "production-logs",
+      "description": "Enter the Axiom dataset where flag changes show as annotations. To annotate more datasets, add one configuration for each dataset."
+    },
+    {
+      "key": "hideMemberDetails",
+      "name": "Hide member details",
+      "description": "Don't send the name of the member who made the change. Annotations are org metadata that Axiom stores in the US, also for orgs on the EU edge.",
+      "type": "boolean",
+      "defaultValue": false,
+      "isOptional": true
+    }
+  ],
+  "capabilities": {
+    "auditLogEventsHook": {
+      "includeErrorResponseBody": true,
+      "endpoint": {
+        "url": "https://api.axiom.co/v2/annotations",
+        "method": "POST",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "name": "Authorization",
+            "value": "Bearer {{apiToken}}"
+          }
+        ]
+      },
+      "templates": {
+        "flag": "templates/flag.json.hbs",
+        "validation": "templates/flag.json.hbs"
+      },
+      "defaultPolicy": [
+        {
+          "effect": "allow",
+          "resources": ["proj/*:env/production:flag/*"],
+          "actions": ["*"]
+        }
+      ]
+    },
+    "trigger": {
+      "documentation": "https://axiom.co/docs/apps/launchdarkly#turn-flags-off-from-monitors",
+      "defaultEventName": "An Axiom monitor alert",
+      "testEventNameRegexp": "^\\[Axiom test\\] ",
+      "parser": {
+        "eventName": "/eventName",
+        "url": "/url"
+      }
+    }
+  }
+}
