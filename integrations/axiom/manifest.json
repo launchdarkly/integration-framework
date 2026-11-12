@@ -1,8 +1,8 @@
 {
   "name": "Axiom",
-  "version": "1.0.0",
-  "overview": "Show LaunchDarkly flag changes as annotations on Axiom charts.",
-  "description": "Send LaunchDarkly flag changes to Axiom as annotations, so each change shows on the charts of your datasets.",
+  "version": "1.1.0",
+  "overview": "Connect LaunchDarkly flag changes and Axiom monitor alerts.",
+  "description": "Show LaunchDarkly flag changes as Axiom annotations, and use Axiom monitor alerts to turn flag targeting on or off.",
   "author": "Axiom",
   "supportEmail": "support@axiom.co",
   "links": {
@@ -68,6 +68,15 @@
           "actions": ["*"]
         }
       ]
+    },
+    "trigger": {
+      "documentation": "https://axiom.co/docs/apps/launchdarkly#turn-flags-off-from-monitors",
+      "defaultEventName": "An Axiom monitor alert",
+      "testEventNameRegexp": "^\\[Axiom test\\] ",
+      "parser": {
+        "eventName": "/eventName",
+        "url": "/url"
+      }
     }
   }
 }
