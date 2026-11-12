@@ -1,0 +1,14 @@
+{{!--
+NOTE: the framework JSON-escapes event strings before rendering; triple braces preserve that text without HTML escaping.\
+body settings live under formVariables.\
+keep the type fixed because environment keys can contain characters that annotation types reject.\
+the hidden-member fallback must avoid title.plainText because it can include the member name.
+--}}
+{
+  "time": "{{timestamp.rfc3339}}",
+  "type": "launchdarkly-flag",
+  "datasets": ["{{formVariables.datasetName}}"],
+  "title": "{{#if titleVerb}}{{{titleVerb}}} {{{name}}} in {{{project.environment.name}}}{{else}}{{#if formVariables.hideMemberDetails}}{{{name}}} changed in {{{project.environment.name}}}{{else}}{{{title.plainText}}}{{/if}}{{/if}}",
+  "description": "{{#unless formVariables.hideMemberDetails}}by {{{member.displayName}}} · {{/unless}}`{{{project.key}}}/{{{project.environment.key}}}` · `{{{key}}}`{{#if comment}}\n\n{{{comment}}}{{/if}}",
+  "url": "{{{_links.details.href}}}"
+}
