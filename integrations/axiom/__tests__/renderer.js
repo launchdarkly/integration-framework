@@ -1,7 +1,7 @@
 const { readFileSync, readdirSync } = require('fs');
 const Handlebars = require('handlebars');
 const { cloneDeep } = require('lodash');
-const jsonEscape = require('../utils/json-escape');
+const jsonEscape = require('../../../utils/json-escape');
 
 const render = Handlebars.compile(
   readFileSync('integrations/axiom/templates/flag.json.hbs', 'utf8'),
