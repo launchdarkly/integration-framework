@@ -1,14 +1,14 @@
 {
   "name": "incident.io",
   "version": "1.0.0",
-  "overview": "Connect an incident.io HTTP alert source so LaunchDarkly can create and resolve incident.io alerts.",
-  "description": "Connect an incident.io HTTP alert source to LaunchDarkly with its URL and secret token. LaunchDarkly uses the connection to create and resolve alerts on that source, for example when an observability alert fires or recovers.",
+  "overview": "Connect incident.io so LaunchDarkly can send alerts to an incident.io HTTP alert source.",
+  "description": "Connect incident.io to LaunchDarkly. Today each configuration connects one incident.io HTTP alert source with its URL and bearer token, so LaunchDarkly can send alerts to it, for example to create and resolve incident.io alerts when an observability alert fires or recovers.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
     "site": "https://incident.io",
     "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/monitoring",
-    "privacyPolicy": "https://incident.io/privacy"
+    "privacyPolicy": "https://incident.io/legal/privacy"
   },
   "categories": ["monitoring"],
   "icons": {
@@ -27,10 +27,10 @@
       "isOptional": false
     },
     {
-      "key": "token",
-      "name": "Alert source token",
+      "key": "alertSourceToken",
+      "name": "Alert source bearer token",
       "type": "string",
-      "description": "The secret token of the same incident.io HTTP alert source.",
+      "description": "The bearer token of the same incident.io HTTP alert source. incident.io shows it when you create the alert source. LaunchDarkly sends it as `Authorization: Bearer <token>`.",
       "isSecret": true,
       "isOptional": false
     }
