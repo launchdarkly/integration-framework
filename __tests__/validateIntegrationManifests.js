@@ -437,7 +437,10 @@ describe('All integrations', () => {
   test.each(manifests)(
     'at least one externalCapability has been defined if no manifest capabilities for %s',
     (key, manifest) => {
-      const integrationsWithNoCapabilities = ['aiconfig-test-run'];
+      const integrationsWithNoCapabilities = [
+        'aiconfig-test-run',
+        'incident-io',
+      ];
       const capabilities = _.get(manifest, 'capabilities', null);
 
       if (!capabilities && !integrationsWithNoCapabilities.includes(key)) {

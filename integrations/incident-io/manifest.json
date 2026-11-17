@@ -1,0 +1,38 @@
+{
+  "name": "incident.io",
+  "version": "1.0.0",
+  "overview": "Connect an incident.io HTTP alert source so LaunchDarkly can create and resolve incident.io alerts.",
+  "description": "Connect an incident.io HTTP alert source to LaunchDarkly with its URL and secret token. LaunchDarkly uses the connection to create and resolve alerts on that source, for example when an observability alert fires or recovers.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://incident.io",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/monitoring",
+    "privacyPolicy": "https://incident.io/privacy"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/square.svg",
+    "horizontal": "assets/horizontal.svg"
+  },
+  "allowIntegrationConfigurations": true,
+  "formVariables": [
+    {
+      "key": "alertSourceUrl",
+      "name": "Alert source URL",
+      "type": "string",
+      "description": "In incident.io, create an alert source of type **HTTP** (choose Default, not Custom) and paste its URL here. It looks like `https://api.incident.io/v2/alert_events/http/<id>`.",
+      "placeholder": "https://api.incident.io/v2/alert_events/http/<id>",
+      "isSecret": true,
+      "isOptional": false
+    },
+    {
+      "key": "token",
+      "name": "Alert source token",
+      "type": "string",
+      "description": "The secret token of the same incident.io HTTP alert source.",
+      "isSecret": true,
+      "isOptional": false
+    }
+  ]
+}
