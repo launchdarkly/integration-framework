@@ -1,0 +1,29 @@
+{
+  "name": "PagerDuty",
+  "version": "1.0.0",
+  "overview": "Connect a PagerDuty service so LaunchDarkly can create and resolve PagerDuty incidents.",
+  "description": "Connect a PagerDuty service to LaunchDarkly with its Events API v2 integration key. LaunchDarkly uses the connection to create and resolve incidents on that service, for example when an observability alert fires or recovers.",
+  "author": "LaunchDarkly",
+  "supportEmail": "support@launchdarkly.com",
+  "links": {
+    "site": "https://www.pagerduty.com",
+    "launchdarklyDocs": "https://launchdarkly.com/docs/integrations/pagerduty-guardian-edition",
+    "privacyPolicy": "https://www.pagerduty.com/privacy-policy/"
+  },
+  "categories": ["monitoring"],
+  "icons": {
+    "square": "assets/pagerduty-square.svg",
+    "horizontal": "assets/pagerduty-rectangle.svg"
+  },
+  "allowIntegrationConfigurations": true,
+  "formVariables": [
+    {
+      "key": "integrationKey",
+      "name": "PagerDuty integration key",
+      "type": "string",
+      "description": "Enter the integration key of an [Events API v2 integration on your PagerDuty service](https://support.pagerduty.com/main/docs/services-and-integrations#add-integrations-to-an-existing-service).",
+      "isSecret": true,
+      "isOptional": false
+    }
+  ]
+}
