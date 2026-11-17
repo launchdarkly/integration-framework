@@ -439,7 +439,7 @@ describe('All integrations', () => {
     (key, manifest) => {
       const integrationsWithNoCapabilities = [
         'aiconfig-test-run',
-        'incident-io',
+        'incident-io-alert-source',
       ];
       const capabilities = _.get(manifest, 'capabilities', null);
 

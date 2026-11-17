@@ -1,8 +1,8 @@
 {
-  "name": "incident.io",
+  "name": "incident.io Alert Source",
   "version": "1.0.0",
-  "overview": "Connect incident.io so LaunchDarkly can send alerts to an incident.io HTTP alert source.",
-  "description": "Connect incident.io to LaunchDarkly. Today each configuration connects one incident.io HTTP alert source with its URL and bearer token, so LaunchDarkly can send alerts to it, for example to create and resolve incident.io alerts when an observability alert fires or recovers.",
+  "overview": "Send LaunchDarkly alerts to an incident.io HTTP alert source.",
+  "description": "Send LaunchDarkly alerts, for example from observability alerts, to an incident.io HTTP alert source. Each configuration connects one alert source with its URL and bearer token. Add a configuration for each alert source you want LaunchDarkly to send to.",
   "author": "LaunchDarkly",
   "supportEmail": "support@launchdarkly.com",
   "links": {
