@@ -38,10 +38,10 @@
         {
           "key": "apiToken",
           "name": "API Token",
-          "description": "Enter the API token generated from Vercel.",
-          "placeholder": "e.g. 8M7wS6hCpXVc-DoRnPPY_UCWPgy8aea4Wy6kCe5T",
+          "description": "Deprecated. LaunchDarkly now requests short-lived Vercel access tokens for each installation, so no stored token is needed. Leave blank.",
           "type": "string",
-          "isSecret": true
+          "isSecret": true,
+          "isOptional": true
         },
         {
           "key": "configurationId",
